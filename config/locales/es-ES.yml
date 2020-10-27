@@ -1,0 +1,234 @@
+es:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Topic
+      meeting:
+        cofe_charter_html: I agree to the <a href="%{url}" target="_blank">charter</a> of the Conference on the Future of Europe
+    models:
+      decidim/meetings/upcoming_meeting_event: Upcoming event
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Event
+        other: Events
+      decidim/participatory_process:
+        one: Topic
+        other: Topics
+  decidim:
+    admin:
+      menu:
+        participatory_processes: Topics
+      titles:
+        participatory_processes: Topics
+    components:
+      meetings:
+        name: Events
+        settings:
+          global:
+            cofe_charter_url: COFE charter URL
+    footer_links:
+      common:
+        items:
+          about_this_site: '<a href="#about_this_site">About this site</a>'
+          cookies: '<a href="#cookies">Cookies</a>'
+          language_policy: '<a href="#language_policy">Language policy</a>'
+          legal_notice: '<a href="#legal_notice">Legal notice</a>'
+          sitemap: '<a href="#sitemap">Sitemap</a>'
+          work_for_the_eu: '<a href="#work_for_the_eu">Work for the EU</a>'
+        last_published: Last published %{date}
+      contact_the_eu:
+        items:
+          call_us: 'Call us <a href="#call_us">00 800 6 7 8 9 10 11</a>'
+          contact_form: 'Write to us via our <a href="#contact_form">contact form</a>'
+          meet_us: 'Meet us at a <a href="#meet_us">local EU office</a>'
+          other_telephone: 'Use other <a href="#other_telephone">telephone options</a>'
+        title: Contact the EU
+      eu_institution:
+        items:
+          agencies:
+            label: Agencies
+            url: "#example-16"
+          central_bank:
+            label: European Central Bank
+            url: "#example-6"
+          commission:
+            label: European Commission
+            url: "#example-4"
+          council:
+            label: European Council
+            url: "#example-2"
+          council_eu:
+            label: Council of the European Union
+            url: "#example-3"
+          court_of_auditors:
+            label: European Court of Auditors
+            url: "#example-7"
+          court_of_justice:
+            label: Court of Justice of the European Commission
+            url: "#example-5"
+          data_protection_board:
+            label: European Data Protection Board
+            url: "#example-13"
+          data_protection_supervisor:
+            label: European Data Protection Supervisor
+            url: "#example-12"
+          economic_social_committee:
+            label: European Economic and Social Committee
+            url: "#example-9"
+          external_action_service:
+            label: European External Action Service
+            url: "#example-8"
+          investment_bank:
+            label: European Investment Bank
+            url: "#example-10"
+          ombudsman:
+            label: European Ombudsman
+            url: "#example-11"
+          parliament:
+            label: European Parliament
+            url: "#example-1"
+          personnel_office:
+            label: European Personnel Selection Office
+            url: "#example-14"
+          publications_office:
+            label: Publications Office of the European Union
+            url: "#example-15"
+        search_for: 'Search for <a href="#search_for-eu_institution">EU institutions</a>'
+        title: EU institution
+      social_media:
+        items:
+          search_channels:
+            label: Search for EU social media channels
+            url: "#search_for-social_media"
+        title: Search for EU social media channels
+    meetings:
+      actions:
+        new: New event
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Upcoming events
+      directory:
+        meetings:
+          index:
+            meetings: Events
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} event"
+            other: "%{count} events"
+        form:
+          create_as: Organise event as
+        index:
+          new_meeting: New event
+        new:
+          title: Organise Your Event
+      models:
+        meeting:
+          fields:
+            official_meeting: Official event
+    menu:
+      help: About the Conference
+      processes: Topics
+    menu_overwrite:
+      citizens_panels: Citizens panels
+      events: Events
+      plenaries: Plenaries
+      topics: Topics
+    metrics:
+      meetings:
+        object: events
+        title: Events
+    pages:
+      home:
+        extended:
+          meetings: Events
+        statistics:
+          meetings_count: Events
+          processes_count: Topics
+          proposals_count: Ideas
+      index:
+        title: About the Conference
+    participatory_processes:
+      index:
+        title: Topics
+      last_activity:
+        new_participatory_process: New topic
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Topics
+            see_all_processes: See all topics
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Past events
+          upcoming_meetings: Upcoming events
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 active topic
+              other: "%{count} active topics"
+            all:
+              one: 1 topic
+              other: "%{count} topics"
+            past:
+              one: 1 past topic
+              other: "%{count} past topics"
+            upcoming:
+              one: 1 upcoming topic
+              other: "%{count} upcoming topics"
+          explanations:
+            no_active: No active topics
+      statistics:
+        meetings_count: Events
+        processes_count: Topics
+        proposals_count: Ideas
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: See all events (%{count})
+        upcoming_meetings: Upcoming events
+      highlighted_proposals:
+        see_all: See all ideas (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Upcoming event
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>New idea at %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} idea"
+            other: "%{count} ideas"
+        index:
+          new_proposal: New idea
+          view_proposal: View idea
+        new:
+          title: Share Your Idea
+        proposal:
+          view_proposal: View idea
+        wizard_aside:
+          back_from_step_1: Back to ideas
+          back_from_step_2: Back to ideas
+          info: You are sharing an <strong>idea</strong>.
+        wizard_steps:
+          step_1: Share your idea
+          step_4: Publish your idea
+          title: Idea sharing steps
+      versions:
+        proposals:
+          back_to_resource: Go back to idea
+  devise:
+    omniauth_callbacks:
+      failure: Could not authenticate you from EU Login because "%{reason}".
+      success: Successfully authenticated from EU Login account.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Close
+        select_your_language: Select your language
+      process_navigation:
+        process_menu_item: About
+      user:
+        logged_in: Logged in
+        logged_in_as: Logged in as %{user}
