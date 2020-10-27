@@ -1,0 +1,340 @@
+es:
+  activemodel:
+    attributes:
+      answer:
+        description: Description
+        image: Image
+        proposals: Related proposals
+        title: Title
+      election:
+        description: Description
+        end_time: Voting ends at
+        start_time: Voting start at
+        title: Title
+      question:
+        description: Description
+        max_selections: Maximum number of selections
+        min_selections: None of the above option
+        title: Title
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Needs to be reattached
+        trustee:
+          attributes:
+            public_key:
+              cant_be_changed: can't be changed
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Answer
+        other: Answers
+      decidim/elections/election:
+        one: Election
+        other: Elections
+      decidim/elections/question:
+        one: Question
+        other: Questions
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Vote
+        name: Elections
+        settings:
+          global:
+            announcement: Announcement
+          step:
+            announcement: Announcement
+    elections:
+      actions:
+        confirm_destroy: Are you sure?
+        destroy: Destroy
+        edit: Edit
+        edit_answers: Edit answers
+        edit_questions: Edit questions
+        import: Import proposals to answers
+        new: New %{name}
+        preview: Preview
+        publish: Publish
+        title: Actions
+        unpublish: Unpublish
+      admin:
+        answers:
+          create:
+            invalid: There was a problem creating this answer
+            success: Answer successfully created
+          destroy:
+            invalid: There was a problem deleting this answer
+            success: Answer successfully deleted
+          edit:
+            title: Edit answer
+            update: Update answer
+          index:
+            invalid_max_selections: You need %{missing_answers} more answer/s to match max selections
+            title: Answers
+          new:
+            create: Create answer
+            title: New answer
+          update:
+            invalid: There was a problem updating this answer
+            success: Answer successfully updated
+        elections:
+          create:
+            invalid: There was a problem creating this election
+            success: Election successfully created
+          destroy:
+            invalid: There was a problem deleting this election
+            success: Election successfully deleted
+          edit:
+            title: Edit election
+            update: Update election
+          index:
+            no_bulletin_board: There is no <a href="https://github.com/decidim/decidim-bulletin-board">Bulletin Board server</a> configured, which is needed to use this module. This task should be done by the System Administrator.
+            title: Elections
+          new:
+            create: Create election
+            title: New election
+          publish:
+            success: The election has been successfully published.
+          unpublish:
+            success: The election has been successfully unpublished.
+          update:
+            invalid: There was a problem updating this election
+            success: Election successfully updated
+        models:
+          answer:
+            name: Answer
+          election:
+            name: Election
+          question:
+            name: Question
+          trustee:
+            name: Trustee
+        proposals_imports:
+          create:
+            invalid: There was a problem importing the proposals into answers
+            success: "%{number} proposals successfully imported into answers"
+          new:
+            create: Import proposals to answers
+            no_components: There are no other proposal components in this participatory space to import the proposals into answers.
+            select_component: Please select a component
+        questions:
+          create:
+            invalid: There was a problem creating this question
+            success: Question successfully created
+          destroy:
+            invalid: There was a problem deleting this question
+            success: Question successfully deleted
+          edit:
+            title: Edit question
+            update: Update question
+          index:
+            title: Questions
+          new:
+            create: Create question
+            title: New question
+          update:
+            invalid: There was a problem updating this question
+            success: Question successfully updated
+        trustees_participatory_spaces:
+          actions:
+            disable: Disable
+            enable: Consider
+          create:
+            exists: Trustee exists for this participatory space
+            invalid: There was a problem creating a trustee
+            success: Trustee successfully created
+          delete:
+            invalid: There was a problem removing this trustee
+            success: Trustee successfully removed
+          form:
+            select_user: Select user
+          index:
+            title: Trustees
+          new:
+            create: Create Trustee
+            title: New Trustee
+          update:
+            invalid: There was a problem updating %{trustee} trustee
+            success: Trustee %{trustee} successfully updated
+      admin_log:
+        election:
+          publish: "%{user_name} published the %{resource_name} election"
+          unpublish: "%{user_name} unpublished the %{resource_name} election"
+      election_m:
+        badge_name:
+          finished: Finished
+          ongoing: Active
+          upcoming: Upcoming
+        end_date: Ends
+        footer:
+          view: View
+          vote: Vote
+        label:
+          date: Dates
+        questions: Questions %{count}
+        start_date: Starts
+        unspecified: Not specified
+      elections:
+        count:
+          elections_count:
+            one: "%{count} election"
+            other: "%{count} elections"
+        filters:
+          active: Active
+          all: All
+          finished: Finished
+          search: Search
+          state: Status
+          upcoming: Upcoming
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        show:
+          back: All elections
+          preview: Preview
+          vote: Vote
+          voting_period_status:
+            finished: Voting began on %{start_time} and ended on %{end_time}
+            ongoing: Voting ends on %{end_time}
+            upcoming: Voting begins on %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Proposals
+            title: Title
+        election:
+          fields:
+            end_time: End at
+            start_time: Starts at
+            title: Title
+        question:
+          fields:
+            answers: Answers
+            max_selections: Max. selections
+            title: Title
+        trustees_participatory_space:
+          fields:
+            considered: considered
+            email: Email
+            inactive: inactive
+            name: Name
+            notification: Notification sent at
+            public_key: Public Key
+            status: Status
+      orders:
+        label: Order elections by
+        older: Older
+        recent: Recent
+      trustee_zone:
+        menu:
+          trustee_zone: Trustee zone
+        trustees:
+          show:
+            elections:
+              list:
+                election: Election
+                status: Status
+                voting_period: Voting period
+              no_elections: There are no elections where you act as a Trustee.
+              title: Elections
+            identification_keys:
+              cancel: Cancel
+              generate: Generate identification keys
+              generate_error: There was an error generating the identification keys.
+              generate_legend: You need to generate an identification pair of keys to participate on elections as a Trustee.
+              generate_legend_1: After pressing the button you should download the file with the generated identification keys.
+              generate_legend_2: Copy the downloaded file to a clean USB device
+              generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
+              generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
+              submit: Submit
+              submit_legend: After following all the steps explained above, complete the process sending the public identification key to the Decidim server.
+              submit_title: Submit the public identification key
+              title: Trustee identification keys
+              upload: Upload your identification keys
+              upload_error:
+                invalid_format: The uploaded file doesn't contain any identification key.
+                invalid_key: The identification keys in the uploaded file can't be loaded.
+                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored by Decidim.
+              upload_legend: Decidim has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+            not_supported_browser_description: It looks like you are using a web browser that can't be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
+            not_supported_browser_title: Upgrade browser to act as a Trustee
+            trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
+          update:
+            success: Your identification public key was successfully stored.
+      votes:
+        confirm:
+          answer: Answer
+          answer_number: answer %{number}
+          confirm: Confirm
+          edit: edit
+          header: Confirm your vote
+          intro: Here is a summary of the vote you are about to cast. <br> Please confirm your vote or edit your answers.
+          nota_option: Blank
+          question: Question %{count}
+        confirmed:
+          back: Back to elections
+          experience: How was your experience?
+          feedback: Give us some feedback
+          header: Vote confirmed
+          lead: Your vote has already been cast!
+          text: 'You can check that your vote has been successfully added to the ballot box with the following identifier: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: To check it, copy the identifier and paste it on the <a href="evote-verify">vote verification page</a>
+        encrypting:
+          header: Encoding vote...
+          text: Your vote is being encrypted to ensure you can cast it anonymously.
+        header:
+          confirm: Confirm your vote
+          confirmed: Vote confirmed
+          encrypting: Confirming vote
+        messages:
+          not_allowed: You are not allowed to vote on this election at this moment.
+        modal:
+          close: Close
+          proposal_header: 'Proposals:'
+        new:
+          answer_choices: You can select up to %{choices} answers
+          more_information: More information
+          nota_option: Blank/ None of the above
+          preview_alert: This is a preview of the voting booth.
+          question_steps: Question %{current_step} of %{total_steps}
+          selections: "%{selected} of %{max_selections}<br> selections"
+        voting_step:
+          back: Back
+          continue: Next
+      warnings:
+        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
+    events:
+      elections:
+        election_published:
+          email_intro: 'The %{resource_title} election is now active for %{participatory_space_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: The %{resource_title} election is now active for %{participatory_space_title}.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> election is now active for %{participatory_space_title}.
+        trustees:
+          new_trustee:
+            email_intro: An admin has added you as trustee for %{resource_name}. You should create your public key <a href='%{trustee_zone_url}'>in your trustee zone</a>
+            email_outro: You have received this notification because you've been added as trustee for %{resource_name}.
+            email_subject: You are a trustee for %{resource_name}.
+            notification_title: You are a trustee for <a href="%{participatory_space_url}">%{resource_name}</a>.
+    pages:
+      home:
+        statistics:
+          elections_count: Elections
+    participatory_processes:
+      statistics:
+        elections_count: Elections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Exit
