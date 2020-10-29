@@ -2,142 +2,142 @@ es:
   activemodel:
     attributes:
       oauth_application:
-        name: OAuth Application Name
-        organization_logo: Organization logo (square)
-        organization_name: Organization
-        organization_url: Organization URL
-        redirect_uri: Redirect URI
+        name: Nombre de la aplicación OAuth
+        organization_logo: Logotipo de la organización (cuadrado)
+        organization_name: Organización
+        organization_url: URL de la organización
+        redirect_uri: Redirigir URI
     errors:
       models:
         oauth_application:
           attributes:
             redirect_uri:
-              must_be_ssl: The redirect URI must be a SSL URI
+              must_be_ssl: La URI para la redirección debe ser una URI SSL
   decidim:
     system:
       actions:
-        confirm_destroy: Are you sure you want to delete this?
-        destroy: Delete
-        edit: Edit
-        new: New
-        save: Save
-        title: Actions
+        confirm_destroy: '¿Confirmas que quieres eliminar este elemento?'
+        destroy: Eliminar
+        edit: Editar
+        new: Nuevo
+        save: Guardar
+        title: Acciones
       admins:
         create:
-          error: There was a problem creating a new admin.
-          success: Admin successfully created
+          error: Se ha producido un error al crear un/a nuevo/a administrador/a.
+          success: Administrador/a correctamente creado/a
         destroy:
-          success: Admin successfully deleted
+          success: Administrador/a correctamente eliminado/a
         edit:
-          title: Edit admin
-          update: Update
+          title: Editar administrador/a
+          update: Actualizar
         index:
-          title: Admins
+          title: Administradores
         new:
-          create: Create
-          title: New admin
+          create: Crear
+          title: Nuevo/a administrador/a
         update:
-          error: There was a problem updating this admin.
-          success: Admin successfully updated
+          error: Se ha producido un error al actualizar el/la administrador/a.
+          success: Administrador/a correctamente actualizado/a
       default_pages:
         placeholders:
-          content: Please add meaningful content to the %{page} static page on the admin dashboard.
-          title: Default title for %{page}
+          content: Añade contenido pertinente en la página estática %{page} del panel de administración.
+          title: Título por defecto para %{page}
       menu:
-        admins: Admins
-        dashboard: Dashboard
-        oauth_applications: OAuth applications
-        organizations: Organizations
+        admins: Administradores
+        dashboard: Panel
+        oauth_applications: Aplicaciones OAuth
+        organizations: Organizaciones
       models:
         admin:
           fields:
-            created_at: Created at
-            email: Email
-          name: Admin
+            created_at: Creado el
+            email: Correo electrónico
+          name: Administrador/a
           validations:
-            email_uniqueness: another admin with the same email already exists
+            email_uniqueness: ya existe un/a administrador/a con este correo electrónico
         oauth_application:
           fields:
-            created_at: Created at
-            name: OAuth application name
-            organization_name: Organization
-          name: OAuth application
+            created_at: Creado el
+            name: Nombre de la aplicación OAuth
+            organization_name: Organización
+          name: Aplicación OAuth
         organization:
           actions:
-            save_and_invite: Create organization & invite admin
+            save_and_invite: Crear organización e invitar administradores
           fields:
-            created_at: Created at
-            name: Name
-            omniauth_settings: Omniauth settings
-            smtp_settings: SMTP settings
-          name: Organization
+            created_at: Creado el
+            name: Nombre
+            omniauth_settings: Ajustes de Omniauth
+            smtp_settings: Ajustes SMTP
+          name: Organización
       oauth_applications:
         create:
-          error: There was a problem creating this application.
-          success: Application created successfully.
+          error: Se ha producido un error al crear la aplicación.
+          success: Aplicación correctamente creada.
         destroy:
-          error: There was a problem destroying this application.
-          success: Application destroyed successfully.
+          error: Se ha producido un error al eliminar la aplicación.
+          success: Aplicación correctamente eliminada.
         edit:
-          save: Save
-          title: Edit application
+          save: Guardar
+          title: Editar aplicación
         form:
-          select_organization: Select an organization
+          select_organization: Selecciona una organización
         index:
-          confirm_delete: Are you sure you want to delete this application?
-          title: OAuth applications
+          confirm_delete: '¿Confirmas que quieres eliminar esta aplicación?'
+          title: Aplicaciones OAuth
         new:
-          save: Save
-          title: New application
+          save: Guardar
+          title: Nueva aplicación
         update:
-          error: There was a problem updating this application.
-          success: Application updated successfully.
+          error: Se ha producido un error al actualizar la aplicación.
+          success: Aplicación correctamente actualizada.
       organizations:
         create:
-          error: There was a problem creating a new organization.
-          success: Organization successfully created.
+          error: Se ha producido un error al crear una nueva organización.
+          success: Organización correctamente creada.
         edit:
-          secondary_hosts_hint: Enter each one of them in a new line
+          secondary_hosts_hint: Introduce cada una en una línea
         index:
-          title: Organizations
+          title: Organizaciones
         new:
-          reference_prefix_hint: The reference prefix is used to uniquely identify resources across all organization
-          secondary_hosts_hint: Enter each one of them in a new line
-          title: New organization
+          reference_prefix_hint: El prefijo de referencia se utiliza como identificador único para los recursos dentro de la organización
+          secondary_hosts_hint: Introduce cada una en una línea
+          title: Nueva organización
         omniauth_settings:
           decidim:
-            client_id: Client ID
-            client_secret: Client secret
-            site_url: Site URL
-          enabled: Enabled
-          enabled_by_default: This provider is enabled by default. It can be edited but not disabled.
+            client_id: ID del cliente
+            client_secret: Secreto del cliente
+            site_url: URL del sitio
+          enabled: Habilitado
+          enabled_by_default: Este proveedor está habilitado por defecto. Puede editarse, pero no deshabilitarse.
           facebook:
-            app_id: App ID
-            app_secret: App secret
+            app_id: ID de la aplicación
+            app_secret: Secreto de la aplicación
           google_oauth2:
-            client_id: Client ID
-            client_secret: Client secret
-          icon: Icon
-          icon_path: Icon path
+            client_id: ID del cliente
+            client_secret: Secreto del cliente
+          icon: Icono
+          icon_path: Ruta del icono
           twitter:
-            api_key: API key
-            api_secret: API secret
+            api_key: Clave API
+            api_secret: Secreto API
         smtp_settings:
           instructions:
-            from_label: 'Email sender will be: "your-organization-name <your-organization@your-provider.org>". Leave blank to use the ''from_email'' as label'
+            from_label: 'El remitente del correo electrónico será: «nombre-de-tu-organización <tu-organización@tu-proveedor.org>». Si quieres usar «de_correo» como etiqueta, deja este campo en blanco'
           placeholder:
-            from_email: your-organization@your-provider.org
-            from_label: your-organization-name
+            from_email: tu-organización@tu-proveedor.org
+            from_label: nombre-de-tu-organización
         update:
-          error: There was a problem updating this organization.
-          success: Organization successfully updated.
+          error: Se ha producido un error al actualizar la organización.
+          success: Organización correctamente actualizada.
         users_registration_mode:
-          disabled: Access only can be done with external accounts
-          enabled: Allow participants to register and login
-          existing: Don't allow participants to register, but allow existing participants to login
+          disabled: Solo se puede acceder con cuentas externas
+          enabled: Permitir que los participantes se registren e inicien sesión
+          existing: No permitir que los participantes se registren, pero sí que los ya existentes inicien sesión
       shared:
         notices:
-          no_organization_warning_html: You must create an organization to get started. Make sure you read %{guide} before proceeding.
-          our_getting_started_guide: our getting started guide
+          no_organization_warning_html: Para poder empezar, tienes que crear una organización. Asegúrate de leer %{guide} antes de empezar.
+          our_getting_started_guide: nuestra guía de introducción
       titles:
-        dashboard: Dashboard
+        dashboard: Panel
