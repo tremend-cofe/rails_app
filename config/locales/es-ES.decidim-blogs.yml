@@ -1,84 +1,84 @@
 es:
   activemodel:
     models:
-      decidim/blogs/create_post_event: New blog post
+      decidim/blogs/create_post_event: Nueva publicación
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Posts
+        one: Publicación
+        other: Publicaciones
   decidim:
     blogs:
       actions:
-        confirm_destroy: Are you sure you want to delete this post?
-        destroy: Delete
-        edit: Edit
-        new: New post
-        title: Actions
+        confirm_destroy: '¿Confirmas que quieres eliminar esta publicación?'
+        destroy: Eliminar
+        edit: Editar
+        new: Nueva publicación
+        title: Acciones
       admin:
         models:
           components:
-            body: Body
+            body: Cuerpo
           post:
-            name: Post
+            name: Publicación
         posts:
           create:
-            invalid: There was a problem creating this post
-            success: Post successfully created
+            invalid: Se ha producido un error al crear la publicación
+            success: Publicación correctamente creada
           destroy:
-            success: Post successfully deleted
+            success: Publicación correctamente eliminada
           edit:
-            save: Update
+            save: Actualizar
           index:
-            title: Posts
+            title: Publicaciones
           new:
-            create: Create
-            title: Create post
+            create: Crear
+            title: Crear publicación
           update:
-            invalid: There was a problem saving the post.
-            success: Post successfully saved
+            invalid: Se ha producido un error al guardar la publicación.
+            success: Publicación correctamente guardada
       last_activity:
-        new_post_at_html: "<span>New post at %{link}</span>"
+        new_post_at_html: "<span>Nueva publicación en %{link}</span>"
       models:
         post:
           fields:
-            author: Author
-            body: Body
-            created_at: Created at
-            title: title
+            author: Autor
+            body: Cuerpo
+            created_at: Creada el
+            title: título
       posts:
         show:
-          back: Back to list
-          comments: Comments
-          view: View
+          back: Volver a la lista
+          comments: Comentarios
+          view: Ver
         sidebar_blog:
-          comments: comments
-          most_commented_posts: Most commented posts
-      read_more: Read more
+          comments: comentarios
+          most_commented_posts: Publicaciones más comentadas
+      read_more: Leer más
     components:
       blogs:
         name: Blog
         settings:
           global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (manténgase 0 como valor por defecto)
           step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
     events:
       blogs:
         post_created:
-          email_intro: The post "%{resource_title}" has been published in "%{participatory_space_title}" that you are following.
-          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
-          email_subject: New post published in %{participatory_space_title}
-          notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+          email_intro: Se ha añadido la publicación «%{resource_title}» en el espacio «%{participatory_space_title}», del que eres seguidor.
+          email_outro: Has recibido esta notificación porque sigues el espacio «%{participatory_space_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: Nueva publicación en %{participatory_space_title}
+          notification_title: Se ha añadido la publicación <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
     pages:
       home:
         statistics:
-          posts_count: Posts
+          posts_count: Publicaciones
     participatory_processes:
       statistics:
-        posts_count: Posts
+        posts_count: Publicaciones
