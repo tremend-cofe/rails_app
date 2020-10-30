@@ -1,20 +1,246 @@
 da:
+  activemodel:
+    attributes:
+      project:
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfang
+        description: Beskrivelse
+        proposal_ids: Relaterede forslag
+        title: Betegnelse
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        other: Projekter
   decidim:
     budgets:
+      actions:
+        attachment_collections: Mapper
+        attachments: Bilag
+        confirm_destroy: Er du sikker på, at du vil slette dette projekt?
+        destroy: Slet
+        edit: Rediger
+        edit_projects: Forvalte projekter
+        import: Forslag til projekter
+        new: Nyt %{name}
+        preview: Forhåndsvisning
+        title: Handlinger
       admin:
+        budgets:
+          create:
+            invalid: Der var et problem med oprettelsen af dette budget
+            success: Budget oprettet
+          destroy:
+            invalid: Der var et problem med at slette dette budget
+            success: Budget slettet
+          edit:
+            title: Rediger budget
+            update: Opdater budget
+          index:
+            title: Budgetter
+          new:
+            create: Opret budget
+            title: Nyt budget
+          update:
+            invalid: Der var et problem med opdateringen af dette budget
+            success: Budget opdateret
+        models:
+          project:
+            name: Projekt
         projects:
+          create:
+            invalid: Der opstod et problem med at oprette dette projekt
+            success: Projektet oprettet
+          destroy:
+            success: Projektet slettet
+          edit:
+            title: Rediger projekt
+            update: Opdater
+          index:
+            finished_orders: Afsluttede afstemninger
+            pending_orders: Uafsluttede afstemninger
+            selected: Valgt
+            title: Projekter
+          new:
+            create: Opret
+            title: Nyt projekt
           update:
             invalid: Der var et problem med at opdatere dette projekt.
+            success: Projektet opdateret
+        proposals_imports:
+          create:
+            invalid: Der var et problem med at importere forslagegne til projekter
+            success: "%{number} forslag blev importeret til projekter"
+          new:
+            create: Importer forslag til projekter
+            no_components: Der er ingen andre forslagskomponenter i dette detagelsesrum til at importere forslagene til projekter.
+            select_component: Vælg en komponent
+      admin_log:
+        budget:
+          create: "%{user_name} oprettede %{resource_name}-budgettet i %{space_name}-rummet"
+          delete: "%{user_name} sletttede %{resource_name}-budgettet i %{space_name}-rummet"
+          update: "%{user_name} opdaterede %{resource_name}-budgettet i %{space_name}-rummet"
+        project:
+          create: "%{user_name} oprettede %{resource_name}-projektet i %{space_name}-rummet"
+          delete: "%{user_name} slettede %{resource_name}-projektet i %{space_name}-rummet"
+          update: "%{user_name} opdaterede %{resource_name}-projektet i %{space_name}-rummet"
+      budget:
+        view: Se alle budgetprojekter
+      budget_information_modal:
+        back_to: Tilbage til %{component_name}
+        close_modal: Luk modal
+        continue: Fortsæt
+        more_information: Flere oplysninger
+      budgets_list:
+        cancel_order:
+          more_than_one: slet din stemme på %{name} og start forfra
+          only_one: slet din stemme og start forfra.
+        finished_message: Du har afsluttet afstemningsprocessen. Tak, fordi du deltager!
+        highlighted_cta: Afstemning om %{name}
+        if_change_opinion: Hvis du har skiftet mening, kan du
+        my_budgets: Mine budgetter
+        voted_on: Du har stemt på %{links}
+      limit_announcement:
+        cant_vote: Du kan ikke stemme på dette budget. <a href="%{landing_path}">Prøv et andet budget</a>.
+        limit_reached: Du har aktive afstemninger i %{links}. For at stemme om dette budget skal du <a href="%{landing_path}">slette din stemme og starte forfra</a>.
+      models:
+        budget:
+          fields:
+            name: Navn
+            projects_count: Antal projekter
+            total_budget: Samlet budget
+        project:
+          fields:
+            title: Betegnelse
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'De projekter, du har valgt, er:'
+          subject: Du har stemt på %{space_name}-detagelsesrummet
+          voted_on_space: Du har stemt på %{budget_name}-budgettet for %{space_name}-detagelsesrummet.
+          voted_on_space_with_scope: Du har stemt på %{budget_name}-budgettet for %{space_name}-detagelsesrummet på %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Hvis du skifter mening, kan du ændre din stemme senere.
+          cancel: Annuller
+          confirm: Bekræft
+          description: Dette er de projekter, du har valgt, skal være en del af budgettet.
+          title: Bekræft afstemning
+        budget_excess:
+          close: Luk
+          description: Dette projekt overstiger det maksimale budget og kan ikke tilføjes. Hvis du vil, kan du slette et projekt, du allerede har valgt, eller stemme på det, du foretrækker.
+          title: Det maksimale budget er overskredet
+        budget_summary:
+          are_you_sure: Er du sikker på, at du vil annullere din stemme?
+          assigned: 'Tildelt:'
+          cancel_order: slet din stemme og start forfra
+          checked_out:
+            description: Du har allerede stemt for budgettet. Hvis du har skiftet mening, kan du %{cancel_link}.
+            title: Afstemning om budget afsluttet
+          description: Hvilke projekter mener du, vi skal afsætte budgetmidler til? Afsæt mindst %{minimum_budget} til de projekter, du ønsker, og stem i overensstemmelse med det, du foretrækker, for at fastlægge budgettet.
+          description_minimum_projects_rule: Hvilke projekter mener du, vi skal afsætte budgetmidler til? Vælg mindst %{minimum_number} af de projekter, du ønsker, g stem i overensstemmelse med det, du foretrækker, for at fastlægge budgettet.
+          title: Vælg budget
+        filters:
+          category: Kategori
+          scope: Omfang
+          search: Søg
+          status_values:
+            all: Alle
+            not_selected: Ikke valgt
+            selected: Valgt
+        filters_small_view:
+          close_modal: Luk modal
+          filter_by: Filtrer efter
+          unfold: Fold u
+        order_progress:
+          vote: Afstemning
+        order_selected_projects:
+          remove: Fjern
+          selected_projects:
+            one: valgt projekt
+            other: valgte projekter
+          view: Vis
+        orders:
+          highest_cost: Højeste omkostning
+          label: Sorter projekter efter
+          lowest_cost: Laveste omkostning
+          most_voted: Flest stemmer
+          random: Vilkårlig rækkefølge
+          selected: Valgt
+        project:
+          add: Tilføj projekt %{resource_name} til din stemme
+          remove: Fjern projekt %{resource_name} fra din stemme
+          selected: Valgt
+          view: Vis
+          votes:
+            one: afstemning
+            other: afstemninger
+          you_voted: Du har stemt
+        project_budget_button:
+          add: Tilføj til din stemme
+          add_descriptive: Tilføj projekt %{resource_name} til din stemme
+          added: Tilføjet til din stemme
+          added_descriptive: Projekt %{resource_name} tilføjet til din afstemning
+        projects_for: Projekter for %{name}
+        show:
+          view_all_projects: Se alle projekter
     components:
       budgets:
+        actions:
+          vote: Afstemning
+        name: Budgetter
         settings:
           global:
+            announcement: Meddelelse
+            comments_enabled: Bemærkninger aktiveret
+            comments_max_length: Bemærkninger maksimumslængde (Lad 0 forblive standardværdi)
+            form:
+              errors:
+                budget_voting_rule_only_one: Kun én afstemningsregel skal være aktiveret
+                budget_voting_rule_required: Én afstemningsregel er påkrævet
+            landing_page_content: Budget Landingsside
+            more_information_modal: Flere oplysninger
+            projects_per_page: Projekter pr. side
             resources_permissions_enabled: Der kan fastsættes foranstaltningstilladelser for hvert møde.
+            total_budget: Samlet budget
+            vote_minimum_budget_projects_number: Mindste antal projekter, der skal stemmes om
+            vote_rule_minimum_budget_projects_enabled: 'Formål: Mindste antal projekter, der skal sættes til afstemning'
+            vote_rule_threshold_percent_enabled: 'Formål: Mindste budprocent'
+            vote_threshold_percent: Afstemningstærskel%
+            workflow: Arbejdsgang
+            workflow_choices:
+              all: 'Afstemning i alle: give deltagerne mulighed for at stemme i alle budgetter.'
+              one: 'Afstemning: giver deltagerne mulighed for at stemme på ethvert budget, men kun i ét.'
+          step:
+            announcement: Meddelelse
+            comments_blocked: Bemærkninger blokeret
+            highlighted_heading: Fremhævet position
+            landing_page_content: Budget Landingsside
+            list_heading: Liste
+            more_information_modal: Flere oplysninger
+            show_votes: Vis stemmer
+            title: Betegnelse
+            votes: Afstemning
+            votes_choices:
+              disabled: Stemmeafgivning deaktiveret
+              enabled: Stemmeafgivelse aktiveret
+              finished: Afstemning afsluttet
     events:
       budgets:
         budget_published:
           email_intro: '%{resource_title} budget er nu aktivt for %{participatory_space_title}. Du kan se det fra denne side:'
+          email_outro: Du har modtaget denne anmeldelse, fordi du følger %{participatory_space_title}. Du kan standse modtagelsen af meddelelser ved at følge det foregående link.
           email_subject: '%{resource_title} budget er nu aktivt for %{participatory_space_title}.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>-budgettet er nu aktivt for %{participatory_space_title}.
     orders:
+      checkout:
+        error: Der var et problem med behandlingen af din stemme
+        success: Din stemme er blevet accepteret
       destroy:
         error: Der var et problem med, at din stemme blev aflyst.
+        success: Din stemme er blevet annulleret
+    resource_links:
+      included_proposals:
+        project_proposal: 'Forslag, der indgår i dette projekt:'
+  index:
+    confirmed_orders_count: Stemmetal
+  total_budget: Samlet budget
