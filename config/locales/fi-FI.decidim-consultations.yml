@@ -1,7 +1,374 @@
 fi:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Bannerikuva
+        decidim_highlighted_scope_id: Korostettu aihepiiri
+        description: Kuvaus
+        end_voting_date: Äänestys päättyy
+        introductory_image: Esittelykuva
+        introductory_video_url: Esittelyvideon URL-osoite
+        questions: Kysymykset
+        start_voting_date: Äänestys alkaa
+        subtitle: Alaotsikko
+        title: Otsikko
+      question:
+        banner_image: Bannerikuva
+        decidim_scope_id: Kunta-alue
+        hashtag: Aihetunniste
+        hero_image: Kotikuva
+        i_frame_url: Ulkoisen äänestysjärjestelmän URL-osoite
+        instructions: Äänestyksen lisäohjeet
+        max_votes: Äänten enimmäismäärä
+        min_votes: Äänten vähimmäismäärä
+        origin_scope: Aihepiiri
+        origin_title: Alkuperä
+        origin_url: Alkuperän URL-osoite
+        participatory_scope: Osallistumisen aihepiiri
+        promoter_group: Edistäjäryhmä
+        question_context: Tausta
+        reference: Viite
+        scope: Kunta-alue
+        subtitle: Alaotsikko
+        vote: Ulkoinen äänestysjärjestelmä
+        what_is_decided: Päätös
+      response:
+        decidim_consultations_response_group_id: Ryhmä
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Äänten enimmäismäärän on oltava vähintään vähimmäismäärän suuruinen.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Vastausta ei löydy.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Äänten määrä on virheellinen
+    models:
+      decidim/consultation:
+        one: Kuuleminen
+        other: Kuulemista
+      decidim/consultations/question:
+        one: Kysymys
+        other: Kysymystä
+      decidim/consultations/response:
+        one: Vastaus
+        other: Vastausta
+      decidim/consultations/vote:
+        one: Ääni
+        other: Ääntä
   decidim:
+    admin:
+      actions:
+        back_to_responses: Takaisin vastauksiin
+        new_consultation: Uusi kuuleminen
+        new_question: Uusi kysymys
+        new_response: Uusi vastaus
+        new_response_group: Uusi ryhmä
+        publish_results: Julkaise tulokset
+        response_groups: Vastausryhmien hallinta
+        unpublish_results: Peruuta tulosten julkaisu
+      consultation_publications:
+        create:
+          error: Kuulemisen julkaiseminen epäonnistui.
+          success: Kuuleminen julkaistiin onnistuneesti.
+        destroy:
+          error: Kuulemisen julkaisemisen peruminen epäonnistui.
+          success: Kuulemisen julkaiseminen peruutettiin onnistuneesti.
+      consultation_results_publications:
+        create:
+          error: Kuulemisen tulosten julkaiseminen epäonnistui.
+          success: Kuulemisen tulokset julkaistiin onnistuneesti.
+        destroy:
+          error: Kuulemisen tulosten julkaisemisen peruminen epäonnistui.
+          success: Kuulemisen tulosten julkaiseminen peruutettiin onnistuneesti.
+      consultations:
+        create:
+          error: Uuden kuulemisen luominen epäonnistui.
+          success: Kuuleminen luotiin onnistuneesti.
+        edit:
+          update: Päivitä
+        form:
+          slug_help: 'URL slug -osoitteita käytetään tähän kuulemiseen viittaavien URL-osoitteiden luomiseen. Niihin hyväksytään vain kirjaimia, numeroita ja viivoja, ja niiden on alettava kirjaimella. Esimerkki: %{url}'
+          title: Yleistä
+        index:
+          not_published: Ei julkaistu
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi kuuleminen
+        results:
+          not_visible: Tulokset ovat käytettävissä, kun kuuleminen on päättynyt
+          participants: "%{count} osallistujaa"
+          total_votes: 'Yhteensä: %{count} ääntä'
+        update:
+          error: Kuulemisen päivittäminen epäonnistui.
+          success: Kuuleminen päivitettiin onnistuneesti.
+      menu:
+        consultations: Kuulemiset
+        consultations_submenu:
+          info: Tiedot
+          questions: Kysymykset
+          results: Tulokset
+        questions_submenu:
+          components: Komponentit
+          configuration: Määrittäminen
+          consultation: Kuuleminen
+          info: Tiedot
+          responses: Vastaukset
+      models:
+        consultation:
+          fields:
+            created_at: Luotu
+            published: Julkaistu
+            title: Otsikko
+          name:
+            one: Kuuleminen
+            other: Kuulemiset
+        question:
+          fields:
+            created_at: Luotu
+            published: Julkaistu
+            title: Otsikko
+          name:
+            one: Kysymys
+            other: Kysymykset
+        response:
+          fields:
+            created_at: Luotu
+            response_group: Ryhmä
+            title: Otsikko
+          name:
+            one: Vastaus
+            other: Vastaukset
+      question_configuration:
+        disable_external_voting: Poista ulkopuolinen äänestys käytöstä lisämäärityksissä
+        form:
+          help: Määritä useita vaihtoehtoja lisäämällä osallistujan valitsemien vastausten enimmäismäärää. Oletusenimmäisarvo on 1, mikä tarkoittaa sitä, että vain yhtä vastausta voidaan äänestää.
+          title: Lisämääritykset
+      question_publications:
+        create:
+          error: Kysymyksen julkaiseminen epäonnistui.
+          success: Kysymys julkaistiin onnistuneesti.
+        destroy:
+          error: Kysymyksen julkaisemisen peruminen epäonnistui.
+          success: Kysymyksen julkaiseminen peruutettiin onnistuneesti.
+      questions:
+        create:
+          error: Uuden kysymyksen luominen epäonnistui.
+          success: Kysymys luotiin onnistuneesti.
+        destroy:
+          success: Kysymys poistettiin onnistuneesti.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleistä
+        index:
+          not_published: Ei julkaistu
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi kysymys
+        update:
+          error: Kysymyksen päivittäminen epäonnistui.
+          success: Kysymys päivitettiin onnistuneesti.
+      response_groups:
+        create:
+          error: Uuden vastausryhmän luominen epäonnistui.
+          success: Vastausryhmä luotiin onnistuneesti.
+        destroy:
+          error: Vastausryhmän poistaminen epäonnistui. Tarkista, että mikään vastaus ei ole riippuvainen siitä.
+          success: Vastausryhmä poistettiin onnistuneesti.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleistä
+        help: Ryhmien avulla voit järjestää monivalintakysymyksiä paketteihin.
+        new:
+          create: Luo
+          title: Uusi vastausryhmä
+        update:
+          error: Vastauksen päivittäminen epäonnistui.
+          success: Vastaus päivitettiin onnistuneesti.
+      responses:
+        create:
+          error: Uuden vastauksen luominen epäonnistui.
+          success: Vastaus luotiin onnistuneesti.
+        destroy:
+          error: Vastauksen poistaminen epäonnistui.
+          success: Vastaus poistettiin onnistuneesti.
+        edit:
+          update: Päivitä
+        form:
+          title: Yleistä
+        new:
+          create: Luo
+          title: Uusi vastaus
+        update:
+          error: Vastauksen päivittäminen epäonnistui.
+          success: Vastaus päivitettiin onnistuneesti.
+      titles:
+        consultations: Kuulemiset
+        questions: Kysymykset
+        response_groups: Vastausryhmät
+        responses: Vastaukset
+        results: Tulokset
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Näytettävien elementtien enimmäismäärä
+      consultation:
+        start_voting_date: Äänestys alkaa
+        view_results: Näytä tulokset
+      consultation_card:
+        view_results: Näytä tulokset
+      consultations:
+        orders:
+          label: 'Järjestä kuulemiset:'
+          random: Satunnainen
+          recent: Uusimmat
+        show:
+          dates: Päivämäärät
+      content_blocks:
+        highlighted_consultations:
+          name: Korostetut kuulemiset
+      count:
+        title:
+          one: "%{count} kuuleminen"
+          other: "%{count} kuulemista"
+      filters:
+        active: Aktiiviset
+        all: Kaikki
+        finished: Valmiit
+        search: Haku
+        upcoming: Tulevat
+      filters_small_view:
+        close_modal: Sulje ikkuna
+        filter: Suodatus
+        filter_by: Suodata
+        unfold: Avaa
+      highlighted_questions:
+        title: Kysymykset kohteesta %{scope_name}
+      index:
+        title: Kuulemiset
+      last_activity:
+        new_consultation: Uusi kuuleminen
+        new_question_at_html: "<span>Uusi kysymys kohteessa %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiiviset kuulemiset
+            see_all_consultations: Katso kaikki kuulemiset
+            voting_ends_in:
+              one: Äänestys päättyy <strong>huomenna</strong>
+              other: Äänestys päättyy <strong>%{count} päivän kuluttua</strong>
+            voting_ends_today: Äänestys päättyy <strong>tänään</strong>
+      question:
+        take_part: Osallistu
+        view_results: Näytä tulokset
+        votes_out_of:
+          one: ääni /
+          other: ääntä /
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Osallistujat pystyivät jakamaan vähintään %{votes} ääntä eri vaihtoehtojen kesken.
+          title: Tässä kysymyksessä sallittiin useita vaihtoehtoja
+          total_participants: Äänestykseen osallistui yhteensä %{count} henkilöä.
+          vote_limit:
+            description: Osallistujat pystyivät äänestämään enintään %{limit} vaihtoehtoa.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Sinun on jaettava vähintään %{votes} ääntä eri vaihtoehtojen kesken.
+          title: 'Ääniä koskevat seuraavat säännöt:'
+          vote_limit:
+            description: Voit äänestää enintään %{limit} vaihtoehtoa.
+            left: Jäljellä
+            votes: Äänet
+      question_votes:
+        create:
+          error: Kysymyksen äänestäminen epäonnistui
+          success: Voit muuttaa sitä kuulemisen loppuun asti. Vain viimeisin ääni hyväksytään.
+          title_error: Äänestysvirhe!
+          title_success: Ääni rekisteröitiin onnistuneesti
+      regular_questions:
+        title: Tämän kuulemisen kysymykset
+      show:
+        badge_name:
+          finished: Valmis
+          open: Avoinna
+          open_votes: Äänestäminen avoinna
+          published_results: Tulokset julkaistu
+        footer_button_text:
+          debate: Keskustelu
+          view: Näytä
+          view_results: Näytä tulokset
+          vote: Äänestäminen
+        unspecified: Ei määritetty
     help:
       participatory_spaces:
         consultations:
           contextual: "<p><strong>Kuulemiset</strong> on tila, jossa voit esittää selkeitä kysymyksiä kaikille niille, jotka muodostavat organisaation, kutsua henkilöitä osallistumaan kuulemiseen sekä aloittaa keskustelun ja ohjata sitä asian puolesta tai sitä vastaan. Kuulemispäivästä alkaen voit äänestää ja julkaista äänestysten tulokset.</p> <p>Esimerkiksi: Kuulemiset voivat koskea lähes mitä tahansa organisaatioon vaikuttavaa seikkaa: tilassa voidaan esimerkiksi muuttaa organisaation nimeä tai logoa niin, että äänestäjät valitsevat tarjotuista vaihtoehdoista mieleisensä, äänestää suuremman organisaation osaksi liittymisestä, vahvistaa tai hylätä uusi toimintastrateginen ohjelma tai työryhmän tulos tai määritellä, pitäisikö tehtävien toimeksiantojen pituus rajoittaa enintään 1, 2 tai 3 kauteen.</p>\n"
           page: "<p><strong>Kuulemiset</strong> on tila, jossa voit esittää selkeitä kysymyksiä kaikille niille, jotka muodostavat organisaation, kutsua henkilöitä osallistumaan kuulemiseen sekä aloittaa keskustelun ja ohjata sitä asian puolesta tai sitä vastaan. Kuulemispäivästä alkaen voit äänestää ja julkaista äänestysten tulokset.</p> <p>Esimerkiksi: Kuulemiset voivat koskea lähes mitä tahansa organisaatioon vaikuttavaa seikkaa: tilassa voidaan esimerkiksi muuttaa organisaation nimeä tai logoa niin, että äänestäjät valitsevat tarjotuista vaihtoehdoista mieleisensä, äänestää suuremman organisaation osaksi liittymisestä, vahvistaa tai hylätä uusi toimintastrateginen ohjelma tai työryhmän tulos tai määritellä, pitäisikö tehtävien toimeksiantojen pituus rajoittaa enintään 1, 2 tai 3 kauteen.</p>\n"
+          title: Mitä kuulemiset ovat?
+    menu:
+      consultations: Kuulemiset
+    pages:
+      home:
+        statistics:
+          consultations_count: Kuulemiset
+    questions:
+      next_button: Seuraava kysymys
+      previous_button: Edellinen kysymys
+      results:
+        title: Tulokset
+      show:
+        read_more: Lisätietoja
+      statistics:
+        assistants_count_title: Avustajat
+        comments_count_title: Kommentit
+        meetings_count_title: Kokoukset
+        supports_count_title: Äänet
+      technical_info:
+        technical_data: Tekniset tiedot
+      vote_button:
+        already_voted: Jo äänestetty
+        already_voted_hover: Kumoa ääni
+        starting_from: '%{date} alkaen'
+        verification_required: Varmenna tilisi äänestääksesi
+        vote: Äänestä
+      vote_modal:
+        close_modal: Sulje pikkuikkuna
+        contextual_help: Valitse vaihtoehto.
+        title: 'Kuuleminen: kysymysäänestys'
+      vote_modal_confirm:
+        change: Muutos
+        close_modal: Sulje pikkuikkuna
+        confirm: Vahvista
+        contextual_help: Vahvista valittu vaihtoehto.
+        title: 'Kuuleminen: vahvista ääni'
+    resources:
+      consultations:
+        actions:
+          vote: Äänestä
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Liitteet
+          categories: Luokat
+      consultation_voting_data:
+        start_voting_date: Äänestys alkaa
+      question_components:
+        question_menu_item: Kysymys
+        unfold: Avaa
+      question_header:
+        back_to_consultation: Katso kaikki kuulemiset
+        back_to_question: Palaa kysymykseen
