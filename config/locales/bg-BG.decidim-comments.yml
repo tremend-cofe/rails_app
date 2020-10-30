@@ -1,1 +1,27 @@
 bg:
+  decidim:
+    components:
+      comment_thread:
+        title: Разговор с(ъс) %{authorName}
+      comments:
+        loading: Коментарите се зареждат…
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} остави коментар в(ъв) %{resource_title}. Можете да го прочетете на следната страница:"
+          email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Групата %{author_name} остави коментар в(ъв) %{resource_title}. Можете да го прочетете на следната страница:'
+          email_subject: Има нов коментар от %{author_name} в(ъв) %{resource_title}
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> в(ъв) <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          notification_title: Има нов коментар от <a href="%{author_path}">%{author_name} %{author_nickname}</a> по <a href="%{resource_path}">%{resource_title}</a>.
+        user_group_mentioned:
+          email_outro: Получавате това известие, защото сте член на групата %{group_name}, която беше спомената в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title} като член на %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a> като член на <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_outro: Получавате това известие, защото бяхте споменати в(ъв) %{resource_title}.
+          email_subject: Бяхте споменати в(ъв) %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> Ви спомена в(ъв) <a href="%{resource_path}">%{resource_title}</a>
