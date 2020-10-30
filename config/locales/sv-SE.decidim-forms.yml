@@ -1,1 +1,167 @@
 sv:
+  activemodel:
+    attributes:
+      answer:
+        body: Svar
+      question:
+        max_choices: Maximalt antal val
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Obligatoriskt
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: är ofullständigt
+              too_many: är för många
+        questionnaire:
+          request_invalid: Ett fel uppstod vid hanteringen av förfrågan. Försök igen
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Beskrivning
+            tos: Villkor för tjänsten
+        questionnaires:
+          actions:
+            back: Tillbaka till frågorna
+            show: Visa svar
+          answer_option:
+            answer_option: Svarsalternativ
+            free_text: Fri text
+            remove: Ta bort
+            statement: Förklaring
+          answers:
+            actions:
+              back: Tillbaka till svaren
+              export: Exportera
+              show: Visa svar
+            empty: Inga svar än
+            export:
+              answer:
+                title: 'Svar #%{number}'
+            index:
+              title: "Totalt %{total} svar"
+            show:
+              title: 'Svar #%{number}'
+          display_condition:
+            answer_option: Svarsalternativ
+            condition_question: Fråga
+            condition_type: Villkor
+            condition_types:
+              answered: Besvarade
+              equal: Lika
+              match: Innehåller text
+              not_answered: Ej besvarade
+              not_equal: Är inte lika
+            condition_value: Inkluderad text
+            display_condition: Visningsvillkor
+            mandatory: Detta villkor måste alltid uppfyllas, oavsett status för andra villkor
+            remove: Ta bort
+            save_warning: Glöm inte att spara formuläret innan du konfigurerar visningsvillkoren
+            select_answer_option: Välj svarsalternativ
+            select_condition_question: Välj en fråga
+            select_condition_type: Välj en typ av villkor
+          edit:
+            save: Spara
+            title: Redigera frågeformulär
+          form:
+            add_question: Lägg till fråga
+            add_separator: Lägg till avgränsare
+            already_answered_warning: Formuläret har redan fyllts i av en annan användare, så du kan inte ändra frågorna.
+            collapse: Dölj alla frågor
+            expand: Visa alla frågor
+            preview: Förhandsgranskning
+            title: Redigera formulär
+            unpublished_warning: Formuläret har inte publicerats. Du kan ändra frågorna, men om du gör det kommer de befintliga svaren att raderas.
+          matrix_row:
+            matrix_row: Rad
+            remove: Ta bort
+            statement: Förklaring
+          question:
+            add_answer_option: Lägg till svarsalternativ
+            add_display_condition: Lägg till visningsvillkor
+            add_display_condition_info: Spara formuläret för att konfigurera visningsvillkor
+            add_matrix_row: Lägg till rad
+            any: Alla
+            collapse: Dölj
+            description: Beskrivning
+            down: Ned
+            expand: Visa
+            question: Fråga
+            remove: Ta bort
+            statement: Förklaring
+            up: Upp
+          separator:
+            down: Ned
+            remove: Ta bort
+            separator: Avgränsare
+            up: Upp
+          update:
+            invalid: Ett fel uppstod när formuläret sparades.
+            success: Formulären har sparats.
+      errors:
+        answer:
+          body: Brödtexten kan inte vara tom
+      files:
+        extension_whitelist: 'Godkända format:'
+      images:
+        dimensions_info: 'Denna bild kommer att vara'
+        processors:
+          resize_and_pad: anpassad och utfylld till
+          resize_to_fit: anpassad för att passa
+      question_types:
+        long_answer: Långt svar
+        matrix_multiple: Matris (flera alternativ)
+        matrix_single: Matris (ett enda alternativ)
+        multiple_option: Flera alternativ
+        short_answer: Kort svar
+        single_option: Ett enda alternativ
+        sorting: Sortering
+      questionnaires:
+        answer:
+          invalid: Ett fel uppstod när formuläret fylldes i.
+          max_choices_alert: För många alternativ har valts
+          success: Formuläret har fyllts i.
+        question:
+          max_choices: 'Maximalt antal val: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Logga in med ditt konto</a> eller <a href="%{sign_up_link}">registrera dig</a> för att fylla i formuläret.
+            title: Fyll i formuläret
+          current_step: Steg %{step}
+          of_total_steps: av %{total_steps}
+          questionnaire_answered:
+            body: Du har redan fyllt i detta formulär.
+            title: Du har redan svarat
+          questionnaire_closed:
+            body: Formuläret har stängts och kan inte fyllas i.
+            title: Formuläret har stängts
+          questionnaire_for_private_users:
+            body: Formuläret är endast tillgängligt för privata användare
+            title: Formuläret har stängts
+          questionnaire_js_disabled:
+            body: Vissa av formulärets funktioner kommer att inaktiveras. Aktivera JavaScript i webbläsaren för att förbättra upplevelsen.
+            title: JavaScript har inaktiverats
+          questionnaire_not_published:
+            body: Det här formuläret har inte publicerats än.
+          tos_agreement: Genom att delta godkänner du villkoren för tjänsten
+      step_navigation:
+        show:
+          are_you_sure: Det går inte att ångra denna åtgärd och du kommer inte att kunna redigera dina svar. Är du säker?
+          back: Tillbaka
+          continue: Fortsätt
+          submit: Skicka
+      user_answers_serializer:
+        body: Svar
+        completion: Ifyllande
+        created_at: Besvarades
+        id: Svars-ID
+        ip_hash: IP-hash
+        question: Fråga
+        registered: Registrerad
+        session_token: Användaridentifikator
+        unregistered: Avregistrerad
+        user_status: Användarstatus
