@@ -1,1 +1,376 @@
 el:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Εικόνα πλαισίου
+        decidim_highlighted_scope_id: Κύριο πεδίο
+        description: Περιγραφή
+        end_voting_date: Λήξη της ψηφοφορίας
+        introductory_image: Εισαγωγική εικόνα
+        introductory_video_url: URL εισαγωγικού βίντεο
+        questions: Ερωτήσεις
+        slug: Τελικό τμήμα URL
+        start_voting_date: Έναρξη της ψηφοφορίας
+        subtitle: Υπότιτλος
+        title: Τίτλος
+      question:
+        banner_image: Εικόνα πλαισίου
+        decidim_scope_id: Δημοτικό διαμέρισμα
+        hero_image: Εικόνα αρχικής σελίδας
+        i_frame_url: URL εξωτερικού συστήματος ψηφοφορίας
+        instructions: Πρόσθετες οδηγίες για την ψηφοφορία
+        max_votes: Μέγιστος αριθμός ψήφων
+        min_votes: Ελάχιστος αριθμός ψήφων
+        origin_scope: Πεδίο
+        origin_title: Προέλευση
+        origin_url: URL προέλευσης
+        participatory_scope: Συμμετοχικό πεδίο
+        promoter_group: Ομάδα προώθησης
+        question_context: Γενικό πλαίσιο
+        reference: Αναφορά
+        scope: Δημοτικό διαμέρισμα
+        slug: Τελικό τμήμα URL
+        subtitle: Υπότιτλος
+        vote: Εξωτερικό σύστημα ψηφοφορίας
+        what_is_decided: Τι αποφασίζεται
+      response:
+        decidim_consultations_response_group_id: Ομάδα
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Ο μέγιστος αριθμός ψήφων θα πρέπει να είναι υψηλότερος από τον ελάχιστο ή ίσος με αυτόν.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Δεν βρέθηκε απάντηση.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Ο αριθμός ψήφων δεν είναι έγκυρος
+    models:
+      decidim/consultation:
+        one: Διαβούλευση
+        other: Διαβουλεύσεις
+      decidim/consultations/question:
+        one: Ερώτηση
+        other: Ερωτήσεις
+      decidim/consultations/response:
+        one: Απάντηση
+        other: Απαντήσεις
+      decidim/consultations/vote:
+        one: Ψήφος
+        other: Ψήφοι
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Επιστροφή στις απαντήσεις
+        new_consultation: Νέα διαβούλευση
+        new_question: Νέα ερώτηση
+        new_response: Νέα απάντηση
+        new_response_group: Νέα ομάδα
+        publish_results: Δημοσίευση αποτελεσμάτων
+        response_groups: Διαχείριση ομάδων απαντήσεων
+        unpublish_results: Κατάργηση δημοσίευσης αποτελεσμάτων
+      consultation_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημοσίευση αυτής της διαβούλευσης.
+          success: Η διαβούλευση δημοσιεύτηκε με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την κατάργηση της δημοσίευσης αυτής της διαβούλευσης.
+          success: Η δημοσίευση της διαβούλευσης καταργήθηκε με επιτυχία.
+      consultation_results_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημοσίευση των αποτελεσμάτων για αυτήν τη διαβούλευση.
+          success: Τα αποτελέσματα της διαβούλευσης δημοσιεύτηκαν με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την κατάργηση της δημοσίευσης των αποτελεσμάτων για αυτήν τη διαβούλευση.
+          success: Η δημοσίευση των αποτελεσμάτων της διαβούλευσης καταργήθηκε με επιτυχία.
+      consultations:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία νέας διαβούλευσης.
+          success: Η διαβούλευση δημιουργήθηκε με επιτυχία.
+        edit:
+          update: Επικαιροποίηση
+        form:
+          slug_help: 'Χρησιμοποιούνται τελικά τμήματα URL για τη δημιουργία των URL που κατευθύνουν σε αυτήν τη διαβούλευση. Επιτρέπονται μόνο γράμματα, αριθμοί και παύλες, ενώ ο πρώτος χαρακτήρας πρέπει να είναι γράμμα. Παράδειγμα: %{url}'
+          title: Γενικές πληροφορίες
+        index:
+          not_published: Μη δημοσιευμένη
+          published: Δημοσιευμένη
+        new:
+          create: Δημιουργία
+          title: Νέα διαβούλευση
+        results:
+          not_visible: Τα αποτελέσματα θα είναι διαθέσιμα μόλις ολοκληρωθεί η διαβούλευση
+          participants: "%{count} συμμετέχοντες"
+          total_votes: 'Σύνολο: %{count} ψήφοι'
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της διαβούλευσης.
+          success: Η διαβούλευση επικαιροποιήθηκε με επιτυχία.
+      menu:
+        consultations: Διαβουλεύσεις
+        consultations_submenu:
+          info: Πληροφορίες
+          questions: Ερωτήσεις
+          results: Αποτελέσματα
+        questions_submenu:
+          components: Στοιχεία
+          configuration: Διαμόρφωση
+          consultation: Διαβούλευση
+          info: Πληροφορίες
+          responses: Απαντήσεις
+      models:
+        consultation:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            published: Δημοσιευμένη
+            title: Τίτλος
+          name:
+            one: Διαβούλευση
+            other: Διαβουλεύσεις
+        question:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            published: Δημοσιευμένη
+            title: Τίτλος
+          name:
+            one: Ερώτηση
+            other: Ερωτήσεις
+        response:
+          fields:
+            created_at: Δημιουργήθηκε στις
+            response_group: Ομάδα
+            title: Τίτλος
+          name:
+            one: Απάντηση
+            other: Απαντήσεις
+      question_configuration:
+        disable_external_voting: Απενεργοποιήστε την εξωτερική ψηφοφορία για σύνθετες διαμορφώσεις
+        form:
+          help: Ρυθμίστε ερωτήσεις πολλαπλής επιλογής, αυξάνοντας τον μέγιστο αριθμό απαντήσεων που μπορεί να επιλέξει ένας συμμετέχων. Η προεπιλεγμένη μέγιστη τιμή είναι το 1, που σημαίνει ότι μπορεί να ψηφιστεί μόνο μία απάντηση.
+          title: Σύνθετη διαμόρφωση
+      question_publications:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημοσίευση αυτής της ερώτησης.
+          success: Η ερώτηση δημοσιεύτηκε με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την κατάργηση της δημοσίευσης αυτής της ερώτησης.
+          success: Η δημοσίευση της ερώτησης καταργήθηκε με επιτυχία.
+      questions:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία νέας ερώτησης.
+          success: Η ερώτηση δημιουργήθηκε με επιτυχία.
+        destroy:
+          success: Η ερώτηση διαγράφηκε με επιτυχία.
+        edit:
+          update: Επικαιροποίηση
+        form:
+          title: Γενικές πληροφορίες
+        index:
+          not_published: Μη δημοσιευμένη
+          published: Δημοσιευμένη
+        new:
+          create: Δημιουργία
+          title: Νέα ερώτηση
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της ερώτησης.
+          success: Η ερώτηση επικαιροποιήθηκε με επιτυχία.
+      response_groups:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία νέας ομάδας απαντήσεων.
+          success: Η ομάδα απαντήσεων δημιουργήθηκε με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την κατάργηση της ομάδας απαντήσεων. Ελέγξτε ότι δεν εξαρτώνται από αυτήν τυχόν απαντήσεις.
+          success: Η ομάδα απαντήσεων διαγράφηκε με επιτυχία.
+        edit:
+          update: Επικαιροποίηση
+        form:
+          title: Γενικές πληροφορίες
+        help: Χρησιμοποιήστε ομάδες για να οργανώσετε ερωτήσεις πολλαπλής επιλογής σε πακέτα.
+        new:
+          create: Δημιουργία
+          title: Νέα ομάδα απαντήσεων
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της απάντησης.
+          success: Η απάντηση επικαιροποιήθηκε με επιτυχία.
+      responses:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία νέας απάντησης.
+          success: Η απάντηση δημιουργήθηκε με επιτυχία.
+        destroy:
+          error: Παρουσιάστηκε πρόβλημα κατά την κατάργηση της απάντησης.
+          success: Η απάντηση διαγράφηκε με επιτυχία.
+        edit:
+          update: Επικαιροποίηση
+        form:
+          title: Γενικές πληροφορίες
+        new:
+          create: Δημιουργία
+          title: Νέα απάντηση
+        update:
+          error: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της απάντησης.
+          success: Η απάντηση επικαιροποιήθηκε με επιτυχία.
+      titles:
+        consultations: Διαβουλεύσεις
+        questions: Ερωτήσεις
+        response_groups: Ομάδες απαντήσεων
+        responses: Απαντήσεις
+        results: Αποτελέσματα
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Μέγιστος αριθμός στοιχείων για εμφάνιση
+      consultation:
+        start_voting_date: Έναρξη της ψηφοφορίας
+        view_results: Προβολή αποτελεσμάτων
+      consultation_card:
+        view_results: Προβολή αποτελεσμάτων
+      consultations:
+        orders:
+          label: 'Ταξινόμηση διαβουλεύσεων κατά:'
+          random: Τυχαία σειρά
+          recent: Πιο πρόσφατες
+        show:
+          dates: Ημερομηνίες
+      content_blocks:
+        highlighted_consultations:
+          name: Κορυφαίες διαβουλεύσεις
+      count:
+        title:
+          one: "%{count} διαβούλευση"
+          other: "%{count} διαβουλεύσεις"
+      filters:
+        active: Ενεργό
+        all: Όλα
+        finished: Ολοκληρωμένο
+        search: Αναζήτηση
+        state: Κατάσταση
+        upcoming: Προσεχείς
+      filters_small_view:
+        close_modal: Κλείσιμο παραθύρου
+        filter: Φίλτρο
+        filter_by: Φιλτράρισμα κατά
+        unfold: Ανάπτυξη
+      highlighted_questions:
+        title: Ερωτήσεις από %{scope_name}
+      index:
+        title: Διαβουλεύσεις
+      last_activity:
+        new_consultation: Νέα διαβούλευση
+        new_question_at_html: "<span>Νέα ερώτηση στη διεύθυνση %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Ενεργές διαβουλεύσεις
+            see_all_consultations: Εμφάνιση όλων των διαβουλεύσεων
+            voting_ends_in:
+              one: Η ψηφοφορία λήγει <strong>αύριο</strong>
+              other: Η ψηφοφορία λήγει σε <strong>%{count} ημέρες</strong>
+            voting_ends_today: Η ψηφοφορία λήγει <strong>σήμερα</strong>
+      question:
+        take_part: Συμμετοχή
+        view_results: Προβολή αποτελεσμάτων
+        votes_out_of:
+          one: ψήφος από
+          other: ψήφοι από
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Οι συμμετέχοντες θα μπορούσαν να κατανείμουν ελάχιστο αριθμό %{votes} ψήφων σε διαφορετικές επιλογές.
+          title: Σε αυτήν την ερώτηση, πολλαπλές επιλογές όπου επιτρέπονται
+          total_participants: Στην ψηφοφορία συμμετείχαν συνολικά %{count} χρήστες.
+          vote_limit:
+            description: Οι συμμετέχοντες θα μπορούσαν να ψηφίσουν έως και %{limit} επιλογές.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Πρέπει να κατανείμετε ελάχιστο αριθμό %{votes} ψήφων σε διαφορετικές επιλογές.
+          title: 'Οι ψήφοι υπόκεινται στους ακόλουθους κανόνες:'
+          vote_limit:
+            description: Μπορείτε να ψηφίσετε έως και %{limit} επιλογές.
+            left: Υπόλοιπο
+            votes: Ψήφοι
+      question_votes:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά την ψήφιση της ερώτησης
+          success: Μπορείτε να αλλάξετε την ψήφο μέχρι τη λήξη της διαβούλευσης. Θα γίνει δεκτή μόνο η τελευταία ψήφος.
+          title_error: Σφάλμα ψήφου!
+          title_success: Η ψήφος καταχωρίστηκε με επιτυχία
+      regular_questions:
+        title: Ερωτήσεις για αυτήν τη διαβούλευση
+      show:
+        badge_name:
+          finished: Ολοκληρωμένο
+          open: Σε εκκρεμότητα
+          open_votes: Ψήφοι σε εκκρεμότητα
+          published_results: Τα αποτελέσματα δημοσιεύτηκαν
+        footer_button_text:
+          debate: Διάλογος
+          view: Προβολή
+          view_results: Προβολή αποτελεσμάτων
+          vote: Ψήφος
+        unspecified: Δεν προσδιορίζεται
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>Οι <strong>διαβουλεύσεις</strong> είναι ένας χώρος που σας δίνει τη δυνατότητα να θέσετε μια σαφή ερώτηση σε όλους όσοι συνθέτουν έναν οργανισμό, να υποβάλετε αίτημα συμμετοχής στη διαβούλευση, να τροφοδοτήσετε τον διάλογο και να επιχειρηματολογήσετε υπέρ ή κατά μιας απάντησης. Όταν φτάσει η ημερομηνία της διαβούλευσης, μπορείτε να ψηφίσετε και να δημοσιεύσετε τα αποτελέσματα των ψήφων.</p> <p>Παραδείγματα: Οι διαβουλεύσεις μπορούν να σχετίζονται σχεδόν με οτιδήποτε επηρεάζει έναν οργανισμό, για παράδειγμα με την αντικατάσταση του ονόματος ή του λογότυπου του οργανισμού κατόπιν πρότασης διάφορων εναλλακτικών, τη συναίνεση στην ένταξη του οργανισμού σε μεγαλύτερο οργανισμό, την έγκριση ή απόρριψη ενός νέου στρατηγικού σχεδίου ή του αποτελέσματος μιας ομάδας εργασίας ή τον ορισμό μέγιστου αριθμού 1, 2 ή 3 θητειών για τις θέσεις ευθύνης.</p>\n"
+          page: "<p>Οι <strong>διαβουλεύσεις</strong> είναι ένας χώρος που σας δίνει τη δυνατότητα να θέσετε μια σαφή ερώτηση σε όλους όσοι συνθέτουν έναν οργανισμό, να υποβάλετε αίτημα συμμετοχής στη διαβούλευση, να τροφοδοτήσετε τον διάλογο και να επιχειρηματολογήσετε υπέρ ή κατά μιας απάντησης. Όταν φτάσει η ημερομηνία της διαβούλευσης, μπορείτε να ψηφίσετε και να δημοσιεύσετε τα αποτελέσματα των ψήφων.</p> <p>Παραδείγματα: Οι διαβουλεύσεις μπορούν να σχετίζονται σχεδόν με οτιδήποτε επηρεάζει έναν οργανισμό, για παράδειγμα με την αντικατάσταση του ονόματος ή του λογότυπου του οργανισμού κατόπιν πρότασης διάφορων εναλλακτικών, τη συναίνεση στην ένταξη του οργανισμού σε μεγαλύτερο οργανισμό, την έγκριση ή απόρριψη ενός νέου στρατηγικού σχεδίου ή του αποτελέσματος μιας ομάδας εργασίας ή τον ορισμό μέγιστου αριθμού 1, 2 ή 3 θητειών για τις θέσεις ευθύνης στον οργανισμό.</p>\n"
+          title: Τι είναι οι διαβουλεύσεις;
+    menu:
+      consultations: Διαβουλεύσεις
+    pages:
+      home:
+        statistics:
+          consultations_count: Διαβουλεύσεις
+    questions:
+      next_button: Επόμενη ερώτηση
+      previous_button: Προηγούμενη ερώτηση
+      results:
+        title: Αποτελέσματα
+      show:
+        read_more: Διαβάστε περισσότερα
+      statistics:
+        assistants_count_title: Βοηθοί
+        comments_count_title: Σχόλια
+        meetings_count_title: Συνεδριάσεις
+        supports_count_title: Ψήφοι
+      technical_info:
+        technical_data: Τεχνικά δεδομένα
+      vote_button:
+        already_voted: Έχει ήδη ψηφιστεί
+        already_voted_hover: Ανάκληση ψήφου
+        starting_from: Έναρξη στις %{date}
+        verification_required: Επαληθεύστε τον λογαριασμό σας, για να μπορείτε να ψηφίσετε
+        vote: Ψήφος
+      vote_modal:
+        close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+        contextual_help: Ορίστε μια επιλογή.
+        title: 'Διαβούλευση: αμφισβήτηση ψήφου'
+      vote_modal_confirm:
+        change: Αλλαγή
+        close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+        confirm: Επιβεβαίωση
+        contextual_help: Επιβεβαιώστε την επιλογή που ορίσατε.
+        title: 'Διαβούλευση: επιβεβαίωση ψήφου'
+    resources:
+      consultations:
+        actions:
+          vote: Ψήφος
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Συνημμένα
+          categories: Κατηγορίες
+      consultation_voting_data:
+        start_voting_date: Έναρξη της ψηφοφορίας
+      question_components:
+        question_menu_item: Η ερώτηση
+        unfold: Ανάπτυξη
+      question_header:
+        back_to_consultation: Εμφάνιση όλων των διαβουλεύσεων
+        back_to_question: Επιστροφή στην ερώτηση
