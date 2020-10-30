@@ -1,1 +1,567 @@
 sv:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Berörda församlingar
+        banner_image: Banderollbild
+        consultations_ids: Relaterade samråd
+        copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
+        copy_features: Kopiera egenskaper
+        decidim_scope_id: Tillämpningsområde
+        description: Beskrivning
+        hashtag: Hashtagg
+        hero_image: Startbild
+        participatory_processes_ids: Relaterade deltagandeprocesser
+        promoted: Framhävd
+        published_at: Publicerat
+        scope_id: Tillämpningsområde
+        scopes_enabled: Tillämpningsområden har aktiverats
+        short_description: Kort beskrivning
+        show_statistics: Visa statistik
+        slug: URL-slugg
+        title: Titel
+      conference_speaker:
+        full_name: Fullständigt namn
+      conference_user_role:
+        email: E-post
+        name: Namn
+        role: Roll
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: E-postadressen har redan bjudits in
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferens
+        other: Konferenser
+      decidim/conference_speaker:
+        one: Konferenstalare
+        other: Konferenstalare
+      decidim/conference_user_role:
+        one: Roll för konferensanvändare
+        other: Roller för konferensanvändare
+  decidim:
+    admin:
+      actions:
+        confirm: Bekräfta
+        new_conference: Ny konferens
+        send_diplomas: Skicka närvarointyg
+      conference_copies:
+        new:
+          copy: Kopiera
+          select: Välj vilka uppgifter du vill kopiera
+          title: Kopiera konferens
+      conference_publications:
+        create:
+          error: Ett fel uppstod när konferensen skulle publiceras.
+          success: Konferensen har publicerats.
+        destroy:
+          error: Ett fel uppstod när konferensen skulle avpubliceras.
+          success: Konferensen har avpublicerats.
+      conference_registration:
+        confirm:
+          error: Ett fel uppstod när konferensanmälan skulle bekräftas.
+          success: Konferensanmälan har bekräftats.
+      conference_speakers:
+        create:
+          error: Ett fel uppstod när en talare skulle läggas till konferensen.
+          success: Konferenstalare har skapats.
+        destroy:
+          success: Konferenstalare har raderats.
+        edit:
+          title: Uppdatera konferenstalare.
+          update: Uppdatera
+        index:
+          conference_speakers_title: Konferenstalare
+        new:
+          create: Skapa
+          title: Ny konferenstalare.
+        update:
+          error: Ett fel uppstod när konferenstalaren skulle uppdateras.
+          success: Konferenstalare har uppdaterats.
+      conference_user_roles:
+        create:
+          error: Ett fel uppstod när en administratör skulle läggas till konferensen.
+          success: Konferensadministratör har lagts till.
+        destroy:
+          success: Konferensadministratör har tagits bort.
+        edit:
+          title: Uppdatera konferensadministratör.
+          update: Uppdatera
+        index:
+          conference_admins_title: konferensadministratörer
+        new:
+          create: Skapa
+          title: Ny konferensadministratör.
+        update:
+          error: Ett fel uppstod när konferensadministratören skulle uppdateras.
+          success: Konferensadministratören har uppdaterats.
+      conferences:
+        create:
+          error: Ett fel uppstod när konferensen skulle skapas.
+          success: Konferensen har skapats.
+        edit:
+          update: Uppdatera
+        exports:
+          registrations: Registreringar
+        form:
+          title: Allmän information
+        index:
+          not_published: Ej publicerat
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Konferens
+        update:
+          error: Ett fel uppstod när konferensen skulle uppdateras.
+          success: Konferensen har uppdaterats.
+      conferences_copies:
+        create:
+          error: Ett fel uppstod när konferensen kopierades.
+          success: Konferensen har kopierats.
+      media_links:
+        create:
+          error: Ett fel uppstod när en ny medielänk skulle skapas.
+          success: Medielänken har skapats.
+        destroy:
+          success: Medielänken har raderats.
+        edit:
+          title: Uppdatera medielänken.
+          update: Uppdatera
+        index:
+          media_links_title: Medielänkar
+        new:
+          create: Skapa
+          title: Medielänk
+        update:
+          error: Ett fel uppstod när medielänken skulle uppdateras.
+          success: Medielänken har uppdaterats.
+      menu:
+        conferences: Konferenser
+        conferences_submenu:
+          attachment_collections: Mappar
+          attachment_files: Filer
+          attachments: Bilagor
+          categories: Kategorier
+          components: Komponenter
+          conference_admins: Konferensadministratörer
+          conference_invites: Inbjudningar
+          conference_speakers: Talare
+          diploma: Närvarointyg
+          media_links: Medielänkar
+          moderations: Modereringar
+          partners: Partner
+          registration_types: Registreringstyper
+          registrations: Registreringar
+          user_registrations: Användarregistreringar
+      models:
+        conference:
+          fields:
+            created_at: Skapad
+            promoted: Framhävd
+            published: Publicerad
+            title: Titel
+        conference_speaker:
+          fields:
+            affiliation: Tillhörighet
+            full_name: Fullständigt namn
+          name: Konferenstalare
+        conference_user_role:
+          fields:
+            email: E-post
+            name: Namn
+            role: Roll
+          name: Konferensadministratör
+          roles:
+            admin: Administratör
+            collaborator: Samarbetspartner
+            valuator: Värderingsman
+        media_link:
+          fields:
+            date: Datum
+            link: Länk
+            title: Titel
+          name: Medielänk
+        partner:
+          fields:
+            link: Länk
+            logo: Logotyp
+            name: Namn
+            partner_type: Typ
+          types:
+            collaborator: Samarbetspartner
+            main_promotor: Huvudarrangör
+        registration_type:
+          fields:
+            conference_meetings: Konferensmöten
+            price: Pris
+            registrations_count: Antal registreringar
+            title: Titel
+            weight: Vikt
+          name: Registreringstyp
+      partners:
+        create:
+          error: Ett fel uppstod när en partner skulle läggas till konferensen.
+          success: Konferenspartner har lagts till.
+        destroy:
+          success: Konferenspartner har tagits bort.
+        edit:
+          title: Uppdatera partner.
+          update: Uppdatera
+        new:
+          create: Skapa
+          title: Ny partner
+        update:
+          error: Ett fel uppstod när en partner till konferensen skulle uppdateras.
+          success: Konferenspartner har uppdaterats.
+      registration_type_publications:
+        create:
+          error: Ett fel uppstod när registreringstypen skulle publiceras.
+          success: Registreringstypen har publicerats.
+        destroy:
+          error: Ett fel uppstod när registreringstypen skulle avpubliceras.
+          success: Registreringstypen har avpublicerats.
+      registration_types:
+        create:
+          error: Ett fel uppstod när en registreringstyp skulle läggas till konferensen.
+          success: Registreringstyp för konferensen har lagts till.
+        destroy:
+          success: Registreringstyp för konferensen har tagits bort.
+        edit:
+          title: Uppdatera registreringstyp.
+          update: Uppdatera
+        new:
+          create: Skapa
+          title: Ny registreringstyp
+        update:
+          error: Ett fel uppstod när en registreringstyp för konferensen skulle uppdateras.
+          success: Registreringstyp för konferensen har uppdaterats.
+      titles:
+        conferences: Konferenser
+    admin_log:
+      conference:
+        create: "%{user_name} skapade konferensen %{resource_name}"
+        publish: "%{user_name} publicerade konferensen %{resource_name}"
+        send_conference_diplomas: "%{user_name} skickade närvarointyg till deltagarna i konferensen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade konferensen %{resource_name}"
+        update: "%{user_name} uppdaterade konferensen %{resource_name}"
+        update_diploma: "%{user_name} uppdaterade konfigurationen av närvarointyg för konferensen %{resource_name}"
+      conference_speaker:
+        create: "%{user_name} skapade talaren %{resource_name} i konferensen %{space_name}"
+        delete: "%{user_name} tog bort talaren %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} uppdaterade talaren %{resource_name} i konferensen %{space_name}"
+      conference_user_role:
+        create: "%{user_name} bjöd in %{resource_name} till konferensen %{space_name}"
+        delete: "%{user_name} tog bort administratören %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i konferensen %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} bekräftade en konferensanmälan i konferensen %{resource_name}"
+        partner:
+          create: "%{user_name} skapade %{resource_name} i konferensen %{space_name}"
+          delete: "%{user_name} tog bort administratören %{resource_name} från konferensen %{space_name}"
+          update: "%{user_name} uppdaterade %{resource_name} i konferensen %{space_name}"
+        registration_type:
+          create: "%{user_name} skapade registreringstypen %{resource_name} i konferensen %{space_name}"
+          publish: "%{user_name} publicerade registreringstypen %{resource_name} i konferensen %{space_name}"
+          unpublish: "%{user_name} avpublicerade registreringstypen %{resource_name} i konferensen %{space_name}"
+          update: "%{user_name} uppdaterade registreringstypen %{resource_name} i konferensen %{space_name}"
+      media_link:
+        create: "%{user_name} skapade medielänken %{resource_name} i konferensen %{space_name}"
+        delete: "%{user_name} tog bort medielänken %{resource_name} från konferensen %{space_name}"
+        update: "%{user_name} uppdaterade medielänken %{resource_name} i konferensen %{space_name}"
+    conference_speakers:
+      index:
+        title: Talare
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna konferens. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        conference_invites:
+          create:
+            error: Ett fel uppstod när deltagaren skulle bjudas in till konferensen.
+            success: Deltagaren har bjudits in till konferensen.
+          form:
+            attendee_type: Deltagartyp
+            existing_user: Befintlig deltagare
+            invite_explanation: Deltagaren kommer att bjudas in till konferensen och även till organisationen.
+            non_user: Ej befintlig deltagare
+            select_user: Välj deltagare
+          index:
+            filter:
+              accepted: Godkända
+              all: Alla
+              rejected: Avvisade
+              sent: Skickade
+            filter_by: Filtrera efter
+            invite_attendee: Bjud in deltagare
+            invites: Inbjudningar
+            search: Sök
+          new:
+            explanation: Deltagaren kommer att bjudas in att delta i en konferens. Om deltagarens e-postadress inte har registrerats kommer deltagaren även att bjudas in till organisationen.
+            invite: Bjud in
+            new_invite: Bjud in deltagare
+        conference_registrations:
+          index:
+            registrations: Registreringar
+        conference_speakers:
+          form:
+            existing_user: Befintlig deltagare
+            non_user: Icke-deltagare
+            select_user: Välj deltagare
+            user_type: Deltagartyp
+          index:
+            search: Sök
+        conferences:
+          form:
+            available_slots_help: Låt vara 0 om du har obegränsat antal platser.
+            registrations_count:
+              one: 1 registrering har genomförts.
+              other: '%{count} registreringar har genomförts.'
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna konferens. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        diplomas:
+          edit:
+            save: Spara
+            title: Närvarointyg
+        invite_join_conference_mailer:
+          invite:
+            decline: Avböj inbjudan '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller tacka ja till inbjudan genom nedanstående länkar."
+            registration: Anmälan till '%{conference_title}'
+        partners:
+          index:
+            title: Partner
+        registration_types:
+          form:
+            select_conference_meetings: Välj konferensmöten
+          index:
+            title: Registreringstyper
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Närvarointyget för konferensen <a href="%{url}">%{title}</a> hittar du i bilagorna.
+          diploma_user:
+            attendance_verified_by: Närvaro bekräftad av
+            certificate_of_attendance: Närvarointyg
+            certificate_of_attendance_description: Detta bekräftar att <strong>%{user}</strong> har närvarat vid och deltagit i <strong>%{title}</strong> som hölls på <strong>%{location}</strong> <strong>%{start}–%{end}</strong>
+        send_diploma:
+          error: Ett fel uppstod när närvarointyget för konferensen skulle skickas.
+          success: Närvarointyget för konferensen har skickats
+      conference:
+        registration_confirm:
+          cancel: Annullera
+          confirm: Bekräfta
+        show:
+          free: Ledig
+          going: Deltagande
+          no_slots_available: Inga platser kvar
+          registration: Registrering
+      conference_program:
+        program_meeting:
+          content: Innehåll
+          location: Plats
+          speakers: Talare
+          streaming: Streamning
+        show:
+          day: Dag
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Din anmälan till konferensen <a href="%{url}">%{title}</a> har bekräftats.
+          details_1: 'Du är anmäld till konferensen med registreringstypen %{registration_type}. Konferensen kostar %{price} och du kan delta i följande evenemang:'
+          details_2: Närmare uppgifter om konferensen finns i bilagan.
+        pending_validation:
+          confirmation_pending: Du kommer att få en bekräftelse inom kort
+          details: 'Du har anmält dig genom registreringstypen %{registration_type} till en kostnad av %{price} och du kan delta i följande evenemang:'
+          pending_html: Din anmälan till konferensen <a href="%{url}">%{title}</a> väntar på bekräftelse.
+      conference_registrations:
+        create:
+          invalid: Ett fel uppstod när du skulle ansluta till konferensen.
+          success: Du har anslutit till konferensen.
+        decline_invitation:
+          invalid: Ett fel uppstod när du skulle avböja inbjudan.
+          success: Du har avböjt inbjudan.
+        destroy:
+          invalid: Ett fel uppstod när du skulle lämna konferensen.
+          success: Du har lämnat konferensen.
+      conference_speaker:
+        go_to_twitter: Gå till Twitter
+        more_info: mer info
+        personal_website: Personlig webbplats
+        show:
+          more_info: mer info
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personlig webbplats
+        twitter_handle:
+          go_to_twitter: Gå till Twitter
+      conference_speakers:
+        index:
+          speakers: Talare
+      conferences:
+        partners:
+          collaborators: Partner
+          main_promotors: Organisatörer
+        show:
+          login_as: Du är inloggad som %{name} <%{email}>
+          make_conference_registration: 'Anmäl dig till konferensen:'
+          register: Anmäl dig
+      content_blocks:
+        highlighted_conferences:
+          name: Framhävda konferenser
+      index:
+        title: Konferenser
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Din anmälan till konferensen har bekräftats
+          pending_validation:
+            subject: Din anmälan till konferensen väntar på bekräftelse
+        invite_join_conference_mailer:
+          invite:
+            subject: Inbjudan till en konferens
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Ditt närvarointyg har skickats
+      models:
+        conference_invite:
+          fields:
+            email: E-post
+            name: Namn
+            registration_type: Registreringstyp
+            sent_at: Skickat
+          status:
+            accepted: Accepterad (%{at})
+            rejected: Avböjd (%{at})
+            sent: Skickat
+        conference_registration:
+          fields:
+            email: E-post
+            name: Namn
+            registration_type: Registreringstyp
+            states:
+              confirmed: Bekräftade
+              pending: Pågående
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktiva konferenser
+            see_all_conferences: Se alla konferenser
+      photo:
+        image:
+          attributes:
+            alt: Bild i media
+        show:
+          close_modal: Stäng modalt fönster
+          photo: Bild
+      photos_list:
+        show:
+          related_photos: Bilder
+      registration_types:
+        index:
+          choose_an_option: 'Välj registreringsalternativ:'
+          login_as: Du är inloggad som %{name} <%{email}>
+          register: Anmäl dig
+          title: Registreringstyper
+      shared:
+        conference_user_login:
+          already_account: Har du redan ett konto i decidim?
+          new_user: Ny användare?
+          sign_in: Logga in för att anmäla dig till konferensen
+          sign_up: Skapa ett konto i decidim för att anmäla dig till konferensen
+      show:
+        details: Beskrivning
+        introduction: Inledning
+        objectives: Mål
+        related_assemblies: Berörda församlingar
+        related_consultations: Relaterade samråd
+        related_participatory_processes: Relaterade deltagandeprocesser
+      statistics:
+        answers_count: Svar
+        comments_count: Kommentarer
+        conference_count: Konferenser
+        debates_count: Debatter
+        endorsements_count: Stödförklaringar
+        headline: Aktivitet
+        meetings_count: Möten
+        orders_count: Stöd
+        pages_count: Sidor
+        posts_count: Inlägg
+        projects_count: Projekt
+        proposals_count: Förslag
+        results_count: Resultat
+        surveys_count: Undersökningar
+        users_count: Deltagare
+        votes_count: Stöd
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Din anmälan till konferensen <a href="%{resource_url}">%{resource_title}</a> har bekräftats.
+        conference_registration_validation_pending:
+          notification_title: Din anmälan till konferensen <a href="%{resource_url}">%{resource_title}</a> väntar på bekräftelse.
+        conference_registrations_over_percentage:
+          email_intro: Konferensen "%{resource_title}" är bokad till över %{percentage} %.
+          email_outro: Du har fått denna avisering eftersom du är administratör för konferensens deltagandeutrymme.
+          email_subject: Konferensen "%{resource_title}" är bokad till över %{percentage} %
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> är bokad till över %{percentage} %.
+        conference_updated:
+          email_intro: 'Konferensen "%{resource_title}" har uppdaterats. Du kan läsa den nya versionen på denna sida:'
+          email_outro: Du har fått denna avisering eftersom du följer konferensen "%{resource_title}". Du kan sluta följa det via föregående länk.
+          email_subject: Konferensen "%{resource_title}" har uppdaterats
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har uppdaterats.
+        registrations_enabled:
+          email_intro: 'Konferensen "%{resource_title}" har aktiverat registreringar. Du kan anmäla dig själv på denna sida:'
+          email_outro: Du har fått denna avisering eftersom du följer konferensen "%{resource_title}". Du kan sluta följa det via föregående länk.
+          email_subject: Konferensen "%{resource_title}" har aktiverat registreringar.
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> har aktiverat registreringar.
+        role_assigned:
+          email_intro: Du har utsetts till %{role} för konferensen "%{resource_title}".
+          email_outro: Du har fått denna avisering eftersom du är %{role} för konferensen "%{resource_title}".
+          email_subject: Du har utsetts till %{role} för "%{resource_title}".
+          notification_title: Du har utsetts till %{role} för konferensen <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Konferensen "%{resource_title}" äger rum om två dagar. Du kan läsa beskrivningen på denna sida:'
+          email_outro: Du har fått denna avisering eftersom du följer konferensen "%{resource_title}". Du kan sluta följa det via föregående länk.
+          email_subject: Konferensen "%{resource_title}" börjar snart!
+          notification_title: Konferensen <a href="%{resource_path}">%{resource_title}</a> börjar om två dagar.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
+    media:
+      index:
+        description: Länkar om konferensen
+        title: Media och länkar
+    menu:
+      conferences: Konferenser
+  devise:
+    mailer:
+      join_conference:
+        subject: Inbjudan att delta i en konferens
+  layouts:
+    decidim:
+      conference_hero:
+        register: Anmäl dig
+      conference_widgets:
+        show:
+          take_part: Delta
+      conferences:
+        conference:
+          more_info: Mer info
+          take_part: Delta
+        index:
+          promoted_conferences: Framhävda konferenser
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferens"
+            other: "%{count} konferenser"
+        promoted_conference:
+          more_info: Mer info
+          take_part: Delta
+      conferences_nav:
+        conference_partners_menu_item: Partner
+        conference_speaker_menu_item: Talare
+        venues: Mötesplatser
