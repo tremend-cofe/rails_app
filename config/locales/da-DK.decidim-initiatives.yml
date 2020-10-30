@@ -1,1 +1,46 @@
 da:
+  decidim:
+    admin:
+      models:
+        initiatives:
+          fields:
+            created_at: Oprettet kl.
+            published_at: Offentliggjort kl.
+        initiatives_types:
+          fields:
+            created_at: Oprettet kl.
+    events:
+      initiatives:
+        initiative_extended:
+          notification_title: Slutdatoen for underskrifterne for initiativet <a href="%{resource_path}">%{resource_title}</a> er blevet forlænget.
+        milestone_completed:
+          affected_user:
+            email_intro: Dit initiativ %{resource_title} har opnået %{percentage}% af underskrifterne!
+            notification_title: Dit <a href="%{resource_path}">%{resource_title}</a> -initiativ har opnået %{percentage}% af underskrifterne.
+          follower:
+            email_intro: Initiativet %{resource_title} har opnået %{percentage}% af underskrifterne!
+            notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har opnået %{percentage}% af underskrifterne.
+        support_threshold_reached:
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nået støtte tærsklen
+    initiatives:
+      admin:
+        answers:
+          info_initiative:
+            created_at: Oprettet kl.
+        initiatives_types:
+          destroy:
+            success: initiativtypen er blevet fjernet
+          update:
+            success: initiativtypen er blevet opdateret
+      create_initiative:
+        fill_data:
+          fill_data_help: "<ul> <li>Gennemgå indholdet af dit initiativ. Er din titel let at forstå? Er målet med dit initiativ klart?</li> <li>Du skal vælge underskriftstypen. Personligt, online eller en kombination af begge</li> <li>Hvad er initiativets geografiske omfang? By, region?</li> </ul>"
+        promotal_committee:
+          individual_help_text: Denne form for borgerinitiativ kræver en promotorudvalg bestående af mindst %{committee_size} personer (attestorer). Du skal dele følgende link med de andre personer, der er en del af dette initiativ. Når dine kontakter modtager dette link, skal de følge de angivne trin.
+      initiatives:
+        author_list:
+          hidden_authors_count:
+            one: og 1 person mere
+            other: og %{count} flere personer
+      initiatives_mailer:
+        progress_report_body_for: Initiativet %{title} har nået %{percentage}% af de krævede underskrifter.
