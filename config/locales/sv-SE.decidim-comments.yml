@@ -1,1 +1,121 @@
 sv:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+      decidim/comments/reply_created_event: Svar på kommentar
+      decidim/comments/user_group_mentioned_event: Omnämnande
+      decidim/comments/user_mentioned_event: Omnämnande
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentar
+        other: Kommentarer
+      decidim/comments/comment_vote:
+        one: Rösta
+        other: Röster
+  decidim:
+    comments:
+      comments: Kommentarer
+      comments_count: Antal kommentarer
+      last_activity:
+        new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
+      view: Visa
+      votes:
+        create:
+          error: Ett fel uppstod vid röstning på kommentaren.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lämna en kommentar.
+        form:
+          body:
+            label: Kommentar
+            placeholder: Vad tycker du om detta?
+          form_error: Texten är obligatorisk och får inte vara längre än %{length} tecken.
+          submit: Skicka
+          user_group_id:
+            label: Kommentera som
+        remaining_characters: "%{count} tecken kvar"
+        remaining_characters_1: "%{count} tecken kvar"
+        title: Lämna kommentar
+      comment:
+        alignment:
+          against: Emot
+          in_favor: För
+        deleted_user: Borttagen deltagare
+        hide_replies: Dölj svar
+        reply: Svar
+        report:
+          action: Rapportera
+          already_reported: Detta innehåll har redan rapporterats och kommer att granskas av en administratör.
+          close: Avsluta
+          description: Är detta innehåll olämpligt?
+          details: Ytterligare kommentarer
+          reasons:
+            does_not_belong: Innehåller olaglig verksamhet, självmordshot, personliga uppgifter eller något annat som du inte tycker tillhör %{organization_name}.
+            offensive: Innehåller rasism, sexism, förtal, personliga attacker, dödshot, uppmaningar till självmord eller någon form av hatpropaganda.
+            spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
+          title: Rapportera olämpligt innehåll
+        show_replies: Visa %{replies_count} svar
+        single_comment_link_title: Hämta länk till enskild kommentar
+      comment_order_selector:
+        order:
+          best_rated: Bäst betyg
+          most_discussed: Mest diskuterade
+          older: Äldre
+          recent: Senaste
+        title: 'Sortera efter:'
+      comment_thread:
+        title: Samtal med %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
+        blocked_comments_warning: Kommentarer är inaktiverade för tillfället, men du kan läsa tidigare kommentarer.
+        comment_details_title: Kommentarsinformation
+        loading: Läser in kommentarer ...
+        single_comment_warning: Du kan läsa resten av kommentarerna <a href="%{url}">här</a>.
+        single_comment_warning_title: Du ser en enda kommentar
+        title: "%{count} kommentarer"
+      down_vote_button:
+        text: Jag instämmer inte i denna kommentar
+      up_vote_button:
+        text: Jag instämmer i denna kommentar
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa svaret på den här sidan:"
+          email_outro: Du har fått denna avisering eftersom du följer %{author_name}. Du kan sluta följa den här användaren från användarens profilsida.
+          email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på den här sidan:'
+          email_outro: Du har fått denna avisering eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från gruppens profilsida.
+          email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} har kommenterats. Du kan läsa kommentaren på den här sidan:"
+          email_outro: Du har fått denna avisering eftersom du följer "%{resource_title}" eller dess upphovsman. Du kan sluta följa det via föregående länk.
+          email_subject: Det finns en ny kommentar från %{author_name} i %{resource_title}
+          notification_title: Det finns en ny kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} har svarat på din kommentar i %{resource_title}. Du kan läsa svaret på den här sidan:"
+          email_outro: Du har fått denna avisering eftersom någon har svarat på din kommentar.
+          email_subject: "%{author_name} har svarat på din kommentar i %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har svarat på din kommentar i <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: En grupp som du tillhör har nämnts
+          email_outro: Du har fått denna avisering eftersom du är medlem i gruppen %{group_name}, som har nämnts i %{resource_title}.
+          email_subject: Du har nämnts i %{resource_title} som medlem i %{group_name}
+          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a> som medlem i <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Du har omnämnts
+          email_outro: Du har fått denna avisering eftersom du har nämnts i %{resource_title}.
+          email_subject: Du har nämnts i %{resource_title}
+          notification_title: Du har nämnts i <a href="%{resource_path}">%{resource_title}</a> av <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Antal kommentarer som genererats av deltagarna
+        object: kommentarer
+        title: Kommentarer
+  errors:
+    messages:
+      cannot_have_comments: kan inte ha några kommentarer
