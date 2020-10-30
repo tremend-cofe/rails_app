@@ -1,1 +1,15 @@
 el:
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          user_group_id:
+            label: 'Προσθήκη σχολίου ως:'
+      comment:
+        report:
+          reasons:
+            spam: Περιέχει «δόλωμα για κλικ» (clickbait), διαφημίσεις, απάτες ή bot δέσμης ενεργειών.
+    events:
+      comments:
+        comment_created:
+          notification_title: Υπάρχει ένα νέο σχόλιο από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a> στο στοιχείο <a href="%{resource_path}">%{resource_title}</a>.
