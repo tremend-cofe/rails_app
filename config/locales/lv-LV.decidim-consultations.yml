@@ -1,1 +1,345 @@
 lv:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Reklāmkaroga attēls
+        decidim_highlighted_scope_id: Iezīmētais darbības tvērums
+        description: Apraksts
+        end_voting_date: Balsošana beidzas
+        introductory_image: Ievadattēls
+        introductory_video_url: Ievadvideo URL
+        questions: Jautājumi
+        slug: URL beigu daļa
+        start_voting_date: Balsošana sākas
+        subtitle: Apakšvirsraksts
+        title: Virsraksts
+      question:
+        banner_image: Reklāmkaroga attēls
+        decidim_scope_id: Municipālais apgabals
+        hashtag: Tēmturis
+        hero_image: Sākumattēls
+        i_frame_url: Ārējās balsošanas sistēmas URL
+        instructions: Papildu norādījumi attiecībā uz balsošanu
+        max_votes: Maksimālais balsu skaits
+        min_votes: Minimālais balsu skaits
+        origin_scope: Darbības tvērums
+        origin_title: Izcelsme
+        origin_url: Izcelsmes URL
+        participatory_scope: Līdzdalības darbības tvērums
+        promoter_group: Atbalsta grupa
+        question_context: Konteksts
+        reference: Atsauce
+        scope: Municipālais apgabals
+        slug: URL beigu daļa
+        subtitle: Apakšvirsraksts
+        vote: Ārējā balsošanas sistēma
+        what_is_decided: Par ko tiek lemts
+      response:
+        decidim_consultations_response_group_id: Grupa
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksimālajam balsu skaitam jābūt lielākam par vai vienādam ar minimālo skaitu.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Atbilde netika atrasta.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Balsu skaits nav derīgs
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Atgriezties pie atbildēm
+        new_consultation: Jauna konsultācija
+        new_question: Jauns jautājums
+        new_response: Jauna atbilde
+        new_response_group: Jauna grupa
+        publish_results: Publicēt rezultātus
+        response_groups: Pārvaldīt atbilžu grupas
+        unpublish_results: Atcelt rezultātu publicēšanu
+      consultation_publications:
+        create:
+          error: Publicējot šo konsultāciju, radās problēma.
+          success: Konsultācija ir veiksmīgi publicēta.
+        destroy:
+          error: Atceļot šīs konsultācijas publicēšanu, radās problēma.
+          success: Konsultācijas publicēšana ir veiksmīgi atcelta.
+      consultation_results_publications:
+        create:
+          error: Publicējot šīs konsultācijas rezultātus, radās problēma.
+          success: Konsultācijas rezultāti ir veiksmīgi publicēti.
+        destroy:
+          error: Atceļot šīs konsultācijas rezultātu publicēšanu, radās problēma.
+          success: Konsultācijas rezultātu publicēšana ir veiksmīgi atcelta.
+      consultations:
+        create:
+          error: Izveidojot jaunu konsultāciju, radās problēma.
+          success: Konsultācija ir veiksmīgi izveidota.
+        edit:
+          update: Atjaunināt
+        form:
+          slug_help: 'URL beigu daļas tiek izmantotas, lai ģenerētu URL, kuri norāda uz šo konsultāciju. Var izmantot tikai burtus, skaitļus un domuzīmes, un sākumā jābūt burtam. Piemērs: %{url}'
+          title: Vispārīga informācija
+        index:
+          not_published: Nav publicēts
+          published: Publicēts
+        new:
+          create: Izveidot
+          title: Jauna konsultācija
+        results:
+          not_visible: Rezultāti būs pieejami pēc konsultācijas beigām
+          participants: "%{count} dalībnieki"
+          total_votes: 'Kopā: %{count} balsis'
+        update:
+          error: Atjauninot šo konsultāciju, radās problēma.
+          success: Konsultācija ir veiksmīgi atjaunināta.
+      menu:
+        consultations: Konsultācijas
+        consultations_submenu:
+          info: Informācija
+          questions: Jautājumi
+          results: Rezultāti
+        questions_submenu:
+          components: Komponenti
+          configuration: Konfigurācija
+          consultation: Konsultācija
+          info: Informācija
+          responses: Atbildes
+      models:
+        consultation:
+          fields:
+            created_at: Izveidošanas laiks
+            published: Publicēts
+            title: Virsraksts
+        question:
+          fields:
+            created_at: Izveidošanas laiks
+            published: Publicēts
+            title: Virsraksts
+        response:
+          fields:
+            created_at: Izveidošanas laiks
+            response_group: Grupa
+            title: Virsraksts
+      question_configuration:
+        disable_external_voting: Atspējojiet ārējo balsošanu, lai izmantotu papildu konfigurācijas
+        form:
+          help: Iestatiet daudzizvēļu jautājumus, palielinot maksimālo atbilžu skaitu, ko dalībnieks var izvēlēties. Noklusējuma maksimālā vērtība ir “1”, proti, var balsot tikai par vienu atbildi.
+          title: Papildu konfigurācija
+      question_publications:
+        create:
+          error: Publicējot šo jautājumu, radās problēma.
+          success: Jautājums ir veiksmīgi publicēts.
+        destroy:
+          error: Atceļot šā jautājuma publicēšanu, radās problēma.
+          success: Jautājuma publicēšana ir veiksmīgi atcelta.
+      questions:
+        create:
+          error: Izveidojot jaunu jautājumu, radās problēma.
+          success: Jautājums ir veiksmīgi izveidots.
+        destroy:
+          success: Jautājums ir veiksmīgi izdzēsts.
+        edit:
+          update: Atjaunināt
+        form:
+          title: Vispārīga informācija
+        index:
+          not_published: Nav publicēts
+          published: Publicēts
+        new:
+          create: Izveidot
+          title: Jauns jautājums
+        update:
+          error: Atjauninot šo jautājumu, radās problēma.
+          success: Jautājums ir veiksmīgi atjaunināts.
+      response_groups:
+        create:
+          error: Izveidojot jaunu atbilžu grupu, radās problēma.
+          success: Atbilžu grupa ir veiksmīgi izveidota.
+        destroy:
+          error: Dzēšot atbilžu grupu, radās problēma. Pārbaudiet, ka no tās nav atkarīga neviena atbilde.
+          success: Atbilžu grupa ir veiksmīgi izdzēsta.
+        edit:
+          update: Atjaunināt
+        form:
+          title: Vispārīga informācija
+        help: Izmantojiet grupas, lai sakārtotu daudzizvēļu jautājumus kopās.
+        new:
+          create: Izveidot
+          title: Jauna atbilžu grupa
+        update:
+          error: Atjauninot šo atbildi, radās problēma.
+          success: Atbilde ir veiksmīgi atjaunināta.
+      responses:
+        create:
+          error: Izveidojot jaunu atbildi, radās problēma.
+          success: Atbilde ir veiksmīgi izveidota.
+        destroy:
+          error: Dzēšot atbildi, radās problēma.
+          success: Atbilde ir veiksmīgi izdzēsta.
+        edit:
+          update: Atjaunināt
+        form:
+          title: Vispārīga informācija
+        new:
+          create: Izveidot
+          title: Jauna atbilde
+        update:
+          error: Atjauninot šo atbildi, radās problēma.
+          success: Atbilde ir veiksmīgi atjaunināta.
+      titles:
+        consultations: Konsultācijas
+        questions: Jautājumi
+        response_groups: Atbilžu grupas
+        responses: Atbildes
+        results: Rezultāti
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maksimālais parādīto elementu skaits
+      consultation:
+        start_voting_date: Balsošana sākas
+        view_results: Skatīt rezultātus
+      consultation_card:
+        view_results: Skatīt rezultātus
+      consultations:
+        orders:
+          label: 'Kārtot konsultācijas pēc:'
+          random: Nejauši
+          recent: Jaunākās
+        show:
+          dates: Datumi
+      content_blocks:
+        highlighted_consultations:
+          name: Iezīmētās konsultācijas
+      filters:
+        active: Aktīvs
+        all: Visas
+        finished: Pabeigtas
+        search: Meklēt
+        state: Statuss
+        upcoming: Gaidāmās
+      filters_small_view:
+        close_modal: Aizvērt logu
+        filter: Filtrs
+        filter_by: Filtrēt pēc
+        unfold: Atritināt
+      highlighted_questions:
+        title: Jautājumi no %{scope_name}
+      index:
+        title: Konsultācijas
+      last_activity:
+        new_consultation: Jauna konsultācija
+        new_question_at_html: "<span>Jauns jautājums šādā saitē: %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktīvās konsultācijas
+            see_all_consultations: Skatīt visas konsultācijas
+            voting_ends_today: Balsošana beidzas <strong>šodien</strong>
+      question:
+        take_part: Piedalīties
+        view_results: Skatīt rezultātus
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Dalībnieki var sadalīt vismaz %{votes} balsis dažādām izvēles iespējām.
+          title: Šajā jautājumā bija atļautas vairākas izvēles
+          total_participants: Kopā balsojumā piedalījās %{count} cilvēki.
+          vote_limit:
+            description: Dalībnieki varēja balsot par %{limit} izvēles iespējām.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Jums ir jāsadala vismaz %{votes} balsis dažādām izvēles iespējām.
+          title: 'Uz balsojumiem attiecas šādi noteikumi:'
+          vote_limit:
+            description: Varat balsot par %{limit} izvēles iespējām.
+            left: Atlicis
+            votes: Balsis
+      question_votes:
+        create:
+          error: Balsojot par jautājumu, radās problēma
+          success: Līdz konsultācijas beigām varat to mainīt. Tiks pieņemts tikai pēdējais balsojums.
+          title_error: Balsošanas kļūda!
+          title_success: Balsojums ir veiksmīgi reģistrēts
+      regular_questions:
+        title: Šīs konsultācijas jautājumi
+      show:
+        badge_name:
+          finished: Pabeigts
+          open: Atvērts
+          open_votes: Atvērts balsošanai
+          published_results: Publicētie rezultāti
+        footer_button_text:
+          debate: Apspriest
+          view: Skatīt
+          view_results: Skatīt rezultātus
+          vote: Balss
+        unspecified: Nav norādīts
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Konsultācijas</strong> ir telpa, kura ļauj uzdot skaidrus jautājumus visiem cilvēkiem, kuri veido organizāciju, aicināt piedalīties konsultācijā, kā arī ierosināt un pārvaldīt apspriešanu par vai pret kādu atbilžu variantu. Pienākot konsultācijas datumam, varat īstenot balsošanu un publicēt balsojumu rezultātus.</p> <p>Piemēri: Konsultācijas var attiekties gandrīz uz jebkuru aspektu, kas ietekmē organizāciju, piemēram: organizācijas nosaukuma vai logotipa maiņu, piedāvājot vairākas alternatīvas, lēmuma pieņemšanu par to, vai kļūt par lielākas organizācijas sastāvdaļu, jauna stratēģiskā plāna vai darba grupas rezultāta apstiprināšanu vai noraidīšanu vai arī to, vai noteiktos amatos ir jāsaglabā ne vairāk kā 1, 2 vai 3 mandāti.</p>\n"
+          page: "<p><strong>Konsultācijas</strong> ir telpa, kura ļauj uzdot skaidrus jautājumus visiem cilvēkiem, kuri veido organizāciju, aicināt piedalīties konsultācijā, kā arī ierosināt un pārvaldīt apspriešanu par vai pret kādu atbilžu variantu. Pienākot konsultācijas datumam, varat īstenot balsošanu un publicēt balsojumu rezultātus.</p> <p>Piemēri: Konsultācijas var attiekties gandrīz uz jebkuru aspektu, kas ietekmē organizāciju, piemēram: organizācijas nosaukuma vai logotipa maiņu, piedāvājot vairākas alternatīvas, lēmuma pieņemšanu par to, vai kļūt par lielākas organizācijas sastāvdaļu, jauna stratēģiskā plāna vai darba grupas rezultāta apstiprināšanu vai noraidīšanu vai arī to, vai noteiktos amatos ir jāsaglabā ne vairāk kā 1, 2 vai 3 mandāti organizācijā.</p>\n"
+          title: Kas ir konsultācijas?
+    menu:
+      consultations: Konsultācijas
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultācijas
+    questions:
+      next_button: Nākamais jautājums
+      previous_button: Iepriekšējais jautājums
+      results:
+        title: Rezultāti
+      show:
+        read_more: Rādīt vairāk
+      statistics:
+        assistants_count_title: Asistenti
+        comments_count_title: Komentāri
+        meetings_count_title: Sanāksmes
+        supports_count_title: Balsis
+      technical_info:
+        technical_data: Tehniskie dati
+      vote_button:
+        already_voted: Jau ir nobalsots
+        already_voted_hover: Atcelt balsojumu
+        starting_from: Sākot ar %{date}
+        verification_required: Apstipriniet savu kontu, lai balsotu
+        vote: Balsot
+      vote_modal:
+        close_modal: Aizvērt modālo dialoglogu
+        contextual_help: Atlasiet kādu opciju.
+        title: 'Konsultācija: balsojums par jautājumu'
+      vote_modal_confirm:
+        change: Nomainīt
+        close_modal: Aizvērt modālo dialoglogu
+        confirm: Apstiprināt
+        contextual_help: Apstipriniet atlasīto opciju.
+        title: 'Konsultācija: apstiprināt balsojumu'
+    resources:
+      consultations:
+        actions:
+          vote: Balsot
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Pielikumi
+          categories: Kategorijas
+      consultation_voting_data:
+        start_voting_date: Balsošana sākas
+      question_components:
+        question_menu_item: Jautājums
+        unfold: Atritināt
+      question_header:
+        back_to_consultation: Skatīt visas konsultācijas
+        back_to_question: Atgriezties pie jautājuma
