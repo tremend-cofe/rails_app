@@ -1,1 +1,376 @@
 et:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Reklaamiriba pilt
+        decidim_highlighted_scope_id: Esiletõstetud kohaldamisala
+        description: Kirjeldus
+        end_voting_date: Hääletamine lõppeb
+        introductory_image: Sissejuhatuspilt
+        introductory_video_url: Sissejuhatusvideo URL
+        questions: Küsimused
+        slug: URL-komponent
+        start_voting_date: Hääletamine algab
+        subtitle: Alapealkiri
+        title: Pealkiri
+      question:
+        banner_image: Reklaamiriba pilt
+        decidim_scope_id: Omavalitsuspiirkond
+        hashtag: Teemaviide
+        hero_image: Avalehe pilt
+        i_frame_url: Välise hääletussüsteemi URL
+        instructions: Täiendavad hääletusjuhised
+        max_votes: Häälte maksimaalne arv
+        min_votes: Häälte minimaalne arv
+        origin_scope: Kohaldamisala
+        origin_title: Allikas
+        origin_url: Allika URL
+        participatory_scope: Osalusulatus
+        promoter_group: Edendusrühm
+        question_context: Taust
+        reference: Viide
+        scope: Omavalitsuspiirkond
+        slug: URL-komponent
+        subtitle: Alapealkiri
+        vote: Väline hääletussüsteem
+        what_is_decided: Mille üle otsustatakse?
+      response:
+        decidim_consultations_response_group_id: Rühm
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Häälte maksimaalne arv peab olema suurem kui minimaalne arv või sellega võrdne.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Vastust ei leitud.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Häälte arv on sobimatu
+    models:
+      decidim/consultation:
+        one: Konsultatsioon
+        other: Konsultatsioonid
+      decidim/consultations/question:
+        one: Küsimus
+        other: Küsimused
+      decidim/consultations/response:
+        one: Vastus
+        other: Vastused
+      decidim/consultations/vote:
+        one: Hääl
+        other: Hääled
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Tagasi vastuste lehele
+        new_consultation: Uus konsultatsioon
+        new_question: Uus küsimus
+        new_response: Uus vastus
+        new_response_group: Uus rühm
+        publish_results: Avalda tulemused
+        response_groups: Halda vastuserühmi
+        unpublish_results: Peata tulemuste avaldamine
+      consultation_publications:
+        create:
+          error: Selle konsultatsiooni avaldamisel tekkis probleem.
+          success: Konsultatsioon on avaldatud.
+        destroy:
+          error: Selle konsultatsiooni avaldamise peatamisel tekkis probleem.
+          success: Konsultatsioon on avaldatud.
+      consultation_results_publications:
+        create:
+          error: Selle konsultatsiooni tulemuste avaldamisel tekkis probleem.
+          success: Konsultatsiooni tulemused on avaldatud.
+        destroy:
+          error: Selle konsultatsiooni tulemuste avaldamise peatamisel tekkis probleem.
+          success: Konsultatsiooni tulemuste avaldamine on peatatud.
+      consultations:
+        create:
+          error: Uue konsultatsiooni loomisel tekkis probleem.
+          success: Konsultatsioon on loodud.
+        edit:
+          update: Värskenda
+        form:
+          slug_help: 'URL-komponente kasutatakse sellele konsultatsioonile suunavate URLide loomiseks. Lubatud on ainult tähed, numbrid ja kriipsud ning alguses peab olema täht. Näide: %{url}'
+          title: Üldteave
+        index:
+          not_published: Avaldamata
+          published: Avaldatud
+        new:
+          create: Loo
+          title: Uus konsultatsioon
+        results:
+          not_visible: Tulemused on kättesaadavad pärast konsultatsiooni lõppemist
+          participants: "%{count} osaleja(t)"
+          total_votes: 'Kokku: %{count} hääl(t)'
+        update:
+          error: Selle konsultatsiooni värskendamisel tekkis probleem.
+          success: Konsultatsioon on värskendatud.
+      menu:
+        consultations: Konsultatsioonid
+        consultations_submenu:
+          info: Teave
+          questions: Küsimused
+          results: Tulemused
+        questions_submenu:
+          components: Komponendid
+          configuration: Konfiguratsioon
+          consultation: Konsultatsioon
+          info: Teave
+          responses: Vastused
+      models:
+        consultation:
+          fields:
+            created_at: Loodi
+            published: Avaldatud
+            title: Pealkiri
+          name:
+            one: Konsultatsioon
+            other: Konsultatsioonid
+        question:
+          fields:
+            created_at: Loodi
+            published: Avaldatud
+            title: Pealkiri
+          name:
+            one: Küsimus
+            other: Küsimused
+        response:
+          fields:
+            created_at: Loodi
+            response_group: Rühm
+            title: Pealkiri
+          name:
+            one: Vastus
+            other: Vastused
+      question_configuration:
+        disable_external_voting: Täiustatud konfiguratsioonide jaoks keelake väline hääletus
+        form:
+          help: Mitme vastusevalikuga küsimuste lisamiseks suurendage arvu, mis määrab selle, kui palju vastuseid osaleja valida saab. Vaikimisi on maksimaalne väärtus 1, mis tähendab, et hääle saab anda vaid ühele vastusele.
+          title: Täiustatud konfiguratsioon
+      question_publications:
+        create:
+          error: Selle küsimuse avaldamisel tekkis probleem.
+          success: Küsimus on avaldatud.
+        destroy:
+          error: Selle küsimuse avaldamise peatamisel tekkis probleem.
+          success: Küsimuse avaldamine on peatatud.
+      questions:
+        create:
+          error: Uue küsimuse loomisel tekkis probleem.
+          success: Küsimus on loodud.
+        destroy:
+          success: Küsimus on kustutatud.
+        edit:
+          update: Värskenda
+        form:
+          title: Üldteave
+        index:
+          not_published: Avaldamata
+          published: Avaldatud
+        new:
+          create: Loo
+          title: Uus küsimus
+        update:
+          error: Selle küsimuse värskendamisel tekkis probleem.
+          success: Küsimus on värskendatud.
+      response_groups:
+        create:
+          error: Uue vastuserühma loomisel tekkis probleem.
+          success: Vastuserühm on loodud.
+        destroy:
+          error: Vastuserühma eemaldamisel tekkis probleem. Veenduge, et vastused ei sõltuks sellest.
+          success: Vastuserühm kustutati.
+        edit:
+          update: Värskenda
+        form:
+          title: Üldteave
+        help: Mitme vastusevariandiga küsimuste korraldamiseks saate kasutada rühmi.
+        new:
+          create: Loo
+          title: Uus vastuserühm
+        update:
+          error: Selle vastuse värskendamisel tekkis probleem.
+          success: Vastus on värskendatud.
+      responses:
+        create:
+          error: Uue vastuse loomisel tekkis probleem.
+          success: Vastus on loodud.
+        destroy:
+          error: Vastuse eemaldamisel tekkis probleem.
+          success: Vastus on kustutatud.
+        edit:
+          update: Värskenda
+        form:
+          title: Üldteave
+        new:
+          create: Loo
+          title: Uus vastus
+        update:
+          error: Selle vastuse värskendamisel tekkis probleem.
+          success: Vastus on värskendatud.
+      titles:
+        consultations: Konsultatsioonid
+        questions: Küsimused
+        response_groups: Vastuserühmad
+        responses: Vastused
+        results: Tulemused
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Kuvatavate elementide maksimaalne arv
+      consultation:
+        start_voting_date: Hääletamine algab
+        view_results: Kuva tulemused
+      consultation_card:
+        view_results: Kuva tulemused
+      consultations:
+        orders:
+          label: 'Konsultatsioonide sortimisalus:'
+          random: Juhuslik valik
+          recent: Kõige hiljutisemad
+        show:
+          dates: Kuupäevad
+      content_blocks:
+        highlighted_consultations:
+          name: Esiletõstetud konsultatsioonid
+      count:
+        title:
+          one: "%{count} konsultatsioon"
+          other: "%{count} konsultatsiooni"
+      filters:
+        active: Aktiivsed
+        all: Kõik
+        finished: Lõppenud
+        search: Otsing
+        state: Olek
+        upcoming: Eelseisvad
+      filters_small_view:
+        close_modal: Sulge aken
+        filter_by: Filtrimisalus
+        unfold: Ava
+      highlighted_questions:
+        title: 'Küsimused pärinevad: %{scope_name}'
+      index:
+        title: Konsultatsioonid
+      last_activity:
+        new_consultation: Uus konsultatsioon
+        new_question_at_html: "<span>Uus küsimus üksuses %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiivsed konsultatsioonid
+            see_all_consultations: Kuva kõik konsultatsioonid
+            voting_ends_in:
+              one: Hääletamine lõppeb <strong>homme</strong>
+              other: Hääletamine lõppeb <strong>%{count} päeva pärast</strong>
+            voting_ends_today: Hääletamine lõppeb <strong>täna</strong>
+      question:
+        take_part: Võtke osa
+        view_results: Kuva tulemused
+        votes_out_of:
+          one: hääl, kokku hääli
+          other: häält, kokku hääli
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Osaleja võib jagada eri võimaluste vahel minimaalselt %{votes} hääle/häält.
+          title: Selle küsimuse puhul oli lubatud mitu valikuvõimalust
+          total_participants: Hääletusest võttis kokku osa %{count} inimene/inimest.
+          vote_limit:
+            description: Osalejad võisid hääletada kuni %{limit} võimaluse poolt.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Peate jagama eri vastusevariantide vahel minimaalselt %{votes} hääle/häält.
+          title: 'Häälte kohta kehtivad järgmised reeglid:'
+          vote_limit:
+            description: Võite hääletada kuni %{limit} võimaluse poolt.
+            left: Jäänud
+            votes: Hääled
+      question_votes:
+        create:
+          error: Küsimuse hääletamisel tekkis probleem
+          success: Saate seda muuta kuni konsultatsiooni lõpuni. Arvesse läheb viimasena antud hääl.
+          title_error: Hääletamisel tekkis viga
+          title_success: Hääl on registreeritud
+      regular_questions:
+        title: Selle konsultatsiooni küsimused
+      show:
+        badge_name:
+          finished: Lõppenud
+          open: Avatud
+          open_votes: Avatud hääled
+          published_results: Tulemused on avaldatud
+        footer_button_text:
+          debate: Arutelu
+          view: Kuva
+          view_results: Kuva tulemused
+          vote: Hääleta
+        unspecified: Pole täpsustatud
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Konsultatsioonid</strong> on osalusruumid, mis võimaldavad teil esitada kõigile organisatsiooni kuuluvatele inimestele selgeid küsimusi, osaleda konsultatsioonis, algatada ja tellida arutelusid millegi vastu või poolt kõnelemiseks. Kui konsultatsiooni kuupäev on käes, saate hääletada ja hääletuse tulemused avaldada.</p> <p>Näited: Konsultatsioonid võivad käsitleda igasuguseid organisatsiooni mõjutavaid aspekte: näiteks organisatsiooni nime või logo muutmine (pakkudes välja eri võimalusi), suurema organisatsiooni osaks saamine (valides „ei“ või „jah“), uue strateegilise kava või töörühma tulemuse kinnitamine/tagasilükkamine või positsioonide mandaatide arvu määramine (1, 2 või 3 mandaati).</p>\n"
+          page: "<p><strong>Konsultatsioonid</strong> on osalusruumid, mis võimaldavad teil esitada kõigile organisatsiooni kuuluvatele inimestele selgeid küsimusi, osaleda konsultatsioonis, algatada ja tellida arutelusid millegi vastu või poolt kõnelemiseks. Kui konsultatsiooni kuupäev on käes, saate hääletada ja hääletuse tulemused avaldada.</p> <p>Näited: Konsultatsioonid võivad käsitleda igasuguseid organisatsiooni mõjutavaid aspekte: näiteks organisatsiooni nime või logo muutmine (pakkudes välja eri võimalusi), suurema organisatsiooni osaks saamine (valides „ei“ või „jah“), uue strateegilise kava või töörühma tulemuse kinnitamine/tagasilükkamine või positsioonide mandaatide arvu määramine organisatsioonis (1, 2 või 3 mandaati).</p>\n"
+          title: Mis on konsultatsioonid?
+    menu:
+      consultations: Konsultatsioonid
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultatsioonid
+    questions:
+      next_button: Järgmine küsimus
+      previous_button: Eelmine küsimus
+      results:
+        title: Tulemused
+      show:
+        read_more: Kuva rohkem
+      statistics:
+        assistants_count_title: Abilised
+        comments_count_title: Kommentaarid
+        meetings_count_title: Koosolekud
+        supports_count_title: Hääled
+      technical_info:
+        technical_data: Tehnilised andmed
+      vote_button:
+        already_voted: Juba hääletatud
+        already_voted_hover: Tühista hääl
+        starting_from: Algab %{date}
+        verification_required: Hääletamiseks kinnitage oma konto
+        vote: Hääleta
+      vote_modal:
+        close_modal: Sulge modaalaken
+        contextual_help: Valige vastusevariant.
+        title: 'Konsultatsioon: küsimuse hääletus'
+      vote_modal_confirm:
+        change: Muuda
+        close_modal: Sulge modaalaken
+        confirm: Kinnita
+        contextual_help: Kinnitage valitud vastusevariant.
+        title: 'Konsultatsioon: kinnita hääl'
+    resources:
+      consultations:
+        actions:
+          vote: Hääleta
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Manused
+          categories: Kategooriad
+      consultation_voting_data:
+        start_voting_date: Hääletamine algab
+      question_components:
+        question_menu_item: Küsimus
+        unfold: Ava
+      question_header:
+        back_to_consultation: Kuva kõik konsultatsioonid
+        back_to_question: Tagasi küsimuse lehele
