@@ -1,1 +1,237 @@
 hr:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Slika
+        proposals: Povezani prijedlozi
+        title: Naslov
+      election:
+        description: Opis
+        end_time: Glasanje završava
+        start_time: Glasanje počinje
+        title: Naslov
+      question:
+        description: Opis
+        max_selections: Maksimalni broj odabira
+        title: Naslov
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potrebno je ponovno priložiti
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Potrebno je ponovno priložiti
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Glasanje
+        name: Izbori
+        settings:
+          global:
+            announcement: Objava
+          step:
+            announcement: Objava
+    elections:
+      actions:
+        confirm_destroy: Jeste li sigurni?
+        destroy: Uništi
+        edit: Uređivanje
+        edit_answers: Uređivanje odgovora
+        edit_questions: Uređivanje pitanja
+        import: Uvezi prijedloge u odgovore
+        new: Novi %{name}
+        preview: Pretpregled
+        publish: Objavi
+        title: Radnje
+        unpublish: Povuci objavu
+      admin:
+        answers:
+          create:
+            invalid: Došlo je do problema pri stvaranju odgovora
+            success: Odgovor je uspješno stvoren
+          destroy:
+            invalid: Došlo je do problema pri brisanju odgovora
+            success: Odgovor je uspješno izbrisan
+          edit:
+            title: Uređivanje odgovora
+            update: Ažuriraj odgovor
+          index:
+            title: Odgovori
+          new:
+            create: Stvori odgovor
+            title: Novi odgovor
+          update:
+            invalid: Došlo je do problema pri ažuriranju odgovora
+            success: Odgovor je uspješno ažuriran
+        elections:
+          create:
+            invalid: Došlo je do problema pri stvaranju izbora
+            success: Izbori su uspješno stvoreni
+          destroy:
+            invalid: Došlo je do problema pri brisanju izbora
+            success: Izbori su uspješno izbrisani
+          edit:
+            title: Uređivanje izbora
+            update: Ažuriraj izbore
+          index:
+            title: Izbori
+          new:
+            create: Stvori izbore
+            title: Novi izbori
+          publish:
+            success: Izbori su uspješno objavljeni.
+          unpublish:
+            success: Objava izbora uspješno je povučena.
+          update:
+            invalid: Došlo je do problema pri ažuriranju izbora
+            success: Izbori su uspješno ažurirani
+        models:
+          answer:
+            name: Odgovori
+          election:
+            name: Izbori
+          question:
+            name: Pitanje
+        proposals_imports:
+          create:
+            invalid: Došlo je do problema pri uvozu prijedloga u odgovore
+            success: "Broj prijedloga uspješno uvezenih u odgovore: %{number}"
+          new:
+            create: Uvezi prijedloge u odgovore
+            no_components: U ovom participativnom prostoru nema drugih komponenti prijedloga iz kojih se prijedlozi uvoze u odgovore.
+            select_component: Odaberite komponentu
+        questions:
+          create:
+            invalid: Došlo je do problema pri stvaranju pitanja
+            success: Pitanje je uspješno stvoreno
+          destroy:
+            invalid: Došlo je do problema pri brisanju pitanja
+            success: Pitanje je uspješno izbrisano
+          edit:
+            title: Uređivanje pitanja
+            update: Ažuriraj pitanje
+          index:
+            title: Pitanja
+          new:
+            create: Stvori pitanje
+            title: Novo pitanje
+          update:
+            invalid: Došlo je do problema pri ažuriranju pitanja
+            success: Pitanje je uspješno ažurirano
+      admin_log:
+        election:
+          publish: "%{user_name} je objavio izbore %{resource_name}"
+          unpublish: "%{user_name} je povukao objavu izbora %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Dovršeno
+          ongoing: Aktivno
+          upcoming: U pripremi
+        end_date: Završava
+        footer:
+          view: Prikaži
+          vote: Glasanje
+        label:
+          date: Datumi
+        questions: Pitanja %{count}
+        start_date: Počinje
+        unspecified: Nije utvrđeno
+      elections:
+        filters:
+          active: Aktivno
+          all: Sve
+          finished: Dovršeno
+          search: Pretraži
+          upcoming: U pripremi
+        filters_small_view:
+          close_modal: Zatvori modalni prozor
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Otvori
+        show:
+          back: Svi izbori
+          preview: Pretpregled
+          vote: Glasanje
+          voting_period_status:
+            finished: Glasanje je počelo %{start_time} i završilo %{end_time}
+            ongoing: Glasanje završava %{end_time}
+            upcoming: Glasanje počinje %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Prijedlozi
+            title: Naslov
+        election:
+          fields:
+            end_time: Završava
+            start_time: Počinje
+            title: Naslov
+        question:
+          fields:
+            answers: Odgovori
+            max_selections: Maksimalni broj odabira
+            title: Naslov
+      orders:
+        label: Poredaj izbore po
+        older: Starije
+        recent: Najnovije
+      votes:
+        confirm:
+          answer: Odgovori
+          answer_number: odgovor %{number}
+          confirm: Potvrdi
+          edit: uređivanje
+          header: Potvrdite svoj glas
+          intro: Slijedi sažetak vašeg glasanja. <br> Potvrdite svoj glas ili uredite odgovore.
+          question: Pitanje %{count}
+        confirmed:
+          back: Povratak na izbore
+          experience: Kakvo je bilo vaše iskustvo?
+          feedback: Pošaljite nam povratne informacije
+          header: Glas je potvrđen
+          lead: Već ste glasali!
+          text: 'Ovim identifikatorom možete provjeriti je li vaš glas uspješno ubačen u glasačku kutiju: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Za provjeru kopirajte identifikator i zalijepite ga na stranici za provjeru glasova <a href="evote-verify"></a>
+        encrypting:
+          header: Šifriranje glasa...
+          text: Vaš se glas šifrira kako bi bio anoniman.
+        header:
+          confirm: Potvrdite svoj glas
+          confirmed: Glas je potvrđen
+          encrypting: Potvrđivanje glasa
+        messages:
+          not_allowed: Trenutačno ne možete glasati na ovim izborima.
+        modal:
+          close: Zatvori
+          proposal_header: 'Prijedlozi:'
+        new:
+          answer_choices: Možete odabrati do %{choices} odgovora ili nijedan
+          more_information: Više informacija
+          preview_alert: Ovdje možete vidjeti kako izgleda glasačka kabina.
+          question_steps: Pitanje %{current_step} od %{total_steps}
+          selections: "%{selected} od %{max_selections}<br> odabira"
+        voting_step:
+          back: Povratak
+          continue: Sljedeće
+      warnings:
+        no_elections_warning: Nema zakazanih izbora ili izbora koji odgovaraju vašim kriterijima pretraživanja.
+        no_scheduled_elections_warning: Trenutačno nema zakazanih izbora, ali ovdje možete pronaći popis svih prošlih izbora.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Izbori %{resource_title} sada su aktivni za participativni prostor %{participatory_space_title}. Možete ih vidjeti na stranici:'
+          email_outro: Primili ste ovu obavijest jer pratite participativni prostor %{participatory_space_title}. Klikom na prethodnu poveznicu možete zaustaviti primanje obavijesti.
+          email_subject: Izbori %{resource_title} sada su aktivni za participativni prostor %{participatory_space_title}.
+          notification_title: Izbori <a href="%{resource_path}">%{resource_title}</a> sada su aktivni za participativni prostor %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Izbori
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Izlaz
