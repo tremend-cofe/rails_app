@@ -1,1 +1,252 @@
 fi:
+  activemodel:
+    attributes:
+      answer:
+        description: Kuvaus
+        image: Kuva
+        proposals: Aiheeseen liittyvät ehdotukset
+        title: Otsikko
+      election:
+        description: Kuvaus
+        end_time: Äänestys päättyy
+        start_time: Äänestys alkaa
+        title: Otsikko
+      question:
+        description: Kuvaus
+        max_selections: Valintojen enimmäismäärä
+        title: Otsikko
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Liitettävä uudelleen
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Liitettävä uudelleen
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Vastaus
+        other: Vastausta
+      decidim/elections/election:
+        one: Vaali
+        other: Vaalia
+      decidim/elections/question:
+        one: Kysymys
+        other: Kysymystä
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Äänestä
+        name: Vaalit
+        settings:
+          global:
+            announcement: Ilmoitus
+          step:
+            announcement: Ilmoitus
+    elections:
+      actions:
+        confirm_destroy: Oletko varma?
+        destroy: Poista
+        edit: Muokkaa
+        edit_answers: Muokkaa vastauksia
+        edit_questions: Muokkaa kysymyksiä
+        import: Tuo ehdotuksia vastauksiin
+        new: Uusi %{name}
+        preview: Esikatselu
+        publish: Julkaise
+        title: Toiminnot
+        unpublish: Peruuta julkaisu
+      admin:
+        answers:
+          create:
+            invalid: Vastauksen luominen epäonnistui
+            success: Vastaus luotiin onnistuneesti
+          destroy:
+            invalid: Vastauksen poistaminen epäonnistui
+            success: Vastaus poistettiin onnistuneesti
+          edit:
+            title: Muokkaa vastausta
+            update: Päivitä vastaus
+          index:
+            title: Vastaukset
+          new:
+            create: Luo vastaus
+            title: Uusi vastaus
+          update:
+            invalid: Vastauksen päivittäminen epäonnistui
+            success: Vastaus päivitettiin onnistuneesti
+        elections:
+          create:
+            invalid: Vaalin luominen epäonnistui
+            success: Vaali luotiin onnistuneesti
+          destroy:
+            invalid: Vaalin poistaminen epäonnistui
+            success: Vaali poistettiin onnistuneesti
+          edit:
+            title: Muokkaa vaalia
+            update: Päivitä vaali
+          index:
+            title: Vaalit
+          new:
+            create: Luo vaali
+            title: Uusi vaali
+          publish:
+            success: Vaali julkaistiin onnistuneesti.
+          unpublish:
+            success: Vaalin julkaiseminen peruttiin onnistuneesti.
+          update:
+            invalid: Vaalin päivittäminen epäonnistui
+            success: Vaali päivitettiin onnistuneesti
+        models:
+          answer:
+            name: Vastaus
+          election:
+            name: Vaali
+          question:
+            name: Kysymys
+        proposals_imports:
+          create:
+            invalid: Ehdotusten tuominen vastauksiin epäonnistui
+            success: "%{number} ehdotusta tuotiin vastauksiin onnistuneesti"
+          new:
+            create: Tuo ehdotuksia vastauksiin
+            no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja, joista ehdotuksia voitaisiin tuoda vastauksiin.
+            select_component: Valitse komponentti
+        questions:
+          create:
+            invalid: Kysymyksen luominen epäonnistui
+            success: Kysymys luotiin onnistuneesti
+          destroy:
+            invalid: Kysymyksen poistaminen epäonnistui
+            success: Kysymys poistettiin onnistuneesti
+          edit:
+            title: Muokkaa kysymystä
+            update: Päivitä kysymys
+          index:
+            title: Kysymykset
+          new:
+            create: Luo kysymys
+            title: Uusi kysymys
+          update:
+            invalid: Kysymyksen päivittäminen epäonnistui
+            success: Kysymys päivitettiin onnistuneesti
+      admin_log:
+        election:
+          publish: "%{user_name} julkaisi vaalin %{resource_name}"
+          unpublish: "%{user_name} peruutti vaalin %{resource_name} julkaisemisen"
+      election_m:
+        badge_name:
+          finished: Valmis
+          ongoing: Aktiivinen
+          upcoming: Tulossa
+        end_date: Päättyy
+        footer:
+          view: Näytä
+          vote: Äänestäminen
+        label:
+          date: Päivämäärät
+        questions: Kysymykset %{count}
+        start_date: Alkaa
+        unspecified: Ei määritelty
+      elections:
+        count:
+          elections_count:
+            one: "%{count} vaali"
+            other: "%{count} vaalia"
+        filters:
+          active: Aktiivinen
+          all: Kaikki
+          finished: Valmis
+          search: Haku
+          upcoming: Tulossa
+        filters_small_view:
+          close_modal: Sulje pikkuikkuna
+          filter: Suodatus
+          filter_by: Suodata
+          unfold: Avaa
+        show:
+          back: Kaikki vaalit
+          preview: Esikatselu
+          vote: Äänestäminen
+          voting_period_status:
+            finished: Äänestäminen alkoi %{start_time} ja loppui %{end_time}
+            ongoing: Äänestäminen päättyy %{end_time}
+            upcoming: Äänestäminen alkaa %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Ehdotukset
+            title: Otsikko
+        election:
+          fields:
+            end_time: Päättyy
+            start_time: Alkaa
+            title: Otsikko
+        question:
+          fields:
+            answers: Vastaukset
+            max_selections: Valintojen enimmäismäärä
+            title: Otsikko
+      orders:
+        label: Järjestä vaalit
+        older: Vanhimmat
+        recent: Uusimmat
+      votes:
+        confirm:
+          answer: Vastaus
+          answer_number: vastaus %{number}
+          confirm: Vahvista
+          edit: muokkaa
+          header: Vahvista äänesi
+          intro: Tässä on yhteenveto äänestä, jonka aiot antaa. <br> Vahvista äänesi tai muokkaa vastauksiasi.
+          question: Kysymys %{count}
+        confirmed:
+          back: Takaisin vaaleihin
+          experience: Millainen kokemuksesi oli?
+          feedback: Anna meille palautetta
+          header: Ääni vahvistettu
+          lead: Olet jo äänestänyt!
+          text: 'Seuraavalla tunnisteella voit tarkistaa, että äänesi on lisätty äänestysruutuun: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Tarkista ääni kopioimalla tunniste ja liittämällä se <a href="evote-verify">äänestyksen varmennussivulle</a>
+        encrypting:
+          header: Ääntä koodataan...
+          text: Äänesi salataan niin, että se annetaan nimettömänä.
+        header:
+          confirm: Vahvista äänesi
+          confirmed: Ääni vahvistettu
+          encrypting: Ääntä vahvistetaan
+        messages:
+          not_allowed: Et voi tällä hetkellä äänestää tässä vaalissa.
+        modal:
+          close: Sulje
+          proposal_header: 'Ehdotukset:'
+        new:
+          answer_choices: Voit joko valita enintään %{choices} vastausta tai olla valitsematta yhtäkään
+          more_information: Lisätietoja
+          preview_alert: Tämä on äänestyskopin esikatselu.
+          question_steps: Kysymys %{current_step} / %{total_steps}
+          selections: "%{selected} / %{max_selections}<br> valintaa"
+        voting_step:
+          back: Takaisin
+          continue: Seuraava
+      warnings:
+        no_elections_warning: Hakuehtoja vastaavia vaaleja ei ole tai ajoitettuja vaaleja ei ole lainkaan.
+        no_scheduled_elections_warning: Tällä hetkellä ei ole ajoitettuja vaaleja, mutta tässä ovat kaikki aiemmat vaalit.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Kohteen %{participatory_space_title} vaali %{resource_title} on nyt aktiivinen. Näet sen tältä sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Kohteen %{participatory_space_title} vaali %{resource_title} on nyt aktiivinen.
+          notification_title: Kohteen %{participatory_space_title} vaali <a href="%{resource_path}">%{resource_title}</a> on nyt aktiivinen.
+    participatory_processes:
+      statistics:
+        elections_count: Vaalit
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Poistu
