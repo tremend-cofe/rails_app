@@ -1,14 +1,240 @@
 hr:
+  activemodel:
+    attributes:
+      project:
+        budget: Proračun
+        decidim_category_id: Kategorija
+        decidim_scope_id: Tema
+        description: Opis
+        proposal_ids: Povezani prijedlozi
+        title: Naslov
   decidim:
     budgets:
+      actions:
+        attachment_collections: Mape
+        attachments: Privitci
+        confirm_destroy: Želite li zaista izbrisati projekt?
+        destroy: Izbriši
+        edit: Uređivanje
+        edit_projects: Upravljanje projektima
+        import: Uvezi prijedloge u projekte
+        new: Novi %{name}
+        preview: Pretpregled
+        title: Radnje
+      admin:
+        budgets:
+          create:
+            invalid: Došlo je do problema pri stvaranju proračuna
+            success: Proračun je uspješno stvoren
+          destroy:
+            invalid: Došlo je do problema pri brisanju proračuna
+            success: Proračun je uspješno izbrisan
+          edit:
+            title: Uređivanje proračuna
+            update: Ažuriraj proračun
+          index:
+            title: Proračuni
+          new:
+            create: Stvori proračun
+            title: Novi proračun
+          update:
+            invalid: Došlo je do problema pri ažuriranju proračuna
+            success: Proračun je uspješno ažuriran
+        models:
+          budget:
+            name: Proračun
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Došlo je do problema pri stvaranju projekta
+            success: Projekt je uspješno stvoren
+          destroy:
+            success: Projekt je uspješno izbrisan
+          edit:
+            title: Uređivanje projekta
+            update: Ažuriraj
+          index:
+            finished_orders: Dovršeno glasanje
+            pending_orders: Glasanje u tijeku
+            selected: Odabrano
+            title: Projekti
+          new:
+            create: Stvori
+            title: Novi projekt
+          update:
+            invalid: Došlo je do problema pri ažuriranju projekta
+            success: Projekt je uspješno ažuriran
+        proposals_imports:
+          create:
+            invalid: Došlo je do problema pri uvozu prijedloga u projekte
+            success: "Broj prijedloga uspješno uvezenih u projekte: %{number}"
+          new:
+            create: Uvezi prijedloge u projekte
+            no_components: U ovom participativnom prostoru nema drugih komponenti prijedloga iz kojih se prijedlozi uvoze u projekte.
+            select_component: Odaberite komponentu
       admin_log:
+        budget:
+          create: "%{user_name} je stvorio proračun %{resource_name} u prostoru %{space_name}"
+          delete: "%{user_name} je izbrisao proračun %{resource_name} u prostoru %{space_name}"
+          update: "%{user_name} je ažurirao proračun %{resource_name} u prostoru %{space_name}"
         project:
           create: "%{user_name} je stvorio projekt %{resource_name}u prostoru %{space_name}"
+          delete: "%{user_name} je izbrisao projekt %{resource_name} u prostoru %{space_name}"
+          update: "%{user_name} je ažurirao projekt %{resource_name} u prostoru %{space_name}"
+      budget:
+        view: Prikaži sve proračunske projekte
+      budget_information_modal:
+        back_to: Povratak na %{component_name}
+        close_modal: Zatvori modalni prozor
+        continue: Nastavi
+        more_information: Više informacija
+      budgets_list:
+        cancel_order:
+          more_than_one: izbrišite glas koji ste dali projektu %{name} i počnite ispočetka
+          only_one: izbrišite glas i počnite ispočetka.
+        finished_message: Dovršili ste proces glasanja. Hvala na sudjelovanju!
+        highlighted_cta: Glasajte o projektu %{name}
+        if_change_opinion: Ako ste se predomislili, možete
+        my_budgets: Moji proračuni
+        voted_on: Glasali ste o projektu %{links}
+      limit_announcement:
+        cant_vote: Ne možete glasati o ovom proračunu. <a href="%{landing_path}">Probajte na drugom proračunu</a>.
+        limit_reached: Imate aktivne glasove u %{links}. Da biste glasali o ovom proračunu morate <a href="%{landing_path}">izbrisati svoj glas i početi ispočetka</a>.
+      models:
+        budget:
+          fields:
+            name: Naziv
+            projects_count: Broj projekata
+            total_budget: Ukupni proračun
+        project:
+          fields:
+            title: Naslov
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Projekti koje ste odabrali su:'
+          subject: Glasali ste o participativnom prostoru %{space_name}
+          voted_on_space: Glasali ste o proračunu %{budget_name} za participativni prostor %{space_name}.
+          voted_on_space_with_scope: Glasali ste o proračunu %{budget_name} za participativni prostor %{space_name} na %{scope_name} (%{scope_type}).
       projects:
+        budget_confirm:
+          are_you_sure: Ako se predomislite, poslije možete promijeniti svoj glas.
+          cancel: Odustani
+          confirm: Potvrdi
+          description: Ovo su projekti koje ste odabrali da uđu u proračun.
+          title: Potvrdi glas
+        budget_excess:
+          close: Zatvori
+          description: Ovaj projekt premašuje najveći mogući proračun i ne može se dodati. Ako želite, možete izbrisati projekt koji ste već odabrali za dodavanje ili glasati prema svojim preferencijama.
+          title: Najveći je mogući proračun prekoračen
         budget_summary:
+          are_you_sure: Želite li zaista poništiti svoj glas?
+          assigned: 'Dodijeljeno:'
+          cancel_order: izbrišite svoj glas i počnite ispočetka
+          checked_out:
+            description: Već ste glasali za proračun. Ako ste se predomislili, možete %{cancel_link}.
+            title: Glasanje o proračunu je dovršeno
+          description: Prema vašem mišljenju, kojim bismo projektima trebali dodijeliti proračunska sredstva? Dodijelite najmanje %{minimum_budget} projektima koje želite i glasajte prema svojim preferencijama kako biste odredili proračun.
           description_minimum_projects_rule: Prema vašem mišljenju, kojim bismo projektima trebali dodijeliti proračunska sredstva? Odaberite barem (%{minimum_number}) projekt/projekata koje želite i glasajte prema svojim preferencijama kako biste odredili proračun.
+          title: Odlučujete o proračunu
+        filters:
+          category: Kategorija
+          scope: Tema
+          search: Pretraži
+          status_values:
+            all: Sve
+            not_selected: Nije odabrano
+            selected: Odabrano
+        filters_small_view:
+          close_modal: Zatvori modalni prozor
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Otvori
+        order_progress:
+          vote: Glasanje
+        order_selected_projects:
+          remove: Ukloni
+          view: Prikaži
+        orders:
+          highest_cost: Najviši trošak
+          label: Poredaj projekte po
+          lowest_cost: Najniži trošak
+          most_voted: Najviše glasova
+          random: Nasumični redoslijed
+          selected: Odabrano
+        project:
+          add: Dodajte %{resource_name} projektima za glasanje
+          remove: Uklonite %{resource_name} iz projekata za glasanje
+          selected: Odabrano
+          view: Prikaži
+          you_voted: Glasali ste
+        project_budget_button:
+          add: Dodajte projektima za glasanje
+          add_descriptive: Dodajte %{resource_name} projektima za glasanje
+          added: Dodano je projektima za glasanje
+          added_descriptive: Projekt %{resource_name} dodan je projektima za glasanje
+        projects_for: Projekti za %{name}
+        show:
+          budget: Proračun
+          view_all_projects: Prikaži sve projekte
     components:
       budgets:
+        actions:
+          vote: Glasanje
+        name: Proračuni
         settings:
           global:
+            announcement: Objava
+            comments_enabled: Komentari su omogućeni
+            comments_max_length: Maksimalna duljina komentara (ostavite 0 za zadanu vrijednost)
+            form:
+              errors:
+                budget_voting_rule_only_one: Mora se omogućiti samo jedno pravilo glasanja
+                budget_voting_rule_required: Potrebno je jedno pravilo glasanja
+            landing_page_content: Odredišna stranica proračuna
             more_information_modal: Informativni modalni prozor
+            projects_per_page: Projekata po stranici
+            resources_permissions_enabled: Za svaki sastanak mogu se odrediti dopuštenja za radnje
+            total_budget: Ukupni proračun
+            vote_minimum_budget_projects_number: Minimalni broj projekata za glasanje
+            vote_rule_minimum_budget_projects_enabled: 'Omogući pravilo: minimalni broj projekata o kojima će se glasati'
+            vote_rule_threshold_percent_enabled: 'Omogući pravilo: minimalni postotak proračuna'
+            vote_threshold_percent: Postotak praga glasanja
+            workflow: Tijek rada
+            workflow_choices:
+              all: 'Glasaj u svim: omogućuje sudionicima da glasaju u svim proračunima.'
+              one: 'Glasaj u jednom: omogućuje sudionicima da glasaju u bilo kojem proračunu, ali samo u jednom.'
+          step:
+            announcement: Objava
+            comments_blocked: Komentari su blokirani
+            highlighted_heading: Istaknut naslov
+            landing_page_content: Odredišna stranica proračuna
+            list_heading: Navedi naslov
+            more_information_modal: Informativni modalni prozor
+            show_votes: Prikaži glasove
+            title: Naslov
+            votes: Glasanje
+            votes_choices:
+              disabled: Glasanje je onemogućeno
+              enabled: Glasanje je omogućeno
+              finished: Glasanje je dovršeno
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Proračun %{resource_title} sada je aktivan za participativni prostor %{participatory_space_title}. Možete ih vidjeti na stranici:'
+          email_outro: Primili ste ovu obavijest jer pratite participativni prostor %{participatory_space_title}. Klikom na prethodnu poveznicu možete zaustaviti primanje obavijesti.
+          email_subject: Proračun %{resource_title} sada je aktivan za participativni prostor %{participatory_space_title}.
+          notification_title: Proračun <a href="%{resource_path}">%{resource_title}</a> sada je aktivan za participativni prostor %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Došlo je do problema pri obradi vašeg glasa
+        success: Vaš je glas uspješno prihvaćen
+      destroy:
+        error: Došlo je do problema pri poništavanju vašeg glasa
+        success: Vaš je glas uspješno poništen
+    resource_links:
+      included_proposals:
+        project_proposal: 'Prijedlozi uključeni u ovaj projekt:'
+  index:
+    confirmed_orders_count: Broj glasova
+  total_budget: Ukupni proračun
