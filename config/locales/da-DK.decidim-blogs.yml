@@ -1,11 +1,83 @@
 da:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nyt blogindlæg
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Indlæg
+        other: Indlæg
   decidim:
     blogs:
+      actions:
+        confirm_destroy: Er du sikker på, at du vil slette dette indlæg?
+        destroy: Slet
+        edit: Rediger
+        new: Nyt indlæg
+        title: Handlinger
+      admin:
+        models:
+          components:
+            body: Brødtekst
+          post:
+            name: Indlæg
+        posts:
+          create:
+            invalid: Der opstod et problem med dette indlæg
+            success: Indlæg oprettet
+          destroy:
+            success: Indlæg slettet
+          edit:
+            save: Opdater
+          index:
+            title: Indlæg
+          new:
+            create: Opret
+            title: Opret indlæg
+          update:
+            invalid: Der var et problem med at gemme indlægget.
+            success: Indlæg gemt
+      last_activity:
+        new_post_at_html: "<span>Nyt indlæg på %{link}</span>"
       models:
         post:
           fields:
+            author: Forfatter
+            body: Brødtekst
             created_at: Oprettet kl.
+            title: titel
+      posts:
+        show:
+          back: Tilbage til listen
+          comments: Bemærkninger
+          view: Vis
+        sidebar_blog:
+          comments: bemærkninger
+          most_commented_posts: De mest kommenterede indlæg
+      read_more: Læs mere
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Meddelelse
+            comments_enabled: Bemærkninger aktiveret
+            comments_max_length: Bemærkninger maksimumslængde (Lad 0 forblive standardværdi)
+          step:
+            announcement: Meddelelse
+            comments_blocked: Bemærkninger blokeret
+            endorsements_blocked: Blokerede anbefalinger
+            endorsements_enabled: Anbefalinger aktiveret
     events:
       blogs:
         post_created:
           email_intro: Indlægget "%{resource_title}" er blevet offentliggjort på ”%{participatory_space_title}”, som du følger.
+          email_outro: Du har modtaget denne anmeldelse, fordi du følger "%{participatory_space_title}". Du kan stoppe med at følge det fra det tidligere link.
+          email_subject: Nyt indlæg offentliggjort på %{participatory_space_title}
+          notification_title: Inlægget <a href="%{resource_path}">%{resource_title}</a> er blevet offentliggjort på %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Indlæg
+    participatory_processes:
+      statistics:
+        posts_count: Indlæg
