@@ -1,1 +1,235 @@
 mt:
+  activemodel:
+    attributes:
+      answer:
+        description: Deskrizzjoni
+        image: Immaġni
+        proposals: Proposti relatati
+        title: Titlu
+      election:
+        description: Deskrizzjoni
+        end_time: Il-votazzjoni tintemm fi
+        start_time: Il-votazzjoni tibda fi
+        title: Titlu
+      question:
+        description: Deskrizzjoni
+        max_selections: Numru massimu ta' għażliet
+        title: Titlu
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Jeħtieġ li jerġa’ jinhemeż
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Jeħtieġ li jerġa’ jinhemeż
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Ivvota
+        name: Elezzjonijiet
+        settings:
+          global:
+            announcement: Tħabbira
+          step:
+            announcement: Tħabbira
+    elections:
+      actions:
+        confirm_destroy: Żgur?
+        destroy: Eqred
+        edit: Editja
+        edit_answers: Editja t-tweġibiet
+        edit_questions: Editja l-mistoqsijiet
+        import: Importa l-proposti għat-tweġibiet
+        new: '%{name} ġdid'
+        publish: Ippubblika
+        title: Azzjonijiet
+        unpublish: Neħħi mill-pubblikazzjoni
+      admin:
+        answers:
+          create:
+            invalid: Kien hemm problema biex tinħoloq din it-tweġiba
+            success: It-tweġiba inħolqot
+          destroy:
+            invalid: Kien hemm problema biex titħassar din it-tweġiba
+            success: It-tweġiba tħassret
+          edit:
+            title: Editja t-tweġiba
+            update: Aġġorna t-tweġiba
+          index:
+            title: Tweġibiet
+          new:
+            create: Oħloq tweġiba
+            title: Tweġiba ġdida
+          update:
+            invalid: Kien hemm problema biex tiġi aġġornata din it-tweġiba
+            success: It-tweġiba ġiet aġġornata
+        elections:
+          create:
+            invalid: Kien hemm problema biex tinħoloq din l-elezzjoni
+            success: L-elezzjoni inħolqot
+          destroy:
+            invalid: Kien hemm problema biex titħassar din l-elezzjoni
+            success: L-elezzjoni tħassret
+          edit:
+            title: Editja l-elezzjoni
+            update: Aġġorna l-elezzjoni
+          index:
+            title: Elezzjonijiet
+          new:
+            create: Oħloq elezzjoni
+            title: Elezzjoni ġdida
+          publish:
+            success: L-elezzjoni ġiet ippubblikata.
+          unpublish:
+            success: L-elezzjoni tneħħiet mill-pubblikazzjoni.
+          update:
+            invalid: Kien hemm problema biex tiġi aġġornata din l-elezzjoni
+            success: L-elezzjoni ġiet aġġornata
+        models:
+          answer:
+            name: Tweġiba
+          election:
+            name: Elezzjoni
+          question:
+            name: Mistoqsija
+        proposals_imports:
+          create:
+            invalid: Kien hemm problema biex il-proposti jiġu importati fit-tweġibiet
+            success: "Numru ta’ proposti li ġew importati fit-tweġibiet: %{number}"
+          new:
+            create: Importa l-proposti għat-tweġibiet
+            no_components: Ma hemm l-ebda komponent ieħor ta’ proposti f’dan l-ispazju parteċipatorju biex il-proposti jiġu importati fit-tweġibiet.
+            select_component: Jekk jogħġbok agħżel komponent
+        questions:
+          create:
+            invalid: Kien hemm problema biex tinħoloq din il-mistoqsija
+            success: Il-mistoqsija nħolqot
+          destroy:
+            invalid: Kien hemm problema biex titħassar din il-mistoqsija
+            success: Il-mistoqsija tħassret
+          edit:
+            title: Editja l-mistoqsija
+            update: Aġġorna l-mistoqsija
+          index:
+            title: Mistoqsijiet
+          new:
+            create: Oħloq mistoqsija
+            title: Mistoqsija ġdida
+          update:
+            invalid: Kien hemm problema biex tiġi aġġornata din il-mistoqsija
+            success: Il-mistoqsija ġiet aġġornata
+      admin_log:
+        election:
+          publish: "%{user_name} ippubblika l-elezzjoni %{resource_name}"
+          unpublish: "%{user_name} neħħa l-pubblikazzjoni tal-elezzjoni %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Lesti
+          ongoing: Attivi
+          upcoming: Li Ġejjin
+        end_date: Tintemm
+        footer:
+          view: Ara
+          vote: Ivvota
+        label:
+          date: Dati
+        questions: Mistoqsijiet %{count}
+        start_date: Tibda
+        unspecified: Mhux speċifikat
+      elections:
+        filters:
+          active: Attivi
+          all: Kollha
+          finished: Lesti
+          search: Fittex
+          upcoming: Li Ġejjin
+        filters_small_view:
+          close_modal: Agħlaq il-kaxxa ż-żgħira
+          filter: Iffiltra
+          filter_by: Iffiltra skont
+          unfold: Iftaħ
+        show:
+          back: L-elezzjonijiet kollha
+          vote: Ivvota
+          voting_period_status:
+            finished: Il-votazzjoni bdiet fil-%{start_time} u ntemmet fil-%{end_time}
+            ongoing: Il-votazzjoni tispiċċa fil-%{end_time}
+            upcoming: Il-votazzjoni tibda fil-%{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Proposti
+            title: Titlu
+        election:
+          fields:
+            end_time: Tmiem fi
+            start_time: Tibda fi
+            title: Titlu
+        question:
+          fields:
+            answers: Tweġibiet
+            max_selections: Għażliet massimi
+            title: Titlu
+      orders:
+        label: Organizza l-elezzjonijiet skont
+        older: L-eqdem
+        recent: Reċenti
+      votes:
+        confirm:
+          answer: Tweġiba
+          answer_number: tweġiba %{number}
+          confirm: Ikkonferma
+          edit: editja
+          header: Ikkonferma l-vot tiegħek
+          intro: Dan huwa sommarju tal-vot li se titfa’ dalwaqt. <br> Ikkonferma l-vot tiegħek jew editja t-tweġibiet tiegħek.
+          question: Mistoqsija %{count}
+        confirmed:
+          back: Lura għall-elezzjonijiet
+          experience: Kif kienet l-esperjenza tiegħek?
+          feedback: Agħtina xi feedback
+          header: Il-vot ikkonfermat
+          lead: Il-vot tiegħek diġà ġie mitfugħ!
+          text: 'Tista’ tivverifika li l-vot tiegħek ġie miżjud b’suċċess fil-kaxxa tal-voti bl-identifikatur li ġej: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Biex tivverifikah, ikkopja l-identifikatur u ppejstjah fuq <a href="evote-verify">il-paġna ta’ verifika tal-voti</a>
+        encrypting:
+          header: Kodifikazzjoni tal-vot...
+          text: Il-vot tiegħek qed jiġi kriptat biex jiġi żgurat li tkun tista’ titfgħu b’mod anonimu.
+        header:
+          confirm: Ikkonferma l-vot tiegħek
+          confirmed: Il-vot ikkonfermat
+          encrypting: Konferma tal-vot
+        messages:
+          not_allowed: Għall-mument ma tistax tivvota f’din l-elezzjoni.
+        modal:
+          close: Agħlaq
+          proposal_header: 'Proposti:'
+        new:
+          answer_choices: Tista’ tagħżel sa %{choices} tweġibiet jew ma tagħżel xejn
+          more_information: Aktar informazzjoni
+          preview_alert: Din hija previżjoni tal-kabina tal-votazzjoni.
+          question_steps: Mistoqsija %{current_step} minn %{total_steps}
+          selections: "%{selected} minn %{max_selections}<br> għażliet"
+        voting_step:
+          back: Lura
+          continue: Li jmiss
+      warnings:
+        no_elections_warning: L-ebda elezzjoni ma taqbel mal-kriterji ta’ tiftix tiegħek jew ma hemm l-ebda elezzjoni skedata.
+        no_scheduled_elections_warning: Bħalissa, ma hemm l-ebda elezzjoni skedata, iżda hawnhekk tista’ ssib elenkati l-elezzjonijiet kollha tal-passat.
+    events:
+      elections:
+        election_published:
+          email_intro: 'L-elezzjoni %{resource_title} issa hija attiva għal %{participatory_space_title}. Tista’ tarah minn din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi %{participatory_space_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: L-elezzjoni %{resource_title} issa hija attiva għal %{participatory_space_title}.
+          notification_title: L-elezzjoni <a href="%{resource_path}">%{resource_title}</a> issa hija attiva għal %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Elezzjonijiet
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Ħruġ
