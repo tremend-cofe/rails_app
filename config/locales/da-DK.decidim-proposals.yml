@@ -1,1 +1,46 @@
 da:
+  activemodel:
+    attributes:
+      proposal:
+        answered_at: Svaret kl.
+  decidim:
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            notification_title: Nogen har efterladt en note til forslaget <a href="%{resource_path}">%{resource_title}</a>. Tjek det ud på <a href="%{admin_proposal_info_path}">adminpanelet</a>
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} har fået accept af at få adgang som bidragyder til samarbejdsudkastet <a href="%{resource_path}">%{resource_title}</a>.'
+        proposal_accepted:
+          follower:
+            email_outro: Du har modtaget denne underretning, fordi du følger "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
+        proposal_evaluating:
+          follower:
+            email_outro: Du har modtaget denne underretning, fordi du følger "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
+        proposal_published:
+          email_subject: Nyt forslag "%{resource_title}" af %{author_nickname}
+        proposal_rejected:
+          follower:
+            email_outro: Du har modtaget denne underretning, fordi du følger "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
+    proposals:
+      admin:
+        participatory_texts:
+          new_import:
+            document_legend: 'Tilføj et dokument, der er mindre end 2 MB, hver sektion indtil 3 niveauer dybt vil blive analyseret i forslag. Understøttede formater er: %{valid_mime_types}'
+      collaborative_drafts:
+        requests:
+          access_requested:
+            error: Din anmodning kunne ikke færdiggøres, prøv igen senere.
+        wizard_steps:
+          step_of: Trin %{current_step_num} af %{total_steps}
+      models:
+        proposal:
+          fields:
+            published_at: Offentliggjort kl.
+      proposals:
+        preview:
+          proposal_edit_before_minutes:
+            one: Du vil være i stand til at redigere dette forslag i det første minut, efter at forslaget er offentliggjort. Når dette tidsvindue er gået, kan du ikke redigere forslaget.
+            other: Du vil være i stand til at redigere dette forslag i det første %{count} minut, efter at forslaget er offentliggjort. Når dette tidsvindue er gået, kan du ikke redigere forslaget.
+        wizard_steps:
+          step_of: Trin %{current_step_num} af %{total_steps}
