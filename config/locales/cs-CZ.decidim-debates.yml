@@ -1,6 +1,194 @@
 cs:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorie
+        closed_at: Uzavřeno
+        conclusions: Závěry
+        decidim_category_id: Kategorie
+        description: Popis
+        end_time: Končí
+        information_updates: Aktualizace informací
+        instructions: Instrukce k účasti
+        start_time: Začíná
+        title: Název
+        user_group_id: Vytvořit diskusi jako
+    models:
+      decidim/debates/close_debate_event: Diskuse uzavřena
+      decidim/debates/create_debate_event: Diskuse
+      decidim/debates/creation_disabled_event: Diskuse deaktivovány
+      decidim/debates/creation_enabled_event: Diskuse povoleny
   decidim:
+    components:
+      debates:
+        actions:
+          create: Vytvořit
+          endorse: Schválit
+        name: Diskuse
+        settings:
+          global:
+            announcement: Oznámení
+            comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentářů (nechte 0 jako standardní hodnotu)
+          step:
+            announcement: Oznámení
+            comments_blocked: Komentáře blokovány
+            creation_enabled: Tvorba diskuse ze strany účastníků povolena
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
+    debates:
+      actions:
+        close: Zavřít
+        confirm_destroy: Jste si jistí?
+        destroy: Smazat
+        edit: Upravit
+        new: Nová %{name}
+        title: Akce
+      admin:
+        debate_closes:
+          edit:
+            close: Zavřít
+            title: Zavřít diskusi
+        debates:
+          create:
+            invalid: Při tvorbě diskuse došlo k problému.
+            success: Diskuse byla úspěšně vytvořena.
+          destroy:
+            success: Diskuse byla úspěšně smazána.
+          edit:
+            title: Upravit diskusi
+            update: Aktualizovat diskusi
+          index:
+            title: Diskuse
+          new:
+            create: Vytvořit diskusi
+            title: Nová diskuse
+          update:
+            invalid: Při aktualizaci diskuse došlo k problému.
+            success: Diskuse byla úspěšně aktualizována.
+        models:
+          debate:
+            name: Diskuse
+      admin_log:
+        debate:
+          close: "Uživatel %{user_name} uzavřel diskusi %{resource_name} v prostoru %{space_name}"
+          create: "Uživatel %{user_name} vytvořil diskusi %{resource_name} v prostoru %{space_name}"
+          update: "Uživatel %{user_name} aktualizoval diskusi %{resource_name} v prostoru %{space_name}"
+      debates:
+        close:
+          invalid: Při uzavírání diskuse došlo k problému.
+          success: Diskuse byla úspěšně uzavřena.
+        close_debate_modal:
+          close: Zavřít
+          description: Co je shrnutím nebo závěrem této diskuse?
+          send: Zavřít diskusi
+        closed: Uzavřeno
+        create:
+          invalid: Při tvorbě diskuse došlo k problému.
+          success: Diskuse byla úspěšně vytvořena.
+        debate:
+          participate: Účastnit se
+        edit:
+          back: Zpět
+          save: Uložit změny
+          title: Upravit diskusi
+        filters:
+          all: Vše
+          category: Kategorie
+          category_prompt: Zvolit kategorii
+          citizens: Občané
+          official: Oficiální
+          origin: Původ
+          search: Hledat
+        filters_small_view:
+          close_modal: Zavřít modální okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        form:
+          select_a_category: Zvolte kategorii
+        index:
+          new_debate: Nová diskuse
+        new:
+          back: Zpět
+          create: Vytvořit
+          title: Nová diskuse
+        show:
+          back: Zpět k seznamu
+          close_debate: Zavřít diskusi
+          date: Datum
+          debate_closed: Uzavřeno
+          debate_conclusions_are: 'Diskuse byla uzavřena dne %{date} s těmito závěry:'
+          edit_conclusions: Upravit závěry
+          edit_debate: Upravit diskusi
+          groups_count: Skupiny
+          last_comment_by: Poslední komentář od
+          no_comments_yet: Zatím žádné komentáře
+          participants_count: Účastníci
+        update:
+          invalid: Při aktualizaci diskuse došlo k problému.
+          success: Diskuse byla úspěšně aktualizována.
+        versions:
+          debates:
+            back_to_resource: Vrátit se zpět k diskusi
+          index:
+            title: Verze
+        versions_list:
+          back_to_resource: Vrátit se zpět k diskusi
+      last_activity:
+        new_debate_at_html: "<span>Nová diskuse na %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Datum ukončení
+            official_debate: Oficiální diskuse
+            start_time: Datum zahájení
+            title: Název
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Dobrý den,
+              nová diskuse "%{resource_title}" byla vytvořena v prostoru pro účastníky %{space_title}, podívejte se na ni a přispějte:
+            email_outro: Toto oznámení jste obdrželi, protože sledujete prostor pro účastníky %{space_title}. Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+            email_subject: Nová diskuse "%{resource_title}" v %{space_title}
+            notification_title: Diskuse <a href="%{resource_path}">%{resource_title}</a> byla vytvořena v prostoru <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Dobrý den,
+              autor %{author_name} %{author_nickname}, kterého sledujete, vytvořil novou diskusi "%{resource_title}". Podívejte se na ni a přispějte:
+            email_outro: Toto oznámení jste obdrželi, protože sledujete autora %{author_nickname}. Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+            email_subject: Nová diskuse "%{resource_title}" od autora %{author_nickname}
+            notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil diskusi <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Tvorba diskuse již v prostoru %{participatory_space_title} není aktivní. Otevřených diskusí se stále můžete účastnit z této stránky:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete prostor %{participatory_space_title}. Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+          email_subject: Tvorba diskusí byla v prostoru %{participatory_space_title} zrušena
+          notification_title: Tvorba diskusí je v prostoru <a href="%{participatory_space_url}">%{participatory_space_title}</a> nyní zrušena
+        creation_enabled:
+          email_intro: 'Můžete zahájit nové diskuse v prostoru %{participatory_space_title}. Zapojte se na této stránce:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete prostor %{participatory_space_title}. Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+          email_subject: Diskuse jsou nyní dostupné v prostoru %{participatory_space_title}
+          notification_title: Nyní můžete zahájit <a href="%{resource_path}">nové diskuse</a> v prostoru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Diskuse "%{resource_title}" byla uzavřena. Závěry si můžete přečíst na její stránce:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete diskusi "%{resource_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
+          email_subject: Diskuse "%{resource_title}" byla uzavřena
+          notification_title: Diskuse <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
     gamification:
       badges:
         commented_debates:
+          conditions: Vyberte si otevřenou diskusi, které se chcete účastnit
+          description: Tento odznak získáte, pokud se budete aktivně účastnit různých diskusí tak, že do nich napíšete komentáře.
+          description_another: 'Počet diskusí, na kterých se tento účastník podílel: %{score}.'
+          description_own: 'Počet diskusí, na kterých jste se podíleli: %{score}.'
+          name: Diskuse
           next_level_in: Pokud se chcete dostat na další úroveň, je potřeba se účastnit dalších %{score} diskusí.
+          unearned_another: Tento účastník se zatím nezapojil do žádné diskuse.
+          unearned_own: Zatím jste se nezapojili do žádné diskuse.
+    metrics:
+      debates:
+        description: Počet vytvořených diskusí
+        object: diskuse
+        title: Diskuse
