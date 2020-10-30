@@ -1,7 +1,211 @@
 hr:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategorija
+        decidim_scope_id: Tema
+        description: Opis
+        end_date: Datum završetka
+        progress: Napredak
+        project_ids: Uključeni projekti
+        proposals: Uključeni prijedlozi
+        start_date: Datum početka
+        title: Naslov
+        updated_at: Ažurirano
+      status:
+        description: Opis
+        key: Legenda
+        name: Naziv
+        progress: Napredak
+      timeline_entry:
+        description: Opis
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Prijedlog je uključen u rezultat
+      decidim/accountability/result_progress_updated_event: Napredak rezultata je ažuriran
   decidim:
     accountability:
+      actions:
+        confirm_destroy: Želite li zaista izbrisati %{name}?
+        destroy: Izbriši
+        edit: Uređivanje
+        import_csv: Uvezi CSV
+        new: Novi %{name}
+        preview: Pretpregled
+        timeline_entries: Razvoj projekta
+        title: Radnje
       admin:
+        exports:
+          results: Rezultati
+        import_results:
+          new:
+            import: Uvezi
+            info: "<p>Preporučujemo da slijedite ove korake:</p><ol><li>Stvorite statuse za rezultate koje želite dodati (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Kako biste što bolje razumjeli format i ono što je potrebno ispuniti, ručno stvorite najmanje jedan rezultat putem ove administratorske ploče (<a href='%{link_new_result}' target='_blank'>link</a>) prije uvoza.</li><li>Preuzmite izvoznu datoteku u formatu CSV (%{link_export_csv})</li><li>Načinite promjene lokalno. Možete promijeniti samo sljedeće stupce CSV-a:</li></ol><ul><li><b>category/id:</b> identifikacijska oznaka za kategoriju</li><li><b>scope/id:</b> identifikacijska oznaka za temu</li><li><b>parent/id:</b> identifikacijska oznaka nadređenog elementa (za povezane rezultate). Neobvezno</li><li><b>title/I18N:</b> naslov na jeziku X </li><li><b>description/I18N:</b> opis na jeziku X</li><li><b>start_date:</b> datum početka izvršenja rezultata (format GGGG-MM-DD)</li><li><b>end_date:</b> datum završetka izvršenja rezultata (format GGGG-MM-DD)</li><li><b>status/id:</b> identifikacijska oznaka statusa rezultata</li><li><b>progress:</b> postotak (od 0 do 100) izvršenja</li><li><b>proposals_ids:</b> interna identifikacijska oznaka za povezane prijedloge (odvojene zarezom). Automatski se pretvara u <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: poveznica
+            title: Uvezi rezultate iz CSV-a
         imports:
           create:
             success: Datoteka se počela uvoziti. Začas ćete primiti poruku e-pošte s rezultatom uvoza.
+        models:
+          result:
+            name: Rezultat
+          timeline_entry:
+            name: Unos rasporeda
+        results:
+          create:
+            invalid: Došlo je do problema pri stvaranju rezultata
+            success: Rezultat je uspješno stvoren
+          destroy:
+            success: Rezultat je uspješno izbrisan
+          edit:
+            title: Uređivanje rezultata
+            update: Ažuriraj rezultat
+          index:
+            title: Rezultati
+          new:
+            create: Stvori rezultat
+            title: Novi rezultat
+          update:
+            invalid: Došlo je do problema pri ažuriranju rezultata
+            success: Rezultat je uspješno ažuriran
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Došlo je do problema pri stvaranju statusa
+            success: Status je uspješno stvoren
+          destroy:
+            success: Status je uspješno izbrisan
+          edit:
+            title: Uređivanje statusa
+            update: Ažuriraj status
+          index:
+            title: Status
+          new:
+            create: Stvori status
+            title: Novi status
+          update:
+            invalid: Došlo je do problema pri ažuriranju statusa
+            success: Status je uspješno ažuriran
+        timeline_entries:
+          create:
+            invalid: Došlo je do problema pri stvaranju unosa
+            success: Unos je uspješno stvoren
+          destroy:
+            success: Unos je uspješno izbrisan
+          edit:
+            title: Uređivanje unosa
+            update: Ažuriraj unos
+          index:
+            title: Unosi u raspored projekta
+          new:
+            create: Stvori unos
+            title: Novi unos
+          update:
+            invalid: Došlo je do problema pri ažuriranju unosa
+            success: Unos je uspješno ažuriran
+      admin_log:
+        result:
+          create: "%{user_name} je stvorio rezultat %{resource_name} u %{space_name}"
+          delete: "%{user_name} je izbrisao rezultat %{resource_name} u %{space_name}"
+          update: "%{user_name} je ažurirao rezultat %{resource_name} u %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Nadređeni element nije pronađen u bazi podataka (identifikacijska oznaka: %{id})'
+      import_mailer:
+        import:
+          errors: Pogreške
+          errors_present: Došlo je do problema pri uvozu rezultata
+          row_number: Redak
+          subject: Uspješan uvoz rezultata
+          success: Uspješan uvoz rezultata. Rezultate možete pregledati u administratorskom sučelju.
+      last_activity:
+        new_result_at_html: "<span>Novi rezultat na %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Datum završetka
+            progress: Napredak
+            start_date: Datum početka
+            title: Naslov
+        status:
+          fields:
+            description: Opis
+            key: Legenda
+            name: Naziv
+            progress: Napredak
+        timeline_entry:
+          fields:
+            description: Opis
+            entry_date: Datum
+      results:
+        filters:
+          all: Sve
+          scopes: Teme
+        home:
+          categories_label: Kategorije
+          subcategories_label: Potkategorije
+        home_header:
+          global_status: Status općeg izvršenja
+        nav_breadcrumb:
+          global: Opće izvršenje
+        search:
+          search: Pretraži radnje
+        show:
+          stats:
+            attendees: Polaznici
+            back_to_resource: Povratak na rezultat
+            comments: Komentari
+            contributions: Doprinosi
+            last_edited_by: Zadnji put uređivao
+            last_updated_at: Zadnji put ažurirano
+            meetings: Sastanci
+            proposals: Prijedlozi
+            votes: Potpore
+        timeline:
+          title: Razvoj projekta
+    components:
+      accountability:
+        name: Odgovornost
+        settings:
+          global:
+            categories_label: Naziv za „Kategorije”
+            comments_enabled: Komentari su omogućeni
+            comments_max_length: Maksimalna duljina komentara (ostavite 0 za zadanu vrijednost)
+            display_progress_enabled: Prikaži napredak
+            heading_leaf_level_results: Naziv za „Projekte”
+            heading_parent_level_results: Naziv za „Rezultate”
+            intro: Uvod
+            subcategories_label: Naziv za „Potkategorije”
+          step:
+            comments_blocked: Komentari su blokirani
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Prijedlog "%{proposal_title}" uključen je u rezultat. Možete ih vidjeti na stranici:'
+          email_outro: Primili ste ovu obavijest jer pratite "%{proposal_title}". Klikom na prethodnu poveznicu možete zaustaviti primanje obavijesti.
+          email_subject: Ažuriranje prijedloga %{proposal_title}
+          notification_title: Prijedlog <a href="%{proposal_path}">%{proposal_title}</a> uključen je u rezultat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Rezultat "%{resource_title}", koji uključuje prijedlog "%{proposal_title}", sada je %{progress}% dovršen. Možete ih vidjeti na stranici:'
+          email_outro: Primili ste ovu obavijest jer pratite "%{proposal_title}", a ovaj je prijedlog uključen u rezultat "%{resource_title}". Klikom na prethodnu poveznicu možete zaustaviti primanje obavijesti.
+          email_subject: Ažuriranje napretka %{resource_title}
+          notification_title: Rezultat <a href="%{resource_path}">%{resource_title}</a>, koji uključuje prijedlog <a href="%{proposal_path}">%{proposal_title}</a>, sada je %{progress}% dovršen.
+    metrics:
+      results:
+        description: Broj generiranih rezultata
+        object: rezultati
+        title: Rezultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Rezultati
+    participatory_spaces:
+      highlighted_results:
+        see_all: Pogledajte sve rezultate (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekti koji su uključeni u ovaj rezultat
+      included_proposals:
+        result_proposal: Prijedlozi koji su uključeni u ovaj rezultat
