@@ -1,1 +1,220 @@
 fi:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Luokka
+        decidim_scope_id: Aihepiiri
+        description: Kuvaus
+        end_date: Päättymispäivä
+        progress: Edistyminen
+        project_ids: Sisällytetyt hankkeet
+        proposals: Sisällytetyt ehdotukset
+        start_date: Alkamispäivä
+        title: Otsikko
+        updated_at: Päivitysajankohta
+      status:
+        description: Kuvaus
+        key: Avain
+        name: Nimi
+        progress: Edistyminen
+      timeline_entry:
+        description: Kuvaus
+        entry_date: Päivämäärä
+    models:
+      decidim/accountability/proposal_linked_event: Ehdotus sisältyy tulokseen
+      decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitettiin onnistuneesti
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Tulos
+        other: Tulokset
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Haluatko varmasti poistaa kohteen %{name}?
+        destroy: Poista
+        edit: Muokkaa
+        import_csv: Tuo CSV
+        new: Uusi %{name}
+        preview: Esikatselu
+        timeline_entries: Hankkeen kehitys
+        title: Toiminnot
+      admin:
+        exports:
+          results: Tulokset
+        import_results:
+          new:
+            import: Tuo
+            info: "<p>Suosittelemme, että seuraat näitä vaiheita:</p><ol><li>Luo niiden tulosten statukset, jotka haluat lisätä (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Luo ainakin yksi tulos manuaalisesti hallintapaneelin kautta (<a href='%{link_new_result}' target='_blank'>link</a>) ennen kuin käytät tuo-toimintoa, jotta saat paremman käsityksen muodosta ja siitä, mitä tietoja sinun tulee täyttää.</li><li>Lataa tiedosto CSV-muodossa (%{link_export_csv})</li><li>Tee muutokset paikallisesti. Vain seuraavia CSV-tiedoston sarakkeita voi muuttaa:</li></ol><ul><li><b>category/id:</b> luokan tunnus</li><li><b>scope/id:</b> aihepiirin tunnus</li><li><b>parent/id:</b> ylätason tunnus (aiheeseen liittyviä tuloksia varten). Valinnainen</li><li><b>title/I18N:</b> Kielen X otsikko</li><li><b>description/I18N:</b> Kielen X kuvaus</li><li><b>start_date:</b> päivämäärä, jolloin tuloksen toteutus alkaa (muoto YYYY-MM-DD)</li><li><b>end_date:</b> päivämäärä, jolloin tuloksen toteutus päättyy (muoto YYYY-MM-DD)</li><li><b>status/id:</b> tämän tuloksen statuksen tunnus</li><li><b>progress:</b> Toteutuksen prosenttiosuus (0–100)</li><li><b>proposals_ids:</b> liittyvien ehdotusten sisäinen tunnus (eroteltu pilkulla). Se muutetaan automaattisesti kohteeksi <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: linkki
+            title: Tuo tulokset CSV-tiedostosta
+        imports:
+          create:
+            success: Tiedoston tuominen on alkanut. Saat lähiminuutteina sähköpostin, jossa ilmoitetaan tuonnin tulos
+        models:
+          result:
+            name: Tulos
+          timeline_entry:
+            name: Aikajanasyöte
+        results:
+          create:
+            invalid: Tuloksen luominen epäonnistui
+            success: Tulos luotiin onnistuneesti
+          destroy:
+            success: Tulos poistettiin onnistuneesti
+          edit:
+            title: Muokkaa tulosta
+            update: Päivitä tulos
+          index:
+            title: Tulokset
+          new:
+            create: Luo tulos
+            title: Uusi tulos
+          update:
+            invalid: Tuloksen päivittäminen epäonnistui
+            success: Tulos päivitettiin onnistuneesti
+        shared:
+          subnav:
+            statuses: Statukset
+        statuses:
+          create:
+            invalid: Statuksen luominen epäonnistui
+            success: Status luotiin onnistuneesti
+          destroy:
+            success: Status poistettiin onnistuneesti
+          edit:
+            title: Muokkaa statusta
+            update: Päivitä status
+          index:
+            title: Statukset
+          new:
+            create: Luo status
+            title: Uusi status
+          update:
+            invalid: Statuksen päivittäminen epäonnistui
+            success: Status päivitettiin onnistuneesti
+        timeline_entries:
+          create:
+            invalid: Merkinnän luominen epäonnistui
+            success: Merkintä luotiin onnistuneesti
+          destroy:
+            success: Merkintä poistettiin onnistuneesti
+          edit:
+            title: Muokkaa merkintää
+            update: Päivitä merkintä
+          index:
+            title: Hankkeen aikajanan merkinnät
+          new:
+            create: Luo merkintä
+            title: Uusi merkintä
+          update:
+            invalid: Merkinnän päivittäminen epäonnistui
+            success: Merkintä päivitettiin onnistuneesti
+      admin_log:
+        result:
+          create: "%{user_name} loi tuloksen %{resource_name} kohteeseen %{space_name}"
+          delete: "%{user_name} poisti tuloksen %{resource_name} kohteessa %{space_name}"
+          update: "%{user_name} päivitti tuloksen %{resource_name} kohteessa %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Tietokannasta ei löytynyt ylätasoa (tunnus: %{id})'
+      import_mailer:
+        import:
+          errors: Virheet
+          errors_present: Tulosten tuominen epäonnistui
+          row_number: Rivi
+          subject: Tulokset tuotiin onnistuneesti
+          success: Tulokset tuotiin onnistuneesti. Voit tarkastella tuloksia hallintakäyttöliittymässä.
+      last_activity:
+        new_result_at_html: "<span>Uusi tulos kohteessa %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Päättymispäivä
+            progress: Edistyminen
+            start_date: Alkamispäivä
+            title: Otsikko
+        status:
+          fields:
+            description: Kuvaus
+            key: Avain
+            name: Nimi
+            progress: Edistyminen
+        timeline_entry:
+          fields:
+            description: Kuvaus
+            entry_date: Päivämäärä
+      results:
+        count:
+          results_count:
+            one: 1 tulos
+            other: "%{count} tulosta"
+        filters:
+          all: Kaikki
+          scopes: Aihepiirit
+        home:
+          categories_label: Luokat
+          subcategories_label: Alaluokat
+        home_header:
+          global_status: Kokonaistoteutuksen tila
+        nav_breadcrumb:
+          global: Kokonaistoteutus
+        search:
+          search: Hae toimintoja
+        show:
+          stats:
+            attendees: Osanottajat
+            back_to_resource: Palaa tulokseen
+            comments: Kommentit
+            contributions: Kontribuutiot
+            last_edited_by: Viimeisin muokkaaja
+            last_updated_at: Viimeisin päivitys
+            meetings: Kokoukset
+            proposals: Ehdotukset
+            votes: Tuenosoitukset
+        timeline:
+          title: Hankkeen kehitys
+    components:
+      accountability:
+        name: Vastuuvelvollisuus
+        settings:
+          global:
+            categories_label: '”Luokkien” nimi'
+            comments_enabled: Kommentit sallittu
+            comments_max_length: Kommenttien enimmäispituus (merkitse 0 saadaksesi oletusarvon)
+            display_progress_enabled: Näytä edistyminen
+            heading_leaf_level_results: '”Hankkeiden” nimi'
+            heading_parent_level_results: '”Tulosten” nimi'
+            intro: Esittely
+            subcategories_label: '”Alaluokkien” nimi'
+          step:
+            comments_blocked: Kommentit estetty
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Ehdotus "%{proposal_title}" on sisällytetty tulokseen. Se on nähtävissä tällä sivulla:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{proposal_title}". Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Kohde %{proposal_title} on päivitetty
+          notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Se on nähtävissä tällä sivulla:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{proposal_title}" ja tämä ehdotus sisältyy tulokseen "%{resource_title}". Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Kohteen %{resource_title} edistymistä on päivitetty
+          notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.
+    metrics:
+      results:
+        description: Tuotettujen tulosten määrä
+        object: tulosta
+        title: Tulokset
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Tulokset
+    participatory_spaces:
+      highlighted_results:
+        see_all: Näytä kaikki tulokset (%{count})
+    resource_links:
+      included_projects:
+        result_project: Tähän tulokseen sisältyvät hankkeet
+      included_proposals:
+        result_proposal: Tähän tulokseen sisältyvät ehdotukset
