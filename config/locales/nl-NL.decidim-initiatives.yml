@@ -1,1 +1,543 @@
 nl:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Auteur
+        description: Beschrijving
+        offline_votes: Persoonlijke handtekeningen
+        scope_id: Toepassingsgebied
+        signature_end_date: Einde periode voor het verzamelen van handtekeningen
+        signature_start_date: Begin periode voor het verzamelen van handtekeningen
+        signature_type: Type verzameling handtekeningen
+        signature_type_values:
+          any: Gemengd
+          offline: Persoonlijk
+        title: Titel
+      initiative_author:
+        address: Adres
+        city: Plaats
+        name: Voor- en achternaam
+        phone_number: Telefoonnummer
+        post_code: Postcode
+        province: Provincie
+      initiatives_committee_member:
+        user: Comitélid
+      initiatives_type:
+        area_enabled: Auteurs in staat stellen het gebied voor hun initiatief te kiezen
+        attachments_enabled: Bijlagen inschakelen
+        banner_image: Banner afbeelding
+        collect_user_extra_fields: Verzamelen van persoonsgegevens van deelnemers bij ondertekening
+        custom_signature_end_date_enabled: Auteurs in staat stellen het einde van de periode voor het verzamelen van handtekeningen te kiezen
+        description: Beschrijving
+        document_number_authorization_handler: Autorisatie om documentnummer op handtekeningen te verifiëren
+        extra_fields_legal_information: Juridische informatie over het verzamelen van persoonsgegevens
+        minimum_committee_members: Minimumaantal comitéleden
+        online_signature_enabled: Online-handtekening ingeschakeld
+        promoting_committee_enabled: Promotiecomité inschakelen
+        title: Titel
+        undo_online_signatures_enabled: Deelnemers in staat stellen hun online handtekeningen ongedaan te maken
+        validate_sms_code_on_votes: Stap voor validatie per sms aan het ondertekeningsproces toevoegen
+      initiatives_vote:
+        date_of_birth: Geboortedatum
+        document_number: Documentnummer
+        name_and_surname: Voor- en achternaam
+        postal_code: Postcode
+      organization_data:
+        address: Adres
+        id_document: ID-document
+        name: Volledige naam
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Bestand is ongeldig
+              needs_to_be_reattached: Moet opnieuw worden aangehecht
+              title: Titel mag niet leeg zijn
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initiatief
+        other: Initiatieven
+      decidim/initiative_comittee:
+        one: Comité
+        other: Comités
+      decidim/initiative_vote:
+        one: Handtekening
+        other: Handtekeningen
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Nieuw type initiatief
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Gebied
+          state_eq:
+            label: Status
+            values:
+              accepted: Genoeg handtekeningen
+              created: Aangemaakt
+              discarded: Verwijderd
+              published: Gepubliceerd
+              rejected: Niet genoeg handtekeningen
+              validating: Technische validatie
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} zoeken op titel, beschrijving, ID of naam van de auteur.'
+      menu:
+        initiatives: Initiatieven
+        initiatives_types: Typen initiatieven
+      models:
+        initiatives:
+          fields:
+            created_at: Aangemaakt op
+            published_at: Gepubliceerd op
+            supports_count: Handtekeningen
+            title: Initiatieven
+        initiatives_type_scope:
+          fields:
+            scope: Toepassingsgebied
+            supports_required: Handtekeningen vereist
+          name: Toepassingsgebied van het type initiatief
+        initiatives_types:
+          fields:
+            created_at: Aangemaakt op
+            title: Typen initiatieven
+          name: Type initiatief
+        initiatives_votes:
+          fields:
+            date_of_birth: Geboortedatum
+            document_number: Documentnummer
+            hash: Hashtag
+            initiative_end_date: Einddatum
+            initiative_id: ID initiatief
+            initiative_signatures_count: Aantal handtekeningen
+            initiative_start_date: Begindatum
+            initiative_title: Titel initiatief
+            name_and_surname: Voor- en achternaam
+            postal_code: Postcode
+            time_and_date: Tijdstip en datum
+            timestamp: Tijdregistratie
+      titles:
+        initiatives: Initiatieven
+        initiatives_types: Typen initiatieven
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Het initiatief "%{resource_title}" is naar technische validatie gestuurd. Bekijk het op <a href="%{admin_initiative_url}">het beheerderspaneel</a>
+            email_outro: U hebt dit bericht ontvangen omdat u een beheerder van het platform bent.
+            email_subject: Initiatief "%{resource_title}" is naar technische validatie gestuurd.
+            notification_title: Het initiatief "%{resource_title}" is naar technische validatie gestuurd. Bekijk het op <a href="%{admin_initiative_path}">het beheerderspaneel</a>
+        initiative_extended:
+          email_intro: De einddatum van de handtekeningen voor het initiatief %{resource_title} is verlengd!
+          email_outro: U hebt dit bericht ontvangen omdat u %{resource_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Einddatum voor handtekeningen voor het initiatief verlengd!
+          notification_title: De einddatum voor de handtekeningen voor het initiatief <a href="%{resource_path}">%{resource_title}</a> is verlengd.
+        milestone_completed:
+          affected_user:
+            email_intro: Uw initiatief %{resource_title} heeft %{percentage}% van de handtekeningen bereikt!
+            email_outro: U hebt dit bericht ontvangen omdat u de auteur bent van het initiatief %{resource_title}.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Uw initiatief <a href="%{resource_path}">%{resource_title}</a> heeft %{percentage}% handtekeningen bereikt.
+          follower:
+            email_intro: Het initiatief %{resource_title} heeft %{percentage}% van de handtekeningen bereikt!
+            email_outro: U hebt dit bericht ontvangen omdat u %{resource_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+            email_subject: Nieuwe mijlpaal voltooid!
+            notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> heeft %{percentage}% handtekeningen bereikt.
+        support_threshold_reached:
+          email_intro: Het initiatief %{resource_title} heeft de drempel voor steunbetuigingen bereikt
+          email_outro: U hebt dit bericht ontvangen omdat u een beheerder van het platform bent.
+          email_subject: Drempel steunbetuigingen bereikt
+          notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> heeft de drempel voor steunbetuigingen bereikt
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Ga naar de participatieruimte van initiatieven
+            Volg de stappen om een nieuw initiatief aan te maken
+          description: Deze badge wordt toegekend wanneer u nieuwe initiatieven start en samenwerkt met anderen om deze uit te voeren.
+          description_another: Deze deelnemer heeft %{score} initiatieven gepubliceerd.
+          description_own: U hebt %{score} initiatieven gepubliceerd.
+          name: Gepubliceerde initiatieven
+          next_level_in: Publiceer %{score} meer initiatieven om het volgende niveau te bereiken!
+          unearned_another: Deze deelnemer heeft nog geen initiatieven gepubliceerd.
+          unearned_own: U hebt nog geen initiatieven gepubliceerd.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Een <strong>initiatief</strong> is een voorstel dat iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan promoten door (digitale) handtekeningen te verzamelen voor de organisatie om een specifieke actie uit te voeren (een verordening wijzigen, een project openen, de naam van een afdeling of straatnaam wijzigen enz.).</p> <p>De promotors van een initiatief kunnen de doelstellingen ervan bepalen, steunbetuigingen verzamelen, erover debatteren, het verspreiden en ontmoetingspunten bepalen waar ze handtekeningen kunnen verzamelen of kunnen debatteren.</p> <p>Voorbeelden: Een initiatief kan handtekeningen verzamelen om een raadpleging onder alle personen van een organisatie te organiseren, een assemblee aan te maken of bijeen te roepen, of een proces van verhoging van de begroting voor een gebied of zone van de organisatie in gang te zetten. Tijdens het verzamelen van handtekeningen kunnen meer personen aan deze vraag tegemoetkomen en deze overdragen naar de organisatie.</p>\n"
+          page: "<p>Een <strong>initiatief</strong> is een voorstel dat iedereen op eigen initiatief (onafhankelijk van andere kanalen of participatieruimten) kan promoten door (digitale) handtekeningen te verzamelen voor de organisatie om een specifieke actie uit te voeren (een verordening wijzigen, een project openen, de naam van een afdeling of straatnaam wijzigen enz.).</p> <p>De promotors van een initiatief kunnen de doelstellingen ervan bepalen, steunbetuigingen verzamelen, erover debatteren, het verspreiden en ontmoetingspunten bepalen waar ze handtekeningen kunnen verzamelen of kunnen debatteren.</p> <p>Voorbeelden: Een initiatief kan handtekeningen verzamelen om een raadpleging onder alle personen van een organisatie te organiseren, een assemblee aan te maken of bijeen te roepen, of een proces van verhoging van de begroting voor een gebied of zone van de organisatie in gang te zetten. Tijdens het verzamelen van handtekeningen kunnen meer personen aan deze vraag tegemoetkomen en deze overdragen naar de organisatie.</p>\n"
+          title: Wat zijn initiatieven?
+    initiatives:
+      actions:
+        answer: Antwoord
+      admin:
+        answers:
+          edit:
+            answer: Antwoord
+            title: Antwoord voor %{title}
+          info_initiative:
+            created_at: Aangemaakt op
+            description: Beschrijving
+            initiative_votes_count: Aantal stemmen
+            initiatives: Initiatieven
+            state: Status
+        committee_requests:
+          index:
+            approve: Toestaan
+            confirm_revoke: Weet u het zeker?
+            invite_to_committee_help: Deel deze link om andere deelnemers uit te nodigen voor het promotorcomité
+            no_members_yet: Er zijn geen leden in het promotorcomité
+            revoke: Opheffen
+            title: Comitéleden
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximum aantal weer te geven elementen
+        exports:
+          initiatives: Initiatieven
+        initiatives:
+          edit:
+            accept: Initiatief accepteren
+            confirm: Weet u het zeker?
+            discard: Het initiatief verwijderen
+            export_pdf_signatures: PDF van handtekeningen exporteren
+            export_votes: Handtekeningen exporteren
+            reject: Initiatief afwijzen
+            send_to_technical_validation: Naar technische validatie sturen
+            success: Het initiatief is naar technische validatie gestuurd
+            update: Bijwerken
+          form:
+            attachments: Bijlagen
+            settings: Instellingen
+            title: Algemene informatie
+          index:
+            actions_title: Actie
+            preview: Voorbeeld
+            print: Afdrukken
+          initiative_attachments:
+            documents: Documenten
+            edit: Bewerken
+            new: Nieuw
+            photos: Foto’s
+          show:
+            print: Afdrukken
+          update:
+            error: Er is een fout opgetreden
+            success: Het initiatief is bijgewerkt
+        initiatives_type_scopes:
+          create:
+            error: Er is een fout opgetreden
+            success: Er is een nieuw toepassingsgebied aangemaakt voor het desbetreffende type initiatief
+          destroy:
+            success: Het toepassingsgebied is verwijderd
+          edit:
+            back: Terug
+            confirm_destroy: Weet u het zeker?
+            destroy: Verwijderen
+            title: Toepassingsgebied van initiatief bewerken
+            update: Bijwerken
+          new:
+            back: Terug
+            create: Aanmaken
+            title: Toepassingsgebied voor het type initiatief aanmaken
+          update:
+            error: Er is een fout opgetreden
+            success: Het toepassingsgebied is bijgewerkt
+        initiatives_types:
+          create:
+            error: Er is een fout opgetreden
+            success: Er is een nieuw type initiatief aangemaakt
+          destroy:
+            success: Het type initiatief is verwijderd
+          edit:
+            confirm_destroy: Weet u het zeker?
+            destroy: Verwijderen
+            update: Bijwerken
+          form:
+            title: Algemene informatie
+          initiative_type_scopes:
+            title: Toepassingsgebieden voor het type initiatief
+          new:
+            create: Aanmaken
+            title: Nieuw type initiatief
+          update:
+            error: Er is een fout opgetreden
+            success: Het type initiatief is bijgewerkt
+      admin_log:
+        initiative:
+          publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
+          send_to_technical_validation: "%{user_name} heeft het initiatief %{resource_name} naar technische validatie gestuurd"
+          unpublish: "%{user_name} heeft het initiatief %{resource_name} verwijderd"
+          update: "%{user_name} heeft het initiatief %{resource_name} bijgewerkt"
+      admin_states:
+        accepted: Genoeg handtekeningen
+        created: Aangemaakt
+        discarded: Verwijderd
+        published: Gepubliceerd
+        rejected: Niet genoeg handtekeningen
+        validating: Technische validatie
+      application_helper:
+        filter_area_values:
+          all: Alle
+        filter_scope_values:
+          all: Alle
+        filter_state_values:
+          accepted: Genoeg handtekeningen
+          all: Alle
+          answered: Beantwoord
+          closed: Gesloten
+          open: Openbaar
+          rejected: Niet genoeg handtekeningen
+        filter_type_values:
+          all: Alle
+      committee_requests:
+        new:
+          continue: Doorgaan
+          help_text: U staat op het punt een verzoek in te dienen om lid te worden van het promotorcomité van dit initiatief
+        spawn:
+          success: Uw verzoek is naar de auteur van het initiatief gestuurd.
+      content_blocks:
+        highlighted_initiatives:
+          name: Uitgelichte initiatieven
+      create_initiative:
+        fill_data:
+          back: Terug
+          continue: Doorgaan
+          fill_data_help: "<ul> <li>De inhoud van uw initiatief controleren. Is uw titel gemakkelijk te begrijpen? Is het doel van uw initiatief duidelijk?</li> <li>U moet het type ondertekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is het geografische toepassingsgebied van het initiatief? Plaats, wijk?</li> </ul>"
+          initiative_type: Type initiatief
+          more_information: "(Meer informatie)"
+          select_area: Een gebied selecteren
+          select_scope: Een toepassingsgebied selecteren
+        finish:
+          back: Terug
+          back_to_initiatives: Terug naar initiatieven
+          callout_text: Gefeliciteerd! Uw burgerinitiatief is aangemaakt.
+          confirm: Bevestigen
+          edit_my_initiative: Mijn initiatieven bewerken
+          go_to_my_initiatives: Ga naar mijn initiatieven
+          more_information: "(Meer informatie)"
+          send_my_initiative: Mijn initiatief verzenden
+        finish_help:
+          access_reminder: U kunt altijd toegang krijgen tot uw initiatieven via het deelnemersmenu.
+          help_for_organizations: Als u een vereniging bent, moet u de notulen uploaden van de raad van bestuur van alle organisaties die de promotiecommissie vormen
+          help_in_person_signatures: Als u ervoor hebt gekozen de handtekeningen persoonlijk of in combinatie met online te verzamelen, moet u de vereiste informatie uploaden.
+          help_text: Voor een goede verwerking van het initiatief gaat u naar het gebruikersmenu in het beheerderspaneel. Daar kunt u de vereiste informatie uploaden en voor verwerking versturen.
+          initiatives_page_link: U kunt al deze informatie opzoeken op de %{link} met informatie over initiatieven.
+          page: pagina
+        previous_form:
+          back: Terug
+          continue: Doorgaan
+          help: Waaruit bestaat het initiatief? Schrijf de titel en de beschrijving op. Gebruik een korte en beknopte titel en een beschrijving gericht op de voorgestelde oplossing.
+          more_information: "(Meer informatie)"
+        promotal_committee:
+          back: Terug
+          individual_help_text: Voor dit soort burgerinitiatieven is een promotiecommissie nodig, bestaande uit ten minste %{committee_size} personen (bekrachtigers). U moet de volgende link delen met de andere personen die deel uitmaken van dit initiatief. Wanneer uw contactpersonen deze link ontvangen, moeten zij de aangegeven stappen volgen.
+          more_information: "(Meer informatie)"
+        select_initiative_type:
+          back: Terug
+          choose_html: Ik wil een <strong>%{title}</strong> aanmaken
+          more_information: "(Meer informatie)"
+          select: Ik wil dit initiatief promoten
+          select_initiative_type_help: Burgerinitiatieven zijn een middel waarmee het burgerschap kan ingrijpen, zodat de gemeenteraad maatregelen kan nemen ter verdediging van het algemeen belang die onder de bevoegdheid van de gemeente vallen. Welk initiatief wilt u starten?
+        share_committee_link:
+          continue: Doorgaan
+          invite_to_committee_help: Link om personen uit te nodigen die deel zullen uitmaken van het promotorcomité
+        show_similar_initiatives:
+          back: Terug
+          compare_help: Als een van de volgende initiatieven vergelijkbaar is met dat van u, raden wij u aan het te ondertekenen. Uw voorstel krijgt meer mogelijkheden.
+          continue: Mijn initiatief is anders
+          more_information: "(Meer informatie)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, die u volgt, heeft een nieuw initiatief aangemaakt; u kunt het hier bekijken en bijdragen:"
+          email_outro: U hebt dit bericht ontvangen omdat u %{author_nickname} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Nieuw initiatief door %{author_nickname}
+          notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> is aangemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, die u volgt, heeft het volgende initiatief onderschreven; wellicht wilt u bijdragen aan het gesprek:"
+          email_outro: U hebt dit bericht ontvangen omdat u %{author_nickname} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Initiatief onderschreven door %{author_nickname}
+          notification_title: Het initiatief <a href="%{resource_path}">%{resource_title}</a> is onderschreven door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiatieven
+      initiative_signatures:
+        fill_personal_data:
+          continue: Doorgaan
+          date_select:
+            day: Dag
+            month: Maand
+            year: Jaar
+          help: Vul uw persoonsgegevens in op de volgende velden om het initiatief te ondertekenen
+        finish:
+          back_to_initiative: Terug naar initiatief
+        sms_code:
+          continue: Code controleren en doorgaan
+          help: Controleer de sms die u via uw telefoon hebt ontvangen
+        sms_phone_number:
+          continue: Stuur me een sms
+          help: Vul uw geverifieerde telefoonnummer in op het formulier om uw verificatiecode aan te vragen
+      initiative_votes:
+        create:
+          error: Er is een probleem opgetreden bij het ondertekenen van het initiatief.
+          invalid: De gegevens die zijn verstrekt om het initiatief te ondertekenen, zijn niet geldig
+          success_html: Gefeliciteerd! Het initiatief <strong> %{title}</strong> is ondertekend
+        personal_data:
+          invalid: Persoonsgegevens stemmen niet overeen met gegevens die voor autorisatie werden verstrekt.
+        sms_code:
+          invalid: Uw verificatiecode komt niet overeen met onze code. Controleer de sms die wij u hebben toegezonden.
+        sms_phone:
+          invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer uw autorisaties.
+      initiatives:
+        author:
+          deleted: Verwijderd
+        author_list:
+          hidden_authors_count:
+            one: en nog een persoon
+            other: en nog %{count} personen
+        count:
+          title:
+            one: "%{count} initiatief"
+            other: "%{count} initiatieven"
+        filters:
+          any: Elke
+          area: Gebied
+          author: Auteur
+          myself: Mijn initiatieven
+          scope: Toepassingsgebied
+          search: Zoeken
+        filters_small_view:
+          close_modal: Venster sluiten
+          filter: Filteren
+          filter_by: Filteren op
+          unfold: Uitvouwen
+        index_header:
+          new_initiative: Nieuw initiatief
+          not_authorized:
+            authorizations_page: Autorisaties weergeven
+            close: Sluiten
+            explanation: U moet worden geverifieerd om een nieuw initiatief aan te kunnen maken.
+            title: Autorisatie vereist
+        initiatives:
+          closed_initiatives_warning: Momenteel zijn er geen open initiatieven, maar hier vindt u alle gesloten initiatieven.
+          no_initiatives_warning: Er zijn geen initiatieven die voldoen aan uw zoekcriteria.
+        interactions:
+          comments_count:
+            count:
+              one: Opmerking
+              other: Opmerkingen
+        orders:
+          label: 'Initiatieven sorteren op:'
+          most_commented: De meeste opmerkingen
+          most_voted: Meest ondertekend
+          random: Willekeurig
+          recent: Meest recent
+          recently_published: Meest recent gepubliceerd
+        result:
+          answer_title:
+            accepted: Dit voorstel is geaccepteerd omdat
+            created: Dit voorstel is aangemaakt
+            discarded: Dit voorstel is verwijderd omdat
+            published: Dit voorstel is gepubliceerd omdat
+            rejected: Dit voorstel is afgewezen omdat
+            validating: Dit voorstel wordt beoordeeld
+          initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
+        show:
+          any_vote_method: Met dit burgerinitiatief worden zowel online handtekeningen als persoonlijke handtekeningen verzameld.
+          follow_description: Een bericht ontvangen als er nieuws is over dit initiatief
+          offline_method: Dit burgerinitiatief verzamelt alleen persoonlijke handtekeningen.
+        signature_identities:
+          select_identity: Identificatiecode deelnemer selecteren
+        signatures_count:
+          one: " handtekening"
+          other: " handtekeningen"
+        supports:
+          title: Lijst van handtekeningen
+        vote_cabin:
+          already_voted: Al ondertekend
+          supports_required: "%{total_supports} handtekeningen vereist"
+          verification_required: Verifieer uw account om het initiatief te ondertekenen
+          vote: Ondertekenen
+          votes_blocked: Ondertekenen is uitgeschakeld
+        votes_count:
+          count:
+            one: Handtekening
+            other: Handtekeningen
+          most_popular_initiative: Populairste initiatief
+          need_more_votes: Meer handtekeningen nodig
+      initiatives_mailer:
+        creation_subject: Uw initiatief "%{title}" is aangemaakt
+        initiative_link:
+          check_initiative_details: U kunt de gegevens van het initiatief bekijken
+          here: hier
+        more_information: Hier vindt u meer informatie over het aanmaken van een initiatief.
+        progress_report_body_for: Het initiatief %{title} heeft %{percentage}% van de vereiste handtekeningen bereikt.
+        progress_report_for: 'Samenvatting van het initiatief: %{title}'
+        promotal_committee_help: U moet ten minste %{member_count} personen uitnodigen voor het promotorcomité. De volgende link versturen om personen uit te nodigen voor het promotorcomité
+        status_change_body_for: 'De status van het initiatief %{title} is gewijzigd in: %{state}'
+        status_change_for: De status van het initiatief %{title} is gewijzigd
+      last_activity:
+        new_initiative: Nieuw initiatief
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Actieve initiatieven
+            see_all_initiatives: Alle initiatieven bekijken
+      show:
+        badge_name:
+          accepted: Genoeg handtekeningen
+          created: Aangemaakt
+          discarded: Verwijderd
+          published: Gepubliceerd
+          rejected: Niet genoeg handtekeningen
+          validating: Technische validatie
+      states:
+        accepted: Aanvaard
+        expired: Verlopen
+      unavailable_scope: Toepassingsgebied niet beschikbaar
+      versions:
+        shared:
+          back_to_resource: Ga terug naar initiatief
+    menu:
+      initiatives: Initiatieven
+    resources:
+      initiatives_type:
+        actions:
+          title: Acties
+          vote: Ondertekenen
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Bijlagen
+          committee_members: Comitéleden
+          components: Onderdelen
+          information: Informatie
+      initiative_creation_header:
+        back: Terug
+        fill_data: Aanmaken
+        finish: Einde
+        promotal_committee: Promotorcomité
+        select_initiative_type: Kiezen
+        show_similar_initiatives: Vergelijken
+        step: Stap %{current} van %{total}
+        title: Nieuw initiatief aanmaken
+      initiative_header:
+        initiative_menu_item: Initiatief
+      initiative_signature_creation_header:
+        back: Terug
+        fill_personal_data: Uw gegevens invullen
+        finish: Einde
+        finished: Handtekening initiatief aangemaakt
+        see_steps: stappen bekijken
+        select_identity: Identiteit selecteren
+        sms_code: Verificatiecode per sms
+        sms_phone_number: Mobiele telefoonnummer
+        step: Stap %{current} van %{total}
+        title: '%{initiative_title} ondertekenen'
+      initiatives:
+        initiative:
+          check: Bekijken
+          check_and_support: Bekijken en ondertekenen
+        no_initiatives_yet:
+          no_initiatives_yet: Er zijn nog geen initiatieven!
