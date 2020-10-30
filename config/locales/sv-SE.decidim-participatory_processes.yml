@@ -1,6 +1,416 @@
 sv:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Tillkännagivande
+        area_id: Område
+        banner_image: Banderollbild
+        copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
+        copy_steps: Kopiera steg
+        decidim_area_id: Område
+        description: Beskrivning
+        developer_group: Projektgrupp
+        domain: Domän
+        end_date: Slutdatum
+        hashtag: Hashtagg
+        hero_image: Startbild
+        local_area: Organisationsområde
+        meta_scope: Metadata om tillämpningsområdet
+        participatory_process_group_id: Processgrupp
+        participatory_scope: Vad som beslutas
+        participatory_structure: Hur det beslutas
+        promoted: Befordrad
+        published_at: Publicerat
+        related_process_ids: Relaterade processer
+        scope_id: Tillämpningsområde
+        scope_type_max_depth_id: Tillämpningsområdets filterdjup
+        scopes_enabled: Tillämpningsområden har aktiverats
+        short_description: Kort beskrivning
+        show_metrics: Visa mått
+        show_statistics: Visa statistik
+        slug: URL-slugg
+        start_date: Startdatum
+        subtitle: Underrubrik
+        target: Vem deltar
+        title: Titel
+      participatory_process_group:
+        description: Beskrivning
+        hero_image: Bild
+        name: Namn
+        participatory_process_ids: Relaterade processer
+      participatory_process_step:
+        cta_path: Sökväg för Uppmaning till åtgärd
+        cta_text: Text för Uppmaning till åtgärd
+        description: Beskrivning
+        end_date: Slutdatum
+        short_description: Kort beskrivning
+        start_date: Startdatum
+        title: Titel
+      participatory_process_user_role:
+        email: E-post
+        name: Namn
+        role: Roll
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ogiltig dokumenttyp. Följande format godtas: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Fasen har aktiverats
+      decidim/participatory_process_step_changed_event: Fasen har ändrats
+  activerecord:
+    models:
+      decidim/participatory_process_group:
+        one: Deltagandeprocessgrupp
+        other: Deltagandeprocessgrupper
+      decidim/participatory_process_step:
+        one: Fas
+        other: Faser
   decidim:
-    participatory_processes:
+    admin:
+      actions:
+        activate: Aktivera
+        configure: Konfigurera
+        confirm_destroy: Bekräfta radering
+        destroy: Radera
+        duplicate: Kopiera
+        edit: Redigera
+        filter:
+          all_processes: Visa alla processer
+          process_groups: Processgrupper
+        new_process: Ny process
+        new_process_group: Ny processgrupp
+        new_process_step: Ny fas
+        new_process_user_role: Ny processadministratör
+        preview: Förhandsgranskning
+        publish: Publicera
+        resend_invitation: Skicka inbjudan igen
+        unpublish: Avpublicera
+      menu:
+        participatory_process_groups: Processgrupper
+        participatory_processes_submenu:
+          attachment_collections: Mappar
+          attachment_files: Filer
+          attachments: Bilagor
+          categories: Kategorier
+          components: Komponenter
+          moderations: Modereringar
+          private_users: Privata deltagare
+          process_admins: Processadministratörer
+          steps: Faser
+      models:
+        participatory_process:
+          fields:
+            created_at: Skapad
+            private: Privat
+            promoted: Framhävd
+            published: Publicerad
+            title: Titel
+          name: Deltagandeprocess
+        participatory_process_group:
+          fields:
+            name: Namn
+          name: Processgrupp
+        participatory_process_step:
+          fields:
+            end_date: Slutdatum
+            start_date: Startdatum
+            title: Titel
+          name: Fas av deltagandeprocessen
+        participatory_process_user_role:
+          fields:
+            email: E-post
+            name: Namn
+            role: Roll
+          name: Administratör av deltagandeprocessen
+          roles:
+            admin: Administratör
+            collaborator: Samarbetspartner
+            valuator: Värderingsman
+        user:
+          fields:
+            invitation_accepted_at: Inbjudan accepterades
+            invitation_sent_at: Inbjudan skickades
+      participatory_process_copies:
+        new:
+          copy: Kopiera
+          select: Välj vilka uppgifter du vill kopiera
+          title: Kopiera deltagandeprocessen
+      participatory_process_groups:
+        destroy:
+          error: Ett fel uppstod när deltagandeprocessgruppen skulle förstöras.
+          success: Deltagarprocessgruppen har raderats.
+        edit:
+          title: Redigera processgrupp
+          update: Uppdatera
+        new:
+          create: Skapa
+          title: Ny processgrupp
+        update:
+          error: Ett fel uppstod när deltagandeprocessgruppen skulle uppdateras.
+          success: Deltagandeprocessgruppen har uppdaterats.
+      participatory_process_imports:
+        create:
+          error: Ett fel uppstod när deltagandeprocessen importerades.
+          success: Deltagandeprocessen har importerats.
+        new:
+          select: Välj vilka uppgifter du vill importera
+          title: Importera deltagandeprocessen
+      participatory_process_publications:
+        create:
+          error: Ett fel uppstod när deltagandeprocessen skulle publiceras.
+          success: Deltagandeprocessen har publicerats.
+        destroy:
+          error: Ett fel uppstod när deltagandeprocessen skulle avpubliceras.
+          success: Deltagandeprocessen har avpublicerats.
+      participatory_process_step_activations:
+        create:
+          error: Ett fel uppstod när den här fasen av deltagandeprocessen aktiverades.
+          success: Fasen av deltagandeprocessen har aktiverats.
+      participatory_process_steps:
+        create:
+          error: Ett fel uppstod när en ny fas av deltagandeprocessen skulle skapas.
+          success: Fasen av deltagandeprocessen har skapats.
+        default_title: Inledning
+        destroy:
+          error:
+            active_step: Det går inte att radera den aktiva fasen.
+            last_step: Det går inte att radera den senaste fasen av en process.
+          success: Fasen av deltagandeprocessen har raderats.
+        edit:
+          title: Redigera fas av deltagandeprocessen
+          update: Uppdatera
+        index:
+          steps_title: Faser
+        new:
+          create: Skapa
+          title: Ny fas av deltagandeprocessen
+        ordering:
+          error: Ett fel uppstod när faserna av deltagandeprocessen skulle omsorteras.
+        update:
+          error: Ett fel uppstod när den här fasen av deltagandeprocessen uppdateras.
+          success: Deltagandefasen har uppdaterats.
+      participatory_process_user_roles:
+        create:
+          error: Ett fel uppstod när en deltagare skulle läggas till i denna deltagandeprocess.
+          success: Administratör har lagts till i deltagandeprocessen.
+        destroy:
+          success: Administratör har tagits bort från deltagandeprocessen.
+        edit:
+          title: Uppdatera administratör av deltagandeprocess
+          update: Uppdatera
+        index:
+          process_admins_title: Administratörer av deltagandeprocess
+        new:
+          create: Skapa
+          title: Ny administratör av deltagandeprocess
+        update:
+          error: Ett fel uppstod när en administratör av deltagandeprocessen skulle uppdateras.
+          success: Administratören har uppdaterats för deltagandeprocessen.
       participatory_processes:
+        create:
+          error: Ett fel uppstod när en ny deltagandeprocess skulle skapas.
+          success: Deltagandeprocessen har skapats. Konfigurera faserna.
+        edit:
+          update: Uppdatera
+        index:
+          not_published: Ej publicerad
+          private: Privat
+          public: Offentligt
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny deltagandeprocess
+        update:
+          error: Ett fel uppstod när deltagandeprocessen skulle uppdateras.
+          success: Deltagandeprocessen har uppdaterats.
+      participatory_processes_copies:
+        create:
+          error: Ett fel uppstod när deltagandeprocessen kopierades.
+          success: Deltagandeprocessen har kopierats.
+      participatory_processes_group:
+        create:
+          error: Ett fel uppstod när en ny deltagandeprocessgrupp skulle skapas.
+          success: Deltagandeprocessgruppen har skapats.
+      titles:
+        participatory_process_groups: Deltagandeprocessgrupper
+      users:
+        resend_invitation:
+          error: Ett fel uppstod när inbjudan skulle skickas på nytt.
+          success: Inbjudan har skickats på nytt.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} skapade deltagandeprocessen %{resource_name}"
+        publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
+      participatory_process_group:
+        create: "%{user_name} skapade deltagarprocessgruppen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagarprocessgruppen %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} aktiverade fasen %{resource_name} i deltagandeprocessen %{space_name}"
+        create: "%{user_name} skapade fasen %{resource_name} i deltagarprocessen %{space_name}"
+        delete: "%{user_name} raderade fasen %{resource_name} i deltagandeprocessen %{space_name}"
+        update: "%{user_name} uppdaterade fasen %{resource_name} i deltagandeprocessen %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} bjöd in deltagaren %{resource_name} till deltagandeprocessen %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från deltagandeprocessen %{space_name}"
+        update: "%{user_name} ändrade roll för deltagaren %{resource_name} i deltagandeprocessen %{space_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Du har utsetts till %{role} för deltagandeprocessen "%{resource_title}".
+          email_outro: Du har fått denna avisering eftersom du är %{role} i deltagandeprocessen "%{resource_title}".
+          email_subject: Du har utsetts till %{role} för "%{resource_title}".
+          notification_title: Du har utsetts till %{role} för deltagandeprocessen <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'Fasen %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se det från den här sidan:'
+          email_outro: Du har fått denna avisering eftersom du följer %{participatory_space_title}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: En uppdatering av %{participatory_space_title}
+          notification_title: Fasen %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Datumen för fasen %{resource_title} i %{participatory_space_title} har uppdaterats. Du kan se det från den här sidan:'
+          email_outro: Du har fått denna avisering eftersom du följer %{participatory_space_title}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: En uppdatering av %{participatory_space_title}
+          notification_title: Datumen för fasen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>En <strong>deltagandeprocess</strong> är en sekvens av deltagandeaktiviteter (t.ex. först fylla i en undersökning, sedan skapa förslag, diskutera dem i personliga eller virtuella möten och slutligen prioritera dem) i syfte att skapa definitioner och fatta beslut inom specifika ämnen.</p> <p>Exempel på deltagandeprocesser: en process för val av kommittéledamöter (där kandidatur först presenteras, sedan debatteras och slutligen väljs), deltagarbudgetar (där utkast tas fram, värderas ekonomiskt och röstas på med de pengar som är tillgängliga), en strategisk planeringsprocess, ett gemensamt utarbetande av bestämmelser eller normer, utformandet av ett urbant utrymme eller skapandet av en offentlig policyplan.</p>\n"
+          page: "<p>En <strong>deltagandeprocess</strong> är en sekvens av deltagandeaktiviteter (t.ex. först fylla i en undersökning, sedan skapa förslag, diskutera dem i personliga eller virtuella möten och slutligen prioritera dem) i syfte att skapa definitioner och fatta beslut inom specifika ämnen.</p> <p>Exempel på deltagandeprocesser: en process för val av kommittéledamöter (där kandidatur först presenteras, sedan debatteras och slutligen väljs), deltagarbudgetar (där utkast tas fram, värderas ekonomiskt och röstas på med de pengar som är tillgängliga), en strategisk planeringsprocess, ett gemensamt utarbetande av bestämmelser eller normer, utformandet av ett urbant utrymme eller skapandet av en offentlig policyplan.</p>\n"
+          title: Vad är en deltagandeprocess?
+    metrics:
+      participatory_processes:
+        description: Antal deltagandeprocesser i denna organisation
+        object: deltagandeprocesser
+        title: Deltagandeprocesser
+    participatory_process:
+      show:
+        related_assemblies: Berörda församlingar
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 process för%{group}
+          other: "%{count} processer för %{group}"
+        title: Deltagandeprocessgrupper
+    participatory_process_steps:
+      index:
+        process_steps: Processfaser
+        title: Deltagandeprocessens faser
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Högsta antal element som ska visas
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna process. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Lägg till ett dokument
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna process. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Använd delar av sökvägar och inte fullständiga webbadresser här. Bokstäver, siffror, bindestreck och snedstreck godtas, men första tecknet måste vara en bokstav. Om den inte anges visas inte knappen. Exempel: %{url}'
+            cta_text_help: Om den inte anges visas inte knappen.
+        participatory_processes:
+          form:
+            announcement_help: Den text du skriver här visas för användaren precis under processinformationen.
+            duration: Varaktighet
+            filters: Filter
+            images: Bilder
+            other: Annan
+            related_processes: Relaterade processer
+            scope_type_max_depth_help: Begränsa tillämpningsområdets filterdjup. Filtret visar från allmänna typer till den valda typen av tillämpningsområde.
+            select_an_area: Välj ett område
+            select_process_group: Välj en processgrupp
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna process. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+            title: Allmän information
+            visbility: Synlighet
+      content_blocks:
+        highlighted_processes:
+          name: Framhävda processer
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktiv fas
+            more_information: Mer information
+            participate: Delta
+            participate_in: Delta i processen %{resource_name}
+      participatory_process_steps:
+        index:
+          back_to_process: Tillbaka till processidan
+      participatory_processes:
+        filters:
+          explanations:
+            no_active_nor_upcoming: Inga aktiva eller kommande processer
+            no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över tidigare processer.
+          names:
+            active: Aktiva
+            all: Alla
+            past: Tidigare
+            upcoming: Kommande
+          see: Se
         index:
           loading: Läser in resultat …
+      show:
+        area: Område
+        dates: Datum
+        developer_group: Projektgrupp
+        end_date: Slutdatum
+        local_area: Organisationsområde
+        participatory_scope: Vad som beslutas
+        participatory_structure: Hur det beslutas
+        private_space: Detta är en privat process
+        related_processes: Relaterade processer
+        scope: Tillämpningsområde
+        start_date: Startdatum
+        target: Vem deltar
+        unspecified: Ej specificerat
+      statistics:
+        answers_count: Svar
+        comments_count: Kommentarer
+        debates_count: Debatter
+        endorsements_count: Stödförklaringar
+        followers_count: Följare
+        headline: Statistik
+        no_stats: Det finns ingen statistik än.
+        orders_count: Stöd
+        pages_count: Sidor
+        participants_count: Deltagare
+        projects_count: Projekt
+        results_count: Resultat
+        supports_count: Stöd
+        surveys_count: Undersökningar
+        users_count: Deltagare
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Bläddra
+          browse_resource: Sök processgrupp %{resource_name}
+          processes_count: 'Processer:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktiv fas
+          take_part: Delta
+      participatory_processes:
+        index:
+          promoted_processes: Framhävda processer
+        participatory_process:
+          active_step: 'Nuvarande fas:'
+          more_info: Mer info
+          more_info_about: Mer information om processen %{resource_name}
+          take_part: Delta
+          take_part_in: Ta del av processen %{resource_name}
+        promoted_process:
+          active_step: 'Nuvarande fas:'
+          more_info: Mer info
+          more_info_about: Mer information om processen %{resource_name}
+          take_part: Delta
+          take_part_in: Ta del av processen %{resource_name}
+      process_header_steps:
+        step: Fas %{current} av %{total}
+        view_steps: Processfaser
