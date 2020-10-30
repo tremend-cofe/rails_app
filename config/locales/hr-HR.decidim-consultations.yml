@@ -1,1 +1,342 @@
 hr:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Slika natpisa
+        decidim_highlighted_scope_id: Istaknuta tema
+        description: Opis
+        end_voting_date: Glasanje završava
+        introductory_image: Uvodna slika
+        introductory_video_url: URL uvodnog videozapisa
+        questions: Pitanja
+        start_voting_date: Glasanje počinje
+        subtitle: Podnaslov
+        title: Naslov
+      question:
+        banner_image: Slika natpisa
+        decidim_scope_id: Općinsko područje
+        hashtag: Oznaka
+        hero_image: Početna slika
+        i_frame_url: URL vanjskog sustava glasanja
+        instructions: Dodatne upute za glasanje
+        max_votes: Maksimalni broj glasova
+        min_votes: Minimalni broj glasova
+        origin_scope: Tema
+        origin_title: Podrijetlo
+        origin_url: URL podrijetla
+        participatory_scope: Participativna tema
+        promoter_group: Skupina promicatelja
+        question_context: Kontekst
+        reference: Oznaka
+        scope: Općinsko područje
+        subtitle: Podnaslov
+        vote: Vanjski sustav glasanja
+        what_is_decided: O čemu se odlučuje
+      response:
+        decidim_consultations_response_group_id: Skupina
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Maksimalni broj glasova trebao bi biti najmanje jednak minimalnom broju glasova.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Odgovor nije pronađen.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Broj glasova nije valjan
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Povratak na odgovore
+        new_consultation: Novo savjetovanje
+        new_question: Novo pitanje
+        new_response: Novi odgovor
+        new_response_group: Nova skupina
+        publish_results: Objavi rezultate
+        response_groups: Upravljanje skupinama za odgovor
+        unpublish_results: Povuci objavu rezultata
+      consultation_publications:
+        create:
+          error: Došlo je do problema pri objavljivanju savjetovanja.
+          success: Savjetovanje je uspješno objavljeno.
+        destroy:
+          error: Došlo je do problema pri povlačenju objave savjetovanja.
+          success: Objava savjetovanja uspješno je povučena.
+      consultation_results_publications:
+        create:
+          error: Došlo je do problema pri objavljivanju rezultata savjetovanja.
+          success: Rezultati savjetovanja uspješno su objavljeni.
+        destroy:
+          error: Došlo je do problema pri povlačenju objave rezultata savjetovanja.
+          success: Objava rezultata savjetovanja uspješno je povučena.
+      consultations:
+        create:
+          error: Došlo je do problema pri stvaranju novog savjetovanja.
+          success: Savjetovanje je uspješno stvoreno.
+        edit:
+          update: Ažuriraj
+        form:
+          slug_help: 'URL slugovi upotrebljavaju se za generiranje URL-ova koji upućuju na ovo savjetovanje. Dopušteni su samo slova, brojke i crtice, prvi znak mora biti slovo. Primjer: %{url}'
+          title: Opće informacije
+        index:
+          not_published: Nije objavljeno
+          published: Objavljeno
+        new:
+          create: Stvori
+          title: Novo savjetovanje
+        results:
+          not_visible: Rezultati će biti dostupni nakon završetka savjetovanja
+          participants: "Broj sudionika: %{count}"
+          total_votes: 'Ukupno glasova: %{count}'
+        update:
+          error: Došlo je do problema pri ažuriranju savjetovanja.
+          success: Savjetovanje je uspješno ažurirano.
+      menu:
+        consultations: Savjetovanja
+        consultations_submenu:
+          info: Informacije
+          questions: Pitanja
+          results: Rezultati
+        questions_submenu:
+          components: Komponente
+          configuration: Konfiguracija
+          consultation: Savjetovanje
+          info: Informacije
+          responses: Odgovori
+      models:
+        consultation:
+          fields:
+            created_at: Stvoreno
+            published: Objavljeno
+            title: Naslov
+        question:
+          fields:
+            created_at: Stvoreno
+            published: Objavljeno
+            title: Naslov
+        response:
+          fields:
+            created_at: Stvoreno
+            response_group: Skupina
+            title: Naslov
+      question_configuration:
+        disable_external_voting: Onemogućite vanjsko glasanje za napredne konfiguracije
+        form:
+          help: Pitanja s višestrukim odabirom postavite tako da povećate maksimalnibroj odgovora koje sudionik može odabrati. Zadana maksimalna vrijednost je 1, što znači da se može glasati samo za jedan odgovor.
+          title: Napredna konfiguracija
+      question_publications:
+        create:
+          error: Došlo je do problema pri objavljivanju pitanja.
+          success: Pitanje je uspješno objavljeno.
+        destroy:
+          error: Došlo je do problema pri povlačenju objave pitanja.
+          success: Objava pitanja uspješno je povučena.
+      questions:
+        create:
+          error: Došlo je do problema pri stvaranju novog pitanja.
+          success: Pitanje je uspješno stvoreno.
+        destroy:
+          success: Pitanje je uspješno izbrisano.
+        edit:
+          update: Ažuriraj
+        form:
+          title: Opće informacije
+        index:
+          not_published: Nije objavljeno
+          published: Objavljeno
+        new:
+          create: Stvori
+          title: Novo pitanje
+        update:
+          error: Došlo je do problema pri ažuriranju pitanja.
+          success: Pitanje je uspješno ažurirano.
+      response_groups:
+        create:
+          error: Došlo je do problema pri stvaranju nove skupine za odgovor.
+          success: Skupina za odgovor uspješno je stvorena.
+        destroy:
+          error: Došlo je do problema pri uklanjanju skupine za odgovor. Provjerite ovisi li o tome ijedan odgovor.
+          success: Skupina za odgovor uspješno je izbrisana.
+        edit:
+          update: Ažuriraj
+        form:
+          title: Opće informacije
+        help: Koristite se skupinama kako biste organizirali pitanja s višestrukim odabirom u cjeline.
+        new:
+          create: Stvori
+          title: Nova skupina za odgovor
+        update:
+          error: Došlo je do problema pri ažuriranju ovog odgovora.
+          success: Odgovor je uspješno ažuriran.
+      responses:
+        create:
+          error: Došlo je do problema pri stvaranju novog odgovora.
+          success: Odgovor je uspješno stvoren.
+        destroy:
+          error: Došlo je do problema pri uklanjanju odgovora.
+          success: Odgovor je uspješno izbrisan.
+        edit:
+          update: Ažuriraj
+        form:
+          title: Opće informacije
+        new:
+          create: Stvori
+          title: Novi odgovor
+        update:
+          error: Došlo je do problema pri ažuriranju ovog odgovora.
+          success: Odgovor je uspješno ažuriran.
+      titles:
+        consultations: Savjetovanja
+        questions: Pitanja
+        response_groups: Skupine za odgovor
+        responses: Odgovori
+        results: Rezultati
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maksimalni brojelemenata za prikaz
+      consultation:
+        start_voting_date: Glasanje počinje
+        view_results: Prikaži rezultate
+      consultation_card:
+        view_results: Prikaži rezultate
+      consultations:
+        orders:
+          label: 'Sortiraj savjetovanja po:'
+          random: Nasumično
+          recent: Najnovije
+        show:
+          dates: Datumi
+      content_blocks:
+        highlighted_consultations:
+          name: Istaknuta savjetovanja
+      filters:
+        active: Aktivno
+        all: Sve
+        finished: Dovršeno
+        search: Pretraži
+        upcoming: U pripremi
+      filters_small_view:
+        close_modal: Zatvori prozor
+        filter: Filtriraj
+        filter_by: Filtriraj po
+        unfold: Otvori
+      highlighted_questions:
+        title: Pitanja iz teme %{scope_name}
+      index:
+        title: Savjetovanja
+      last_activity:
+        new_consultation: Novo savjetovanje
+        new_question_at_html: "<span>Novo pitanje na %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktivna savjetovanja
+            see_all_consultations: Pogledajte sva savjetovanja
+            voting_ends_today: Glasanje završava <strong>danas</strong>
+      question:
+        take_part: Sudjelujte
+        view_results: Prikaži rezultate
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Minimalni broj glasova koje su sudionici mogli raspodijeliti na različite opcije je %{votes}.
+          title: U ovom su pitanju bili dopušteni višestruki odabiri
+          total_participants: Ukupan je broj osoba koji je sudjelovao u glasanju %{count}.
+          vote_limit:
+            description: Maksimalni broj opcija za koje su sudionici mogli glasati %{limit}.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Minimalni broj glasova koje morate raspodijeliti među različitim opcijama je %{votes}.
+          title: 'Glasovi podliježu sljedećim pravilima:'
+          vote_limit:
+            description: Maksimalni broj opcija za koje možete glasati %{limit}.
+            left: Preostalo
+            votes: Glasovi
+      question_votes:
+        create:
+          error: Došlo je do problema pri glasanju o pitanju
+          success: Svoj glas možete promijeniti do kraja savjetovanja. Prihvaća se samo posljednji glas.
+          title_error: Greška u glasanju!
+          title_success: Glas je uspješno zabilježen
+      regular_questions:
+        title: Pitanja za ovo savjetovanje
+      show:
+        badge_name:
+          finished: Dovršeno
+          open: Otvoreno
+          open_votes: Otvoreno glasanje
+          published_results: Objavljeni rezultati
+        footer_button_text:
+          debate: Rasprava
+          view: Prikaži
+          view_results: Prikaži rezultate
+          vote: Glasanje
+        unspecified: Nije utvrđeno
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Savjetovanja</strong> su prostor koji vam omogućuje da postavite jasno pitanje svim osobama koje čine organizaciju, pozovete na sudjelovanje u savjetovanju, potičete i otvorite raspravu za ili protiv nekog odgovora. Na dan savjetovanja možete glasati i objaviti rezultate glasanja.</p> <p>Primjeri: Savjetovanja se mogu odnositi na gotovo svaki aspekt koji se tiče organizacije: primjerice na promjenu imena ili logotipa organizacije uz nekoliko ponuđenih mogućnosti, donošenje odluke o pridruživanju većoj organizaciji, potvrđivanje ili odbijanje novoga strateškog plana ili rezultata radne skupine ili utvrđivanje bi li dužnosti trebale trajati najviše jedan, dva ili tri mandata.</p>\n"
+          page: "<p><strong>Savjetovanja</strong> su prostor koji vam omogućuje da postavite jasno pitanje svim osobama koje čine organizaciju, pozovete na sudjelovanje u savjetovanju, potičete i stvorite raspravu za ili protiv odgovora. Na dan savjetovanja možete glasati i objaviti rezultate glasanja.</p> <p>Primjeri: Savjetovanja se mogu odnositi na gotovo svaki aspekt koji se tiče organizacije: primjerice na promjenu imena ili logotipa organizacije uz nekoliko ponuđenih mogućnosti, donošenje odluke o pridruživanju većoj organizaciji, potvrđivanje ili odbijanje novoga strateškog plana ili rezultata radne skupine ili utvrđivanje bi li dužnosti trebale trajati najviše jedan, dva ili tri mandata u organizaciji.</p>\n"
+          title: Što su savjetovanja?
+    menu:
+      consultations: Savjetovanja
+    pages:
+      home:
+        statistics:
+          consultations_count: Savjetovanja
+    questions:
+      next_button: Sljedeće pitanje
+      previous_button: Prethodno pitanje
+      results:
+        title: Rezultati
+      show:
+        read_more: Više informacija
+      statistics:
+        assistants_count_title: Asistenti
+        comments_count_title: Komentari
+        meetings_count_title: Sastanci
+        supports_count_title: Glasovi
+      technical_info:
+        technical_data: Tehnički podaci
+      vote_button:
+        already_voted: Već je glasano
+        already_voted_hover: Opozovi glas
+        starting_from: Počevši od %{date}
+        verification_required: Potvrdite svoj račun kako biste glasali
+        vote: Glasanje
+      vote_modal:
+        close_modal: Zatvori modalni prozor
+        contextual_help: Odaberite opciju.
+        title: 'Savjetovanje: glasanje o pitanjima'
+      vote_modal_confirm:
+        change: Promjeni
+        close_modal: Zatvori modalni prozor
+        confirm: Potvrdi
+        contextual_help: Potvrdite odabranu opciju.
+        title: 'Savjetovanje: potvrdi glas'
+    resources:
+      consultations:
+        actions:
+          vote: Glasanje
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Privitci
+          categories: Kategorije
+      consultation_voting_data:
+        start_voting_date: Glasanje počinje
+      question_components:
+        question_menu_item: Prethodno pitanje
+        unfold: Otvori
+      question_header:
+        back_to_consultation: Pogledajte sva savjetovanja
+        back_to_question: Povratak na pitanje
