@@ -1,1 +1,472 @@
 el:
+  activemodel:
+    attributes:
+      agenda:
+        description: Περιγραφή
+        duration: Διάρκεια
+        title: Τίτλος
+      close_meeting:
+        attendees_count: Αριθμός συμμετεχόντων
+        attending_organizations: Κατάλογος των οργανισμών που παρευρέθηκαν
+        closing_report: Αναφορά
+        contributions_count: Αριθμός απαντήσεων
+        proposal_ids: Προτάσεις που διατυπώθηκαν στη συνεδρίαση
+      meeting:
+        address: Διεύθυνση
+        available_slots: Διαθέσιμες θέσεις για αυτήν τη συνεδρίαση
+        decidim_category_id: Κατηγορία
+        decidim_scope_id: Πεδίο
+        decidim_user_group_id: Ομάδα χρήστη
+        description: Περιγραφή
+        end_time: Ώρα λήξης
+        location: Τοποθεσία
+        location_hints: Οδηγίες τοποθεσίας
+        organizer_gid: Δημιουργία ως
+        organizer_id: Οργανωτής
+        private_meeting: Ιδιωτική συνεδρίαση
+        registration_form_enabled: Η φόρμα εγγραφής ενεργοποιήθηκε
+        registration_terms: Όροι εγγραφής
+        registrations_enabled: Οι εγγραφές ενεργοποιήθηκαν
+        start_time: Ώρα έναρξης
+        title: Τίτλος
+        transparent: Διαφανής
+      minutes:
+        audio_url: URL ήχου
+        description: Περιγραφή
+        video_url: URL βίντεο
+        visible: Είναι ορατό
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Η διάρκεια των στοιχείων υπερβαίνει τη διάρκεια της συνεδρίασης κατά %{count} λεπτά
+              too_many_minutes_child: Η διάρκεια των θυγατρικών στοιχείων υπερβαίνει τη διάρκεια του γονικού στοιχείου ημερήσιας διάταξης "%{parent_title}" κατά %{count} λεπτά
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Αυτός ο λογαριασμός email έχει ήδη προσκληθεί
+    models:
+      decidim/meetings/close_meeting_event: Η συνεδρίαση έκλεισε
+      decidim/meetings/create_meeting_event: Συνεδρίαση
+      decidim/meetings/meeting_registrations_enabled_event: Οι εγγραφές ενεργοποιήθηκαν
+      decidim/meetings/meeting_registrations_over_percentage_event: Οι εγγραφές υπερβαίνουν το όριο
+      decidim/meetings/update_meeting_event: Η συνεδρίαση επικαιροποιήθηκε
+  activerecord:
+    models:
+      decidim/meetings/minutes:
+        one: Πρακτικά
+        other: Πρακτικά
+      decidim/meetings/registration:
+        one: Εγγραφή
+        other: Εγγραφές
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία διπλότυπων για τη συνεδρίαση.
+          success: Δημιουργήθηκε διπλότυπο της συνεδρίασης με επιτυχία.
+        new:
+          copy: Αντιγραφή
+          select: Επιλογή των δεδομένων για τα οποία θέλετε να δημιουργήσετε αντίγραφο
+          title: Δημιουργία διπλότυπου συνεδρίασης
+    components:
+      meetings:
+        actions:
+          join: Συμμετοχή
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μήκος σχολίων (για την προεπιλεγμένη τιμή πληκτρολογήστε «0»)
+            creation_enabled_for_participants: Οι συμμετέχοντες μπορούν να δημιουργούν συνεδριάσεις
+            default_registration_terms: Προεπιλεγμένοι όροι εγγραφής
+            enable_pads_creation: Ενεργοποίηση δημιουργίας σημειωματάριων
+            resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε συνεδρίαση
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Τα σχόλια απενεργοποιήθηκαν
+            creation_enabled_for_participants: Η δημιουργία συνεδρίασης από τους συμμετέχοντες ενεργοποιήθηκε
+            creation_enabled_for_user_groups: Η δημιουργία συνεδρίασης από ομάδες χρηστών ενεργοποιήθηκε
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Η συνεδρίασή σας "%{resource_title}" έκλεισε. Μπορείτε να διαβάσετε τα συμπεράσματα από την αντίστοιχη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή οργανώσατε τη συνεδρίαση "%{resource_title}".
+            email_subject: Η συνεδρίαση "%{resource_title}" έκλεισε
+            notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> έκλεισε.
+          follower:
+            email_intro: 'Η συνεδρίαση "%{resource_title}" έκλεισε. Μπορείτε να διαβάσετε τα συμπεράσματα από την αντίστοιχη σελίδα:'
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συνεδρίαση "%{resource_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+            email_subject: Η συνεδρίαση "%{resource_title}" έκλεισε
+            notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> έκλεισε.
+        meeting_created:
+          email_intro: Η συνεδρίαση "%{resource_title}" προστέθηκε στον συμμετοχικό χώρο "%{participatory_space_title}" που ακολουθείτε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο "%{participatory_space_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Προστέθηκε νέα συνεδρίαση στον συμμετοχικό χώρο %{participatory_space_title}
+          notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον συμμετοχικό χώρο %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Η εγγραφή σας για τη συνεδρίαση <a href="%{resource_url}">%{resource_title}</a> έχει επιβεβαιωθεί. Ο κωδικός εγγραφής σας είναι %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Οι εκχωρημένες θέσεις για τη συνεδρίαση "%{resource_title}" υπερβαίνουν το %{percentage}%.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε διαχειριστής του συμμετοχικού χώρου της συνεδρίασης.
+          email_subject: Οι εκχωρημένες θέσεις για τη συνεδρίαση "%{resource_title}" υπερβαίνουν το %{percentage}%
+          notification_title: Οι εκχωρημένες θέσεις για τη συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> υπερβαίνουν το %{percentage}%.
+        meeting_updated:
+          email_intro: 'Η συνεδρίαση "%{resource_title}" επικαιροποιήθηκε. Μπορείτε να διαβάσετε τη νέα έκδοση από την αντίστοιχη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συνεδρίαση "%{resource_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Η συνεδρίαση "%{resource_title}" επικαιροποιήθηκε
+          notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> επικαιροποιήθηκε.
+        registration_code_validated:
+          email_intro: Ο κωδικός εγγραφής σας "%{registration_code}" για τη συνεδρίαση "%{resource_title}" επικυρώθηκε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ο κωδικός εγγραφής σας για τη συνεδρίαση "%{resource_title}" επικυρώθηκε.
+          email_subject: Ο κωδικός εγγραφής σας "%{registration_code}" για τη συνεδρίαση "%{resource_title}" επικυρώθηκε
+          notification_title: Ο κωδικός εγγραφής σας "%{registration_code}" για τη συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> επικυρώθηκε.
+        registrations_enabled:
+          email_intro: 'Η συνεδρίαση "%{resource_title}" έχει ενεργοποιήσει τις εγγραφές. Μπορείτε να εγγραφείτε μέσω αυτής της σελίδας:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συνεδρίαση "%{resource_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Η συνεδρίαση "%{resource_title}" έχει ενεργοποιήσει τις εγγραφές.
+          notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> έχει ενεργοποιήσει τις εγγραφές.
+        upcoming_meeting:
+          email_intro: Η συνεδρίαση "%{resource_title}" θα ξεκινήσει σε λιγότερο από 48 ώρες.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τη συνεδρίαση "%{resource_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Η συνεδρίαση "%{resource_title}" θα ξεκινήσει σε λιγότερο από 48 ώρες.
+          notification_title: Η συνεδρίαση <a href="%{resource_path}">%{resource_title}</a> θα ξεκινήσει σε λιγότερο από 48 ώρες.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Εγγραφείτε για τις συνεδριάσεις στις οποίες θέλετε να παρευρεθείτε
+          description: Αυτό το σήμα απονέμεται όταν συμμετέχετε σε πολλές συνεδριάσεις διά ζώσης.
+          description_another: Αυτός ο συμμετέχων έχει παρευρεθεί σε %{score} συνεδριάσεις.
+          description_own: Έχετε παρευρεθεί σε %{score} συνεδριάσεις.
+          name: Συνεδριάσεις που έχετε παρευρεθεί
+          next_level_in: Παρευρεθείτε σε %{score} ακόμη συνεδριάσεις για να περάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει παρευρεθεί σε καμία συνεδρίαση ακόμη.
+          unearned_own: Δεν έχετε παρευρεθεί σε καμία συνεδρίαση ακόμη.
+    meetings:
+      actions:
+        agenda: Ημερήσια διάταξη
+        attachment_collections: Φάκελοι
+        attachments: Συνημμένα
+        close: Κλείσιμο
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη συνεδρίαση;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        invalid_destroy:
+          proposals_count:
+            one: 'Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχει %{count} πρόταση που είναι συνδεδεμένη με αυτή:'
+            other: 'Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχουν %{count} προτάσεις που είναι συνδεδεμένες με αυτή:'
+        minutes: Πρακτικά
+        preview: Προεπισκόπηση
+        registrations: Εγγραφές
+        title: Ενέργειες
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Προσθήκη υποστοιχείου ημερήσιας διάταξης
+            agenda_item: Στοιχείο ημερήσιας διάταξης
+            agenda_item_children: Υποστοιχεία ημερήσιας διάταξης
+            down: Κάτω
+            remove: Κατάργηση
+            up: Επάνω
+          agenda_item_child:
+            agenda_item_child: Υποστοιχείο ημερήσιας διάταξης
+            down: Κάτω
+            remove: Κατάργηση
+            up: Επάνω
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της ημερήσιας διάταξης
+            success: Η ημερήσια διάταξη δημιουργήθηκε με επιτυχία
+          edit:
+            title: Επεξεργασία ημερήσιας διάταξης
+            update: Επικαιροποίηση
+          form:
+            add_agenda_item: Προσθήκη στοιχείου ημερήσιας διάταξης
+            agenda_items: Στοιχεία ημερήσιας διάταξης
+            end_date: Ημερομηνία λήξης
+            start_date: Ημερομηνία έναρξης
+          new:
+            create: Δημιουργία
+            title: Νέα ημερήσια διάταξη
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της ημερήσιας διάταξης
+            success: Η ημερήσια διάταξη επικαιροποιήθηκε με επιτυχία
+        exports:
+          meetings: Συνεδριάσεις
+          registrations: Εγγραφές
+        invite_join_meeting_mailer:
+          invite:
+            decline: Απόρριψη πρόσκλησης
+            invited_you_to_join_a_meeting: "Ο χρήστης %{invited_by} σας προσκάλεσε να λάβετε μέρος σε μια συνεδρίαση στην εφαρμογή %{application}. Μπορείτε να απορρίψετε ή να αποδεχτείτε την πρόσκληση μέσω των παρακάτω συνδέσμων."
+            join: Συμμετοχή στη συνεδρίαση '%{meeting_title}'
+        invites:
+          create:
+            error: Παρουσιάστηκε πρόβλημα κατά την πρόσκληση του συμμετέχοντος για συμμετοχή στη συνεδρίαση.
+            success: Ο συμμετέχων προσκλήθηκε με επιτυχία να συμμετάσχει στη συνεδρίαση.
+          form:
+            attendee_type: Τύπος συμμετέχοντος
+            existing_user: Υφιστάμενος συμμετέχων
+            invite: Πρόσκληση
+            invite_explanation: Ο συμμετέχων θα προσκληθεί να συμμετάσχει στη συνεδρίαση, καθώς και στον οργανισμό.
+            non_user: Μη υφιστάμενος συμμετέχων
+            select_user: Επιλογή συμμετέχοντος
+          index:
+            filter:
+              accepted: Έγινε δεκτό
+              all: Όλα
+              rejected: Έχουν απορριφθεί
+              sent: Εστάλη
+            filter_by: Φιλτράρισμα κατά
+            invite_attendee: Πρόσκληση συμμετέχοντος
+            invites: Προσκλήσεις
+            registrations_disabled: Δεν μπορείτε να προσκαλέσετε έναν συμμετέχοντα, επειδή οι εγγραφές είναι απενεργοποιημένες.
+            search: Αναζήτηση
+        meeting_closes:
+          edit:
+            close: Κλείσιμο
+            title: Κλείσιμο συνεδρίασης
+        meetings:
+          close:
+            invalid: Παρουσιάστηκε πρόβλημα κατά το κλείσιμο αυτής της συνεδρίασης
+            success: Η συνεδρίαση έκλεισε με επιτυχία
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της συνεδρίασης
+            success: Η συνεδρίαση δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid:
+              proposals_count:
+                one: Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχει %{count} πρόταση που είναι συνδεδεμένη με αυτή
+                other: Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχουν %{count} προτάσεις που είναι συνδεδεμένες με αυτή
+            success: Η συνεδρίαση διαγράφηκε με επιτυχία
+          edit:
+            update: Επικαιροποίηση
+          form:
+            address_help: 'Διεύθυνση: χρησιμοποιείται από την εφαρμογή γεωκωδικοποίησης για την εύρεση της τοποθεσίας'
+            location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους χρήστες υποδεικνύοντας το σημείο συνάντησης'
+            location_hints_help: 'Οδηγίες τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου'
+          index:
+            title: Συνεδριάσεις
+          new:
+            create: Δημιουργία
+            title: Δημιουργία συνεδρίασης
+          service:
+            description: Περιγραφή
+            down: Κάτω
+            remove: Κατάργηση
+            service: Υπηρεσία
+            title: Τίτλος
+            up: Επάνω
+          services:
+            add_service: Προσθήκη υπηρεσίας
+            services: Υπηρεσίες
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της συνεδρίασης
+            success: Η συνεδρίαση επικαιροποιήθηκε με επιτυχία
+        minutes:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτών των πρακτικών
+            success: Τα πρακτικά δημιουργήθηκαν με επιτυχία
+          edit:
+            update: Επικαιροποίηση
+          new:
+            create: Δημιουργία
+            title: Δημιουργία πρακτικών
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτών των πρακτικών
+            success: Τα πρακτικά επικαιροποιήθηκαν με επιτυχία
+        models:
+          meeting:
+            name: Συνεδρίαση
+        registrations:
+          edit:
+            save: Αποθήκευση
+            validate: Επικύρωση
+            validate_registration_code: Επικύρωση κωδικού εγγραφής
+          form:
+            available_slots_help: Αφήστε την τιμή 0, εάν έχετε στη διάθεσή σας απεριόριστες θέσεις.
+            invites: Προσκλήσεις
+            recommendation_message: Για λόγους προστασίας του απορρήτου, συνιστούμε να διαγράψετε αυτήν τη φόρμα εγγραφής όταν δεν τη χρειάζεστε πλέον. Από προεπιλογή, αυτό συμβαίνει 3 μήνες μετά τη λήξη της συνεδρίασης.
+            registration_form: Φόρμα εγγραφής
+            registrations_count:
+              one: Υπάρχει %{count} εγγραφή.
+              other: Υπάρχουν %{count} εγγραφές.
+            reserved_slots_help: Αφήστε τη στην τιμή 0, εάν δεν έχετε δεσμευμένες θέσεις
+            reserved_slots_less_than: Πρέπει να είναι μικρότερη ή ίση του %{count}
+            title: Εγγραφές
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την αποθήκευση των ρυθμίσεων εγγραφής.
+            success: Οι ρυθμίσεις των εγγραφών στη συνεδρίαση αποθηκεύτηκαν με επιτυχία.
+          validate_registration_code:
+            invalid: Αυτός ο κωδικός εγγραφής δεν είναι έγκυρος.
+            success: Ο κωδικός εγγραφής επικυρώθηκε με επιτυχία.
+      admin_log:
+        invite:
+          create: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{attendee_name} να συμμετάσχει στη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+          deleted: "Ο χρήστης %{user_name} κατάργησε την πρόσκληση του χρήστη %{attendee_name} για συμμετοχή στη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} προσκάλεσε τον χρήστη %{attendee_name} να συμμετάσχει στη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+        meeting:
+          close: "Ο χρήστης %{user_name} έκλεισε τη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+          create: "Ο χρήστης %{user_name} δημιούργησε τη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+          delete: "Ο χρήστης %{user_name} διέγραψε τη συνεδρίαση %{resource_name} από τον χώρο %{space_name}"
+          export_registrations: "Ο χρήστης %{user_name} εξήγαγε τις εγγραφές της συνεδρίασης %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} επικαιροποίησε τη συνεδρίαση %{resource_name} στον χώρο %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Ο οργανωτής δεν βρέθηκε στη βάση δεδομένων (Αναγνωριστικό: %{id})'
+        minutes:
+          create: "Ο χρήστης %{user_name} δημιούργησε τα πρακτικά της συνεδρίασης %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} επικαιροποίησε τα πρακτικά της συνεδρίασης %{resource_name} στον χώρο %{space_name}"
+      calendar_modal:
+        calendar_url: URL ημερολογίου
+        close_window: Κλείσιμο παραθύρου
+        export_calendar: Εξαγωγή ημερολογίου
+      conference_venues: Συνεδριακά κέντρα
+      content_blocks:
+        upcoming_events:
+          name: Προσεχείς εκδηλώσεις
+          view_all_events: Προβολή όλων
+      directory:
+        meetings:
+          index:
+            all: Όλες
+            date: Ημερομηνία
+            past: Παρελθόν
+            search: Αναζήτηση
+            space_type: Συμμετοχικός χώρος
+            upcoming: Προσεχείς
+      last_activity:
+        new_meeting_at_html: "<span>Νέα συνεδρίαση στη διεύθυνση %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Πρόσκληση για συμμετοχή σε συνεδρίαση
+        registration_mailer:
+          confirmation:
+            subject: Η εγγραφή σας στη συνεδρίαση έχει επιβεβαιωθεί
+      meeting:
+        not_allowed: Δεν επιτρέπεται να δείτε αυτήν τη συνεδρίαση
+      meetings:
+        create:
+          invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της συνεδρίασης.
+          success: Δημιουργήσατε τη συνεδρίαση με επιτυχία.
+        edit:
+          back: Πίσω
+          title: Επεξεργαστείτε τη συνεδρίασή σας
+          update: Επικαιροποίηση
+        filters:
+          category: Κατηγορία
+          date: Ημερομηνία
+          date_values:
+            all: Όλες
+            past: Παρελθόν
+            upcoming: Προσεχείς
+          origin: Προέλευση
+          origin_values:
+            all: Όλες
+            citizens: Πολίτες
+            official: Επίσημος
+            user_groups: Ομάδες
+          scope: Πεδίο
+          search: Αναζήτηση
+        filters_small_view:
+          close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Ανάπτυξη
+        form:
+          address_help: 'Διεύθυνση: χρησιμοποιείται από την εφαρμογή γεωκωδικοποίησης για την εύρεση της τοποθεσίας'
+          location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους χρήστες υποδεικνύοντας το σημείο συνάντησης'
+          location_hints_help: 'Οδηγίες τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου'
+          select_a_category: Επιλέξτε κατηγορία
+        meeting_minutes:
+          meeting_minutes: Πρακτικά συνεδρίασης
+          related_information: Συναφείς πληροφορίες
+        meetings:
+          no_meetings_warning: Δεν υπάρχουν συνεδριάσεις που να συμφωνούν με τα κριτήρια αναζήτησης ή δεν έχουν προγραμματιστεί συνεδριάσεις.
+          upcoming_meetings_warning: Επί του παρόντος, δεν υπάρχουν προγραμματισμένες συνεδριάσεις, αλλά εδώ μπορείτε να βρείτε έναν κατάλογο με όλες τις προηγούμενες συνεδριάσεις.
+        new:
+          back: Πίσω
+          create: Δημιουργία
+        registration_confirm:
+          cancel: Ακύρωση
+          confirm: Επιβεβαίωση
+        show:
+          attendees: Αριθμός συμμετεχόντων
+          back: Επιστροφή στον κατάλογο
+          contributions: Αριθμός συνεισφορών
+          date: Ημερομηνία
+          edit_meeting: Επεξεργασία συνεδρίασης
+          going: Σε εξέλιξη
+          join: Συμμετοχή στη συνεδρίαση
+          meeting_report: Έκθεση σύσκεψης
+          no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
+          organizations: Παρευρισκόμενοι οργανισμοί
+          registration_code_help_text: Ο κωδικός εγγραφής σας
+          registration_state:
+            validated: ΕΠΙΚΥΡΩΘΗΚΕ
+            validation_pending: ΕΚΚΡΕΜΕΙ ΕΠΙΚΥΡΩΣΗ
+          remaining_slots:
+            one: "Απομένει %{count} θέση"
+            other: "Απομένουν %{count} θέσεις"
+          view: Προβολή
+        update:
+          invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση της συνεδρίασης.
+          success: Επικαιροποιήσατε τη συνεδρίαση με επιτυχία.
+      meetings_map:
+        view_meeting: Προβολή συνεδρίασης
+      models:
+        invite:
+          fields:
+            name: Όνομα
+            sent_at: Εστάλη στις
+            status: Κατάσταση
+          status:
+            accepted: Έγινε δεκτό (%{at})
+            rejected: Απορρίφθηκε (%{at})
+            sent: Εστάλη
+        meeting:
+          fields:
+            closed: Έχει κλείσει
+            end_time: Ημερομηνία λήξης
+            map: Χάρτης
+            start_time: Ημερομηνία έναρξης
+            title: Τίτλος
+      read_more: "(διαβάστε περισσότερα)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Η εγγραφή σας για τη συνεδρίαση <a href="%{url}">%{title}</a> επιβεβαιώθηκε.
+          details: Στο συνημμένο θα βρείτε λεπτομέρειες σχετικά με τη συνεδρίαση.
+          registration_code: Ο κωδικός εγγραφής σας είναι %{code}.
+      registrations:
+        create:
+          invalid: Παρουσιάστηκε πρόβλημα κατά τη συμμετοχή σε αυτήν τη συνεδρίαση.
+          success: Συμμετέχετε στη συνεδρίαση με επιτυχία. Επειδή έχετε εγγραφεί σε αυτήν τη συνεδρίαση, θα ειδοποιηθείτε εάν υπάρχουν επικαιροποιήσεις σε αυτή.
+        decline_invitation:
+          invalid: Παρουσιάστηκε πρόβλημα κατά την απόρριψη της πρόσκλησης.
+          success: Απορρίψατε την πρόσκληση με επιτυχία.
+        destroy:
+          invalid: Παρουσιάστηκε πρόβλημα κατά την αποχώρηση από αυτήν τη συνεδρίαση.
+          success: Αποχωρήσατε από τη συνεδρίαση με επιτυχία.
+      types:
+        private_meeting: Ιδιωτική συνεδρίαση
+        transparent: Διαφανής
+      versions:
+        back_to_resource: Επιστροφή στη συνεδρίαση
+    metrics:
+      meetings:
+        description: Αριθμός συνεδριάσεων που δημιουργήθηκαν
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Παλαιότερες συνεδριάσεις
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Σχετικά αποτελέσματα:'
+        result_meeting: 'Σχετικές συνεδριάσεις:'
+      proposals_from_meeting:
+        meeting_proposal: 'Σχετικές προτάσεις:'
+        proposal_meeting: 'Σχετικές συνεδριάσεις:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Πρόσκληση για συμμετοχή σε συνεδρίαση
