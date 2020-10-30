@@ -1,1 +1,544 @@
 sv:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Upphovsman
+        description: Beskrivning
+        offline_votes: Personliga underskrifter
+        scope_id: Tillämpningsområde
+        signature_end_date: Slut på perioden för insamling av underskrifter
+        signature_start_date: Start på perioden för insamling av underskrifter
+        signature_type: Typ av underskriftsinsamling
+        signature_type_values:
+          any: Blandad
+          offline: Personlig
+        title: Titel
+      initiative_author:
+        address: Adress
+        city: Stad
+        name: För- och efternamn
+        phone_number: Telefonnummer
+        post_code: Postnummer
+        province: Provins
+      initiatives_committee_member:
+        user: Kommittéledamot
+      initiatives_type:
+        area_enabled: Gör det möjligt för författarna att välja område för sina initiativ
+        attachments_enabled: Aktivera bilagor
+        banner_image: Banderollbild
+        collect_user_extra_fields: Samla in deltagares personuppgifter vid underskrift
+        custom_signature_end_date_enabled: Gör det möjligt för författarna att välja när perioden för insamling av underskrifter ska sluta.
+        description: Beskrivning
+        document_number_authorization_handler: Tillstånd att verifiera dokumentnummer vid underskrift
+        extra_fields_legal_information: Juridisk information gällande insamling av personuppgifter
+        minimum_committee_members: Minsta antal ledamöter i kommittén
+        online_signature_enabled: Onlineunderskrift har aktiverats
+        promoting_committee_enabled: Aktivera projektkommitté
+        title: Titel
+        undo_online_signatures_enabled: Gör det möjligt för deltagare att ångra sin onlineunderskrift
+        validate_sms_code_on_votes: Lägg till validering via sms-kod till underskriftsprocessen
+      initiatives_vote:
+        date_of_birth: Födelsedatum
+        document_number: Dokumentnummer
+        name_and_surname: För- och efternamn
+        postal_code: Postnummer
+      organization_data:
+        address: Adress
+        id_document: ID-handling
+        name: Fullständigt namn
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Ogiltig fil
+              needs_to_be_reattached: Behöver bifogas på nytt
+              title: Titeln bör inte vara tom
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Initiativ
+        other: Initiativ
+      decidim/initiative_comittee:
+        one: Kommitté
+        other: Kommittéer
+      decidim/initiative_vote:
+        one: Underskrift
+        other: Underskrifter
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Ny typ av initiativ
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Område
+          state_eq:
+            label: Tillstånd
+            values:
+              accepted: Tillräckligt många underskrifter
+              created: Skapat
+              discarded: Borttaget
+              published: Publicerad
+              rejected: Inte tillräckligt många underskrifter
+              validating: Teknisk validering
+          type_id_eq:
+            label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} efter titel, beskrivning, ID eller upphovsmannens namn.
+      menu:
+        initiatives: Initiativ
+        initiatives_types: Typer av initiativ
+      models:
+        initiatives:
+          fields:
+            created_at: Skapad
+            published_at: Publicerat
+            supports_count: Underskrifter
+            title: Initiativ
+        initiatives_type_scope:
+          fields:
+            scope: Tillämpningsområde
+            supports_required: Underskrifter som krävs
+          name: Tillämpningsområde för initiativtypen
+        initiatives_types:
+          fields:
+            created_at: Skapad
+            title: Typer av initiativ
+          name: Typ av initiativ
+        initiatives_votes:
+          fields:
+            date_of_birth: Födelsedatum
+            document_number: Dokumentnummer
+            initiative_end_date: Slutdatum
+            initiative_id: Initiativ-ID
+            initiative_signatures_count: Antal underskrifter
+            initiative_start_date: Startdatum
+            initiative_title: Initiativets titel
+            name_and_surname: För- och efternamn
+            postal_code: Postnummer
+            time_and_date: Tid och datum
+            timestamp: Tidsstämpel
+      titles:
+        initiatives: Initiativ
+        initiatives_types: Typer av initiativ
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Initiativet "%{resource_title}" har skickats till teknisk validering. Ta en titt på <a href="%{admin_initiative_url}">administratörspanelen</a>
+            email_outro: Du har fått denna avisering eftersom du är administratör för plattformen.
+            email_subject: Initiativet "%{resource_title}" har skickats till teknisk validering.
+            notification_title: Initiativet "%{resource_title}" har skickats till teknisk validering. Ta en titt på <a href="%{admin_initiative_path}">administratörspanelen</a>
+        initiative_extended:
+          email_intro: Slutdatumet för insamling av underskrifter till initiativet %{resource_title} har senarelagts!
+          email_outro: Du har fått denna avisering eftersom du följer %{resource_title}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: Slutdatumet för insamling av underskrifter till initiativet har senarelagts!
+          notification_title: Slutdatumet för insamling av underskrifter till initiativet <a href="%{resource_path}">%{resource_title}</a> har senarelagts!
+        milestone_completed:
+          affected_user:
+            email_intro: Ditt initiativ %{resource_title} har fått %{percentage} % av underskrifterna!
+            email_outro: Du har fått denna avisering eftersom du är upphovsman till initiativet %{resource_title}.
+            email_subject: Ny milstolpe nådd!
+            notification_title: Ditt initiativ <a href="%{resource_path}">%{resource_title}</a> har fått %{percentage} % av underskrifterna.
+          follower:
+            email_intro: Initiativet %{resource_title} har fått %{percentage} % av underskrifterna!
+            email_outro: Du har fått denna avisering eftersom du följer %{resource_title}. Du kan avsluta aviseringarna via föregående länk.
+            email_subject: Ny milstolpe nådd!
+            notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har fått %{percentage} % av underskrifterna.
+        support_threshold_reached:
+          email_intro: Initiativet %{resource_title} har nått tröskelvärdet för att stödjas
+          email_outro: Du har fått denna avisering eftersom du är administratör för plattformen.
+          email_subject: Tröskelvärdet för att få stöd har nåtts
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> har nått tröskelvärdet för att stödjas
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Gå till deltagarutrymmet för initiativ
+            Följ stegen för att skapa ett nytt initiativ
+          description: Det här märket delas ut när du lanserar nya initiativ och samarbetar med andra för att genomföra dem.
+          description_another: Den här deltagaren har publicerat %{score} initiativ.
+          description_own: Du har publicerat %{score} initiativ.
+          name: Publicerade initiativ
+          next_level_in: Få %{score} initiativ till publicerade för att nå nästa nivå!
+          unearned_another: Den här deltagaren har inte fått några initiativ publicerade än.
+          unearned_own: Du har inte fått några initiativ publicerade än.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Ett <strong>initiativ</strong> är ett förslag som kan befordras av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagandeutrymmen) genom insamlingen av (digitala) underskrifter för att organisationen ska genomföra en specifik åtgärd (ändra en bestämmelse, inleda ett projekt, byta namn på en avdelning eller gata osv.).</p> <p>Initiativtagare kan definiera mål, värva stöd, debattera, distribuera och definiera mötespunkter där underskrifter kan samlas in från deltagare eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla in underskrifter för att kalla till ett samråd bland alla inom organisationen, för att skapa eller sammankalla en församling eller för att inleda en process för att öka budgeten för något av organisationens områden. Under insamlingen av underskrifter kan fler personer bidra till initiativet och föra det framåt inom organisationen.</p>\n"
+          page: "<p>Ett <strong>initiativ</strong> är ett förslag som kan befordras av vem som helst på eget initiativ (oberoende av andra kanaler eller deltagandeutrymmen) genom insamlingen av (digitala) underskrifter för att organisationen ska genomföra en specifik åtgärd (ändra en bestämmelse, inleda ett projekt, byta namn på en avdelning eller gata osv.).</p> <p>Initiativtagare kan definiera mål, värva stöd, debattera, distribuera och definiera mötespunkter där underskrifter kan samlas in från deltagare eller debatter som är öppna för andra deltagare.</p> <p>Exempel: Ett initiativ kan samla in underskrifter för att kalla till ett samråd bland alla inom organisationen, för att skapa eller sammankalla en församling eller för att inleda en process för att öka budgeten för något av organisationens områden. Under insamlingen av underskrifter kan fler personer bidra till initiativet och föra det framåt inom organisationen.</p>\n"
+          title: Vad är initiativ?
+    initiatives:
+      actions:
+        answer: Svar
+      admin:
+        answers:
+          edit:
+            answer: Svar
+            title: Svar för %{title}
+          info_initiative:
+            created_at: Skapad
+            description: Beskrivning
+            initiative_votes_count: Rösträkning
+            initiatives: Initiativ
+            state: Tillstånd
+        committee_requests:
+          index:
+            approve: Godkänn
+            confirm_revoke: Är du säker?
+            invite_to_committee_help: Dela denna länk för att bjuda in andra deltagare till projektkommittén
+            no_members_yet: Det finns inga medlemmar i projektkommittén
+            revoke: Återkalla
+            title: Kommittéledamöter
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Högsta antal element som ska visas
+        exports:
+          initiatives: Initiativ
+        initiatives:
+          edit:
+            accept: Godkänn initiativet
+            confirm: Är du säker?
+            discard: Ta bort initiativet
+            export_pdf_signatures: Exportera PDF-fil med underskrifter
+            export_votes: Exportera underskrifter
+            reject: Avvisa initiativet
+            send_to_technical_validation: Skicka till teknisk validering
+            success: Initiativet har skickats till teknisk validering
+            update: Uppdatera
+          form:
+            attachments: Bilagor
+            settings: Inställningar
+            title: Allmänna uppgifter
+          index:
+            actions_title: Åtgärd
+            preview: Förhandsgranskning
+            print: Skriv ut
+          initiative_attachments:
+            documents: Dokument
+            edit: Redigera
+            new: Nytt
+            photos: Foton
+          show:
+            print: Skriv ut
+          update:
+            error: Ett fel har uppstått
+            success: Initiativet har uppdaterats
+        initiatives_type_scopes:
+          create:
+            error: Ett fel har uppstått
+            success: Ett nytt tillämpningsområde för den givna initiativtypen har skapats
+          destroy:
+            success: Tillämpningsområdet har tagits bort
+          edit:
+            back: Tillbaka
+            confirm_destroy: Är du säker?
+            destroy: Radera
+            title: Redigera tillämpningsområdet för initiativtypen
+            update: Uppdatera
+          new:
+            back: Tillbaka
+            create: Skapa
+            title: Skapa tillämpningsområde för initiativtypen
+          update:
+            error: Ett fel har uppstått
+            success: Tillämpningsområdet har uppdaterats
+        initiatives_types:
+          create:
+            error: Ett fel har uppstått
+            success: En ny typ av initiativ har skapats
+          destroy:
+            success: Initiativtypen har tagits bort
+          edit:
+            confirm_destroy: Är du säker?
+            destroy: Radera
+            update: Uppdatera
+          form:
+            title: Allmänna uppgifter
+          initiative_type_scopes:
+            title: Tillämpningsområden för initiativtypen
+          new:
+            create: Skapa
+            title: Ny typ av initiativ
+          update:
+            error: Ett fel har uppstått
+            success: Initiativtypen har uppdaterats
+      admin_log:
+        initiative:
+          publish: "%{user_name} publicerade initiativet %{resource_name}"
+          send_to_technical_validation: "%{user_name} skickade initiativet %{resource_name} till teknisk validering"
+          unpublish: "%{user_name} tog bort initiativet %{resource_name}"
+          update: "%{user_name} uppdaterade initiativet %{resource_name}"
+      admin_states:
+        accepted: Tillräckligt många underskrifter
+        created: Skapat
+        discarded: Borttaget
+        published: Publicerad
+        rejected: Inte tillräckligt många underskrifter
+        validating: Teknisk validering
+      application_helper:
+        filter_area_values:
+          all: Alla
+        filter_scope_values:
+          all: Alla
+        filter_state_values:
+          accepted: Tillräckligt många underskrifter
+          all: Alla
+          answered: Besvarade
+          closed: Avslutad
+          open: Öppna
+          rejected: Inte tillräckligt många underskrifter
+        filter_type_values:
+          all: Alla
+      committee_requests:
+        new:
+          continue: Fortsätt
+          help_text: Du är på väg att ansöka om att bli medlem i projektkommittén för detta initiativ
+        spawn:
+          success: Din förfrågan har skickats till upphovsmannen bakom initiativet.
+      content_blocks:
+        highlighted_initiatives:
+          name: Framhävda initiativ
+      create_initiative:
+        fill_data:
+          back: Tillbaka
+          continue: Fortsätt
+          fill_data_help: "<ul> <li>Granska innehållet i initiativet. Är titeln lätt att förstå? Har initiativet ett tydligt mål?</li> <li>Du måste välja typ av underskrift. Personliga, online eller en kombination av de båda typerna</li> <li>Vad har initiativet för geografiskt tillämpningsområde? Stad, distrikt?</li> </ul>"
+          initiative_type: Typ av initiativ
+          more_information: "(Ytterligare information)"
+          select_area: Välj ett område
+          select_scope: Välj ett tillämpningsområde
+        finish:
+          back: Tillbaka
+          back_to_initiatives: Tillbaka till initiativ
+          callout_text: Gratulerar! Ditt medborgarinitiativ har skapats.
+          confirm: Bekräfta
+          edit_my_initiative: Redigera mina initiativ
+          go_to_my_initiatives: Gå till mina initiativ
+          more_information: "(Ytterligare information)"
+          send_my_initiative: Skicka mitt initiativ
+        finish_help:
+          access_reminder: Glöm inte att du alltid har tillgång till dina initiativ genom deltagarmenyn.
+          help_for_organizations: Om du är en förening måste du ladda upp protokollet för styrelsen för alla organisationer som bildar projektkommittén
+          help_in_person_signatures: Om du har valt att samla in underskrifterna personligen eller i kombination med onlineunderskrifter, måste du ladda upp den information som krävs.
+          help_text: Glöm inte att för att initiativet ska behandlas korrekt måste du öppna användarmenyn i administratörspanelen, ladda upp den information som krävs och skicka in den för behandling.
+          initiatives_page_link: Du hittar all information om initiativ via %{link}.
+          page: sida
+        previous_form:
+          back: Tillbaka
+          continue: Fortsätt
+          help: Vad består initiativet av? Skriv titeln och beskrivningen. Vi rekommenderar en kort och koncis titel och en beskrivning som fokuserar på den föreslagna lösningen.
+          more_information: "(Ytterligare information)"
+        promotal_committee:
+          back: Tillbaka
+          individual_help_text: Den här typen av medborgarinitiativ kräver att projektkommittén består av minst %{committee_size} personer (attesterare). Du måste dela följande länk med andra personer som är del av initiativet. När dina kontakter får denna länk måste de följa de angivna stegen.
+          more_information: "(Ytterligare information)"
+        select_initiative_type:
+          back: Tillbaka
+          choose_html: Jag vill skapa en <strong>%{title}</strong>
+          more_information: "(Ytterligare information)"
+          select: Jag vill befordra detta initiativ
+          select_initiative_type_help: Medborgarinitiativ är ett medel som gör det möjligt för medborgarna att agera, så att staden kan vidta åtgärder i linje med allmänhetens intresse så länge dessa åtgärder omfattas av kommunens jurisdiktion. Vilket initiativ vill du lansera?
+        share_committee_link:
+          continue: Fortsätt
+          invite_to_committee_help: Länk för att bjuda in personer som ska vara del av projektkommittén
+        show_similar_initiatives:
+          back: Tillbaka
+          compare_help: Om något av följande initiativ liknar ditt uppmanar vi dig att skriva under det. Möjligheten att ditt förslag genomförs ökar.
+          continue: Mitt initiativ är annorlunda
+          more_information: "(Ytterligare information)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, som du följer, har skapat ett nytt initiativ. Ta en titt och bidra:"
+          email_outro: Du har fått denna avisering eftersom du följer %{author_nickname}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: Nytt initiativ av %{author_nickname}
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, som du följer, har gett sitt stöd åt följande initiativ. Du kanske vill bidra till konversationen:"
+          email_outro: Du har fått denna avisering eftersom du följer %{author_nickname}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: Initiativet stöds av %{author_nickname}
+          notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> fick stöd av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Initiativ
+      initiative_signatures:
+        fill_personal_data:
+          continue: Fortsätt
+          date_select:
+            day: Dag
+            month: Månad
+            year: År
+          help: Fyll i följande fält med dina personuppgifter för att skriva under initiativet
+        finish:
+          back_to_initiative: Tillbaka till initiativet
+        sms_code:
+          continue: Kontrollera koden och fortsätt
+          help: Kontrollera det sms du har fått på telefonen
+        sms_phone_number:
+          continue: Skicka ett sms till mig
+          help: Fyll i formuläret med ditt verifierade telefonnummer för att begära en verifieringskod
+      initiative_votes:
+        create:
+          error: Ett fel uppstod när initiativet skulle skrivas under.
+          invalid: De uppgifter som lämnats för att skriva under initiativet är ogiltiga
+          success_html: Gratulerar! Initiativet <strong> %{title}</strong> har skrivits under
+        personal_data:
+          invalid: Personuppgifterna stämmer inte överens med de uppgifter som lämnades för auktoriseringen.
+        sms_code:
+          invalid: Din verifieringskod stämmer inte överens med vår. Dubbelkolla det sms som vi skickade till dig.
+        sms_phone:
+          invalid: Telefonnumret är ogiltigt eller väntar på auktorisering. Kontrollera dina godkännanden.
+      initiatives:
+        author:
+          deleted: Raderad
+        author_list:
+          hidden_authors_count:
+            one: och 1 person till
+            other: och %{count} personer till
+        count:
+          title:
+            one: "%{count} initiativ"
+            other: "%{count} initiativ"
+        filters:
+          any: Alla
+          area: Område
+          author: Upphovsman
+          myself: Mina initiativ
+          scope: Tillämpningsområde
+          search: Sök
+          type: Typ
+        filters_small_view:
+          close_modal: Stäng fönstret
+          filter_by: Filtrera efter
+          unfold: Öppna
+        index_header:
+          new_initiative: Nytt initiativ
+          not_authorized:
+            authorizations_page: Visa godkännanden
+            close: Avsluta
+            explanation: Du måste verifieras för att kunna skapa ett nytt initiativ.
+            title: Godkännande krävs
+        initiatives:
+          closed_initiatives_warning: För tillfället finns inga öppna initiativ, men här är en lista över alla avslutade initiativ.
+          no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
+        interactions:
+          comments_count:
+            count:
+              one: Kommentar
+              other: Kommentarer
+        orders:
+          label: 'Sortera initiativ på följande sätt:'
+          most_commented: Mest kommenterade
+          most_voted: Flest underskrifter
+          random: Slumpmässigt
+          recent: Senaste
+          recently_published: Senast publicerade
+        result:
+          answer_title:
+            accepted: Detta förslag har godkänts eftersom
+            created: Detta förslag har skapats
+            discarded: Detta förslag har tagits bort eftersom
+            published: Detta förslag har publicerats eftersom
+            rejected: Detta förslag har avvisats eftersom
+            validating: Detta förslag utvärderas
+          initiative_rejected_reason: Detta initiativ har avvisats eftersom det inte fick tillräckligt många underskrifter.
+        show:
+          any_vote_method: Detta medborgarinitiativ samlar in underskrifter både online och personligen.
+          follow_description: Få avisering om nyheter inom detta initiativ
+          offline_method: Detta medborgarinitiativ samlar bara in personliga underskrifter.
+        signature_identities:
+          select_identity: Välj deltagarens identifikator
+        signatures_count:
+          one: " underskrift"
+          other: " underskrifter"
+        supports:
+          title: Förteckning över underskrifter
+        vote_cabin:
+          already_voted: Redan undertecknat
+          supports_required: "%{total_supports} underskrifter krävs"
+          verification_required: Verifiera ditt konto för att skriva under initiativet
+          vote: Skriv under
+          votes_blocked: Underskrift har inaktiverats
+        votes_count:
+          count:
+            one: Underskrift
+            other: Underskrifter
+          most_popular_initiative: Populärast initiativ
+          need_more_votes: Behöver fler underskrifter
+      initiatives_mailer:
+        creation_subject: Ditt initiativ '%{title}' har skapats
+        initiative_link:
+          check_initiative_details: Läs mer om initiativet
+          here: här
+        more_information: Här hittar du mer information om processen för att skapa initiativ.
+        progress_report_body_for: Initiativet %{title} har fått %{percentage} % av de underskrifter som krävs.
+        progress_report_for: 'Sammanfattning av initiativet: %{title}'
+        promotal_committee_help: Glöm inte att du måste bjuda in minst %{member_count} personer till projektkommittén. Vidarebefordra följande länk för att bjuda in personer till projektkommittén
+        status_change_body_for: 'Initiativet %{title} har ändrat status till följande: %{state}'
+        status_change_for: Initiativet %{title} har ändrat status
+      last_activity:
+        new_initiative: Nytt initiativ
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktiva initiativ
+            see_all_initiatives: Se alla initiativ
+      show:
+        badge_name:
+          accepted: Tillräckligt många underskrifter
+          created: Skapat
+          discarded: Borttaget
+          published: Publicerad
+          rejected: Inte tillräckligt många underskrifter
+          validating: Teknisk validering
+      states:
+        accepted: Godkända
+        expired: Utlöpta
+      unavailable_scope: Otillgängligt tillämpningsområde
+      versions:
+        shared:
+          back_to_resource: Gå tillbaka till initiativet
+    menu:
+      initiatives: Initiativ
+    resources:
+      initiatives_type:
+        actions:
+          title: Åtgärder
+          vote: Skriv under
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Bilagor
+          committee_members: Kommittéledamöter
+          components: Komponenter
+      initiative_creation_header:
+        back: Tillbaka
+        fill_data: Skapa
+        finish: Avsluta
+        previous_form: Starta
+        promotal_committee: Projektkommitté
+        select_initiative_type: Välj
+        show_similar_initiatives: Jämför
+        step: Steg %{current} av %{total}
+        title: Skapa nytt initiativ
+      initiative_header:
+        initiative_menu_item: Initiativ
+      initiative_signature_creation_header:
+        back: Tillbaka
+        fill_personal_data: Fyll i dina uppgifter
+        finish: Avsluta
+        finished: Initiativunderskrift har skapats
+        see_steps: se steg
+        select_identity: Välj identitet
+        sms_code: Verifiering genom sms-kod
+        sms_phone_number: Mobilnummer
+        step: Steg %{current} av %{total}
+        title: Skriv under %{initiative_title}
+      initiatives:
+        initiative:
+          check: Ta en titt
+          check_and_support: Ta en titt och skriv under
+        no_initiatives_yet:
+          no_initiatives_yet: Inga initiativ än!
