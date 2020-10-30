@@ -1,1 +1,203 @@
 it:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categoria
+        closed_at: Chiuso alle
+        conclusions: Conclusioni
+        decidim_category_id: Categoria
+        description: Descrizione
+        end_time: Si conclude alle
+        information_updates: Aggiornamenti delle informazioni
+        instructions: Istruzioni per partecipare
+        start_time: Ora di inizio
+        title: Titolo
+        user_group_id: Crea dibattito come
+    models:
+      decidim/debates/close_debate_event: Dibattito chiuso
+      decidim/debates/create_debate_event: Dibattito
+      decidim/debates/creation_disabled_event: Dibattiti disabilitati
+      decidim/debates/creation_enabled_event: Dibattiti abilitati
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Dibattito
+        other: Dibattiti
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Crea
+          endorse: Sottoscrivi
+        name: Dibattiti
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (lasciare 0 per valore predefinito)
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            creation_enabled: Creazione di dibattiti da parte dei partecipanti attivata
+            endorsements_blocked: Sottoscrizioni bloccate
+            endorsements_enabled: Sottoscrizioni abilitate
+    debates:
+      actions:
+        close: Chiudi
+        confirm_destroy: Procedere?
+        destroy: Elimina
+        edit: Modifica
+        new: Nuovo %{name}
+        title: Azioni
+      admin:
+        debate_closes:
+          edit:
+            close: Chiudi
+            title: Chiudi dibattito
+        debates:
+          create:
+            invalid: Si è verificato un problema durante la creazione del dibattito.
+            success: Dibattito creato correttamente.
+          destroy:
+            success: Dibattito eliminato correttamente.
+          edit:
+            title: Modifica dibattito
+            update: Aggiorna dibattito
+          index:
+            title: Dibattiti
+          new:
+            create: Crea dibattito
+            title: Nuovo dibattito
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo dibattito.
+            success: Dibattito aggiornato correttamente.
+        models:
+          debate:
+            name: Dibattito
+      admin_log:
+        debate:
+          close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
+      debates:
+        close:
+          invalid: Si è verificato un problema durante la chiusura del dibattito.
+          success: Dibattito chiuso correttamente.
+        close_debate_modal:
+          close: Chiudi
+          description: Qual è la sintesi o la conclusione di questo dibattito?
+          send: Chiudi dibattito
+        closed: Chiusi
+        count:
+          debates_count:
+            one: "%{count} dibattito"
+            other: "%{count} dibattiti"
+        create:
+          invalid: Si è verificato un problema durante la creazione del dibattito.
+          success: Dibattito creato correttamente.
+        debate:
+          participate: Partecipa
+        edit:
+          back: Indietro
+          save: Salva modifiche
+          title: Modifica dibattito
+        filters:
+          all: Tutti
+          category: Categoria
+          category_prompt: Seleziona una categoria
+          citizens: Cittadini
+          official: Ufficiali
+          origin: Origine
+          search: Ricerca
+        filters_small_view:
+          close_modal: Chiudi finestra modale
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Apri elenco
+        form:
+          select_a_category: Scegli una categoria
+        index:
+          new_debate: Nuovo dibattito
+        new:
+          back: Indietro
+          create: Crea
+          title: Nuovo dibattito
+        show:
+          back: Torna all'elenco
+          close_debate: Chiudi dibattito
+          date: Data
+          debate_closed: Chiusi
+          debate_conclusions_are: 'Il dibattito è stato chiuso il %{date} con le seguenti conclusioni:'
+          edit_conclusions: Modifica conclusioni
+          edit_debate: Modifica dibattito
+          groups_count: Gruppi
+          last_comment_by: Ultimo commento di
+          no_comments_yet: Nessun commento
+          participants_count: Partecipanti
+        update:
+          invalid: Si è verificato un problema durante l'aggiornamento del dibattito.
+          success: Dibattito aggiornato correttamente.
+        versions:
+          debates:
+            back_to_resource: Torna al dibattito
+          index:
+            title: Versioni
+        versions_list:
+          back_to_resource: Torna al dibattito
+      last_activity:
+        new_debate_at_html: "<span>Nuovo dibattito a %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Data di fine
+            official_debate: Dibattito ufficiale
+            start_time: Data di inizio
+            title: Titolo
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Ciao,
+              è stato creato il nuovo dibattito "%{resource_title}" sullo spazio partecipativo %{space_title}, scopri di cosa si tratta e dai il tuo contributo:
+            email_outro: Hai ricevuto questa notifica perché segui lo spazio partecipativo %{space_title}. Per non ricevere più notifiche segui il link precedente.
+            email_subject: Nuovo dibattito "%{resource_title}" su %{space_title}
+            notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a> è stato creato su <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Ciao,
+              l'utente %{author_name} %{author_nickname}, che segui, ha creato il nuovo dibattito "%{resource_title}". Dai un'occhiata e contribuisci:
+            email_outro: Hai ricevuto questa notifica perché segui %{author_nickname}. Per non ricevere più notifiche segui il link precedente.
+            email_subject: Nuovo dibattito "%{resource_title}" creato da %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creato il dibattito <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'La creazione di dibattiti non è più attiva su %{participatory_space_title}. È ancora possibile partecipare a dibattiti aperti da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché segui %{participatory_space_title}. Per non ricevere più notifiche segui il link precedente.
+          email_subject: Creazione di dibattiti disattivata su %{participatory_space_title}
+          notification_title: La creazione di dibattiti è ora disattivata su <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'È ora possibile avviare nuovi dibattiti su %{participatory_space_title}! Inizia a partecipare da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché segui %{participatory_space_title}. Per non ricevere più notifiche segui il link precedente.
+          email_subject: Dibattiti ora disponibili su %{participatory_space_title}
+          notification_title: È ora possibile avviare <a href="%{resource_path}">nuovi dibattiti</a> su <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Il dibattito "%{resource_title}" è stato chiuso. È possibile leggere le conclusioni dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo il dibattito "%{resource_title}". Puoi smettere di seguirlo cliccando sul link precedente.
+          email_subject: Il dibattito "%{resource_title}" è stato chiuso
+          notification_title: Il dibattito <a href="%{resource_path}">%{resource_title}</a> è stato chiuso.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Scegli un dibattito aperto al quale partecipare
+          description: Questo badge ti viene assegnato quando partecipi attivamente ai diversi dibattiti lasciando commenti.
+          description_another: Questo partecipante ha partecipato a %{score} dibattiti.
+          description_own: Hai partecipato a %{score} dibattiti.
+          name: Dibattiti
+          next_level_in: Partecipa ad altri %{score} dibattiti per raggiungere il livello successivo!
+          unearned_another: Questo partecipante non ha ancora partecipato a nessun dibattito.
+          unearned_own: Non hai ancora partecipato a nessun dibattito.
+    metrics:
+      debates:
+        description: Numero di dibattiti creati
+        object: dibattiti
+        title: Dibattiti
