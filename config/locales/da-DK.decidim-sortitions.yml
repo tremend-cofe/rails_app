@@ -1,7 +1,150 @@
 da:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Oplysninger om lodtrækninger
+        decidim_category_id: Kategorier af det sæt af forslag, i hvilket du vil anvende lodtrækningen
+        decidim_proposals_component_id: Forslag indstillet
+        dice: Resultat af terningkast. Kast en 6-sidet terning, eller find en anden tilfældig måde at generere et nummer fra 1 til 6, og indtast her det tal, der kommer ud, foran nogle vidner. Dette bidrager til kvaliteten og garantierne for, at resultatet er tilfældigt
+        target_items: Antal forslag, der skal vælges (angiver antallet af forslag, du ønsker bliver valgt ved at trække lod blandt den gruppe forslag, du tidligere har valgt)
+        title: Titel
+        witnesses: Vidner
+    models:
+      decidim/sortitions/create_sortition_event: Lodtrækning
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Lodtrækning
+        other: Lodtrækninger
   decidim:
-    sortitions:
+    components:
       sortitions:
+        name: Lodtrækninger
+        settings:
+          global:
+            comments_enabled: Bemærkninger aktiveret
+            comments_max_length: Bemærkninger maks. længde (lad 0 være standardværdi)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Lodtrækningen ”%{resource_title}" er blevet føjet til "%{participatory_space_title}", som du følger.
+          email_outro: Du har modtaget denne underretning, fordi du følger "%{participatory_space_title}". Du kan holde op med at følge det fra det tidligere link.
+          email_subject: Nyt Lodtrækning føjet til %{participatory_space_title}
+          notification_title: Lodtrækningen <a href="%{resource_path}">%{resource_title}</a> er blevet føjet til %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Lodtrækninger
+    participatory_processes:
+      statistics:
+        sortitions_count: Lodtrækninger
+    sortitions:
+      admin:
+        actions:
+          destroy: Annuller lodtrækningen
+          edit: Rediger
+          new: Ny lodtrækning
+          show: Oplysninger om lodtrækningen
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              created_at: Oprettelsesdato
+              decidim_proposals_component: Forslagskomponent
+              dice: Terninger
+              request_timestamp: Tidspunkt for lodtrækning
+              seed: Kim
+              target_items: Elementer at vælge
+              title: Titel
+            name:
+              one: Lodtrækning
+              other: Lodtrækninger
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Er du sikker på, at du vil annullere denne Lodtrækning?
+            destroy: Annuller lodtrækning
+            title: Annullation af lodtrækningen
+          create:
+            error: Der var et problem med at oprette en ny lodtrækning.
+            success: Lodtrækning blev oprettet
+          destroy:
+            error: Kan ikke annullere lodtrækningen.
+            success: Lodtrækning blev annulleret
+          edit:
+            title: Opdater oplysningerne om lodtrækningen
+            update: Opdater
+          form:
+            all_categories: Alle kategorier
+            select_proposal_component: Vælg det valgte sæt
+            title: Ny lodtrækning for forslag
+          index:
+            title: Lodtrækninger
+          new:
+            confirm: Ved at trykke på den næste knap registrerer Decidim datoen og klokkeslættet (med præcision på sekunder), og sammen med terningkastet bruges denne information til at generere et tilfældigt valg. Handlingen vil være uigenkaldelig, når først der er klikket på knappen, vil resultatet af lodtrækningen blive offentliggjort sammen med de data, der er indtastet i denne formular og det kan ikke ændres, kontroller indholdet omhyggeligt
+            create: Opret
+            title: Ny lodtrækning
+          show:
+            selected_proposals: Forslag udvalgt til lodtrækning
+          update:
+            error: Der var et problem med at opdatere lodtrækningen.
+            success: Lodtrækning blev opdateret
+      admin_log:
+        sortition:
+          create: "%{user_name} oprettede %{resource_name}-lodtrækning i %{space_name}"
+          delete: "%{user_name} annullerede %{resource_name}-lodtrækning i %{space_name}"
+          update: "%{user_name} opdaterede %{resource_name}-lodtrækning i %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 forslag
+            other: "%{count} forslag"
+        filters:
+          active: Aktiv
+          all: Alle
+          cancelled: Annulleret
+          category: Kategori
+          category_prompt: Vælg en kategori
+          search: Søg
+        filters_small_view:
+          close_modal: Luk modal
+          filter: Filtrer
+          filter_by: Filtrer efter
+          unfold: Fold ud
+        linked_sortitions:
+          selected_proposals: Udvalgte forslag
+        orders:
+          label: 'Sorteringer ved:'
+          random: Tilfældigt
+          recent: Nylig
+        results_count:
+          count:
+            one: valgt forslag
+            other: udvalgte forslag
         show:
+          algorithm: Indsugningoritmerkode for Sortition
+          any_category: fra alle kategorier
+          back: Tilbage til listen
+          cancelled: Annulleret tænding
+          candidate_proposal_ids: Forslag om ordre og IDs af typen Sortiment
+          candidate_proposals_info: 'Sorteringen blev foretaget blandt følgende forslag (%{category_label}) med følgende id''er (med fed skrift de valgte forslag)  '
+          category: fra %{category}-kategorien
           dice_result: "(1) Resultat af terningkast"
           introduction: 'Denne side indeholder resultaterne af lodtrækningen %{reference}. Ved hjælp af denne sortering er %{target_items} antal resultater blevet valgt tilfældigt og med en lige sandsynlighedsfordeling fra det sæt forslag, der vises nedenfor. Sammen med resultaterne giver informationen, der vises på denne side, alle de oplysninger, der kræves for at maksimere garantier og reproducere resultaterne. Nøglen til kvaliteten af denne sortering er den dobbelte tilfældighed, der leveres af en terningkast (verificeret af vidner) og den præcise tid for sorteringen, der giver input til en algoritme, som genererer et tilfældigt valg. Tidsseedet til lodtrækningen er så nøjagtigt (sekunder), at det er umuligtfor mennesker at  at kontrollere det, hvilket giver et dobbelt "ukontrollerbart" input for at garantere et retfærdigt resultat.  '
+          mathematical_result: Resultat (1) x (2)
+          proposals_selected_by_sortition: Forslag valgt ved lodtrækning
+          sortition_reproducibility_details: Oplysninger om lodtrækningen
+          witnesses: Vidner
+        sortition:
+          random_seed: Tilfældig seed
+          selected_proposals:
+            one: valgt forslag
+            other: valgte forslag
+          view: Se
+        sortition_author:
+          deleted: Slettet deltager
+        sortition_cancel_author:
+          deleted: Slettet deltager
+        sortitions_count:
+          count:
+            one: 1 lodtrækning
+            other: "%{count} lodtrækninger"
