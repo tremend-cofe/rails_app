@@ -1,1 +1,201 @@
 fi:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Luokka
+        closed_at: Päättymisajankohta
+        conclusions: Päätelmät
+        decidim_category_id: Luokka
+        description: Kuvaus
+        end_time: Päättymisajankohta
+        information_updates: Tietopäivitykset
+        instructions: Osallistumisohjeet
+        start_time: Alkaa
+        title: Otsikko
+        user_group_id: Luo keskustelu osallistujana
+    models:
+      decidim/debates/close_debate_event: Keskustelu päättynyt
+      decidim/debates/create_debate_event: Keskustelu
+      decidim/debates/creation_disabled_event: Keskustelut poistettu käytöstä
+      decidim/debates/creation_enabled_event: Keskustelut käytössä
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Keskustelu
+        other: Keskustelua
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Luo
+          endorse: Suosittele
+        name: Keskustelut
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit sallittu
+            comments_max_length: Kommenttien enimmäispituus (merkitse 0 saadaksesi oletusarvon)
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit estetty
+            creation_enabled: Osallistujat voivat luoda keskusteluja
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset sallittu
+    debates:
+      actions:
+        close: Sulje
+        confirm_destroy: Oletko varma?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        debate_closes:
+          edit:
+            close: Sulje
+            title: Sulje keskustelu
+        debates:
+          create:
+            invalid: Keskustelun luominen epäonnistui.
+            success: Keskustelu luotiin onnistuneesti.
+          destroy:
+            success: Keskustelu poistettiin onnistuneesti.
+          edit:
+            title: Muokkaa keskustelua
+            update: Päivitä keskustelu
+          index:
+            title: Keskustelut
+          new:
+            create: Luo keskustelu
+            title: Uusi keskustelu
+          update:
+            invalid: Keskustelun päivittäminen epäonnistui.
+            success: Keskustelu päivitettiin onnistuneesti.
+        models:
+          debate:
+            name: Keskustelu
+      admin_log:
+        debate:
+          close: "%{user_name} lopetti keskustelun %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
+      debates:
+        close:
+          invalid: Keskustelun päättäminen epäonnistui.
+          success: Keskustelu päätettiin onnistuneesti.
+        close_debate_modal:
+          close: Sulje
+          description: Mikä tämän keskustelun yhteenveto tai lopputulema on?
+          send: Sulje keskustelu
+        closed: Suljettu
+        count:
+          debates_count:
+            one: "%{count} keskustelu"
+            other: "%{count} keskustelua"
+        create:
+          invalid: Keskustelun luominen epäonnistui.
+          success: Keskustelu luotiin onnistuneesti.
+        debate:
+          participate: Osallistu
+        edit:
+          back: Takaisin
+          save: Tallenna muutokset
+          title: Muokkaa keskustelua
+        filters:
+          all: Kaikki
+          category: Luokka
+          category_prompt: Valitse luokka
+          citizens: Kansalaiset
+          official: Virkamies
+          origin: Alkuperä
+          search: Haku
+        filters_small_view:
+          close_modal: Sulje pikkuikkuna
+          filter: Suodatus
+          filter_by: Suodata
+          unfold: Avaa
+        form:
+          select_a_category: Valitse luokka
+        index:
+          new_debate: Uusi keskustelu
+        new:
+          back: Takaisin
+          create: Luo
+          title: Uusi keskustelu
+        show:
+          back: Takaisin luetteloon
+          close_debate: Sulje keskustelu
+          date: Päivämäärä
+          debate_closed: Suljettu
+          debate_conclusions_are: 'Keskustelu päätettiin %{date} näillä päätelmillä:'
+          edit_conclusions: Muokkaa johtopäätöksiä
+          edit_debate: Muokkaa keskustelua
+          groups_count: Ryhmät
+          last_comment_by: Viimeisin kommentoija
+          no_comments_yet: Ei kommentteja
+          participants_count: Osallistujat
+        update:
+          invalid: Keskustelun päivittäminen epäonnistui.
+          success: Keskustelu päivitettiin onnistuneesti.
+        versions:
+          debates:
+            back_to_resource: Palaa keskusteluun
+          index:
+            title: Versiot
+        versions_list:
+          back_to_resource: Palaa keskusteluun
+      last_activity:
+        new_debate_at_html: "<span>Uusi keskustelu kohteessa %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Päättymispäivä
+            official_debate: Virallinen keskustelu
+            start_time: Alkamispäivä
+            title: Otsikko
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei! Osallistumistilaan %{space_title} on luotu uusi keskustelu "%{resource_title}". Tutustu ja osallistu:
+            email_outro: Sait tämän ilmoituksen, koska seuraat osallistumistilaa %{space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+            email_subject: Uusi keskustelu "%{resource_title}" kohteessa %{space_title}
+            notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> luotiin kohteeseen <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hei!%{author_name} %{author_nickname}, jota seuraat, on luonut uuden keskustelun "%{resource_title}". Tutustu ja osallistu:
+            email_outro: Sait tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+            email_subject: Uusi keskustelu "%{resource_title}" osallistujalta %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> loi keskustelun <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Keskustelujen luominen ei ole enää mahdollista kohteessa %{participatory_space_title}. Voit edelleen osallistua avoimiin keskusteluihin tältä sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Keskustelujen luominen ei ole käytössä kohteessa %{participatory_space_title}
+          notification_title: Keskustelujen luominen on nyt poissa käytöstä kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Voit nyt aloittaa uusia keskusteluja kohteessa %{participatory_space_title}! Aloita osallistuminen tältä sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Keskustelut ovat nyt käytössä kohteessa %{participatory_space_title}
+          notification_title: Nyt voit aloittaa <a href="%{resource_path}">uusia keskusteluja</a> kohteessa <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Keskustelu "%{resource_title}" suljettiin. Voit lukea johtopäätökset keskustelun sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat keskustelua "%{resource_title}”. Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Keskustelu "%{resource_title}" suljettiin
+          notification_title: Keskustelu <a href="%{resource_path}">%{resource_title}</a> suljettiin.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Valitse avoin keskustelu, johon haluat osallistua
+          description: Tämä merkki myönnetään niille, jotka osallistuvat aktiivisesti kommentoimalla eri keskusteluihin.
+          description_another: Tämä osallistuja on osallistunut %{score} keskusteluun.
+          description_own: Olet osallistunut %{score} keskusteluun.
+          name: Keskustelut
+          next_level_in: Osallistu %{score} keskusteluun noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä osallistuja ei ole vielä osallistunut yhteenkään keskusteluun.
+          unearned_own: Et ole vielä osallistunut yhteenkään keskusteluun.
+    metrics:
+      debates:
+        description: Luotujen keskustelujen määrä
+        object: keskustelua
+        title: Keskustelut
