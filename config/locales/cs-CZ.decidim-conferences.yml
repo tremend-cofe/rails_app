@@ -1,1 +1,37 @@
 cs:
+  activemodel:
+    attributes:
+      conference:
+        decidim_scope_id: Rozsah
+        scope_id: Rozsah
+  decidim:
+    admin:
+      conference_copies:
+        new:
+          select: Vybrat, jaká data chcete duplikovat.
+      conference_speakers:
+        edit:
+          title: Aktualizovat řečníka na konferenci
+        new:
+          title: Nový řečník na konferenci
+      partners:
+        edit:
+          title: Aktualizovat partnera
+    admin_log:
+      conferences:
+        partner:
+          create: "%{user_name}  vytvořil %{resource_name} na konferenci v %{space_name}"
+    conferences:
+      conference_registration_mailer:
+        pending_validation:
+          confirmation_pending: Brzy obdržíte potvrzení.
+      shared:
+        conference_user_login:
+          sign_in: K registraci na konferenci je nutné se přihlásit.
+          sign_up: Vytvořte si účet u decidim, abyste se mohli na konferenci registrovat.
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_subject: Na konferenci "%{resource_title}" je obsazeno více než %{percentage}% míst.
+        role_assigned:
+          notification_title: Byla vám přidělena role %{role} na konferenci <a href="%{resource_url}">%{resource_title}</a>.
