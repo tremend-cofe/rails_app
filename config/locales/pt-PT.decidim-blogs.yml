@@ -1,1 +1,84 @@
 pt:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova publicação de blogue
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicação
+        other: Publicações
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Tem a certeza de que pretende eliminar esta publicação?
+        destroy: Eliminar
+        edit: Editar
+        new: Nova publicação
+        title: Ações
+      admin:
+        models:
+          components:
+            body: Corpo
+          post:
+            name: Publicação
+        posts:
+          create:
+            invalid: Houve um problema ao criar esta publicação
+            success: Publicação criada com êxito
+          destroy:
+            success: Publicação eliminada com êxito
+          edit:
+            save: Atualizar
+          index:
+            title: Publicações
+          new:
+            create: Criar
+            title: Criar publicação
+          update:
+            invalid: Houve um problema ao guardar a publicação.
+            success: Publicação guardada com êxito
+      last_activity:
+        new_post_at_html: "<span>Nova publicação em %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Corpo
+            created_at: Criado em
+            title: título
+      posts:
+        show:
+          back: Voltar à lista
+          comments: Comentários
+          view: Ver
+        sidebar_blog:
+          comments: comentários
+          most_commented_posts: Publicações mais comentadas
+      read_more: Mais informações
+    components:
+      blogs:
+        name: Blogue
+        settings:
+          global:
+            announcement: Comunicado
+            comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máx. dos comentários (deixar 0 como valor por defeito)
+          step:
+            announcement: Comunicado
+            comments_blocked: Comentários bloqueados
+            endorsements_blocked: Subscrições bloqueadas
+            endorsements_enabled: Subscrições ativadas
+    events:
+      blogs:
+        post_created:
+          email_intro: A publicação "%{resource_title}" foi publicada em "%{participatory_space_title}", que está a seguir.
+          email_outro: Recebeu esta notificação porque está a seguir "%{participatory_space_title}". Pode deixar de seguir clicando na ligação anterior.
+          email_subject: Nova publicação publicada em %{participatory_space_title}
+          notification_title: A publicação <a href="%{resource_path}">%{resource_title}</a> foi publicada em %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Publicações
+    participatory_processes:
+      statistics:
+        posts_count: Publicações
