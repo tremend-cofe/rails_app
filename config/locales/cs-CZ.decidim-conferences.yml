@@ -2,36 +2,550 @@ cs:
   activemodel:
     attributes:
       conference:
+        assemblies_ids: Související shromáždění
+        banner_image: Obrázek banneru
+        consultations_ids: Související konzultace
+        copy_categories: Kopírovat kategorie
+        copy_components: Kopírovat komponenty
+        copy_features: Kopírovat vlastnosti
         decidim_scope_id: Rozsah
+        description: Popis
+        hero_image: Hlavní obrázek
+        participatory_processes_ids: Související participativní procesy
+        promoted: Zvýrazněno
+        published_at: Zveřejněno v
         scope_id: Rozsah
+        scopes_enabled: Rozsahy byly povoleny
+        short_description: Stručný popis
+        show_statistics: Ukázat statistiku
+        title: Název
+      conference_speaker:
+        full_name: Jméno a příjmení
+      conference_user_role:
+        email: E-mail
+        name: Jméno
+        role: Úloha
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Tato e-mailová adresa už byla pozvána
   decidim:
     admin:
+      actions:
+        confirm: Potvrdit
+        new_conference: Nová konference
+        send_diplomas: Zaslat potvrzení o účasti
       conference_copies:
         new:
+          copy: Kopírovat
           select: Vybrat, jaká data chcete duplikovat.
+          title: Duplikovat konferenci
+      conference_publications:
+        create:
+          error: Při zveřejňování konference nastal problém.
+          success: Konference byla úspěšně zveřejněna.
+        destroy:
+          error: Při rušení zveřejnění konference nastal problém.
+          success: Zveřejnění konference bylo úspěšně zrušeno.
+      conference_registration:
+        confirm:
+          error: Při potvrzování registrace na konferenci nastal problém.
+          success: Registrace na konferenci byla úspěšně potvrzena.
       conference_speakers:
+        create:
+          error: Při přidávání řečníka na tuto konferenci nastal problém.
+          success: Řečník na konferenci byl úspěšně vytvořen.
+        destroy:
+          success: Řečník na konferenci byl úspěšně smazán.
         edit:
           title: Aktualizovat řečníka na konferenci
+          update: Aktualizovat
+        index:
+          conference_speakers_title: Řečníci na konferenci
         new:
+          create: Vytvořit
           title: Nový řečník na konferenci
+        update:
+          error: Při aktualizaci řečníka na této konferenci nastal problém.
+          success: Řečník na konferenci byl úspěšně aktualizován.
+      conference_user_roles:
+        create:
+          error: Při přidávání administrátora pro tuto konferenci nastal problém.
+          success: Správce konference byl úspěšně přidán.
+        destroy:
+          success: Správce konference byl úspěšně smazán.
+        edit:
+          title: Aktualizovat správce konference.
+          update: Aktualizovat
+        index:
+          conference_admins_title: správci konference
+        new:
+          create: Vytvořit
+          title: Nový správce konference.
+        update:
+          error: Při aktualizaci správce konference nastal problém.
+          success: Správce konference byl úspěšně aktualizován.
+      conferences:
+        create:
+          error: Při vytváření konference nastal problém.
+          success: Konference byla úspěšně vytvořena.
+        edit:
+          update: Aktualizovat
+        exports:
+          registrations: Registrace
+        form:
+          title: Obecné informace
+        index:
+          not_published: Nezveřejněné
+          published: Zveřejněné
+        new:
+          create: Vytvořit
+          title: Konference
+        update:
+          error: Při aktualizaci konference nastal problém.
+          success: Konference byla úspěšně aktualizována.
+      conferences_copies:
+        create:
+          error: Při duplikování této konference nastal problém.
+          success: Konference byla úspěšně duplikována.
+      media_links:
+        create:
+          error: Při vytváření nového odkazu na média nastal problém.
+          success: Odkaz na média byl úspěšně vytvořen.
+        destroy:
+          success: Odkaz na média byl úspěšně smazán.
+        edit:
+          title: Aktualizovat odkaz na média.
+          update: Aktualizovat
+        index:
+          media_links_title: Odkazy na média
+        new:
+          create: Vytvořit
+          title: Odkaz na média
+        update:
+          error: Při aktualizaci odkazu na média nastal problém.
+          success: Odkaz na média byl úspěšně aktualizován.
+      menu:
+        conferences: Konference
+        conferences_submenu:
+          attachment_collections: Složky
+          attachment_files: Soubory
+          attachments: Přílohy
+          categories: Kategorie
+          components: Komponenty
+          conference_admins: Správci konference
+          conference_invites: Pozvaní
+          conference_speakers: Hosté
+          diploma: Potvrzení o účasti
+          info: Informace
+          media_links: Odkazy na média
+          moderations: Moderování
+          partners: Partneři
+          registration_types: Typy registrace
+          registrations: Registrace
+          user_registrations: Registrace uživatele
+      models:
+        conference:
+          fields:
+            created_at: Vytvořeno v
+            promoted: Zvýrazněno
+            published: Zveřejněno
+            title: Název
+        conference_speaker:
+          fields:
+            affiliation: Příslušnost
+            full_name: Jméno a příjmení
+            position: Funkce
+          name: Řečník na konferenci
+        conference_user_role:
+          fields:
+            email: E-mail
+            name: Jméno
+            role: Úloha
+          name: Správce konference
+          roles:
+            admin: Správce
+            collaborator: Spolupracovník
+            moderator: Moderátor
+            valuator: Hodnotitel
+        media_link:
+          fields:
+            date: Datum
+            link: Odkaz
+            title: Název
+          name: Odkaz na média
+        partner:
+          fields:
+            link: Odkaz
+            name: Jméno
+            partner_type: Druh
+          types:
+            collaborator: Spolupracovník
+            main_promotor: Hlavní předkladatel
+        registration_type:
+          fields:
+            conference_meetings: Konferenční schůze
+            price: Cena
+            registrations_count: Počet registrací
+            title: Název
+            weight: Váha
+          name: Typ registrace
       partners:
+        create:
+          error: Při přidávání partnera konference nastal problém.
+          success: Partner konference byl úspěšně přidán.
+        destroy:
+          success: Partner konference byl úspěšně smazán.
         edit:
           title: Aktualizovat partnera
+          update: Aktualizovat
+        new:
+          create: Vytvořit
+          title: Nový partner
+        update:
+          error: Při aktualizaci partnera konference nastal problém.
+          success: Partner konference byl úspěšně aktualizován.
+      registration_type_publications:
+        create:
+          error: Při zveřejnění typu registrace nastal problém.
+          success: Typ registrace byl úspěšně zveřejněn.
+        destroy:
+          error: Při rušení zveřejnění tohoto typu registrace nastal problém.
+          success: Zveřejnění typu registrace bylo úspěšně zrušeno.
+      registration_types:
+        create:
+          error: Při přidávání typu registrace na konferenci nastal problém.
+          success: Typ registrace na konferenci byl úspěšně přidán.
+        destroy:
+          success: Typ registrace na konferenci byl úspěšně smazán.
+        edit:
+          title: Aktualizovat typ registrace.
+          update: Aktualizovat
+        new:
+          create: Vytvořit
+          title: Nový typ registrace
+        update:
+          error: Při aktualizaci této registrace na tuto konferenci nastal problém.
+          success: Typ registrace na konferenci byl úspěšně aktualizován.
+      titles:
+        conferences: Konference
     admin_log:
+      conference:
+        create: "%{user_name} vytvořil konferenci %{resource_name}"
+        publish: "%{user_name} zveřejnil konferenci %{resource_name}"
+        send_conference_diplomas: "%{user_name} poslal potvrzení o účasti účastníkům konference %{resource_name}"
+        unpublish: "%{user_name} zrušil zveřejnění konference %{resource_name}"
+        update: "%{user_name} aktualizoval konferenci %{resource_name}"
+        update_diploma: "%{user_name} aktualizoval konfiguraci potvrzení o účasti na konferenci %{resource_name}"
+      conference_speaker:
+        create: "%{user_name} vytvořil řečníka %{resource_name} na konferenci %{space_name}"
+        delete: "%{user_name} odstranil řečníka %{resource_name} konference %{space_name}"
+        update: "%{user_name} aktualizoval řečníka %{resource_name} na konferenci %{space_name}"
+      conference_user_role:
+        create: "%{user_name} pozval %{resource_name} na konferenci %{space_name}"
+        delete: "%{user_name} odstranil správce %{resource_name} z konference %{space_name}"
+        update: "%{user_name} změnil roli %{resource_name} na konferenci %{space_name}"
       conferences:
+        conference_registration:
+          confirm: "%{user_name} potvrdil registraci na konferenci v %{resource_name}"
         partner:
           create: "%{user_name}  vytvořil %{resource_name} na konferenci v %{space_name}"
+          delete: "%{user_name} odstranil správce %{resource_name} konference %{space_name}"
+          update: "%{user_name} aktualizoval %{resource_name} na konferenci %{space_name}"
+        registration_type:
+          create: "%{user_name} vytvořil %{resource_name} typ registrace na konferenci %{space_name}"
+          publish: "%{user_name} zveřejnil typ registrace %{resource_name} na konferenci %{space_name}"
+          unpublish: "%{user_name} zrušil zveřejnění typu registrace %{resource_name} v konferenci %{space_name}"
+          update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
+      media_link:
+        create: "%{user_name} vytvořil %{resource_name} odkaz na média na konferenci %{space_name}"
+        delete: "%{user_name} odstranil %{resource_name} odkaz na média na konferenci %{space_name}"
+        update: "%{user_name} aktualizoval %{resource_name} odkaz na média na konferenci %{space_name}"
+    conference_speakers:
+      index:
+        title: Hosté
     conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        conference_invites:
+          create:
+            error: Při zvaní účastníka na konferenci nastal problém.
+            success: Účastník byl úspěšně pozván, aby se zúčastnil konference.
+          form:
+            attendee_type: Typ účastníka
+            existing_user: Stávající účastník
+            invite_explanation: Účastník bude pozván, aby se zúčastnil konference a aby se rovněž připojil k organizaci.
+            non_user: Neexistující účastník
+            select_user: Vybrat účastníka
+          index:
+            filter:
+              accepted: Přijato
+              all: Vše
+              rejected: Odmítnuto
+              sent: Odesláno
+            filter_by: Filtrovat podle
+            invite_attendee: Pozvat účastníka
+            invites: Pozvaní
+            search: Vyhledávání
+          new:
+            explanation: Účastník bude pozván, aby se zúčastnil konference. Pokud její e-mail není registrován, bude pozvána, aby se rovněž připojila k organizaci.
+            invite: Pozvat
+            new_invite: Pozvat účastníka
+        conference_registrations:
+          index:
+            registrations: Registrace
+        conference_speakers:
+          form:
+            existing_user: Stávající účastník
+            non_user: Neúčastník
+            select_user: Vybrat účastníka
+            user_type: Typ účastníka
+          index:
+            search: Vyhledávání
+        conferences:
+          form:
+            available_slots_help: Ponechat 0, pokud máte k dispozici neomezený počet míst.
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+        diplomas:
+          edit:
+            save: Uložit
+            title: Potvrzení o účasti
+        invite_join_conference_mailer:
+          invite:
+            decline: Odmítnout pozvání '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} vás pozval k zapojení do konference v %{application}. Můžete odmítnout nebo přijmout pomocí odkazů dole."
+            registration: Registrace na '%{conference_title}'
+        partners:
+          index:
+            title: Partneři
+        registration_types:
+          form:
+            select_conference_meetings: Vybrat konferenční schůzi
+          index:
+            title: Typy registrace
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Potvrzení o účasti na konferenci <a href="%{url}">%{title}</a> najdete v přílohách.
+          diploma_user:
+            attendance_verified_by: Účast ověřil
+            certificate_of_attendance: Potvrzení o účasti
+            certificate_of_attendance_description: Toto je potvrzení, že <strong>%{user}</strong> se zúčastnil <strong>%{title}</strong> konané v <strong>%{location}</strong> ve dnech <strong>%{start} – %{end}</strong>
+        send_diploma:
+          error: Při rozesílání potvrzení o účasti nastal problém.
+          success: Potvrzení o účasti na konferenci byla úspěšně rozeslána
+      conference:
+        registration_confirm:
+          cancel: Zrušit
+          confirm: Potvrdit
+        show:
+          free: Volno
+          going: Účastním se
+          no_slots_available: Nejsou k dispozici žádná volná místa
+          registration: Registrace
+      conference_program:
+        program_meeting:
+          content: Obsah
+          location: Místo
+          speakers: Hosté
+          streaming: Streamování
+        show:
+          day: Den
       conference_registration_mailer:
+        confirmation:
+          confirmed_html: Vaše registrace na konferenci <a href="%{url}">%{title}</a> byla potvrzena.
+          details_1: 'Zaregistrovali jste se jako %{registration_type}. Cena registrace je %{price} a můžete se zúčastnit následujících akcí:'
+          details_2: Podrobnosti o konferenci najdete v příloze.
         pending_validation:
           confirmation_pending: Brzy obdržíte potvrzení.
+          details: 'Zaregistrovali jste se jako %{registration_type} za cenu %{price} a můžete se zúčastnit následujících akcí:'
+          pending_html: Vaše registrace na konferenci <a href="%{url}">%{title}</a> čeká na potvrzení.
+      conference_registrations:
+        create:
+          invalid: Při připojování se k této konferenci nastal problém.
+          success: Úspěšně jste se připojili ke konferenci.
+        decline_invitation:
+          invalid: Při odmítnutí pozvání nastal problém.
+          success: Vaše odmítnutí pozvání bylo úspěšné.
+        destroy:
+          invalid: Při opouštění této konference nastal problém.
+          success: Úspěšně jste opustili konferenci.
+      conference_speaker:
+        go_to_twitter: Jít na Twitter
+        more_info: další informace
+        personal_website: Osobní stránka
+        show:
+          more_info: další informace
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Osobní stránka
+        twitter_handle:
+          go_to_twitter: Jít na Twitter
+      conference_speakers:
+        index:
+          speakers: Hosté
+      conferences:
+        partners:
+          collaborators: Partneři
+          main_promotors: Organizátoři
+        show:
+          login_as: Jste přihlášeni jako %{name} <%{email}>
+          make_conference_registration: 'Zaregistrovat se na konferenci:'
+          register: Registrovat
+      content_blocks:
+        highlighted_conferences:
+          name: Zvýrazněné konference
+      index:
+        title: Konference
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Registrace na konferenci byla potvrzena
+          pending_validation:
+            subject: Registrace na konferenci čeká na potvrzení
+        invite_join_conference_mailer:
+          invite:
+            subject: Pozvánka k účasti na konferenci
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Potvrzení o vaší účasti na konferenci bylo odesláno
+      models:
+        conference_invite:
+          fields:
+            email: E-mail
+            name: Jméno
+            registration_type: Typ registrace
+            sent_at: Odesláno v
+          status:
+            accepted: Přijato (%{at})
+            rejected: Odmítnuto (%{at})
+            sent: Odesláno
+        conference_registration:
+          fields:
+            email: E-mail
+            name: Jméno
+            registration_type: Typ registrace
+            states:
+              confirmed: Potvrzeno
+              pending: Čeká na potvrzení
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktivní konference
+            see_all_conferences: Zobrazit všechny konference
+      photo:
+        image:
+          attributes:
+            alt: Fotografie – média
+        show:
+          close_modal: Zavřít modální okno
+          photo: Obrázek
+      photos_list:
+        show:
+          related_photos: Obrázky
+      registration_types:
+        index:
+          choose_an_option: 'Vyberte si způsob registrace:'
+          login_as: Jste přihlášeni jako %{name} <%{email}>
+          register: Registrovat
+          title: Typy registrace
       shared:
         conference_user_login:
+          already_account: Máte již účet u decidim?
+          new_user: Nový uživatel?
           sign_in: K registraci na konferenci je nutné se přihlásit.
           sign_up: Vytvořte si účet u decidim, abyste se mohli na konferenci registrovat.
+      show:
+        details: Podrobnosti
+        introduction: Úvod
+        objectives: Cíle
+        related_assemblies: Související shromáždění
+        related_consultations: Související konzultace
+        related_participatory_processes: Související participativní procesy
+      statistics:
+        answers_count: Odpovědi
+        comments_count: Komentáře
+        conference_count: Konference
+        debates_count: Diskuse
+        endorsements_count: Schválení
+        headline: Činnost
+        meetings_count: Schůze
+        orders_count: Hlasy pro
+        pages_count: Počet stran
+        posts_count: Příspěvky
+        projects_count: Projekty
+        proposals_count: Návrhy
+        results_count: Výsledky
+        surveys_count: Průzkumy
+        users_count: Účastníci
+        votes_count: Hlasy pro
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Vaše registrace na konferenci <a href="%{resource_url}">%{resource_title}</a> byla potvrzena.
+        conference_registration_validation_pending:
+          notification_title: Vaše registrace na konferenci <a href="%{resource_url}">%{resource_title}</a> čeká na potvrzení.
         conference_registrations_over_percentage:
+          email_intro: Na konferenci "%{resource_title}" je obsazeno více než %{percentage}% míst.
+          email_outro: Obdrželi jste toto oznámení, protože jste správce participativního prostoru konference.
           email_subject: Na konferenci "%{resource_title}" je obsazeno více než %{percentage}% míst.
+          notification_title: Na konferenci <a href="%{resource_path}">%{resource_title}</a> je obsazeno více než %{percentage}% míst.
+        conference_updated:
+          email_intro: 'Konference "%{resource_title}" byla aktualizována. Novou verzi si můžete přečíst na stránce:'
+          email_outro: Obdrželi jste oznámení, protože sledujete konferenci "%{resource_title}". Pokud ji chcete přestat sledovat, přejděte na předchozí odkaz.
+          email_subject: Konference "%{resource_title}" byla aktualizována
+          notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
+        registrations_enabled:
+          email_intro: 'Na konferenci "%{resource_title}" se nyní lze registrovat. Můžete se zaregistrovat na stránce:'
+          email_outro: Obdrželi jste oznámení, protože sledujete konferenci "%{resource_title}". Pokud ji chcete přestat sledovat, přejděte na předchozí odkaz.
+          email_subject: Na konferenci "%{resource_title}" se nyní lze registrovat.
+          notification_title: Na konferenci <a href="%{resource_path}">%{resource_title}</a> se nyní lze registrovat.
         role_assigned:
+          email_intro: Byla vám přidělena role %{role} na konferenci "%{resource_title}".
+          email_outro: Obdrželi jste toto oznámení, protože jste %{role} na konferenci "%{resource_title}".
+          email_subject: Byla vám přidělena role %{role} ve "%{resource_title}".
           notification_title: Byla vám přidělena role %{role} na konferenci <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Konference "%{resource_title}" začíná za dva dny. Popis si můžete přečíst na stránce:'
+          email_outro: Obdrželi jste oznámení, protože sledujete konferenci "%{resource_title}". Pokud ji chcete přestat sledovat, přejděte na předchozí odkaz.
+          email_subject: Konference "%{resource_title}" se blíží!
+          notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> začíná za dva dny.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konference nebyla v databázi nalezena (ID: %{id})'
+    media:
+      index:
+        description: Odkazy k této konferenci
+        title: Média a odkazy
+    menu:
+      conferences: Konference
+  devise:
+    mailer:
+      join_conference:
+        subject: Pozvánka k účasti na konferenci
+  layouts:
+    decidim:
+      conference_hero:
+        register: Registrovat se
+      conference_widgets:
+        show:
+          take_part: Zúčastnit se
+      conferences:
+        conference:
+          more_info: Další informace
+          take_part: Zúčastnit se
+        index:
+          promoted_conferences: Zvýrazněné konference
+        promoted_conference:
+          more_info: Další informace
+          take_part: Zúčastnit se
+      conferences_nav:
+        conference_menu_item: Informace
+        conference_partners_menu_item: Partneři
+        conference_speaker_menu_item: Hosté
+        media: Média
+        venues: Místa konání
