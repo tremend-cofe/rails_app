@@ -1,33 +1,253 @@
 da:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Tilgængelige metoder
+        offline_explanation: Instruktioner til offline-verifikation
+      id_document_information:
+        document_number: Dokumentnummer (med brev)
+        document_type: Dokumentets type
+      id_document_upload:
+        document_number: Dokumentnummer (med brev)
+        document_type: Dokumentets type
+        user: Deltager
+        verification_attachment: Scannet kopi af dit dokument
+      offline_confirmation:
+        email: Deltagerens e-mail
+      postal_letter_address:
+        full_address: Fuld adresse
+      postal_letter_confirmation:
+        verification_code: Verifikationskode
+      postal_letter_postage:
+        full_address: Fuld adresse
+        verification_code: Verifikationskode
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Nyttigt, hvis processen allerede er startet, og du vil tilbagekalde tilladelserne til den forrige proces.
+          button: Tilbagekald alt
+          button_before: Tilbagekald før dato
+          destroy:
+            confirm: Tilbagekaldelse, før den dato godkendelser ikke kan fortrydes. Er du sikker på, at du vil fortsætte?
+            confirm_all: Tilbagekaldelse, før den dato godkendelser ikke kan fortrydes. Er du sikker på, at du vil fortsætte?
+          destroy_nok: Der har været et problem med tilbagekaldelse af tilladelser.
+          destroy_ok: Alle matchede godkendelser er blevet tilbagekaldt!
+          info: Der er i alt %{count} verificerede deltagere.
+          no_data: Ingen verificerede deltagere
+          title: Tilbagekaldes verifikationen
+        authorization_workflows: Verifikationer
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} opdaterede konfigurationen af verifikationen af identitetsdokumenter"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificeret %{resource_name} ved hjælp af en offline verifikation af identitetsdokument"
     authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Admin uploader en CSV med e-mails fra de accepterede deltagere
+            Kun deltagere med en e-mail i den CSV-fil kan blive verificeret
+        id_documents:
+          help: |-
+            Brugere udfylder deres identitetsoplysninger og uploader en kopi af deres dokument.
+            Du udfylder de oplysninger, der findes i det uploadede billede.
+            Oplysningerne skal matche det, brugeren udfyldte.
+            Hvis du ikke tydeligt kan se oplysningerne, eller du ikke kan få dem verificeret, kan du afvise anmodningen, og brugeren vil kunne rette det.
+        postal_letter:
+          help: |-
+            Deltagerne anmoder om, at en verifikationskode sendes til deres adresse.
+            Du sender brevet til deres adresse med bekræftelseskoden.
+            Du markerer brevet som sendt.
+            Når du markerer brevet som sendt, vil deltageren være i stand til at indtaste koden og blive verificeret.
+      csv_census:
+        explanation: Bliv verificeret ved hjælp af organisationens optælling
+        name: Organisationens optælling
+      direct: Direkte
+      help: Hjælp
+      id_documents:
+        explanation: Upload dine identitetsdokumenter, så vi kan kontrollere din identitet
+        name: Identitetsdokumenter
+      multistep: Multi-trin
+      name: Navn
       postal_letter:
+        explanation: Vi sender dig et brev med en kode, som du skal indtaste, så vi kan bekræfte din adresse
         name: kode ved et brev med posten
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Dette er dataene for den aktuelle verifikation:'
+          no_data_stored: Ingen data gemt.
+        create:
+          error: Der var et problem med at oprette tilladelsen.
+          success: Du har fået tilladelse.
+          unconfirmed: Du skal bekræfte din e-mail for at give dig selv tilladelse.
+        destroy:
+          error: Der var et problem med at slette tilladelsen.
+          success: Du har slettet godkendelsen.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verificer op imod et andet eksempel på autorisationshandler
+            csv_census: Verificer op mod organisationens optælling
+            dummy_authorization_handler: Verificer op imod eksempel på autorisationshandler
+            dummy_authorization_workflow: Verificer op imod eksempel på autorisationshandler
+            id_documents: Bliv verificeret ved at uploade dit identitetsdokument
+            postal_letter: Bliv verificeret ved at modtage en verifikationskode med posten
+            sms: Bliv verificeret ved at modtage en SMS-verifikationskode
+          title: Verificer din identitet
+          verify_with_these_options: 'Dette er de tilgængelige muligheder for at verificere din identitet:'
         index:
+          expired_verification: Verifikationen er udløbet
           pending_verification: Verifikationen afventer
+          show_renew_info: Klik for at forny verifikationen
+          unauthorized_verification: Ny verifikation
+        new:
+          authorize_with: Verificer med %{authorizer}
+        renew_modal:
+          cancel: Annuller
+          close: luk
+          continue: Fortsæt
+          info_renew: Hvis du vil opdatere dataene, skal du fortsætte med fornyelsen
+          title: Forny verifikation
+        skip_verification: Du kan springe dette over nu og %{link}
+        start_exploring: begynd at udforske
       csv_census:
+        admin:
+          census:
+            create:
+              error: Der opstod en fejl ved import af optælling.
+              success: Importerede %{count} emner (%{errors} errors)
+            destroy_all:
+              success: Alle optællingsdata er blevet slettet
+          destroy:
+            confirm: Selt helle optællingen, kan ikke gøres om. Er du sikker på, at du vil fortsætte?
+            title: Slet alle optællingsdata
+          index:
+            data: Der er i alt %{count} poster indlæst. Sidste uploadsdato var %{due_date}
+            empty: Der er ingen optællingsdata. Brug nedenstående formular til at importere den ved hjælp af en CSV-fil.
+            title: Nuværende optællingsdata
+          instructions:
+            body: For at gøre dette skal du gå ind i systemadministration og tilføje csv_census-autorisations til organisationen
+            title: Du skal aktivere csv-optællingen for denne organisation
+          new:
+            file: ".csv-fil med e-mail-data"
+            info: 'Skal være en fil i CSV-format med kun én kolonne med e-mail-adressen:'
+            submit: Upload fil
+            title: Upload en ny optælling
         authorizations:
           new:
+            error: Vi kunne ikke bekræfte din konto, ellers også findes du ikke i organisationens optælling.
             success: Din konto er blevet verificeret
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Deltagelse er begrænset til deltagere med postnummer %{postal_codes}.
+            other: 'Deltagelse er begrænset til deltagere med et af følgende postnumre: %{postal_codes}.'
+          scope: Deltagelse er begrænset til deltagere med område %{scope_name}.
       id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfiguration af identitetsdokumenter
+              update: Opdater
+            update:
+              error: Der var et problem med at opdatere konfigurationen.
+              success: Konfigurationen blev opdateret
+          confirmations:
+            create:
+              error: Verifikationen stemmer ikke overens. Prøv igen eller afvis verifikationen, så deltageren kan ændre den
+              success: Deltager verificeret
+            new:
+              introduce_user_data: Indtast dataene på billedet
+              reject: Afvis
+              verify: Verificer
+          offline_confirmations:
+            create:
+              error: Verifikationen stemmer ikke overens. Prøv igen eller bed deltageren om at ændre det
+              success: Deltager verificeret
+            new:
+              cancel: Annuller
+              introduce_user_data: Indtast deltagerens e-mail og dokumentdata
+              verify: Verificer
+          pending_authorizations:
+            index:
+              config: Konfigurer
+              offline_verification: Offline verifikation
+              title: Afventer online verifikationer
+              verification_number: 'Verifikation #%{n}'
+          rejections:
+            create:
+              success: Verifikation afvist. Deltageren vil blive bedt om at ændre sine dokumenter
         authorizations:
+          choose:
+            choose_a_type: 'Vælg, hvordan du vil verificeres:'
+            title: Verificer dig selv ved hjælp af dit identitetsdokument
           create:
             error: Der var et problem med at oploade dit dokument.
+            success: Dokumentet blev uploadet
+          edit:
+            being_reviewed: Vi gennemgår dine dokumenter. Du bliver verificeret om kort tid
+            offline: Brug offline-verifikation
+            online: Brug online-verifikation
+            rejection_clarity: Sørg for, at oplysningerne er tydeligt synlige i det uploadede billede
+            rejection_correctness: Sørg for, at de indtastede oplysninger er korrekte
+            rejection_notice: Der var et problem med verifikationen af dig. Du bedes prøve igen
+            send: Anmod om verifikation igen
+          new:
+            send: Anmod om verifikation
+            title: Upload dit identitetsdokument
           update:
             error: Der var et problem med at oploade dit dokument.
+            success: Dokumentet uploadet
+        passport: Pas
       postal_letter:
         admin:
           pending_authorizations:
             index:
+              address: Adresse
               letter_sent_at: Brev sendt kl.
+              mark_as_sent: Marker som sendt
+              not_yet_sent: Ikke sendt endnu
+              title: Verserende verifikationer
+              username: Tilnavn
+              verification_code: Verifikationskode
+          postages:
+            create:
+              error: Fejl ved markering af brev som sendt
+              success: Brevet er markeret som sendt
         authorizations:
           create:
             error: Der var et problem med din anmodning.
+            success: Tak! Vi sender en bekræftelseskode til din adresse
+          edit:
+            send: Bekræft
+            title: Indfør den bekræftelseskode, du har modtaget
+            waiting_for_letter: Vi sender snart et brev til din adresse med din bekræftelseskode
+          new:
+            send: Send mig et brev
+            title: Anmod om din bekræftelseskode
           update:
             error: Din bekræftelseskode stemmer ikke overens med vores. Du bedes dobbelttjekke den SMS, vi har sendt dig
+            success: Tillykke! Du er blevet verificeret
       sms:
         authorizations:
           create:
             error: Der var et problem med din anmodning.
+            success: Tak! Vi har sendt en SMS til din telefon.
+          destroy:
+            success: Bekræftelseskoden nulstillet. Indtast dit telefonnummer igen.
+          edit:
+            confirm_destroy: Er du sikker på, at du vil nulstille bekræftelseskoden?
+            destroy: Nulstil bekræftelseskode
+            resend: Modtog du ikke bekræftelseskoden?
+            send: Bekræft
+            title: Indfør den bekræftelseskode, du har modtaget
+          new:
+            send: Send mig en SMS
+            title: Anmod om din bekræftelseskode
+          update:
+            error: Din bekræftelseskode stemmer ikke overens med vores. Du bedes dobbelttjekke den SMS, vi har sendt dig.
+            success: Tillykke! Du er blevet verificeret.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: skal alle være store bogstaver og må kun indeholde bogstaver og/eller tal
