@@ -1,1 +1,35 @@
 cs:
+  activemodel:
+    attributes:
+      initiative:
+        scope_id: Rozsah
+      initiatives_vote:
+        postal_code: PSČ
+  decidim:
+    admin:
+      models:
+        initiatives_type_scope:
+          fields:
+            scope: Rozsah
+        initiatives_votes:
+          fields:
+            postal_code: PSČ
+    events:
+      initiatives:
+        initiative_extended:
+          email_intro: Datum ukončení sběru podpisů pro iniciativu %{resource_title} bylo prodlouženo.
+          email_subject: Datum ukončení sběru podpisů u iniciativy bylo prodlouženo.
+        milestone_completed:
+          affected_user:
+            email_intro: Vaše iniciativa %{resource_title} získala %{percentage}% podpisů.
+          follower:
+            email_intro: Iniciativa %{resource_title} získala %{percentage}% podpisů.
+    gamification:
+      badges:
+        initiatives:
+          next_level_in: 'Pokud se chcete dostat na další úroveň, potřebujete zveřejnit ještě tento počet iniciativ: %{score}.'
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Iniciativa</strong> je návrh, který může podpořit kdokoliv z vlastního podnětu (nezávisle na ostatních kanálech nebo účastnických prostorech) prostřednictvím sběru (digitálních) podpisů pro organizaci, která má provést určitou činnost (změnit nařízení, zahájit projekt, změnit název oblasti nebo ulice atd.).</p> <p>Předkladatelé iniciativy mohou definovat její cíle, shánět podporu, debatovat, šířit ji a určit místa setkávání, kde lze shromažďovat podpisy účastníků nebo vést diskuse otevřené dalším účastníkům.</p> <p>Příklady: V rámci iniciativy je možné sbírat podpisy, aby byla svolána konzultace mezi všemi osobami z organizace nebo aby bylo vytvořeno či svoláno shromáždění nebo aby byl zahájen proces zvýšení rozpočtu pro území či oblast dané organizace. Během sběru podpisů se k tomuto požadavku mohou přidávat další osoby a šířit jej dál v rámci organizace.</p>\n"
+          page: "<p><strong>Iniciativa</strong> je návrh, který může podpořit kdokoliv z vlastního podnětu (nezávisle na ostatních kanálech nebo účastnických prostorech) prostřednictvím sběru (digitálních) podpisů pro organizaci, která má provést určitou činnost (změnit nařízení, zahájit projekt, změnit název oblasti nebo ulice atd.).</p> <p>Předkladatelé iniciativy mohou definovat její cíle, shánět podporu, debatovat, šířit ji a určit místa setkávání, kde lze shromažďovat podpisy účastníků nebo vést diskuse otevřené dalším účastníkům.</p> <p>Příklady: V rámci iniciativy je možné sbírat podpisy, aby byla svolána konzultace mezi všemi osobami z organizace nebo aby bylo vytvořeno či svoláno shromáždění nebo aby byl zahájen proces zvýšení rozpočtu pro území či oblast dané organizace. Během procesu sběru podpisů se k tomuto požadavku mohou přidávat další osoby a šířit jej dál v rámci organizace.</p>\n"
