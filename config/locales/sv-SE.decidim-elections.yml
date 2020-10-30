@@ -1,1 +1,251 @@
 sv:
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivning
+        image: Bild
+        proposals: Relaterade förslag
+        title: Titel
+      election:
+        description: Beskrivning
+        end_time: Omröstningen avslutas
+        start_time: Omröstningen inleds
+        title: Titel
+      question:
+        description: Beskrivning
+        max_selections: Maximalt antal val
+        title: Titel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Behöver bifogas på nytt
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Behöver bifogas på nytt
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svar
+      decidim/elections/election:
+        one: Val
+        other: Val
+      decidim/elections/question:
+        one: Fråga
+        other: Frågor
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Rösta
+        name: Val
+        settings:
+          global:
+            announcement: Tillkännagivande
+          step:
+            announcement: Tillkännagivande
+    elections:
+      actions:
+        confirm_destroy: Är du säker?
+        destroy: Förstör
+        edit: Redigera
+        edit_answers: Redigera svar
+        edit_questions: Redigera frågor
+        import: Importera förslag till svar
+        new: Nytt %{name}
+        preview: Förhandsgranskning
+        publish: Publicera
+        title: Åtgärder
+        unpublish: Avpublicera
+      admin:
+        answers:
+          create:
+            invalid: Ett fel uppstod när svaret skapades
+            success: Svaret har skapats
+          destroy:
+            invalid: Ett fel uppstod när svaret raderades
+            success: Svaret har raderats
+          edit:
+            title: Redigera svar
+            update: Uppdatera svar
+          index:
+            title: Svar
+          new:
+            create: Skapa svar
+            title: Nytt svar
+          update:
+            invalid: Ett fel uppstod när svaret skulle uppdateras
+            success: Svaret har uppdaterats
+        elections:
+          create:
+            invalid: Ett fel uppstod när valet skapades
+            success: Valet har skapats
+          destroy:
+            invalid: Ett fel uppstod när valet raderades
+            success: Valet har raderats
+          edit:
+            title: Redigera val
+            update: Uppdatera val
+          index:
+            title: Val
+          new:
+            create: Skapa val
+            title: Nytt val
+          publish:
+            success: Valet har publicerats.
+          unpublish:
+            success: Valet har avpublicerats.
+          update:
+            invalid: Ett fel uppstod när valet skulle uppdateras
+            success: Valet har uppdaterats
+        models:
+          answer:
+            name: Svar
+          election:
+            name: Val
+          question:
+            name: Fråga
+        proposals_imports:
+          create:
+            invalid: Ett fel uppstod när förslagen skulle importeras till svar
+            success: "%{number} förslag har importerats till svar"
+          new:
+            create: Importera förslag till svar
+            no_components: Det finns inga andra förslagskomponenter i detta deltagandeutrymme för att importera förslagen till svar.
+            select_component: Välj en komponent
+        questions:
+          create:
+            invalid: Ett fel uppstod när frågan skapades
+            success: Frågan har skapats
+          destroy:
+            invalid: Ett fel uppstod när frågan raderades
+            success: Frågan har raderats
+          edit:
+            title: Redigera fråga
+            update: Uppdatera fråga
+          index:
+            title: Frågor
+          new:
+            create: Skapa fråga
+            title: Ny fråga
+          update:
+            invalid: Ett fel uppstod när frågan skulle uppdateras
+            success: Frågan har uppdaterats
+      admin_log:
+        election:
+          publish: "%{user_name} publicerade valet %{resource_name}"
+          unpublish: "%{user_name} avpublicerade valet %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Avslutade
+          ongoing: Aktiva
+          upcoming: Kommande
+        end_date: Slutar
+        footer:
+          view: Visa
+          vote: Rösta
+        label:
+          date: Datum
+        questions: Frågor %{count}
+        start_date: Startar
+        unspecified: Ej specificerat
+      elections:
+        count:
+          elections_count:
+            one: "%{count} val"
+            other: "%{count} val"
+        filters:
+          active: Aktiva
+          all: Alla
+          finished: Avslutade
+          search: Sök
+          upcoming: Kommande
+        filters_small_view:
+          close_modal: Stäng modalt fönster
+          filter_by: Filtrera efter
+          unfold: Öppna
+        show:
+          back: Alla val
+          preview: Förhandsgranskning
+          vote: Rösta
+          voting_period_status:
+            finished: Omröstningen inleddes kl. %{start_time} och avslutades kl. %{end_time}
+            ongoing: Omröstningen avslutas kl. %{end_time}
+            upcoming: Omröstningen inleds kl. %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Förslag
+            title: Titel
+        election:
+          fields:
+            end_time: Slutar
+            start_time: Startar
+            title: Titel
+        question:
+          fields:
+            answers: Svar
+            max_selections: Max. antal val
+            title: Titel
+      orders:
+        label: Sortera val efter
+        older: Äldre
+        recent: Senaste
+      votes:
+        confirm:
+          answer: Svar
+          answer_number: svar %{number}
+          confirm: Bekräfta
+          edit: redigera
+          header: Bekräfta din röst
+          intro: Här är en sammanfattning av den röst du är på väg att lägga. <br> Bekräfta din röst eller redigera dina svar.
+          question: Fråga %{count}
+        confirmed:
+          back: Tillbaka till val
+          experience: Vad tyckte du?
+          feedback: Ge oss feedback
+          header: Rösten har bekräftats
+          lead: Du har redan lagt din röst!
+          text: 'Du kan kontrollera att din röst har lagts till i valurnan med hjälp av följande identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Kontrollera genom att kopiera identifikatorn och klistra in den på <a href="evote-verify">röstbekräftelsesidan</a>
+        encrypting:
+          header: Kodar röst …
+          text: Din röst kodas för att säkerställa att du kan lägga den anonymt.
+        header:
+          confirm: Bekräfta din röst
+          confirmed: Rösten har bekräftats
+          encrypting: Bekräftar röst
+        messages:
+          not_allowed: För tillfället får du inte rösta i detta val.
+        modal:
+          close: Avsluta
+          proposal_header: 'Förslag:'
+        new:
+          answer_choices: Du kan välja upp till %{choices} svar eller inget svar alls
+          more_information: Mer information
+          preview_alert: Det här är en förhandsgranskning av röstbåset.
+          question_steps: Fråga %{current_step} av %{total_steps}
+          selections: "%{selected} av %{max_selections}<br> val"
+        voting_step:
+          back: Tillbaka
+          continue: Nästa
+      warnings:
+        no_elections_warning: Inga val matchar dina sökkriterier eller så finns det inte några val inplanerade.
+        no_scheduled_elections_warning: För tillfället finns det inga val inplanerade, men här finns en lista över alla tidigare val.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Valet %{resource_title} är nu aktivt för %{participatory_space_title}. Du kan se det från den här sidan:'
+          email_outro: Du har fått denna avisering eftersom du följer %{participatory_space_title}. Du kan avsluta aviseringarna via föregående länk.
+          email_subject: Valet %{resource_title} är nu aktivt för %{participatory_space_title}.
+          notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Val
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Stäng
