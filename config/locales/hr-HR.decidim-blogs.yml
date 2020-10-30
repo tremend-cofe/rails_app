@@ -1,1 +1,78 @@
 hr:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova objava na blogu
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Želite li zaista izbrisati objavu?
+        destroy: Izbriši
+        edit: Uređivanje
+        new: Nova objava
+        title: Radnje
+      admin:
+        models:
+          components:
+            body: Tekst
+          post:
+            name: Objava
+        posts:
+          create:
+            invalid: Došlo je do problema pri stvaranju objave
+            success: Objava je uspješno stvorena
+          destroy:
+            success: Objava je uspješno izbrisana
+          edit:
+            save: Ažuriraj
+          index:
+            title: Objave
+          new:
+            create: Stvori
+            title: Stvori objavu
+          update:
+            invalid: Došlo je do problema pri spremanju objave.
+            success: Objava je uspješno spremljena
+      last_activity:
+        new_post_at_html: "<span>Nova objava na %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Tekst
+            created_at: Stvoreno
+            title: naslov
+      posts:
+        show:
+          back: Povratak na popis
+          comments: Komentari
+          view: Prikaži
+        sidebar_blog:
+          comments: komentari
+          most_commented_posts: Objave s najviše komentara
+      read_more: Više informacija
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Objava
+            comments_enabled: Komentari su omogućeni
+            comments_max_length: Maksimalna duljina komentara (ostavite 0 za zadanu vrijednost)
+          step:
+            announcement: Objava
+            comments_blocked: Komentari su blokirani
+            endorsements_blocked: Podrške su blokirane
+            endorsements_enabled: Podrške su omogućene
+    events:
+      blogs:
+        post_created:
+          email_intro: Objava "%{resource_title}" objavljena je na participativnom prostoru "%{participatory_space_title}", koji pratite.
+          email_outro: Primili ste ovu obavijest jer pratite participativni prostor "%{participatory_space_title}". Klikom na prethodnu poveznicu možete ga prestati pratiti.
+          email_subject: Nova objava objavljena je na participativnom prostoru %{participatory_space_title}
+          notification_title: Objava <a href="%{resource_path}">%{resource_title}</a> objavljena je na participativnom prostoru %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Objave
+    participatory_processes:
+      statistics:
+        posts_count: Objave
