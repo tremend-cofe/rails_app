@@ -1,1 +1,152 @@
 et:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Liisuheitmise teave
+        decidim_category_id: Nende ettepanekute kogumite kategooriad, mille jaoks soovite liisuheitmist korraldada
+        decidim_proposals_component_id: Ettepanekute kogum
+        dice: Täringuviske tulemus. Visake kuueküljelist täringut või kasutage mõnd muud juhusliku valiku viisi numbrite 1–6 saamiseks ja sisestage saadud number tunnistaja silme all. See aitab tagada kvaliteedi ja garanteerib tulemuse juhuslikkuse
+        target_items: Valitavate ettepanekute arv (arv, mis näitab, kui palju ettepanekuid soovite varem valitud ettepanekute rühmast liisuheitmise meetodil valida)
+        title: Pealkiri
+        witnesses: Tunnistajad
+    models:
+      decidim/sortitions/create_sortition_event: Liisuheitmine
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Liisuheitmine
+        other: Liisuheitmised
+  decidim:
+    components:
+      sortitions:
+        name: Liisuheitmised
+        settings:
+          global:
+            comments_enabled: Kommentaarid lubatud
+            comments_max_length: Kommentaari maksimaalne pikkus (vaikeväärtuse valimiseks jätke väljale 0)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Teie jälgitavas osalusruumis „%{participatory_space_title}“ lisati liisuheitmiskirje „%{resource_title}“.
+          email_outro: Saite selle teate, kuna jälgite osalusruumi „%{participatory_space_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Osalusruumis %{participatory_space_title} lisati uus liisuheitmiskirje
+          notification_title: Osalusruumis %{participatory_space_title} lisati uus liisuheitmiskirje <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          sortitions_count: Liisuheitmised
+    participatory_processes:
+      statistics:
+        sortitions_count: Liisuheitmised
+    sortitions:
+      admin:
+        actions:
+          destroy: Tühista liisuheitmine
+          edit: Muuda
+          new: Uus liisuheitmine
+          show: Liisuheitmise üksikasjad
+        models:
+          sortition:
+            fields:
+              category: Kategooria
+              created_at: Loomise kuupäev
+              decidim_proposals_component: Ettepanekute komponent
+              dice: Täringusilmade arv
+              reference: Viide
+              request_timestamp: Liisuheitmise aeg
+              seed: Sisendnumber
+              target_items: Valitavad üksused
+              title: Pealkiri
+            name:
+              one: Liisuheitmine
+              other: Liisuheitmised
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Kas olete kindel, et soovite selle liisuheitmise tühistada?
+            destroy: Tühista liisuheitmine
+            title: Liisuheitmise tühistamine
+          create:
+            error: Uue liisuheitmise loomisel tekkis probleem.
+            success: Liisuheitmine on loodud
+          destroy:
+            error: Liisuheitmist ei saa tühistada.
+            success: Liisuheitmine on tühistatud
+          edit:
+            title: Värskenda liisuheitmise teavet
+            update: Värskenda
+          form:
+            all_categories: Kõik kategooriad
+            select_proposal_component: Valige ettepanekud
+            title: Uus liisuheitmine ettepanekute valimiseks
+          index:
+            title: Liisuheitmised
+          new:
+            confirm: Kui vajutate kinnitamisnuppu, salvestab Decidim kuupäeva ja kellaaja (sekundi täpsusega) ning genereerib selle ja täringusilmade arvu alusel juhusliku valiku. Toimingut ei saa tagasi võtta. Pärast nupu klõpsamist avaldatakse selle liisuheitmise tulemus koos sellesse vormi sisestatud andmetega ja tulemusi enam muuta ei saa. Kontrollige lisatud sisu hoolikalt üle
+            create: Loo
+            title: Uus liisuheitmine
+          show:
+            selected_proposals: Liisuheitmiseks valitud ettepanekud
+          update:
+            error: Liisuheitmiskirje värskendamisel tekkis probleem.
+            success: Liisuheitmiskirjet on värskendatud
+      admin_log:
+        sortition:
+          create: "Kasutaja %{user_name} algatas osalusruumis %{space_name} liisuheitmise%{resource_name}"
+          delete: "Kasutaja %{user_name} tühistas osalusruumis %{space_name} liisuheitmise%{resource_name}"
+          update: "Kasutaja %{user_name} värskendas osalusruumis %{space_name} liisuheitmise%{resource_name} kirjet"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 ettepanek
+            other: "%{count} ettepanekut"
+        filters:
+          active: Aktiivsed
+          all: Kõik
+          cancelled: Tühistatud
+          category: Kategooria
+          category_prompt: Valige kategooria
+          search: Otsing
+          state: Olek
+        filters_small_view:
+          close_modal: Sulge modaalaken
+          filter_by: Filtrimisalus
+          unfold: Ava
+        linked_sortitions:
+          selected_proposals: Valitud ettepanekud
+        orders:
+          label: 'Liisuheitmiste järjestusalus:'
+          random: Juhuslik valik
+          recent: Hiljutised
+        results_count:
+          count:
+            one: valitud ettepanek
+            other: valitud ettepanekud
+        show:
+          algorithm: Liisuheitmise algoritmi kood
+          any_category: kõigist kategooriatest
+          back: Tagasi loendi juurde
+          cancelled: Tühistatud liisuheitmine
+          candidate_proposal_ids: Liisuheitmise teel valitavate ettepanekute järjestus ja IDd.
+          candidate_proposals_info: 'Liisuheitmisega tehti valik järgmiste ettepanekute hulgast (%{category_label}), mille IDd on järgmised (valitud ettepanekud paksus kirjas) ja mis kuuluvad  '
+          category: kategooriasse %{category}
+          dice_result: "(1) Täringuviske tulemus"
+          introduction: 'Sellel lehel on liisuheitmise %{reference} tulemused. Selle liisuheitmisega valiti alltoodud ettepanekute hulgast juhuvaliku meetodil ja valmisse sattumise võrdse tõenäosuse põhimõttel %{target_items} kolm tulemusnumbrit. Sellel lehel esitatud andmed ja tulemused annavad kogu vajaliku teabe maksimaalse garantii tagamiseks ja tulemuste taasloomise võimaldamiseks. Sellise liisuheitmise kvaliteedi võti on nn kahekordne juhuslikkus, mille tagab täringuviske (tunnistajate silme all) silmade arvu ja liisuheitmise täpse aja kasutamine juhuvaliku genereerimise algoritmi sisendina. Liisuheitmise ajasisend on nii täpne (sekundites), et seda on inimesel võimatu kontrollida. Seega kasutatakse õiglaste tulemuste tagamiseks kahte kontrollimatut sisendit.  '
+          mathematical_result: Tulemus (1) × (2)
+          proposals_selected_by_sortition: Liisuheitmisega valitud ettepanekud
+          sortition_reproducibility_details: Liisuheitmine korratavuse üksikasjad
+          time_seed: "(2) Ajapõhine sisendnumber"
+          witnesses: Tunnistajad
+        sortition:
+          random_seed: Juhuslik sisendnumber
+          selected_proposals:
+            one: ettepanek valitud
+            other: ettepanekut valitud
+          view: Kuva
+        sortition_author:
+          deleted: Kustutatud osaleja
+        sortition_cancel_author:
+          deleted: Kustutatud osaleja
+        sortitions_count:
+          count:
+            one: 1 liisuheitmine
+            other: "%{count} liisuheitmist"
