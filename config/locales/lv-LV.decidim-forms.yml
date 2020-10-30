@@ -1,1 +1,169 @@
 lv:
+  activemodel:
+    attributes:
+      answer:
+        body: Atbilde
+      question:
+        max_choices: Maksimālais izvēles iespēju skaits
+        question_type: Tips
+      questionnaire_question:
+        mandatory: Obligāts
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nav aizpildīta
+              too_many: pārāk daudz
+        questionnaire:
+          request_invalid: Apstrādājot pieprasījumu, radās kļūda. Lūdzu, mēģiniet vēlreiz
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Apraksts
+            tos: Pakalpojuma noteikumi
+        questionnaires:
+          actions:
+            back: Atgriezties pie jautājumiem
+            show: Rādīt atbildes
+          answer_option:
+            answer_option: Atbildes opcija
+            free_text: Brīvs teksts
+            remove: Dzēst
+            statement: Paziņojums
+          answers:
+            actions:
+              back: Atgriezties pie atbildēm
+              export: Eksportēt
+              show: Rādīt atbildes
+            empty: Pagaidām nav atbilžu
+            export:
+              answer:
+                title: 'Atbilde Nr. %{number}'
+            export_response:
+              title: aptaujas_lietotāju_atbildes_%{token}
+            index:
+              title: "%{total} no kopējā atbilžu skaita"
+            show:
+              title: 'Atbilde Nr. %{number}'
+          display_condition:
+            answer_option: Atbildes opcija
+            condition_question: Jautājums
+            condition_type: Nosacījums
+            condition_types:
+              answered: Atbildēts
+              equal: Vienāds ar
+              match: Ietver tekstu
+              not_answered: Nav atbildēts
+              not_equal: Nav vienāds ar
+            condition_value: Ietver tekstu
+            display_condition: Parādīt nosacījumu
+            mandatory: Šis nosacījums ir vienmēr jāizpilda neatkarīgi no citu nosacījumu statusa
+            remove: Dzēst
+            save_warning: Atcerieties saglabāt veidlapu, pirms konfigurējat parādīšanas nosacījumus
+            select_answer_option: Atlasīt atbildes opciju
+            select_condition_question: Atlasīt jautājumu
+            select_condition_type: Atlasīt nosacījuma tipu
+          edit:
+            save: Saglabāt
+            title: Rediģēt anketu
+          form:
+            add_question: Pievienot jautājumu
+            add_separator: Pievienot atdalītāju
+            already_answered_warning: Daži lietotāji jau ir snieguši atbildes uz attiecīgās veidlapas jautājumiem, līdz ar to jautājumus nevar pārveidot.
+            collapse: Sakļaut visus jautājumus
+            expand: Izvērst visus jautājumus
+            preview: Priekšskatīt
+            title: Rediģēt veidlapu
+            unpublished_warning: Veidlapa nav publicēta. Varat pārveidot jautājumus, taču tādējādi tiks dzēstas pašreizējās atbildes.
+          matrix_row:
+            matrix_row: Rinda
+            remove: Dzēst
+            statement: Paziņojums
+          question:
+            add_answer_option: Pievienot atbildes opciju
+            add_display_condition: Pievienot parādīšanas nosacījumu
+            add_display_condition_info: Saglabājiet veidlapu, lai konfigurētu parādīšanas nosacījumus
+            add_matrix_row: Pievienot rindu
+            any: Jebkura
+            collapse: Sakļaut
+            description: Apraksts
+            down: Uz leju
+            expand: Izvērst
+            question: Jautājums
+            remove: Dzēst
+            statement: Paziņojums
+            up: Uz augšu
+          separator:
+            down: Uz leju
+            remove: Dzēst
+            separator: Atdalītājs
+            up: Uz augšu
+          update:
+            invalid: Saglabājot veidlapu, radās problēma.
+            success: Veidlapas ir veiksmīgi saglabātas.
+      errors:
+        answer:
+          body: Pamatteksts nevar būt tukšs
+      files:
+        extension_whitelist: 'Akceptētie formāti:'
+      images:
+        dimensions_info: 'Šis attēlam tiks:'
+        processors:
+          resize_and_pad: Mainīts lielums un tas tiks papildināts līdz
+          resize_to_fit: Mainīts lielums, lai derētu
+      question_types:
+        long_answer: Garā atbilde
+        matrix_multiple: Matrica (vairākas iespējas)
+        matrix_single: Matrica (viena iespēja)
+        multiple_option: Vairākas iespējas
+        short_answer: Īsā atbilde
+        single_option: Viena iespēja
+        sorting: Kārtošana
+      questionnaires:
+        answer:
+          invalid: Aizpildot veidlapu, radās problēma.
+          max_choices_alert: Ir atlasītas pārāk daudzas izvēles iespējas
+          success: Veidlapa ir veiksmīgi aizpildīta.
+        question:
+          max_choices: 'Maksimālais izvēles iespēju skaits: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Pierakstieties savā kontā</a> vai <a href="%{sign_up_link}">reģistrējieties,</a> lai aizpildītu veidlapu.
+            title: Aizpildīt veidlapu
+          current_step: '%{step}. solis'
+          of_total_steps: no %{total_steps}
+          questionnaire_answered:
+            body: Jūs jau aizpildījāt šo veidlapu
+            title: Jau aizpildīta
+          questionnaire_closed:
+            body: Veidlapa jau ir slēgta, un to nevar aizpildīt
+            title: Veidlapa slēgta
+          questionnaire_for_private_users:
+            body: Veidlapa ir pieejama tikai privātiem lietotājiem
+            title: Veidlapa slēgta
+          questionnaire_js_disabled:
+            body: Dažas no veidlapas funkcijām būs atspējotas. Lai uzlabotu pieredzi, pārlūkprogrammā iespējojiet JavaScript.
+            title: JavaScript ir atspējots
+          questionnaire_not_published:
+            body: Šī veidlapa vēl nav publicēta.
+          tos_agreement: Piedaloties, jūs pieņemat pakalpojuma noteikumus
+      step_navigation:
+        show:
+          are_you_sure: Šo darbību nevar atsaukt, un jūs nevarēsiet rediģēt savas atbildes. Vai esat pārliecināts?
+          back: Atpakaļ
+          continue: Turpināt
+          submit: Iesniegt
+      user_answers_serializer:
+        body: Atbildēt
+        completion: Pabeigšana
+        created_at: Atbildes sniegtas
+        id: Atbildes ID
+        ip_hash: IP jaukšana
+        question: Jautājums
+        registered: Reģistrēts
+        session_token: Lietotāja identifikators
+        unregistered: Nereģistrēts
+        user_status: Lietotāja statuss
