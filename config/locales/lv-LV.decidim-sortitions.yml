@@ -1,1 +1,130 @@
 lv:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Lozēšanas informācija
+        decidim_category_id: Tāda priekšlikumu kopuma kategorijas, attiecībā uz kuru vēlaties veikt izlozi
+        decidim_proposals_component_id: Priekšlikumu kopums
+        dice: Kauliņa mešanas rezultāts. Metiet sešskaldņu kauliņu vai atrodiet citu nejaušu veidu, kā iegūt skaitli no 1 līdz 6, un ievadiet šeit iegūto skaitli dažu liecinieku klātbūtnē. Tas nodrošina kvalitāti un garantē rezultāta nejaušību
+        target_items: Atlasāmo priekšlikumu skaits (norāda priekšlikumu skaitu, kuru vēlaties atlasīt, veicot izlozi no iepriekš izvēlētās priekšlikumu grupas)
+        title: Virsraksts
+        witnesses: Liecinieki
+    models:
+      decidim/sortitions/create_sortition_event: Lozēšana
+  decidim:
+    components:
+      sortitions:
+        name: Lozēšanas
+        settings:
+          global:
+            comments_enabled: Komentāri iespējoti
+            comments_max_length: Komentāru maksimālais garums (Atstājiet “0”, lai izmantotu noklusējuma vērtību)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Lozēšana "%{resource_title}" ir pievienota telpā "%{participatory_space_title}", kurai sekojat.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat telpai "%{participatory_space_title}". Varat atcelt sekošanu, izmantojot iepriekšējo saiti.
+          email_subject: Līdzdalības telpā %{participatory_space_title} ir pievienota jauna lozēšana
+          notification_title: Lozēšana <a href="%{resource_path}">%{resource_title}</a> ir pievienota telpā %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Lozēšanas
+    participatory_processes:
+      statistics:
+        sortitions_count: Lozēšanas
+    sortitions:
+      admin:
+        actions:
+          destroy: Atcelt lozēšanu
+          edit: Rediģēt
+          new: Jauna lozēšana
+          show: Lozēšanas informācija
+        models:
+          sortition:
+            fields:
+              category: Kategorija
+              created_at: Izveides datums
+              decidim_proposals_component: Priekšlikumu komponents
+              dice: Spēļu kauliņi
+              reference: Atsauce
+              request_timestamp: Izlozes laiks
+              seed: Sākotnējā vērtība
+              target_items: Atlasāmie vienumi
+              title: Virsraksts
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Vai tiešām vēlaties atcelt šo lozēšanu?
+            destroy: Atcelt lozēšanu
+            title: Lozēšanas atcelšana
+          create:
+            error: Izveidojot jaunu lozēšanu, radās problēma.
+            success: Lozēšana ir veiksmīgi izveidota
+          destroy:
+            error: Nevar atcelt lozēšanu.
+            success: Lozēšana ir veiksmīgi atcelta
+          edit:
+            title: Atjaunināt informācija par lozēšanu
+            update: Atjaunināt
+          form:
+            all_categories: Visas kategorijas
+            select_proposal_component: Atlasīt priekšlikumu kopumu
+            title: Jauna priekšlikumu lozēšana
+          index:
+            title: Lozēšanas
+          new:
+            confirm: Nospiežot pogu Tālāk, Decidim reģistrēs datumu un laiku (ar precizitāti līdz sekundēm), un šī informācija kopā ar mestā kauliņa iznākumu tiks izmantota, lai ģenerētu nejauši izlasi. Darbība ir neatgriezeniska; noklikšķinot uz pogas, šīs izlozes rezultāts tiks publicēts kopā ar šajā veidlapā ievadītajiem datiem, un to nevarēs pārveidot. Lūdzu, rūpīgi pārbaudiet saturu
+            create: Izveidot
+            title: Jauna lozēšana
+          show:
+            selected_proposals: Izlozei atlasītie priekšlikumi
+          update:
+            error: Atjauninot lozēšanu, radās problēma.
+            success: Lozēšana ir veiksmīgi atjaunināta
+      admin_log:
+        sortition:
+          create: "%{user_name} izveidoja lozēšanu %{resource_name} telpā %{space_name}"
+          delete: "%{user_name} atcēla lozēšanu %{resource_name} telpā %{space_name}"
+          update: "%{user_name} atjaunināja lozēšanu %{resource_name} telpā %{space_name}"
+      sortitions:
+        filters:
+          active: Aktīvi
+          all: Visi
+          cancelled: Atcelti
+          category: Kategorija
+          category_prompt: Atlasiet kategoriju
+          search: Meklēt
+          state: Statuss
+        filters_small_view:
+          close_modal: Aizvērt modālo logu
+          filter: Filtrs
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        linked_sortitions:
+          selected_proposals: Atlasītie priekšlikumi
+        orders:
+          label: 'Kārtot lozēšanas pēc:'
+          random: Nejauši
+          recent: Nesenās
+        show:
+          algorithm: Lozēšanas algoritma kods
+          any_category: no visām kategorijām
+          back: Atgriezties pie saraksta
+          cancelled: Atcelta lozēšana
+          candidate_proposal_ids: Lozēšanas priekšlikumu secība un ID
+          candidate_proposals_info: 'Lozēšana tika veikta attiecībā uz šādiem priekšlikumiem (%{category_label}) ar šādiem ID (treknrakstā norādīti atlasītie priekšlikumi)  '
+          category: no %{category} kategorijas
+          dice_result: "(1) Spēļu kauliņa rezultāts"
+          introduction: 'Šajā lapā ir norādīti lozēšanas %{reference} rezultāti. Izmantojot šo lozēšanu, no tālāk redzamā priekšlikumu kopuma nejauši un ar vienādu varbūtību ir atlasīti vairāki %{target_items} rezultāti. Kopā ar attiecīgajiem rezultātiem šajā lapā redzamie dati sniedz visu informāciju, kas nepieciešama, lai nodrošinātu maksimālas garantijas un rezultātu reproducējamību. Šīs lozēšanas kvalitātes pamatā ir divkārša nejaušība, ko nodrošina kauliņa mešana (ko apliecina aculiecinieki) un precīzs lozēšanas laiks, kas nodrošina izejas datus algoritmam, kas ģenerē nejaušu atlasi. Lozēšanas sākotnējā laika vērtība ir tik precīza (sekundes), ka tā ir ārpus cilvēku kontroles, tādējādi nodrošinot divkārši “nekontrolējamus” izejas datus, lai garantētu godīgu iznākumu.  '
+          mathematical_result: Rezultāts (1) x (2)
+          proposals_selected_by_sortition: Lozēšanas rezultātā atlasītie priekšlikumi
+          sortition_reproducibility_details: Lozēšanas reproducējamības informācija
+          time_seed: "(2) Sākotnējā laika vērtība"
+          witnesses: Liecinieki
+        sortition:
+          random_seed: Sākotnējā nejaušā vērtība
+          view: Skatīt
+        sortition_author:
+          deleted: Dzēsts dalībnieks
+        sortition_cancel_author:
+          deleted: Dzēsti dalībnieki
