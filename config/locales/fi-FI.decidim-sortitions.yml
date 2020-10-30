@@ -1,1 +1,152 @@
 fi:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Arvontatiedot
+        decidim_category_id: Niiden ehdotusten luokat, joihin haluat käyttää arvontaa
+        decidim_proposals_component_id: Ehdotukset valittu
+        dice: Nopanheiton tulos. Heitä kuusisivuista noppaa tai käytä joitain muuta tapaa satunnaisen yhden ja kuuden välisen luvun saamiseksi ja syötä tulokseksi saatu luku tänne todistajien läsnä ollessa. Tämä parantaa tulosten satunnaisuuden laatua ja takeita
+        target_items: Valittavien ehdotusten määrä (montako ehdotusta haluat arpoa valitsemiesi ehdotusten joukosta)
+        title: Otsikko
+        witnesses: Todistajat
+    models:
+      decidim/sortitions/create_sortition_event: Arvonta
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Arvonta
+        other: Arvontaa
+  decidim:
+    components:
+      sortitions:
+        name: Arvonnat
+        settings:
+          global:
+            comments_enabled: Kommentit sallittu
+            comments_max_length: Kommenttien enimmäispituus (merkitse 0 saadaksesi oletusarvon)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Arvonta "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}".
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Uusi arvonta lisätty kohteeseen %{participatory_space_title}
+          notification_title: Arvonta <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Arvonnat
+    participatory_processes:
+      statistics:
+        sortitions_count: Arvonnat
+    sortitions:
+      admin:
+        actions:
+          destroy: Peruuta arvonta
+          edit: Muokkaa
+          new: Uusi arvonta
+          show: Arvonnan tiedot
+        models:
+          sortition:
+            fields:
+              category: Luokka
+              created_at: Luomispäivä
+              decidim_proposals_component: Ehdotuskomponentti
+              dice: Noppa
+              reference: Viite
+              request_timestamp: Arvonta-ajankohta
+              seed: Siemen
+              target_items: Valittavat kohteet
+              title: Otsikko
+            name:
+              one: Arvonta
+              other: Arvonnat
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Haluatko varmasti peruuttaa tämän arvonnan?
+            destroy: Peruuta arvonta
+            title: Arvonnan peruuttaminen
+          create:
+            error: Uuden arvonnan luominen epäonnistui.
+            success: Arvonta luotiin onnistuneesti
+          destroy:
+            error: Arvontaa ei voi peruuttaa.
+            success: Arvonta peruutettiin onnistuneesti
+          edit:
+            title: Päivitä arvontatiedot
+            update: Päivitä
+          form:
+            all_categories: Kaikki luokat
+            select_proposal_component: Valitse ehdotukset
+            title: Uusi ehdotusarvonta
+          index:
+            title: Arvonnat
+          new:
+            confirm: Kun painat painiketta, Decidim tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta napsautetaan, arvonnan tulos julkaistaan yhdessä tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa, tarkista sisältö huolellisesti
+            create: Luo
+            title: Uusi arvonta
+          show:
+            selected_proposals: Arvottaviksi valitut ehdotukset
+          update:
+            error: Arvonnan päivittäminen epäonnistui.
+            success: Arvonta päivitettiin onnistuneesti.
+      admin_log:
+        sortition:
+          create: "%{user_name} loi arvonnan %{resource_name} tilaan %{space_name}"
+          delete: "%{user_name} peruutti arvonnan %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} päivitti arvonnan %{resource_name} tilassa %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 ehdotus
+            other: "%{count} ehdotusta"
+        filters:
+          active: Aktiiviset
+          all: Kaikki
+          cancelled: Peruutetut
+          category: Luokka
+          category_prompt: Valitse luokka
+          search: Haku
+        filters_small_view:
+          close_modal: Sulje pikkuikkuna
+          filter: Suodatus
+          filter_by: Suodata
+          unfold: Avaa
+        linked_sortitions:
+          selected_proposals: Valitut ehdotukset
+        orders:
+          label: 'Järjestä arvonnat:'
+          random: Satunnainen
+          recent: Viimeaikaiset
+        results_count:
+          count:
+            one: valittu ehdotus
+            other: valittua ehdotusta
+        show:
+          algorithm: Arvonnan algoritmin koodi
+          any_category: kaikista luokista
+          back: Takaisin luetteloon
+          cancelled: Peruutettu arvonta
+          candidate_proposal_ids: Arvonnan ehdotusten järjestys ja tunnukset
+          candidate_proposals_info: 'Arvonta tehtiin näiden ehdotusten (%{category_label}) välillä, ja niiden tunnukset olivat seuraavat (valitut ehdotukset lihavoitu)  '
+          category: luokasta %{category}
+          dice_result: "(1) Nopanheiton tulos"
+          introduction: 'Tämä sivu sisältää arvonnan %{reference} tulokset. Tällä arvonnalla on valittu satunnaisesti ja samalla todennäköisyysjakaumalla alla olevista ehdotuksista %{target_items} ehdotusta. Tulosten lisäksi tällä sivulla annetaan kaikki tiedot, joita tarvitaan takuiden varmistamiseksi ja tulosten toistamiseksi. Tämän arvonnan laadun takeena on kaksinkertainen satunnaisuus, joka saadaan aikaan heittämällä noppaa (todistajien varmentamana) tietyllä hetkellä, jolloin syntyy syöte satunnaisen valinnan tekevälle algoritmille. Arvonnan aikasiemen on niin tarkka (sekunnin tarkkuus), että ihmisen on mahdotonta hallita sitä, joten siemen tarjoaa kaksinkertaisen hallitsemattoman syötteen oikeudenmukaisen tuloksen takaamiseksi.  '
+          mathematical_result: Tulos (1) x (2)
+          proposals_selected_by_sortition: Arvonnalla valitut ehdotukset
+          sortition_reproducibility_details: Arvonnan toistettavuustiedot
+          time_seed: "(2) Aikasiemen"
+          witnesses: Todistajat
+        sortition:
+          random_seed: Satunnainen siemen
+          selected_proposals:
+            one: valittu ehdotus
+            other: valittua ehdotusta
+          view: Näytä
+        sortition_author:
+          deleted: Poistettu osallistuja
+        sortition_cancel_author:
+          deleted: Poistettu osallistuja
+        sortitions_count:
+          count:
+            one: 1 arvonta
+            other: "%{count} arvontaa"
