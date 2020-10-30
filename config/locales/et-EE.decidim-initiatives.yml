@@ -1,1 +1,550 @@
 et:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Kirjeldus
+        offline_votes: Vahetu (käsitsi) allkirjastamine
+        scope_id: Kohaldamisala
+        signature_end_date: Allkirjade kogumise perioodi lõpp
+        signature_start_date: Allkirjade kogumise perioodi algus
+        signature_type: Allkirjastamise viis
+        signature_type_values:
+          any: Kombineeritud
+          offline: Vahetu (käsitsi)
+          online: Veebipõhine
+        state: Olek
+        title: Pealkiri
+      initiative_author:
+        address: Aadress
+        city: Linn
+        name: Ees- ja perekonnanimi
+        phone_number: Telefoninumber
+        post_code: Sihtnumber
+        province: Maakond
+      initiatives_committee_member:
+        user: Komitee liige
+      initiatives_type:
+        area_enabled: Luba autoritel valida nende algatuse jaoks piirkond
+        attachments_enabled: Luba manused
+        banner_image: Reklaamiriba pilt
+        collect_user_extra_fields: Kogu allkirjastamisel osaleja isikuandmeid
+        custom_signature_end_date_enabled: Luba autoritel valida allkirjade kogumise perioodi lõpp
+        description: Kirjeldus
+        document_number_authorization_handler: 'Autoriseerimine: allkirjade dokumendi numbri kinnitamine'
+        extra_fields_legal_information: Õigusteave isikuandmete kogumise kohta
+        minimum_committee_members: Komitee liikmete minimaalne arv
+        online_signature_enabled: Veebipõhine allkirjastamine lubatud
+        promoting_committee_enabled: Luba edenduskomitee
+        title: Pealkiri
+        undo_online_signatures_enabled: Luba osalejatel nende veebiallkiri tühistada
+        validate_sms_code_on_votes: Lisa allkirjastamisprotsessile SMS-koodiga valideerimise etapp
+      initiatives_vote:
+        date_of_birth: Sünnikuupäev
+        document_number: Dokumendi number
+        name_and_surname: Ees- ja perekonnanimi
+        postal_code: Sihtnumber
+      organization_data:
+        address: Aadress
+        id_document: ID-dokument
+        name: Täisnimi
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Fail on sobimatu
+              needs_to_be_reattached: Tuleb uuesti manustada
+              title: Pealkirjaväli ei tohi olla tühi
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Algatus
+        other: Algatused
+      decidim/initiative_comittee:
+        one: Komitee
+        other: Komiteed
+      decidim/initiative_vote:
+        one: Allkiri
+        other: Allkirjad
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Uus algatuse tüüp
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Piirkond
+          state_eq:
+            label: Olek
+            values:
+              accepted: Allkirju on piisavalt
+              created: Loodud
+              discarded: Kõrvale heidetud
+              published: Avaldatud
+              rejected: Pole piisavalt allkirju
+              validating: Tehniline hindamine
+          type_id_eq:
+            label: Tüüp
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Üksuse %{collection} otsing pealkirja, kirjelduse, ID või autori nime järgi.
+      menu:
+        initiatives: Algatused
+        initiatives_types: Algatuse tüübid
+      models:
+        initiatives:
+          fields:
+            created_at: Loodi
+            published_at: Avaldati
+            state: Olek
+            supports_count: Allkirjad
+            title: Algatused
+        initiatives_type_scope:
+          fields:
+            scope: Kohaldamisala
+            supports_required: Allkirjad on nõutavad
+          name: Algatuse tüübi kohaldamisala
+        initiatives_types:
+          fields:
+            created_at: Loodi
+            title: Algatuse tüübid
+          name: Algatuse tüüp
+        initiatives_votes:
+          fields:
+            date_of_birth: Sünnikuupäev
+            document_number: Dokumendi number
+            hash: Räsi
+            initiative_end_date: Lõppkuupäev
+            initiative_id: Algatuse ID
+            initiative_signatures_count: Allkirjade arv
+            initiative_start_date: Alguskuupäev
+            initiative_title: Algatuse nimi
+            name_and_surname: Ees- ja perekonnanimi
+            postal_code: Sihtnumber
+            time_and_date: Kuupäev ja kellaaeg
+            timestamp: Ajatempel
+      titles:
+        initiatives: Algatused
+        initiatives_types: Algatuse tüübid
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Algatus „%{resource_title}“ on saadetud tehnilisele valideerimisele. Tutvuge sellega <a href="%{admin_initiative_url}">administraatoripaneelil</a>
+            email_outro: Saite selle teate, kuna olete platvormi administraator.
+            email_subject: Algatus „%{resource_title}“ saadeti tehnilisele valideerimisele.
+            notification_title: Algatus „%{resource_title}“ on saadetud tehnilisele valideerimisele. Tutvuge sellega <a href="%{admin_initiative_path}">administraatoripaneelil</a>
+        initiative_extended:
+          email_intro: Algatuse %{resource_title} jaoks allkirjade kogumise tähtaega on edasi lükatud!
+          email_outro: Saite selle teate, kuna jälgite üksust %{resource_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Algatuse jaoks allkirjade kogumise lõppkuupäeva on edasi lükatud!
+          notification_title: Algatuse <a href="%{resource_path}">%{resource_title}</a> jaoks allkirjade kogumise tähtaega on pikendatud.
+        milestone_completed:
+          affected_user:
+            email_intro: Teie algatus %{resource_title} on saanud %{percentage}% allkirjadest!
+            email_outro: Saite selle teate, kuna olete algatuse %{resource_title} autor.
+            email_subject: Uus vahe-eesmärk on täidetud!
+            notification_title: Teie algatus <a href="%{resource_path}">%{resource_title}</a> on saanud %{percentage}% allkirjadest.
+          follower:
+            email_intro: Algatus %{resource_title} on saanud %{percentage}% allkirjadest!
+            email_outro: Saite selle teate, kuna jälgite üksust %{resource_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+            email_subject: Uus vahe-eesmärk on täidetud!
+            notification_title: Algatus <a href="%{resource_path}">%{resource_title}</a> on saanud %{percentage}% allkirjadest.
+        support_threshold_reached:
+          email_intro: Algatuse %{resource_title} toetuskünnis on saavutatud
+          email_outro: Saite selle teate, kuna olete platvormi administraator.
+          email_subject: Toetuskünnis on saavutatud
+          notification_title: Algatuse <a href="%{resource_path}">%{resource_title}</a> toetuskünnis on saavutatud
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Ava algatuste osalusruum
+            Uue algatuse loomiseks järgige juhiseid
+          description: See tunnustusmärk antakse siis, kui avaldate uusi algatusi, tehes nende elluviimisel teistega koostööd.
+          description_another: Osaleja on avaldanud %{score} algatust.
+          description_own: Olete avaldanud %{score} algatust.
+          name: Avaldatud algatused
+          next_level_in: Järgmisele tasemele jõudmiseks peate avaldama veel %{score} algatuse/algatust.
+          unearned_another: See osaleja pole veel algatusi avaldanud.
+          unearned_own: Te pole veel algatusi avaldanud.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Algatus</strong> on ettepanek, mille igaüks võib omal initsiatiivil (teistest kanalitest või osalemisruumidest sõltumatult) teha (digitaalseid või füüsilisi toetusallkirju kogudes) organisatsioonile konkreetse meetme võtmise soodustamiseks (määruse muutmine, projekti algatamine, üksuse või tänava nime muutmine jne).</p> <p>Algatuse edendajad saavad määrata eesmärgid, koguda toetajaid, korraldada arutelusid, levitada sõna, määrata kohtumisi osalejate allkirjade kogumiseks ja korraldada ka teistele osalistele avatud arutelusid.</p> <p>Mõned näited on järgmised: algatusega võib koguda allkirju, et algatada konsultatsioone, milles osalevad kõik organisatsiooni kuuluvad inimesed, luua või kutsuda kokku assamblee või algatada organisatsiooni territooriumi või piirkonna eelarve suurendamise protsess. Allkirjade kogumise protsessi vältel võib lisanduda inimesi, kes aitavad ettevõtmist organisatsioonis edasi vedada.</p>\n"
+          page: "<p><strong>Algatus</strong> on ettepanek, mille igaüks võib omal initsiatiivil (teistest kanalitest või osalemisruumidest sõltumatult) teha (digitaalseid või füüsilisi toetusallkirju kogudes) organisatsioonile konkreetse meetme võtmise soodustamiseks (määruse muutmine, projekti algatamine, üksuse või tänava nime muutmine jne).</p> <p>Algatuse edendajad saavad määrata eesmärgid, koguda toetajaid, korraldada arutelusid, levitada sõna, määrata kohtumisi osalejate allkirjade kogumiseks ja korraldada ka teistele osalistele avatud arutelusid.</p> <p>Mõned näited on järgmised: algatusega võib koguda allkirju, et algatada konsultatsioone, milles osalevad kõik organisatsiooni kuuluvad inimesed, luua või kutsuda kokku assamblee või algatada organisatsiooni territooriumi või piirkonna eelarve suurendamise protsess. Allkirjade kogumise protsessi vältel võib lisanduda inimesi, kes aitavad ettevõtmist organisatsioonis edasi vedada.</p>\n"
+          title: Mis on algatus?
+    initiatives:
+      actions:
+        answer: Vastus
+      admin:
+        answers:
+          edit:
+            answer: Vastus
+            title: 'Vastus järgmisele: %{title}'
+          info_initiative:
+            created_at: Loodi
+            description: Kirjeldus
+            initiative_votes_count: Häälte arv
+            initiatives: Algatused
+            state: Olek
+        committee_requests:
+          index:
+            approve: Kinnita
+            confirm_revoke: Kas olete kindel?
+            invite_to_committee_help: Teiste osalejate edenduskomiteesse kutsumiseks jagage seda linki
+            no_members_yet: Edenduskomitees pole liikmeid
+            revoke: Tühista
+            title: Komitee liikmed
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Kuvatavate elementide maksimaalne arv
+        exports:
+          initiatives: Algatused
+        initiatives:
+          edit:
+            accept: Võta algatus vastu
+            confirm: Kas olete kindel?
+            discard: Heida algatus kõrvale
+            export_pdf_signatures: Ekspordi allkirjadega PDF-fail
+            export_votes: Ekspordi allkirjad
+            reject: Lükka algatus tagasi
+            send_to_technical_validation: Saada tehnilisele valideerimisele
+            success: Algatus on saadetud tehnilisele valideerimisele
+            update: Värskenda
+          form:
+            attachments: Manused
+            settings: Seaded
+            title: Üldteave
+          index:
+            actions_title: Tegevus
+            preview: Eelvaade
+            print: Prindi
+          initiative_attachments:
+            documents: Dokumendid
+            edit: Muuda
+            new: Uus
+            photos: Fotod
+          show:
+            print: Prindi
+          update:
+            error: Tekkis tõrge
+            success: Algatus on värskendatud
+        initiatives_type_scopes:
+          create:
+            error: Tekkis tõrge
+            success: Selle algatuse tüübi jaoks loodi uus kohaldamisala
+          destroy:
+            success: Kohaldamisala on eemaldatud
+          edit:
+            back: Tagasi
+            confirm_destroy: Kas olete kindel?
+            destroy: Kustuta
+            title: Muuda algatuse tüübi kohaldamisala
+            update: Värskenda
+          new:
+            back: Tagasi
+            create: Loo
+            title: Loo algatuse tüübi kohaldamisala
+          update:
+            error: Tekkis tõrge
+            success: Kohaldamisala on värskendatud
+        initiatives_types:
+          create:
+            error: Tekkis tõrge
+            success: Uus algatuse tüüp on loodud
+          destroy:
+            success: Algatuse tüüp on eemaldatud
+          edit:
+            confirm_destroy: Kas olete kindel?
+            destroy: Kustuta
+            update: Värskenda
+          form:
+            title: Üldteave
+          initiative_type_scopes:
+            title: Algatuse tüübi kohaldamisalad
+          new:
+            create: Loo
+            title: Uus algatuse tüüp
+          update:
+            error: Tekkis tõrge
+            success: Algatuse tüüpi värskendati
+      admin_log:
+        initiative:
+          publish: "Kasutaja %{user_name} avaldas algatuse %{resource_name}"
+          send_to_technical_validation: "Kasutaja %{user_name} saatis algatuse %{resource_name} tehnilisele valideerimisele"
+          unpublish: "Kasutaja %{user_name} heitis algatuse %{resource_name} kõrvale"
+          update: "Kasutaja %{user_name} värskendas algatust %{resource_name}"
+      admin_states:
+        accepted: Allkirju on piisavalt
+        created: Loodud
+        discarded: Kõrvale heidetud
+        published: Avaldatud
+        rejected: Pole piisavalt allkirju
+        validating: Tehniline hindamine
+      application_helper:
+        filter_area_values:
+          all: Kõik
+        filter_scope_values:
+          all: Kõik
+        filter_state_values:
+          accepted: Allkirju on piisavalt
+          all: Kõik
+          answered: Vastatud
+          closed: Lõpetatud
+          open: Avatud
+          rejected: Pole piisavalt allkirju
+        filter_type_values:
+          all: Kõik
+      committee_requests:
+        new:
+          continue: Jätka
+          help_text: Esitate taotluse selle algatuse edenduskomitee liikmeks saamiseks
+        spawn:
+          success: Teie taotlus on algatuse autorile saadetud.
+      content_blocks:
+        highlighted_initiatives:
+          name: Esiletõstetud algatused
+      create_initiative:
+        fill_data:
+          back: Tagasi
+          continue: Jätka
+          fill_data_help: "<ul> <li>Vaadake oma algatuse sisu üle. Kas teie pealkiri on hõlpsasti mõistetav? Kas teie algatuse eesmärk on selgesti väljendatud?</li> <li>Peate valima allkirjastamise viisi. Seda saab korraldada füüsiliselt, veebipõhiselt või neid viise kombineerides</li> <li>Milline on teie algatuse geograafiline haare? Linn, linnapiirkond?</li> </ul>"
+          initiative_type: Algatuse tüüp
+          more_information: "(Lisateave)"
+          select_area: Valige piirkond
+          select_scope: Valige kohaldamisala
+        finish:
+          back: Tagasi
+          back_to_initiatives: Tagasi algatuste lehele
+          callout_text: Õnnitleme! Teie kodanikualgatus on loodud.
+          confirm: Kinnita
+          edit_my_initiative: Muuda minu algatusi
+          go_to_my_initiatives: Ava minu algatuste leht
+          more_information: "(Lisateave)"
+          send_my_initiative: Saada minu algatus
+        finish_help:
+          access_reminder: Pidage meeles, et pääsete oma algatustele osalejamenüü kaudu alati ligi.
+          help_for_organizations: Kui esindate ühendust, peate üles laadima kõigi edenduskomiteesse kuuluvate organisatsioonide juhatuse koosoleku protokollid
+          help_in_person_signatures: Kui olete otsustanud koguda füüsilisi allkirju või füüsilisi allkirju kombineerituna digiallkirjadega, peate laadima üles nõutavad andmed.
+          help_text: Pidage meeles, et algatusprotsessi ettenähtud moel haldamiseks peate minema administreerimispaneelile, kust leiate kasutajamenüü, laadima üles vajaliku teabe ja saatma selle töötlemiseks.
+          initiatives_page_link: Leiate kogu vajaliku teabe algatustest teavitamiseks loodud lehel %{link}.
+          page: leht
+        previous_form:
+          back: Tagasi
+          continue: Jätka
+          help: Mida algatus hõlmab? Kirjutage pealkiri ja kirjeldus. Soovitame kasutada lühikest ja lakoonilist pealkirja ning keskenduda kirjelduses väljapakutavale lahendusele.
+          more_information: "(Lisateave)"
+        promotal_committee:
+          back: Tagasi
+          individual_help_text: Seda tüüpi kodanikualgatus eeldab edenduskomiteed, kuhu kuulub vähemalt %{committee_size} inimest (hindajat). Peate jagama järgmist linki selles algatustes osalevate teiste inimestega. Kui teie kontaktid saavad selle lingi, peavad nad toimima kuvatavate juhiste järgi.
+          more_information: "(Lisateave)"
+        select_initiative_type:
+          back: Tagasi
+          choose_html: Soovin luua üksuse <strong>%{title}</strong>
+          more_information: "(Lisateave)"
+          select: Soovin seda algatust edendada
+          select_initiative_type_help: Kodanikualgatus on vahend, mis võimaldab kodanikel sekkuda ja tagada, et linnavolikogu võtaks kohaliku omavalitsuse pädevuses olevaid meetmeid üldiste huvide kaitseks. Millise algatuse soovite avaldada?
+        share_committee_link:
+          continue: Jätka
+          invite_to_committee_help: Link inimeste edenduskomiteega liituma kutsumiseks
+        show_similar_initiatives:
+          back: Tagasi
+          compare_help: Kui mõni järgmistest algatustest sarnaneb teie omaga, siis kutsume teid üles seda allkirjastama. Teie ettepaneku elluviimise võimalused kasvavad.
+          continue: Minu algatus on erinev
+          more_information: "(Lisateave)"
+      events:
+        create_initiative_event:
+          email_intro: "Autor %{author_name} %{author_nickname}, keda jälgite, lõi uue algatuse. Tutvuge ja andke oma panus:"
+          email_outro: Saite selle teate, kuna jälgite autorit %{author_nickname}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Uus algatus kasutajalt %{author_nickname}
+          notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> lõi uue algatuse <a href="%{resource_path}">%{resource_title}</a>.
+        endorse_initiative_event:
+          email_intro: "Autor %{author_name} %{author_nickname}, keda jälgite, on kinnitanud järgmise algatuse. Ehk soovite vestluses kaasa rääkida:"
+          email_outro: Saite selle teate, kuna jälgite autorit %{author_nickname}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Autor %{author_nickname} kinnitas algatuse
+          notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> kinnitas algatuse <a href="%{resource_path}">%{resource_title}</a>.
+      index:
+        title: Algatused
+      initiative_signatures:
+        fill_personal_data:
+          continue: Jätka
+          date_select:
+            day: Päev
+            month: Kuu
+            year: Aasta
+          help: Algatuse allkirjastamiseks lisage järgmistele väljadele oma isikuandmed
+        finish:
+          back_to_initiative: Tagasi algatuse lehele
+        sms_code:
+          continue: Esita kood ja jätka
+          help: Vaadake teie telefonile saadetud SMS-sõnumit
+        sms_phone_number:
+          continue: Saada mulle SMS
+          help: Kinnituskoodi taotlemiseks sisestage vormiväljale oma kinnitatud telefoninumber
+      initiative_votes:
+        create:
+          error: Algatuse allkirjastamisel tekkis probleem.
+          invalid: Algatuse allkirjastamiseks esitatud dokumendid on sobimatud
+          success_html: Õnnitleme! Algatus <strong> %{title}</strong> on allkirjastatud
+        personal_data:
+          invalid: Isikuandmed ei ühti autoriseerimiseks esitatud andmetega.
+        sms_code:
+          invalid: Teie kinnituskood ei ühti meie omaga. Kontrollige uuesti SMSi, mille teile saatsime.
+        sms_phone:
+          invalid: Telefoninumber pole õige või selle kinnitamine on pooleli. Kontrollige oma autoriseerimisandmeid.
+      initiatives:
+        author:
+          deleted: Kustutatud
+        author_list:
+          hidden_authors_count:
+            one: ja veel 1 inimene
+            other: ja veel %{count} inimest
+        count:
+          title:
+            one: "%{count} algatus"
+            other: "%{count} algatust"
+        filters:
+          any: Kõik
+          area: Piirkond
+          author: Autor
+          myself: Minu algatused
+          scope: Kohaldamisala
+          search: Otsing
+          state: Olek
+          type: Tüüp
+        filters_small_view:
+          close_modal: Sulge aken
+          filter_by: Filtrimisalus
+          unfold: Ava
+        index_header:
+          new_initiative: Uus algatus
+          not_authorized:
+            authorizations_page: Kuva autoriseerimisandmed
+            close: Sulge
+            explanation: Uue algatuse loomiseks tuleb teid kinnitada.
+            title: Nõutav on autoriseerimine
+        initiatives:
+          closed_initiatives_warning: Praegu avatud algatusi ei ole, kuid siit loendist leiate kõik juba suletud algatused.
+          no_initiatives_warning: Teie otsingukriteeriumile vastavaid algatusi pole.
+        interactions:
+          comments_count:
+            count:
+              one: Kommentaar
+              other: Kommentaarid
+        orders:
+          label: 'Algatuste sortimisalus:'
+          most_commented: Enim kommenteeritud
+          most_voted: Enim allkirju saanud
+          random: Juhuslik valik
+          recent: Kõige hiljutisemad
+          recently_published: Kõige hiljem avaldatud
+        result:
+          answer_title:
+            accepted: See ettepanek võeti vastu järgmisel põhjusel
+            created: See ettepanek on loodud
+            discarded: See ettepanek heideti kõrvale järgmisel põhjusel
+            published: See ettepanek avaldati järgmisel põhjusel
+            rejected: See ettepanek lükati tagasi järgmisel põhjusel
+            validating: Seda ettepanekut hinnatakse
+          initiative_rejected_reason: See ettepanek lükati allkirjade vähesuse tõttu tagasi.
+        show:
+          any_vote_method: Selle kodanikualgatuse jaoks kogutakse nii veebiallkirju kui ka füüsilisi allkirju.
+          follow_description: Saate algatustega seotud uudiste avaldamise korral teatisi
+          offline_method: Selle kodanikualgatuse puhul saab allkirju anda vaid käsitsi.
+        signature_identities:
+          select_identity: Valige osaleja identifikaator
+        signatures_count:
+          one: " allkiri"
+          other: " allkirjad"
+        supports:
+          title: Allakirjade loetelu
+        vote_cabin:
+          already_voted: Juba allkirjastatud
+          supports_required: "Vaja on %{total_supports} allkirja"
+          verification_required: Algatuse allkirjastamiseks tuleb teie konto kinnitada
+          vote: Allkirjasta
+          votes_blocked: Allkirjastamine pole lubatud
+        votes_count:
+          count:
+            one: Allkiri
+            other: Allkirjad
+          most_popular_initiative: Kõige populaarsem algatus
+          need_more_votes: Vaja on rohkem allkirju
+      initiatives_mailer:
+        creation_subject: Teie algatus „%{title}“ on loodud
+        initiative_link:
+          check_initiative_details: Saate vaadata algatuse üksikasju
+          here: siin
+        more_information: Siin on algatuse loomise protsessi kohta rohkem teavet.
+        progress_report_body_for: Algatuse %{title} jaoks on kogutud %{percentage}% vajalikest allkirjadest.
+        progress_report_for: 'Järgmise algatuse kokkuvõte: %{title}'
+        promotal_committee_help: Pidage meeles, et peate edenduskomiteesse kustuma vähemalt %{member_count} osaleja(t). Inimeste edenduskomiteega liituma kutsumiseks edastage järgmine link
+        status_change_body_for: 'Algatuse %{title} olek on nüüd järgmine: %{state}'
+        status_change_for: Algatuse %{title} olek on muutunud
+      last_activity:
+        new_initiative: Uus algatus
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktiivsed algatused
+            see_all_initiatives: Kuva kõik algatused
+      show:
+        badge_name:
+          accepted: Allkirju on piisavalt
+          created: Loodud
+          discarded: Kõrvale heidetud
+          published: Avaldatud
+          rejected: Pole piisavalt allkirju
+          validating: Tehniline hindamine
+      states:
+        accepted: Vastuvõetud
+        expired: Aegunud
+      unavailable_scope: Kohaldamisala pole saadaval
+      versions:
+        shared:
+          back_to_resource: Tagasi algatuse lehele
+    menu:
+      initiatives: Algatused
+    resources:
+      initiatives_type:
+        actions:
+          title: Toimingud
+          vote: Allkirjasta
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Manused
+          committee_members: Komitee liikmed
+          components: Komponendid
+          information: Teave
+      initiative_creation_header:
+        back: Tagasi
+        fill_data: Loo
+        finish: Lõpeta
+        previous_form: Alusta
+        promotal_committee: Edenduskomitee
+        select_initiative_type: Vali
+        show_similar_initiatives: Võrdle
+        step: 'Etapp: %{current} / %{total}'
+        title: Loo uus algatus
+      initiative_header:
+        initiative_menu_item: Algatus
+      initiative_signature_creation_header:
+        back: Tagasi
+        fill_personal_data: Täiendage andmeid
+        finish: Lõpeta
+        finished: Allkiri algatusele loodud
+        see_steps: kuva etapid
+        select_identity: Valige identiteet
+        sms_code: SMS-koodiga kinnitamine
+        sms_phone_number: Mobiilinumber
+        step: 'Etapp: %{current} / %{total}'
+        title: Allkiri algatusele %{initiative_title}
+      initiatives:
+        initiative:
+          check: Tutvuge lähemalt
+          check_and_support: Tutvuge lähemalt ja allkirjastage
+        no_initiatives_yet:
+          no_initiatives_yet: Algatusi veel ei ole
