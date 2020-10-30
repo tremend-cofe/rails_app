@@ -1,1 +1,123 @@
 fi:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentti
+      decidim/comments/comment_created_event: Kommentti
+      decidim/comments/reply_created_event: Kommenttivastaus
+      decidim/comments/user_group_mentioned_event: Maininta
+      decidim/comments/user_mentioned_event: Maininta
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentti
+        other: Kommenttia
+      decidim/comments/comment_vote:
+        one: Ääni
+        other: Ääntä
+  decidim:
+    comments:
+      comments: Kommenttia
+      comments_count: Kommenttien määrä
+      last_activity:
+        new_comment_at_html: "<span>Uusi kommentti kohteessa %{link}</span>"
+      view: Näytä
+      votes:
+        create:
+          error: Kommentin äänestäminen epäonnistui.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_url}">rekisteröidy</a> kommentoidaksesi.
+        form:
+          body:
+            label: Kommentti
+            placeholder: Mitä mieltä olet tästä?
+          form_error: Teksti on pakollinen, ja se saa olla enintään %{length} merkkiä pitkä.
+          submit: Lähetä
+          user_group_id:
+            label: Kommentoi asemassa
+        opinion:
+          neutral: Neutraali
+        remaining_characters: "%{count} merkkiä jäljellä"
+        remaining_characters_1: "%{count} merkki jäljellä"
+        title: Lisää kommenttisi
+      comment:
+        alignment:
+          against: Vastaan
+          in_favor: Puolesta
+        deleted_user: Poistettu osallistuja
+        hide_replies: Piilota vastaukset
+        reply: Vastaa
+        report:
+          action: Raportoi
+          already_reported: Tämä sisältö on jo raportoitu, ja ylläpitäjä tarkistaa sen.
+          close: Sulje
+          description: Onko tämä sisältö sopimatonta?
+          details: Lisätiedot
+          reasons:
+            does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkia, henkilökohtaisia tietoja tai jotakin muuta, joka ei mielestäsi kuulu sivustolle %{organization_name}.
+            offensive: Sisältää rasismia, seksismiä, loukkaavaa kieltä, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhakehotuksia tai vihapuhetta.
+            spam: Sisältää klikkiotsikoita, mainoksia, huijauksia tai komentosarjabotteja.
+          title: Ilmoita asiattomasta sisällöstä
+        show_replies: Näytä %{replies_count} vastausta
+        single_comment_link_title: Linkki yksittäiseen kommenttiin
+      comment_order_selector:
+        order:
+          best_rated: Parhaiksi arvioidut
+          most_discussed: Eniten keskustelua herättäneet
+          older: Vanhimmat
+          recent: Uusimmat
+        title: 'Järjestä:'
+      comment_thread:
+        title: Keskustelu kirjoittajan %{authorName} kanssa
+      comments:
+        blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aiemmat kommentit.
+        blocked_comments_warning: Kommentit ovat tällä hetkellä poissa käytöstä, mutta voit lukea aiemmat kommentit.
+        comment_details_title: Kommentin tiedot
+        loading: Ladataan kommentteja...
+        single_comment_warning: Muut kommentit näet <a href="%{url}">täältä</a>.
+        single_comment_warning_title: Näet yhden kommentin
+        title: "%{count} kommenttia"
+      down_vote_button:
+        text: En ole samaa mieltä
+      up_vote_button:
+        text: Olen samaa mieltä
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} kirjoitti kommentin kohteeseen %{resource_title}. Voit lukea sen tältä sivulta:"
+          email_outro: Sait tämän ilmoituksen, koska seuraat käyttäjää %{author_name}. Voit lopettaa seuraamisen käyttäjän profiilisivulta.
+          email_subject: Käyttäjä %{author_name} on kirjoittanut uuden kommentin kohteeseen %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on kirjoittanut uuden kommentin kohteeseen <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Ryhmä %{author_name} kirjoitti kommentin kohteeseen %{resource_title}. Voit lukea sen tältä sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat ryhmää %{author_name}. Voit lopettaa seuraamisen ryhmän profiilisivulta.
+          email_subject: Ryhmä %{author_name} on kirjoittanut uuden kommentin kohteeseen %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on kirjoittanut uuden kommentin kohteeseen <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "Kohdetta %{resource_title} on kommentoitu. Voit lukea kommentin tältä sivulta:"
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{resource_title} tai sen tekijää. Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: '%{author_name} on kirjoittanut uuden kommentin kohteeseen %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on kirjoittanut uuden kommentin kohteeseen <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} on vastannut kommenttiisi kohteessa %{resource_title}. Voit lukea sen tältä sivulta:"
+          email_outro: Sait tämän ilmoituksen, koska kommenttiisi vastattiin.
+          email_subject: "%{author_name} on vastannut kommenttiisi kohteessa %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommenttiisi kohteessa <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Ryhmä, johon kuulut, on mainittu
+          email_outro: Sait tämän ilmoituksen, koska kuulut ryhmään %{group_name}, joka on mainittu kohteessa %{resource_title}.
+          email_subject: Sinut on mainittu kohteessa %{resource_title}, koska olet ryhmän %{group_name} jäsen
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a> ryhmän <a href="%{group_path}">%{group_name} %{group_nickname}</a> jäsenenä
+        user_mentioned:
+          email_intro: Sinut on mainittu
+          email_outro: Sait tämän ilmoituksen, koska sinut on mainittu kohteessa %{resource_title}.
+          email_subject: Sinut on mainittu kohteessa %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on maininnut sinut kohteessa <a href="%{resource_path}">%{resource_title}</a>
+    metrics:
+      comments:
+        description: Osallistujien kirjoittamien kommenttien määrä
+        object: kommenttia
+        title: Kommentit
+  errors:
+    messages:
+      cannot_have_comments: ei voi olla kommentteja
