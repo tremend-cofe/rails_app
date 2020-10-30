@@ -1,1 +1,167 @@
 pt:
+  activemodel:
+    attributes:
+      answer:
+        body: Resposta
+      question:
+        max_choices: Número máximo de opções
+        question_type: Tipo
+      questionnaire_question:
+        mandatory: Obrigatório
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: não estão completas
+              too_many: são demasiadas
+        questionnaire:
+          request_invalid: Ocorreu um erro ao tratar o pedido. Volte a tentar
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descrição
+            tos: Termos de serviço
+        questionnaires:
+          actions:
+            back: Voltar às perguntas
+            show: Mostrar respostas
+          answer_option:
+            answer_option: Opção de resposta
+            free_text: Texto livre
+            remove: Remover
+            statement: Declaração
+          answers:
+            actions:
+              back: Voltar às respostas
+              export: Exportar
+              show: Mostrar respostas
+            empty: Ainda não há respostas
+            export:
+              answer:
+                title: 'Resposta #%{number}'
+            index:
+              title: "%{total} respostas no total"
+            show:
+              title: 'Resposta #%{number}'
+          display_condition:
+            answer_option: Opção de resposta
+            condition_question: Pergunta
+            condition_type: Estado
+            condition_types:
+              answered: Com resposta
+              equal: Igual
+              match: Inclui texto
+              not_answered: Sem resposta
+              not_equal: Não igual
+            condition_value: Texto incluído
+            display_condition: Apresentar condição
+            mandatory: É preciso satisfazer sempre esta condição, independentemente do estado de outras condições
+            remove: Remover
+            save_warning: Lembre-se de guardar o formulário antes de configurar as condições de apresentação
+            select_answer_option: Selecionar uma opção de resposta
+            select_condition_question: Selecionar uma pergunta
+            select_condition_type: Selecionar um tipo de condição
+          edit:
+            save: Guardar
+            title: Editar questionário
+          form:
+            add_question: Adicionar pergunta
+            add_separator: Adicionar separador
+            already_answered_warning: Este formulário já recebeu respostas de alguns utilizadores. Por isso, não pode modificar as perguntas.
+            collapse: Fechar todas as perguntas
+            expand: Expandir todas as perguntas
+            preview: Pré-visualizar
+            title: Editar formulário
+            unpublished_warning: Este formulário não está publicado. Pode modificar as perguntas, mas ao fazê-lo irá eliminar as respostas atuais.
+          matrix_row:
+            matrix_row: Linha
+            remove: Remover
+            statement: Declaração
+          question:
+            add_answer_option: Adicionar opção de resposta
+            add_display_condition: Adicionar condição de apresentação
+            add_display_condition_info: Guardar o formulário para configurar as condições de apresentação
+            add_matrix_row: Adicionar linha
+            any: Qualquer
+            collapse: Fechar
+            description: Descrição
+            down: Para baixo
+            expand: Expandir
+            question: Pergunta
+            remove: Remover
+            statement: Declaração
+            up: Para cima
+          separator:
+            down: Para baixo
+            remove: Remover
+            separator: Separador
+            up: Para cima
+          update:
+            invalid: Houve um problema ao guardar o formulário.
+            success: Formulários guardados com êxito.
+      errors:
+        answer:
+          body: O corpo não pode ficar em branco
+      files:
+        extension_whitelist: 'Formatos aceites:'
+      images:
+        dimensions_info: 'Esta imagem será:'
+        processors:
+          resize_and_pad: Redimensionada e preenchida
+          resize_to_fit: Ajustada ao tamanho
+      question_types:
+        long_answer: Resposta longa
+        matrix_multiple: Matriz (opção múltipla)
+        matrix_single: Matriz (opção única)
+        multiple_option: Opção múltipla
+        short_answer: Resposta curta
+        single_option: Opção única
+        sorting: Ordenação
+      questionnaires:
+        answer:
+          invalid: Houve um problema ao responder ao formulário.
+          max_choices_alert: Existem demasiadas opções selecionadas
+          success: Formulário respondido com êxito.
+        question:
+          max_choices: 'Máx. de opções: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicie sessão com a sua conta</a> ou <a href="%{sign_up_link}">registe-se</a> para responder ao formulário.
+            title: Responder ao formulário
+          current_step: Passo %{step}
+          of_total_steps: de %{total_steps}
+          questionnaire_answered:
+            body: Já respondeu a este formulário.
+            title: Já respondeu
+          questionnaire_closed:
+            body: Este formulário foi encerrado e não é possível responder ao mesmo.
+            title: Formulário encerrado
+          questionnaire_for_private_users:
+            body: O formulário só está disponível para utilizadores privados
+            title: Formulário fechado
+          questionnaire_js_disabled:
+            body: Algumas das funções do formulário serão desativadas. Para melhorar a sua experiência, ative o JavaScript no seu navegador.
+            title: JavaScript desativado
+          questionnaire_not_published:
+            body: Este formulário ainda não foi publicado.
+          tos_agreement: Ao participar está a aceitar estes Termos de serviço
+      step_navigation:
+        show:
+          are_you_sure: Não é possível anular esta ação e não poderá editar as suas respostas. Tem a certeza?
+          back: Voltar
+          continue: Continuar
+          submit: Enviar
+      user_answers_serializer:
+        body: Resposta
+        completion: Preenchimento
+        created_at: Respondido em
+        id: ID da resposta
+        ip_hash: Hash do IP
+        question: Pergunta
+        registered: Registado
+        session_token: Identificador do utilizador
+        unregistered: Não registado
+        user_status: Estado do utilizador
