@@ -1,7 +1,137 @@
 sv:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Information om sortition
+        decidim_category_id: Kategorier för den uppsättning förslag som du vill ska vara del av lottdragningen
+        decidim_proposals_component_id: Förslagsuppsättning
+        dice: Resultat av tärningskastning. Kasta en sexsidig tärning eller använd något annat slumpmässigt sätt för att generera en siffra mellan 1 och 6, och ange sedan siffran här, inför några vittnen. Detta bidrar till kvaliteten och garanterar ett slumpmässigt resultat
+        target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill ska väljas genom lottdragning av den uppsättning förslag som du valde tidigare)
+        title: Titel
+        witnesses: Vittnen
   decidim:
+    components:
+      sortitions:
+        name: Sortitioner
+        settings:
+          global:
+            comments_enabled: Kommentarer har aktiverats
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Sortitionen "%{resource_title}" har lagts till i "%{participatory_space_title}", som du följer.
+          email_outro: Du har fått denna avisering eftersom du följer "%{participatory_space_title}". Du kan sluta följa det via föregående länk.
+          email_subject: Ny sortition har lagts till i %{participatory_space_title}
+          notification_title: Sortitionen <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sortitioner
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitioner
     sortitions:
       admin:
+        actions:
+          destroy: Avbryt sortitionen
+          edit: Redigera
+          new: Ny sortition
+          show: Uppgifter om sortitionen
+        models:
+          sortition:
+            fields:
+              category: Kategori
+              created_at: Skapandedatum
+              decidim_proposals_component: Förslagskomponent
+              dice: Tärning
+              reference: Referens
+              request_timestamp: Dragningstid
+              seed: Ursprungsdata
+              target_items: Punkter som ska väljas
+              title: Titel
         sortitions:
+          confirm_destroy:
+            confirm_destroy: Är du säker på att du vill avbryta sortitionen?
+            destroy: Avbryt sortition
+            title: Avbryta sortitionen
+          create:
+            error: Ett fel uppstod när en ny sortition skulle skapas.
+            success: Sortitionen har skapats
+          destroy:
+            error: Det går inte att avbryta sortitionen.
+            success: Sortitionen har avbrutits
+          edit:
+            title: Uppdatera informationen om sortitionen
+            update: Uppdatera
+          form:
+            all_categories: Alla kategorier
+            select_proposal_component: Välj förslagsuppsättning
+            title: Ny sortition för förslag
+          index:
+            title: Sortitioner
           new:
             confirm: När du trycker på knappen Nästa registrerar Decidim datum och tid (till och med sekunder) och tillsammans med tärningskastet används denna information för att generera ett slumpmässigt val. Åtgärden är oåterkallelig. När du har tryckt på knappen publiceras resultatet av dragningen tillsammans med de uppgifter som angetts i detta formulär och kan inte ändras. Gå igenom innehållet noggrant.
+            create: Skapa
+            title: Ny sortition
+          show:
+            selected_proposals: Förslag som har valts ut för lottdragning
+          update:
+            error: Ett fel uppstod när sortitionen skulle uppdateras.
+            success: Sortitionen har uppdaterats
+      admin_log:
+        sortition:
+          create: "%{user_name} skapade sortitionen %{resource_name} i %{space_name}"
+          delete: "%{user_name} avbröt sortitionen %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterade sortitionen %{resource_name} i %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 förslag
+            other: "%{count} förslag"
+        filters:
+          active: Aktiva
+          all: Alla
+          cancelled: Annullerade
+          category: Kategori
+          category_prompt: Välj en kategori
+          search: Sök
+        filters_small_view:
+          close_modal: Stäng modalt fönster
+          filter_by: Filtrera efter
+          unfold: Öppna
+        linked_sortitions:
+          selected_proposals: Valda förslag
+        orders:
+          label: 'Sortera sortitioner efter:'
+          random: Slumpmässigt
+          recent: Senaste
+        results_count:
+          count:
+            one: valt förslag
+            other: valda förslag
+        show:
+          algorithm: Sortitionens algoritmkod
+          any_category: från alla kategorier
+          back: Tillbaka till listan
+          cancelled: Avbruten sortition
+          candidate_proposal_ids: Sortition av förslagsordning och ID
+          candidate_proposals_info: 'Sortitionen genomfördes bland följande förslag (%{category_label}), med följande ID (de valda förslagen i fetstil)  '
+          category: från kategorin %{category}
+          dice_result: "(1) Resultat av tärningskastet"
+          introduction: 'Den här sidan innehåller resultaten av sortitionen %{reference}. Genom sortition har %{target_items} av resultaten valts ut slumpmässigt och med lika stor sannolikhet ur den förslagsuppsättning som visas nedan. Tillsammans med resultaten ger uppgifterna som visas på denna sida all den information som krävs för att maximera garantier och reproducera resultaten. Nyckeln till en lyckad sortition är den dubbla nivå av slumpmässighet som ges genom tärningskastning (som verifieras av vittnen) och den exakta tidpunkt för sortitionen som möjliggör inmatning av en algoritm som genererar ett slumpmässigt val. Tidpunkten för sortitionen är så exakt (sekunder) att det är omöjligt för en människa att kontrollera den, vilket ger en dubbel nivå av ”okontrollerbarhet” för att garantera ett rättvist resultat.  '
+          mathematical_result: Resultat (1) x (2)
+          proposals_selected_by_sortition: Förslag som valts genom sortition
+          sortition_reproducibility_details: Information om sortitionens reproducerbarhet
+          time_seed: "(2) Ursprungsdata för tid"
+          witnesses: Vittnen
+        sortition:
+          random_seed: Slumpmässig ursprungsdata
+          selected_proposals:
+            one: valt förslag
+            other: valda förslag
+          view: Visa
+        sortition_author:
+          deleted: Borttagen deltagare
+        sortition_cancel_author:
+          deleted: Borttagen deltagare
