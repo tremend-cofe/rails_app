@@ -1,1 +1,84 @@
 el:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Νέα ανάρτηση ιστολογίου
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Ανάρτηση
+        other: Αναρτήσεις
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την ανάρτηση;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        new: Νέα ανάρτηση
+        title: Ενέργειες
+      admin:
+        models:
+          components:
+            body: Σώμα
+          post:
+            name: Ανάρτηση
+        posts:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης
+            success: Η ανάρτηση δημιουργήθηκε με επιτυχία
+          destroy:
+            success: Η ανάρτηση διαγράφηκε με επιτυχία
+          edit:
+            save: Επικαιροποίηση
+          index:
+            title: Αναρτήσεις
+          new:
+            create: Δημιουργία
+            title: Δημιουργία ανάρτησης
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την αποθήκευση της ανάρτησης.
+            success: Η ανάρτηση αποθηκεύτηκε με επιτυχία
+      last_activity:
+        new_post_at_html: "<span>Νέα ανάρτηση στη διεύθυνση %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Συντάκτης
+            body: Σώμα
+            created_at: Δημιουργήθηκε στις
+            title: τίτλος
+      posts:
+        show:
+          back: Επιστροφή στον κατάλογο
+          comments: Σχόλια
+          view: Προβολή
+        sidebar_blog:
+          comments: σχόλια
+          most_commented_posts: Αναρτήσεις με τα περισσότερα σχόλια
+      read_more: Διαβάστε περισσότερα
+    components:
+      blogs:
+        name: Ιστολόγιο
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μήκος σχολίων (για την προεπιλεγμένη τιμή πληκτρολογήστε «0»)
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Τα σχόλια απενεργοποιήθηκαν
+            endorsements_blocked: Οι εγκρίσεις απενεργοποιήθηκαν
+            endorsements_enabled: Οι εγκρίσεις ενεργοποιήθηκαν
+    events:
+      blogs:
+        post_created:
+          email_intro: Η ανάρτηση "%{resource_title}" δημοσιεύτηκε στον συμμετοχικό χώρο "%{participatory_space_title}" που ακολουθείτε.
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο "%{participatory_space_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Δημοσιεύτηκε νέα ανάρτηση στον συμμετοχικό χώρο %{participatory_space_title}
+          notification_title: Η ανάρτηση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε στον συμμετοχικό χώρο %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Αναρτήσεις
+    participatory_processes:
+      statistics:
+        posts_count: Αναρτήσεις
