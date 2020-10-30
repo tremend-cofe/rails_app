@@ -1,1 +1,36 @@
 sv:
+  decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} uppdaterade konfigurationen av verifiering av ID-handlingar"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifierade %{resource_name} genom verifiering av ID-handlingar offline"
+    authorization_handlers:
+      admin:
+        id_documents:
+          help: |-
+            Användare fyller i sina identitetsuppgifter och laddar upp en kopia av sin ID-handling.
+            Fyll i informationen i den uppladdade bilden.
+            Informationen ska stämma överens med de uppgifter som angavs av användaren.
+            Om informationen inte syns tydligt eller om du inte kan bli verifierad, kan du avvisa förfrågan så kan användaren åtgärda problemet.
+      id_documents:
+        explanation: Ladda upp dina ID-handlingar så att vi kan kontrollera din identitet
+        name: ID-handlingar
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            id_documents: Bli verifierad genom att ladda upp din ID-handling
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfiguration av ID-handlingar
+          pending_authorizations:
+            index:
+              config: Konfig.
+        authorizations:
+          choose:
+            title: Bli verifierad med hjälp av din ID-handling
+          new:
+            title: Ladda upp din ID-handling
