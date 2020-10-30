@@ -1,1 +1,143 @@
 lv:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth lietojumprogrammas nosaukums
+        organization_logo: Organizācija logotips (kvadrāts)
+        organization_name: Organizācija
+        organization_url: Organizācijas URL
+        redirect_uri: Novirzīšanas URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Novirzīšanas URI ir jābūt SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Vai tiešām vēlaties to dzēst?
+        destroy: Dzēst
+        edit: Rediģēt
+        new: Jauns
+        save: Saglabāt
+        title: Darbības
+      admins:
+        create:
+          error: Izveidojot jaunu administratoru, radās problēma.
+          success: Administrators ir veiksmīgi izveidots
+        destroy:
+          success: Administrators ir veiksmīgi izdzēsts
+        edit:
+          title: Rediģēt administratoru
+          update: Atjaunināt
+        index:
+          title: Administratori
+        new:
+          create: Izveidot
+          title: Jauns administrators
+        update:
+          error: Atjauninot šo administratoru, radās problēma.
+          success: Administrators ir veiksmīgi atjaunināts
+      default_pages:
+        placeholders:
+          content: Lūdzu, pievienojiet jēgpilnu saturu statiskajā lapā %{page} administratora informācijas panelī.
+          title: Lapas %{page} noklusējuma virsraksts
+      menu:
+        admins: Administratori
+        dashboard: Informācijas panelis
+        oauth_applications: OAuth lietojumprogrammas
+        organizations: Organizācijas
+      models:
+        admin:
+          fields:
+            created_at: Izveidošanas laiks
+            email: E-pasts
+          name: Administrators
+          validations:
+            email_uniqueness: jau pastāv cits administrators ar tādu pašu e-pastu
+        oauth_application:
+          fields:
+            created_at: Izveidošanas laiks
+            name: OAuth lietojumprogrammas nosaukums
+            organization_name: Organizācija
+          name: OAuth lietojumprogramma
+        organization:
+          actions:
+            save_and_invite: Izveidot organizāciju un uzaicināt administratoru
+          fields:
+            created_at: Izveidošanas laiks
+            name: Nosaukums
+            omniauth_settings: Omniauth iestatījumi
+            smtp_settings: SMTP iestatījumi
+          name: Organizācija
+      oauth_applications:
+        create:
+          error: Izveidojot šo lietojumprogrammu, radās problēma.
+          success: Lietojumprogramma ir veiksmīgi izveidota.
+        destroy:
+          error: Likvidējot šo lietojumprogrammu, radās problēma.
+          success: Lietojumprogramma ir veiksmīgi likvidēta.
+        edit:
+          save: Saglabāt
+          title: Rediģēt pieteikumu
+        form:
+          select_organization: Atlasīt organizāciju
+        index:
+          confirm_delete: Vai tiešām vēlaties dzēst šo lietojumprogrammu?
+          title: OAuth lietojumprogrammas
+        new:
+          save: Saglabāt
+          title: Jauna lietojumprogramma
+        update:
+          error: Atjauninot šo lietojumprogrammu, radās problēma.
+          success: Lietojumprogramma ir veiksmīgi atjaunināta.
+      organizations:
+        create:
+          error: Izveidojot jaunu organizāciju, radās problēma.
+          success: Organizācija ir veiksmīgi izveidota.
+        edit:
+          secondary_hosts_hint: Ievadiet katru no tām jaunā rindā
+        index:
+          title: Organizācijas
+        new:
+          reference_prefix_hint: Atsauces prefikss tiek izmantots, lai nodrošinātu unikālu resursu identifikāciju visas organizācijas ietvaros
+          secondary_hosts_hint: Ievadiet katru no tiem jaunā rindā
+          title: Jauna organizācija
+        omniauth_settings:
+          decidim:
+            client_id: Klienta ID
+            client_secret: Klienta noslēpums
+            site_url: Vietnes URL
+          enabled: Iespējots
+          enabled_by_default: Šī nodrošinātājs ir iespējots pēc noklusējuma. To var rediģēt, bet ne atspējot.
+          facebook:
+            app_id: Lietotnes ID
+            app_secret: Lietotnes noslēpums
+          google_oauth2:
+            client_id: Klienta ID
+            client_secret: Klienta noslēpums
+          icon: Ikona
+          icon_path: Ikonas ceļš
+          twitter:
+            api_key: API atslēga
+            api_secret: API noslēpums
+        smtp_settings:
+          instructions:
+            from_label: 'E-pasta sūtītājs būs: "jūsu-organizācijas-nosaukums <jūsu-organizācija@jūsu-nodrošinātājs.org>". Atstājiet tukšu, lai izmantotu ''from_email'' kā etiķeti'
+          placeholder:
+            from_email: jūsu-organizācija@jūsu-nodrošinātājs.org
+            from_label: jūsu-organizācijas-nosaukums
+        update:
+          error: Atjauninot šo organizāciju, radās problēma.
+          success: Organizācija ir veiksmīgi atjaunināta.
+        users_registration_mode:
+          disabled: Piekļuvi var īstenot tikai ar ārējiem kontiem
+          enabled: Ļaut dalībniekiem reģistrēties un pieteikties
+          existing: Neļaut dalībniekiem reģistrēties, bet atļaut esošajiem dalībniekiem pieteikties
+      shared:
+        notices:
+          no_organization_warning_html: Lai sāktu darbu, jums ir jāizveido organizācija. Iekams turpināt, noteikti izlasiet %{guide}.
+          our_getting_started_guide: mūsu darba sākšanas rokasgrāmata
+      titles:
+        dashboard: Informācijas panelis
