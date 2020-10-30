@@ -1,5 +1,49 @@
 cs:
   decidim:
+    admin_log:
+      component:
+        create: "%{user_name} přidal komponent %{resource_name} do %{space_name} prostoru"
+      user:
+        remove_from_admin: "%{user_name} odstranil účastníka %{resource_name} s rolí: %{role}"
+    amendments:
+      amendable:
+        amended_by: 'Autor dodatku:'
+      compare_draft:
+        no_similars_found: Žádné podobné opravy nenalezeny
+      promoted:
+        error: Při zveřejňování dodatku jako nového návrhu nastal problém.
+        success: Dodatek byl úspěšně zveřejněn jako nový návrh.
+      rejected:
+        error: Při odmítnutí tohoto dodatku nastal problém. Zkuste to prosím později.
+        success: Dodatek byl úspěšně odmítnut.
+      withdraw:
+        error: Při stahování dodatku došlo k chybě.
+      wizard_step_form:
+        steps:
+          '1': Create your amendment
+          '2': Compare your amendment
+          '3': Complete your amendment
+          '4': Zveřejnit dodatek.
+    authorization_handlers:
+      another_dummy_authorization_handler:
+        fields:
+          postal_code: PSČ
+      dummy_authorization_handler:
+        fields:
+          allowed_postal_codes: Povolené PSČ (oddělené čárkami)
+          postal_code: PSČ
+    authorization_modals:
+      content:
+        expired:
+          title: Platnost oprávnění vypršela.
+        unauthorized:
+          ok: OK
+    components:
+      component_order_selector:
+        no_content: Nenalezen žádný obsah s těmito kritérii.
+    content_blocks:
+      hero:
+        name: Hlavní obrázek (hero image)
     devise:
       shared:
         newsletter_modal:
@@ -13,7 +57,103 @@ cs:
             o nových možnostech, jak se aktivně podílet na fungování platformy.<br> Pokud si přesto nepřejete informační bulletiny dostávat,
             rozumíme a vaše rozhodnutí respektujeme.</p>
             <p>Děkujeme za přečtení!</p>
+    errors:
+      internal_server_error:
+        title: Na našem serveru došlo k potížím.
     events:
+      amendments:
+        amendment_created:
+          affected_user:
+            email_intro: 'K %{amendable_title} byl vytvořen nový dodatek. Podívat se můžete na této stránce:'
+            notification_title: K <a href="%{amendable_path}">%{amendable_title}</a> byl vytvořen nový dodatek.
+          follower:
+            email_intro: 'K %{amendable_title} byl vytvořen nový dodatek. Podívat se můžete na této stránce:'
+            notification_title: K <a href="%{amendable_path}">%{amendable_title}</a> byl vytvořen nový dodatek.
+        amendment_rejected:
+          affected_user:
+            email_subject: Změna %{amendable_title} byla %{emendation_author_nickname} zamítnuta.
       groups:
         join_request_created:
           notification_title: Někdo požádal o vstup do skupiny %{user_group_name}. Můžete je přijmout nebo odmítnout na <a href="%{resource_path}">stránce členů skupiny</a>.
+    forms:
+      file_help:
+        file:
+          message_1: Musí být obrázek nebo dokument
+    gamification:
+      badges:
+        invitations:
+          conditions: |-
+            K pozvání přátel použijte odkaz „pozvat přátele“ na vaší uživatelské stránce
+            Pokud chcete, zprávu, kterou odesíláte, si přizpůsobte.
+            Zasláním pozvání a jejich registrací se posunete do vyšší úrovně
+    group_admins:
+      demote:
+        error: S odstraněním účastníka ze seznamu správců nastal problém.
+    group_invites:
+      reject:
+        success: Pozvánka byla úspěšně odmítnuta.
+    groups:
+      form:
+        fill_in_for_verification: 'Vyplňte tato pole, pokud chcete, aby skupina byla ověřena.'
+    help:
+      main_topic:
+        default_page:
+          title: Co mohu v %{organization} dělat ?
+        description: Přečtěte si o %{organization} více 
+    messaging:
+      conversation_mailer:
+        comanagers_new_message:
+          intro: "%{manager} vložil nové zprávy do konverzace jménem %{group}. Pro jejich zobrazení klikněte sem."
+      conversations:
+        add_conversation_users:
+          add_users_placeholder: Vyhledávám ...
+        reply:
+          placeholder: Vaše odpověď ...
+        show:
+          not_allowed: Tento uživatel nepřijímá žádné další přímé zprávy
+    newsletter_mailer:
+      newsletter:
+        note: Tento e-mail jste obdrželi, protože jste odběrateli informačních bulletinů o %{organization_name}. Můžete změnit své nastavení na <a href="%{link}">stránce oznámení</a>.
+    newsletter_templates:
+      image_text_cta_settings_form:
+        interpolations_hint: 'Nápověda: Můžete použít "%{name}" kdekoliv v úvodu, hlavním textu, textu CTA (výzvy k akci) nebo předmětu a bude nahrazeno jménem příjemce.'
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: Zpracovávání osobních dat a jejich ochrana je pro nás všechny stále důležitější. S novými pravidly GDPR z 25. května 2018 mají jednotlivci nad svými osobními daty větší kontrolu. Proto , abychom vám mohli dál posílat relevantní informace o aktivitách %{organization_name}, potřebujeme váš souhlas.
+        body_3: S tímto souhlasem budete i nadále dostávat informace o službách platformy. Pokud naopak  potvrzení vašeho souhlasu neobdržíme, přestaneme vám své zprávy posílat. I pokud potvrdíte, že si přejete od nás dál dostávat informace, můžete své rozhodnutí později kdykoliv změnit.
+        button: Ano, chci dál dostávat relevantní informace.
+    pad_iframe:
+      disclaimer: Obsah tohoto poznámkového bloku je psán registrovanými uživateli a vyjadřuje jejich názory. %{organization} nenese za odpovědnost za jeho obsah.
+    pages:
+      home:
+        extended:
+          debates_explanation: Diskutujte, sdílejte své názory a přispějte k relevantním tématům
+      terms_and_conditions:
+        form:
+          agreement: Souhlasím s podmínkami.
+    profiles:
+      default_officialization_text_for_user_groups: Tato skupina byla veřejně ověřena, její jméno bylo ověřeno a souhlasí s jejím skutečným jménem.
+      default_officialization_text_for_users: Tento účastník byl veřejně ověřen, jeho jméno a role byly ověřeny a souhlasí se skutečným jménem a rolí.
+      user:
+        confirmation_instructions_sent: Pokyny k potvrzení e-mailu odeslány
+    reported_mailer:
+      hide:
+        hello: Dobrý den %{name},
+    user_conversations:
+      create:
+        success: Konverzace byla úspěšně zahájena.
+    user_interests:
+      show:
+        no_scopes: Tato organizace ještě nemá žádný rozsah působnosti.
+  devise:
+    invitations:
+      invitation_token_invalid: Použitý token pozvánky není platný.
+    mailer:
+      email_changed:
+        message: tímto vás informujeme, že vaše e-mailová adresa se mění na %{email}.
+      password_change:
+        message: tímto vás informujeme, že vaše heslo bylo změněno.
+    passwords:
+      no_token: Na tuto stránku se lze dostat pouze kliknutím na odkaz v e-mailové zprávě k resetování hesla. Pokud jste klikli v e-mailu na odkaz pro resetování hesla, zkontrolujte si, že jste použili úplnou adresu URL.
+  social_share_button:
+    wechat_footer: Otevřete WeChat, klikněte na „Discover“ (Objevit) a poté na možnost „Scan QR Code“ (Skenovat QR kód).
