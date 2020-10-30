@@ -1,1 +1,258 @@
 et:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Võimalikud meetodid
+        offline: Veebiväline
+        offline_explanation: Veebivälise kinnitamise juhised
+        online: Veebipõhine
+      id_document_information:
+        document_number: Dokumendi number (kirjaga)
+        document_type: Dokumendi tüüp
+      id_document_upload:
+        document_number: Dokumendi number (kirjaga)
+        document_type: Teie dokumendi tüüp
+        user: Osaleja
+        verification_attachment: Teie dokumendi skannitud koopia
+      offline_confirmation:
+        email: Osaleja meiliaadress
+      postal_letter_address:
+        full_address: Täielik aadress
+      postal_letter_confirmation:
+        verification_code: Kinnituskood
+      postal_letter_postage:
+        full_address: Täielik aadress
+        verification_code: Kinnituskood
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Kasulik siis, kui protsess on juba alanud ja te soovite tühistada eelmise protsessi õigused.
+          button: Tühista kõik
+          button_before: Tühista kuupäeva alusel
+          destroy:
+            confirm: Tühistamiskäsklust „Tühista kuupäeva alusel“ (kõik enne kindlat kuupäeva antud load) ei saa tagasi võtta. Kas olete kindel, et soovite jätkata?
+            confirm_all: Kõigi lubade tühistamise käsklust ei saa tagasi võtta. Kas olete kindel, et soovite jätkata?
+          destroy_nok: Lubade tühistamisel tekkis probleem.
+          destroy_ok: Kõik vastavad load on tühistatud!
+          info: Kinnitatud osalejaid on kokku %{count}.
+          no_data: Kinnitatud osalejaid pole
+          title: Kinnituse tühistamine
+        authorization_workflows: Kinnitamised
+    admin_log:
+      organization:
+        update_id_documents_config: "Kasutaja %{user_name} värskendas isikut tõendavate dokumentide kinnitamise konfiguratsiooni"
+      user:
+        grant_id_documents_offline_verification: "Kasutaja %{user_name} kinnitas kasutaja %{resource_name} isikut tõendavate dokumentide alusel veebivälise kinnitusmenetlusega"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Administraatorid laadivad üles vastuvõetud osalejate meiliaadressidega CSV-faili
+            Kinnitada saab ainult need osalejad, kelle meiliaadress on selles CSV-failis
+        id_documents:
+          help: |-
+            Kasutajad sisestavad oma isikut tõendavad andmed ja laadivad üles oma dokumendi koopia.
+            Peate sisestama üleslaaditud pildil olevad andmed.
+            Teave peab kattuma kasutaja sisestatud teabega.
+            Kui te ei näe andmeid selgelt või teil ei õnnestu neid kinnitada, saate taotluse tagasi lükata, et kasutaja seda parandada saaks.
+        postal_letter:
+          help: |-
+            Osalejad esitavad taotluse, mille alusel saadetakse nende aadressil kinnituskood.
+            Saadate neile nende aadressil kinnituskoodi.
+            Märgite kirja saadetuks.
+            Kui märgite kirja saadetuks, saab osaleja esitada koodi ja end kinnitada lasta.
+      csv_census:
+        explanation: Kinnitage end organisatsiooni loendusandmete alusel
+        name: Organisatsiooni loendusandmed
+      direct: Otse
+      help: Abi
+      id_documents:
+        explanation: Laadige üles oma isikut tõendavad dokumendid, et saaksime teie isikusamasust kontrollida
+        name: Isikut tõendavad dokumendid
+      multistep: Mitu etappi
+      name: Nimi
+      postal_letter:
+        explanation: Saadame teile tavapostiga kirja, millest leiate koodi, mille peate oma aadressi kinnitamiseks sisestama
+        name: Kood tavakirjaga
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Need on praeguse kinnitamise andmed:'
+          no_data_stored: Andmeid ei ole.
+        create:
+          error: Loa loomisel tekkis probleem.
+          success: Teid on autoriseeritud.
+          unconfirmed: Teie isiku kinnitamiseks peate kinnitama oma meiliaadressi.
+        destroy:
+          error: Loa kustutamisel tekkis probleem.
+          success: Luba on kustutatud.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Kinnitamine – autoriseerimishalduri teine näide
+            csv_census: Kinnitamine – ettevõtte loendusandmed
+            dummy_authorization_handler: Kinnitamine – autoriseerimishalduri näide
+            dummy_authorization_workflow: Kinnitamine – autoriseerimistöövoo näide
+            id_documents: Kinnitage end üles laaditava dokumendi alusel
+            postal_letter: Kinnitage end (füüsilise) kirjaga saadetavat kinnituskoodi kasutades
+            sms: Kinnitage end SMSis saadetavat kinnituskoodi kasutades
+          title: Kinnitage oma identiteet
+          verify_with_these_options: 'Teie isikusamasuse kinnitamiseks on järgmised võimalused:'
+        index:
+          expired_verification: Kinnitus on aegunud
+          pending_verification: Kinnitamine on pooleli
+          show_renew_info: Kinnituse uuendamiseks klõpsake
+          unauthorized_verification: Uus kinnitamine
+        new:
+          authorize: Saada
+          authorize_with: 'Kinnita järgmisega: %{authorizer}'
+        renew_modal:
+          cancel: Tühista
+          close: sulge
+          continue: Jätka
+          info_renew: Kui soovite andmeid värskendada, jätkake uuendamisega
+          title: Uuenda kinnitust
+        skip_verification: Saate selle praegu vahele jätta ja avada lehe %{link}
+        start_exploring: alusta tutvumist
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Loendusandmete importimisel tekkis tõrge.
+              success: Imporditi %{count} üksust (%{errors} viga)
+            destroy_all:
+              success: Kõik loendusandmed on kustutatud
+          destroy:
+            confirm: Kõigi loendusandmete kustutamise toimingut ei saa tühistada. Kas olete kindel, et soovite jätkata?
+            title: Kustuta kõik loendusandmed
+          index:
+            data: Kokku laaditi üles %{count} kirjet. Üleslaadimise tähtpäev oli %{due_date}
+            empty: Loendusandmeid pole. Importige andmed CSV-failis alltoodud vormi kasutades.
+            title: Praegused loendusandmed
+          instructions:
+            body: Selleks tuleb sisestada süsteemiadministraatori andmed ja lisada organisatsioonile CSV-loendusandmetega autoriseerimise funktsioon
+            title: Peate aktiveerima selle organisatsiooni jaoks CSV-loendusandmete kasutamise võimaluse
+          new:
+            file: "CSV-fail meiliaadressidega"
+            info: 'Peab olema CSV-fail, milles on vaid üks veerg, mis sisaldab meiliaadresse:'
+            submit: Laadi fail üles
+            title: Laadi üles uued loendusandmed
+        authorizations:
+          new:
+            error: Meil ei õnnestunud teie kontot kinnitada või teie andmeid organisatsiooni loendusandmetes pole.
+            success: Teie konto on kinnitatud.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Osaleda saavad vaid osalejad, kelle sihtnumber on %{postal_codes}.
+            other: 'Osaleda saavad vaid järgmiste sihtnumbritega osalejad: %{postal_codes}.'
+          scope: Osaleda saavad vaid osalejad, kelle kohaldamisala on %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Isikut tõendavate dokumentide konfigureerimine
+              update: Värskenda
+            update:
+              error: Konfiguratsiooni värskendamisel tekkis probleem.
+              success: Konfiguratsioon on värskendatud
+          confirmations:
+            create:
+              error: Kinnitusandmed ei ühti. Proovige uuesti või lükake kinnitustaotlus tagasi, et osaleja saaks teha vajalikud muudatused
+              success: Osaleja on kinnitatud
+            new:
+              introduce_user_data: Esitage pildil olevad andmed
+              reject: Lükka tagasi
+              verify: Kinnita
+          offline_confirmations:
+            create:
+              error: Kinnitusandmed ei ühti. Proovige uuesti või paluge osalejal seda parandada
+              success: Osaleja on kinnitatud
+            new:
+              cancel: Tühista
+              introduce_user_data: Esitage osaleja meiliaadress ja dokumendiandmed
+              verify: Kinnita
+          pending_authorizations:
+            index:
+              config: Konfiguratsioon
+              offline_verification: Veebiväline kinnitamine
+              title: Veebipõhine kinnitamine on pooleli
+              verification_number: 'Kinnitamine nr %{n}'
+          rejections:
+            create:
+              success: Kinnitustaotlus on tagasi lükatud. Osalejal palutakse dokumente täiendada
+        authorizations:
+          choose:
+            choose_a_type: 'Valige, millist kinnitusmeetodit soovite kasutada:'
+            offline: Veebiväline
+            online: Veebipõhine
+            title: Kinnitage end isikut tõendavat dokumenti kasutades
+          create:
+            error: Teie dokumendi üleslaadimisel tekkis probleem
+            success: Dokument laaditi üles
+          edit:
+            being_reviewed: Teie dokumente vaadatakse üle. Teid kinnitatakse peagi
+            offline: Kasuta veebivälist kinnitamist
+            online: Kasuta veebipõhist kinnitamist
+            rejection_clarity: Veenduge, et üleslaaditaval pildil olev teave oleks selgelt nähtav
+            rejection_correctness: Veenduge, et sisestatud teave oleks õige
+            rejection_notice: Teie kinnitamisel tekkis probleem. Proovige uuesti
+            send: Taotlege kinnitamist uuesti
+          new:
+            send: Taotle kinnitamist
+            title: Laadige üles oma isikut tõendav dokument
+          update:
+            error: Teie dokumendi uuesti üleslaadimisel tekkis probleem
+            success: Dokument laaditi üles
+        passport: Pass
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Aadress
+              letter_sent_at: Kiri saadeti
+              mark_as_sent: Märgi saadetuks
+              not_yet_sent: Pole veel saadetud
+              title: Pooleliolevad kinnitamised
+              username: Hüüdnimi
+              verification_code: Kinnituskood
+          postages:
+            create:
+              error: Kirja saadetuks märkimisel tekkis viga
+              success: Kiri märgiti saadetuks
+        authorizations:
+          create:
+            error: Teie taotlusega tekkis probleem
+            success: Aitäh! Saadame teie aadressil kinnituskoodi
+          edit:
+            send: Kinnita
+            title: Esitage teile saadetud kinnituskood
+            waiting_for_letter: Saadame teie aadressil peagi kinnituskoodi sisaldava kirja
+          new:
+            send: Saada mulle kiri
+            title: Taotlege oma kinnituskoodi
+          update:
+            error: Teie kinnituskood ei ühti meie omaga. Kontrollige seda meie saadetud kirjas uuesti
+            success: Õnnitleme! Teie kinnitamine viidi lõpule
+      sms:
+        authorizations:
+          create:
+            error: Teie taotlusega tekkis probleem
+            success: Aitäh! Saatsime teie telefoninumbril SMSi.
+          destroy:
+            success: Kinnituskood on lähtestatud. Sisestage uuesti oma telefoninumber.
+          edit:
+            confirm_destroy: Kas olete kindel, et soovite kinnituskoodi lähtestada?
+            destroy: Lähtesta kinnituskood
+            resend: Kas te pole kinnituskoodi saanud?
+            send: Kinnita
+            title: Esitage teile saadetud kinnituskood
+          new:
+            send: Saada mulle SMS
+            title: Taotlege oma kinnituskoodi
+          update:
+            error: Teie kinnituskood ei ühti meie omaga. Kontrollige uuesti SMSi, mille teile saatsime.
+            success: Õnnitleme! Teie kinnitamine viidi lõpule.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: kasutada tuleb suurtähti ning see võib sisaldada ainult tähti ja/või numbreid
