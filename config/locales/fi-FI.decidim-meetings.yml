@@ -1,1 +1,471 @@
 fi:
+  activemodel:
+    attributes:
+      agenda:
+        description: Kuvaus
+        duration: Kesto
+        title: Kokouksen nimi
+      close_meeting:
+        attendees_count: Osallistujien määrä
+        attending_organizations: Luettelo osallistuneista organisaatioista
+        closing_report: Raportti
+        contributions_count: Vastausten määrä
+        proposal_ids: Kokouksessa tehdyt ehdotukset
+      meeting:
+        address: Osoite
+        available_slots: Kokouksen käytettävissä olevat paikat
+        decidim_category_id: Luokka
+        decidim_scope_id: Aihepiiri
+        decidim_user_group_id: Käyttäjäryhmä
+        description: Kuvaus
+        end_time: Päättymisaika
+        location: Sijainti
+        location_hints: Sijaintiohjeet
+        organizer_gid: Luo nimellä
+        organizer_id: Järjestäjä
+        private_meeting: Yksityinen kokous
+        registration_form_enabled: Ilmoittautumislomake käytössä
+        registration_terms: Ilmoittautumisehdot
+        registrations_enabled: Ilmoittautuminen käytössä
+        start_time: Aloitusaika
+        title: Kokouksen nimi
+        transparent: Avoin
+      minutes:
+        audio_url: Äänen URL-osoite
+        description: Kuvaus
+        video_url: Videon URL-osoite
+        visible: Näkyy
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Aiheiden kesto ylittää kokouksen keston %{count} minuutilla
+              too_many_minutes_child: Aliaiheiden kesto ylittää aiheen "%{parent_title}" keston %{count} minuutilla
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tämä sähköpostitili on jo kutsuttu
+    models:
+      decidim/meetings/close_meeting_event: Kokous päättynyt
+      decidim/meetings/create_meeting_event: Kokous
+      decidim/meetings/meeting_registrations_enabled_event: Ilmoittautuminen käytössä
+      decidim/meetings/meeting_registrations_over_percentage_event: Liikaa ilmoittautuneita
+      decidim/meetings/update_meeting_event: Kokous päivitetty
+  activerecord:
+    models:
+      decidim/meetings/minutes:
+        one: Pöytäkirja
+        other: Pöytäkirjaa
+      decidim/meetings/registration:
+        one: Ilmoittautuminen
+        other: Ilmoittautumista
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Kokouksen kopioiminen epäonnistui.
+          success: Kokous kopioitiin onnistuneesti.
+        new:
+          copy: Kopioi
+          select: Valitse kopioitavat tiedot
+          title: Kopioi kokous
+    components:
+      meetings:
+        actions:
+          join: Liity
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit sallittu
+            comments_max_length: Kommenttien enimmäispituus (merkitse 0 saadaksesi oletusarvon)
+            creation_enabled_for_participants: Osallistujat voivat luoda kokouksia
+            default_registration_terms: Oletusilmoittautumisehdot
+            enable_pads_creation: Salli muistioiden luominen
+            resources_permissions_enabled: Kullekin kokoukselle voidaan määrittää toimintojen käyttöoikeudet
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit estetty
+            creation_enabled_for_participants: Osallistujat voivat luoda kokouksia
+            creation_enabled_for_user_groups: Käyttäjäryhmät voivat luoda kokouksia
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Kokouksesi "%{resource_title}" on päättynyt. Voit lukea johtopäätökset kokouksen sivulta:'
+            email_outro: Sait tämän ilmoituksen, koska järjestit kokouksen "%{resource_title}".
+            email_subject: Kokous "%{resource_title}" on päättynyt
+            notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on päättynyt.
+          follower:
+            email_intro: 'Kokous "%{resource_title}" on päättynyt. Voit lukea johtopäätökset kokouksen sivulta:'
+            email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+            email_subject: Kokous "%{resource_title}" on päättynyt
+            notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on päättynyt.
+        meeting_created:
+          email_intro: Kokous "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}”.
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Uusi kokous lisätty kohteeseen %{participatory_space_title}
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Ilmoittautumisesi kokoukseen <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Ilmoittautumiskoodisi on %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: '%{percentage}% kokouksen "%{resource_title}” paikoista on täytetty.'
+          email_outro: Sait tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
+          email_subject: '%{percentage}% kokouksen "%{resource_title}” paikoista on täytetty'
+          notification_title: '%{percentage}% kokouksen <a href="%{resource_path}">%{resource_title}</a> paikoista on täytetty.'
+        meeting_updated:
+          email_intro: 'Kokousta "%{resource_title}" on päivitetty. Voit lukea uuden version kokouksen sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Kokousta "%{resource_title}" on päivitetty
+          notification_title: Kokousta <a href="%{resource_path}">%{resource_title}</a> on päivitetty.
+        registration_code_validated:
+          email_intro: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen "%{resource_title}” on vahvistettu.
+          email_outro: Sait tämän ilmoituksen, koska ilmoittautumiskoodisi kokoukseen "%{resource_title}" on vahvistettu.
+          email_subject: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen "%{resource_title}" on vahvistettu
+          notification_title: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
+        registrations_enabled:
+          email_intro: 'Ilmoittautuminen kokoukseen "%{resource_title}" on alkanut. Voit ilmoittautua kokouksen sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Ilmoittautuminen kokoukseen "%{resource_title}" on alkanut.
+          notification_title: Ilmoittautuminen kokoukseen <a href="%{resource_path}">%{resource_title}</a> on alkanut.
+        upcoming_meeting:
+          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnin kuluttua.
+          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnin kuluttua.
+          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tunnin kuluttua.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Ilmoittaudu niihin kokouksiin, joihin tahdot osallistua
+          description: Tämä merkki myönnetään niille, jotka ovat osallistuneet useisiin kokouksiin.
+          description_another: Tämä osallistuja on osallistunut %{score} kokoukseen.
+          description_own: Olet osallistunut %{score} kokoukseen.
+          name: Kokouksiin osallistuminen
+          next_level_in: Osallistu %{score} kokoukseen noustaksesi seuraavalle tasolle!
+          unearned_another: Tämä osallistuja ei ole vielä osallistunut kokouksiin.
+          unearned_own: Et ole vielä osallistunut kokouksiin.
+    meetings:
+      actions:
+        agenda: Esityslista
+        attachment_collections: Kansiot
+        attachments: Liitteet
+        close: Sulje
+        confirm_destroy: Oletko varma, että haluat poistaa tämän kokouksen?
+        destroy: Poista
+        edit: Muokkaa
+        invalid_destroy:
+          proposals_count:
+            one: 'Kokousta ei voi poistaa, koska siihen liittyy %{count} ehdotus:'
+            other: 'Kokousta ei voi poistaa, koska siihen liittyy %{count} ehdotusta:'
+        minutes: Pöytäkirjat
+        preview: Esikatselu
+        registrations: Ilmoittautumiset
+        title: Toiminnot
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Lisää esityslistan alakohta
+            agenda_item: Esityslistan kohta
+            agenda_item_children: Esityslistan alakohdat
+            down: Alas
+            remove: Poista
+            up: Ylös
+          agenda_item_child:
+            agenda_item_child: Esityslistan alakohta
+            down: Alas
+            remove: Poista
+            up: Ylös
+          create:
+            invalid: Esityslistan luominen epäonnistui
+            success: Esityslista luotiin onnistuneesti
+          edit:
+            title: Muokkaa esityslistaa
+            update: Päivitä
+          form:
+            add_agenda_item: Lisää esityslistan kohta
+            agenda_items: Esityslistan kohdat
+            end_date: Päättymispäivä
+            start_date: Alkamispäivä
+          new:
+            create: Luo
+            title: Uusi esityslista
+          update:
+            invalid: Esityslistan päivittäminen epäonnistui
+            success: Esityslista päivitettiin onnistuneesti
+        exports:
+          meetings: Kokoukset
+          registrations: Ilmoittautumiset
+        invite_join_meeting_mailer:
+          invite:
+            decline: Hylkää kutsu
+            invited_you_to_join_a_meeting: "%{invited_by} on kutsunut sinut kokoukseen kohteeseen %{application}. Voit hyväksyä tai hylätä kutsun alla olevista linkeistä."
+            join: Osallistu kokoukseen '%{meeting_title}'
+        invites:
+          create:
+            error: Osallistujan kutsuminen kokoukseen epäonnistui.
+            success: Osallistuja kutsuttiin kokoukseen onnistuneesti.
+          form:
+            attendee_type: Osanottajan tyyppi
+            existing_user: Olemassa oleva osallistuja
+            invite: Kutsu
+            invite_explanation: Osallistuja kutsutaan kokoukseen ja myös organisaatioon.
+            non_user: Osallistuja, jota ei ole olemassa
+            select_user: Valitse osallistuja
+          index:
+            filter:
+              accepted: Hyväksytty
+              all: Kaikki
+              rejected: Hylätty
+              sent: Lähetetty
+            filter_by: Suodata
+            invite_attendee: Kutsu osanottaja
+            registrations_disabled: Et voi kutsua osanottajaa, koska ilmoittautuminen ei ole käytössä.
+            search: Haku
+        meeting_closes:
+          edit:
+            close: Sulje
+            title: Päätä kokous
+        meetings:
+          close:
+            invalid: Kokouksen päättäminen epäonnistui
+            success: Kokous päätettiin onnistuneesti
+          create:
+            invalid: Kokouksen luominen epäonnistui
+            success: Kokous luotiin onnistuneesti
+          destroy:
+            invalid:
+              proposals_count:
+                one: Kokousta ei voi poistaa, koska siihen liittyy %{count} ehdotus
+                other: Kokousta ei voi poistaa, koska siihen liittyy %{count} ehdotusta
+            success: Kokous poistettiin onnistuneesti
+          edit:
+            update: Päivitä
+          form:
+            address_help: 'Osoite: Geocoder käyttää osoitetta sijainnin löytämiseen'
+            location_help: 'Sijainti: käyttäjille suunnattu tapaamispaikan viesti'
+            location_hints_help: 'Sijaintiohjeet: lisätietoja. Esimerkki: rakennuksen kerros'
+          index:
+            title: Kokoukset
+          new:
+            create: Luo
+            title: Luo kokous
+          service:
+            description: Kuvaus
+            down: Alas
+            remove: Poista
+            service: Palvelu
+            title: Nimi
+            up: Ylös
+          services:
+            add_service: Lisää palvelu
+            services: Palvelut
+          update:
+            invalid: Kokouksen päivittäminen epäonnistui
+            success: Kokous päivitettiin onnistuneesti
+        minutes:
+          create:
+            invalid: Pöytäkirjan luominen epäonnistui
+            success: Pöytäkirja luotiin onnistuneesti
+          edit:
+            update: Päivitä
+          new:
+            create: Luo
+            title: Luo pöytäkirja
+          update:
+            invalid: Pöytäkirjan päivittäminen epäonnistui
+            success: Pöytäkirja päivitettiin onnistuneesti
+        models:
+          meeting:
+            name: Kokous
+        registrations:
+          edit:
+            save: Tallenna
+            validate: Vahvista
+            validate_registration_code: Vahvista ilmoittautumiskoodi
+          form:
+            available_slots_help: Jätä arvoksi 0, jos käytettävissä on rajoittamaton määrä paikkoja.
+            invites: Kutsut
+            recommendation_message: Tietosuojasyistä suosittelemme, että poistat tämän ilmoittautumislomakkeen, kun et enää tarvitse sitä. Oletuksena se poistetaan kolme kuukautta kokouksen päättymisen jälkeen.
+            registration_form: Ilmoittautumislomake
+            registrations_count:
+              one: Kokoukseen on tehty %{count} ilmoittautuminen.
+              other: Kokoukseen on tehty %{count} ilmoittautumista.
+            reserved_slots_help: Jätä arvoksi 0, jos kokouksessa ei ole varattuja paikkoja
+            reserved_slots_less_than: Arvon on oltava vähintään yhtä suuri kuin %{count}
+            title: Ilmoittautumiset
+          update:
+            invalid: Ilmoittautumisasetusten tallentaminen epäonnistui.
+            success: Kokouksen ilmoittautumisasetukset tallennettiin onnistuneesti.
+          validate_registration_code:
+            invalid: Ilmoittautumiskoodi on virheellinen.
+            success: Ilmoittautumiskoodi vahvistettiin onnistuneesti.
+      admin_log:
+        invite:
+          create: "%{user_name} kutsui osallistujan %{attendee_name} osallistumaan kokoukseen %{resource_name} tilassa %{space_name}"
+          deleted: "%{user_name} perui osallistujan %{attendee_name} kutsun osallistua kokoukseen %{resource_name} tilassa %{space_name}"
+          update: "%{user_name} kutsui osallistujan %{attendee_name} osallistumaan kokoukseen %{resource_name} tilassa %{space_name}"
+        meeting:
+          close: "%{user_name} lopetti kokouksen %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi kokouksen %{resource_name} tilaan %{space_name}"
+          delete: "%{user_name} poisti kokouksen %{resource_name} tilasta %{space_name}"
+          export_registrations: "%{user_name} vei tilan %{space_name} kokouksen %{resource_name} rekisteröinnit"
+          update: "%{user_name} päivitti kokouksen %{resource_name} tilassa %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Järjestäjää ei löytynyt tietokannasta (tunnus: %{id})'
+        minutes:
+          create: "%{user_name} loi tilan %{space_name} kokouksen %{resource_name} pöytäkirjan"
+          update: "%{user_name} päivitti tilan %{space_name} kokouksen %{resource_name} pöytäkirjan"
+      calendar_modal:
+        calendar_url: Kalenterin URL-osoite
+        close_window: Sulje ikkuna
+        export_calendar: Vie kalenteri
+      conference_venues: Kokouspaikat
+      content_blocks:
+        upcoming_events:
+          name: Tulevat tapahtumat
+          view_all_events: Näytä kaikki
+      directory:
+        meetings:
+          index:
+            all: Kaikki
+            date: Päivämäärä
+            past: Menneet
+            search: Haku
+            space_type: Osallistumistila
+            upcoming: Tulevat
+      last_activity:
+        new_meeting_at_html: "<span>Uusi kokous kohteessa %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Kokouskutsu
+        registration_mailer:
+          confirmation:
+            subject: Ilmoittautumisesi kokoukseen on vahvistettu
+      meeting:
+        not_allowed: Et voi tarkastella tätä kokousta
+      meetings:
+        create:
+          invalid: Kokouksen luominen epäonnistui.
+          success: Kokous on luotu
+        edit:
+          back: Takaisin
+          title: Muokkaa kokoustasi
+          update: Päivitä
+        filters:
+          category: Luokka
+          date: Päivämäärä
+          date_values:
+            all: Kaikki
+            past: Menneet
+            upcoming: Tulevat
+          origin: Alkuperä
+          origin_values:
+            all: Kaikki
+            citizens: Kansalaiset
+            official: Virkamies
+            user_groups: Ryhmät
+          scope: Aihepiiri
+          search: Haku
+        filters_small_view:
+          close_modal: Sulje pikkuikkuna
+          filter: Suodatus
+          filter_by: Suodata
+          unfold: Avaa
+        form:
+          address_help: 'Osoite: Geocoder käyttää osoitetta sijainnin löytämiseen'
+          location_help: 'Sijainti: käyttäjille suunnattu tapaamispaikan viesti'
+          location_hints_help: 'Sijaintiohjeet: lisätietoja. Esimerkki: rakennuksen kerros'
+          select_a_category: Valitse luokka
+        meeting_minutes:
+          meeting_minutes: Kokouspöytäkirja
+          related_information: Lisätietoja
+        meetings:
+          no_meetings_warning: Hakuehtoja vastaavia kokouksia ei ole tai suunnitteilla ei ole yhtäkään kokousta.
+          upcoming_meetings_warning: Tällä hetkellä yhtäkään kokousta ei ole suunnitteilla, mutta täältä näet kaikki aiemmat kokoukset.
+        new:
+          back: Takaisin
+          create: Luo
+        registration_confirm:
+          cancel: Peruuta
+          confirm: Vahvista
+        show:
+          attendees: Osanottajien määrä
+          back: Takaisin luetteloon
+          contributions: Kontribuutioiden määrä
+          date: Päivämäärä
+          edit_meeting: Muokkaa kokousta
+          going: Meneillään
+          join: Osallistu kokoukseen
+          meeting_report: Kokousraportti
+          no_slots_available: Ei vapaita paikkoja
+          organizations: Osallistuvat organisaatiot
+          registration_code_help_text: Ilmoittautumiskoodisi
+          registration_state:
+            validated: VAHVISTETTU
+            validation_pending: ODOTTAA VAHVISTAMISTA
+          remaining_slots:
+            one: "%{count} paikka vapaana"
+            other: "%{count} paikkaa vapaana"
+          view: Näytä
+        update:
+          invalid: Kokouksen päivittäminen epäonnistui.
+          success: Kokous on päivitetty.
+      meetings_map:
+        view_meeting: Näytä kokous
+      models:
+        invite:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            sent_at: Lähettämisajankohta
+          status:
+            accepted: Hyväksytty (%{at})
+            rejected: Hylätty (%{at})
+            sent: Lähetetty
+        meeting:
+          fields:
+            closed: Suljettu
+            end_time: Päättymispäivä
+            map: Kartta
+            start_time: Alkamispäivä
+            title: Nimi
+      read_more: "(lisätietoja)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Ilmoittautumisesi kokoukseen <a href="%{url}">%{title}</a> on vahvistettu.
+          details: Kokouksen tiedot ovat liitteessä.
+          registration_code: Ilmoittautumiskoodisi on %{code}.
+      registrations:
+        create:
+          invalid: Kokoukseen liittyminen epäonnistui.
+          success: Olet liittynyt kokoukseen. Koska olet ilmoittautunut tähän kokoukseen, saat ilmoituksen, jos kokousta päivitetään.
+        decline_invitation:
+          invalid: Kutsun hylkääminen epäonnistui.
+          success: Olet hylännyt kutsun.
+        destroy:
+          invalid: Kokouksesta lähteminen epäonnistui.
+          success: Olet lähtenyt kokouksesta.
+      types:
+        private_meeting: Yksityinen kokous
+        transparent: Läpinäkyvä
+      versions:
+        back_to_resource: Palaa kokoukseen
+    metrics:
+      meetings:
+        description: Luotujen kokousten määrä
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Menneet kokoukset
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Aiheeseen liittyvät tulokset:'
+        result_meeting: 'Aiheeseen liittyvät kokoukset:'
+      proposals_from_meeting:
+        meeting_proposal: 'Aiheeseen liittyvät ehdotukset:'
+        proposal_meeting: 'Aiheeseen liittyvät kokoukset:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Kokouskutsu
