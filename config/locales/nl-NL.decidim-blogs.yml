@@ -1,1 +1,83 @@
 nl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nieuwe blogpost
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Bericht
+        other: Berichten
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Weet u zeker dat u dit bericht wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerken
+        new: Nieuw bericht
+        title: Acties
+      admin:
+        models:
+          components:
+            body: Hoofdtekst
+          post:
+            name: Bericht
+        posts:
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van dit bericht
+            success: Bericht aangemaakt
+          destroy:
+            success: Bericht verwijderd
+          edit:
+            save: Bijwerken
+          index:
+            title: Berichten
+          new:
+            create: Aanmaken
+            title: Bericht aanmaken
+          update:
+            invalid: Er is een probleem opgetreden bij het opslaan van het bericht.
+            success: Bericht opgeslagen
+      last_activity:
+        new_post_at_html: "<span>Nieuw bericht op %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Auteur
+            body: Hoofdtekst
+            created_at: Aangemaakt op
+            title: titel
+      posts:
+        show:
+          back: Terug naar de lijst
+          comments: Opmerkingen
+          view: Weergeven
+        sidebar_blog:
+          comments: opmerkingen
+          most_commented_posts: Berichten met de meeste opmerkingen
+      read_more: Meer lezen
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Bekendmaking
+            comments_enabled: Opmerkingen ingeschakeld
+            comments_max_length: Opmerkingen max. lengte (behoud 0 als standaardwaarde)
+          step:
+            announcement: Bekendmaking
+            comments_blocked: Opmerkingen geblokkeerd
+            endorsements_blocked: Onderschrijven geblokkeerd
+            endorsements_enabled: Onderschrijven ingeschakeld
+    events:
+      blogs:
+        post_created:
+          email_intro: Het bericht “%{resource_title}” is gepubliceerd in “%{participatory_space_title}" die u volgt.
+          email_outro: U hebt dit bericht ontvangen omdat u “%{participatory_space_title}” volgt. U kunt deze ontvolgen via de link hierboven.
+          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
+          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Berichten
+    participatory_processes:
+      statistics:
+        posts_count: Berichten
