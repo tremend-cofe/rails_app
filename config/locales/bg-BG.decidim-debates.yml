@@ -1,1 +1,21 @@
 bg:
+  activemodel:
+    attributes:
+      debate:
+        end_time: 'Край:'
+        start_time: 'Начало:'
+  decidim:
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_subject: Нов дебат „%{resource_title}“ в(ъв) %{space_title}
+            notification_title: Дебатът <a href="%{resource_path}">%{resource_title}</a> беше създаден в(ъв) <a href="%{space_path}">%{space_title}</a>.
+        creation_disabled:
+          email_intro: 'Създаването на дебати вече не е активно в(ъв) %{participatory_space_title}. Все още можете да участвате в отворени дебати от следната страница:'
+          email_subject: Създаването на дебати е деактивирано в(ъв) %{participatory_space_title}
+          notification_title: Създаването на дебати вече е деактивирано в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Вече можете да създавате нови дебати в(ъв) %{participatory_space_title}! Започнете да участвате на следната страница:'
+          email_subject: Дебатите вече са налице в(ъв) %{participatory_space_title}
+          notification_title: Вече можете да създавате <a href="%{resource_path}">нови дебати</a> в(ъв) <a href="%{participatory_space_url}">%{participatory_space_title}</a>
