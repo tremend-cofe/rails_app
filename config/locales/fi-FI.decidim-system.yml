@@ -1,1 +1,140 @@
 fi:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth-sovelluksen nimi
+        organization_logo: Organisaation logo (neliö)
+        organization_name: Organisaatio
+        organization_url: Organisaation URL-osoite
+        redirect_uri: Uudelleenohjauksen URI-osoite
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Uudelleenohjauksen URI-osoitteen on oltava SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Oletko varma, että haluat poistaa tämän?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi
+        save: Tallenna
+        title: Toiminnot
+      admins:
+        create:
+          error: Uuden ylläpitäjän luominen epäonnistui
+          success: Ylläpitäjä luotiin onnistuneesti
+        destroy:
+          success: Ylläpitäjä poistettiin onnistuneesti
+        edit:
+          title: Muokkaa ylläpitäjää
+          update: Päivitä
+        index:
+          title: Ylläpitäjät
+        new:
+          create: Luo
+          title: Uusi ylläpitäjä
+        update:
+          error: Ylläpitäjän päivittäminen epäonnistui
+          success: Ylläpitäjä päivitettiin onnistuneesti
+      default_pages:
+        placeholders:
+          content: Lisää ylläpitäjän hallintapaneelista mielekästä sisältöä staattiselle sivulle %{page}.
+          title: '%{page} oletusnimi'
+      menu:
+        admins: Ylläpitäjät
+        dashboard: Hallintapaneeli
+        oauth_applications: OAuth-sovellukset
+        organizations: Organisaatiot
+      models:
+        admin:
+          fields:
+            created_at: Luotu
+            email: Sähköposti
+          name: Ylläpitäjä
+          validations:
+            email_uniqueness: on jo olemassa toinen ylläpitäjä, jolla on sama sähköpostiosoite
+        oauth_application:
+          fields:
+            created_at: Luotu
+            name: OAuth-sovelluksen nimi
+            organization_name: Organisaatio
+          name: OAuth-sovellus
+        organization:
+          actions:
+            save_and_invite: Luo organisaatio ja kutsu ylläpitäjä
+          fields:
+            created_at: Luotu
+            name: Nimi
+            omniauth_settings: OmniAuth-asetukset
+            smtp_settings: SMTP-asetukset
+          name: Organisaatio
+      oauth_applications:
+        create:
+          error: Sovelluksen luominen epäonnistui.
+          success: Sovellus luotiin onnistuneesti.
+        destroy:
+          error: Sovelluksen poistaminen epäonnistui.
+          success: Sovellus poistettiin onnistuneesti.
+        edit:
+          save: Tallenna
+          title: Muokkaa sovellusta
+        form:
+          select_organization: Valitse organisaatio
+        index:
+          confirm_delete: Oletko varma, että haluat poistaa tämän sovelluksen?
+          title: OAuth-sovellukset
+        new:
+          save: Tallenna
+          title: Uusi sovellus
+        update:
+          error: Sovelluksen päivittäminen epäonnistui.
+          success: Sovellus päivitettiin onnistuneesti.
+      organizations:
+        create:
+          error: Uuden organisaation luominen epäonnistui.
+          success: Organisaatio luotiin onnistuneesti.
+        edit:
+          secondary_hosts_hint: Syötä jokainen omalle rivilleen
+        index:
+          title: Organisaatiot
+        new:
+          reference_prefix_hint: Viite-etuliitettä käytetään resurssien yksilöimiseen kaikkien organisaatioiden välillä
+          secondary_hosts_hint: Syötä jokainen omalle rivilleen
+          title: Uusi organisaatio
+        omniauth_settings:
+          decidim:
+            client_id: Client ID -tunnus
+            client_secret: Client Secret -tunnus
+            site_url: Sivuston URL-osoite
+          enabled: Käytössä
+          enabled_by_default: Tämä palveluntarjoaja on oletusarvoisesti käytössä. Sitä voi muokata mutta ei poistaa käytöstä.
+          facebook:
+            app_id: Sovellustunnus
+            app_secret: Sovellussalaisuus
+          google_oauth2:
+            client_id: Client ID -tunnus
+            client_secret: Client Secret -tunnus
+          icon: Kuvake
+          icon_path: Kuvakkeen polku
+          twitter:
+            api_key: API-avain
+            api_secret: API-salaisuus
+        smtp_settings:
+          instructions:
+            from_label: 'Sähköpostin lähettäjä on: "your-organization-name <your-organization@your-provider.org>". Jätä tyhjäksi, jos haluat käyttää otsikkona ''from _ email’'
+        update:
+          error: Organisaation päivittäminen epäonnistui.
+          success: Organisaatio päivitettiin onnistuneesti.
+        users_registration_mode:
+          disabled: Pääsy vain ulkoisilla tileillä
+          enabled: Salli osallistujien rekisteröityä ja kirjautua sisään
+          existing: Älä anna osallistujien rekisteröityä, mutta salli olemassa olevien osallistujien kirjautua sisään
+      shared:
+        notices:
+          no_organization_warning_html: Aloita luomalla organisaatio. Lue %{guide} ennen jatkamista.
+          our_getting_started_guide: aloitusopas
+      titles:
+        dashboard: Hallintapaneeli
