@@ -1,1 +1,84 @@
 et:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Uus blogipostitus
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Postita
+        other: Postitused
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Kas olete kindel, et soovite selle postituse kustutada?
+        destroy: Kustuta
+        edit: Muuda
+        new: Uus postitus
+        title: Toimingud
+      admin:
+        models:
+          components:
+            body: Sisu
+          post:
+            name: Postita
+        posts:
+          create:
+            invalid: Selle postituse loomisel tekkis probleem
+            success: Postitus on loodud
+          destroy:
+            success: Postitus on kustutatud
+          edit:
+            save: Värskenda
+          index:
+            title: Postitused
+          new:
+            create: Loo
+            title: Loo postitus
+          update:
+            invalid: Postituse salvestamisel tekkis probleem.
+            success: Postitus on salvestatud
+      last_activity:
+        new_post_at_html: "<span>Uus postitus lehel %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Sisu
+            created_at: Loodi
+            title: pealkiri
+      posts:
+        show:
+          back: Tagasi loendi juurde
+          comments: Kommentaarid
+          view: Kuva
+        sidebar_blog:
+          comments: kommentaarid
+          most_commented_posts: Enim kommenteeritud postitused
+      read_more: Kuva rohkem
+    components:
+      blogs:
+        name: Blogi
+        settings:
+          global:
+            announcement: Teadaanne
+            comments_enabled: Kommentaarid lubatud
+            comments_max_length: Kommentaari maksimaalne pikkus (vaikeväärtuse valimiseks jätke väljale 0)
+          step:
+            announcement: Teadaanne
+            comments_blocked: Kommenteerimine pole lubatud
+            endorsements_blocked: Kinnitamine pole lubatud
+            endorsements_enabled: Kinnitamine on lubatud
+    events:
+      blogs:
+        post_created:
+          email_intro: Teie jälgitavas osalusruumis „%{participatory_space_title}“ avaldati postitus „%{resource_title}“.
+          email_outro: Saite selle teate, kuna jälgite osalusruumi „%{participatory_space_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Osalusruumis %{participatory_space_title} avaldati uus postitus
+          notification_title: Osalusruumis %{participatory_space_title} avaldati postitus <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          posts_count: Postitused
+    participatory_processes:
+      statistics:
+        posts_count: Postitused
