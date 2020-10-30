@@ -1,1 +1,576 @@
 et:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Seotud assambleed
+        banner_image: Reklaamiriba pilt
+        consultations_ids: Seotud konsultatsioonid
+        copy_categories: Kopeeri kategooriad
+        copy_components: Kopeeri komponendid
+        copy_features: Kopeeri funktsioonid
+        decidim_scope_id: Kohaldamisala
+        description: Kirjeldus
+        hashtag: Teemaviide
+        hero_image: Avalehe pilt
+        participatory_processes_ids: Seotud osalusprotsessid
+        promoted: Esile tõstetud
+        published_at: Avaldati
+        scope_id: Kohaldamisala
+        scopes_enabled: Lubatud kohaldamisalad
+        short_description: Lühikirjeldus
+        show_statistics: Kuva statistika
+        slogan: Tunnuslause
+        slug: URL-komponent
+        title: Pealkiri
+      conference_speaker:
+        full_name: Täisnimi
+      conference_user_role:
+        email: Meil
+        name: Nimi
+        role: Roll
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Sellele meiliaadressile on kutse juba saadetud
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konverents
+        other: Konverentsid
+      decidim/conference_speaker:
+        one: Konverentsil esineja
+        other: Konverentsil esinejad
+      decidim/conference_user_role:
+        one: Konverentsi kasutajaroll
+        other: Konverentsi kasutajarollid
+  decidim:
+    admin:
+      actions:
+        confirm: Kinnita
+        new_conference: Uus konverents
+        send_diplomas: Saada osalustunnistused
+      conference_copies:
+        new:
+          copy: Kopeeri
+          select: Valige andmed, mida soovite kopeerida
+          title: Kopeeri konverents
+      conference_publications:
+        create:
+          error: Selle konverentsi avaldamisel tekkis probleem.
+          success: Konverents on avaldatud.
+        destroy:
+          error: Selle konverentsi avaldamise peatamisel tekkis probleem.
+          success: Konverentsi avaldamine on peatatud.
+      conference_registration:
+        confirm:
+          error: Konverentsile registreerimise kinnitamisel tekkis probleem.
+          success: Konverentsile registreerimine on kinnitatud.
+      conference_speakers:
+        create:
+          error: Konverentsi esineja lisamisel tekkis probleem.
+          success: Konverentsi esinejakirje on loodud.
+        destroy:
+          success: Konverentsi esinejakirje on kustutatud.
+        edit:
+          title: Värskenda konverentsi esinejakirjet.
+          update: Värskenda
+        index:
+          conference_speakers_title: Konverentsil esinejad
+        new:
+          create: Loo
+          title: Uus konverentsi esineja.
+        update:
+          error: Konverentsi esinejakirje värskendamisel tekkis probleem.
+          success: Konverentsi esinejakirje on värskendatud.
+      conference_user_roles:
+        create:
+          error: Konverentsi administraatori lisamisel tekkis probleem.
+          success: Konverentsi administraator on lisatud.
+        destroy:
+          success: Konverentsi administraator on eemaldatud.
+        edit:
+          title: Värskenda konverentsi administraatorikirjet.
+          update: Värskenda
+        index:
+          conference_admins_title: konverentsi administraatorid
+        new:
+          create: Loo
+          title: Uus konverentsi administraator.
+        update:
+          error: Konverentsi administraatorikirje värskendamisel tekkis probleem.
+          success: Konverentsi administraatorikirje on värskendatud.
+      conferences:
+        create:
+          error: Selle konverentsi loomisel tekkis probleem.
+          success: Konverents on loodud.
+        edit:
+          update: Värskenda
+        exports:
+          registrations: Registreerimised
+        form:
+          title: Üldteave
+        index:
+          not_published: Avaldamata
+          published: Avaldatud
+        new:
+          create: Loo
+          title: Konverents
+        update:
+          error: Selle konverentsi värskendamisel tekkis probleem.
+          success: Konverents on värskendatud.
+      conferences_copies:
+        create:
+          error: Selle konverentsi kopeerimisel tekkis probleem.
+          success: Konverents on kopeeritud.
+      media_links:
+        create:
+          error: Uue meedialingi loomisel tekkis probleem.
+          success: Meedialink on loodud.
+        destroy:
+          success: Meedialink on kustutatud.
+        edit:
+          title: Värskenda meedialinki.
+          update: Värskenda
+        index:
+          media_links_title: Meedialingid
+        new:
+          create: Loo
+          title: Meedialink
+        update:
+          error: Selle meedialingi värskendamisel tekkis probleem.
+          success: Meedialink on värskendatud.
+      menu:
+        conferences: Konverentsid
+        conferences_submenu:
+          attachment_collections: Kaustad
+          attachment_files: Failid
+          attachments: Manused
+          categories: Kategooriad
+          components: Komponendid
+          conference_admins: Konverentsi administraatorid
+          conference_invites: Kutsed
+          conference_speakers: Esinejad
+          diploma: Osalustunnistus
+          info: Teave
+          media_links: Meedialingid
+          moderations: Modereerimised
+          partners: Partnerid
+          registration_types: Registreerimistüübid
+          registrations: Registreerimised
+          user_registrations: Kasutaja registreerimised
+      models:
+        conference:
+          fields:
+            created_at: Loodi
+            promoted: Esile tõstetud
+            published: Avaldatud
+            title: Pealkiri
+        conference_speaker:
+          fields:
+            affiliation: Kuuluvus/liikmesus
+            full_name: Täisnimi
+            position: Ametiroll
+          name: Konverentsil esineja
+        conference_user_role:
+          fields:
+            email: Meil
+            name: Nimi
+            role: Roll
+          name: Konverentsi administraator
+          roles:
+            admin: Administraator
+            collaborator: Koostööpartner
+            moderator: Moderaator
+            valuator: Hindaja
+        media_link:
+          fields:
+            date: Kuupäev
+            title: Pealkiri
+          name: Meedialink
+        partner:
+          fields:
+            name: Nimi
+            partner_type: Tüüp
+          types:
+            collaborator: Koostööpartner
+            main_promotor: Peamine edendaja
+        registration_type:
+          fields:
+            conference_meetings: Konverentsi koosolekud
+            price: Hind
+            registrations_count: Registreerimiste arv
+            title: Pealkiri
+            weight: Kaal
+          name: Registreerimistüüp
+      partners:
+        create:
+          error: Konverentsi partneri lisamisel tekkis probleem.
+          success: Konverentsi partner on lisatud.
+        destroy:
+          success: Konverentsi partner on eemaldatud.
+        edit:
+          title: Värskenda partnerikirjet.
+          update: Värskenda
+        new:
+          create: Loo
+          title: Uus partner
+        update:
+          error: Konverentsi partnerikirje värskendamisel tekkis probleem.
+          success: Konverentsi partnerikirje on värskendatud.
+      registration_type_publications:
+        create:
+          error: Selle registreerimistüübi avaldamisel tekkis probleem.
+          success: Registreerimistüüp on avaldatud.
+        destroy:
+          error: Selle registreerimistüübi avaldamise peatamisel tekkis probleem.
+          success: Registreerimistüübi avaldamine peatati.
+      registration_types:
+        create:
+          error: Konverentsi registreerimistüübi lisamisel tekkis probleem.
+          success: Konverentsi registreerimistüüp on lisatud.
+        destroy:
+          success: Konverentsi registreerimistüüp on eemaldatud.
+        edit:
+          title: Värskenda registreerimistüüpi.
+          update: Värskenda
+        new:
+          create: Loo
+          title: Uus registreerimistüüp
+        update:
+          error: Konverentsi registreerimistüübi värskendamisel tekkis probleem.
+          success: Konverentsi registreerimistüüp on värskendatud.
+      titles:
+        conferences: Konverentsid
+    admin_log:
+      conference:
+        create: "Kasutaja %{user_name} lõi konverentsi %{resource_name}"
+        publish: "Kasutaja %{user_name} avaldas konverentsi %{resource_name}"
+        send_conference_diplomas: "Kasutaja %{user_name} saatis konverentsil %{resource_name} osalejatele osalustunnistused"
+        unpublish: "Kasutaja %{user_name} peatas konverentsi %{resource_name} avaldamise"
+        update: "Kasutaja %{user_name} värskendas konverentsi %{resource_name}"
+        update_diploma: "Kasutaja %{user_name} värskendas konverentsi %{resource_name} osalustunnistuste konfiguratsiooni"
+      conference_speaker:
+        create: "Kasutaja %{user_name} lisas osalusruumi %{space_name} konverentsi esineja %{resource_name}"
+        delete: "Kasutaja %{user_name} eemaldas esineja %{resource_name} osalusruumi %{space_name} konverentsilt"
+        update: "Kasutaja %{user_name} värskendas osalusruumi %{space_name} konverentsi esineja %{resource_name} kirjet"
+      conference_user_role:
+        create: "Kasutaja %{user_name} kutsus kasutaja %{resource_name} osalusruumi %{space_name} konverentsile"
+        delete: "Kasutaja %{user_name} eemaldas administraatori %{resource_name} osalusruumi %{space_name} konverentsilt"
+        update: "Kasutaja %{user_name} muutis kasutaja %{resource_name} rolli osalusruumi %{space_name} konverentsil"
+      conferences:
+        conference_registration:
+          confirm: "Kasutaja %{user_name} kinnitas konverentsile %{resource_name} registreerimise"
+        partner:
+          create: "Kasutaja %{user_name} lõi osalusruumi %{space_name} konverentsi jaoks üksuse %{resource_name}"
+          delete: "Kasutaja %{user_name} eemaldas administraatori %{resource_name} osalusruumi %{space_name} konverentsilt"
+          update: "Kasutaja %{user_name} värskendas osalusruumi %{space_name} konverentsi üksust %{resource_name}"
+        registration_type:
+          create: "Kasutaja %{user_name} lõi osalusruumi %{space_name} konverentsi jaoks registreerimistüübi %{resource_name}"
+          publish: "Kasutaja %{user_name} avaldas osalusruumi %{space_name} konverentsi jaoks registreerimistüübi %{resource_name}"
+          unpublish: "Kasutaja %{user_name} peatas osalusruumi %{space_name} konverentsi registreerimistüübi %{resource_name} avaldamise"
+          update: "Kasutaja %{user_name} värskendas osalusruumi %{space_name} konverentsi registreerimistüüpi %{resource_name}"
+      media_link:
+        create: "Kasutaja %{user_name} lõi osalusruumi %{space_name} konverentsi jaoks meedialingi %{resource_name}"
+        delete: "Kasutaja %{user_name} eemaldas osalusruumi %{space_name} konverentsi meedialingi %{resource_name}"
+        update: "Kasutaja %{user_name} värskendas osalusruumi %{space_name} konverentsi meedialinki %{resource_name}"
+    conference_program:
+      index:
+        title: Programm
+    conference_speakers:
+      index:
+        title: Esinejad
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL-komponente kasutatakse sellele konverentsile suunavate URLide loomiseks. Lubatud on ainult tähed, numbrid ja kriipsud ning alguses peab olema täht. Näide: %{url}'
+        conference_invites:
+          create:
+            error: Osalejale konverentsikutse saatmisel tekkis probleem.
+            success: Osalejale saadeti konverentsikutse.
+          form:
+            attendee_type: Osaleja tüüp
+            existing_user: On juba osaleja
+            invite_explanation: Osalejale saadetakse konverentsi ja organisatsiooniga liitumise kutse.
+            non_user: Pole veel osaleja
+            select_user: Valige osaleja
+          index:
+            filter:
+              accepted: Vastuvõetud
+              all: Kõik
+              rejected: Tagasi lükatud
+              sent: Saadetud
+            filter_by: Filtrimisalus
+            invite_attendee: Kutsu osaleja
+            invites: Kutsed
+            search: Otsing
+          new:
+            explanation: Osalejale saadetakse konverentsiga liitumise kutse. Kui tema meili pole registreeritud, kutsutakse ta liituma ka organisatsiooniga.
+            invite: Kutsu
+            new_invite: Kutsu osaleja
+        conference_registrations:
+          index:
+            registrations: Registreerimised
+        conference_speakers:
+          form:
+            existing_user: On juba osaleja
+            non_user: Pole veel osaleja
+            select_user: Valige osaleja
+            user_type: Osaleja tüüp
+          index:
+            search: Otsing
+        conferences:
+          form:
+            available_slots_help: Kui kohtade arv pole piiratud, jätke väljale 0.
+            registrations_count:
+              one: 'Registreerimiste arv: 1.'
+              other: 'Registreerimiste arv: %{count}.'
+            slug_help: 'URL-komponente kasutatakse sellele konverentsile suunavate URLide loomiseks. Lubatud on ainult tähed, numbrid ja kriipsud ning alguses peab olema täht. Näide: %{url}'
+        diplomas:
+          edit:
+            save: Salvesta
+            title: Osalustunnistus
+        invite_join_conference_mailer:
+          invite:
+            decline: Lükka konverentsi „%{conference_title}“ kutse tagasi
+            invited_you_to_join_a_conference: "Kasutaja %{invited_by} on saatnud teile rakenduse %{application} konverentsil osalemise kutse. Saate selle vastu võtta või tagasi lükata alltoodud linke kasutades."
+            registration: Registreerimine konverentsile „%{conference_title}“
+        partners:
+          index:
+            title: Partnerid
+        registration_types:
+          form:
+            select_conference_meetings: Valige konverentsi koosolekud
+          index:
+            title: Registreerimistüübid
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Leiate konverentsi <a href="%{url}">%{title}</a> osalustunnistuse manuste hulgast.
+          diploma_user:
+            attendance_verified_by: Osalemise kinnitas
+            certificate_of_attendance: Osalustunnistus
+            certificate_of_attendance_description: Kinnitame, et kasutaja <strong>%{user}</strong> osales konverentsil <strong>%{title}</strong>, mis toimus asukohas <strong>%{location}</strong> ajavahemikus <strong>%{start}–%{end}</strong>
+        send_diploma:
+          error: Konverentsil osalemise tunnistuste saatmisel tekkis probleem.
+          success: Konverentsil osalemise tunnistused on saadetud
+      conference:
+        registration_confirm:
+          cancel: Tühista
+          confirm: Kinnita
+        show:
+          free: Vaba/Tasuta
+          going: Osalemine
+          no_slots_available: Kohti pole saadaval
+          registration: Registreerimine
+      conference_program:
+        program_meeting:
+          content: Sisu
+          location: Asukoht
+          speakers: Esinejad
+          streaming: Voogedastus
+        show:
+          day: Päev
+          program: Programm
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Konverentsile <a href="%{url}">%{title}</a> registreerimine on kinnitatud.
+          details_1: 'Teid registreeriti konverentsile, kasutades registreerimistüüpi %{registration_type}. Selle hind on %{price} ja teil on võimalus osaleda järgmistel üritustel:'
+          details_2: Konverentsi üksikasjad leiate manusest.
+        pending_validation:
+          confirmation_pending: Saate peagi kinnituse
+          details: 'Registreerisite, kasutades registreerimistüüpi %{registration_type}. Selle hind on %{price} ja te saate osaleda järgmistel üritustel:'
+          pending_html: Konverentsile <a href="%{url}">%{title}</a> registreerimise kinnitamine on pooleli.
+      conference_registrations:
+        create:
+          invalid: Konverentsiga liitumisel tekkis probleem.
+          success: Olete nüüd konverentsiga liitunud.
+        decline_invitation:
+          invalid: Kutse tagasilükkamisel tekkis probleem.
+          success: Lükkasite kutse tagasi.
+        destroy:
+          invalid: Konverentsilt lahkumisel tekkis probleem.
+          success: Lahkusite konverentsilt.
+      conference_speaker:
+        go_to_twitter: Ava Twitter
+        more_info: lisateave
+        personal_website: Isiklik veebisait
+        show:
+          more_info: lisateave
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Isiklik veebisait
+        twitter_handle:
+          go_to_twitter: Ava Twitter
+      conference_speakers:
+        index:
+          speakers: Esinejad
+      conferences:
+        partners:
+          collaborators: Partnerid
+          main_promotors: Korraldajad
+        show:
+          login_as: Olete sisse logitud kasutajakontoga %{name} <%{email}>
+          make_conference_registration: 'Registreerige end konverentsile:'
+          register: Registreeri
+      content_blocks:
+        highlighted_conferences:
+          name: Esiletõstetud konverentsid
+      index:
+        title: Konverentsid
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Teie konverentsile registreerimine on kinnitatud
+          pending_validation:
+            subject: Teie konverentsile registreerimine on pooleli
+        invite_join_conference_mailer:
+          invite:
+            subject: Konverentsil osalemise kutse
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Teie konverentsil osalemise tunnistus on saadetud
+      models:
+        conference_invite:
+          fields:
+            email: Meil
+            name: Nimi
+            registration_type: Registreerimistüüp
+            sent_at: Saadeti
+            status: Olek
+          status:
+            accepted: Vastuvõetud (%{at})
+            rejected: Tagasilükatud (%{at})
+            sent: Saadetud
+        conference_registration:
+          fields:
+            email: Meil
+            name: Nimi
+            registration_type: Registreerimistüüp
+            state: Olek
+            states:
+              confirmed: Kinnitatud
+              pending: Ootel
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktiivsed konverentsid
+            see_all_conferences: Kuva kõik konverentsid
+      photo:
+        image:
+          attributes:
+            alt: Meediapilt
+        show:
+          close_modal: Sulge modaalaken
+          photo: Pilt
+      photos_list:
+        show:
+          related_photos: Pildid
+      registration_types:
+        index:
+          choose_an_option: 'Valige registreerimisvõimalus:'
+          login_as: Olete sisse logitud kasutajakontoga %{name} <%{email}>
+          register: Registreeri
+          title: Registreerimistüübid
+      shared:
+        conference_user_login:
+          already_account: Kas teil juba on Decidimi konto?
+          new_user: Uus kasutaja?
+          sign_in: Konverentsile registreerimiseks logige sisse
+          sign_up: Konverentsile registreerimiseks tehke omale Decidimi konto
+      show:
+        details: Üksikasjad
+        introduction: Sissejuhatus
+        objectives: Eesmärgid
+        related_assemblies: Seotud assambleed
+        related_consultations: Seotud konsultatsioonid
+        related_participatory_processes: Seotud osalusprotsessid
+      statistics:
+        answers_count: Vastused
+        comments_count: Kommentaarid
+        conference_count: Konverentsid
+        debates_count: Arutelud
+        endorsements_count: Kinnitused
+        headline: Tegevus
+        meetings_count: Koosolekud
+        orders_count: Toetusavaldused
+        pages_count: Lehed
+        posts_count: Postitused
+        projects_count: Projektid
+        proposals_count: Ettepanekud
+        results_count: Tulemused
+        surveys_count: Uuringud
+        users_count: Osalejad
+        votes_count: Toetusavaldused
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Konverentsile <a href="%{resource_url}">%{resource_title}</a> registreerimine on kinnitatud.
+        conference_registration_validation_pending:
+          notification_title: Konverentsile <a href="%{resource_url}">%{resource_title}</a> registreerimise kinnitamine on pooleli.
+        conference_registrations_over_percentage:
+          email_intro: Konverentsi „%{resource_title}“ kohtadest %{percentage}% on broneeritud.
+          email_outro: Saite selle teate, kuna olete konverentsi osalusruumi administraator.
+          email_subject: Konverentsi „%{resource_title}“ kohtadest %{percentage}% on broneeritud
+          notification_title: Konverentsi <a href="%{resource_path}">%{resource_title}</a> kohtadest %{percentage}% on broneeritud.
+        conference_updated:
+          email_intro: 'Konverentsi „%{resource_title}“ värskendati. Uut versiooni saate lugeda sellel lehel:'
+          email_outro: Saite selle teate, kuna jälgite konverentsi „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Konverentsi „%{resource_title}“ värskendati
+          notification_title: Konverentsi <a href="%{resource_path}">%{resource_title}</a> värskendati.
+        registrations_enabled:
+          email_intro: 'Nüüd on võimalik konverentsile „%{resource_title}“ registreerida. Saate end registreerida sellel lehel:'
+          email_outro: Saite selle teate, kuna jälgite konverentsi „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Nüüd on võimalik konverentsile „%{resource_title}“ registreerida.
+          notification_title: Konverentsile <a href="%{resource_path}">%{resource_title}</a> saab nüüd registreerida.
+        role_assigned:
+          email_intro: Teile on määratud konverentsil „%{resource_title}“ roll „%{role}“.
+          email_outro: Saite selle teate, kuna teil on konverentsil „%{resource_title}“ roll %{role}.
+          email_subject: Teile on määratud üksuses „%{resource_title}“ roll %{role}.
+          notification_title: Teile on määratud konverentsil <a href="%{resource_url}">%{resource_title}</a> roll %{role}.
+        upcoming_conference:
+          email_intro: 'Konverents „%{resource_title}“ toimub 2 päeva pärast. Kirjeldust saate lugeda sellel lehel:'
+          email_outro: Saite selle teate, kuna jälgite konverentsi „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Konverents „%{resource_title}“ läheneb!
+          notification_title: Konverents „<a href="%{resource_path}">%{resource_title}</a>“ algab 2 päeva pärast.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konverentsi andmebaasist ei leitud (ID: %{id})'
+    media:
+      index:
+        description: Selle konverentsiga seotud lingid
+        title: Meedia ja lingid
+    menu:
+      conferences: Konverentsid
+  devise:
+    mailer:
+      join_conference:
+        subject: Konverentsil osalemise kutse
+  layouts:
+    decidim:
+      conference_hero:
+        register: Registreeri
+      conference_widgets:
+        show:
+          take_part: Võtke osa
+      conferences:
+        conference:
+          more_info: Lisateave
+          take_part: Võtke osa
+        index:
+          promoted_conferences: Esiletõstetud konverentsid
+        order_by_conferences:
+          conferences:
+            one: "%{count} konverents"
+            other: "%{count} konverentsi"
+        promoted_conference:
+          more_info: Lisateave
+          take_part: Võtke osa
+      conferences_nav:
+        conference_menu_item: Teave
+        conference_partners_menu_item: Partnerid
+        conference_speaker_menu_item: Esinejad
+        media: Meedia
+        venues: Toimumispaigad
