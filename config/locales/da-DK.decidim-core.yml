@@ -45,3 +45,46 @@ da:
           email_subject: En opdatering til %{participatory_space_title}
       email_event:
         email_intro: 'Der er sket en opdatering af "%{resource_title}". Du kan se det fra denne side:'
+        email_outro: Du har modtaget denne underretning, fordi du følger "%{resource_title}". Du kan holde op med at følge den fra det tidligere link.
+      groups:
+        invited_to_group:
+          email_intro: En admin i <a href="%{resource_url}">%{user_group_name}</a>-gruppen har opfordret dig til at tilslutte sig den.
+        join_request_created:
+          email_intro: En person har ansøgt om at blive medlem af %{user_group_name}-gruppen. Du kan acceptere eller afvise det fra <a href="%{resource_url}">gruppemedlemsiden</a>.
+          notification_title: En person har ansøgt om at blive medlem af %{user_group_name}-gruppen. Du kan acceptere eller afvise det fra <a href="%{resource_path}">gruppemedlemsiden</a>.
+        join_request_rejected:
+          notification_title: Din anmodning om at blive medlem af <a href="%{resource_path}">%{user_group_name}</a>-gruppen er blevet afvist!
+        promoted_to_admin:
+          email_subject: Du er nu admin i "%{user_group_name}"-gruppen.
+        removed_from_group:
+          email_subject: Du er fjernet fra "%{user_group_name}"-gruppen.
+      resource_endorsed:
+        email_intro: '%{endorser_name} %{endorser_nickname}, som du følger, har netop anbefalet "%{resource_title}", og vi tror, den kan være af interesse for dig. Tjek det ud og bidrag:'
+    gamification:
+      badges:
+        invitations:
+          description_own: Du har inviteret %{score} mennesker
+    notifications_settings:
+      show:
+        own_activity: Min egen aktivitet, f.eks. når nogen kommenterer mit forslag eller nævner mig
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_headline: Velkommen til %{organization}s deltagelsesplatform.
+      terms_and_conditions:
+        refuse:
+          modal_body: Hvis du nægter, vil du ikke kunne bruge platformen, du kan <a href="%{data_portability_path}">downloade dine data</a> og/eller <a href="%{delete_path}">slette din konto</a>.
+    welcome_notification:
+      default_subject: Tak for tilmelding til {{organization}}!
+  devise:
+    mailer:
+      invitation_instructions:
+        invited_you_as_admin: "%{invited_by} har inviteret dig som administrator af %{application}. Du kan acceptere det via nedenstående link."
+        invited_you_as_private_user: "%{invited_by} har inviteret dig som privat deltager i %{application}. Du kan acceptere det via nedenstående link."
+  errors:
+    messages:
+      long_words: Indeholder ord, der er for lange (over 35 tegn)
+  layouts:
+    decidim:
+      impersonation_warning:
+        description_html: Du administrerer deltageren <b>%{user_name}</b>.
