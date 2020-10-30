@@ -1,1 +1,31 @@
 da:
+  activemodel:
+    attributes:
+      participatory_process:
+        published_at: Offentliggjort kl.
+  decidim:
+    admin:
+      models:
+        participatory_process:
+          fields:
+            created_at: Oprettet kl.
+        user:
+          fields:
+            invitation_accepted_at: Invitation accepteret kl.
+            invitation_sent_at: Invitation sendt kl.
+    admin_log:
+      participatory_process:
+        unpublish: "%{user_name} afpublicerede  %{resource_name} deltagelsesprocessen"
+    events:
+      participatory_process:
+        role_assigned:
+          email_subject: Du er blevet udpeget som %{role} for "%{resource_title}".
+        step_activated:
+          email_subject: En opdatering til %{participatory_space_title}
+          notification_title: '%{resource_title}-fasen er nu aktiv for <a href="%{resource_path}">%{participatory_space_title}</a>'
+        step_changed:
+          email_subject: En opdatering til %{participatory_space_title}
+    participatory_processes:
+      participatory_processes:
+        index:
+          loading: Indlæser resultater ...
