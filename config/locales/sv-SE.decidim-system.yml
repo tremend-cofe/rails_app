@@ -1,7 +1,139 @@
 sv:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Namn på OAuth-program
+        organization_logo: Organisationens logotyp (kvadrat)
+        organization_name: Organisation
+        organization_url: Organisationens URL
+        redirect_uri: Omdirigerings-URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings-URI måste vara en SSL-URI
   decidim:
     system:
+      actions:
+        confirm_destroy: Är du säker på att du vill radera detta?
+        destroy: Radera
+        edit: Redigera
+        new: Nytt
+        save: Spara
+        title: Åtgärder
+      admins:
+        create:
+          error: Ett fel uppstod när en ny administratör skulle skapas.
+          success: Administratör har skapats
+        destroy:
+          success: Administratör har raderats
+        edit:
+          title: Redigera administratör
+          update: Uppdatera
+        index:
+          title: Administratörer
+        new:
+          create: Skapa
+          title: Ny administratör
+        update:
+          error: Ett fel uppstod när administratören skulle uppdateras.
+          success: Administratören har uppdaterats
+      default_pages:
+        placeholders:
+          content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på instrumentpanelen för administratörer.
+          title: Standardtitel för %{page}
+      menu:
+        admins: Administratörer
+        dashboard: Instrumentpanel
+        oauth_applications: OAuth-program
+        organizations: Organisationer
       models:
         admin:
+          fields:
+            created_at: Skapad
+            email: E-post
           validations:
             email_uniqueness: Det finns redan en annan administratör med samma e-postadress
+        oauth_application:
+          fields:
+            created_at: Skapad
+            name: Namn på OAuth-program
+            organization_name: Organisation
+          name: OAuth-program
+        organization:
+          actions:
+            save_and_invite: Skapa organisation och bjud in administratör
+          fields:
+            created_at: Skapad
+            name: Namn
+            omniauth_settings: Omniauth-inställningar
+            smtp_settings: SMTP-inställningar
+          name: Organisation
+      oauth_applications:
+        create:
+          error: Ett fel uppstod när programmet skapades.
+          success: Programmet har skapats.
+        destroy:
+          error: Ett fel uppstod när programmet skulle förstöras.
+          success: Programmet har förstörts.
+        edit:
+          save: Spara
+          title: Redigera program
+        form:
+          select_organization: Välj en organisation
+        index:
+          confirm_delete: Är du säker på att du vill radera programmet?
+          title: OAuth-program
+        new:
+          save: Spara
+          title: Nytt program
+        update:
+          error: Ett fel uppstod när programmet skulle uppdateras.
+          success: Programmet har uppdaterats.
+      organizations:
+        create:
+          error: Ett fel uppstod när en ny organisation skulle skapas.
+          success: Organisationen har skapats.
+        edit:
+          secondary_hosts_hint: Ange var och en på en ny rad
+        index:
+          title: Organisationer
+        new:
+          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
+          secondary_hosts_hint: Ange var och en på en ny rad
+          title: Ny organisation
+        omniauth_settings:
+          decidim:
+            client_id: Klient-ID
+            client_secret: Klienthemlighet
+            site_url: Webbadress
+          enabled: Aktiverad
+          enabled_by_default: Denna leverantör är aktiverad som standard. Den kan redigeras men inte inaktiveras.
+          facebook:
+            app_id: App-ID
+            app_secret: Apphemlighet
+          google_oauth2:
+            client_id: Klient-ID
+            client_secret: Klienthemlighet
+          icon: Ikon
+          icon_path: Ikonens sökväg
+          twitter:
+            api_key: API-nyckel
+            api_secret: API-hemlighet
+        smtp_settings:
+          instructions:
+            from_label: 'E-postavsändare är: "your-organization-name <your-organization@your-provider.org>". Lämna tomt eller använd etiketten ''from_email'''
+        update:
+          error: Ett fel uppstod när organisationen skulle uppdateras.
+          success: Organisationen har uppdaterats.
+        users_registration_mode:
+          disabled: Åtkomst kan endast ske via externa konton
+          enabled: Tillåt deltagare att registrera sig och logga in
+          existing: Tillåt inte deltagare att registrera sig, men tillåt befintliga deltagare att logga in
+      shared:
+        notices:
+          no_organization_warning_html: Du måste skapa en organisation för att komma i gång. Se till att läsa %{guide} innan du går vidare.
+          our_getting_started_guide: vår handbok för att komma i gång
+      titles:
+        dashboard: Instrumentpanel
