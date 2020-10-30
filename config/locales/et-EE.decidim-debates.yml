@@ -1,1 +1,202 @@
 et:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategooria
+        closed_at: Lõpetati
+        conclusions: Järeldused/kokkuvõtted
+        decidim_category_id: Kategooria
+        description: Kirjeldus
+        end_time: Lõppeb
+        information_updates: Teabevärskendused
+        instructions: Osalemisjuhised
+        start_time: Algusaeg
+        title: Pealkiri
+        user_group_id: Looge arutelu kui
+    models:
+      decidim/debates/close_debate_event: Arutelu lõpetatud
+      decidim/debates/create_debate_event: Arutelu
+      decidim/debates/creation_disabled_event: Arutelud pole lubatud
+      decidim/debates/creation_enabled_event: Arutelud on lubatud
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Arutelu
+        other: Arutelud
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Loo
+          endorse: Kinnita
+        name: Arutelud
+        settings:
+          global:
+            announcement: Teadaanne
+            comments_enabled: Kommentaarid lubatud
+            comments_max_length: Kommentaari maksimaalne pikkus (vaikeväärtuse valimiseks jätke väljale 0)
+          step:
+            announcement: Teadaanne
+            comments_blocked: Kommenteerimine pole lubatud
+            creation_enabled: Osalejatele on arutelu loomine lubatud
+            endorsements_blocked: Kinnitamine pole lubatud
+            endorsements_enabled: Kinnitamine on lubatud
+    debates:
+      actions:
+        close: Sulge
+        confirm_destroy: Kas olete kindel?
+        destroy: Kustuta
+        edit: Muuda
+        new: Uus %{name}
+        title: Toimingud
+      admin:
+        debate_closes:
+          edit:
+            close: Sulge
+            title: Lõpeta arutelu
+        debates:
+          create:
+            invalid: Arutelu loomisel tekkis probleem.
+            success: Arutelu on loodud.
+          destroy:
+            success: Arutelu on kustutatud.
+          edit:
+            title: Muuda arutelu
+            update: Värskenda arutelu
+          index:
+            title: Arutelud
+          new:
+            create: Loo arutelu
+            title: Uus arutelu
+          update:
+            invalid: Selle arutelu värskendamisel tekkis probleem.
+            success: Arutelu on värskendatud.
+        models:
+          debate:
+            name: Arutelu
+      admin_log:
+        debate:
+          close: "Kasutaja %{user_name} lõpetas osalusruumis %{space_name} arutelu %{resource_name}"
+          create: "Kasutaja %{user_name} lõi osalusruumis %{space_name} arutelu %{resource_name}"
+          update: "Kasutaja %{user_name} värskendas osalusruumis %{space_name} arutelu %{resource_name}"
+      debates:
+        close:
+          invalid: Selle arutelu lõpetamisel tekkis probleem.
+          success: Arutelu on lõpetatud.
+        close_debate_modal:
+          close: Sulge
+          description: Mis on selle arutelu kokkuvõte või järeldus?
+          send: Lõpeta arutelu
+        closed: Lõpetatud
+        count:
+          debates_count:
+            one: "%{count} arutelu"
+            other: "%{count} arutelu"
+        create:
+          invalid: Arutelu loomisel tekkis probleem.
+          success: Arutelu on loodud.
+        debate:
+          participate: Võtke osa
+        edit:
+          back: Tagasi
+          save: Salvesta muudatused
+          title: Muuda arutelu
+        filters:
+          all: Kõik
+          category: Kategooria
+          category_prompt: Valige kategooria
+          citizens: Kodanikud
+          official: Ametlik
+          origin: Allikas
+          search: Otsing
+        filters_small_view:
+          close_modal: Sulge modaalaken
+          filter_by: Filtrimisalus
+          unfold: Ava
+        form:
+          select_a_category: Valige kategooria
+        index:
+          new_debate: Uus arutelu
+        new:
+          back: Tagasi
+          create: Loo
+          title: Uus arutelu
+        show:
+          back: Tagasi loendi juurde
+          close_debate: Lõpeta arutelu
+          date: Kuupäev
+          debate_closed: Lõpetatud
+          debate_conclusions_are: 'Arutelu lõpetati %{date} järgmiste järeldustega:'
+          edit_conclusions: Muuda järeldusi
+          edit_debate: Muuda arutelu
+          groups_count: Rühmad
+          last_comment_by: Viimati kommenteeris
+          no_comments_yet: Kommentaare veel ei ole
+          participants_count: Osalejad
+        update:
+          invalid: Arutelu värskendamisel tekkis probleem.
+          success: Arutelu on värskendatud.
+        versions:
+          debates:
+            back_to_resource: Tagasi arutelulehele
+          index:
+            title: Versioonid
+        versions_list:
+          back_to_resource: Tagasi arutelulehele
+      last_activity:
+        new_debate_at_html: "<span>Uus arutelu lehel %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Lõppkuupäev
+            official_debate: Ametlik arutelu
+            start_time: Alguskuupäev
+            title: Pealkiri
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Tere!
+              Osalusruumis %{space_title} on loodud uus arutelu „%{resource_title}“. Tutvuge ja andke oma panus:
+            email_outro: Saite selle teate, kuna jälgite osalusruumi „%{space_title}“. Teadetest saate loobuda eeltoodud linki kasutades.
+            email_subject: Uus arutelu „%{resource_title}“ osalusruumis %{space_title}
+            notification_title: Osalusruumis <a href="%{space_path}">%{space_title}</a> loodi arutelu <a href="%{resource_path}">%{resource_title}</a>.
+          user_followers:
+            email_intro: |-
+              Tere!
+              Autor %{author_name} %{author_nickname}, keda jälgite, lõi uue arutelu „%{resource_title}“. Tutvuge lähemalt ja andke oma panus:
+            email_outro: Saite selle teate, kuna jälgite autorit %{author_nickname}. Teadetest saate loobuda eeltoodud linki kasutades.
+            email_subject: Uus arutelu „%{resource_title}“ autorilt %{author_nickname}
+            notification_title: Kasutaja <a href="%{author_path}">%{author_name}%{author_nickname}</a> lõi arutelu <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Arutelu loomise funktsioon ei ole osalusruumis %{participatory_space_title} enam aktiivne. Saate siiski osaleda avatud aruteludes selle lehe kaudu:'
+          email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Arutelu loomine pole osalusruumis %{participatory_space_title} lubatud
+          notification_title: Arutelu loomine pole enam osalusruumis <a href="%{participatory_space_url}">%{participatory_space_title}</a> lubatud
+        creation_enabled:
+          email_intro: 'Saate nüüd alustada osalusruumis %{participatory_space_title} uusi arutelusid! Osalemist saate alustada sellel lehel:'
+          email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Osalusruumis %{participatory_space_title} on nüüd võimalik arutelusid pidada
+          notification_title: Saate nüüd alustada <a href="%{resource_path}">uusi arutelusid</a> osalusruumis <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Arutelu „%{resource_title}“ lõpetati. Järeldusi saate lugeda sellel lehel:'
+          email_outro: Saite selle teate, kuna jälgite arutelu „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
+          email_subject: Arutelu „%{resource_title}“ lõpetati
+          notification_title: Arutelu <a href="%{resource_path}">%{resource_title}</a> lõpetati.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Valige osalemiseks avatud arutelu
+          description: See tunnustusmärk antakse siis, kui osalete aktiivselt erinevates aruteludes, lisades kommentaare.
+          description_another: See osaleja on osalenud %{score} arutelus.
+          description_own: Olete osalenud %{score} arutelus.
+          name: Arutelud
+          next_level_in: Järgmisele tasemele jõudmiseks peate osalema veel %{score} arutelus.
+          unearned_another: See osaleja pole veel aruteludes osalenud.
+          unearned_own: Te pole veel aruteludes osalenud.
+    metrics:
+      debates:
+        description: Loodud arutelude arv
+        object: arutelud
+        title: Arutelud
