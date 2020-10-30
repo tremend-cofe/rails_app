@@ -1,1 +1,200 @@
 mt:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategorija
+        decidim_scope_id: Kamp ta’ applikazzjoni
+        description: Deskrizzjoni
+        end_date: Data tat-tmiem
+        project_ids: Proġetti inklużi
+        proposals: Proposti inklużi
+        start_date: Data tal-bidu
+        title: Titlu
+        updated_at: Aġġornat fi
+      status:
+        description: Deskrizzjoni
+        key: Didaskalija
+        name: Isem
+      timeline_entry:
+        description: Deskrizzjoni
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta inkluża f’riżultat
+      decidim/accountability/result_progress_updated_event: Il-progress tar-riżultati ġie aġġornat
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Żgur li trid tħassar dan %{name}?
+        destroy: Ħassar
+        edit: Editja
+        import_csv: Importa s-CSV
+        new: '%{name} ġdid'
+        timeline_entries: Evoluzzjoni tal-proġett
+        title: Azzjonijiet
+      admin:
+        exports:
+          results: Riżultati
+        import_results:
+          new:
+            import: Importa
+            info: "<p>Nirrakkomandaw li ssegwi dawn il-passi:</p><ol><li>Oħloq l-Istatuses għar-Riżultati li tixtieq iżżid (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Oħloq mill-inqas Riżultat wieħed manwalment permezz ta’ dan l-Admin panel (<a href='%{link_new_result}' target='_blank'>link</a>) qabel ma tuża l-Importazzjoni, biex ikollok fehim aħjar tal-format u x’se jkollok timla.</li><li>Niżżel l-Esportazzjoni fil-format CSV (%{link_export_csv})</li><li>Agħmel il-bidliet lokalment. Tista’ tibdel biss il-kolonni li ġejjin tas-CSV:</li></ol><ul><li><b>category/id:</b> ID għall-Kategorija</li><li><b>scope/id:</b> ID għall-Kamp ta’ Applikazzjoni</li><li><b>parent/id:</b> ID tal-fowlder prinċipali (għal Riżultati relatati). Fakultattivi</li><li><b>title/I18N:</b> Titlu dwar il-lingwa X</li><li><b>description/I18N:</b> Deskrizzjoni dwar il-lingwa X</li><li><b>start_date:</b> data meta r-riżultat jibda l-eżekuzzjoni (format SSSS-XX-JJ)</li><li><b>end_date:</b> data meta r-riżultat itemm l-eżekuzzjoni (format SSSS-XX-JJ)</li><li><b>status/id:</b> ID tal-Istatus għal dan ir-riżultat</li><li><b>progress:</b> Perċentwal (minn 0 sa 100) tal-eżekuzzjoni</li><li><b>proposals_ids:</b> ID interna tal-proposti relatati (separati b’virgola). Jiġi konvertit awtomatikament għal <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Importa r-riżultati mis-CSV
+        imports:
+          create:
+            success: Il-fajl beda l-importazzjoni. Se tirċievi email bir-riżultat tal-importazzjoni dalwaqt
+        models:
+          result:
+            name: Riżultat
+          timeline_entry:
+            name: Entrata kronoloġika
+        results:
+          create:
+            invalid: Kien hemm problema biex jinħoloq dan ir-riżultat
+            success: Ir-riżultat inħoloq
+          destroy:
+            success: Ir-riżultat tħassar
+          edit:
+            title: Editja r-riżultat
+            update: Aġġorna r-riżultat
+          index:
+            title: Riżultati
+          new:
+            create: Oħloq riżultat
+            title: Riżultat ġdid
+          update:
+            invalid: Kien hemm problema biex jiġi aġġornament dan ir-riżultat
+            success: Ir-riżultat ġie aġġornat
+        statuses:
+          create:
+            invalid: Kien hemm problema biex jinħoloq dan l-istatus
+            success: L-istatus inħoloq
+          destroy:
+            success: L-istatus tħassar
+          edit:
+            title: Editja l-istatus
+            update: Aġġorna l-istatus
+          new:
+            create: Oħloq status
+            title: Status ġdid
+          update:
+            invalid: Kien hemm problema fl-aġġornament ta’ dan l-istatus
+            success: L-istatus ġie aġġornat
+        timeline_entries:
+          create:
+            invalid: Kien hemm problema biex tinħoloq din l-entrata
+            success: L-entrata nħolqot
+          destroy:
+            success: L-entrata tħassret
+          edit:
+            title: Editja l-entrata
+            update: Aġġorna l-entrata
+          index:
+            title: Entrati fil-kronoloġija tal-proġett
+          new:
+            create: Oħloq entrata
+            title: Entrata ġdida
+          update:
+            invalid: Kien hemm problema fl-aġġornament ta’ din l-entrata
+            success: L-entrata ġiet aġġornata
+      admin_log:
+        result:
+          create: "%{user_name} ħoloq ir-riżultat %{resource_name} fi %{space_name}"
+          delete: "%{user_name} ħassar ir-riżultat %{resource_name} fi %{space_name}"
+          update: "%{user_name} aġġorna r-riżultat %{resource_name} fi %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Is-suġġett prinċipali ma nstabx fil-bażi tad-data (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Żbalji
+          errors_present: Kien hemm problema biex jiġu importati r-riżultati
+          row_number: Ringiela
+          subject: Ir-riżultati ġew importati
+          success: Ir-riżultati ġew importati. Tista’ tirrevedi r-riżultati fl-interface tal-amministrazzjoni.
+      last_activity:
+        new_result_at_html: "<span>Riżultat ġdid fi %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Data tat-tmiem
+            start_date: Data tal-bidu
+            title: Titlu
+        status:
+          fields:
+            description: Deskrizzjoni
+            key: Didaskalija
+            name: Isem
+        timeline_entry:
+          fields:
+            description: Deskrizzjoni
+            entry_date: Data
+      results:
+        filters:
+          all: Kollha
+          scopes: Kampijiet ta’ applikazzjoni
+        home:
+          categories_label: Kategoriji
+          subcategories_label: Sottokategoriji
+        home_header:
+          global_status: Status tal-eżekuzzjoni globali
+        nav_breadcrumb:
+          global: Eżekuzzjoni globali
+        search:
+          search: Fittex l-azzjonijiet
+        show:
+          stats:
+            attendees: Parteċipanti
+            back_to_resource: Mur lura għar-riżultat
+            comments: Kummenti
+            contributions: Kontribuzzjonijiet
+            last_edited_by: Editjat l-aħħar minn
+            last_updated_at: Aġġornat l-aħħar fi
+            meetings: Laqgħat
+            proposals: Proposti
+            votes: Sostenji
+        timeline:
+          title: Evoluzzjoni tal-proġett
+    components:
+      accountability:
+        name: Responsabbiltà
+        settings:
+          global:
+            categories_label: Isem għal “Kategoriji”
+            comments_enabled: Il-kummenti attivati
+            comments_max_length: Tul massimu tal-kummenti (Ħallih 0 għall-valur prestabbilit)
+            display_progress_enabled: Uri l-progress
+            heading_leaf_level_results: Isem għall-“Proġetti”
+            heading_parent_level_results: Isem għar-“Riżultati”
+            intro: Introduzzjoni
+            subcategories_label: Isem għas-“Sottokategoriji”
+          step:
+            comments_blocked: Kummenti mblukkati
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Il-proposta “%{proposal_title}” ġiet inkluża f’riżultat. Tista’ taraha minn din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi "%{proposal_title}". Tista’ tieqaf tirċievi in-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Aġġornament għal %{proposal_title}
+          notification_title: Il-proposta <a href="%{proposal_path}">%{proposal_title}</a> ġiet inkluża fir-riżultat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Ir-riżultat "%{resource_title}", li jinkludi l-proposta "%{proposal_title}", issa %{progress}% lest. Tista’ tarah minn din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi "%{proposal_title}", u din il-proposta hija inkluża fir-riżultat "%{resource_title}". Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Aġġornament għall-progress ta’ %{resource_title}
+          notification_title: Ir-riżultat <a href="%{resource_path}">%{resource_title}</a>, li jinkludi l-proposta <a href="%{proposal_path}">%{proposal_title}</a>, issa %{progress}% lest.
+    metrics:
+      results:
+        description: Għadd ta’ riżultati ġġenerati
+        object: riżultati
+        title: Riżultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Riżultati
+    participatory_spaces:
+      highlighted_results:
+        see_all: Ara r-riżultati kollha (%{count})
+    resource_links:
+      included_projects:
+        result_project: Proġetti inklużi f’dan ir-riżultat
+      included_proposals:
+        result_proposal: Proposti inklużi f’dan ir-riżultat
