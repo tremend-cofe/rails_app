@@ -1,1 +1,33 @@
 da:
+  decidim:
+    authorization_handlers:
+      postal_letter:
+        name: kode ved et brev med posten
+    verifications:
+      authorizations:
+        index:
+          pending_verification: Verifikationen afventer
+      csv_census:
+        authorizations:
+          new:
+            success: Din konto er blevet verificeret
+      id_documents:
+        authorizations:
+          create:
+            error: Der var et problem med at oploade dit dokument.
+          update:
+            error: Der var et problem med at oploade dit dokument.
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              letter_sent_at: Brev sendt kl.
+        authorizations:
+          create:
+            error: Der var et problem med din anmodning.
+          update:
+            error: Din bekræftelseskode stemmer ikke overens med vores. Du bedes dobbelttjekke den SMS, vi har sendt dig
+      sms:
+        authorizations:
+          create:
+            error: Der var et problem med din anmodning.
