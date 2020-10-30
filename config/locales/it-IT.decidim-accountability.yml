@@ -1,1 +1,223 @@
 it:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Stato
+        decidim_category_id: Categoria
+        decidim_scope_id: Ambito
+        description: Descrizione
+        end_date: Data di fine
+        progress: Avanzamento
+        project_ids: Progetti inclusi
+        proposals: Proposte incluse
+        start_date: Data di inizio
+        title: Titolo
+        updated_at: Aggiornato alle
+      status:
+        description: Descrizione
+        key: Legenda
+        name: Nome
+        progress: Avanzamento
+      timeline_entry:
+        description: Descrizione
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Proposta inclusa in un risultato
+      decidim/accountability/result_progress_updated_event: Progressi dei risultati aggiornati
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Risultato
+        other: Risultati
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Confermi di voler eliminare questo %{name}?
+        destroy: Elimina
+        edit: Modifica
+        import_csv: Importa CSV
+        new: Nuovo %{name}
+        preview: Anteprima
+        timeline_entries: Evoluzione del progetto
+        title: Azioni
+      admin:
+        exports:
+          results: Risultati
+        import_results:
+          new:
+            import: Importa
+            info: "<p>Ti consigliamo di seguire questi passaggi:</p><ol><li>Crea gli stati dei risultati che desideri aggiungere (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Prima di importare, crea manualmente almeno un risultato attraverso questo pannello Admin (<a href='%{link_new_result}' target='_blank'>link</a>), per avere un'idea più chiara del formato e di ciò che dovrai compilare.</li><li>Scarica l'esportazione in formato CSV (%{link_export_csv})</li><li>Apporta le modifiche a livello locale. È possibile modificare solo le seguenti colonne del CSV:</li></ol><ul><li><b>categoria/id:</b> ID per la categoria</li><li><b>ambito/id:</b> ID dell'ambito</li><li><b>genitore/id:</b> ID del genitore (per i risultati correlati). Facoltativo</li><li><b>title/I18N:</b> Titolo su lingua X</li><li><b>description/I18N:</b> Descrizione su lingua X</li><li><b>start_date:</b> data in cui inizia l'esecuzione del risultato (formato AAAA-MM-GG)</li><li><b>end_date:</b> data in cui termina l'esecuzione del risultato (formato AAAA-MM-GG)</li><li><b>status/id:</b> ID dello status per questo risultato</li><li><b>progress:</b> Percentuale (da 0 a 100) di esecuzione</li><li><b>proposals_ids:</b> ID interno delle relative proposte (separate da una virgola). Viene automaticamente convertito in <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Risultati delle importazioni da CSV
+        imports:
+          create:
+            success: L'importazione del file è iniziata. Riceverai un'e-mail nei prossimi minuti con il risultato dell'importazione
+        models:
+          result:
+            name: Risultato
+          status:
+            name: Stato
+          timeline_entry:
+            name: Voce della cronologia
+        results:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo risultato
+            success: Risultato creato correttamente
+          destroy:
+            success: Risultato eliminato correttamente
+          edit:
+            title: Modifica risultato
+            update: Aggiorna risultato
+          index:
+            title: Risultati
+          new:
+            create: Crea risultato
+            title: Nuovo risultato
+          update:
+            invalid: Si è verificato un problema nell'aggiornamento di questo risultato
+            success: Risultato aggiornato correttamente
+        shared:
+          subnav:
+            statuses: Stati
+        statuses:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo stato
+            success: Stato creato correttamente
+          destroy:
+            success: Stato eliminato correttamente
+          edit:
+            title: Modifica stato
+            update: Aggiorna stato
+          index:
+            title: Stati
+          new:
+            create: Crea stato
+            title: Nuovo stato
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questo stato
+            success: Stato aggiornato correttamente
+        timeline_entries:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questa voce
+            success: Voce creata correttamente
+          destroy:
+            success: Voce eliminata correttamente
+          edit:
+            title: Modifica voce
+            update: Aggiorna voce
+          index:
+            title: Voci della cronologia del progetto
+          new:
+            create: Crea voce
+            title: Nuova voce
+          update:
+            invalid: Si è verificato un problema durante l'aggiornamento di questa voce
+            success: Voce aggiornata correttamente
+      admin_log:
+        result:
+          create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
+          delete: "%{user_name} ha eliminato il risultato %{resource_name} in %{space_name}"
+          update: "%{user_name} ha aggiornato il risultato %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Il genitore non è stato trovato nella banca dati (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Errori
+          errors_present: Si è verificato un problema durante l'importazione dei risultati
+          row_number: Riga
+          subject: Risultati importati correttamente
+          success: Risultati importati correttamente. È possibile esaminare i risultati nell'interfaccia amministrativa.
+      last_activity:
+        new_result_at_html: "<span>Nuovo risultato in %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Data di fine
+            progress: Avanzamento
+            start_date: Data di inizio
+            status: Stato
+            title: Titolo
+        status:
+          fields:
+            description: Descrizione
+            key: Legenda
+            name: Nome
+            progress: Avanzamento
+        timeline_entry:
+          fields:
+            description: Descrizione
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 risultato
+            other: "%{count} risultati"
+        filters:
+          all: Tutti
+          scopes: Ambiti
+        home:
+          categories_label: Categorie
+          subcategories_label: Sottocategorie
+        home_header:
+          global_status: Stato di esecuzione globale
+        nav_breadcrumb:
+          global: Esecuzione globale
+        search:
+          search: Cerca azioni
+        show:
+          stats:
+            attendees: Persone presenti
+            back_to_resource: Torna al risultato
+            comments: Commenti
+            contributions: Contributi
+            last_edited_by: Ultima modifica da parte di
+            last_updated_at: Ultimo aggiornamento alle
+            meetings: Riunioni
+            proposals: Proposte
+            votes: Adesioni
+        timeline:
+          title: Evoluzione del progetto
+    components:
+      accountability:
+        name: Responsabilità
+        settings:
+          global:
+            categories_label: Nome per "Categorie"
+            comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (lasciare 0 per valore predefinito)
+            display_progress_enabled: Visualizza lo stato di avanzamento
+            heading_leaf_level_results: Nome per "Progetti"
+            heading_parent_level_results: Nome per "Risultati"
+            intro: Introduzione
+            subcategories_label: Nome per "Sottocategorie"
+          step:
+            comments_blocked: Commenti bloccati
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" è stata inclusa in un risultato. È possibile visualizzarla su questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché segui "%{proposal_title}". Per non ricevere più notifiche segui il link precedente.
+          email_subject: Un aggiornamento relativo a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> è stata inserita nel risultato <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Il risultato "%{resource_title}", che comprende la proposta "%{proposal_title}", è ora completo al %{progress}%. È possibile visualizzarla su questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché segui "%{proposal_title}" e questa proposta è inclusa nel risultato "%{resource_title}". Per non ricevere più notifiche segui il link precedente.
+          email_subject: Un aggiornamento sullo stato di avanzamento di %{resource_title}
+          notification_title: Il risultato <a href="%{resource_path}">%{resource_title}</a>, che comprende la proposta <a href="%{proposal_path}">%{proposal_title}</a>, è ora completo al %{progress}%.
+    metrics:
+      results:
+        description: Numero di risultati generati
+        object: risultati
+        title: Risultati
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Risultati
+    participatory_spaces:
+      highlighted_results:
+        see_all: Vedi tutti i risultati (%{count})
+    resource_links:
+      included_projects:
+        result_project: Progetti inclusi in questo risultato
+      included_proposals:
+        result_proposal: Proposte incluse in questo risultato
