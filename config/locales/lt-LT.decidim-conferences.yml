@@ -1,0 +1,562 @@
+lt:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Susijusios asamblėjos
+        banner_image: Reklamjuostės paveikslėlis
+        consultations_ids: Susijusios konsultacijos
+        copy_categories: Kopijuoti kategorijas
+        copy_components: Kopijuoti komponentus
+        copy_features: Kopijuoti požymius
+        decidim_scope_id: Sritis
+        description: Aprašymas
+        hashtag: Saitažodis
+        hero_image: Pradžios paveikslėlis
+        participatory_processes_ids: Susiję dalyvaujamieji procesai
+        promoted: Paryškinta
+        published_at: Paskelbta
+        scope_id: Sritis
+        scopes_enabled: Sritys įjungtos
+        short_description: Trumpas aprašymas
+        show_statistics: Rodyti statistinius duomenis
+        slogan: Šūkis
+        slug: URL laukas
+        title: Pavadinimas
+      conference_speaker:
+        full_name: Vardas, pavardė
+      conference_user_role:
+        email: E. paštas
+        name: Pavadinimas
+        role: Vaidmuo
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio e. laiško adresatas jau buvo pakviestas.
+  decidim:
+    admin:
+      actions:
+        confirm: Patvirtinti
+        new_conference: Nauja konferencija
+        send_diplomas: Siųsti dalyvavimo konferencijoje pažymėjimus
+      conference_copies:
+        new:
+          copy: Kopijuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti.
+          title: Dubliuoti konferenciją
+      conference_publications:
+        create:
+          error: Skelbiant šią konferenciją iškilo problema.
+          success: Konferencija paskelbta.
+        destroy:
+          error: Naikinant šios konferencijos skelbimą iškilo problema.
+          success: Konferencijos skelbimas panaikintas.
+      conference_registration:
+        confirm:
+          error: Patvirtinant registraciją į šią konferenciją iškilo problema.
+          success: Registracija į konferenciją patvirtinta.
+      conference_speakers:
+        create:
+          error: Įtraukiant šios konferencijos pranešėją iškilo problema.
+          success: Konferencijos pranešėjas sukurtas.
+        destroy:
+          success: Konferencijos pranešėjas pašalintas.
+        edit:
+          title: Atnaujinti konferencijos pranešėją.
+          update: Atnaujinti
+        index:
+          conference_speakers_title: Konferencijos pranešėjai
+        new:
+          create: Sukurti
+          title: Naujas konferencijos pranešėjas
+        update:
+          error: Atnaujinant šį konferencijos pranešėją iškilo problema.
+          success: Konferencijos pranešėjas atnaujintas.
+      conference_user_roles:
+        create:
+          error: Įtraukiant šios konferencijos administratorių iškilo problema.
+          success: Konferencijos administratorius įtrauktas.
+        destroy:
+          success: Konferencijos administratorius pašalintas.
+        edit:
+          title: Atnaujinti konferencijos administratorių.
+          update: Atnaujinti
+        index:
+          conference_admins_title: konferencijos administratoriai
+        new:
+          create: Sukurti
+          title: Naujas konferencijos administratorius
+        update:
+          error: Atnaujinant šios konferencijos administratorių iškilo problema.
+          success: Konferencijos administratorius atnaujintas.
+      conferences:
+        create:
+          error: Kuriant šią konferenciją iškilo problema.
+          success: Konferencija sukurta.
+        edit:
+          update: Atnaujinti
+        exports:
+          registrations: Registracijos
+        form:
+          title: Bendra informacija
+        index:
+          not_published: Nepaskelbta
+          published: Paskelbta
+        new:
+          create: Sukurti
+          title: Konferencija
+        update:
+          error: Atnaujinant šią konferenciją iškilo problema.
+          success: Konferencija atnaujinta.
+      conferences_copies:
+        create:
+          error: Dubliuojant šią konferenciją iškilo problema.
+          success: Konferencija dubliuota.
+      media_links:
+        create:
+          error: Kuriant naują multimedijos nuorodą iškilo problema.
+          success: Multimedijos nuoroda sukurta.
+        destroy:
+          success: Multimedijos nuoroda pašalinta.
+        edit:
+          title: Atnaujinti multimedijos nuorodą.
+          update: Atnaujinti
+        index:
+          media_links_title: Multimedijos nuorodos
+        new:
+          create: Sukurti
+          title: Multimedijos nuoroda
+        update:
+          error: Atnaujinant šią multimedijos nuorodą iškilo problema.
+          success: Multimedijos nuoroda atnaujinta.
+      menu:
+        conferences: Konferencijos
+        conferences_submenu:
+          attachment_collections: Aplankai
+          attachment_files: Rinkmenos
+          attachments: Priedai
+          categories: Kategorijos
+          components: Komponentai
+          conference_admins: Konferencijos administratoriai
+          conference_invites: Kvietimai
+          conference_speakers: Pranešėjai
+          diploma: Dalyvavimo konferencijoje pažymėjimas
+          info: Informacija
+          media_links: Multimedijos nuorodos
+          moderations: Vedamos diskusijos
+          partners: Partneriai
+          registration_types: Registracijos tipai
+          registrations: Registracijos
+          user_registrations: Naudotojų registracijos
+      models:
+        conference:
+          fields:
+            created_at: Sukurta
+            promoted: Paryškinta
+            published: Paskelbta
+            title: Pavadinimas
+        conference_speaker:
+          fields:
+            affiliation: Narystė
+            full_name: Vardas, pavardė
+            position: Pareigos
+          name: Konferencijos pranešėjas
+        conference_user_role:
+          fields:
+            email: E. paštas
+            name: Pavadinimas
+            role: Vaidmuo
+          name: Konferencijos administratorius
+          roles:
+            admin: Administratorius
+            collaborator: Bendraautorius
+            moderator: Diskusijos vedėjas
+            valuator: Vertintojas
+        media_link:
+          fields:
+            date: Data
+            link: Nuoroda
+            title: Pavadinimas
+          name: Multimedijos nuoroda
+        partner:
+          fields:
+            link: Nuoroda
+            logo: Logotipas
+            name: Pavadinimas
+            partner_type: Tipas
+          name: Partneris
+          types:
+            collaborator: Bendraautorius
+            main_promotor: Pagrindinis rėmėjas
+        registration_type:
+          fields:
+            conference_meetings: Konferencijos posėdžiai
+            price: Kaina
+            registrations_count: Registracijų skaičius
+            title: Pavadinimas
+            weight: Svarba
+          name: Registracijos tipas
+      partners:
+        create:
+          error: Įtraukiant šios konferencijos partnerį iškilo problema.
+          success: Konferencijos partneris įtrauktas.
+        destroy:
+          success: Konferencijos partneris pašalintas.
+        edit:
+          title: Atnaujinti partnerį
+          update: Atnaujinti
+        new:
+          create: Sukurti
+          title: Naujas partneris
+        update:
+          error: Atnaujinant šios konferencijos partnerį iškilo problema.
+          success: Konferencijos partneris atnaujintas.
+      registration_type_publications:
+        create:
+          error: Skelbiant šį registracijos tipą iškilo problema.
+          success: Registracijos tipas paskelbtas.
+        destroy:
+          error: Naikinant šio registracijos tipo skelbimą iškilo problema.
+          success: Registracijos tipo skelbimas panaikintas.
+      registration_types:
+        create:
+          error: Pridedant šios konferencijos registracijos tipą iškilo problema.
+          success: Konferencijos registracijos tipas pridėtas.
+        destroy:
+          success: Konferencijos registracijos tipas pašalintas.
+        edit:
+          title: Atnaujinti registracijos tipą.
+          update: Atnaujinti
+        new:
+          create: Sukurti
+          title: Naujas registracijos tipas
+        update:
+          error: Atnaujinant šios konferencijos registracijos tipą iškilo problema.
+          success: Konferencijos registracijos tipas atnaujintas.
+      titles:
+        conferences: Konferencijos
+    admin_log:
+      conference:
+        create: "%{user_name} sukūrė %{resource_name} konferenciją."
+        publish: "%{user_name} paskelbė %{resource_name} konferenciją."
+        send_conference_diplomas: "%{user_name} išsiuntė dalyvavimo konferencijoje pažymėjimus %{resource_name} konferencijos dalyviams."
+        unpublish: "%{user_name} panaikino %{resource_name} konferencijos skelbimą."
+        update: "%{user_name} atnaujino %{resource_name} konferenciją."
+        update_diploma: "%{user_name} atnaujino %{resource_name} konferencijos dalyvavimo konferencijoje pažymėjimų konfigūraciją."
+      conference_speaker:
+        create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} pranešėją."
+        delete: "%{user_name} pašalino %{space_name} konferencijos %{resource_name} pranešėją."
+        update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name} pranešėją."
+      conference_user_role:
+        create: "%{user_name} pakvietė %{resource_name} į %{space_name} konferenciją."
+        delete: "%{user_name} pašalino %{resource_name} administratorių iš %{space_name} konferencijos."
+        update: "%{user_name} pakeitė %{resource_name} vaidmenį %{space_name} konferencijoje."
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} patvirtino registraciją į %{resource_name} konferenciją."
+        partner:
+          create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name}."
+          delete: "%{user_name} pašalino %{resource_name} administratorių iš %{space_name} konferencijos."
+          update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name}."
+        registration_type:
+          create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} registracijos tipą."
+          publish: "%{user_name} paskelbė %{space_name} konferencijos %{resource_name} registracijos tipą."
+          unpublish: "%{user_name} panaikino %{space_name} konferencijos %{resource_name} registracijos tipo skelbimą."
+          update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name} registracijos tipą."
+      media_link:
+        create: "%{user_name} sukūrė %{space_name} konferencijos %{resource_name} multimedijos nuorodą."
+        delete: "%{user_name} pašalino %{space_name} konferencijos %{resource_name} multimedijos nuorodą."
+        update: "%{user_name} atnaujino %{space_name} konferencijos %{resource_name} multimedijos nuorodą."
+    conference_program:
+      index:
+        title: Programa
+    conference_speakers:
+      index:
+        title: Pranešėjai
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL laukas naudojamas URL, kurie nurodo į šią konferenciją, sukurti. Galima naudoti raides, skaičius ir brūkšnius, o pradėti būtina raide. Pavyzdys: %{url}'
+        conference_invites:
+          create:
+            error: Kviečiant dalyvį dalyvauti šioje konferencijoje iškilo problema.
+            success: Dalyvis pakviestas dalyvauti konferencijoje.
+          form:
+            attendee_type: Dalyvio tipas
+            existing_user: Esamas dalyvis
+            invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik konferencijoje, bet ir organizacijoje.
+            non_user: Nesamas dalyvis
+            select_user: Pasirinkti dalyvį
+          index:
+            filter:
+              accepted: Priimtas
+              all: Visi
+              rejected: Atmesta
+              sent: Išsiųsta
+            filter_by: Filtravimo kriterijai
+            invite_attendee: Kviesti dalyvį
+            invites: Kvietimai
+            search: Ieškoti
+          new:
+            explanation: Dalyvis bus pakviestas dalyvauti konferencijoje. Jei e. laiškas nebus užregistruotas, taip pat bus kvietimas dalyvauti organizacijoje.
+            invite: Kviesti
+            new_invite: Kviesti dalyvį
+        conference_registrations:
+          index:
+            registrations: Registracijos
+        conference_speakers:
+          form:
+            existing_user: Esamas dalyvis
+            non_user: Neturintis dalyvio statuso subjektas
+            select_user: Pasirinkti dalyvį
+            user_type: Dalyvio tipas
+          index:
+            search: Ieškoti
+        conferences:
+          form:
+            available_slots_help: Palikite iki 0, jeigu turimi laiko tarpsniai neriboti.
+            slug_help: 'URL laukas naudojamas URL, kurie nurodo į šią konferenciją, sukurti. Galima naudoti raides, skaičius ir brūkšnius, o pradėti būtina raide. Pavyzdys: %{url}'
+        diplomas:
+          edit:
+            save: Išsaugoti
+            title: Dalyvavimo konferencijoje pažymėjimas
+        invite_join_conference_mailer:
+          invite:
+            decline: Atmesti kvietimą į „%{conference_title}“
+            invited_you_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
+            registration: Registracija į „%{conference_title}“
+        partners:
+          index:
+            title: Partneriai
+        registration_types:
+          form:
+            select_conference_meetings: Pasirinkti konferencijos posėdžius
+          index:
+            title: Registracijos tipai
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Dalyvavimo <a href="%{url}">%{title}</a> konferencijoje pažymėjimą rasite prieduose.
+          diploma_user:
+            attendance_verified_by: Dalyvavimą patvirtino
+            certificate_of_attendance: Dalyvavimo konferencijoje pažymėjimas
+            certificate_of_attendance_description: Patvirtiname, kad <strong>%{user}</strong> dalyvavo <strong>%{title}</strong>, surengtoje <strong>%{location}</strong> <strong>%{start} - %{end}</strong>.
+        send_diploma:
+          error: Siunčiant dalyvavimo konferencijoje pažymėjimus iškilo problema.
+          success: Dalyvavimo konferencijoje pažymėjimai išsiųsti.
+      conference:
+        registration_confirm:
+          cancel: Atšaukti
+          confirm: Patvirtinti
+        show:
+          free: Laisvas
+          going: Dalyvauja
+          no_slots_available: Laisvų laiko tarpsnių nėra
+          registration: Registracija
+      conference_program:
+        program_meeting:
+          content: Turinys
+          location: Vieta
+          speakers: Pranešėjai
+          streaming: Transliacija internetu
+        show:
+          day: Diena
+          program: Programa
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Jūsų registracija į konferenciją <a href="%{url}">%{title}</a> buvo patvirtinta.
+          details_1: 'Jūs užsiregistravote į konferenciją naudodami %{registration_type} tipo registraciją. Jos kaina %{price} ir galite dalyvauti šiuose renginiuose:'
+          details_2: Išsamią informaciją apie konferenciją rasite priede.
+        pending_validation:
+          confirmation_pending: Netrukus gausite patvirtinimą.
+          details: 'Jūsų registracijos tipas – %{registration_type}, kaina – %{price} ir galite dalyvauti šiuose renginiuose:'
+          pending_html: Jūsų registracija į konferenciją <a href="%{url}">%{title}</a> dar nepatvirtinta.
+      conference_registrations:
+        create:
+          invalid: Jungiantis prie šios konferencijos iškilo problema.
+          success: Jūs prisijungėte prie konferencijos.
+        decline_invitation:
+          invalid: Atmetant kvietimą iškilo problema.
+          success: Jūs atmetėte kvietimą.
+        destroy:
+          invalid: Paliekant šią konferenciją iškilo problema.
+          success: Jūs palikote konferenciją.
+      conference_speaker:
+        go_to_twitter: Į „Twitter“
+        more_info: daugiau informacijos
+        personal_website: Asmeninė interneto svetainė
+        show:
+          more_info: daugiau informacijos
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Asmeninė interneto svetainė
+        twitter_handle:
+          go_to_twitter: Į „Twitter“
+      conference_speakers:
+        index:
+          speakers: Pranešėjai
+      conferences:
+        partners:
+          collaborators: Partneriai
+          main_promotors: Organizatoriai
+        show:
+          login_as: Jūs prisijungėte kaip %{name} <%{email}>.
+          make_conference_registration: 'Užsiregistruokite konferencijoje:'
+          register: Registruotis
+      content_blocks:
+        highlighted_conferences:
+          name: Paryškintos konferencijos
+      index:
+        title: Konferencijos
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Jūsų registracija į konferenciją buvo patvirtinta
+          pending_validation:
+            subject: Jūsų registracija į konferenciją dar nepatvirtinta
+        invite_join_conference_mailer:
+          invite:
+            subject: Kvietimas dalyvauti konferencijoje
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Jūsų dalyvavimo konferencijoje pažymėjimas išsiųstas
+      models:
+        conference_invite:
+          fields:
+            email: E. paštas
+            name: Pavadinimas
+            registration_type: Registracijos tipas
+            sent_at: Išsiųsta
+            status: Būsena
+          status:
+            accepted: Priimta (%{at})
+            rejected: Atmesta (%{at})
+            sent: Išsiųsta
+        conference_registration:
+          fields:
+            email: E. paštas
+            name: Pavadinimas
+            registration_type: Registracijos tipas
+            state: Būsena
+            states:
+              confirmed: Patvirtinta
+              pending: Laukiama
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktyvios konferencijos
+            see_all_conferences: Žiūrėti visas konferencijas
+      photo:
+        image:
+          attributes:
+            alt: Nuotrauka multimedijos formatu
+        show:
+          close_modal: Uždaryti modalinį langą
+          photo: Paveikslėlis
+      photos_list:
+        show:
+          related_photos: Paveikslėliai
+      registration_types:
+        index:
+          choose_an_option: 'Pasirinkite registracijos būdą:'
+          login_as: Jūs prisijungėte kaip %{name} <%{email}>.
+          register: Registruotis
+          title: Registracijos tipai
+      shared:
+        conference_user_login:
+          already_account: Ar jau turite paskyrą „Decidim“ puslapyje?
+          new_user: Naujas naudotojas?
+          sign_in: Prisijunkite, kad galėtumėte užsiregistruoti į konferenciją.
+          sign_up: Susikurkite paskyrą „Decidim“ puslapyje, kad galėtumėte užsiregistruoti į konferenciją.
+      show:
+        details: Išsami informacija
+        introduction: Įvadas
+        objectives: Tikslai
+        related_assemblies: Susijusios asamblėjos
+        related_consultations: Susijusios konsultacijos
+        related_participatory_processes: Susiję dalyvaujamieji procesai
+      statistics:
+        answers_count: Atsakymai
+        comments_count: Komentarai
+        conference_count: Konferencijos
+        debates_count: Diskusijos
+        endorsements_count: Pritarimai
+        headline: Veikla
+        meetings_count: Posėdžiai
+        orders_count: Parama
+        pages_count: Puslapiai
+        posts_count: Įrašai
+        projects_count: Projektai
+        proposals_count: Pasiūlymai
+        results_count: Rezultatai
+        surveys_count: Apklausos
+        users_count: Dalyviai
+        votes_count: Parama
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta.
+        conference_registration_validation_pending:
+          notification_title: Jūsų registracija į konferenciją <a href="%{resource_url}">%{resource_title}</a> dar nepatvirtinta.
+        conference_registrations_over_percentage:
+          email_intro: Užimta daugiau nei %{percentage}% konferencijos „%{resource_title}“ laiko tarpsnių.
+          email_outro: Šį pranešimą gavote dėl to, kad esate konferencijos dalyvaujamojo proceso erdvės administratorius.
+          email_subject: Užimta daugiau nei %{percentage}% konferencijos „%{resource_title}“ laiko tarpsnių
+          notification_title: Užimta daugiau nei %{percentage}% konferencijos <a href="%{resource_path}">%{resource_title}</a> laiko tarpsnių.
+        conference_updated:
+          email_intro: '„%{resource_title}“ konferencija buvo atnaujinta. Naująją versiją galite perskaityti jos puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '„%{resource_title}“ konferencija buvo atnaujinta'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferencija buvo atnaujinta.
+        registrations_enabled:
+          email_intro: 'Registracija į „%{resource_title}“ konferenciją įjungta. Galite užsiregistruoti jos tinklalapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: Registracija į „%{resource_title}“ konferenciją įjungta.
+          notification_title: Registracija į <a href="%{resource_path}">%{resource_title}</a> konferenciją įjungta.
+        role_assigned:
+          email_intro: Jūs paskirtas „%{resource_title}“ konferencijos %{role}.
+          email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ konferencijos %{role}.
+          email_subject: Jūs paskirtas „%{resource_title}“ %{role}.
+          notification_title: Jūs paskirtas <a href="%{resource_url}">%{resource_title}</a> konferencijos %{role}.
+        upcoming_conference:
+          email_intro: '„%{resource_title}“ konferencija įvyks po dviejų dienų. Aprašymą galite perskaityti jos puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{resource_title}“ konferenciją. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '„%{resource_title}“ konferencija artėja!'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> konferencija įvyks po dviejų dienų.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konferencijos duomenų bazėje nerasta (ID: %{id})'
+    media:
+      index:
+        description: Šios konferencijos nuorodos
+        title: Multimedija ir nuorodos
+    menu:
+      conferences: Konferencijos
+  devise:
+    mailer:
+      join_conference:
+        subject: Kvietimas dalyvauti konferencijoje
+  layouts:
+    decidim:
+      conference_hero:
+        register: Registruotis
+      conference_widgets:
+        show:
+          take_part: Dalyvaukite
+      conferences:
+        conference:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+        index:
+          promoted_conferences: Paryškintos konferencijos
+        promoted_conference:
+          more_info: Daugiau informacijos
+          take_part: Dalyvaukite
+      conferences_nav:
+        conference_menu_item: Informacija
+        conference_partners_menu_item: Partneriai
+        conference_speaker_menu_item: Pranešėjai
+        media: Multimedija
+        venues: Vietos
