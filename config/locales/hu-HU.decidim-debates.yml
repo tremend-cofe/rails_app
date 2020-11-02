@@ -2,21 +2,157 @@ hu:
   activemodel:
     attributes:
       debate:
+        category_id: Kategória
         closed_at: 'Lezárás időpontja:'
+        conclusions: Következtetések
+        decidim_category_id: Kategória
+        description: Leírás
         end_time: 'Befejezés időpontja:'
+        information_updates: Információfrissítések
+        instructions: Részvételi utasítások
         start_time: 'Kezdés időpontja:'
+        title: Cím
         user_group_id: 'Vita létrehozása, mint:'
+    models:
+      decidim/debates/close_debate_event: Vita lezárva
+      decidim/debates/create_debate_event: Vita
+      decidim/debates/creation_disabled_event: Viták letiltva
+      decidim/debates/creation_enabled_event: Viták engedélyezve
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Vita
+        other: Viták
   decidim:
+    components:
+      debates:
+        actions:
+          create: Létrehozás
+          endorse: Jóváhagyás
+        name: Viták
+        settings:
+          global:
+            announcement: Bejelentés
+            comments_enabled: Hozzászólások engedélyezve
+            comments_max_length: A hozzászólások maximális hossza (Hagyja meg a 0-t, ha az alapértelmezett értéket szeretné használni)
+          step:
+            announcement: Bejelentés
+            comments_blocked: Hozzászólások letiltva
+            creation_enabled: Résztvevők általi vitalétrehozás engedélyezve
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
     debates:
+      actions:
+        close: Bezárás
+        confirm_destroy: Biztos ebben?
+        destroy: Törlés
+        edit: Szerkesztés
+        new: Új %{name}
+        title: Műveletek
+      admin:
+        debate_closes:
+          edit:
+            close: Bezárás
+            title: Vita lezárása
+        debates:
+          create:
+            invalid: Hiba történt a vita létrehozása során.
+            success: A vita létrehozása sikeres.
+          destroy:
+            success: A vita törlése sikeres.
+          edit:
+            title: Vita szerkesztése
+            update: Vita frissítése
+          index:
+            title: Viták
+          new:
+            create: Vita létrehozása
+            title: Új vita
+          update:
+            invalid: Hiba történt a vita frissítése során.
+            success: A vita frissítse sikeres.
+        models:
+          debate:
+            name: Vita
       admin_log:
         debate:
           close: "%{user_name} lezárta a(z) %{resource_name} vitát a(z) %{space_name} térben"
           create: "%{user_name} létrehozta a(z) %{resource_name} vitát a(z) %{space_name} térben"
           update: "%{user_name} frissítette a(z) %{resource_name} vitát a(z) %{space_name} térben"
       debates:
+        close:
+          invalid: Hiba történt a vita lezárása során.
+          success: A vita lezárása sikeres.
+        close_debate_modal:
+          close: Bezárás
+          description: Mi ennek a vitának az összefoglalása vagy következtetése?
+          send: Vita lezárása
+        closed: Lezárva
+        count:
+          debates_count:
+            one: "%{count} vita"
+            other: "%{count} vita"
+        create:
+          invalid: Hiba történt a vita létrehozása során.
+          success: A vita létrehozása sikeres.
+        debate:
+          participate: Részvétel
+        edit:
+          back: Vissza
+          save: Változtatások mentése
+          title: Vita szerkesztése
+        filters:
+          all: Összes
+          category: Kategória
+          category_prompt: Kategória választása
+          citizens: Polgárok
+          official: Hivatalos
+          origin: Forrás
+          search: Keresés
+        filters_small_view:
+          close_modal: Modális ablak bezárása
+          filter: Szűrő
+          filter_by: Szűrési feltétel
+          unfold: Kibontás
+        form:
+          select_a_category: Kérjük, válasszon egy kategóriát
+        index:
+          new_debate: Új vita
+        new:
+          back: Vissza
+          create: Létrehozás
+          title: Új vita
         show:
+          back: Vissza a listához
+          close_debate: Vita lezárása
+          date: Dátum
+          debate_closed: Lezárva
           debate_conclusions_are: 'A vitát a(z) %{date} időpontban lezárták a következő következtetésekkel:'
+          edit_conclusions: Következtetések szerkesztése
+          edit_debate: Vita szerkesztése
+          groups_count: Csoportok
           last_comment_by: 'Utolsó hozzászólás:'
+          no_comments_yet: Még nincsenek hozzászólások
+          participants_count: Résztvevők
+        update:
+          invalid: Hiba történt a vita frissítése során.
+          success: A vita frissítse sikeres.
+        versions:
+          debates:
+            back_to_resource: Térjen vissza az vitához
+          index:
+            title: Verziók
+        versions_list:
+          back_to_resource: Térjen vissza az vitához
+      last_activity:
+        new_debate_at_html: "<span>Új vita: %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Záró dátum
+            official_debate: Hivatalos vita
+            start_time: Kezdő dátum
+            title: Cím
     events:
       debates:
         create_debate_event:
@@ -28,9 +164,40 @@ hu:
             email_subject: 'Új vita ("%{resource_title}") itt: %{space_title}'
             notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> vitát itt hozták létre: <a href="%{space_path}">%{space_title}</a>.'
           user_followers:
+            email_intro: |-
+              Kedves Felhasználó!
+              %{author_name} %{author_nickname}, akit követ, létrehozott egy új vitát: "%{resource_title}". Tekintse meg és működjön közre:
+            email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{author_nickname}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
+            email_subject: 'Új vita: "%{resource_title}". Szerző: %{author_nickname}'
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a(z) <a href="%{resource_path}">%{resource_title}</a> vitát.
+        creation_disabled:
+          email_intro: 'A viták létrehozása már nem aktív itt: %{participatory_space_title}. Ezen az oldalon továbbra is részt vehet nyílt vitákban:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{participatory_space_title}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
+          email_subject: 'A viták létrehozását letiltották itt: %{participatory_space_title}'
+          notification_title: 'A viták létrehozását letiltották itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
+        creation_enabled:
+          email_intro: 'Mostantól új vitákat indíthat itt: %{participatory_space_title}! Kezdje meg a részvételt ezen az oldalon:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{participatory_space_title}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
+          email_subject: 'A viták már elérhetők itt: %{participatory_space_title}'
+          notification_title: 'Mostantól <a href="%{resource_path}">új vitákat</a> indíthat itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         debate_closed:
           email_intro: 'A(z) "%{resource_title}" vitát lezárták. A következtetéseket a kapcsolódó oldalon olvashatja el:'
           email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" vitát. Az előző hivatkozás segítségével visszavonhatja a követést.
           email_subject: A(z) "%{resource_title}" vitát lezárták
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> vitát lezárták.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Válasszon nyitott vitát a részvételhez
+          description: Ezt a jelvényt akkor kapja meg, ha aktívan részt vesz a különböző vitákban hozzászólások írásával.
+          description_another: Ez a résztvevő %{score} vitában vett részt.
+          description_own: Ön %{score} vitában vett részt.
+          name: Viták
+          next_level_in: Vegyen részt további %{score} vitában, hogy elérje a következő szintet!
+          unearned_another: Ez a résztvevő még nem vett részt vitában.
+          unearned_own: Ön még nem vett részt vitában.
+    metrics:
+      debates:
+        description: Létrehozott viták száma
+        object: viták
+        title: Viták
