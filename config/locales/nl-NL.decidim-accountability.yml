@@ -1,0 +1,219 @@
+nl:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Categorie
+        decidim_scope_id: Toepassingsgebied
+        description: Beschrijving
+        end_date: Einddatum
+        progress: Voortgang
+        project_ids: Opgenomen projecten
+        proposals: Opgenomen voorstellen
+        start_date: Begindatum
+        title: Titel
+        updated_at: Bijgewerkt op
+      status:
+        description: Beschrijving
+        key: Sleutel
+        name: Naam
+        progress: Voortgang
+      timeline_entry:
+        description: Beschrijving
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
+      decidim/accountability/result_progress_updated_event: Voortgang resultaat bijgewerkt
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultaat
+        other: Resultaten
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Weet u zeker dat u %{name} wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerken
+        import_csv: CSV importeren
+        new: Nieuwe %{name}
+        preview: Voorbeeld
+        timeline_entries: Projectontwikkeling
+        title: Acties
+      admin:
+        exports:
+          results: Resultaten
+        import_results:
+          new:
+            import: Importeren
+            info: "<p>Wij bevelen aan dat u de volgende stappen volgt:</p><ol><li>Maak de Statussen aan voor de Resultaten die u wilt toevoegen (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Maak ten minste één Resultaat handmatig aan via dit Beheerderspaneel (<a href='%{link_new_result}' target='_blank'>link</a>) voordat u Importeren gebruikt, zodat u een beter inzicht hebt in het formaat en wat u moet invullen.</li><li>Download de Export in CSV-formaat (%{link_export_csv})</li><li>Voer de wijzigingen lokaal door. U kunt alleen de volgende kolommen van de CSV wijzigen:</li></ol><ul><li><b>category/id:</b> ID voor de Categorie</li><li><b>scope/id:</b> ID voor het Toepassingsgebied</li><li><b>parent/id:</b> ID van de hoofdwaarde (voor aanverwante resultaten). Facultatief</li><li><b>title/I18N:</b> Titel in X taal</li><li><b>description/I18N:</b> Beschrijving in X taal</li><li><b>start_date:</b> datum waarop de uitvoering van het resultaat start (formaat JJJJ-MM-DD)</li><li><b>end_date:</b> datum waarop de uitvoering van het resultaat eindigt (formaat JJJJ-MM-DD)</li><li><b>status/id:</b> ID van de status voor dit resultaat</li><li><b>progress:</b> Percentage (van 0 tot 100) van de uitvoering</li><li><b>proposals_ids:</b> intern ID van de aanverwante voorstellen (gescheiden door een komma). Het wordt automatisch omgezet in <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Resultaten importeren van CSV
+        imports:
+          create:
+            success: Het importeren van het bestand is gestart. U ontvangt binnen enkele minuten een e-mail met het resultaat van het importeren
+        models:
+          result:
+            name: Resultaat
+          timeline_entry:
+            name: Item tijdlijn
+        results:
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van dit resultaat
+            success: Resultaat aangemaakt
+          destroy:
+            success: Resultaat verwijderd
+          edit:
+            title: Resultaat bewerken
+            update: Resultaat bijwerken
+          index:
+            title: Resultaten
+          new:
+            create: Resultaat aanmaken
+            title: Nieuw resultaat
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
+            success: Resultaat bijgewerkt
+        shared:
+          subnav:
+            statuses: Statussen
+        statuses:
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van deze status
+            success: Status aangemaakt
+          destroy:
+            success: Status verwijderd
+          edit:
+            title: Status bewerken
+            update: Status bijwerken
+          index:
+            title: Statussen
+          new:
+            create: Status aanmaken
+            title: Nieuwe status
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van deze status
+            success: Status bijgewerkt
+        timeline_entries:
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van dit item
+            success: Item aangemaakt
+          destroy:
+            success: Item verwijderd
+          edit:
+            title: Item bewerken
+            update: Item bijwerken
+          index:
+            title: Items tijdlijn project
+          new:
+            create: Item aanmaken
+            title: Nieuw item
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit item
+            success: Item bijgewerkt
+      admin_log:
+        result:
+          create: "%{user_name} heeft het resultaat %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft het resultaat %{resource_name} verwijderd uit %{space_name}"
+          update: "%{user_name} heef het resultaat %{resource_name} bijgewerkt in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'De hoofdwaarde werd niet gevonden in de gegevensbank (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fouten
+          errors_present: Er is een probleem opgetreden bij het importeren van de resultaten
+          row_number: Rij
+          subject: Importeren van resultaten geslaagd
+          success: Importeren van resultaten geslaagd. U kunt de resultaten in de beheerinterface bekijken.
+      last_activity:
+        new_result_at_html: "<span>Nieuw resultaat op %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Einddatum
+            progress: Voortgang
+            start_date: Begindatum
+            title: Titel
+        status:
+          fields:
+            description: Beschrijving
+            key: Sleutel
+            name: Naam
+            progress: Voortgang
+        timeline_entry:
+          fields:
+            description: Beschrijving
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 resultaat
+            other: "%{count} resultaten"
+        filters:
+          all: Alle
+          scopes: Toepassingsgebieden
+        home:
+          categories_label: Categorieën
+          subcategories_label: Subcategorieën
+        home_header:
+          global_status: Status algemene uitvoering
+        nav_breadcrumb:
+          global: Algemene uitvoering
+        search:
+          search: Acties zoeken
+        show:
+          stats:
+            attendees: Aanwezigen
+            back_to_resource: Terug naar resultaat
+            comments: Opmerkingen
+            contributions: Bijdragen
+            last_edited_by: Laatst bewerkt door
+            last_updated_at: Laatste bijgewerkt op
+            meetings: Vergaderingen
+            proposals: Voorstellen
+            votes: Steunbetuigingen
+        timeline:
+          title: Projectontwikkeling
+    components:
+      accountability:
+        name: Verantwoording
+        settings:
+          global:
+            categories_label: Naam voor “Categorieën”
+            comments_enabled: Opmerkingen ingeschakeld
+            comments_max_length: Opmerkingen max. lengte (behoud 0 als standaardwaarde)
+            display_progress_enabled: Voortgang weergeven
+            heading_leaf_level_results: Naam voor “Projecten”
+            heading_parent_level_results: Naam voor “Resultaten”
+            intro: Inleiding
+            subcategories_label: Naam voor “Subcategorieën”
+          step:
+            comments_blocked: Opmerkingen geblokkeerd
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Het voorstel “%{proposal_title}” is in een resultaat opgenomen. U kunt het bekijken op deze pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u “%{proposal_title}” volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: '%{proposal_title} bijgewerkt'
+          notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het resultaat <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Het resultaat “%{resource_title}”, waarin het voorstel “%{proposal_title}” is opgenomen, is nu %{progress}% voltooid. U kunt het bekijken op deze pagina:'
+          email_outro: U hebt deze kennisgeving ontvangen omdat u “%{proposal_title}” volgt en dit voorstel is opgenomen in het resultaat “%{resource_title}”. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Voortgang van %{resource_title} bijgewerkt
+          notification_title: Het resultaat <a href="%{resource_path}">%{resource_title}</a>, waarin het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen, is nu %{progress}% voltooid.
+    metrics:
+      results:
+        description: Aantal gegenereerde resultaten
+        object: resultaten
+        title: Resultaten
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultaten
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zie alle resultaten (%{count})
+    resource_links:
+      included_projects:
+        result_project: In dit resultaat opgenomen projecten
+      included_proposals:
+        result_proposal: In dit resultaat opgenomen voorstellen
