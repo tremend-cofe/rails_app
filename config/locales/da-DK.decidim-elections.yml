@@ -1,0 +1,252 @@
+da:
+  activemodel:
+    attributes:
+      answer:
+        description: Beskrivelse
+        image: Billede
+        proposals: Relaterede forslag
+        title: Betegnelse
+      election:
+        description: Beskrivelse
+        end_time: Afstemning slutter kl
+        start_time: Afstemning starter kl
+        title: Betegnelse
+      question:
+        description: Beskrivelse
+        max_selections: Maksimalt antal valg
+        title: Betegnelse
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Skal fastgøres igen
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Skal fastgøres igen
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Svar
+        other: Svar
+      decidim/elections/election:
+        one: Valg
+        other: Valg
+      decidim/elections/question:
+        one: Spørgsmål
+        other: Spørgsmål
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Afstemning
+        name: Valg
+        settings:
+          global:
+            announcement: Meddelelse
+          step:
+            announcement: Meddelelse
+    elections:
+      actions:
+        confirm_destroy: Er du sikker?
+        destroy: Slet
+        edit: Rediger
+        edit_answers: Rediger svar
+        edit_questions: Rediger spørgsmål
+        import: Importer forslag til svar
+        new: Nyt %{name}
+        preview: Forhåndsvisning
+        publish: Offentliggør
+        title: Handlinger
+        unpublish: Afpublicer
+      admin:
+        answers:
+          create:
+            invalid: Der var et problem med at oprette dette svar
+            success: Svaret oprettet
+          destroy:
+            invalid: Der var et problem med at slette dette svar
+            success: Svaret slettet
+          edit:
+            title: Rediger svar
+            update: Opdater svar
+          index:
+            title: Svar
+          new:
+            create: Opret svar
+            title: Nyt svar
+          update:
+            invalid: Der var et problem med at opdatere dette svar
+            success: Svaret opdateret
+        elections:
+          create:
+            invalid: Der var et problem med at oprette dette valg
+            success: Valget oprettet
+          destroy:
+            invalid: Der var et problem med at slette dette valg
+            success: Valg oprettet
+          edit:
+            title: Rediger valg
+            update: Opdater valg
+          index:
+            title: Valg
+          new:
+            create: Opret valg
+            title: Nyt valg
+          publish:
+            success: Valget er blevet offentliggjort.
+          unpublish:
+            success: Valget er blevet afpubliceret.
+          update:
+            invalid: Der var et problem med at opdatere dette valg
+            success: Valg opdateret
+        models:
+          answer:
+            name: Svar
+          election:
+            name: Valg
+          question:
+            name: Spørgsmål
+        proposals_imports:
+          create:
+            invalid: Der opstod et problem med at importere forslagene i svarene
+            success: "%{number} forslag blev importeret i svarene"
+          new:
+            create: Importer forslag til svar
+            no_components: Der er ingen andre forslagskomponenter i dette deltagelsesrum til at importere forslagene til svar.
+            select_component: Vælg en komponent
+        questions:
+          create:
+            invalid: Der var et problem med at oprette dette spørgsmål
+            success: Spørgsmål oprettet
+          destroy:
+            invalid: Der var et problem med at slette dette spørgsmål
+            success: Spørgsmål slettet
+          edit:
+            title: Rediger spørgsmål
+            update: Opdater spørgsmål
+          index:
+            title: Spørgsmål
+          new:
+            create: Opret spørgsmål
+            title: Nyt spørgsmål
+          update:
+            invalid: Der var et problem med at opdatere dette spørgsmål
+            success: Spørgsmål opdateret
+      admin_log:
+        election:
+          publish: "%{user_name} offentliggjorde valget %{resource_name}-valget"
+          unpublish: "%{user_name} afpublicerede %{resource_name}-valget"
+      election_m:
+        badge_name:
+          finished: Færdige
+          ongoing: Aktiv
+          upcoming: Kommende
+        end_date: Slutter
+        footer:
+          view: Se
+          vote: Afstemning
+        label:
+          date: Datoer
+        questions: Spørgsmål %{count}
+        start_date: Starter
+        unspecified: Ikke specificeret
+      elections:
+        count:
+          elections_count:
+            one: "%{count} valg"
+            other: "%{count} valg"
+        filters:
+          active: Aktiv
+          all: Alle
+          finished: Færdige
+          search: Søg
+          upcoming: Kommende
+        filters_small_view:
+          close_modal: Luk modal
+          filter: Filtrer
+          filter_by: Filtrer efter
+          unfold: Fold ud
+        show:
+          back: Alle valg
+          preview: Forhåndsvisning
+          vote: Afstemning
+          voting_period_status:
+            finished: Afstemning begyndte kl. %{start_time} og sluttede kl. %{end_time}
+            ongoing: Afstemning slutter kl. %{end_time}
+            upcoming: Afstemning begynder kl. %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Forslag
+            title: Betegnelse
+        election:
+          fields:
+            end_time: Slut kl.
+            start_time: Starter kl.
+            title: Betegnelse
+        question:
+          fields:
+            answers: Svar
+            max_selections: Maks. valg
+            title: Betegnelse
+      orders:
+        label: Opstil valg efter
+        older: Ældre
+        recent: Nylig
+      votes:
+        confirm:
+          answer: Svar
+          answer_number: Svar %{number}
+          confirm: Bekræft
+          edit: rediger
+          header: Bekræft din stemme
+          intro: Her er et resumé af den stemne, du er ved at afgive. <br> Bekræft din stemme, eller rediger dine svar.
+          question: Spørgsmål %{count}
+        confirmed:
+          back: Tilbage til valg
+          experience: Hvordan var din oplevelse?
+          feedback: Giv os noget feedback
+          header: Afstemning bekræftet
+          lead: Din stemme er allerede afgivet!
+          text: 'Du kan kontrollere, at din stemme er blevet tilføjet til valgurnen med følgende identifikator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: For at kontrollere det skal du kopiere identifikatoren og indsætte den på siden til <a href="evote-verify">afstemningsbekræftelse</a>
+        encrypting:
+          header: Koder stemme...
+          text: Din stemme krypteres for at sikre, at du kan afgive den anonymt.
+        header:
+          confirm: Bekræft din stemme
+          confirmed: Stemne bekræftet
+          encrypting: Bekræfter stemme
+        messages:
+          not_allowed: Du har ikke lov til at stemme til dette valg i øjeblikket.
+        modal:
+          close: Luk
+          proposal_header: 'Forslag:'
+        new:
+          answer_choices: Du kan vælge op til %{choices} svar eller ingen
+          more_information: Flere oplysninger
+          preview_alert: Dette er en forhåndsvisning af stemmeboksen.
+          question_steps: Spørgsmål %{current_step} af %{total_steps}
+          selections: "%{selected} af %{max_selections}<br> valg"
+        voting_step:
+          back: Tilbage
+          continue: Næste
+      warnings:
+        no_elections_warning: Ingen valg matcher dine søgekriterier, eller der er ikke planlagt noget valg.
+        no_scheduled_elections_warning: I øjeblikket er der ingen planlagte valg, men her kan du finde alle de tidligere valg, der er oplistet.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Valget %{resource_title} er nu aktivt for %{participatory_space_title}. Du kan se det fra denne side:'
+          email_outro: Du har modtaget denne underretning, fordi du følger %{participatory_space_title}. Du kan standse modtagelsen af underretninger ved at følge det foregående link.
+          email_subject: Valget %{resource_title} er nu aktivt for %{participatory_space_title}.
+          notification_title: Valget<a href="%{resource_path}">%{resource_title}</a> er nu aktivt for %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Valg
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Afslut
