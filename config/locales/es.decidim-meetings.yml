@@ -1,0 +1,473 @@
+es:
+  activemodel:
+    attributes:
+      agenda:
+        description: Descripción
+        duration: Duración
+        title: Título
+      close_meeting:
+        attendees_count: Número de asistentes
+        attending_organizations: Lista de organizaciones que asistieron
+        closing_report: Denunciar
+        contributions_count: Número de aportaciones
+        proposal_ids: Propuestas creadas en el encuentro
+      meeting:
+        address: Dirección
+        available_slots: Plazas disponibles para el encuentro
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
+        decidim_user_group_id: Grupo de usuarios
+        description: Descripción
+        end_time: Hora de finalización
+        location: Lugar
+        location_hints: Sugerencias sobre el lugar
+        organizer_gid: Crear como
+        organizer_id: Organizador/a
+        private_meeting: Encuentro privado
+        registration_form_enabled: Formulario de inscripción habilitado
+        registration_terms: Términos de la inscripción
+        registrations_enabled: Inscripción habilitada
+        start_time: Hora de inicio
+        title: Título
+        transparent: Transparente
+      minutes:
+        audio_url: URL del audio
+        description: Descripción
+        video_url: URL del vídeo
+        visible: Está visible
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: La duración de los puntos supera la duración del encuentro en %{count} minutos
+              too_many_minutes_child: La duración de los subpuntos supera la duración del punto matriz «%{parent_title}» en %{count} minutos
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Esta cuenta de correo ya ha sido invitada
+    models:
+      decidim/meetings/close_meeting_event: Encuentro cerrado
+      decidim/meetings/create_meeting_event: Encuentro
+      decidim/meetings/meeting_registrations_enabled_event: Inscripción habilitada
+      decidim/meetings/meeting_registrations_over_percentage_event: Límite de inscripciones superado
+      decidim/meetings/update_meeting_event: Encuentro actualizado
+  activerecord:
+    models:
+      decidim/meetings/minutes:
+        one: Acta
+        other: Actas
+      decidim/meetings/registration:
+        one: Inscripción
+        other: Inscripciones
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Se ha producido un error al duplicar el encuentro.
+          success: Encuentro correctamente duplicado.
+        new:
+          copy: Copiar
+          select: Selecciona los datos que deseas duplicar
+          title: Duplicar encuentro
+    components:
+      meetings:
+        actions:
+          join: Unirse
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (manténgase 0 como valor por defecto)
+            creation_enabled_for_participants: Los participantes pueden crear encuentros
+            default_registration_terms: Términos de la inscripción por defecto
+            enable_pads_creation: Habilitar creación de relleno
+            resources_permissions_enabled: Es posible definir los permisos de acciones para cada encuentro
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            creation_enabled_for_participants: Creación de encuentros por los participantes habilitada
+            creation_enabled_for_user_groups: Creación de encuentros por los grupos de usuarios habilitada
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Se ha cerrado tu encuentro «%{resource_title}». Puedes consultar las conclusiones en la siguiente página:'
+            email_outro: Has recibido esta notificación porque organizaste el encuentro «%{resource_title}».
+            email_subject: Se ha cerrado el encuentro «%{resource_title}»
+            notification_title: Se ha cerrado el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+          follower:
+            email_intro: 'Se ha cerrado el encuentro «%{resource_title}». Puedes consultar las conclusiones en la siguiente página:'
+            email_outro: Has recibido esta notificación porque sigues el encuentro «%{resource_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+            email_subject: Se ha cerrado el encuentro «%{resource_title}»
+            notification_title: Se ha cerrado el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+        meeting_created:
+          email_intro: Se ha añadido el encuentro «%{resource_title}» al espacio «%{participatory_space_title}», del que eres seguidor.
+          email_outro: Has recibido esta notificación porque sigues el espacio «%{participatory_space_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: Nuevo encuentro añadido a %{participatory_space_title}
+          notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Tu inscripción para el encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de inscripción es %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Las plazas asignadas para el encuentro «%{resource_title}» superan el %{percentage}%.
+          email_outro: Has recibido esta notificación porque eres administrador/a del espacio participativo del encuentro.
+          email_subject: Las plazas asignadas para el encuentro «%{resource_title}» superan el %{percentage}%
+          notification_title: Las plazas asignadas para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
+        meeting_updated:
+          email_intro: 'Se ha actualizado el encuentro «%{resource_title}». Puedes consultar la nueva versión en la siguiente página:'
+          email_outro: Has recibido esta notificación porque sigues el encuentro «%{resource_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: Se ha actualizado el encuentro «%{resource_title}»
+          notification_title: Se ha actualizado el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+        registration_code_validated:
+          email_intro: Se ha validado tu código de inscripción «%{registration_code}» para el encuentro «%{resource_title}».
+          email_outro: Has recibido esta notificación porque tu código de inscripción para el encuentro «%{resource_title}» ha sido validado.
+          email_subject: Se ha validado tu código de inscripción «%{registration_code}» para el encuentro «%{resource_title}»
+          notification_title: Se ha validado tu código de inscripción «%{registration_code}» para el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+        registrations_enabled:
+          email_intro: 'El encuentro «%{resource_title}» ha habilitado las inscripciones. Puedes inscribirte en la siguiente página:'
+          email_outro: Has recibido esta notificación porque sigues el encuentro «%{resource_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: El encuentro «%{resource_title}» ha habilitado las inscripciones.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha habilitado las inscripciones.
+        upcoming_meeting:
+          email_intro: Faltan menos de 48 horas para el encuentro «%{resource_title}».
+          email_outro: Has recibido esta notificación porque sigues el encuentro «%{resource_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: Faltan menos de 48 horas para el encuentro «%{resource_title}».
+          notification_title: Faltan menos de 48 horas para el encuentro <a href="%{resource_path}">%{resource_title}</a>.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Inscríbete a los encuentros a los que quieras asistir
+          description: Recibirás esta insignia cuando asistas a varios encuentros en persona.
+          description_another: Este participante ha asistido a %{score} encuentros.
+          description_own: Has asistido a %{score} encuentros.
+          name: Encuentros a los que has asistido
+          next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
+          unearned_another: Este participante todavía no ha asistido a ningún encuentro.
+          unearned_own: Todavía no has asistido a ningún encuentro.
+    meetings:
+      actions:
+        agenda: Programa
+        attachment_collections: Carpetas
+        attachments: Documentos adjuntos
+        close: Cerrar
+        confirm_destroy: '¿Confirmas que quieres eliminar este encuentro?'
+        destroy: Eliminar
+        edit: Editar
+        invalid_destroy:
+          proposals_count:
+            one: 'No es posible eliminar el encuentro debido a que hay %{count} propuesta asociada a él:'
+            other: 'No es posible eliminar el encuentro debido a que hay %{count} propuestas asociadas a él:'
+        minutes: Actas
+        preview: Vista previa
+        registrations: Inscripciones
+        title: Acciones
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Añadir un subpunto al programa
+            agenda_item: Punto del programa
+            agenda_item_children: Subpuntos del programa
+            down: Bajar
+            remove: Eliminar
+            up: Subir
+          agenda_item_child:
+            agenda_item_child: Subpunto del programa
+            down: Bajar
+            remove: Eliminar
+            up: Subir
+          create:
+            invalid: Se ha producido un error al crear el programa
+            success: Programa correctamente creado
+          edit:
+            title: Editar programa
+            update: Actualizar
+          form:
+            add_agenda_item: Añadir un punto al programa
+            agenda_items: Puntos del programa
+            end_date: Fecha de finalización
+            start_date: Fecha de inicio
+          new:
+            create: Crear
+            title: Nuevo programa
+          update:
+            invalid: Se ha producido un error al actualizar el programa
+            success: Programa correctamente actualizado
+        exports:
+          meetings: Encuentros
+          registrations: Inscripciones
+        invite_join_meeting_mailer:
+          invite:
+            decline: Rechazar la invitación
+            invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Para rechazar o aceptar la invitación, utiliza los siguientes enlaces."
+            join: Unirse al encuentro «%{meeting_title}»
+        invites:
+          create:
+            error: Se ha producido un error al invitar al participante a unirse al encuentro.
+            success: Participante correctamente invitado a unirse al encuentro.
+          form:
+            attendee_type: Tipo de asistente
+            existing_user: Participante ya existente
+            invite: Invitar
+            invite_explanation: Se invitará al participante a unirse al encuentro y también a la organización.
+            non_user: Participante no existente
+            select_user: Seleccionar participante
+          index:
+            filter:
+              accepted: Aceptadas
+              all: Todas
+              rejected: Rechazadas
+              sent: Enviadas
+            filter_by: Filtrar por
+            invite_attendee: Invitar a un asistente
+            invites: Invitaciones
+            registrations_disabled: No puedes invitar a asistentes porque las inscripciones están deshabilitadas.
+            search: Buscar
+        meeting_closes:
+          edit:
+            close: Cerrar
+            title: Cerrar el encuentro
+        meetings:
+          close:
+            invalid: Se ha producido un error al cerrar el encuentro
+            success: Encuentro correctamente cerrado
+          create:
+            invalid: Se ha producido un error al crear el encuentro
+            success: Encuentro correctamente creado
+          destroy:
+            invalid:
+              proposals_count:
+                one: No es posible eliminar el encuentro debido a que hay %{count} propuesta asociada a él
+                other: No es posible eliminar el encuentro debido a que hay %{count} propuestas asociadas a él
+            success: Encuentro correctamente eliminado
+          edit:
+            update: Actualizar
+          form:
+            address_help: 'Dirección: utilizada por Geocoder para encontrar el lugar'
+            location_help: 'Lugar: mensaje dirigido a los usuarios en el que se da a entender el lugar de reunión'
+            location_hints_help: 'Sugerencias sobre el lugar: información adicional. Ejemplo: el piso del edificio'
+          index:
+            title: Encuentros
+          new:
+            create: Crear
+            title: Crear encuentro
+          service:
+            description: Descripción
+            down: Bajar
+            remove: Eliminar
+            service: Servicio
+            title: Título
+            up: Subir
+          services:
+            add_service: Añadir servicio
+            services: Servicios
+          update:
+            invalid: Se ha producido un error al actualizar el encuentro
+            success: Encuentro correctamente actualizado
+        minutes:
+          create:
+            invalid: Se ha producido un error al crear el acta
+            success: Acta correctamente creada
+          edit:
+            update: Actualizar
+          new:
+            create: Crear
+            title: Crear acta
+          update:
+            invalid: Se ha producido un error al actualizar el acta
+            success: Acta correctamente actualizada
+        models:
+          meeting:
+            name: Encuentro
+        registrations:
+          edit:
+            save: Guardar
+            validate: Validar
+            validate_registration_code: Validar código de inscripción
+          form:
+            available_slots_help: Manténgase en 0 si no hay límite de plazas.
+            invites: Invitaciones
+            recommendation_message: Por motivos de privacidad, te recomendamos que elimines este formulario de inscripción cuando ya no lo necesites. Por defecto, esto sucede a los tres meses de que finalice el encuentro.
+            registration_form: Formulario de inscripción
+            registrations_count:
+              one: Se ha realizado %{count} inscripción.
+              other: Se han realizado %{count} inscripciones.
+            reserved_slots_help: Si no hay plazas reservadas, manténgase en 0
+            reserved_slots_less_than: Debe ser igual o inferior a %{count}
+            title: Inscripciones
+          update:
+            invalid: Se ha producido un error al guardar los ajustes de las inscripciones.
+            success: Los ajustes de las inscripciones para el encuentro se han guardado correctamente.
+          validate_registration_code:
+            invalid: El código de inscripción no es válido.
+            success: Código de inscripción correctamente validado.
+      admin_log:
+        invite:
+          create: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
+          deleted: "%{user_name} ha desinvitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha invitado a %{attendee_name} a unirse al encuentro %{resource_name} en el espacio %{space_name}"
+        meeting:
+          close: "%{user_name} ha cerrado el encuentro %{resource_name} del espacio %{space_name}"
+          create: "%{user_name} ha creado el encuentro %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} ha eliminado el encuentro %{resource_name} del espacio %{space_name}"
+          export_registrations: "%{user_name} ha exportado las inscripciones para el encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha actualizado el encuentro %{resource_name} en el espacio %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'No se ha encontrado al organizador en la base de datos (ID: %{id})'
+        minutes:
+          create: "%{user_name} ha creado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} ha actualizado el acta del encuentro %{resource_name} en el espacio %{space_name}"
+      calendar_modal:
+        calendar_url: URL del calendario
+        close_window: Cerrar ventana
+        export_calendar: Exportar calendario
+      conference_venues: Salas de conferencia
+      content_blocks:
+        upcoming_events:
+          name: Próximos eventos
+          view_all_events: Ver todo
+      directory:
+        meetings:
+          index:
+            all: Todos
+            date: Fecha
+            past: Finalizados
+            search: Buscar
+            space_type: Espacio participativo
+            upcoming: Próximos
+      last_activity:
+        new_meeting_at_html: "<span>Nuevo encuentro en %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Invitación para unirse a un encuentro
+        registration_mailer:
+          confirmation:
+            subject: Tu inscripción para el encuentro ha sido confirmada
+      meeting:
+        not_allowed: No estás autorizado para visualizar este encuentro
+      meetings:
+        create:
+          invalid: Se ha producido un error al crear el encuentro.
+          success: Encuentro correctamente creado.
+        edit:
+          back: Atrás
+          title: Edita tu encuentro
+          update: Actualizar
+        filters:
+          category: Categoría
+          date: Fecha
+          date_values:
+            all: Todos
+            past: Finalizados
+            upcoming: Próximos
+          origin: Origen
+          origin_values:
+            all: Todos
+            citizens: Ciudadanos
+            official: Oficiales
+            user_groups: Grupos
+          scope: Ámbito
+          search: Buscar
+        filters_small_view:
+          close_modal: Cerrar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desplegar
+        form:
+          address_help: 'Dirección: utilizada por Geocoder para encontrar el lugar'
+          location_help: 'Lugar: mensaje dirigido a los usuarios en el que se da a entender el lugar de reunión'
+          location_hints_help: 'Sugerencias sobre el lugar: información adicional. Ejemplo: el piso del edificio'
+          select_a_category: Selecciona una categoría
+        meeting_minutes:
+          meeting_minutes: Acta del encuentro
+          related_information: Información relacionada
+        meetings:
+          no_meetings_warning: No hay ningún encuentro que se ajuste a tus criterios de búsqueda o no hay ningún encuentro programado.
+          upcoming_meetings_warning: En estos momentos no hay encuentros programados, pero aquí tienes una lista de todos los encuentros ya celebrados.
+        new:
+          back: Atrás
+          create: Crear
+        registration_confirm:
+          cancel: Cancelar
+          confirm: Confirmar
+        show:
+          attendees: Recuento de asistentes
+          back: Volver a la lista
+          contributions: Recuento de contribuciones
+          date: Fecha
+          edit_meeting: Editar encuentro
+          going: Vas a asistir
+          join: Unirse al encuentro
+          meeting_report: Informe del encuentro
+          no_slots_available: No quedan plazas
+          organizations: Organizaciones asistentes
+          registration_code_help_text: Tu código de inscripción
+          registration_state:
+            validated: VALIDADO
+            validation_pending: PENDIENTE DE VALIDACIÓN
+          remaining_slots:
+            one: "%{count} plaza disponible"
+            other: "%{count} plazas disponibles"
+          view: Ver
+        update:
+          invalid: Se ha producido un error al actualizar el encuentro.
+          success: Encuentro correctamente actualizado.
+      meetings_map:
+        view_meeting: Ver encuentro
+      models:
+        invite:
+          fields:
+            email: Correo electrónico
+            name: Nombre
+            sent_at: Enviada el
+            status: Estado
+          status:
+            accepted: Aceptada (%{at})
+            rejected: Rechazada (%{at})
+            sent: Enviada
+        meeting:
+          fields:
+            closed: Cerrado
+            end_time: Fecha de finalización
+            map: Mapa
+            start_time: Fecha de inicio
+            title: Título
+      read_more: "(leer más)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Tu inscripción para el encuentro <a href="%{url}">%{title}</a> ha sido confirmada.
+          details: Encontrarás los detalles del encuentro en el documento adjunto.
+          registration_code: Tu código de inscripción es %{code}.
+      registrations:
+        create:
+          invalid: Se ha producido un error al unirte al encuentro.
+          success: Te has unido correctamente al encuentro. Al estar inscrito/a para este encuentro, te informaremos si hay novedades al respecto.
+        decline_invitation:
+          invalid: Se ha producido un error al rechazar la invitación.
+          success: Invitación correctamente rechazada.
+        destroy:
+          invalid: Se ha producido un error al salir del encuentro.
+          success: Has salido correctamente del encuentro.
+      types:
+        private_meeting: Encuentro privado
+        transparent: Transparente
+      versions:
+        back_to_resource: Volver al encuentro
+    metrics:
+      meetings:
+        description: Número de encuentros creados
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Encuentros finalizados
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Resultados relacionados:'
+        result_meeting: 'Encuentros relacionados:'
+      proposals_from_meeting:
+        meeting_proposal: 'Propuestas relacionadas:'
+        proposal_meeting: 'Encuentros relacionados:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitación para unirse a un encuentro
