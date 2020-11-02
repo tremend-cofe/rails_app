@@ -1,1 +1,52 @@
 sk:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Prieskum sa skončil
+      decidim/surveys/opened_survey_event: Prieskum sa začal
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Odpoveď
+        name: Prieskum
+        settings:
+          global:
+            announcement: Oznámenie
+            clean_after_publish: Odstrániť odpovede pri zverejnení prieskumu
+          step:
+            allow_answers: Povoliť odpovede
+            allow_unregistered: Povoliť neregistrovaným používateľom odpovedať v prieskume
+            allow_unregistered_help: Ak je táto možnosť aktívna, pri odpovedaní v prieskume sa nebude vyžadovať prihlásenie. Môže to viesť k nekvalitným alebo nespoľahlivým údajom a zvýši sa tým zraniteľnosť zo strany automatizovaných útokov. Používajte opatrne!
+            announcement: Oznámenie
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Prieskum %{resource_title} v participatívnom priestore %{participatory_space_title} bol uzatvorený.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: V participatívnom priestore %{participatory_space_title} sa skončil prieskum
+          notification_title: Skončil sa prieskum <a href="%{resource_path}">%{resource_title}</a> v participatívnom priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        survey_opened:
+          email_intro: 'Prieskum %{resource_title} v participatívnom priestore %{participatory_space_title} je teraz otvorený. Môžete sa na ňom zúčastniť z tejto stránky:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Nový prieskum v participatívnom priestore %{participatory_space_title}
+          notification_title: Prieskum <a href="%{resource_path}">%{resource_title}</a> v participatívnom priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a> je teraz otvorený.
+    metrics:
+      survey_answers:
+        description: Počet prieskumov, na ktoré účastníci odpovedali
+        object: odpovede na prieskumy
+        title: Odpovede na prieskumy
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Odpovede účastníkov prieskumu
+        surveys:
+          update:
+            invalid: Pri ukladaní prieskumu sa vyskytol problém.
+            success: Prieskum bol úspešne uložený.
+      last_activity:
+        new_survey_at_html: "<span>Nový prieskum na adrese %{link}</span>"
+      surveys:
+        answer:
+          invalid: Pri odpovedaní v prieskume sa vyskytol problém.
+          spam_detected: Pri vypĺňaní formulára sa vyskytol problém. Možno ste postupovali príliš rýchlo, môžete to skúsiť znova?
+          success: Prieskum bol úspešne zodpovedaný.
