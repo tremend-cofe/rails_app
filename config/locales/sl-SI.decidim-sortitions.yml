@@ -1,1 +1,32 @@
 sl:
+  activemodel:
+    attributes:
+      sortition:
+        dice: Rezultat meta kocke. Vrzite 6-stransko kocko ali poiščite drug naključen način za pridobitev števila od 1 do 6 in tukaj vnesite izžrebano število pred nekaj pričami. To prispeva h kakovosti in zagotavlja naključnost rezultata.
+  decidim:
+    components:
+      sortitions:
+        settings:
+          global:
+            comments_enabled: Komentarji so omogočeni.
+    events:
+      sortitions:
+        sortition_created:
+          email_subject: Nov žreb je bil dodan v %{participatory_space_title}.
+          notification_title: Žreb <a href="%{resource_path}">%{resource_title}</a> je bil dodan v %{participatory_space_title}.
+    sortitions:
+      admin:
+        sortitions:
+          create:
+            success: Žreb je bil uspešno ustvarjen.
+          destroy:
+            success: Žreb je bil uspešno preklican.
+          new:
+            confirm: S pritiskom na naslednji gumb bo Decidim zabeležil datum in čas (z natančnostjo do sekunde) in skupaj z izidom meta kock bo te podatke uporabil za ustvarjanje naključne izbire. Dejanje bo nepreklicno, ko kliknete gumb, se objavi rezultat žrebanja, skupaj s podatki, vnesenimi v ta obrazec, ki jih ni mogoče spremeniti. Natančno preverite vsebino.
+          update:
+            success: Žreb je uspešno posodobljen.
+      admin_log:
+        sortition:
+          create: "%{user_name} je ustvaril žreb %{resource_name} v %{space_name}."
+          delete: "%{user_name} je preklical žreb %{resource_name} v %{space_name}."
+          update: "%{user_name} je posodobil žreb %{resource_name} v %{space_name}."
