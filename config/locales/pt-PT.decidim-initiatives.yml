@@ -1,0 +1,550 @@
+pt:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Descrição
+        offline_votes: Assinaturas presenciais
+        scope_id: Âmbito
+        signature_end_date: Fim do período de recolha de assinaturas
+        signature_start_date: Início do período de recolha de assinaturas
+        signature_type: Tipo de recolha de assinaturas
+        signature_type_values:
+          any: Misto
+          offline: Presencial
+          online: Em linha
+        state: Estado
+        title: Título
+      initiative_author:
+        address: Endereço
+        city: Cidade
+        name: Nome próprio e apelido
+        phone_number: Número de telefone
+        post_code: Código postal
+        province: Província
+      initiatives_committee_member:
+        user: Membro do comité
+      initiatives_type:
+        area_enabled: Permitir que os autores escolham a área da sua iniciativa
+        attachments_enabled: Permitir anexos
+        banner_image: Imagem de faixa
+        collect_user_extra_fields: Recolher dados pessoais do participante durante a assinatura
+        custom_signature_end_date_enabled: Permitir que os autores escolham o fim do período de recolha de assinaturas
+        description: Descrição
+        document_number_authorization_handler: Autorização para verificar o número de documento nas assinaturas
+        extra_fields_legal_information: Informação jurídica sobre a recolha de dados pessoais
+        minimum_committee_members: Mínimo de membros do comité
+        online_signature_enabled: Assinatura em linha ativada
+        promoting_committee_enabled: Permitir comité de promoção
+        title: Título
+        undo_online_signatures_enabled: Permitir que os participantes retirem as suas assinaturas em linha
+        validate_sms_code_on_votes: Adicionar passo de validação por código SMS ao processo de assinatura
+      initiatives_vote:
+        date_of_birth: Data de nascimento
+        document_number: Número do documento
+        name_and_surname: Nome próprio e apelido
+        postal_code: Código postal
+      organization_data:
+        address: Endereço
+        id_document: Documento de identificação
+        name: Nome completo
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: O ficheiro é inválido
+              needs_to_be_reattached: É necessário reanexar
+              title: O título não deve ficar em branco
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciativas
+      decidim/initiative_comittee:
+        one: Comité
+        other: Comités
+      decidim/initiative_vote:
+        one: Assinatura
+        other: Assinaturas
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Novo tipo de iniciativa
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Área
+          state_eq:
+            label: Estado
+            values:
+              accepted: Assinaturas suficientes
+              created: Criadas
+              discarded: Eliminadas
+              published: Publicadas
+              rejected: Sem assinaturas suficientes
+              validating: Validação técnica
+          type_id_eq:
+            label: Tipo
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome de autor.
+      menu:
+        initiatives: Iniciativas
+        initiatives_types: Tipos de iniciativa
+      models:
+        initiatives:
+          fields:
+            created_at: Criado em
+            published_at: Publicado em
+            state: Estado
+            supports_count: Assinaturas
+            title: Iniciativas
+        initiatives_type_scope:
+          fields:
+            scope: Âmbito
+            supports_required: Assinaturas necessárias
+          name: Âmbito do tipo de iniciativa
+        initiatives_types:
+          fields:
+            created_at: Criado em
+            title: Tipos de iniciativa
+          name: Tipo de iniciativa
+        initiatives_votes:
+          fields:
+            date_of_birth: Data de nascimento
+            document_number: Número do documento
+            initiative_end_date: Data final
+            initiative_id: ID da iniciativa
+            initiative_signatures_count: Número de assinaturas
+            initiative_start_date: Data de início
+            initiative_title: Título da iniciativa
+            name_and_surname: Nome próprio e apelido
+            postal_code: Código postal
+            time_and_date: Hora e data
+            timestamp: Carimbo de data/hora
+      titles:
+        initiatives: Iniciativas
+        initiatives_types: Tipos de iniciativa
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: A iniciativa "%{resource_title}" foi enviada para validação técnica. Veja no <a href="%{admin_initiative_url}">painel de administração</a>
+            email_outro: Recebeu esta notificação porque é um dos administradores da plataforma.
+            email_subject: A iniciativa "%{resource_title}" foi enviada para validação técnica.
+            notification_title: A iniciativa "%{resource_title}" foi enviada para validação técnica. Veja no <a href="%{admin_initiative_path}">painel de administração</a>
+        initiative_extended:
+          email_intro: A data final de recolha de assinaturas para a iniciativa %{resource_title} foi prorrogada!
+          email_outro: Recebeu esta notificação porque está a seguir %{resource_title}. Para deixar de receber notificações, clique na ligação anterior.
+          email_subject: Data final de recolha de assinaturas para iniciativa prorrogada!
+          notification_title: A data final de recolha de assinaturas para a iniciativa <a href="%{resource_path}">%{resource_title}</a> foi prorrogada.
+        milestone_completed:
+          affected_user:
+            email_intro: A sua iniciativa %{resource_title} alcançou os %{percentage}% de assinaturas!
+            email_outro: Recebeu esta notificação porque é o autor da iniciativa %{resource_title}.
+            email_subject: Novo marco alcançado!
+            notification_title: A sua iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+          follower:
+            email_intro: A iniciativa %{resource_title} alcançou os %{percentage}% de assinaturas!
+            email_outro: Recebeu esta notificação porque está a seguir %{resource_title}. Para deixar de receber notificações, clique na ligação anterior.
+            email_subject: Novo marco alcançado!
+            notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou os %{percentage}% de assinaturas.
+        support_threshold_reached:
+          email_intro: A iniciativa %{resource_title} alcançou o limiar de apoio
+          email_outro: Recebeu esta notificação porque é um dos administradores da plataforma.
+          email_subject: Limiar de apoio alcançado
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> alcançou o limiar de apoio
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Aceda ao espaço participativo de Iniciativas
+            Siga os passos para criar uma nova iniciativa
+          description: Este distintivo é concedido quando lança novas iniciativas, associando-se a outras pessoas para as realizar.
+          description_another: Este participante publicou %{score} iniciativas.
+          description_own: Publicou %{score} iniciativas.
+          name: Iniciativas publicadas
+          next_level_in: Publique mais %{score} iniciativas para alcançar o nível seguinte!
+          unearned_another: Este participante ainda não publicou nenhuma iniciativa.
+          unearned_own: Ainda não publicou nenhuma iniciativa.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>Uma <strong>iniciativa</strong> é uma proposta que pode ser promovida por alguém por iniciativa própria (independentemente de outros canais ou espaços participativos) através da recolha de assinaturas (digitais), tendo em vista a realização de uma ação específica por parte da organização (modificar um regulamento, iniciar um projeto, alterar o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir os respetivos objetivos, reunir apoio, debater, divulgar e definir pontos de encontro para recolher as assinaturas ou para realizar debates abertos a outros participantes.</p> <p>Exemplos: uma iniciativa pode recolher assinaturas para convocar uma consulta junto de todas as pessoas de uma organização, para criar ou convocar uma assembleia ou para iniciar um processo de aumento do orçamento a afetar a um território ou área da organização. Durante o processo de recolha de assinaturas, mais pessoas podem juntar-se a esta petição e levá-la por diante na organização.</p>\n"
+          page: "<p>Uma <strong>iniciativa</strong> é uma proposta que pode ser promovida por alguém por iniciativa própria (independentemente de outros canais ou espaços participativos) através da recolha de assinaturas (digitais), tendo em vista a realização de uma ação específica por parte da organização (modificar um regulamento, iniciar um projeto, alterar o nome de um departamento ou de uma rua, etc.).</p> <p>Os promotores de uma iniciativa podem definir os respetivos objetivos, reunir apoio, debater, divulgar e definir pontos de encontro para recolher as assinaturas dos assistentes ou para realizar debates abertos a outros participantes.</p> <p>Exemplos: uma iniciativa pode recolher assinaturas para convocar uma consulta junto de todas as pessoas de uma organização, para criar ou convocar uma assembleia ou para iniciar um processo de aumento do orçamento a afetar a um território ou área da organização. Durante o processo de recolha de assinaturas, mais pessoas podem juntar-se a esta petição e levá-la por diante na organização.</p>\n"
+          title: O que é uma iniciativa?
+    initiatives:
+      actions:
+        answer: Resposta
+      admin:
+        answers:
+          edit:
+            answer: Resposta
+            title: Resposta para %{title}
+          info_initiative:
+            created_at: Criado em
+            description: Descrição
+            initiative_votes_count: Número de votos
+            initiatives: Iniciativas
+            state: Estado
+        committee_requests:
+          index:
+            approve: Aprovar
+            confirm_revoke: Tem a certeza?
+            invite_to_committee_help: Partilhe esta ligação para convidar outros participantes para o comité de promoção
+            no_members_yet: Não existem membros no comité de promoção
+            revoke: Revogar
+            title: Membros do comité
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Quantidade máxima de elementos a mostrar
+        exports:
+          initiatives: Iniciativas
+        initiatives:
+          edit:
+            accept: Aceitar iniciativa
+            confirm: Tem a certeza?
+            discard: Eliminar a iniciativa
+            export_pdf_signatures: Exportar PDF de assinaturas
+            export_votes: Exportar assinaturas
+            reject: Rejeitar iniciativa
+            send_to_technical_validation: Enviar para validação técnica
+            success: A iniciativa foi enviada para validação técnica
+            update: Atualizar
+          form:
+            attachments: Anexos
+            settings: Definições
+            title: Informações gerais
+          index:
+            actions_title: Ação
+            preview: Pré-visualizar
+            print: Imprimir
+          initiative_attachments:
+            documents: Documentos
+            edit: Editar
+            new: Novo
+            photos: Fotografias
+          show:
+            print: Imprimir
+          update:
+            error: Ocorreu um erro
+            success: A iniciativa foi atualizada com êxito
+        initiatives_type_scopes:
+          create:
+            error: Ocorreu um erro
+            success: Foi criado um novo âmbito para o tipo de iniciativa em questão
+          destroy:
+            success: O âmbito foi removido com êxito
+          edit:
+            back: Voltar
+            confirm_destroy: Tem a certeza?
+            destroy: Eliminar
+            title: Editar âmbito do tipo de iniciativa
+            update: Atualizar
+          new:
+            back: Voltar
+            create: Criar
+            title: Criar âmbito do tipo de iniciativa
+          update:
+            error: Ocorreu um erro
+            success: O âmbito foi atualizado com êxito
+        initiatives_types:
+          create:
+            error: Ocorreu um erro
+            success: Um novo tipo de iniciativa foi criado com êxito
+          destroy:
+            success: O tipo de iniciativa foi removido com êxito
+          edit:
+            confirm_destroy: Tem a certeza?
+            destroy: Eliminar
+            update: Atualizar
+          form:
+            title: Informações gerais
+          initiative_type_scopes:
+            title: Âmbitos para o tipo de iniciativa
+          new:
+            create: Criar
+            title: Novo tipo de iniciativa
+          update:
+            error: Ocorreu um erro
+            success: O tipo de iniciativa foi atualizado com êxito
+      admin_log:
+        initiative:
+          publish: "%{user_name} publicou a iniciativa %{resource_name}"
+          send_to_technical_validation: "%{user_name} enviou a iniciativa %{resource_name} para validação técnica"
+          unpublish: "%{user_name} eliminou a iniciativa %{resource_name}"
+          update: "%{user_name} atualizou a iniciativa %{resource_name}"
+      admin_states:
+        accepted: Assinaturas suficientes
+        created: Criado
+        discarded: Eliminado
+        published: Publicado
+        rejected: Sem assinaturas suficientes
+        validating: Validação técnica
+      application_helper:
+        filter_area_values:
+          all: Todas
+        filter_scope_values:
+          all: Todas
+        filter_state_values:
+          accepted: Assinaturas suficientes
+          all: Todas
+          answered: Com resposta
+          closed: Encerradas
+          open: Em aberto
+          rejected: Sem assinaturas suficientes
+        filter_type_values:
+          all: Todas
+      committee_requests:
+        new:
+          continue: Continuar
+          help_text: Está prestes a solicitar o estatuto de membro do comité de promoção desta iniciativa
+        spawn:
+          success: O seu pedido foi enviado ao autor da iniciativa.
+      content_blocks:
+        highlighted_initiatives:
+          name: Iniciativas em destaque
+      create_initiative:
+        fill_data:
+          back: Voltar
+          continue: Continuar
+          fill_data_help: "<ul> <li>Reveja o conteúdo da sua iniciativa. O título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Tem de escolher o tipo de assinatura. Presencial, em linha ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa? Cidade, distrito?</li> </ul>"
+          initiative_type: Tipo de iniciativa
+          more_information: "(Mais informações)"
+          select_area: Selecionar uma área
+          select_scope: Selecionar um âmbito
+        finish:
+          back: Voltar
+          back_to_initiatives: Voltar às iniciativas
+          callout_text: Parabéns! A sua iniciativa de cidadania foi criada com êxito.
+          confirm: Confirmar
+          edit_my_initiative: Editar as minhas iniciativas
+          go_to_my_initiatives: Aceder às minhas iniciativas
+          more_information: "(Mais informações)"
+          send_my_initiative: Enviar a minha iniciativa
+        finish_help:
+          access_reminder: Lembre-se de que poderá sempre aceder às suas iniciativas através do menu de participante.
+          help_for_organizations: Se faz parte de uma associação, terá de carregar as atas do conselho de administração de todas as organizações que constituem o Comité de Promoção
+          help_in_person_signatures: Se optou por recolher as assinaturas presencialmente ou com uma combinação de presencial e em linha, terá de carregar as informações necessárias.
+          help_text: Lembre-se de que para processar adequadamente a iniciativa, tem de aceder ao painel de administração onde encontra o menu de utilizador, carregar as informações necessárias e enviá-las para processamento.
+          initiatives_page_link: Pode encontrar todas estas informações na ligação %{link} dedicada a informar sobre iniciativas.
+          page: página
+        previous_form:
+          back: Voltar
+          continue: Continuar
+          help: Em que consiste a iniciativa? Escreva o título e a descrição. Recomendamos um título curto e conciso, e uma descrição centrada na solução proposta.
+          more_information: "(Mais informações)"
+        promotal_committee:
+          back: Voltar
+          individual_help_text: Este tipo de iniciativa de cidadania exige um Comité de Promoção composto por, pelo menos, %{committee_size} pessoas (certificadores). Deve partilhar a seguinte ligação com outras pessoas que façam parte desta iniciativa. Quando os seus contactos receberem esta ligação, terão de seguir os passos indicados.
+          more_information: "(Mais informações)"
+        select_initiative_type:
+          back: Voltar
+          choose_html: Quero criar um <strong>%{title}</strong>
+          more_information: "(Mais informações)"
+          select: Quero promover esta iniciativa
+          select_initiative_type_help: As iniciativas de cidadania são um meio que permite a intervenção dos cidadãos para que o Conselho Municipal tome medidas que defendam o interesse geral nos domínios da jurisdição municipal. Que iniciativa pretende lançar?
+        share_committee_link:
+          continue: Continuar
+          invite_to_committee_help: Ligação para convidar pessoas que farão parte do comité de promoção
+        show_similar_initiatives:
+          back: Voltar
+          compare_help: Se alguma das seguintes iniciativas for semelhante à sua, recomendamos que a assine. A sua proposta terá maior probabilidade de ser executada.
+          continue: A minha iniciativa é diferente
+          more_information: "(Mais informações)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, que está a seguir, criou uma nova iniciativa. Veja e colabore:"
+          email_outro: Recebeu esta notificação porque está a seguir %{author_nickname}. Para deixar de receber notificações, clique na ligação anterior.
+          email_subject: Nova iniciativa de %{author_nickname}
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, que está a seguir, subscreveu a seguinte iniciativa. Talvez queira contribuir para a conversa:"
+          email_outro: Recebeu esta notificação porque está a seguir %{author_nickname}. Para deixar de receber notificações, clique na ligação anterior.
+          email_subject: Iniciativa subscrita por %{author_nickname}
+          notification_title: A iniciativa <a href="%{resource_path}">%{resource_title}</a> foi subscrita por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Iniciativas
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuar
+          date_select:
+            day: Dia
+            month: Mês
+            year: Ano
+          help: Preencha os seguintes campos com os seus dados pessoais para assinar a iniciativa
+        finish:
+          back_to_initiative: Voltar à iniciativa
+        sms_code:
+          continue: Verificar código e continuar
+          help: Verifique o SMS que recebeu no telemóvel
+        sms_phone_number:
+          continue: Quero receber um SMS
+          help: Preencha o formulário com o número de telefone autenticado para solicitar o código de verificação
+      initiative_votes:
+        create:
+          error: Houve um problema ao assinar a iniciativa.
+          invalid: Os dados fornecidos para assinar a iniciativa não são válidos
+          success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada com êxito
+        personal_data:
+          invalid: Os dados pessoais não correspondem aos dados fornecidos para autorização.
+        sms_code:
+          invalid: O seu código de verificação não corresponde ao nosso. Volte a consultar o SMS que lhe enviámos.
+        sms_phone:
+          invalid: O número de telefone é inválido ou está pendente de autorização. Verifique as suas autorizações.
+      initiatives:
+        author:
+          deleted: Eliminado
+        author_list:
+          hidden_authors_count:
+            one: e mais 1 pessoa
+            other: e mais %{count} pessoas
+        count:
+          title:
+            one: "%{count} iniciativa"
+            other: "%{count} iniciativas"
+        filters:
+          any: Qualquer
+          area: Área
+          author: Autor
+          myself: As minhas iniciativas
+          scope: Âmbito
+          search: Pesquisar
+          state: Estado
+          type: Tipo
+        filters_small_view:
+          close_modal: Fechar janela
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Abrir
+        index_header:
+          new_initiative: Nova iniciativa
+          not_authorized:
+            authorizations_page: Ver autorizações
+            close: Encerrar
+            explanation: Para criar uma nova iniciativa, a sua identidade terá de ser verificada.
+            title: Autorização necessária
+        initiatives:
+          closed_initiatives_warning: Atualmente não existem iniciativas em aberto, mas pode encontrar aqui todas as iniciativas encerradas.
+          no_initiatives_warning: Não existem iniciativas que correspondam aos seus critérios de pesquisa.
+        interactions:
+          comments_count:
+            count:
+              one: Comentário
+              other: Comentários
+        orders:
+          label: 'Ordenar iniciativas por:'
+          most_commented: Mais comentadas
+          most_voted: Mais assinadas
+          random: Aleatório
+          recent: Mais recentes
+          recently_published: Mais recentemente publicadas
+        result:
+          answer_title:
+            accepted: Esta proposta foi aceite porque
+            created: Esta proposta foi criada
+            discarded: Esta proposta foi eliminada porque
+            published: Esta proposta foi publicada porque
+            rejected: Esta proposta foi rejeitada porque
+            validating: Esta proposta está a ser avaliada
+          initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de assinaturas.
+        show:
+          any_vote_method: Esta iniciativa de cidadania recolhe tanto assinaturas em linha como presenciais.
+          follow_description: Receber uma notificação quando houver novidades sobre esta iniciativa
+          offline_method: Esta iniciativa de cidadania apenas recolhe assinaturas presenciais.
+        signature_identities:
+          select_identity: Selecionar identificador de participante
+        signatures_count:
+          one: " assinatura"
+          other: " assinaturas"
+        supports:
+          title: Lista de assinaturas
+        vote_cabin:
+          already_voted: Já assinada
+          supports_required: "%{total_supports} assinaturas necessárias"
+          verification_required: Verifique a sua conta para assinar a iniciativa
+          vote: Assinar
+          votes_blocked: Assinatura desativada
+        votes_count:
+          count:
+            one: Assinatura
+            other: Assinaturas
+          most_popular_initiative: Iniciativa mais popular
+          need_more_votes: Necessita de mais assinaturas
+      initiatives_mailer:
+        creation_subject: A sua iniciativa '%{title}' foi criada
+        initiative_link:
+          check_initiative_details: Pode ver informações pormenorizadas sobre a iniciativa
+          here: aqui
+        more_information: Pode encontrar aqui mais informações sobre o processo de criação da iniciativa.
+        progress_report_body_for: A iniciativa %{title} alcançou os %{percentage}% de assinaturas exigidas.
+        progress_report_for: 'Resumo da iniciativa: %{title}'
+        promotal_committee_help: Lembre-se de que deve convidar pelo menos %{member_count} pessoas para o comité de promoção. Encaminhe a seguinte ligação para convidar pessoas para o comité de promoção
+        status_change_body_for: 'A iniciativa %{title} mudou o estado para: %{state}'
+        status_change_for: A iniciativa %{title} mudou de estado
+      last_activity:
+        new_initiative: Nova iniciativa
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Iniciativas ativas
+            see_all_initiatives: Ver todas as iniciativas
+      show:
+        badge_name:
+          accepted: Assinaturas suficientes
+          created: Criadas
+          discarded: Eliminadas
+          published: Publicadas
+          rejected: Sem assinaturas suficientes
+          validating: Validação técnica
+      states:
+        accepted: Aceites
+        expired: Expiradas
+      unavailable_scope: Âmbito indisponível
+      versions:
+        shared:
+          back_to_resource: Voltar à iniciativa
+    menu:
+      initiatives: Iniciativas
+    resources:
+      initiatives_type:
+        actions:
+          title: Ações
+          vote: Assinar
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Anexos
+          committee_members: Membros do comité
+          components: Componentes
+          information: Informação
+      initiative_creation_header:
+        back: Voltar
+        fill_data: Criar
+        finish: Terminar
+        previous_form: Começar
+        promotal_committee: Comité de promoção
+        select_initiative_type: Escolher
+        show_similar_initiatives: Comparar
+        step: Passo %{current} de %{total}
+        title: Criar nova iniciativa
+      initiative_header:
+        initiative_menu_item: Iniciativa
+      initiative_signature_creation_header:
+        back: Voltar
+        fill_personal_data: Complete os seus dados
+        finish: Terminar
+        finished: Assinatura de iniciativa criada
+        see_steps: ver passos
+        select_identity: Selecionar identidade
+        sms_code: Verificação por código SMS
+        sms_phone_number: Número de telemóvel
+        step: Passo %{current} de %{total}
+        title: Assinar %{initiative_title}
+      initiatives:
+        initiative:
+          check: Dê uma vista de olhos
+          check_and_support: Dê uma vista de olhos e assine
+        no_initiatives_yet:
+          no_initiatives_yet: Ainda não há iniciativas!
