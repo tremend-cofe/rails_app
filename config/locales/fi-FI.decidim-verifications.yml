@@ -1,0 +1,251 @@
+fi:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Käytettävissä olevat menetelmät
+        offline: Ilman verkkoyhteyttä
+        offline_explanation: Ohjeet varmentamiseen ilman verkkoyhteyttä
+        online: Verkossa
+      id_document_information:
+        document_number: Asiakirjan numero (kirjain)
+        document_type: Asiakirjatyyppi
+      id_document_upload:
+        document_number: Asiakirjan numero (kirjain)
+        document_type: Asiakirjasi tyyppi
+        user: Osallistuja
+        verification_attachment: Skannattu kopio asiakirjastasi
+      offline_confirmation:
+        email: Osallistujan sähköposti
+      postal_letter_address:
+        full_address: Täydellinen osoite
+      postal_letter_confirmation:
+        verification_code: Varmennuskoodi
+      postal_letter_postage:
+        full_address: Täydellinen osoite
+        verification_code: Varmennuskoodi
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Hyödyllinen, jos prosessi on jo alkanut ja haluat kumota edellisen prosessin käyttöoikeudet.
+          button: Kumoa kaikki
+          button_before: Kumoa ennen päivämäärää
+          destroy:
+            confirm: Jos kumoat valtuudet "ennen päivämäärää", kumoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm_all: Jos kumoat kaikki valtuudet, sitä ei voi peruuttaa. Haluatko varmasti jatkaa?
+          destroy_nok: Valtuutuksien kumoaminen epäonnistui.
+          destroy_ok: Kaikki vastaavat valtuutukset on kumottu!
+          info: Varmennettuja osallistuja on yhteensä %{count}.
+          no_data: Ei varmennettuja osallistujia
+          title: Varmennusten kumoaminen
+        authorization_workflows: Varmennukset
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} päivitti henkilötodistusten varmennusmääritykset"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} varmensi käyttäjän %{resource_name} verkon ulkopuolisella henkilötodistusvarmennuksella"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Ylläpitäjät lataavat CSV-tiedoston, joka sisältää hyväksyttyjen osallistujien sähköpostiosoitteet. Vain osallistujat, joiden sähköpostiosoitteet ovat kyseisessä CSV-tiedostossa, voidaan varmentaa
+        id_documents:
+          help: |-
+            Käyttäjät täyttävät henkilötietonsa ja lataavat kopion henkilötodistuksestaan. Sinä täytät ladatussa kuvassa olevat tiedot. Tietojen on vastattava käyttäjän antamia tietoja. Jos et näe tietoja selvästi tai et pysty varmentamaan tietoja, voit hylätä pyynnön. Tämän jälkeen käyttäjä voi korjata pyyntöä.
+        postal_letter:
+          help: |-
+            Osallistujat pyytävät varmennuskoodin lähettämistä osoitteeseensa. Lähetät osallistujan osoitteeseen kirjeen, jossa on varmennuskoodi. Merkitse kirje lähetetyksi. Kun olet merkinnyt kirjeen lähetetyksi, osallistuja voi syöttää koodin ja saada varmennuksen.
+      csv_census:
+        explanation: Hanki varmennus käyttäen organisaation tietoja
+        name: Organisaation tiedot
+      direct: Välitön
+      help: Ohje
+      id_documents:
+        explanation: Lataa henkilötodistuksesi henkilöllisyytesi tarkistamista varten
+        name: Henkilötodistus
+      multistep: Monivaiheinen
+      name: Nimi
+      postal_letter:
+        explanation: Lähetämme sinulle postitse koodin, joka sinun tulee syöttää osoitteesi varmistamiseksi
+        name: Koodi postitse
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Nämä ovat nykyisen varmennuksen tiedot:'
+          no_data_stored: Ei tallennettuja tietoja.
+        create:
+          error: Valtuutuksen luominen epäonnistui.
+          success: Varmennus onnistui.
+          unconfirmed: Sinun on vahvistettava sähköpostiosoitteesi valtuuttaaksesi itsesi.
+        destroy:
+          error: Valtuutuksen poistaminen epäonnistui.
+          success: Valtuutus on poistettu.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Varmenna käyttämällä muuta valtuutuksien käsittelijän esimerkkiä
+            csv_census: Varmenna käyttämällä organisaation laskentatietoja
+            dummy_authorization_handler: Varmenna käyttämällä valtuutuksien käsittelijän esimerkkiä
+            dummy_authorization_workflow: Varmenna käyttämällä valtuutuksen työnkulun esimerkkiä
+            id_documents: Varmenna itsesi lataamalla henkilöasiakirjasi
+            postal_letter: Varmenna itsesi postitse saatavalla varmennuskoodilla
+            sms: Varmenna itsesi tekstiviestillä saatavalla varmennuskoodilla
+          title: Vahvista henkilöllisyytesi
+          verify_with_these_options: 'Voit vahvistaa henkilöllisyytesi seuraavasti:'
+        index:
+          expired_verification: Varmennus vanhentunut
+          pending_verification: Odottaa vahvistusta
+          show_renew_info: Uudista varmennus napsauttamalla
+          unauthorized_verification: Uusi varmennus
+        new:
+          authorize: Lähetä
+          authorize_with: Varmenna itsesi toiminnolla %{authorizer}
+        renew_modal:
+          cancel: Peruuta
+          close: Sulje
+          continue: Jatka
+          info_renew: Jos haluat päivittää tiedot, jatka uudistamista
+          title: Uudista varmennus
+        skip_verification: Voit ohittaa tämän toistaiseksi ja %{link}
+        start_exploring: aloittaa seikkailemisen
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Organisaation tietojen tuominen epäonnistui.
+              success: '%{count} kohdetta tuotiin onnistuneesti (%{errors} virhettä)'
+            destroy_all:
+              success: Kaikki organisaation tiedot on poistettu
+          destroy:
+            confirm: Kaikkien organisaation laskentatietojen poistamista ei voi kumota. Haluatko varmasti jatkaa?
+            title: Poista kaikki laskentatiedot
+          index:
+            data: Ladattuja tietueita on yhteensä %{count} Viimeisin lähetyspäivä oli %{due_date}
+            empty: Laskentatietoja ei ole. Käytä alla olevaa lomaketta tuodaksesi tiedot CSV-tiedostolla
+            title: Nykyiset laskentatiedot
+          instructions:
+            body: Tätä varten sinun on annettava järjestelmänhallinnasta organisaatiolle csv-laskentavaltuudet.
+            title: Sinun on aktivoitava tämän organisaation csv-laskentavaltuudet
+          new:
+            file: ".csv-tiedosto, joka sisältää sähköpostitiedot"
+            info: 'Tiedoston on oltava CSV-tiedosto, jossa on vain yksi sarake sähköpostiosoitteille:'
+            submit: Lataa tiedosto
+            title: Lataa uusi laskentatiedosto
+        authorizations:
+          new:
+            error: Tiliäsi ei voitu vahvistaa, tai sinua ei ole organisaation laskentatiedoissa
+            success: Tilisi on varmennettu.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Osallistuminen on rajoitettu osallistujiin, joiden postinumero on %{postal_codes}.
+            other: 'Osallistuminen on rajoitettu osallistujiin, joilla on jokin seuraavista postinumeroista: %{postal_codes}.'
+          scope: Osallistuminen on rajoitettu osallistujiin, joiden aihepiiri on %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Henkilötodistusmääritys
+              update: Päivitä
+            update:
+              error: Määrityksen päivittäminen epäonnistui.
+              success: Määritys päivitettiin onnistuneesti
+          confirmations:
+            create:
+              error: Varmennus ei täsmää. Yritä uudelleen tai hylkää varmennus, jotta osallistuja voi muuttaa sitä
+              success: Osallistuja varmennettiin onnistuneesti
+            new:
+              introduce_user_data: Syötä kuvan tiedot
+              reject: Hylkää
+              verify: Vahvista
+          offline_confirmations:
+            create:
+              error: Varmennus ei täsmää. Yritä uudelleen tai pyydä osallistujaa muuttamaan tietoja
+              success: Osallistuja varmennettiin onnistuneesti
+            new:
+              cancel: Peruuta
+              introduce_user_data: Syötä osallistujan sähköpostiosoite ja henkilötodistuksen tiedot
+              verify: Vahvista
+          pending_authorizations:
+            index:
+              config: Määritys
+              offline_verification: Verkon ulkopuolella tehtävä varmennus
+              title: Odottavat verkkovarmennukset
+              verification_number: 'Varmennus #%{n}'
+          rejections:
+            create:
+              success: Varmennus hylätty. Osallistujaa pyydetään muuttamaan asiakirjoja
+        authorizations:
+          choose:
+            choose_a_type: 'Valitse varmennustapa:'
+            offline: Ilman verkkoyhteyttä
+            online: Verkossa
+            title: Varmenna itsesi henkilötodistuksellasi
+          create:
+            error: Asiakirjasi lataaminen epäonnistui
+            success: Asiakirjan lataaminen onnistui
+          edit:
+            being_reviewed: Tutustumme asiakirjoihin. Sinut varmennetaan pian
+            offline: Käytä verkon ulkopuolella tehtävää varmennusta
+            online: Käytä verkkovarmennusta
+            rejection_clarity: Varmista, että tiedot ovat kuvassa selkeästi näkyvillä
+            rejection_correctness: Varmista, että syötetyt tiedot ovat oikein
+            rejection_notice: Varmennus epäonnistui Yritä uudelleen.
+            send: Pyydä varmennusta uudelleen
+          new:
+            send: Pyydä varmennusta
+            title: Lataa henkilötodistuksesi
+          update:
+            error: Asiakirjasi uudelleenlataaminen epäonnistui
+            success: Asiakirjan uudelleenlataaminen onnistui
+        passport: Passi
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Osoite
+              letter_sent_at: Kirje lähetetty
+              mark_as_sent: Merkitse lähetetyksi
+              not_yet_sent: Ei vielä lähetetty
+              title: Käynnissä olevat varmennukset
+              username: Käyttäjänimi
+              verification_code: Varmennuskoodi
+          postages:
+            create:
+              error: Kirjeen lähetetyksi merkitseminen epäonnistui
+              success: Kirje merkittiin onnistuneesti lähetetyksi
+        authorizations:
+          create:
+            error: Pyyntösi epäonnistui
+            success: Kiitos! Lähetämme varmennuskoodin osoitteeseesi
+          edit:
+            send: Vahvista
+            title: Syötä saamasi varmennuskoodi
+            waiting_for_letter: Lähetämme pian osoitteeseesi kirjeen, jossa on varmennuskoodisi
+          new:
+            send: Lähetä minulle kirje
+            title: Pyydä varmennuskoodia
+          update:
+            error: Väärä varmennuskoodi. Tarkista lähettämämme kirje uudelleen
+            success: Onnittelut. Sinut on varmennettu
+      sms:
+        authorizations:
+          create:
+            error: Pyyntösi epäonnistui
+            success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
+          destroy:
+            success: Varmennuskoodin nollaaminen onnistui. Anna puhelinnumerosi uudelleen.
+          edit:
+            confirm_destroy: Haluatko varmasti nollata varmennuskoodin?
+            destroy: Nollaa varmennuskoodi
+            resend: Etkö saanut varmennuskoodia?
+            send: Vahvista
+            title: Syötä saamasi varmennuskoodi
+          new:
+            send: Lähetä minulle tekstiviesti
+            title: Pyydä varmennuskoodia
+          update:
+            error: Väärä varmennuskoodi. Tarkista saamasi tekstiviesti uudelleen.
+            success: Onnittelut. Sinut on varmennettu.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: voi sisältää vain isoja kirjaimia ja numeroita
