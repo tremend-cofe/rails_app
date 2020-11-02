@@ -1,0 +1,123 @@
+de:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Kommentar
+      decidim/comments/comment_created_event: Kommentar
+      decidim/comments/reply_created_event: Antwort kommentieren
+      decidim/comments/user_group_mentioned_event: Erwähnung
+      decidim/comments/user_mentioned_event: Erwähnung
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Kommentar
+        other: Kommentare
+      decidim/comments/comment_vote:
+        one: Abstimmen
+        other: Stimmen
+  decidim:
+    comments:
+      comments: Kommentare
+      comments_count: Zählung Kommentare
+      last_activity:
+        new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
+      view: Anzeigen
+      votes:
+        create:
+          error: Bei der Abstimmung zum Kommentar ist ein Problem aufgetreten.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Loggen Sie sich in Ihr Konto ein</a> oder <a href="%{sign_up_url}">Melden</a> Sie sich an, um Ihren Kommentar hinzufügen.
+        form:
+          body:
+            label: Kommentar
+            placeholder: Was halten Sie davon?
+          form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen lang sein.
+          submit: Absenden
+          user_group_id:
+            label: Kommentieren als
+        opinion:
+          neutral: Weder positiv noch negativ
+        remaining_characters: "%{count} Zeichen übrig"
+        remaining_characters_1: "%{count} Zeichen übrig"
+        title: Ihren Kommentar hinzufügen
+      comment:
+        alignment:
+          against: Dagegen
+          in_favor: Dafür
+        deleted_user: Teilnehmer gelöscht
+        hide_replies: Antworten ausblenden
+        reply: Antwort
+        report:
+          action: Meldung
+          already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
+          close: Schließen
+          description: Ist dieser Inhalt unangemessen?
+          details: Zusätzliche Kommentare
+          reasons:
+            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, das Ihrer Meinung nach nicht auf %{organization_name} gehört.
+            offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Todesdrohungen, Selbstmorddrohungen oder jegliche Form von Hetze.
+            spam: Enthält Klickköder, Werbung, Betrug oder Script-Bots.
+          title: Unangemessenen Inhalt melden
+        show_replies: '%{replies_count} Antworten anzeigen'
+        single_comment_link_title: Link zu einem einzelnen Kommentar erhalten
+      comment_order_selector:
+        order:
+          best_rated: Am besten bewertet
+          most_discussed: Am häufigsten diskutiert
+          older: Ältere
+          recent: Jüngere
+        title: 'Ordnen nach:'
+      comment_thread:
+        title: Unterhaltung mit %{authorName}
+      comments:
+        blocked_comments_for_user_warning: Sie können momentan keine Kommentare abgeben, aber Sie können die vorherigen lesen.
+        blocked_comments_warning: Kommentare sind zurzeit deaktiviert, aber Sie können die vorherigen lesen.
+        comment_details_title: Details Kommentar
+        loading: Kommentare laden ...
+        single_comment_warning: Den Rest der Kommentare <a href="%{url}" können Sie>hier</a> überprüfen.
+        single_comment_warning_title: Sie sehen einen einzelnen Kommentar
+        title: "%{count} Kommentare"
+      down_vote_button:
+        text: Ich kann diesem Kommentar nicht zustimmen
+      up_vote_button:
+        text: Ich kann diesem Kommentar zustimmen
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können ihn auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Sie können diesen Benutzer von seiner Profilseite aus entfolgen.
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'De Gruppe %{author_name} hat einen Kommentar in %{resource_title} hinterlassen. Sie können ihn auf dieser Seite lesen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{author_name} folgen. Sie können diese Gruppe von ihrer Profilseite aus entfolgen.
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} wurde kommentiert. Sie können den Kommentar auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{resource_title} oder dem Autor folgen. Sie können sich über den vorstehenden Link abmelden.
+          email_subject: Es gibt einen neuen Kommentar von %{author_name} in %{resource_title}
+          notification_title: Es gibt einen neuen Kommentar von <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} hat auf Ihren Kommentar in %{resource_title} geantwortet. Sie können ihn auf dieser Seite lesen:"
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Kommentar beantwortet wurde.
+          email_subject: "%{author_name} hat auf Ihren Kommentar in %{resource_title} geantwortet"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> hat auf Ihren Kommentar in <a href="%{resource_path}">%{resource_title}</a> geantwortet
+        user_group_mentioned:
+          email_intro: Eine Gruppe, der Sie angehören, wurde erwähnt
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Mitglied der Gruppe %{group_name} sind, die in %{resource_title} erwähnt wurde.
+          email_subject: Sie sind in %{resource_title} als Mitglied von %{group_name} erwähnt worden
+          notification_title: Sie sind in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> als Mitglied von <a href="%{group_path}">%{group_name} %{group_nickname}</a> erwähnt worden
+        user_mentioned:
+          email_intro: Sie sind erwähnt worden
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in %{resource_title} erwähnt wurden.
+          email_subject: Sie sind in %{resource_title} erwähnt worden
+          notification_title: Sie sind in <a href="%{resource_path}">%{resource_title}</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt worden
+    metrics:
+      comments:
+        description: Anzahl der von den Teilnehmern erstellten Kommentare
+        object: Kommentare
+        title: Kommentare
+  errors:
+    messages:
+      cannot_have_comments: kann nicht kommentiert werden
