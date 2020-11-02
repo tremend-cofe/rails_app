@@ -1,7 +1,78 @@
 sk:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nový blogový príspevok
   decidim:
     blogs:
+      actions:
+        confirm_destroy: Naozaj chcete odstrániť tento príspevok?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nový príspevok
+        title: Akcie
+      admin:
+        models:
+          components:
+            body: Text správy
+          post:
+            name: Príspevok
+        posts:
+          create:
+            invalid: Pri vytváraní tohto príspevku sa vyskytol problém
+            success: Príspevok bol úspešne vytvorený
+          destroy:
+            success: Príspevok bol úspešne odstránený
+          edit:
+            save: Aktualizovať
+          index:
+            title: Príspevky
+          new:
+            create: Vytvoriť
+            title: Vytvoriť príspevok
+          update:
+            invalid: Pri ukladaní tohto príspevku sa vyskytol problém.
+            success: Príspevok bol úspešne uložený
+      last_activity:
+        new_post_at_html: "<span>Nový príspevok na %{link}</span>"
       models:
         post:
           fields:
+            author: Autor
+            body: Text správy
             created_at: 'Vytvorené:'
+            title: nadpis
+      posts:
+        show:
+          back: Späť na zoznam
+          comments: Poznámky
+          view: Zobraziť
+        sidebar_blog:
+          comments: poznámky
+          most_commented_posts: Najčastejšie komentované príspevky
+      read_more: Zobraziť viac
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_enabled: Poznámky povolené
+            comments_max_length: Maximálna dĺžka poznámok (ponechaním hodnoty 0 sa zachová predvolená hodnota)
+          step:
+            announcement: Oznámenie
+            comments_blocked: Poznámky zablokované
+            endorsements_blocked: Schválenia zablokované
+            endorsements_enabled: Schválenia povolené
+    events:
+      blogs:
+        post_created:
+          email_intro: Príspevok %{resource_title} bol zverejnený v rámci participatívneho priestoru %{participatory_space_title}, ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Nový príspevok zverejnený v rámci participatívneho priestoru %{participatory_space_title}
+          notification_title: Príspevok <a href="%{resource_path}">%{resource_title}</a> bol zverejnený v rámci participatívneho priestoru %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Príspevky
+    participatory_processes:
+      statistics:
+        posts_count: Príspevky
