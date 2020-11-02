@@ -1,51 +1,552 @@
 ro:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Adunări înrudite
+        banner_image: Imagine banner
+        consultations_ids: Consultări înrudite
+        copy_categories: Copiere categorii
+        copy_components: Copiere componente
+        copy_features: Copiere caracteristici
+        decidim_scope_id: Domeniu de aplicare
+        description: Descriere
+        hero_image: Imaginea de pornire
+        participatory_processes_ids: Procese participative înrudite
+        promoted: Evidențiat
+        published_at: Publicat la
+        scope_id: Domeniu de aplicare
+        scopes_enabled: Domenii activate
+        short_description: Scurtă descriere
+        show_statistics: Afișarea statisticilor
+        slug: Slug URL
+        title: Titlu
+      conference_speaker:
+        full_name: Nume complet
+      conference_user_role:
+        email: E-mail
+        name: Nume
+        role: Rol
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Acest e-mail a fost deja invitat
   decidim:
     admin:
+      actions:
+        confirm: Confirmați
+        new_conference: Conferință nouă
+        send_diplomas: Trimiteți certificate de participare
+      conference_copies:
+        new:
+          copy: Copiere
+          select: Selectați datele pe care doriți să le duplicați
+          title: Duplicați conferința
+      conference_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea acestei conferințe.
+          success: Conferința a fost publicată.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestei conferințe.
+          success: Conferința a fost retrasă de la publicare.
+      conference_registration:
+        confirm:
+          error: S-a întâmpinat o problemă la confirmarea înscrierii la această conferință.
+          success: Înscrierea la conferință a fost confirmată.
+      conference_speakers:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui vorbitor pentru această conferință.
+          success: Vorbitorul în cadrul conferinței a fost creat cu succes.
+        destroy:
+          success: Vorbitorul în cadrul conferinței a fost șters cu succes.
+        edit:
+          title: Actualizarea vorbitorului în cadrul conferinței.
+          update: Actualizare
+        index:
+          conference_speakers_title: Vorbitori la conferință
+        new:
+          create: Creare
+          title: Nou vorbitor în cadrul conferinței.
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui vorbitor în cadrul conferinței.
+          success: Vorbitorul în cadrul conferinței a fost actualizat cu succes.
       conference_user_roles:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui admin pentru această conferință.
+          success: Administratorul conferinței a fost adăugat.
+        destroy:
+          success: Administratorul conferinței a fost eliminat.
+        edit:
+          title: Actualizarea administratorului conferinței.
+          update: Actualizare
         index:
           conference_admins_title: administratorii conferinței
         new:
+          create: Creare
           title: Administrator nou al conferinței.
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui admin pentru conferință.
+          success: Administratorul conferinței a fost actualizat.
       conferences:
         create:
+          error: S-a întâmpinat o problemă la crearea acestei conferințe.
           success: Conferința a fost creată
+        edit:
+          update: Actualizare
+        exports:
+          registrations: Înscrieri
+        form:
+          title: Informații generale
+        index:
+          not_published: Nepublicat
+          published: Publicat
+        new:
+          create: Creare
+          title: Conferință
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei conferințe.
+          success: Conferința a fost actualizată.
+      conferences_copies:
+        create:
+          error: S-a întâmpinat o problemă la duplicarea acestei conferințe.
+          success: Conferința a fost duplicată.
+      media_links:
+        create:
+          error: S-a întâmpinat o problemă la crearea unui nou link media.
+          success: Linkul media a fost creat.
+        destroy:
+          success: Linkul media a fost șters.
+        edit:
+          title: Actualizați linkul media.
+          update: Actualizare
+        index:
+          media_links_title: Linkuri media
+        new:
+          create: Creare
+          title: Link media
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui link media.
+          success: Linkul media a fost actualizat.
+      menu:
+        conferences: Conferințe
+        conferences_submenu:
+          attachment_collections: Foldere
+          attachment_files: Fișiere
+          attachments: Atașamente
+          categories: Categorii
+          components: Componente
+          conference_admins: Administratori ai conferinței
+          conference_invites: Invitați
+          conference_speakers: Vorbitori
+          diploma: Certificat de participare
+          info: Informații
+          media_links: Linkuri media
+          moderations: Moderări
+          partners: Parteneri
+          registration_types: Tipuri de înscrieri
+          registrations: Înscrieri
+          user_registrations: Înscrierea utilizatorilor
       models:
+        conference:
+          fields:
+            created_at: Creat la
+            promoted: Evidențiat
+            published: Publicat
+            title: Titlu
+        conference_speaker:
+          fields:
+            affiliation: Afiliere
+            full_name: Nume complet
+            position: Funcție
+          name: Vorbitor în cadrul conferinței
+        conference_user_role:
+          fields:
+            email: E-mail
+            name: Nume
+            role: Rol
+          name: Administrator ai conferinței
+          roles:
+            collaborator: Colaborator
+            valuator: Evaluator
+        media_link:
+          fields:
+            date: Data
+            link: Legătura
+            title: Titlu
+          name: Link media
         partner:
           fields:
             link: Link
+            name: Nume
+            partner_type: Tip
+          name: Partener
+          types:
+            collaborator: Colaborator
+            main_promotor: Promotor principal
         registration_type:
           fields:
+            conference_meetings: Reuniuni în cadrul conferinței
             price: Preț.
+            registrations_count: Număr de înscrieri
+            title: Titlu
+            weight: Pondere
+          name: Tipul de înscriere
       partners:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui partener pentru această conferință.
+          success: Partenerul la conferință a fost adăugat.
+        destroy:
+          success: Partenerul la conferință a fost eliminat.
+        edit:
+          title: Actualizați partenerul.
+          update: Actualizare
+        new:
+          create: Creare
+          title: Partener nou
         update:
+          error: S-a întâmpinat o problemă la actualizarea unui partener pentru această conferință.
           success: Partenerul la conferință a fost actualizat .
+      registration_type_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea acestui tip de înscriere.
+          success: Tipul de înscriere a fost publicat.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestui tip de înscriere.
+          success: Tipul de înscriere fost retras de la publicare.
+      registration_types:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui tip de înscriere pentru această conferință.
+          success: Tipul de înscriere pentru conferință a fost adăugat.
+        destroy:
+          success: Tipul de înscriere pentru conferință a fost eliminat.
+        edit:
+          title: Actualizați tipul de înscriere.
+          update: Actualizare
+        new:
+          create: Creare
+          title: Tip nou de înscriere
+        update:
+          error: S-a întâmpinat o problemă la actualizarea unui tip de înscriere pentru această conferință.
+          success: Tipul de înscriere pentru conferință a fost actualizat.
+      titles:
+        conferences: Conferințe
     admin_log:
       conference:
+        create: "%{user_name} a creat conferința %{resource_name}"
         publish: "%{user_name} a publicat conferința %{resource_name}"
         send_conference_diplomas: "%{user_name} a trimis certificate de participare partcipanților la conferința %{resource_name}"
         unpublish: "%{user_name} a retras de la publicare conferința %{resource_name}"
         update: "%{user_name} a actualizat conferința %{resource_name}"
         update_diploma: "%{user_name} a actualizat configurația certificatelor de participare pentru conferința %{resource_name}"
       conference_speaker:
+        create: "%{user_name} a creat vorbitorul %{resource_name} pentru conferința %{space_name}"
+        delete: "%{user_name} a eliminat vorbitorul %{resource_name} din conferința %{space_name}"
         update: "%{user_name} a actualizat vorbitorul %{resource_name} în conferința %{space_name}"
+      conference_user_role:
+        create: "%{user_name} a invitat %{resource_name} la conferința %{space_name}"
+        delete: "%{user_name} a eliminat administratorul %{resource_name} din conferința %{space_name}"
+        update: "%{user_name} a modificat rolul %{resource_name} în conferința %{space_name}"
       conferences:
         conference_registration:
           confirm: "%{user_name} a confirmat o înscriere la conferință %{resource_name} pentru conferința"
+        partner:
+          create: "%{user_name} a creat %{resource_name} la conferința %{space_name}"
+          delete: "%{user_name} a eliminat administratorul %{resource_name} din conferința %{space_name}"
+          update: "%{user_name} a actualizat %{resource_name} în conferința %{space_name}"
+        registration_type:
+          create: "%{user_name} a creat tipul de înscriere %{resource_name} în conferința %{space_name}"
+          publish: "%{user_name} a publicat tipul de înscriere %{resource_name} în conferința %{space_name}"
+          unpublish: "%{user_name} a retras de la publicare tipul de înscriere %{resource_name} în conferința %{space_name}"
+          update: "%{user_name} a actualizat tipul de înscriere %{resource_name} în spațiul %{space_name}"
+      media_link:
+        create: "%{user_name} a creat linkul media %{resource_name} în conferința %{space_name}"
+        delete: "%{user_name} a eliminat linkul media %{resource_name} din conferința %{space_name}"
+        update: "%{user_name} a actualizat linkul media %{resource_name} în conferința %{space_name}"
+    conference_speakers:
+      index:
+        title: Vorbitori
     conferences:
       admin:
+        conference_copies:
+          form:
+            slug_help: 'Se utilizează slug-uri URL care direcționează către această conferință. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        conference_invites:
+          create:
+            error: S-a întâmpinat o problemă la invitarea participantului să se alăture grupului.
+            success: Participantul a fost invitat să participe la conferință.
+          form:
+            attendee_type: Tipul de participant
+            existing_user: Participant existent
+            invite_explanation: Participantul va fi invitat să se alăture conferinței și organizației.
+            non_user: Participant inexistent
+            select_user: Selectați participantul
+          index:
+            filter:
+              accepted: Acceptat
+              all: Toate
+              rejected: Respins
+              sent: Trimis
+            filter_by: Filtrare după
+            invite_attendee: Invitați participantul
+            invites: Invitați
+            search: Căutare
+          new:
+            explanation: Participantul va fi invitat să participe la o conferință. În cazul în care e-mailul său nu este înregistrat, aceasta va fi invitată, de asemenea, să se alăture organizației.
+            invite: Invitați
+            new_invite: Invitați participantul
+        conference_registrations:
+          index:
+            registrations: Înscrieri
+        conference_speakers:
+          form:
+            existing_user: Participant existent
+            non_user: Neparticipant
+            select_user: Selectați participantul
+            user_type: Tipul de participant
+          index:
+            search: Căutare
         conferences:
           form:
             available_slots_help: Lăsați această opțiune la 0 dacă aveți sloturi disponibile nelimitate.
+            slug_help: 'Se utilizează slug-uri URL care direcționează către această conferință. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        diplomas:
+          edit:
+            save: Salvare
+            title: Certificat de participare
+        invite_join_conference_mailer:
+          invite:
+            decline: Respingeți invitația '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} v-a invitat să participați la o conferință la %{application}. Puteți respinge sau accepta prin linkurile de mai jos."
+            registration: Înscriere pentru '%{conference_title}'
+        partners:
+          index:
+            title: Parteneri
+        registration_types:
+          form:
+            select_conference_meetings: Selectați reuniunile conferinței
+          index:
+            title: Tipuri de înscrieri
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Veți găsi certificatul de participare la conferința <a href="%{url}">%{title}</a> în atașamente.
+          diploma_user:
+            attendance_verified_by: Prezență verificată de
+            certificate_of_attendance: Certificat de participare
+            certificate_of_attendance_description: Prin care se certifică faptul că <strong>%{user}</strong> a participat și a luat parte la <strong>%{title}</strong>, desfășurată la <strong>%{location}</strong> în perioada <strong>%{start} - %{end}</strong>
+        send_diploma:
+          error: S-a întâmpinat o problemă la trimiterea certificatelor de participare la conferință.
+          success: Certificatele de participare la conferință au fost trimise
       conference:
+        registration_confirm:
+          cancel: Anulare
+          confirm: Confirmați
         show:
           free: Liber
+          going: Participă
+          no_slots_available: Nu există sloturi disponibile
+          registration: Înscriere
+      conference_program:
+        program_meeting:
+          content: Conținut
+          location: Locul
+          speakers: Vorbitori
+        show:
+          day: Ziua
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Înscrierea dumneavoastră la conferința <a href="%{url}">%{title}</a> a fost confirmată.
+          details_1: 'V-ați înscris la conferință cu tipul %{registration_type}. Are un cost de %{price} și puteți participa la următoarele evenimente:'
+          details_2: Veți găsi detaliile conferinței în anexă.
+        pending_validation:
+          confirmation_pending: Veți primi confirmarea în scurt timp
+          details: 'V-ați înscris la tipul %{registration_type} cu un cost de %{price} și puteți participa la următoarele evenimente:'
+          pending_html: Înscrierea dumneavoastră la conferința <a href="%{url}">%{title}</a> este în așteptarea confirmării.
+      conference_registrations:
+        create:
+          invalid: S-a întâmpinat o problemă la alăturarea la această conferință.
+          success: V-ați alăturat conferinței.
+        decline_invitation:
+          invalid: S-a întâmpinat o problemă la refuzarea acestei invitații.
+          success: Ați refuzat invitația.
+        destroy:
+          invalid: S-a întâmpinat o problemă la părăsirea acestei conferințe.
+          success: Ați părăsit conferința.
+      conference_speaker:
+        go_to_twitter: Link la Twitter
+        more_info: informații suplimentare
+        personal_website: Website personal
+        show:
+          more_info: informații suplimentare
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Website personal
+        twitter_handle:
+          go_to_twitter: Link la Twitter
+      conference_speakers:
+        index:
+          speakers: Vorbitori
       conferences:
+        partners:
+          collaborators: Parteneri
+          main_promotors: Organizatori
         show:
           login_as: Sunteți conectat(ă) ca %{name} <%{email}>
+          make_conference_registration: 'Înscrieți-vă la conferință:'
+          register: Înscriere
+      content_blocks:
+        highlighted_conferences:
+          name: Conferințe evidențiate
+      index:
+        title: Conferințe
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Înscrierea la conferință a fost confirmată
+          pending_validation:
+            subject: Înscrierea la conferință este în așteptarea confirmării
+        invite_join_conference_mailer:
+          invite:
+            subject: Invitație de participare la o conferință
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Certificatul de participare la conferință a fost trimis
+      models:
+        conference_invite:
+          fields:
+            email: E-mail
+            name: Nume
+            registration_type: Tipul de înscriere
+            sent_at: Trimis la
+            status: Statut
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Respins (%{at})
+            sent: Trimis
+        conference_registration:
+          fields:
+            email: E-mail
+            name: Nume
+            registration_type: Tipul de înscriere
+            state: Statut
+            states:
+              confirmed: Confirmat
+              pending: În așteptare
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Conferințe active
+            see_all_conferences: Afișați toate conferințele
+      photo:
+        image:
+          attributes:
+            alt: Imagine media
+        show:
+          close_modal: Închideți elementul modal
+          photo: Imagine
+      photos_list:
+        show:
+          related_photos: Imagini
       registration_types:
         index:
+          choose_an_option: 'Alegeți o opțiune de înscriere:'
           login_as: Sunteți conectat(ă) ca %{name} <%{email}>
+          register: Înscriere
+          title: Tipuri de înscrieri
+      shared:
+        conference_user_login:
+          already_account: Aveți deja un cont în decidim?
+          new_user: Utilizator nou?
+          sign_in: Conectați-vă pentru a vă înscrie la conferință
+          sign_up: Creați un cont în decidim pentru a vă înscrie la conferință
+      show:
+        details: Detalii
+        introduction: Introducere
+        objectives: Obiective
+        related_assemblies: Adunări înrudite
+        related_consultations: Consultări înrudite
+        related_participatory_processes: Procese participative înrudite
+      statistics:
+        answers_count: Răspunsuri
+        comments_count: Comentarii
+        conference_count: Conferințe
+        debates_count: Dezbateri
+        endorsements_count: Avizări
+        headline: Activitate
+        meetings_count: Reuniuni
+        orders_count: Suporturi
+        pages_count: Pagini
+        posts_count: Postări
+        projects_count: Proiecte
+        proposals_count: Propuneri
+        results_count: Rezultate
+        surveys_count: Sondaje
+        users_count: Participanți
+        votes_count: Suporturi
     events:
       conferences:
+        conference_registration_confirmed:
+          notification_title: Înscrierea dumneavoastră la conferința <a href="%{resource_url}">%{resource_title}</a> a fost confirmată.
+        conference_registration_validation_pending:
+          notification_title: Înscrierea dumneavoastră la conferința <a href="%{resource_url}">%{resource_title}</a> este în așteptarea confirmării.
+        conference_registrations_over_percentage:
+          email_intro: Sloturile ocupate de conferința "%{resource_title}" sunt peste %{percentage}%.
+          email_outro: Ați primit această notificare deoarece sunteți administrator al spațiu participativ al conferinței.
+          email_subject: Sloturile ocupate de conferința "%{resource_title}" sunt peste %{percentage}%
+          notification_title: Sloturile ocupate de conferința <a href="%{resource_path}">%{resource_title}</a> sunt peste %{percentage}%.
+        conference_updated:
+          email_intro: 'Conferința "%{resource_title}” a fost actualizată. Puteți citi noua versiune de pe pagina sa:'
+          email_outro: Ați primit această notificare deoarece urmăriți conferința "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Conferința "%{resource_title}” a fost actualizată
+          notification_title: Conferința <a href="%{resource_path}">%{resource_title}</a> a fost actualizată.
+        registrations_enabled:
+          email_intro: 'Conferința "%{resource_title}" are înscrierile activate. Vă puteți înscrie pe pagina acesteia:'
+          email_outro: Ați primit această notificare deoarece urmăriți conferința "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Conferința "%{resource_title}" are înscrierile activate.
+          notification_title: Conferința <a href="%{resource_path}">%{resource_title}</a> are înscrierile activate.
         role_assigned:
           email_intro: Ați fost numit %{role} pentru conferința "%{resource_title}".
+          email_outro: Ați primit această notificare deoarece sunteți %{role} al conferinței "%{resource_title}".
+          email_subject: Ați fost numit %{role} pentru "%{resource_title}".
+          notification_title: Ați fost numit %{role} pentru conferința <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Conferința "%{resource_title}" are loc în 2 zile. Puteți citi descrierea pe pagina sa:'
+          email_outro: Ați primit această notificare deoarece urmăriți conferința "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Conferința "%{resource_title}” se apropie!
+          notification_title: Conferința <a href="%{resource_path}">%{resource_title}</a> începe în 2 zile.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id})'
+    media:
+      index:
+        description: Linkuri privind conferința
+        title: Media și linkuri
+    menu:
+      conferences: Conferințe
+  devise:
+    mailer:
+      join_conference:
+        subject: Invitație de participare la o conferință
+  layouts:
+    decidim:
+      conference_hero:
+        register: Înscriere
+      conference_widgets:
+        show:
+          take_part: Participați
+      conferences:
+        conference:
+          more_info: Informații suplimentare
+          take_part: Participați
+        index:
+          promoted_conferences: Conferințe evidențiate
+        promoted_conference:
+          more_info: Informații suplimentare
+          take_part: Participați
+      conferences_nav:
+        conference_menu_item: Informare
+        conference_partners_menu_item: Parteneri
+        conference_speaker_menu_item: Vorbitori
+        media: Medii
+        venues: Locuri de tranzacționare
