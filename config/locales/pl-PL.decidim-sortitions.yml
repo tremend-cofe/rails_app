@@ -1,1 +1,128 @@
 pl:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informacje na temat wyboru przez losowanie
+        decidim_category_id: Kategorie zestawu propozycji, do których chcesz zastosować losowanie
+        decidim_proposals_component_id: Zestaw propozycji
+        dice: Wynik rzutu kostką. Rzuć kostką sześcienną lub znajdź inny sposób losowego generowania numerów od 1 do 6 oraz wprowadź tutaj otrzymaną cyfrę w obecności świadków. Zapewni to jakość i losowość wyniku
+        target_items: Liczba propozycji, którą należy wybrać (oznacza liczbę propozycji, które mają być wybrane poprzez losowanie z wybranej wcześniej grupy propozycji)
+        title: Tytuł
+        witnesses: Świadkowie
+    models:
+      decidim/sortitions/create_sortition_event: Wybór przez losowanie
+  decidim:
+    components:
+      sortitions:
+        name: Wybory przez losowanie
+        settings:
+          global:
+            comments_enabled: Komentarze aktywowane
+            comments_max_length: Maksymalna długość komentarza (Pozostaw 0 dla wartości domyślnej)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Do przestrzeni „%{participatory_space_title}”, którą obserwujesz, dodano wybór przez losowanie „%{resource_title}”.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{participatory_space_title}”. Możesz przestać ją obserwować, klikając wcześniejszy link.
+          email_subject: Do przestrzeni „%{participatory_space_title}” dodano nowy wybór przez losowanie
+          notification_title: Do przestrzeni %{participatory_space_title} dodano wybór przez losowanie <a href="%{resource_path}">%{resource_title}</a>
+    pages:
+      home:
+        statistics:
+          sortitions_count: Wybory przez losowanie
+    participatory_processes:
+      statistics:
+        sortitions_count: Wybory przez losowanie
+    sortitions:
+      admin:
+        actions:
+          destroy: Anuluj wybór przez losowanie
+          edit: Edytuj
+          new: Nowy wybór przez losowanie
+          show: Szczegółowe informacje na temat wyboru przez losowanie
+        models:
+          sortition:
+            fields:
+              category: Kategoria
+              created_at: Data utworzenia
+              decidim_proposals_component: Komponent propozycji
+              dice: Kość
+              reference: Referencja
+              request_timestamp: Godzina losowania
+              target_items: Pozycje do wyboru
+              title: Tytuł
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Czy na pewno chcesz anulować ten wybór przez losowanie?
+            destroy: Anuluj wybór przez losowanie
+            title: Anulowanie wyboru przez losowanie
+          create:
+            error: Przy tworzeniu nowego wyboru przez losowanie pojawił się problem.
+            success: Utworzenie wyboru przez losowanie powiodło się
+          destroy:
+            error: Nie można anulować wyboru przez losowanie.
+            success: Anulowanie wyboru przez losowanie powiodło się
+          edit:
+            title: Aktualizuj informację na temat wyboru przez losowanie
+            update: Aktualizuj
+          form:
+            all_categories: Wszystkie kategorie
+            select_proposal_component: Wybierz zestaw propozycji
+            title: Nowy wybór przez losowanie dla propozycji
+          index:
+            title: Wybory przez losowanie
+          new:
+            confirm: Naciśnięcie kolejnego przycisku sprawi, że w aplikacji Decidim zapisana zostanie data i godzina (z dokładnością do sekund), a wraz z wynikiem rzutu kostką informacje te zostaną wykorzystane do dokonania losowego wyboru. Nie można cofnąć tej operacji; po kliknięciu przycisku wynik losowania zostanie opublikowany wraz z danymi wpisanymi w formularzu i nie będzie można modyfikować jego treści; prosimy o uważne sprawdzenie jego treści
+            create: Utwórz
+            title: Nowy wybór przez losowanie
+          show:
+            selected_proposals: Propozycje wybrane do losowania
+          update:
+            error: Przy aktualizacji wyboru przez losowanie pojawił się problem.
+            success: Aktualizacja wyboru przez losowanie powiodła się
+      admin_log:
+        sortition:
+          create: "%{user_name} utworzył(a) wybór przez losowanie %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} anulował(a) wybór przez losowanie %{resource_name} w przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) wybór przez losowanie %{resource_name} w przestrzeni %{space_name}"
+      sortitions:
+        filters:
+          active: Aktywne
+          all: Wszystkie
+          cancelled: Anulowane
+          category: Kategoria
+          category_prompt: Wybierz kategorię
+          search: Szukaj
+        filters_small_view:
+          close_modal: Zamknij okno modalne
+          filter: Filtr
+          filter_by: Filtruj wg
+          unfold: Rozwiń
+        linked_sortitions:
+          selected_proposals: Wybrane propozycje
+        orders:
+          label: 'Sortuj wybór przez losowanie według:'
+          random: Losowe
+          recent: Najnowsze
+        show:
+          algorithm: Kod algorytmu wyboru przez losowanie
+          any_category: ze wszystkich kategorii
+          back: Powrót do listy
+          cancelled: Anulowany wybór przez losowanie
+          candidate_proposal_ids: Kolejność i ID propozycji do wyboru przez losowanie
+          candidate_proposals_info: 'Wyboru przez losowanie dokonano spośród następujących propozycji (%{category_label}) o następujących numerach ID (wytłuszczoną czcionką zaznaczono wybrane propozycje)  '
+          category: z kategorii %{category}
+          dice_result: "(1) Wynik rzutu kostką"
+          introduction: 'Ta strona zawiera wyniki wyboru przez losowanie %{reference}. W drodze wyboru przez losowanie – w sposób losowy i z zachowaniem równego prawdopodobieństwa – wybrano %{target_items} wyniki/wyników ze zbioru propozycji przedstawionego poniżej. Informacje wyświetlone na tej stronie wraz z wynikami stanowią całość informacji koniecznych do zapewnienia maksymalnych gwarancji i reprodukowania wyników. Jakość wyboru przez losowanie jest zagwarantowana przede wszystkim podwójną losowością zapewnioną za sprawą rzutu kostką (weryfikowanego przez świadków) oraz precyzyjnego czasu wyboru przez losowanie, które to informacje stanowią dane wejściowe dla algorytmu losującego. Ziarno określone na podstawie czasu jest tak dokładne (sekundy), że nie może być kontrolowanie przez człowieka, co zapewnia podwójnie niemożliwe do kontrolowania dane wejściowe, gwarantujące uczciwy wynik.  '
+          mathematical_result: Wynik (1) x (2)
+          proposals_selected_by_sortition: Propozycje wybrane w drodze wyboru przez losowanie
+          sortition_reproducibility_details: Szczegółowe informacje na temat odtwarzalności losowania
+          time_seed: "(2) Ziarno określone na podstawie czasu"
+          witnesses: Świadkowie
+        sortition:
+          random_seed: Ziarno losowe
+          view: Wyświetl
+        sortition_author:
+          deleted: Usunięty uczestnik
+        sortition_cancel_author:
+          deleted: Usunięty uczestnik
