@@ -1,0 +1,451 @@
+lt:
+  activemodel:
+    attributes:
+      agenda:
+        description: Aprašymas
+        duration: Trukmė
+        title: Pavadinimas
+      close_meeting:
+        attendees_count: Dalyvių skaičius
+        attending_organizations: Dalyvavusių organizacijų sąrašas
+        closing_report: Pranešti
+        contributions_count: Nuomonių skaičius
+        proposal_ids: Posėdyje sukurti pasiūlymai
+      meeting:
+        address: Adresas
+        available_slots: Šiam posėdžiui turimi laiko tarpsniai
+        decidim_category_id: Kategorija
+        decidim_scope_id: Sritis
+        decidim_user_group_id: Naudotojų grupė
+        description: Aprašymas
+        end_time: Pabaigos laikas
+        location: Vieta
+        location_hints: Vietos užuomina
+        organizer_gid: Sukurti kaip
+        organizer_id: Organizatorius
+        private_meeting: Uždaras posėdis
+        registration_form_enabled: Registracijos forma įjungta
+        registration_terms: Registracijos sąlygos
+        registrations_enabled: Registracijos įjungtos
+        start_time: Pradžios laikas
+        title: Pavadinimas
+        transparent: atviras
+      minutes:
+        audio_url: Garso įrašo URL
+        description: Aprašymas
+        video_url: Vaizdo įrašo URL
+        visible: Matomas
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Elementų trukmė viršijo posėdžio trukmę %{count} minutėmis (ių).
+              too_many_minutes_child: Antrinių elementų trukmė viršijo darbotvarkės pirminio elemento „%{parent_title}“ trukmę %{count} minutėmis (ių).
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Šio e. laiško paskyros adresatas jau buvo pakviestas.
+    models:
+      decidim/meetings/close_meeting_event: Posėdis baigtas
+      decidim/meetings/create_meeting_event: Posėdis
+      decidim/meetings/meeting_registrations_enabled_event: Registracijos įjungtos
+      decidim/meetings/meeting_registrations_over_percentage_event: Registracijų riba viršyta
+      decidim/meetings/update_meeting_event: Posėdis atnaujintas.
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Dubliuojant šį posėdį iškilo problema.
+          success: Posėdis dubliuotas.
+        new:
+          copy: Kopijuoti
+          select: Pasirinkite, kuriuos duomenis norėtumėte dubliuoti.
+          title: Dubliuoti posėdį
+    components:
+      meetings:
+        actions:
+          join: Prisijungti
+        settings:
+          global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+            creation_enabled_for_participants: Dalyviai gali sukurti posėdžius
+            default_registration_terms: Numatytos registracijos sąlygos
+            enable_pads_creation: Įjungti rinkiklio sukūrimą
+            resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus.
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            creation_enabled_for_participants: Galimybė dalyviams rengti posėdį įjungta.
+            creation_enabled_for_user_groups: Galimybė naudotojų grupėms rengti posėdį įjungta.
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Jūsų posėdis "%{resource_title}" baigtas. Išvadas galite perskaityti jo puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad organizavote posėdį „%{resource_title}“.
+            email_subject: '"%{resource_title}" posėdis baigtas'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> posėdis baigtas.
+          follower:
+            email_intro: '"%{resource_title}" posėdis baigtas. Išvadas galite perskaityti jo puslapyje:'
+            email_outro: Šį pranešimą gavote dėl to, kad sekate posėdį „%{resource_title}“. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+            email_subject: '"%{resource_title}" posėdis baigtas'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> posėdis baigtas.
+        meeting_created:
+          email_intro: Erdvėje „%{participatory_space_title}“, kurią sekate, pridėtas posėdis „%{resource_title}“.
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{participatory_space_title}“. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} pridėtas naujas posėdis'
+          notification_title: '%{participatory_space_title} pridėtas <a href="%{resource_path}">%{resource_title}</a> posėdis.'
+        meeting_registration_confirmed:
+          notification_title: Jūsų registracija į posėdį <a href="%{resource_url}">%{resource_title}</a> buvo patvirtinta. Jūsų registracijos kodas yra %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Posėdžiui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+          email_outro: Šį pranešimą gavote dėl to, kad esate posėdžio dalyvaujamojo proceso erdvės administratorius.
+          email_subject: Posėdžiui „%{resource_title}“ skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%
+          notification_title: Posėdžiui <a href="%{resource_path}">%{resource_title}</a> skirti laiko tarpsniai sudaro daugiau kaip %{percentage}%.
+        meeting_updated:
+          email_intro: '"%{resource_title}" posėdis buvo atnaujintas. Naująją versiją galite perskaityti jos puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate posėdį „%{resource_title}“. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '"%{resource_title}" posėdis buvo atnaujintas'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> posėdis buvo atnaujintas.
+        registration_code_validated:
+          email_intro: Jūsų "%{resource_title}" posėdžio registracijos kodas "%{registration_code}" buvo patvirtintas.
+          email_outro: Šį pranešimą gavote dėl to, kad jūsų "%{resource_title}“ posėdžio registracijos kodas buvo patvirtintas.
+          email_subject: Jūsų "%{resource_title}" posėdžio registracijos kodas "%{registration_code}" buvo patvirtintas
+          notification_title: Jūsų <a href="%{resource_path}">%{resource_title}</a> posėdžio registracijos kodas "%{registration_code}" buvo patvirtintas.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" posėdžio registracijos įjungtos. Galite užsiregistruoti jo tinklalapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate posėdį „%{resource_title}“. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: '"%{resource_title}" posėdžio registracijos įjungtos.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> posėdžio registracijos įjungtos.
+        upcoming_meeting:
+          email_intro: Posėdis „%{resource_title}“ prasidės praėjus mažiau nei 48 val.
+          email_outro: Šį pranešimą gavote dėl to, kad sekate posėdį „%{resource_title}“. Jūs galite jo nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: Posėdis „%{resource_title}“ prasidės praėjus mažiau nei 48 val.
+          notification_title: Posėdis <a href="%{resource_path}">%{resource_title}</a> prasidės praėjus mažiau nei 48 val.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Registruokitės į posėdžius, kuriuose norite dalyvauti
+          description: Šis ženklelis suteikiamas dalyvavus keliuose tiesioginiuose posėdžiuose.
+          description_another: Šis dalyvis dalyvavo %{score} posėdžiuose (-ių).
+          description_own: Jūs dalyvavote %{score} posėdžiuose (-ių).
+          name: Dalyvauta posėdžiuose
+          next_level_in: Dalyvaukite dar %{score} posėdžiuose (-ių) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nedalyvavo nė viename posėdyje.
+          unearned_own: Jūs dar nedalyvavote nė viename posėdyje.
+    meetings:
+      actions:
+        agenda: Darbotvarkė
+        attachment_collections: Aplankai
+        attachments: Priedai
+        close: Uždaryti
+        confirm_destroy: Ar tikrai norite panaikinti šį posėdį?
+        destroy: Pašalinti
+        edit: Keisti
+        minutes: Minutės
+        preview: Peržiūrėti
+        registrations: Registracijos
+        title: Veiksmai
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Pridėti darbotvarkės punktą
+            agenda_item: Darbotvarkės klausimas
+            agenda_item_children: Darbotvarkės punktai
+            down: Žemyn
+            remove: Šalinti
+            up: Aukštyn
+          agenda_item_child:
+            agenda_item_child: Darbotvarkės punktai
+            down: Žemyn
+            remove: Šalinti
+            up: Aukštyn
+          create:
+            invalid: Kuriant šią darbotvarkę iškilo problema.
+            success: Darbotvarkė sukurta.
+          edit:
+            title: Keisti darbotvarkę
+            update: Atnaujinti
+          form:
+            add_agenda_item: Pridėti darbotvarkės klausimą
+            agenda_items: Darbotvarkės klausimai
+            end_date: Pabaigos data
+            start_date: Pradžios data
+          new:
+            create: Sukurti
+            title: Nauja darbotvarkė
+          update:
+            invalid: Atnaujinant šią darbotvarkę iškilo problema.
+            success: Darbotvarkė atnaujinta.
+        exports:
+          meetings: Posėdžiai
+          registrations: Registracijos
+        invite_join_meeting_mailer:
+          invite:
+            decline: Atmesti kvietimą
+            invited_you_to_join_a_meeting: "%{invited_by} jus pakvietė dalyvauti posėdyje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamą nuorodą."
+            join: Dalyvauti posėdyje „%{meeting_title}“
+        invites:
+          create:
+            error: Kviečiant dalyvį dalyvauti posėdyje iškilo problema.
+            success: Dalyvis pakviestas dalyvauti posėdyje.
+          form:
+            attendee_type: Dalyvio tipas
+            existing_user: Esamas dalyvis
+            invite: Kviesti
+            invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik posėdyje, bet ir organizacijoje.
+            non_user: Nesamas dalyvis
+            select_user: Pasirinkti dalyvį
+          index:
+            filter:
+              accepted: Priimtas
+              all: Visos
+              rejected: Atmesta
+              sent: Išsiųsta
+            filter_by: Filtravimo kriterijai
+            invite_attendee: Kviesti dalyvį
+            invites: Kvietimai
+            registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
+            search: Ieškoti
+        meeting_closes:
+          edit:
+            close: Uždaryti
+            title: Baigti posėdį
+        meetings:
+          close:
+            invalid: Užbaigiant šį posėdį iškilo problema.
+            success: Posėdis baigtas.
+          create:
+            invalid: Kuriant šį posėdį iškilo problema.
+            success: Posėdis sukurtas.
+          destroy:
+            success: Posėdis pašalintas.
+          edit:
+            update: Atnaujinti
+          form:
+            address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą.'
+            location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta.'
+            location_hints_help: 'Vietos nuoroda: papildoma informacija. Pavyzdys: pastato aukštas'
+          index:
+            title: Posėdžiai
+          new:
+            create: Sukurti
+            title: Sukurti posėdį
+          service:
+            description: Aprašymas
+            down: Žemyn
+            remove: Šalinti
+            service: Paslauga
+            title: Pavadinimas
+            up: Aukštyn
+          services:
+            add_service: Pridėti paslaugą
+            services: Paslaugos
+          update:
+            invalid: Atnaujinat šį posėdį iškilo problema.
+            success: Posėdis atnaujintas.
+        minutes:
+          create:
+            invalid: Kuriant šį protokolą iškilo problema.
+            success: Protokolas sukurtas.
+          edit:
+            update: Atnaujinti
+          new:
+            create: Sukurti
+            title: Sukurti protokolą
+          update:
+            invalid: Atnaujinant šį protokolą iškilo problema.
+            success: Protokolas atnaujintas.
+        models:
+          meeting:
+            name: Posėdis
+        registrations:
+          edit:
+            save: Išsaugoti
+            validate: Patvirtinti
+            validate_registration_code: Patvirtinti registracijos kodą
+          form:
+            available_slots_help: Palikite iki 0, jeigu turimi laiko tarpsniai neriboti.
+            invites: Kvietimai
+            recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikia. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo posėdžio pabaigos.
+            registration_form: Registracijos forma
+            reserved_slots_help: Palikite 0, jei laiko tarpsniai nerezervuoti.
+            reserved_slots_less_than: Turi būti ne didesnis kaip %{count} arba jam lygus.
+            title: Registracijos
+          update:
+            invalid: Išsaugant registracijos nuostatas iškilo problema.
+            success: Posėdžių registracijų nuostatos išsaugotos.
+          validate_registration_code:
+            invalid: Šis registracijos kodas negalioja.
+            success: Registracijos kodas patvirtintas.
+      admin_log:
+        invite:
+          create: "%{user_name} pakvietė %{attendee_name} į posėdį%{resource_name} %{space_name} erdvėje."
+          deleted: "%{user_name} panaikino %{attendee_name} kvietimą į posėdį %{resource_name} %{space_name} erdvėje."
+          update: "%{user_name} pakvietė %{attendee_name} į posėdį%{resource_name} %{space_name} erdvėje."
+        meeting:
+          close: "%{user_name} baigė posėdį %{resource_name} %{space_name} erdvėje."
+          create: "%{user_name} sukūrė posėdį %{resource_name} %{space_name} erdvėje."
+          delete: "%{user_name} pašalino posėdį %{resource_name} %{space_name} erdvėje."
+          export_registrations: "%{user_name} eksportavo posėdžio %{resource_name} registracijas %{space_name} erdvėje."
+          update: "%{user_name} atnaujino posėdį %{resource_name} %{space_name} erdvėje."
+          value_types:
+            organizer_presenter:
+              not_found: 'Organizatorius duomenų bazėje nerastas (ID: %{id})'
+        minutes:
+          create: "%{user_name} parengė posėdžio %{resource_name} protokolą %{space_name} erdvėje."
+          update: "%{user_name} atnaujino %{resource_name} posėdžio protokolą %{space_name} erdvėje."
+      calendar_modal:
+        calendar_url: Kalendoriaus URL
+        close_window: Uždaryti langą
+        export_calendar: Eksportuoti kalendorių
+      conference_venues: Konferencijos vietos
+      content_blocks:
+        upcoming_events:
+          name: Būsimi renginiai
+          view_all_events: Peržiūrėti viską
+      directory:
+        meetings:
+          index:
+            all: Visi
+            date: Data
+            past: Įvykę
+            search: Ieškoti
+            space_type: Dalyvaujamojo proceso erdvė
+            upcoming: Būsima
+      last_activity:
+        new_meeting_at_html: "<span>Naujas posėdis %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Kvietimas dalyvauti posėdyje
+        registration_mailer:
+          confirmation:
+            subject: Jūsų registracija į posėdį buvo patvirtinta
+      meeting:
+        not_allowed: Jūs negalite peržiūrėti šio posėdžio.
+      meetings:
+        create:
+          invalid: Kuriant šį posėdį iškilo problema.
+          success: Jūs sukūrėte posėdį.
+        edit:
+          back: Grįžti
+          title: Keisti „Jūsų posėdis“
+          update: Atnaujinti
+        filters:
+          category: Kategorija
+          date: Data
+          date_values:
+            all: Visos
+            past: Įvykę
+            upcoming: Būsima
+          origin: Kilmė
+          origin_values:
+            all: Visos
+            citizens: Piliečiai
+            official: Oficialus
+            user_groups: Grupės
+          scope: Sritis
+          search: Ieškoti
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
+          filter_by: Filtravimo kriterijai
+          unfold: Išskleisti
+        form:
+          address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą.'
+          location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta.'
+          location_hints_help: 'Vietos nuoroda: papildoma informacija. Pavyzdys: pastato aukštas'
+          select_a_category: Pasirinkite kategoriją
+        meeting_minutes:
+          meeting_minutes: Posėdžių protokolai
+          related_information: Susijusi informacija
+        meetings:
+          no_meetings_warning: Jūsų paieškos kriterijus atitinkančių posėdžių nerasta arba neplanuojama.
+          upcoming_meetings_warning: Dabar neplanuojama posėdžių, tačiau čia galite rasti visų įvykusių posėdžių sąrašą.
+        new:
+          back: Grįžti
+          create: Sukurti
+        registration_confirm:
+          cancel: Atšaukti
+          confirm: Patvirtinti
+        show:
+          attendees: Dalyvių skaičius
+          back: Grįžti į sąrašą
+          contributions: Nuomonių skaičius
+          date: Data
+          edit_meeting: Keisti posėdį
+          going: Vykstantis
+          join: Dalyvauti posėdyje
+          meeting_report: Posėdžio protokolas
+          no_slots_available: Laisvų laiko tarpsnių nėra
+          organizations: Dalyvaujančios organizacijos
+          registration_code_help_text: Jūsų registracijos kodas
+          registration_state:
+            validated: PATIKRINTA
+            validation_pending: VYKSTA PATIKRINIMAS
+          view: Peržiūrėti
+        update:
+          invalid: Atnaujinat posėdį iškilo problema.
+          success: Jūs atnaujinote posėdį.
+      meetings_map:
+        view_meeting: Peržiūrėti posėdį
+      models:
+        invite:
+          fields:
+            email: E. paštas
+            name: Pavadinimas
+            sent_at: Išsiųsta
+            status: Būsena
+          status:
+            accepted: Priimta (%{at})
+            rejected: Atmesta (%{at})
+            sent: Išsiųsta
+        meeting:
+          fields:
+            closed: Uždaryta
+            end_time: Pabaigos data
+            map: Žemėlapis
+            start_time: Pradžios data
+            title: Pavadinimas
+      read_more: "(išskleisti)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Jūsų registracija į posėdį <a href="%{url}">%{title}</a> buvo patvirtinta.
+          details: Išsamią posėdžio informaciją rasite priede.
+          registration_code: Jūsų registracijos kodas yra %{code}.
+      registrations:
+        create:
+          invalid: Jungiantis prie šio posėdžio iškilo problema.
+          success: Jūs prisijungėte prie posėdžio. Kadangi užsiregistravote šiame posėdyje, jums bus pranešta, jeigu jo informacija bus atnaujinta.
+        decline_invitation:
+          invalid: Atmetant kvietimą iškilo problema.
+          success: Jūs atmetėte kvietimą.
+        destroy:
+          invalid: Paliekant šį posėdį iškilo problema.
+          success: Jūs palikote posėdį.
+      types:
+        private_meeting: Uždaras posėdis
+        transparent: atviras
+      versions:
+        back_to_resource: Grįžti į posėdį
+    metrics:
+      meetings:
+        description: Sukurtų posėdžių skaičius
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Įvykę posėdžiai
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Susiję rezultatai:'
+        result_meeting: 'Susiję posėdžiai:'
+      proposals_from_meeting:
+        meeting_proposal: 'Susiję pasiūlymai:'
+        proposal_meeting: 'Susiję posėdžiai:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Kvietimas dalyvauti posėdyje
