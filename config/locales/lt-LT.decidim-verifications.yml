@@ -1,7 +1,255 @@
 lt:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Galimi metodai
+        offline: Atjungties režimas
+        offline_explanation: Tikrinimo atjungties režimu nurodymai
+        online: Prijungties režimas
+      id_document_information:
+        document_number: Dokumento numeris (su raide)
+        document_type: Dokumento rūšis
+      id_document_upload:
+        document_number: Dokumento numeris (su raide)
+        document_type: Jūsų dokumento rūšis
+        user: Dalyvis
+        verification_attachment: Jūsų dokumento nuskenuota kopija
+      offline_confirmation:
+        email: Dalyvio e. pašto adresas
+      postal_letter_address:
+        full_address: Tikslus adresas
+      postal_letter_confirmation:
+        verification_code: Tikrinimo kodas
+      postal_letter_postage:
+        full_address: Tikslus adresas
+        verification_code: Tikrinimo kodas
   decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
+          button: Atšaukti viską
+          button_before: Atšaukti iki datos
+          destroy:
+            confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+            confirm_all: Atšaukus visus leidimus, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+          destroy_nok: Atšaukiant leidimus, iškilo problema.
+          destroy_ok: Visi sutampantys leidimai atšaukti!
+          info: Bendras patvirtintų dalyvių skaičius – %{count}.
+          no_data: Patvirtintų dalyvių nėra.
+          title: Tikrinimų atšaukimas
+        authorization_workflows: Tikrinimai
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} atnaujino tapatybės dokumentų tikrinimo konfigūraciją."
+      user:
+        grant_id_documents_offline_verification: "%{user_name} patikrino %{resource_name} naudodamas tapatybės dokumentų tikrinimo atjungties režimu funkciją."
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Administratoriai įkėlė CSV su priimtų dalyvių e. pašto adresais.
+            Patikrinti galima tik dalyvius, kurių e. pašto adresai yra toje CSV rinkmenoje.
+        id_documents:
+          help: |-
+            Naudotojai įrašo savo tapatybės duomenis ir įkelia savo dokumento kopiją.
+            Įrašykite įkeltame paveikslėlyje esamą informaciją.
+            Informacija turėtų sutapti, kad ir ką naudotojas įrašytų.
+            Jei negalite aiškiai matyti informacijos arba jos negalite patikrinti, galite atmesti užklausą ir naudotojas galės ją ištaisyti.
+        postal_letter:
+          help: |-
+            Dalyviai prašo tikrinimo kodą siųsti jų adresu.
+            Jų adresu siunčiate laišką ir nurodote tikrinimo kodą.
+            Pažymite, kad laiškas išsiųstas.
+            Kai tik pažymėsite, kad laiškas išsiųstas, dalyvis galės įvesti kodą ir gauti patvirtinimą.
+      csv_census:
+        explanation: Patikrinimas naudojant organizacijos surašymo duomenis
+        name: Organizacijos surašymo duomenys
+      direct: Tiesiogiai
+      help: Pagalba
+      id_documents:
+        explanation: Įkelkite savo tapatybės dokumentus, kad galėtume jus identifikuoti.
+        name: Tapatybės dokumentai
+      multistep: Kelių žingsnių procesas
+      name: Vardas
+      postal_letter:
+        explanation: Pašto laišku atsiųsime kodą, kurį turėsite įrašyti, kad galėtume patikrinti jūsų adresą.
+        name: Kodas pašto laišku
     verifications:
       authorizations:
+        authorization_metadata:
+          info: 'Tai yra dabartinio patikrinimo duomenys.'
+          no_data_stored: Duomenys neišsaugomi.
+        create:
+          error: Kuriant leidimą iškilo problema.
+          success: Jums suteiktas leidimas.
+          unconfirmed: Kad galėtumėte suteikti sau leidimą, turite patvirtinti savo e. pašto adresą.
+        destroy:
+          error: Šalinant leidimą iškilo problema.
+          success: Leidimą pašalinote.
         first_login:
           actions:
+            another_dummy_authorization_handler: Sutikrinti pagal kitą leidimų tvarkytojo pavyzdį
+            csv_census: Sutikrinti pagal organizacijos surašymo duomenis
+            dummy_authorization_handler: Sutikrinti pagal leidimų tvarkytojo pavyzdį
+            dummy_authorization_workflow: Sutikrinti pagal leidimų suteikimo eigos pavyzdį
+            id_documents: Patikrinimas įkeliant savo tapatybės dokumentą
             postal_letter: Patikrinimas pašto laišku gaunant tikrinimo kodą
+            sms: Patikrinimas gaunant tikrinimo kodą SMS
+          title: Patvirtinkite savo tapatybę
+          verify_with_these_options: 'Savo tapatybę galite patvirtinti šiomis priemonėmis:'
+        index:
+          expired_verification: Patvirtinimas baigė galioti
+          pending_verification: Laukiama patvirtinimo
+          show_renew_info: Spustelėkite, kad atnaujintumėte patvirtinimą
+          unauthorized_verification: Naujas patvirtinimas
+        new:
+          authorize: Siųsti
+          authorize_with: Tikrina %{authorizer}
+        renew_modal:
+          cancel: Atšaukti
+          close: uždaryti
+          continue: Tęsti
+          info_renew: Jeigu norite atnaujinti duomenis, tęskite atnaujinimą.
+          title: Atnaujinti patikrinimą
+        skip_verification: Dabar tai galite praleisti ir %{link}
+        start_exploring: pradėti naršyti
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Importuojant surašymo duomenis įvyko klaida.
+              success: Importuoti %{count} elementai (%{errors} errors)
+            destroy_all:
+              success: Visi surašymo duomenys pašalinti.
+          destroy:
+            confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
+            title: Pašalinti visus surašymo duomenis
+          index:
+            data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}.
+            empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
+            title: Dabartiniai surašymo duomenys
+          instructions:
+            body: Kad tai padarytumėte, turite nueiti į sistemos administravimo laukelį ir organizacijai suteikti „csv_census“ leidimus.
+            title: Turite įjungti „cvs_census“ šiai organizacijai.
+          new:
+            file: ".csv rinkmena su e. pašto duomenimis"
+            info: 'Turi būti CSV formato rinkmena tik su viena skiltimi, kurioje nurodytas e. pašto adresas:'
+            submit: Įkelti rinkmeną
+            title: Įkelti naujus surašymo duomenis
+        authorizations:
+          new:
+            error: Negalėjome patikrinti jūsų paskyros arba jūsų duomenys neįtraukti į organizacijos surašymo duomenis.
+            success: Jūsų paskyra patikrinta.
+      dummy_authorization:
+        extra_explanation:
+          scope: Dalyvauti gali tik tie dalyviai, kurių sritis %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Tapatybės dokumentų konfigūracija
+              update: Atnaujinti
+            update:
+              error: Atnaujinant konfigūraciją iškilo problema.
+              success: Konfigūracija atnaujinta.
+          confirmations:
+            create:
+              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis.
+              success: Dalyvis patikrintas.
+            new:
+              introduce_user_data: Įrašykite paveikslėlio duomenis.
+              reject: Atmesti
+              verify: Patikrinti
+          offline_confirmations:
+            create:
+              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą ir prašykite dalyviui juos pakeisti.
+              success: Dalyvis patikrintas.
+            new:
+              cancel: Atšaukti
+              introduce_user_data: Įrašyti dalyvio e. pašto adresą ir dokumento duomenis
+              verify: Patikrinti
+          pending_authorizations:
+            index:
+              config: Konfigūruoti
+              offline_verification: Tikrinimas atjungties režimu
+              title: Vyksta tikrinimas prijungties režimu
+              verification_number: 'Tikrinimas #%{n}'
+          rejections:
+            create:
+              success: Tikrinimas atmestas. Dalyvis bus paragintas pakeisti savo dokumentus.
+        authorizations:
+          choose:
+            choose_a_type: 'Pasirinkite, kaip norite būti identifikuojami:'
+            offline: Atjungties režimas
+            online: Prijungties režimas
+            title: Identifikuokite save naudodami tapatybės dokumentą
+          create:
+            error: Įkeliant jūsų dokumentą iškilo problema.
+            success: Dokumentas įkeltas.
+          edit:
+            being_reviewed: Peržiūrime jūsų dokumentus. Netrukus jus patikrinsime.
+            offline: Naudoti tikrinimo atjungties režimu funkciją
+            online: Naudoti tikrinimo prijungties režimu funkciją
+            rejection_clarity: Įsitikinkite, kad įkeltame paveikslėlyje informacija būtų aiškiai matoma.
+            rejection_correctness: Įsitikinkite, kad suvedėte teisingą informaciją.
+            rejection_notice: Jus identifikuojant iškilo problema. Bandykite dar kartą.
+            send: Dar kartą teikti tikrinimo užklausą
+          new:
+            send: Užklausos tikrinimas
+            title: Įkelti savo tapatybės dokumentą
+          update:
+            error: Iš naujo įkeliant jūsų dokumentą iškilo problema.
+            success: Dokumentas iš naujo įkeltas.
+        passport: Pasas
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresas
+              letter_sent_at: Laiškas išsiųstas
+              mark_as_sent: Žyma išsiųsta
+              not_yet_sent: Dar neišsiųsta
+              title: Vyksta tikrinimai
+              username: Naudotojo vardas
+              verification_code: Tikrinimo kodas
+          postages:
+            create:
+              error: Klaida pažymint laišką kaip išsiųstą
+              success: Laiškas pažymėtas kaip išsiųstas
+        authorizations:
+          create:
+            error: Dėl jūsų užklausos iškilo problema.
+            success: Dėkojame! Jūsų adresu atsiųsime tikrinimo kodą.
+          edit:
+            send: Patvirtinti
+            title: Įveskite gautą tikrinimo kodą
+            waiting_for_letter: Netrukus jūsų adresu atsiųsime laišką, kuriame bus nurodytas jūsų patikrinimo kodas.
+          new:
+            send: Atsisiųsti laišką
+            title: Pateikite tikrinimo kodo užklausą
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą laišką.
+            success: Pavyko! Jūs patikrintas.
+      sms:
+        authorizations:
+          create:
+            error: Dėl jūsų užklausos iškilo problema.
+            success: Dėkojame! Jūsų telefonu išsiuntėme SMS žinutę.
+          destroy:
+            success: Tikrinimo kodas nustatytas iš naujo. Dar kartą įveskite savo telefono numerį
+          edit:
+            confirm_destroy: Ar tikrai norite iš naujo nustatyti tikrinimo kodą?
+            destroy: Tikrinimo kodą nustatyti iš naujo
+            resend: Ar gavote tikrinimo kodą?
+            send: Patvirtinti
+            title: Įveskite gautą tikrinimo kodą
+          new:
+            send: Atsisiųsti SMS
+            title: Pateikite tikrinimo kodo užklausą
+          update:
+            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
+            success: Pavyko! Jūs patikrintas.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: visos raidės turi būti didžiosios ir tik raidės ir (arba) skaičiai
