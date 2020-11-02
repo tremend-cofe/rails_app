@@ -1,18 +1,153 @@
 hu:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Válogatási információk
+        decidim_category_id: A javaslatkészletek kategóriái, amelyekben alkalmazni kívánja a sorsolást
+        decidim_proposals_component_id: Beállított javaslatok
+        dice: A kockadobás eredménye. Hajtson be egy 6 oldalú kockát, vagy keressen egy másik véletlenszerű módot egy 1 és 6 közötti szám kiválasztására, és írja be ide a kapott számot néhány tanúsító elé. Ez hozzájárul az eredmény véletlenszerűségének minőségéhez és biztosításához
+        target_items: Kiválasztandó javaslatok száma (a korábban kiválasztott javaslatok csoportjának sorsolásával kiválasztani kívánt javaslatok számát jelöli)
+        title: Cím
+        witnesses: Tanúsítók
+    models:
+      decidim/sortitions/create_sortition_event: Válogatás
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Válogatás
+        other: Válogatások
   decidim:
+    components:
+      sortitions:
+        name: Válogatások
+        settings:
+          global:
+            comments_enabled: Hozzászólások engedélyezve
+            comments_max_length: A hozzászólások maximális hossza (Hagyja meg a 0-t, ha az alapértelmezett értéket szeretné használni)
     events:
       sortitions:
         sortition_created:
           email_intro: 'A(z) "%{resource_title}" válogatást olyan helyhez adták hozzá, amelyet követ: "%{participatory_space_title}".'
           email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: "%{participatory_space_title}". Az előző hivatkozás segítségével visszavonhatja a követést.'
+          email_subject: 'Új válogatást adtak hozzá a következő helyhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> válogatást a következő helyhez adták hozzá: %{participatory_space_title}'
+    pages:
+      home:
+        statistics:
+          sortitions_count: Válogatások
+    participatory_processes:
+      statistics:
+        sortitions_count: Válogatások
     sortitions:
+      admin:
+        actions:
+          destroy: Válogatás törlése
+          edit: Szerkesztés
+          new: Új válogatás
+          show: Válogatás részletei
+        models:
+          sortition:
+            fields:
+              category: Kategória
+              created_at: Létrehozás dátuma
+              decidim_proposals_component: Javaslatok komponense
+              dice: Dobókocka
+              reference: Referencia
+              request_timestamp: Válogatási idő
+              seed: Kezdőérték
+              target_items: Kiválasztandó elemek
+              title: Cím
+            name:
+              one: Válogatás
+              other: Válogatások
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Biztosan törölni szeretné a válogatást?
+            destroy: Válogatás törlése
+            title: A válogatás törlése
+          create:
+            error: Hiba történt az új válogatás létrehozása során.
+            success: A válogatás létrehozása sikeres
+          destroy:
+            error: A válogatás nem törölhető.
+            success: A válogatás törlése sikeres
+          edit:
+            title: Frissítse a válogatásra vonatkozó információkat
+            update: Frissítés
+          form:
+            all_categories: Minden kategória
+            select_proposal_component: Válassza ki a beállított javaslatokat
+            title: A javaslatok új válogatása
+          index:
+            title: Válogatások
+          new:
+            confirm: A következő gomb megnyomásával a Decidim rögzíti a dátumot és az időt (másodpercek pontosságával), és a dobókockával együtt ezeket az információkat is felhasználja egy véletlenszerű kiválasztás létrehozásához. A művelet nem vonható vissza, miután a gombra kattintott. A sorsolás eredményét közzétesszük az ezen az űrlapon megadott adatokkal együtt, és ezek nem módosíthatók. Kérjük, gondosan ellenőrizze a tartalmat
+            create: Létrehozás
+            title: Új válogatás
+          show:
+            selected_proposals: A sorsolásra kiválasztott javaslatok
+          update:
+            error: Hiba történt a válogatás frissítése során.
+            success: A válogatás frissítése sikeres
       admin_log:
         sortition:
           create: "%{user_name} létrehozta a(z) %{resource_name} válogatást itt: %{space_name}"
           delete: "%{user_name} törölte a(z) %{resource_name} válogatást itt: %{space_name}"
           update: "%{user_name} frissítette a(z) %{resource_name} válogatást itt: %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 javaslat
+            other: "%{count} javaslat"
+        filters:
+          active: Aktív
+          all: Összes
+          cancelled: Törölt
+          category: Kategória
+          category_prompt: Kategória választása
+          search: Keresés
+          state: Állapot
+        filters_small_view:
+          close_modal: Modális ablak bezárása
+          filter: Szűrő
+          filter_by: Szűrési feltétel
+          unfold: Kibontás
+        linked_sortitions:
+          selected_proposals: Kiválasztott javaslatok
+        orders:
+          label: 'Válogatások rendezési elve:'
+          random: Véletlenszerű
+          recent: Új
+        results_count:
+          count:
+            one: kiválasztott javaslat
+            other: kiválasztott javaslatok
         show:
+          algorithm: A válogatás algoritmuskódja
+          any_category: az összes kategóriából
+          back: Vissza a listához
+          cancelled: Törölt válogatás
+          candidate_proposal_ids: A válogatásban szereplő javaslatok sorrendje és azonosítói
+          candidate_proposals_info: 'A válogatást a következő javaslatok (%{category_label}) között hajtották végre, a következő azonosítókkal (a kiválasztott javaslatok félkövéren szerepelnek)  '
           category: a(z) %{category} kategóriából
+          dice_result: "(1) Kockadobás eredménye"
           introduction: 'Ez az oldal a(z) %{reference} válogatás eredményeit tartalmazza. Ezzel a válogatással %{target_items} számú eredményt választottunk ki véletlenszerűen és azonos valószínűség-eloszlással az alább látható javaslatkészletből. Az eredmények mellett az ezen az oldalon megjelenő információk minden szükséges adatot tartalmaznak a garanciák maximalizálásához és az eredmények megismétléséhez. A válogatás minőségének kulcsa a kettős véletlenszerűség, amelyet a kocka (tanúsítók által igazolt) dobása, valamint a válogatás pontos ideje biztosít. Ezek információkat nyújtanak egy véletlenszerű kiválasztást generáló algoritmus számára. A válogatás időkezdőértéke olyan pontos (másodpercben), hogy lehetetlen ember által irányítani. Ezáltal kettős „ellenőrizhetetlen” bemenetet biztosít az igazságos eredmény garantálása érdekében.  '
+          mathematical_result: (1) x (2) eredmény
+          proposals_selected_by_sortition: Válogatásra kiválasztott javaslatok
+          sortition_reproducibility_details: A válogatás reprodukálhatóságának részletei
+          time_seed: "(2) időkezdőérték"
+          witnesses: Tanúsítók
+        sortition:
+          random_seed: Véletlenszerű kezdőérték
+          selected_proposals:
+            one: kiválasztott javaslat
+            other: kiválasztott javaslatok
+          view: Megtekintés
+        sortition_author:
+          deleted: Törölt résztvevő
+        sortition_cancel_author:
+          deleted: Törölt résztvevő
+        sortitions_count:
+          count:
+            one: 1 válogatás
+            other: "%{count} válogatás"
