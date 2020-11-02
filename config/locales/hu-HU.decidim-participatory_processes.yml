@@ -1,0 +1,421 @@
+hu:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Bejelentés
+        area_id: Terület
+        banner_image: Szalagcím képe
+        copy_categories: Kategóriák másolása
+        copy_components: Komponensek másolása
+        copy_steps: Lépések másolása
+        decidim_area_id: Terület
+        description: Leírás
+        developer_group: Támogató csoport
+        domain: Tartomány
+        end_date: Záró dátum
+        hashtag: Címke
+        hero_image: Kezdőlap képe
+        local_area: Szervezeti terület
+        meta_scope: Alkalmazási kör metaadatai
+        participatory_process_group_id: Folyamatcsoport
+        participatory_scope: Miről születik döntés?
+        participatory_structure: Hogyan születik döntés?
+        promoted: Előléptetve
+        published_at: 'Megjelent:'
+        related_process_ids: Kapcsolódó folyamatok
+        scope_id: Alkalmazási kör
+        scope_type_max_depth_id: Az alkalmazási kör szűrőjének mélysége
+        scopes_enabled: Alkalmazási körök engedélyezve
+        short_description: Rövid leírás
+        show_metrics: Mérőszámok megjelenítése
+        show_statistics: Statisztikák megjelenítése
+        slug: URL-slug
+        start_date: Kezdő dátum
+        subtitle: Felirat
+        target: Részvevők
+        title: Cím
+      participatory_process_group:
+        description: Leírás
+        hero_image: Kép
+        name: Név
+        participatory_process_ids: Kapcsolódó folyamatok
+      participatory_process_step:
+        cta_path: Cselekvésre történő felkérés útvonala
+        cta_text: Cselekvésre felkérő szöveg
+        description: Leírás
+        end_date: Záró dátum
+        short_description: Rövid leírás
+        start_date: Kezdő dátum
+        title: Cím
+      participatory_process_user_role:
+        email: E-mail-cím
+        name: Név
+        role: Szerep
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok a következők: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Szakasz aktiválva
+      decidim/participatory_process_step_changed_event: Szakasz módosítva
+  activerecord:
+    models:
+      decidim/participatory_process_group:
+        one: Részvételifolyamat-csoport
+        other: Részvételifolyamat-csoportok
+      decidim/participatory_process_step:
+        one: Szakasz
+        other: Szakaszok
+  decidim:
+    admin:
+      actions:
+        activate: Aktiválás
+        configure: Konfigurálás
+        confirm_destroy: Törlés megerősítése
+        destroy: Törlés
+        duplicate: Duplikálás
+        edit: Szerkesztés
+        filter:
+          all_processes: Az összes folyamat megjelenítése
+          process_groups: Folyamatcsoportok
+        import_process: Importálás
+        new_process: Új folyamat
+        new_process_group: Új folyamatcsoport
+        new_process_step: Új szakasz
+        new_process_user_role: Új folyamatadminisztrátor
+        preview: Előnézet
+        publish: Közzététel
+        resend_invitation: Meghívás újraküldése
+        unpublish: Közzététel visszavonása
+      menu:
+        participatory_process_groups: Folyamatcsoportok
+        participatory_processes_submenu:
+          attachment_collections: Mappák
+          attachment_files: Fájlok
+          attachments: Csatolmányok
+          categories: Kategóriák
+          components: Komponensek
+          info: Információ
+          moderations: Moderálások
+          private_users: Magánrésztvevők
+          process_admins: Folyamatadminisztrátorok
+          steps: Szakaszok
+      models:
+        participatory_process:
+          fields:
+            created_at: 'Létrehozás ideje:'
+            private: Privát
+            promoted: Kiemelt
+            published: Közzétett
+            title: Cím
+          name: Részvételi folyamat
+        participatory_process_group:
+          fields:
+            name: Név
+          name: Folyamatcsoport
+        participatory_process_step:
+          fields:
+            end_date: Záró dátum
+            start_date: Kezdő dátum
+            title: Cím
+          name: Részvételifolyamat-szakasz
+        participatory_process_user_role:
+          fields:
+            email: E-mail-cím
+            name: Név
+            role: Szerep
+          name: Részvételifolyamat-adminisztrátor
+          roles:
+            admin: Adminisztrátor
+            collaborator: Együttműködő
+            moderator: Moderátor
+            valuator: Értékelő
+        user:
+          fields:
+            invitation_accepted_at: 'Meghívás elfogadása ekkor:'
+            invitation_sent_at: 'Meghívás elküldése ekkor:'
+      participatory_process_copies:
+        new:
+          copy: Másolás
+          select: Válassza ki a duplikálni kívánt adatokat
+          title: Részvételi folyamat duplikálása
+      participatory_process_groups:
+        destroy:
+          error: Hiba történt a részvételifolyamat-csoport törlése során.
+          success: A részvételifolyamat-csoport törlése sikeres.
+        edit:
+          title: Folyamatcsoport szerkesztése
+          update: Frissítés
+        new:
+          create: Létrehozás
+          title: Új folyamatcsoport
+        update:
+          error: Hiba történt a részvételifolyamat-csoport frissítése során.
+          success: A részvételifolyamat-csoport frissítése sikeres.
+      participatory_process_imports:
+        create:
+          error: Hiba történt a részvételi folyamat importálása során.
+          success: A részvételi folyamat importálása sikeres.
+        new:
+          import: Importálás
+          select: Válassza ki az importálni kívánt adatokat
+          title: Részvételi folyamat importálása
+      participatory_process_publications:
+        create:
+          error: Hiba történt a részvételi folyamat közzététele során.
+          success: A részvételi folyamat közzététele sikeres.
+        destroy:
+          error: Hiba történt a részvételi folyamat közzétételének visszavonása során.
+          success: A részvételi folyamat közzétételének visszavonása sikeres.
+      participatory_process_step_activations:
+        create:
+          error: Hiba történt a részvételifolyamat-szakasz aktiválása során.
+          success: A részvételifolyamat-szakasz aktiválása sikeres.
+      participatory_process_steps:
+        create:
+          error: Hiba történt a részvételifolyamat-szakasz létrehozása során.
+          success: A részvételifolyamat-szakasz létrehozása sikeres.
+        default_title: Bevezetés
+        destroy:
+          error:
+            active_step: Aktív szakasz nem törölhető.
+            last_step: A folyamat utolsó szakasza nem törölhető.
+          success: A részvételifolyamat-szakasz törlése sikeres.
+        edit:
+          title: Részvételifolyamat-szakasz szerkesztése
+          update: Frissítés
+        index:
+          steps_title: Szakaszok
+        new:
+          create: Létrehozás
+          title: Új részvételifolyamat-szakasz
+        ordering:
+          error: Hiba történt a részvételi folyamat szakaszainak átrendezése során.
+        update:
+          error: Hiba történt a részvételi folyamat szakaszának frissítése során.
+          success: A részvételi szakasz frissítése sikeres.
+      participatory_process_user_roles:
+        create:
+          error: Hiba történt egy részvételi szakasz résztvevőjének hozzáadása során.
+          success: Adminisztrátor sikeresen hozzáadva a részvételi folyamathoz.
+        destroy:
+          success: Adminisztrátor sikeresen eltávolítva a részvételi folyamatból.
+        edit:
+          title: Részvételifolyamat-adminisztrátor frissítése
+          update: Frissítés
+        index:
+          process_admins_title: Részvételifolyamat-adminisztrátorok
+        new:
+          create: Létrehozás
+          title: Új részvételifolyamat-adminisztrátor
+        update:
+          error: Hiba történt a részvételi folyamat adminisztrátorának frissítése során.
+          success: A részvételi folyamat adminisztrátorának frissítése sikeres.
+      participatory_processes:
+        create:
+          error: Hiba történt a részvételi folyamat létrehozása során.
+          success: A részvételi folyamat létrehozása sikeres. Most konfigurálja a szakaszokat.
+        edit:
+          update: Frissítés
+        index:
+          not_published: Nem közzétett
+          private: Privát
+          public: Nyilvános
+          published: Közzétett
+        new:
+          create: Létrehozás
+          title: Új részvételi folyamat
+        update:
+          error: Hiba történt a részvételi folyamat frissítése során.
+          success: A részvételi folyamat frissítése sikeres.
+      participatory_processes_copies:
+        create:
+          error: Hiba történt a részvételi folyamat duplikálása során.
+          success: A részvételi folyamat duplikálása sikeres.
+      participatory_processes_group:
+        create:
+          error: Hiba történt az új részvételifolyamat-csoport létrehozása során.
+          success: A részvételifolyamat-csoport létrehozása sikeres.
+      titles:
+        participatory_process_groups: Részvételifolyamat-csoportok
+      users:
+        resend_invitation:
+          error: Hiba történt a meghívás újraküldése során.
+          success: A meghívás újraküldése sikeres.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} létrehozta a(z) %{resource_name} részvételi folyamatot"
+        publish: "%{user_name} közzétette a(z) %{resource_name} részvételi folyamatot"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} részvételi folyamat közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamatot"
+      participatory_process_group:
+        create: "%{user_name} létrehozta a(z) %{resource_name} részvételifolyamat-csoportot"
+        update: "%{user_name} frissítette a(z) %{resource_name} részvételifolyamat-csoportot"
+      participatory_process_step:
+        activate: "%{user_name} aktiválta a(z) %{resource_name} szakaszt a(z) %{space_name} részvételi folyamatban"
+        create: "%{user_name} létrehozta a(z) %{resource_name} szakaszt a(z) %{space_name} részvételi folyamatban"
+        delete: "%{user_name} törölte a(z) %{resource_name} szakaszt a(z) %{space_name} részvételi folyamatban"
+        update: "%{user_name} frissítette a(z) %{resource_name} szakaszt a(z) %{space_name} részvételi folyamatban"
+      participatory_process_user_role:
+        create: "%{user_name} meghívta a(z) %{resource_name} résztvevőt a(z) %{space_name} részvételi folyamatba"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} résztvevőt a(z) %{space_name} részvételi folyamatból"
+        update: "%{user_name} módosította a(z) %{resource_name} résztvevő szerepét a(z) %{space_name} részvételi folyamatban"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: A(z) "%{resource_title}" részvételi folyamat %{role} szerepét rendelték Önhöz.
+          email_outro: 'Azért kapta ezt az értesítést, mert a(z) "%{resource_title}" részvételi folyamatban a következő szerepet kapta: %{role}.'
+          email_subject: 'Önt a(z) %{role} szerephez rendelték itt: "%{resource_title}".'
+          notification_title: 'A(z) %{role} szerephez rendelték a részvételi folyamatban: <a href="%{resource_url}">%{resource_title}</a>.'
+        step_activated:
+          email_intro: 'A(z) %{resource_title} szakasz mostantól aktív a következő esetében: %{participatory_space_title}. Ezen az oldalon láthatja:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{participatory_space_title}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
+          email_subject: A(z) %{participatory_space_title} frissítése
+          notification_title: 'A(z) %{resource_title} szakasz mostantól aktív a következő esetében: <a href="%{resource_path}">%{participatory_space_title}</a>'
+        step_changed:
+          email_intro: 'A(z) %{participatory_space_title} %{resource_title} szakaszának dátumait frissítették. Ezen az oldalon láthatja:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{participatory_space_title}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
+          email_subject: A(z) %{participatory_space_title} frissítése
+          notification_title: A(z) <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">%{resource_title}</a> szakaszának dátumait frissítették.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>A <strong>részvételi folyamat</strong> részvételi tevékenységek sorozatának végrehajtása (például először egy felmérés kitöltése, majd javaslatok megfogalmazása, annak személyes vagy virtuális üléseken történő megbeszélése, végül rangsorolás) azzal a céllal, hogy meghatározásra kerüljön egy adott téma, majd döntés szülessen arról.</p> <p>A részvételi folyamatok példái a következők: a bizottsági tagok megválasztásának folyamata (ahol először előterjesztik, majd megvitatják és végül megválasztják a jelöltelet), a részvételi költségvetések (ahol javaslatokat tesznek, gazdasági szempontból értékelik azokat, és a rendelkezésre álló források alapján szavaznak azokról), a stratégiai tervezési folyamat, egy együttműködésen alapuló rendelet vagy norma tervezetének létrehozása, egy városi tér kialakítása vagy közpolitikai terv készítése.</p>\n"
+          page: "<p>A <strong>részvételi folyamat</strong> részvételi tevékenységek sorozatának végrehajtása (például először egy felmérés kitöltése, majd javaslatok megfogalmazása, annak személyes vagy virtuális üléseken történő megbeszélése, végül rangsorolás) azzal a céllal, hogy meghatározásra kerüljön egy adott téma, majd döntés szülessen arról.</p> <p>A részvételi folyamatok példái a következők: a bizottsági tagok megválasztásának folyamata (ahol először előterjesztik, majd megvitatják és végül megválasztják a jelöltelet), a részvételi költségvetések (ahol javaslatokat tesznek, gazdasági szempontból értékelik azokat, és a rendelkezésre álló források alapján szavaznak azokról), a stratégiai tervezési folyamat, egy együttműködésen alapuló rendelet vagy norma tervezetének létrehozása, egy városi tér kialakítása vagy közpolitikai terv készítése.</p>\n"
+          title: Mi az a részvételi folyamat?
+    metrics:
+      participatory_processes:
+        description: A szervezet részvételi folyamatainak száma
+        object: részvételi folyamatok
+        title: Részvételi folyamatok
+    participatory_process:
+      show:
+        related_assemblies: A kapcsolódó közgyűlések
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: '1 folyamat itt: %{group}'
+          other: "%{count} folyamat itt: %{group}"
+        title: Részvételifolyamat-csoportok
+    participatory_process_steps:
+      index:
+        process_steps: Folyamatszakaszok
+        title: Részvételifolyamat-szakaszok
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: A megjelenítendő elemek maximális száma
+        participatory_process_copies:
+          form:
+            slug_help: 'Az URL-slugokat arra használják, hogy létrehozzák az URL-címeket, amelyek erre a folyamatra mutatnak. Csak betűket, számokat és kötőjeleket tartalmazhat, és betűvel kell kezdődnie. Példa: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Dokumentum hozzáadása
+            slug_help: 'Az URL-slugokat arra használják, hogy létrehozzák az URL-címeket, amelyek erre a folyamatra mutatnak. Csak betűket, számokat és kötőjeleket tartalmazhat, és betűvel kell kezdődnie. Példa: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Teljes URL-címek helyett használjon részleges elérési útvonalakat. Betűket, számokat, kötőjeleket és perjeleket tartalmazhat, és betűvel kell kezdődnie. Ha nincs beállítva, a gomb nem jelenik meg. Példa: %{url}'
+            cta_text_help: Ha nincs beállítva, a gomb nem jelenik meg.
+        participatory_processes:
+          form:
+            announcement_help: Az itt megadott szöveg közvetlenül a folyamatinformációk alatt jeleníti meg a felhasználó számára.
+            duration: Időtartam
+            filters: Szűrők
+            images: Képek
+            metadata: Metaadatok
+            other: Egyéb
+            related_processes: Kapcsolódó folyamatok
+            scope_type_max_depth_help: Az alkalmazási kör szűrője mélységének korlátozása; A szűrő az általános és a kiválasztott alkalmazási kört jeleníti meg.
+            select_an_area: Válasszon területet
+            select_process_group: Folyamatcsoport kiválasztása
+            slug_help: 'Az URL-slugokat arra használják, hogy létrehozzák az URL-címeket, amelyek erre a folyamatra mutatnak. Csak betűket, számokat és kötőjeleket tartalmazhat, és betűvel kell kezdődnie. Példa: %{url}'
+            title: Általános információk
+            visbility: Láthatóság
+      content_blocks:
+        highlighted_processes:
+          name: Kiemelt folyamatok
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktív szakasz
+            more_information: További információk
+            participate: Részvétel
+            participate_in: Részvétel a(z) %{resource_name} folyamatban
+      participatory_process_steps:
+        index:
+          back_to_process: Vissza a folyamatok oldalára
+      participatory_processes:
+        filters:
+          explanations:
+            no_active_nor_upcoming: Nincsenek aktív vagy közelgő folyamatok
+            no_active_nor_upcoming_callout: Nincsenek aktív vagy közelgő folyamatok. Itt található a múltbeli folyamatok listája.
+          names:
+            active: Aktív
+            all: Összes
+            past: Múltbeli
+            upcoming: Közelgő
+          see: 'Lásd:'
+        index:
+          loading: Eredmények betöltése…
+      show:
+        area: Terület
+        dates: Dátum
+        developer_group: Támogató csoport
+        end_date: Záró dátum
+        local_area: Szervezeti terület
+        participatory_scope: Miről születik döntés?
+        participatory_structure: Hogyan születik döntés?
+        private_space: Ez egy zárt körű folyamat
+        related_processes: Kapcsolódó folyamatok
+        scope: Alkalmazási kör
+        start_date: Kezdő dátum
+        target: Részvevők
+        unspecified: Nincs meghatározva
+      statistics:
+        answers_count: Válaszok
+        comments_count: Hozzászólások
+        debates_count: Viták
+        endorsements_count: Jóváhagyások
+        followers_count: Követők
+        headline: Statisztikák
+        no_stats: Még nincsenek statisztikák.
+        orders_count: Támogatások
+        pages_count: Oldalak
+        participants_count: Résztvevők
+        projects_count: Projektek
+        results_count: Eredmények
+        supports_count: Támogatások
+        surveys_count: Felmérések
+        users_count: Résztvevők
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Tallózás
+          browse_resource: '%{resource_name} folyamatcsoport böngészése'
+          processes_count: 'Folyamatok:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktív szakasz
+          take_part: Részvétel
+      participatory_processes:
+        index:
+          promoted_processes: Kiemelt folyamatok
+        participatory_process:
+          active_step: 'Jelenlegi szakasz:'
+          more_info: További információk
+          more_info_about: További információ a(z) %{resource_name} folyamatról
+          take_part: Részvétel
+          take_part_in: Részvétel a(z) %{resource_name} folyamatban
+        promoted_process:
+          active_step: 'Jelenlegi szakasz:'
+          more_info: További információk
+          more_info_about: További információ a(z) %{resource_name} folyamatról
+          take_part: Részvétel
+          take_part_in: Részvétel a(z) %{resource_name} folyamatban
+      process_header_steps:
+        step: '%{current}/%{total}. szakasz'
+        view_steps: Folyamatszakaszok
