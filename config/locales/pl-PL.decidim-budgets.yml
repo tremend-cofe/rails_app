@@ -1,1 +1,240 @@
 pl:
+  activemodel:
+    attributes:
+      project:
+        budget: Budżet
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        proposal_ids: Powiązane propozycje
+        title: Tytuł
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Foldery
+        attachments: Załączniki
+        confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
+        destroy: Usuń
+        edit: Edytuj
+        edit_projects: Zarządzaj projektami
+        import: Importuj propozycje do projektów
+        new: Nowe %{name}
+        preview: Podgląd
+        title: Działania
+      admin:
+        budgets:
+          create:
+            invalid: Przy tworzeniu tego budżetu pojawił się problem
+            success: Utworzenie budżetu powiodło się
+          destroy:
+            invalid: Przy usuwaniu tego budżetu pojawił się problem
+            success: Usunięcie budżetu powiodło się
+          edit:
+            title: Edytuj budżet
+            update: Aktualizuj budżet
+          index:
+            title: Budżety
+          new:
+            create: Utwórz budżet
+            title: Nowy budżet
+          update:
+            invalid: Przy aktualizacji tego budżetu pojawił się problem
+            success: Aktualizacja tego budżetu powiodła się
+        models:
+          budget:
+            name: Budżet
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Przy tworzeniu tego projektu pojawił się problem
+            success: Utworzenie projektu powiodło się
+          destroy:
+            success: Usunięcie projektu powiodło się
+          edit:
+            title: Edytuj projekt
+            update: Aktualizuj
+          index:
+            finished_orders: Zakończone głosowania
+            pending_orders: Trwające głosowania
+            selected: Wybrane
+            title: Projekty
+          new:
+            create: Utwórz
+            title: Nowy projekt
+          update:
+            invalid: Przy aktualizacji tego projektu pojawił się problem
+            success: Aktualizacja projektu powiodła się
+        proposals_imports:
+          create:
+            invalid: Przy importowaniu propozycji do projektów pojawił się problem
+            success: "Importowanie propozycji do projektów w liczbie %{number} powiodło się"
+          new:
+            create: Importuj propozycje do projektów
+            no_components: W przestrzeni partycypacyjnej nie ma innych komponentów propozycji, aby można było zaimportować propozycje do projektów.
+            select_component: Wybierz komponent
+      admin_log:
+        budget:
+          create: "%{user_name} utworzył(a) budżet %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} usunął(ęła) budżet %{resource_name} z przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) budżet %{resource_name} w przestrzeni %{space_name}"
+        project:
+          create: "%{user_name} utworzył(a) projekt %{resource_name} w przestrzeni %{space_name}"
+          delete: "%{user_name} usunął(ęła) projekt %{resource_name} z przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował(a) projekt %{resource_name} w przestrzeni %{space_name}"
+      budget:
+        view: Zobacz wszystkie projekty budżetowe
+      budget_information_modal:
+        back_to: Powrót do %{component_name}
+        close_modal: Zamknij okno modalne
+        continue: Dalej
+        more_information: Więcej informacji
+      budgets_list:
+        cancel_order:
+          more_than_one: Usuń głos na %{name} i zacznij od początku
+          only_one: Usuń głos i zacznij od początku.
+        finished_message: Zakończono procedurę głosowania. Dziękujemy za udział!
+        highlighted_cta: Głosuj na %{name}
+        if_change_opinion: W przypadku zmiany zdania można
+        my_budgets: Moje budżety
+        voted_on: Zagłosowano na %{links}
+      limit_announcement:
+        cant_vote: Nie możesz zagłosować na ten budżet. <a href="%{landing_path}">Spróbuj wybrać inny budżet</a>.
+        limit_reached: Aktywny głos w %{links}. Aby zagłosować na ten budżet, należy <a href="%{landing_path}">usunąć oddany głos i rozpocząć od nowa</a>.
+      models:
+        budget:
+          fields:
+            name: Nazwa
+            projects_count: Liczba projektów
+            total_budget: Łączny budżet
+        project:
+          fields:
+            title: Tytuł
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Wybrane projekty to:'
+          subject: Zagłosowano na przestrzeń partycypacyjną %{space_name}
+          voted_on_space: Zagłosowano na budżet %{budget_name} dla przestrzeni partycypacyjnej %{space_name}.
+          voted_on_space_with_scope: Zagłosowano na budżet %{budget_name} dla przestrzeni partycypacyjnej %{space_name} w zakresie %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: W przypadku zmiany zdania można później zmienić wybór.
+          cancel: Anuluj
+          confirm: Potwierdź
+          description: To projekty wybrane jako część budżetu.
+          title: Potwierdź głos
+        budget_excess:
+          close: Zamknij
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Możesz usunąć wybrany wcześniej projekt lub oddać głos zgodnie ze swoimi preferencjami.
+          title: Przekroczono maksymalny budżet
+        budget_summary:
+          are_you_sure: Czy na pewno chcesz anulować swój głos?
+          assigned: 'Przypisano:'
+          cancel_order: usuń głos i zacznij od początku
+          checked_out:
+            description: Oddano już głos na budżet. W przypadku zmiany zdania można skorzystać z opcji %{cancel_link}.
+            title: Zakończono głosowanie nad budżetem
+          description: Na jakie projekty powinniśmy przeznaczyć budżet? Przypisz co najmniej %{minimum_budget} do projektów i zagłosuj zgodnie z preferencjami, by określić budżet.
+          description_minimum_projects_rule: Na jakie projekty powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie z preferencjami, by określić budżet.
+          title: To Ty decydujesz o budżecie
+        filters:
+          category: Kategoria
+          scope: Zakres
+          search: Szukaj
+          status_values:
+            all: Wszystkie
+            not_selected: Niewybrane
+            selected: Wybrane
+        filters_small_view:
+          close_modal: Zamknij okno modalne
+          filter: Filtr
+          filter_by: Filtruj wg
+          unfold: Rozwiń
+        order_progress:
+          vote: Głosuj
+        order_selected_projects:
+          remove: Usuń
+          view: Wyświetl
+        orders:
+          highest_cost: Najwyższy koszt
+          label: Sortuj projekty wg
+          lowest_cost: Najniższy koszt
+          most_voted: Najwięcej głosów
+          random: Kolejność losowa
+          selected: Wybrane
+        project:
+          add: Dodaj projekt %{resource_name} do swojego głosu
+          remove: Usuń projekt %{resource_name} ze swojego głosu
+          selected: Wybrane
+          view: Wyświetl
+          you_voted: Oddano głos
+        project_budget_button:
+          add: Dodaj do swojego głosu
+          add_descriptive: Dodaj projekt %{resource_name} do swojego głosu
+          added: Dodaj do swojego głosu
+          added_descriptive: Projekt %{resource_name} został dodany do Twojego głosu
+        projects_for: Projekty dla %{name}
+        show:
+          budget: Budżet
+          view_all_projects: Zobacz wszystkie projekty
+    components:
+      budgets:
+        actions:
+          vote: Głosuj
+        name: Budżety
+        settings:
+          global:
+            announcement: Ogłoszenie
+            comments_enabled: Komentarze aktywowane
+            comments_max_length: Maksymalna długość komentarza (Pozostaw 0 dla wartości domyślnej)
+            form:
+              errors:
+                budget_voting_rule_only_one: Należy włączyć zasadę jednego głosowania
+                budget_voting_rule_required: Wymagana zasada jednego głosowania
+            landing_page_content: Strona docelowa budżetów
+            more_information_modal: Więcej informacji
+            projects_per_page: Liczba projektów na stronie
+            resources_permissions_enabled: Zezwolenia na działania można ustawić na każde spotkanie
+            total_budget: Łączny budżet
+            vote_minimum_budget_projects_number: Minimalna liczba projektów do zagłosowania
+            vote_rule_minimum_budget_projects_enabled: 'Aktywuj zasadę: Minimalna liczba projektów, na które można głosować'
+            vote_rule_threshold_percent_enabled: 'Aktywuj zasadę: Minimalny procent budżetu'
+            vote_threshold_percent: Procent progu głosowania
+            workflow: Przepływ pracy
+            workflow_choices:
+              all: 'Zagłosuj we wszystkich: pozwala to uczestnikom głosować we wszystkich budżetach.'
+              one: 'Zagłosuj w jednym: pozwala to uczestnikom głosować w dowolnym budżecie, ale może być tylko jeden.'
+          step:
+            announcement: Ogłoszenie
+            comments_blocked: Komentarze zablokowane
+            highlighted_heading: Wyróżniony nagłówek
+            landing_page_content: Strona główna budżetów
+            list_heading: Nagłówek listy
+            more_information_modal: Więcej informacji
+            show_votes: Pokaż głosy
+            title: Tytuł
+            votes: Głosowanie
+            votes_choices:
+              disabled: Dezaktywowano głosowanie
+              enabled: Aktywowano głosowanie
+              finished: Zakończono głosowanie
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Budżet %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Widać to na stronie:'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Budżet %{resource_title} jest teraz aktywny dla %{participatory_space_title}.
+          notification_title: Budżet <a href="%{resource_path}">%{resource_title}</a> jest teraz aktywny dla %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Podczas przetwarzania głosu pojawił się problem
+        success: Głos został przyjęty
+      destroy:
+        error: Podczas anulowania głosu pojawił się problem
+        success: Głos został anulowany
+    resource_links:
+      included_proposals:
+        project_proposal: 'Propozycje uwzględnione w tym projekcie:'
+  index:
+    confirmed_orders_count: Liczba głosów
+  total_budget: Łączny budżet
