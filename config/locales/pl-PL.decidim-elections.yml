@@ -1,1 +1,237 @@
 pl:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Obraz
+        proposals: Powiązane propozycje
+        title: Tytuł
+      election:
+        description: Opis
+        end_time: Koniec głosowania
+        start_time: Początek głosowania
+        title: Tytuł
+      question:
+        description: Opis
+        max_selections: Maksymalna liczba wyborów
+        title: Tytuł
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Należy załączyć ponownie
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Należy załączyć ponownie
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Głos
+        name: Wybory
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            announcement: Ogłoszenie
+    elections:
+      actions:
+        confirm_destroy: Na pewno?
+        destroy: Usuń
+        edit: Edytuj
+        edit_answers: Edytuj odpowiedzi
+        edit_questions: Edytuj pytania
+        import: Importuj propozycje do odpowiedzi
+        new: Nowy %{name}
+        preview: Podgląd
+        publish: Publikuj
+        title: Działania
+        unpublish: Wycofaj publikację
+      admin:
+        answers:
+          create:
+            invalid: Przy tworzeniu tej odpowiedzi pojawił się problem
+            success: Utworzenie odpowiedzi powiodło się
+          destroy:
+            invalid: Przy usuwaniu tej odpowiedzi pojawił się problem
+            success: Usunięcie odpowiedzi powiodło się
+          edit:
+            title: Edytuj odpowiedź
+            update: Aktualizuj odpowiedź
+          index:
+            title: Odpowiedzi
+          new:
+            create: Utwórz odpowiedź
+            title: Nowa odpowiedź
+          update:
+            invalid: Przy aktualizacji tej odpowiedzi pojawił się problem
+            success: Aktualizacja odpowiedzi powiodła się
+        elections:
+          create:
+            invalid: Przy tworzeniu tych wyborów pojawił się problem
+            success: Utworzenie wyborów powiodło się
+          destroy:
+            invalid: Przy usuwaniu tych wyborów pojawił się problem
+            success: Usunięcie wyborów powiodło się
+          edit:
+            title: Edytuj wybory
+            update: Aktualizuj wybory
+          index:
+            title: Wybory
+          new:
+            create: Utwórz wybory
+            title: Nowe wybory
+          publish:
+            success: Opublikowanie wyborów powiodło się.
+          unpublish:
+            success: Wycofanie publikacji wyborów powiodło się.
+          update:
+            invalid: Przy aktualizacji tych wyborów pojawił się problem
+            success: Aktualizacja wyborów powiodła się
+        models:
+          answer:
+            name: Odpowiedź
+          election:
+            name: Wybór
+          question:
+            name: Pytanie
+        proposals_imports:
+          create:
+            invalid: Przy importowaniu propozycji do odpowiedzi pojawił się problem
+            success: "Importowanie propozycji w liczbie %{number} do odpowiedzi powiodło się"
+          new:
+            create: Importuj propozycje do odpowiedzi
+            no_components: W przestrzeni partycypacyjnej nie ma innych komponentów propozycji, aby można było zaimportować propozycje do odpowiedzi.
+            select_component: Wybierz komponent
+        questions:
+          create:
+            invalid: Przy tworzeniu tego pytania pojawił się problem
+            success: Utworzenie pytania powiodło się
+          destroy:
+            invalid: Przy usuwaniu tego pytania pojawił się problem
+            success: Usunięcie pytania powiodło się
+          edit:
+            title: Edytuj pytanie
+            update: Aktualizuj pytanie
+          index:
+            title: Pytania
+          new:
+            create: Utwórz pytanie
+            title: Nowe pytanie
+          update:
+            invalid: Przy aktualizacji tego pytania pojawił się problem
+            success: Aktualizacja pytania powiodła się
+      admin_log:
+        election:
+          publish: "%{user_name} opublikował(a) wybory %{resource_name}"
+          unpublish: "%{user_name} wycofał(a) publikację wyborów %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Zakończone
+          ongoing: Aktywne
+          upcoming: Nadchodzące
+        end_date: Zakończenie
+        footer:
+          view: Wyświetl
+          vote: Głos
+        label:
+          date: Daty
+        questions: Pytania %{count}
+        start_date: Początek
+        unspecified: Nie określono
+      elections:
+        filters:
+          active: Aktywne
+          all: Wszystkie
+          finished: Zakończone
+          search: Szukaj
+          upcoming: Nadchodzące
+        filters_small_view:
+          close_modal: Zamknij okno modalne
+          filter: Filtr
+          filter_by: Filtruj wg
+          unfold: Rozwiń
+        show:
+          back: Wszystkie wybory
+          preview: Podgląd
+          vote: Głosuj
+          voting_period_status:
+            finished: Głosowanie rozpoczęło się %{start_time}, a zakończyło %{end_time}
+            ongoing: 'Koniec głosowania: %{end_time}'
+            upcoming: 'Początek głosowania: %{start_time}'
+      models:
+        answer:
+          fields:
+            proposals: Propozycje
+            title: Tytuł
+        election:
+          fields:
+            end_time: Zakończenie
+            start_time: Rozpoczęcie
+            title: Tytuł
+        question:
+          fields:
+            answers: Odpowiedzi
+            max_selections: Maksymalny wybór
+            title: Tytuł
+      orders:
+        label: Uporządkuj wybory według
+        older: Najstarsze
+        recent: Najnowsze
+      votes:
+        confirm:
+          answer: Odpowiedź
+          answer_number: Odpowiedź %{number}
+          confirm: Potwierdź
+          edit: Edytuj
+          header: Potwierdź głos
+          intro: Oto podsumowanie głosu, który oddasz. <br> Potwierdź głos lub edytuj odpowiedzi.
+          question: Pytanie %{count}
+        confirmed:
+          back: Powrót do wyborów
+          experience: Jak było?
+          feedback: Przekaż nam swoją opinię
+          header: Głos potwierdzony
+          lead: Głos został już oddany!
+          text: 'Możesz sprawdzić, czy Twój głos został pomyślnie dodany do urny pod następującym identyfikatorem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Aby sprawdzić, skopiuj identyfikator i wklej go na <a href="evote-verify">stronę weryfikacji głosowania</a>
+        encrypting:
+          header: Szyfrowanie głosu...
+          text: Twój głos jest szyfrowany, aby zapewnić anonimowość głosowania.
+        header:
+          confirm: Potwierdź głos
+          confirmed: Głos potwierdzony
+          encrypting: Potwierdzenie głosu
+        messages:
+          not_allowed: Nie masz prawa głosować w tej chwili w tych wyborach.
+        modal:
+          close: Zamknij
+          proposal_header: 'Propozycje:'
+        new:
+          answer_choices: Możesz wybrać do %{choices} odpowiedzi lub nie wybrać żadnej
+          more_information: Więcej informacji
+          preview_alert: To podgląd kabiny do głosowania.
+          question_steps: Pytanie%{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> wybory"
+        voting_step:
+          back: Powrót
+          continue: Dalej
+      warnings:
+        no_elections_warning: Żadne wybory nie spełniają kryteriów wyszukiwania lub nie zaplanowano żadnych wyborów.
+        no_scheduled_elections_warning: Obecnie nie ma zaplanowanych wyborów, ale możesz tu znaleźć wszystkie wcześniejsze wybory.
+    events:
+      elections:
+        election_published:
+          email_intro: 'W przestrzeni %{participatory_space_title} aktywne są teraz wybory %{resource_title}. Widać to na stronie:'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: W przestrzeni %{participatory_space_title} aktywne są teraz wybory %{resource_title}.
+          notification_title: W przestrzeni %{participatory_space_title} aktywne są teraz wybory <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      statistics:
+        elections_count: Wybory
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Wyjście
