@@ -1,5 +1,165 @@
 ro:
+  activemodel:
+    attributes:
+      answer:
+        body: Răspuns
+      question:
+        max_choices: Număr maxim de opțiuni
+        question_type: Tip
+      questionnaire_question:
+        mandatory: Obligatoriu
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nu sunt complete
+              too_many: sunt prea multe
+        questionnaire:
+          request_invalid: S-a produs o eroare la tratarea solicitării. Vă rugăm să încercați din nou
   decidim:
     forms:
+      admin:
+        models:
+          components:
+            description: Descriere
+            tos: Termeni ai serviciului
+        questionnaires:
+          actions:
+            back: Înapoi la întrebări
+            show: Afișați răspunsurile
+          answer_option:
+            answer_option: Opțiune de răspuns
+            free_text: Text liber
+            remove: Eliminare
+            statement: Declarație
+          answers:
+            actions:
+              back: Înapoi la răspunsuri
+              export: Exportare
+              show: Afișați răspunsurile
+            empty: Niciun răspuns
+            export:
+              answer:
+                title: 'Răspunsul #%{number}'
+            index:
+              title: "Toral %{total} răspunsuri"
+            show:
+              title: 'Răspunsul #%{number}'
+          display_condition:
+            answer_option: Opțiune de răspuns
+            condition_question: Întrebare
+            condition_type: Condiție
+            condition_types:
+              answered: Răspuns completat
+              equal: Egal
+              match: Include textul
+              not_answered: Răspuns necompletat
+              not_equal: Nu este egal
+            condition_value: Text inclus
+            display_condition: Condiție de afișare
+            mandatory: Această condiție trebuie să fie îndeplinită întotdeauna indiferent de statutul altor condiții
+            remove: Eliminare
+            save_warning: Nu uitați să salvați formularul înainte de configurarea condițiilor de afișare
+            select_answer_option: Selectați opțiunea de răspuns
+            select_condition_question: Selectați o întrebare
+            select_condition_type: Selectați un tip de condiție
+          edit:
+            save: Salvare
+            title: Editați chestionarul
+          form:
+            add_question: Adăugați o întrebare
+            add_separator: Adăugați un separator
+            already_answered_warning: Unii utilizatori au primit deja un răspuns. Prin urmare, nu puteți modifica întrebările.
+            collapse: Restrângeți toate întrebările
+            expand: Extindeți toate întrebările
+            preview: Previzualizare
+            title: Editați formularul
+            unpublished_warning: Formularul nu este publicat. Puteți să ne modificați întrebările, însă acest lucru va șterge răspunsurile actuale.
+          matrix_row:
+            matrix_row: Rând
+            remove: Eliminare
+            statement: Declarație
+          question:
+            add_answer_option: Adăugați opțiunea de răspuns
+            add_display_condition: Adăugați condiția de afișare
+            add_display_condition_info: Salvați formularul pentru a configura condițiile de afișare
+            add_matrix_row: Adăugați un rând
+            any: Oricare
+            collapse: Restrăngere
+            description: Descriere
+            down: Jos
+            expand: Extindere
+            question: Întrebare
+            remove: Eliminare
+            statement: Declarație
+            up: Sus
+          separator:
+            down: Jos
+            remove: Eliminare
+            up: Sus
+          update:
+            invalid: S-a întâmpinat o problemă la salvarea formularului.
+            success: Formularele au fost salvate.
+      errors:
+        answer:
+          body: Corpul nu poate fi necompletat
+      files:
+        extension_whitelist: 'Formate acceptate:'
+      images:
+        dimensions_info: 'Imaginea va fi:'
+        processors:
+          resize_and_pad: Redimensionată și înscrisă pentru
+          resize_to_fit: 'Redimensionată:'
+      question_types:
+        long_answer: Răspuns lung
+        matrix_multiple: Matrice (opțiune multiplă)
+        matrix_single: Matrice (opțiune unică)
+        multiple_option: Opțiune multiplă
+        short_answer: Răspuns scurt
+        single_option: Opțiune unică
+        sorting: Sortare
+      questionnaires:
+        answer:
+          invalid: S-a întâmpinat o problemă la completarea formularului.
+          max_choices_alert: A fost selectat un număr prea mare de opțiuni
+          success: Formularele au fost completate.
+        question:
+          max_choices: 'Număr maxim de opțiuni: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Conectați-vă cu contul dumneavoastră</a> sau <a href="%{sign_up_link}">înregistrați-vă</a> pentru a completa formularul.
+            title: Completați formularul
+          current_step: Etapa %{step}
+          of_total_steps: din %{total_steps}
+          questionnaire_answered:
+            body: Ați completat deja acest formular.
+            title: Un răspuns a fost deja trimis
+          questionnaire_closed:
+            body: Formularul este închis și nu poate fi completat.
+            title: Formular închis
+          questionnaire_for_private_users:
+            body: Formularul este disponibil numai pentru utilizatorii privați
+            title: Formular închis
+          questionnaire_js_disabled:
+            body: Unele dintre caracteristicile acestui formular vor fi dezactivate. Pentru a vă îmbunătăți experiența, activați JavaScript în browserul dumneavoastră.
+            title: JavaScript este dezactivat
+          questionnaire_not_published:
+            body: Acest formular nu este încă publicat.
+          tos_agreement: Prin participarea dumneavoastră, acceptați Termenii serviciului.
+      step_navigation:
+        show:
+          are_you_sure: Această acțiune nu poate fi anulată și nu veți putea să modificați răspunsurile. Sunteți sigur(ă)?
+          back: Înapoi
+          continue: Continuare
+          submit: Trimite
       user_answers_serializer:
+        body: Răspuns
+        completion: Finalizare
         created_at: Răspuns completat la
+        id: ID răspuns
+        question: Întrebare
+        registered: Înscris
+        session_token: Identificatorul utilizatorului
+        unregistered: Neînscris
+        user_status: Statutul utilizatorului
