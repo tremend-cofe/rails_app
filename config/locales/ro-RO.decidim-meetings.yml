@@ -1,7 +1,35 @@
 ro:
+  activemodel:
+    attributes:
+      meeting:
+        organizer_gid: Creați în calitate de
+      minutes:
+        audio_url: URL audio
+        video_url: URL video
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_outro: Ați primit această notificare deoarece ați organizat reuniunea "%{resource_title}".
+        registration_code_validated:
+          email_subject: Codul dumneavoastră de înscriere "%{registration_code}" pentru reuniunea "%{resource_title}" a fost validat
     meetings:
       admin:
         invite_join_meeting_mailer:
           invite:
             join: Participați la reuniunea „%{meeting_title}”
+        registrations:
+          form:
+            available_slots_help: Lăsați această opțiune la 0 dacă aveți sloturi disponibile nelimitate.
+      admin_log:
+        invite:
+          create: "%{user_name} a invitat pe %{attendee_name} să participe la %{resource_name} reuniune în %{space_name}"
+          update: "%{user_name} a invitat pe %{attendee_name} să participe la %{resource_name} reuniune în %{space_name}"
+      models:
+        meeting:
+          fields:
+            map: Hartă
+      registrations:
+        create:
+          success: Ați intrat în reuniune. Deoarece v-ați înregistrat la acestă reuniune, veți primi notificări dacă există actualizări.
