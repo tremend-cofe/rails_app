@@ -1,1 +1,30 @@
 ro:
+  decidim:
+    admin:
+      assembly_user_roles:
+        new:
+          title: Administrator nou al adunării
+      models:
+        assembly_user_role:
+          roles:
+            moderator: Moderator
+    admin_log:
+      assembly_user_role:
+        delete: "%{user_name} a eliminat participantul %{resource_name} din adunare %{space_name}"
+    assemblies:
+      admin:
+        assembly_members:
+          index:
+            filter:
+              not_ceased: Nesistat
+      assembly_types:
+        consultative_advisory: Consultativ(ă)
+        executive: Executiv(ă)
+      filter:
+        consultative_advisory: Consultativ(ă)
+        executive: Executiv(ă)
+        help: 'Afișare'
+    events:
+      assemblies:
+        create_assembly_member:
+          email_subject: Ați fost invitat (ă) să fiți membru al adunării %{resource_name}!
