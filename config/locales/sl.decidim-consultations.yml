@@ -1,0 +1,343 @@
+sl:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Slika pasice
+        decidim_highlighted_scope_id: Izpostavljeno področje
+        description: Opis
+        end_voting_date: Glasovanje se konča
+        introductory_image: Uvodna slika
+        introductory_video_url: URL uvodnega videa
+        questions: Vprašanja
+        slug: Polje dinamičnih podatkov URL
+        start_voting_date: Glasovanje se začne
+        subtitle: Podnaslov
+        title: Naslov
+      question:
+        banner_image: Slika pasice
+        decidim_scope_id: Območje občine
+        hashtag: Ključnik
+        hero_image: Vhodna slika
+        i_frame_url: URL sistema za zunanje glasovanje
+        instructions: Dodatna navodila za glasovanje
+        max_votes: Največje število glasov
+        min_votes: Najmanjše število glasov
+        origin_scope: Področje
+        origin_title: Izvor
+        origin_url: Izvorni URL
+        participatory_scope: Participativno področje
+        promoter_group: Skupina promotorjev
+        question_context: Kontekst
+        reference: Sklic
+        scope: Območje občine
+        slug: Polje dinamičnih podatkov URL
+        subtitle: Podnaslov
+        vote: Sistem za zunanje glasovanje
+        what_is_decided: O čem se odloča
+      response:
+        decidim_consultations_response_group_id: Skupina
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Največje število glasov bi moralo biti višje od najmanjšega števila ali enako.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Odziv ni bil najden.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Število glasov je neveljavno.
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Nazaj na odzive
+        new_consultation: Novo posvetovanje
+        new_question: Novo vprašanje
+        new_response: Nov odziv
+        new_response_group: Nova skupina
+        publish_results: Objavi rezultate
+        response_groups: Upravljaj skupine za odzive
+        unpublish_results: Umakni rezultate
+      consultation_publications:
+        create:
+          error: Pri objavi tega posvetovanja se je pojavila težava.
+          success: Posvetovanje je bilo uspešno objavljeno.
+        destroy:
+          error: Pri umiku tega posvetovanja se je pojavila težava.
+          success: Posvetovanje je bilo uspešno umaknjeno.
+      consultation_results_publications:
+        create:
+          error: Pri objavi rezultatov tega posvetovanja se je pojavila težava.
+          success: Rezultati posvetovanja so bili uspešno objavljeni.
+        destroy:
+          error: Pri umiku rezultatov tega posvetovanja se je pojavila težava.
+          success: Rezultati posvetovanja so bili uspešno umaknjeni.
+      consultations:
+        create:
+          error: Pri ustvarjanju novega posvetovanja se je pojavila težava.
+          success: Posvetovanje je bilo uspešno ustvarjeno.
+        edit:
+          update: Posodobi
+        form:
+          slug_help: 'S polji dinamičnih podatkov URL se ustvarijo URL-ji, ki kažejo na to posvetovanje. Sprejema samo črke, številke in črte, mora pa se začeti s črko. Primer: %{url}'
+          title: Splošne informacije
+        index:
+          not_published: Ni objavljeno
+          published: Objavljeno
+        new:
+          create: Ustvari
+          title: Novo posvetovanje
+        results:
+          not_visible: Rezultati bodo na voljo, ko se posvetovanje zaključi.
+          participants: "%{count} udeležencev"
+          total_votes: 'Skupaj: %{count} glasov'
+        update:
+          error: Pri posodobitvi tega posvetovanja se je pojavila težava.
+          success: Posvetovanje je bilo uspešno posodobljeno.
+      menu:
+        consultations: Posvetovanja
+        consultations_submenu:
+          info: Informacija
+          questions: Vprašanja
+          results: Rezultati
+        questions_submenu:
+          components: Komponente
+          configuration: Konfiguracija
+          consultation: Posvetovanje
+          info: Informacija
+          responses: Odzivi
+      models:
+        consultation:
+          fields:
+            created_at: Ustvarjeno ob
+            published: Objavljeno
+            title: Naslov
+        question:
+          fields:
+            created_at: Ustvarjeno ob
+            published: Objavljeno
+            title: Naslov
+        response:
+          fields:
+            created_at: Ustvarjeno ob
+            response_group: Skupina
+            title: Naslov
+      question_configuration:
+        disable_external_voting: Za napredne konfiguracije onemogočite zunanje glasovanje.
+        form:
+          help: Nastavite vprašanja z izbirnimi odgovori tako, da povečate največje število odgovorov, ki jih udeleženec lahko izbere. Privzeta največja vrednost je 1, kar pomeni, da je mogoče glasovati le za en odgovor.
+          title: Napredna konfiguracija
+      question_publications:
+        create:
+          error: Pri objavi tega vprašanja se je pojavila težava.
+          success: Vprašanje je bilo uspešno objavljeno.
+        destroy:
+          error: Pri umiku tega vprašanja se je pojavila težava.
+          success: Vprašanje je bilo uspešno umaknjeno.
+      questions:
+        create:
+          error: Pri ustvarjanju novega vprašanja se je pojavila težava.
+          success: Vprašanje je bilo uspešno ustvarjeno.
+        destroy:
+          success: Vprašanje je bilo uspešno izbrisano.
+        edit:
+          update: Posodobi
+        form:
+          title: Splošne informacije
+        index:
+          not_published: Ni objavljeno
+          published: Objavljeno
+        new:
+          create: Ustvari
+          title: Novo vprašanje
+        update:
+          error: Pri posodobitvi tega vprašanja se je pojavila težava.
+          success: Vprašanje je bilo uspešno posodobljeno.
+      response_groups:
+        create:
+          error: Pri ustvarjanju nove skupine za odzive se je pojavila težava.
+          success: Skupina za odzive je bila uspešno ustvarjena.
+        destroy:
+          error: Pri odstranitvi skupine za odzive se je pojavila težava. Prepričajte se, da noben odziv ni odvisen od nje.
+          success: Skupina za odzive je bila uspešno izbrisana.
+        edit:
+          update: Posodobi
+        form:
+          title: Splošne informacije
+        help: Z uporabo skupin organizirajte vprašanja z izbirnimi odgovori v paketih.
+        new:
+          create: Ustvari
+          title: Nova skupina za odzive
+        update:
+          error: Pri posodobitvi tega odziva se je pojavila težava.
+          success: Odziv je bil uspešno posodobljen.
+      responses:
+        create:
+          error: Pri ustvarjanju novega odziva se je pojavila težava.
+          success: Odziv je bil uspešno ustvarjen.
+        destroy:
+          error: Pri odstranitvi odziva se je pojavila težava.
+          success: Odziv je bil uspešno izbrisan.
+        edit:
+          update: Posodobi
+        form:
+          title: Splošne informacije
+        new:
+          create: Ustvari
+          title: Nov odziv
+        update:
+          error: Pri posodobitvi tega odziva se je pojavila težava.
+          success: Odziv je bil uspešno posodobljen.
+      titles:
+        consultations: Posvetovanja
+        questions: Vprašanja
+        response_groups: Skupine za odzive
+        responses: Odzivi
+        results: Rezultati
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Največja količina elementov za prikaz
+      consultation:
+        start_voting_date: Glasovanje se začne
+        view_results: Prikaži rezultate
+      consultation_card:
+        view_results: Prikaži rezultate
+      consultations:
+        orders:
+          label: 'Razvrsti posvetovanja po:'
+          random: Naključju
+          recent: Najnovejših
+        show:
+          dates: Datumih
+      content_blocks:
+        highlighted_consultations:
+          name: Označenih posvetovanjih
+      filters:
+        active: Aktivno
+        all: Vse
+        finished: Končano
+        search: Išči
+        upcoming: Prihajajoče
+      filters_small_view:
+        close_modal: Zapri okno
+        filter_by: Filtriraj po
+        unfold: Razgrni
+      highlighted_questions:
+        title: Vprašanja iz %{scope_name}
+      index:
+        title: Posvetovanja
+      last_activity:
+        new_consultation: Novo posvetovanje
+        new_question_at_html: "<span>Novo vprašanje na %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktivna posvetovanja
+            see_all_consultations: Prikaži vsa posvetovanja
+            voting_ends_today: Glasovanje se konča <strong>danes</strong>.
+      question:
+        take_part: Sodeluj
+        view_results: Prikaži rezultate
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Udeleženci bi lahko porazdelili najmanj %{votes} glasov med različne možnosti.
+          title: Pri tem vprašanju je bilo možnih več odgovorov.
+          total_participants: Glasovanja se je udeležilo skupno %{count} ljudi.
+          vote_limit:
+            description: Udeleženci so lahko glasovali za največ %{limit} možnosti.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Med različne možnosti morate porazdeliti najmanj %{votes} glasov.
+          title: 'Za glasove veljajo naslednja pravila:'
+          vote_limit:
+            description: Glasujete lahko za največ %{limit} možnosti.
+            left: Preostali
+            votes: Glasovi
+      question_votes:
+        create:
+          error: Pri glasovanju o vprašanju se je pojavila težava.
+          success: Do konca glasovanja ga lahko spremenite. Sprejet bo samo zadnji glas.
+          title_error: Napaka pri glasovanju!
+          title_success: Glas je bil uspešno registriran.
+      regular_questions:
+        title: Vprašanja za to posvetovanje
+      show:
+        badge_name:
+          finished: Končano
+          open: Odprto
+          open_votes: Odprti glasovi
+          published_results: Objavljeni glasovi
+        footer_button_text:
+          debate: Razprava
+          view: Prikaži
+          view_results: Prikaži rezultate
+          vote: Glasuj
+        unspecified: Ni opredeljeno
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Posvetovanja</strong> so prostor, ki vam omogoča, da zastavite jasno vprašanje vsem ljudem, ki tvorijo organizacijo, da naslovite poziv k udeležbi v posvetovanju in spodbudite ali zahtevate razpravo v podporo odgovoru ali proti njemu. Ko se bliža datum posvetovanja, lahko glasujete in objavite rezultate glasovanja.</p> <p>Primeri: Posvetovanja so lahko o skoraj katerem koli vidiku, ki vpliva na organizacijo: med primeri so sprememba imena ali logotipa organizacije, pri kateri so na voljo različne možnosti, odločanje o morebitni vključitvi v širšo organizacijo, potrditev ali zavrnitev novega strateškega načrta ali rezultata delovne skupine ali določitev, ali naj se položaji ohranijo največ 1, 2 ali 3 mandate.</p>\n"
+          page: "<p><strong>Posvetovanja</strong> so prostor, ki vam omogoča, da zastavite jasno vprašanje vsem ljudem, ki tvorijo organizacijo, da naslovite poziv k udeležbi v posvetovanju in spodbudite ali zahtevate razpravo v podporo odgovoru ali proti njemu. Ko se bliža datum posvetovanja, lahko glasujete in objavite rezultate glasovanja.</p> <p>Primeri: Posvetovanja so lahko o skoraj katerem koli vidiku, ki vpliva na organizacijo: med primeri so sprememba imena ali logotipa organizacije, pri kateri so na voljo različne možnosti, odločanje o morebitni vključitvi v širšo organizacijo, potrditev ali zavrnitev novega strateškega načrta ali rezultata delovne skupine ali določitev, ali naj se položaji v organizaciji ohranijo največ 1, 2 ali 3 mandate.</p>\n"
+          title: Kaj so posvetovanja?
+    menu:
+      consultations: Posvetovanja
+    pages:
+      home:
+        statistics:
+          consultations_count: Posvetovanja
+    questions:
+      next_button: Naslednje vprašanje
+      previous_button: Prejšnje vprašanje
+      results:
+        title: Rezultati
+      show:
+        read_more: Več
+      statistics:
+        assistants_count_title: Pomočniki
+        comments_count_title: Komentarji
+        meetings_count_title: Sestanki
+        supports_count_title: Glasovi
+      technical_info:
+        technical_data: Tehnični podatki
+      vote_button:
+        already_voted: Glas je bil že oddan.
+        already_voted_hover: Prekliči glas
+        starting_from: Z začetkom dne %{date}
+        verification_required: Za glasovanje preverite svoj račun.
+        vote: Glasuj
+      vote_modal:
+        close_modal: Zapri modalno okno
+        contextual_help: Izberite eno od možnosti.
+        title: 'Posvetovanje: glas o vprašanju'
+      vote_modal_confirm:
+        change: Sprememba
+        close_modal: Zapri modalno okno
+        confirm: Potrdi
+        contextual_help: Potrdite izbrano možnost.
+        title: 'Posvetovanje: Potrdi glas'
+    resources:
+      consultations:
+        actions:
+          vote: Glasuj
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Priloge
+          categories: Kategorije
+      consultation_voting_data:
+        start_voting_date: Glasovanje se začne
+      question_components:
+        question_menu_item: Vprašanje
+        unfold: Razgrni
+      question_header:
+        back_to_consultation: Prikaži vsa posvetovanja
+        back_to_question: Nazaj na vprašanje
