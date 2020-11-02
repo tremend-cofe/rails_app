@@ -1,0 +1,84 @@
+fi:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Uusi blogikirjoitus
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Kirjoitus
+        other: Kirjoitusta
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Oletko varma, että haluat poistaa tämän kirjoituksen?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi kirjoitus
+        title: Toiminnot
+      admin:
+        models:
+          components:
+            body: Leipäteksti
+          post:
+            name: Kirjoitus
+        posts:
+          create:
+            invalid: Kirjoituksen luominen epäonnistui
+            success: Kirjoitus luotiin onnistuneesti
+          destroy:
+            success: Kirjoitus poistettiin onnistuneesti
+          edit:
+            save: Päivitä
+          index:
+            title: Kirjoitukset
+          new:
+            create: Luo
+            title: Luo kirjoitus
+          update:
+            invalid: Kirjoituksen tallentaminen epäonnistui
+            success: Kirjoitus tallennettiin onnistuneesti
+      last_activity:
+        new_post_at_html: "<span>Uusi kirjoitus: %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Kirjoittaja
+            body: Leipäteksti
+            created_at: Luotu
+            title: otsikko
+      posts:
+        show:
+          back: Takaisin luetteloon
+          comments: Kommentit
+          view: Näytä
+        sidebar_blog:
+          comments: kommentit
+          most_commented_posts: Kommentoiduimmat kirjoitukset
+      read_more: Lisätietoja
+    components:
+      blogs:
+        name: Blogi
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit sallittu
+            comments_max_length: Kommenttien enimmäispituus (merkitse 0 saadaksesi oletusarvon)
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit estetty
+            endorsements_blocked: Suositukset estetty
+            endorsements_enabled: Suositukset sallittu
+    events:
+      blogs:
+        post_created:
+          email_intro: Kirjoitus "%{resource_title}" on julkaistu seuraamassasi kohteessa "%{participatory_space_title}".
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
+          email_subject: Uusi kirjoitus julkaistu kohteessa %{participatory_space_title}
+          notification_title: Kirjoitus <a href="%{resource_path}">%{resource_title}</a> on julkaistu kohteessa %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Kirjoitukset
+    participatory_processes:
+      statistics:
+        posts_count: Kirjoitukset
