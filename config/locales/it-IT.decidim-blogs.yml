@@ -1,0 +1,76 @@
+it:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nuovo post sul blog
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Confermi di voler eliminare questo post?
+        destroy: Elimina
+        edit: Modifica
+        new: Nuovo post
+        title: Azioni
+      admin:
+        models:
+          components:
+            body: Corpo
+        posts:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo post
+            success: Post creato correttamente
+          destroy:
+            success: Post eliminato correttamente
+          edit:
+            save: Aggiorna
+          index:
+            title: Post
+          new:
+            create: Crea
+            title: Crea post
+          update:
+            invalid: Si è verificato un problema durante il salvataggio del post.
+            success: Post salvato correttamente
+      last_activity:
+        new_post_at_html: "<span>Nuovo post su %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autore
+            body: Corpo
+            created_at: Creato alle
+            title: titolo
+      posts:
+        show:
+          back: Torna all'elenco
+          comments: Commenti
+          view: Visualizza
+        sidebar_blog:
+          comments: commenti
+          most_commented_posts: Post più commentati
+      read_more: Leggi di più
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Annuncio
+            comments_enabled: Commenti abilitati
+            comments_max_length: Lunghezza massima dei commenti (lasciare 0 per valore predefinito)
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            endorsements_blocked: Sottoscrizioni bloccate
+            endorsements_enabled: Sottoscrizioni abilitate
+    events:
+      blogs:
+        post_created:
+          email_intro: Il post "%{resource_title}" è stato pubblicato nello spazio partecipativo "%{participatory_space_title}", che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché segui "%{participatory_space_title}". Puoi smettere di seguirlo cliccando sul link precedente.
+          email_subject: Nuovo post pubblicato su %{participatory_space_title}
+          notification_title: Il post <a href="%{resource_path}">%{resource_title}</a> è stato pubblicato su %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Post
+    participatory_processes:
+      statistics:
+        posts_count: Post
