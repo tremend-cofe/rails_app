@@ -1,0 +1,84 @@
+sv:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nytt blogginlägg
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Inlägg
+        other: Inlägg
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Är du säker på att du vill radera detta inlägg?
+        destroy: Radera
+        edit: Redigera
+        new: Nytt inlägg
+        title: Åtgärder
+      admin:
+        models:
+          components:
+            body: Brödtext
+          post:
+            name: Inlägg
+        posts:
+          create:
+            invalid: Ett fel uppstod när inlägget skapades
+            success: Inlägget har skapats
+          destroy:
+            success: Inlägget har raderats
+          edit:
+            save: Uppdatera
+          index:
+            title: Inlägg
+          new:
+            create: Skapa
+            title: Skapa inlägg
+          update:
+            invalid: Ett fel uppstod när inlägget sparades.
+            success: Inlägget har sparats
+      last_activity:
+        new_post_at_html: "<span>Nytt inlägg på %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Upphovsman
+            body: Brödtext
+            created_at: Skapad
+            title: titel
+      posts:
+        show:
+          back: Tillbaka till listan
+          comments: Kommentarer
+          view: Visa
+        sidebar_blog:
+          comments: kommentarer
+          most_commented_posts: Inlägg med flest kommentarer
+      read_more: Läs mer
+    components:
+      blogs:
+        name: Blogg
+        settings:
+          global:
+            announcement: Tillkännagivande
+            comments_enabled: Kommentarer har aktiverats
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+          step:
+            announcement: Tillkännagivande
+            comments_blocked: Kommentarer har blockerats
+            endorsements_blocked: Stödförklaringar har blockerats
+            endorsements_enabled: Stödförklaringar har aktiverats
+    events:
+      blogs:
+        post_created:
+          email_intro: Inlägget "%{resource_title}" har publicerats i "%{participatory_space_title}"som du följer.
+          email_outro: Du har fått denna avisering eftersom du följer "%{participatory_space_title}". Du kan sluta följa det via föregående länk.
+          email_subject: Nytt inlägg publicerat i %{participatory_space_title}
+          notification_title: Inlägget <a href="%{resource_path}">%{resource_title}</a> har publicerats i %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Inlägg
+    participatory_processes:
+      statistics:
+        posts_count: Inlägg
