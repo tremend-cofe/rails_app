@@ -1,0 +1,152 @@
+pt:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informação de sorteio
+        decidim_category_id: Categorias do conjunto de propostas às quais pretende aplicar o sorteio
+        decidim_proposals_component_id: Conjunto de propostas
+        dice: Resultado do lançamento do dado. Lance um dado de 6 lados ou procure outra forma aleatória de gerar um número de 1 a 6 e introduza aqui o número resultante perante testemunhas. Isto contribui para a qualidade e garante um resultado aleatório
+        target_items: Número de propostas a selecionar (indica o número de propostas que pretende que sejam selecionadas por sorteio do grupo de propostas que escolheu anteriormente)
+        title: Título
+        witnesses: Testemunhas
+    models:
+      decidim/sortitions/create_sortition_event: Sorteio
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Sorteio
+        other: Sorteios
+  decidim:
+    components:
+      sortitions:
+        name: Sorteios
+        settings:
+          global:
+            comments_enabled: Comentários ativados
+            comments_max_length: Comprimento máx. dos comentários (deixar 0 como valor por defeito)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: O sorteio "%{resource_title}" foi adicionado a "%{participatory_space_title}", que está a seguir.
+          email_outro: Recebeu esta notificação porque está a seguir "%{participatory_space_title}". Pode deixar de seguir clicando na ligação anterior.
+          email_subject: Novo sorteio adicionado a %{participatory_space_title}
+          notification_title: O sorteio <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Sorteios
+    participatory_processes:
+      statistics:
+        sortitions_count: Sorteios
+    sortitions:
+      admin:
+        actions:
+          destroy: Cancelar sorteio
+          edit: Editar
+          new: Novo sorteio
+          show: Informações pormenorizadas do sorteio
+        models:
+          sortition:
+            fields:
+              category: Categoria
+              created_at: Data de criação
+              decidim_proposals_component: Componente de propostas
+              dice: Dado
+              reference: Referência
+              request_timestamp: Hora do sorteio
+              target_items: Itens a selecionar
+              title: Título
+            name:
+              one: Sorteio
+              other: Sorteios
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Tem a certeza de que pretende cancelar este sorteio?
+            destroy: Cancelar sorteio
+            title: Cancelamento do sorteio
+          create:
+            error: Houve um problema ao criar um novo sorteio.
+            success: Sorteio criado com êxito
+          destroy:
+            error: Não é possível cancelar o sorteio.
+            success: Sorteio cancelado com êxito
+          edit:
+            title: Atualizar as informações sobre o sorteio
+            update: Atualizar
+          form:
+            all_categories: Todas as categorias
+            select_proposal_component: Selecionar o conjunto de propostas
+            title: Novo sorteio para propostas
+          index:
+            title: Sorteios
+          new:
+            confirm: Ao premir o botão seguinte, a Decidim irá registar a data e a hora (com precisão dos segundos). Estas informações, juntamente com o lançamento do dado, serão utilizadas para gerar uma seleção aleatória. A ação será irreversível. Ao clicar no botão, o resultado do sorteio e os dados introduzidos neste formulário serão publicados, não sendo possível fazer modificações. Verifique atentamente o conteúdo.
+            create: Criar
+            title: Novo sorteio
+          show:
+            selected_proposals: Propostas selecionadas para sorteio
+          update:
+            error: Houve um problema ao atualizar o sorteio.
+            success: Sorteio atualizado com êxito
+      admin_log:
+        sortition:
+          create: "%{user_name} criou o sorteio %{resource_name} em %{space_name}"
+          delete: "%{user_name} cancelou o sorteio %{resource_name} em %{space_name}"
+          update: "%{user_name} atualizou o sorteio %{resource_name} em %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostas"
+        filters:
+          active: Ativos
+          all: Todos
+          cancelled: Cancelados
+          category: Categoria
+          category_prompt: Selecionar uma categoria
+          search: Pesquisar
+          state: Estado
+        filters_small_view:
+          close_modal: Fechar janela modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Abrir
+        linked_sortitions:
+          selected_proposals: Propostas selecionadas
+        orders:
+          label: 'Ordenar sorteios por:'
+          random: Aleatório
+          recent: Recentes
+        results_count:
+          count:
+            one: proposta selecionada
+            other: propostas selecionadas
+        show:
+          algorithm: Código algorítmico do sorteio
+          any_category: de todas as categorias
+          back: Voltar à lista
+          cancelled: Sorteio cancelado
+          candidate_proposal_ids: ID e ordem das propostas do sorteio
+          candidate_proposals_info: 'Este sorteio incidiu nas propostas (%{category_label}), com os seguintes ID (a negrito nas propostas selecionadas)  '
+          category: da categoria %{category}
+          dice_result: "(1) Resultado do dado"
+          introduction: 'Esta página contém os resultados do sorteio %{reference}. Através deste sorteio, %{target_items} resultados foram selecionados, aleatoriamente e com igual distribuição de probabilidade, a partir do conjunto de propostas apresentado abaixo. Juntamente com os resultados, a informação apresentada nesta página fornece todos os dados necessários para maximizar garantias e reproduzir os resultados. A chave da qualidade deste sorteio reside na dupla aleatoriedade proporcionada pelo lançamento de um dado (verificado por testemunhas) e a hora precisa do sorteio, que fornece a entrada para um algoritmo que gera uma seleção aleatória. O seed de hora para o sorteio é tão preciso (segundos) que é impossível de controlar por seres humanos, fornecendo assim uma entrada dupla «incontrolável» para garantir um resultado justo.  '
+          mathematical_result: Resultado (1) x (2)
+          proposals_selected_by_sortition: Propostas selecionadas por sorteio
+          sortition_reproducibility_details: Dados de reprodutibilidade do sorteio
+          time_seed: "(2) Seed de hora"
+          witnesses: Testemunhas
+        sortition:
+          random_seed: Seed aleatório
+          selected_proposals:
+            one: proposta selecionada
+            other: propostas selecionadas
+          view: Ver
+        sortition_author:
+          deleted: Participante eliminado
+        sortition_cancel_author:
+          deleted: Participante eliminado
+        sortitions_count:
+          count:
+            one: 1 sorteio
+            other: "%{count} sorteios"
