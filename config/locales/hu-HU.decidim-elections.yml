@@ -1,1 +1,32 @@
 hu:
+  activemodel:
+    attributes:
+      election:
+        end_time: 'A szavazás ekkor ér véget:'
+        start_time: 'A szavazás ekkor kezdődik:'
+  decidim:
+    elections:
+      admin:
+        proposals_imports:
+          new:
+            select_component: Kérjük, válasszon egy komponenst!
+      admin_log:
+        election:
+          publish: "%{user_name} közzétette a(z) %{resource_name} választást"
+          unpublish: "%{user_name} visszavonta a(z) %{resource_name} választás közzétételét"
+      models:
+        election:
+          fields:
+            end_time: 'Befejezés időpontja:'
+            start_time: 'Kezdés időpontja:'
+      orders:
+        label: 'Választások rendezési elve:'
+      votes:
+        encrypting:
+          header: Szavazat kódolása…
+    events:
+      elections:
+        election_published:
+          email_intro: 'A(z) %{resource_title} választás mostantól aktív a következő esetében: %{participatory_space_title}. Ezen az oldalon láthatja:'
+          email_subject: 'A(z) %{resource_title} választás mostantól aktív a következő esetében: %{participatory_space_title}.'
+          notification_title: 'A(z)<a href="%{resource_path}">%{resource_title}</a> választás mostantól aktív a következő esetében: %{participatory_space_title}.'
