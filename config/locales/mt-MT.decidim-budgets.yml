@@ -1,0 +1,239 @@
+mt:
+  activemodel:
+    attributes:
+      project:
+        budget: Baġit
+        decidim_category_id: Kategorija
+        decidim_scope_id: Kamp ta’ applikazzjoni
+        description: Deskrizzjoni
+        proposal_ids: Proposti relatati
+        title: Titlu
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Fowlders
+        attachments: Hemżiet
+        confirm_destroy: Żgur trid tħassar dan il-proġett?
+        destroy: Ħassar
+        edit: Editja
+        edit_projects: Ġestixxi l-proġetti
+        import: Importa l-proposti għall-proġetti
+        new: '%{name} ġdid'
+        title: Azzjonijiet
+      admin:
+        budgets:
+          create:
+            invalid: Kien hemm problema biex jinħoloq dan il-baġit
+            success: Il-baġit inħoloq
+          destroy:
+            invalid: Kien hemm problema biex jitħassar dan il-baġit
+            success: Il-baġit tħassar
+          edit:
+            title: Editja l-baġit
+            update: Aġġorna l-baġit
+          index:
+            title: Baġits
+          new:
+            create: Oħloq baġit
+            title: Baġit ġdid
+          update:
+            invalid: Kien hemm problema fl-aġġornament ta’ dan il-baġit
+            success: Il-baġit ġie aġġornat
+        models:
+          budget:
+            name: Baġit
+          project:
+            name: Proġett
+        projects:
+          create:
+            invalid: Kien hemm problema biex jinħoloq dan il-proġett
+            success: Il-proġett inħoloq
+          destroy:
+            success: Il-proġett tħassar
+          edit:
+            title: Editja l-proġett
+            update: Aġġorna
+          index:
+            finished_orders: Votazzjonijiet mitmuma
+            pending_orders: Votazzjonijiet pendenti
+            selected: Magħżulin
+            title: Proġetti
+          new:
+            create: Oħloq
+            title: Proġett ġdid
+          update:
+            invalid: Kien hemm problema fl-aġġornament ta’ dan il-proġett
+            success: Il-proġett ġie aġġornat
+        proposals_imports:
+          create:
+            invalid: Kien hemm problema biex il-proposti jiġu importati fil-proġetti
+            success: "Numru ta’ proposti li ġew importati fil-proġetti: %{number}"
+          new:
+            create: Importa l-proposti għall-proġetti
+            no_components: Ma hemm l-ebda komponent ieħor ta’ proposti f’dan l-ispazju parteċipatorju biex il-proposti jiġu importati fi proġetti.
+            select_component: Jekk jogħġbok agħżel komponent
+      admin_log:
+        budget:
+          create: "%{user_name} ħoloq il-baġit %{resource_name} fl-ispazju %{space_name} ispazju"
+          delete: "%{user_name} ħassar il-baġit %{resource_name} fl-ispazju %{space_name}"
+          update: "%{user_name} aġġorna l-baġit %{resource_name} fl-ispazju %{space_name}"
+        project:
+          create: "%{user_name} ħoloq il-proġett %{resource_name} fl-ispazju %{space_name}"
+          delete: "%{user_name} ħassar il-proġett %{resource_name} fl-ispazju %{space_name}"
+          update: "%{user_name} aġġorna l-proġett %{resource_name} fl-ispazju %{space_name}"
+      budget:
+        view: Ara l-proġetti baġitarji kollha
+      budget_information_modal:
+        back_to: Lura għal %{component_name}
+        close_modal: Agħlaq il-kaxxa ż-żgħira
+        continue: Kompli
+        more_information: Aktar informazzjoni
+      budgets_list:
+        cancel_order:
+          more_than_one: ħassar il-vot tiegħek fuq %{name} u erġa’ ibda
+          only_one: ħassar il-vot tiegħek u erġa’ ibda.
+        finished_message: Lestejt il-proċess tal-votazzjoni. Grazzi talli ħadt sehem!
+        highlighted_cta: Ivvota fuq %{name}
+        if_change_opinion: Jekk biddilt fehmtek, tista’
+        my_budgets: Il-baġits tiegħi
+        voted_on: Ivvutajt fuq %{links}
+      limit_announcement:
+        cant_vote: Ma tistax tivvota fuq dan il-baġit. <a href="%{landing_path}">Ipprova fuq baġit ieħor</a>.
+        limit_reached: Għandek voti attivi f’%{links}. Biex tivvota fuq dan il-baġit trid <a href="%{landing_path}">tħassar il-vot tiegħek u terġa’ tibda</a>.
+      models:
+        budget:
+          fields:
+            name: Isem
+            projects_count: Għadd ta' proġetti
+            total_budget: Baġit totali
+        project:
+          fields:
+            title: Titlu
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Il-proġetti li għażilt huma:'
+          subject: Ivvutajt fuq l-ispazju parteċipatorju %{space_name}
+          voted_on_space: Ivvutajt fuq il-baġit %{budget_name} għall-ispazju parteċipatorju %{space_name}.
+          voted_on_space_with_scope: Ivvutajt fuq il-baġit %{budget_name} għall-ispazju parteċipatorju %{space_name} fuq %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Jekk tibdel fehmtek, tista’ tibdel il-vot tiegħek aktar tard.
+          cancel: Ikkanċella
+          confirm: Ikkonferma
+          description: Dawn huma l-proġetti li għażilt biex ikunu parti mill-baġit.
+          title: Ikkonferma l-vot
+        budget_excess:
+          close: Agħlaq
+          description: Dan il-proġett jaqbeż il-baġit massimu u ma jistax jinżdied. Jekk tixtieq, tista’ tħassar proġett li diġà għażilt biex jinżdied, jew tivvota l-preferenzi tiegħek.
+          title: Il-baġit massimu nqabeż
+        budget_summary:
+          are_you_sure: Żgur li tixtieq tikkanċella l-vot tiegħek?
+          assigned: 'Assenjat:'
+          cancel_order: ħassar il-vot tiegħek u erġa’ ibda
+          checked_out:
+            description: Diġà vvutajt għall-baġit. Jekk biddilt fehmtek, tista’ %{cancel_link}.
+            title: Votazzjoni tal-baġit lesta
+          description: Liema proġetti taħseb li għandna nallokaw baġit għalihom? Assenja mill-inqas %{minimum_budget} għall-proġetti li tixtieq u vvota bil-preferenzi tiegħek biex tiddefinixxi l-baġit.
+          description_minimum_projects_rule: Liema proġetti taħseb li għandna nallokaw baġit għalihom? Agħżel mill-inqas %{minimum_number} proġett(i) li tixtieq u vvota bil-preferenzi tiegħek biex tiddefinixxi l-baġit.
+          title: Inti tiddeċiedi l-baġit
+        filters:
+          category: Kategorija
+          scope: Kamp ta’ applikazzjoni
+          search: Fittex
+          status_values:
+            all: Kollha
+            not_selected: Mhux magħżulin
+            selected: Magħżulin
+        filters_small_view:
+          close_modal: Agħlaq il-kaxxa ż-żgħira
+          filter: Iffiltra
+          filter_by: Iffiltra skont
+          unfold: Iftaħ
+        order_progress:
+          vote: Ivvota
+        order_selected_projects:
+          remove: Neħħi
+          view: Ara
+        orders:
+          highest_cost: L-ogħla spiża
+          label: Organizza l-proġetti skont
+          lowest_cost: L-inqas spiża
+          most_voted: L-aktar ivvutati
+          random: Ordni każwali
+          selected: Magħżulin
+        project:
+          add: Żid il-proġett %{resource_name} mal-vot tiegħek
+          remove: Neħħi l-proġett %{resource_name} mill-vot tiegħek
+          selected: Magħżulin
+          view: Ara
+          you_voted: Ivvutajt
+        project_budget_button:
+          add: Żid mal-vot tiegħek
+          add_descriptive: Żid il-proġett %{resource_name} mal-vot tiegħek
+          added: Miżjud mal-vot tiegħek
+          added_descriptive: Il-proġett %{resource_name} żdied mal-vot tiegħek
+        projects_for: Proġetti għal %{name}
+        show:
+          budget: Baġit
+          view_all_projects: Ara l-proġetti kollha
+    components:
+      budgets:
+        actions:
+          vote: Ivvota
+        name: Baġits
+        settings:
+          global:
+            announcement: Tħabbira
+            comments_enabled: Kummenti attivati
+            comments_max_length: Tul massimu tal-kummenti (Ħallih 0 għall-valur prestabbilit)
+            form:
+              errors:
+                budget_voting_rule_only_one: Għandha tkun attivata regola ta’ votazzjoni waħda biss
+                budget_voting_rule_required: Meħtieġa regola waħda ta’ votazzjoni
+            landing_page_content: Landing page tal-baġits
+            more_information_modal: Kaxxa b’aktar informazzjoni
+            projects_per_page: Proġetti għal kull paġna
+            resources_permissions_enabled: Jistgħu jiġu stabbiliti permessi ta’ azzjoni għal kull laqgħa
+            total_budget: Baġit totali
+            vote_minimum_budget_projects_number: Għadd minimu ta’ proġetti li jridu jiġu vvutati
+            vote_rule_minimum_budget_projects_enabled: 'Attiva r-regola: Għadd minimu ta’ proġetti li trid issir votazzjoni dwarhom'
+            vote_rule_threshold_percent_enabled: 'Attiva r-regola: Perċentwal minimu tal-baġit'
+            vote_threshold_percent: Perċentwal minimu tal-votazzjoni
+            workflow: Fluss tax-xogħol
+            workflow_choices:
+              all: 'Ivvota fuq kollox: tippermetti lill-parteċipanti jivvutaw fuq il-baġits kollha.'
+              one: 'Ivvota f’wieħed: tippermetti lill-parteċipanti jivvutaw fi kwalunkwe baġit, imma f’wieħed biss.'
+          step:
+            announcement: Tħabbira
+            comments_blocked: Kummenti mblukkati
+            highlighted_heading: Intestatura ħħajlajtjata
+            landing_page_content: Landing page tal-baġits
+            list_heading: Intestatura tal-lista
+            more_information_modal: Kaxxa b’aktar informazzjoni
+            show_votes: Uri l-voti
+            title: Titlu
+            votes: Votazzjoni
+            votes_choices:
+              disabled: Votazzjoni diżattivata
+              enabled: Votazzjoni attivata
+              finished: Votazzjoni mitmuma
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Il-baġit %{resource_title} issa huwa attiv għal %{participatory_space_title}. Tista’ tarah minn din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi %{participatory_space_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Il-baġit %{resource_title} issa huwa attiv għal %{participatory_space_title}.
+          notification_title: Il-baġit <a href="%{resource_path}">%{resource_title}</a> issa huwa attiv għal %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Kien hemm problema biex il-vot tiegħek jiġi pproċessat
+        success: Il-vot tiegħek ġie aċċettat
+      destroy:
+        error: Kien hemm problema biex il-vot tiegħek jiġi kkanċellat
+        success: Il-vot tiegħek ġie kkanċellat
+    resource_links:
+      included_proposals:
+        project_proposal: 'Proposti inklużi f’dan il-proġett:'
+  index:
+    confirmed_orders_count: L-għadd ta' voti
+  total_budget: Baġit totali
