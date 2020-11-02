@@ -1,0 +1,253 @@
+sl:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Razpoložljive metode
+        offline: Brez povezave
+        offline_explanation: Navodila za preverjanje brez povezave
+        online: Prek spleta
+      id_document_information:
+        document_number: Številka dokumenta (s črkami)
+        document_type: Vrsta dokumenta
+      id_document_upload:
+        document_number: Številka dokumenta (s črkami)
+        document_type: Vrsta vašega dokumenta
+        user: Udeleženec
+        verification_attachment: Skenirana kopija vašega dokumenta
+      offline_confirmation:
+        email: E-naslov udeleženca
+      postal_letter_address:
+        full_address: Polni naslov
+      postal_letter_confirmation:
+        verification_code: Koda za preverjanje
+      postal_letter_postage:
+        full_address: Polni naslov
+        verification_code: Koda za preverjanje
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Uporabno, če se je proces že začel in želite preklicati dovoljenja prejšnjega procesa.
+          button: Prekliči vse
+          button_before: Prekliči pred datumom
+          destroy:
+            confirm: Preklic pooblastil pred datumom ni mogoče razveljaviti. Ali res želite nadaljevati?
+            confirm_all: Preklica vseh pooblastil ni mogoče razveljaviti. Ali res želite nadaljevati?
+          destroy_nok: Pri preklicu dovoljenj se je pojavila težava.
+          destroy_ok: Vsa ujemajoča se dovoljenja so bila uspešno razveljavljena!
+          info: Skupaj je %{count} preverjenih udeležencev.
+          no_data: Nepreverjeni udeleženci
+          title: Preklic preverjanja
+        authorization_workflows: Preverjanje
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} je posodobil konfiguracijo za preverjanje identifikacijskih dokumentov."
+      user:
+        grant_id_documents_offline_verification: "%{user_name} je preveril %{resource_name} s preverjanjem identifikacijskih dokumentov brez povezave."
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Skrbniki naložijo CSV z e-naslovi sprejetih udeležencev.Preverjeni so lahko samo udeleženci z e-naslovom v tej datoteki CSV.
+        id_documents:
+          help: |-
+            Uporabniki izpolnijo podatke o njihovi identiteti in naložijo kopijo njihovega dokumenta.
+            Vnesite trenutne podatke naložene slike.
+            Podatki se morajo ujemati s tem, kar je uporabnik izpolnil.
+            Če podatkov ne vidite razločno ali jih ne morete preveriti, lahko zahtevo zavrnete, uporabnik pa jih bo lahko popravil.
+        postal_letter:
+          help: |-
+            Udeleženci lahko zahtevajo, da se jim na njihov naslov pošlje koda za preverjanje.Na njihov naslov pošljete dopis s kodo za preverjanje.Dopis označite kot poslan.Ko dopis označite kot poslan, bo udeleženec lahko vstavil kodo in bo preverjen.
+      csv_census:
+        explanation: Opravite svojo preveritev z uporabo popisa organizacije.
+        name: Popis organizacije
+      direct: Neposredni
+      help: Pomoč
+      id_documents:
+        explanation: Naložite svoje identifikacijske dokumente, da lahko preverimo vašo identiteto.
+        name: Identifikacijski dokumenti
+      multistep: Več korakov
+      name: Ime
+      postal_letter:
+        explanation: Poslali vam bomo dopis po pošti s kodo, ki jo boste morali vnesti, da bomo lahko preverili vaš naslov.
+        name: Koda, prejeta z dopisom po pošti
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'To so podatki trenutnega preverjanja:'
+          no_data_stored: Ni shranjenih podatkov.
+        create:
+          error: Pri ustvarjanju pooblastila se je pojavila težava.
+          success: Uspešno ste bili pooblaščeni.
+          unconfirmed: Če se želite pooblastiti, morate potrditi svoj e-naslov.
+        destroy:
+          error: Pri brisanju pooblastila se je pojavila težava.
+          success: Pooblastilo ste uspešno izbrisali.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Preverite z drugim primerom obdelave pooblastil.
+            csv_census: Preverite s popisom organizacije.
+            dummy_authorization_handler: Preverite s primerom obdelave pooblastil.
+            dummy_authorization_workflow: Preverite s primerom delovnega toka pooblastila.
+            id_documents: Opravite svojo preveritev z naložitvijo identifikacijskega dokumenta.
+            postal_letter: Opravite svojo preveritev s prejemom kode za preverjanje prek pošte.
+            sms: Opravite svojo preveritev s prejemom kode za preverjanje prek SMS-sporočila.
+          title: Preveri svojo identiteto.
+          verify_with_these_options: 'Za preverjanje identitete so na voljo naslednje možnosti:'
+        index:
+          expired_verification: Preverjanje je poteklo.
+          pending_verification: Čakanje na preverjanje
+          show_renew_info: Kliknite za obnovitev preverjanja.
+          unauthorized_verification: Novo preverjanje
+        new:
+          authorize: Pošlji
+          authorize_with: Preveri z %{authorizer}
+        renew_modal:
+          cancel: Prekliči
+          close: zapri
+          continue: Nadaljuj
+          info_renew: Če želite posodobiti podatke, nadaljujte z obnovitvijo.
+          title: Obnovi preverjanje
+        skip_verification: Za zdaj lahko to preskočite in %{link}.
+        start_exploring: začnete raziskovati
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Pri uvozu popisa se je pojavila napaka.
+              success: Uspešno uvoženih %{count} postavk (%{errors} napak)
+            destroy_all:
+              success: Vsi podatki o popisu so bili izbrisani.
+          destroy:
+            confirm: Izbrisa vseh podatkov popisa ni mogoče razveljaviti. Ali res želite nadaljevati?
+            title: Izbriši vse podatke popisa
+          index:
+            data: Naloženih je skupno %{count} zapisov. Datum zadnjega nalaganja je bil %{due_date}.
+            empty: Ni podatkov popisa. Uporabite spodnji obrazec, da jih uvozite v datoteki CSV.
+            title: Trenutni podatki popisa
+          instructions:
+            body: Če želite to narediti, morate vstopiti v upravljanje sistema in v organizacijo dodati pooblastila csv_census.
+            title: Za to organizacijo morate aktivirati popis CSV.
+          new:
+            file: "Datoteka .csv s podatki o e-pošti"
+            info: 'To mora biti datoteka v obliki CSV s samo enim stolpcem z e-naslovom:'
+            submit: Naloži datoteko
+            title: Naloži nov popis
+        authorizations:
+          new:
+            error: Vašega računa nismo mogli preveriti ali pa niste v popisu organizacije.
+            success: Vaš račun je bil uspešno preverjen.
+      dummy_authorization:
+        extra_explanation:
+          scope: Sodelovanje je omejeno na udeležence s področjem %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfiguracija osebnih dokumentov
+              update: Posodobi
+            update:
+              error: Pri posodobitvi konfiguracije se je pojavila težava.
+              success: Konfiguracija je bila uspešno posodobljena.
+          confirmations:
+            create:
+              error: Preverjanje se ne ujema. Poskusite znova ali zavrnite preverjanje, da ga bo udeleženec lahko spremenil.
+              success: Udeleženec je bil uspešno preverjen.
+            new:
+              introduce_user_data: Vstavite podatke na sliki.
+              reject: Zavrni
+              verify: Preveri
+          offline_confirmations:
+            create:
+              error: Preverjanje se ne ujema. Poskusite znova ali povejte udeležencu, naj ga spremeni
+              success: Udeleženec je bil uspešno preverjen.
+            new:
+              cancel: Prekliči
+              introduce_user_data: Vnesite e-naslov udeleženca in podatke o dokumentu
+              verify: Preveri
+          pending_authorizations:
+            index:
+              config: Konfiguracija
+              offline_verification: Preverjanje brez povezave
+              title: Preverjanja prek spleta v teku
+              verification_number: 'Preverjanje #%{n}'
+          rejections:
+            create:
+              success: Preverjanje je bilo zavrnjeno. Udeleženec bo pozvan, naj spremeni svoje dokumente.
+        authorizations:
+          choose:
+            choose_a_type: 'Izberite, kako želite biti preverjeni:'
+            offline: Brez povezave
+            online: Prek spleta
+            title: Preverite se z uporabo osebnega dokumenta.
+          create:
+            error: Pri nalaganju dokumenta se je pojavila težava.
+            success: Dokument je bil uspešno naložen.
+          edit:
+            being_reviewed: Pregledujemo vaše dokumente. Preverili vas bomo v kratkem.
+            offline: Uporabite preverjanje brez povezave.
+            online: Uporabite preverjanje prek spleta.
+            rejection_clarity: Prepričajte se, da so informacije na naloženi sliki jasno vidne.
+            rejection_correctness: Prepričajte se, da so vneseni podatki pravilni.
+            rejection_notice: Pri vašem preverjanju se je pojavila težava. Poskusite znova.
+            send: Zahtevaj preverjanje znova
+          new:
+            send: Zahtevaj preverjanje
+            title: Naložite svoj osebni dokument.
+          update:
+            error: Pri ponovnem nalaganju vašega dokumenta se je pojavila težava.
+            success: Dokument je bil uspešno ponovno naložen.
+        dni: Osebna izkaznica
+        nie: Osebna številka za tujce (NIE)
+        passport: Potni list
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Naslov
+              letter_sent_at: Dopis poslan ob
+              mark_as_sent: Označi kot poslano
+              not_yet_sent: Še ni poslano.
+              title: Preverjanja v teku
+              username: Vzdevek
+              verification_code: Koda za preverjanje
+          postages:
+            create:
+              error: Napaka pri označevanju dopisa kot poslanega
+              success: Dopis je bil uspešno označen kot poslan.
+        authorizations:
+          create:
+            error: Pri vaši zahtevi se je pojavila težava.
+            success: Hvala! Na vaš naslov bomo poslali kodo za preverjanje
+          edit:
+            send: Potrdi
+            title: Vnesi prejeto kodo za preverjanje
+            waiting_for_letter: Na vaš naslov bomo kmalu poslali dopis s kodo za preverjanje
+          new:
+            send: Pošlji mi dopis
+            title: Zahtevaj kodo za preverjanje
+          update:
+            error: Vaša koda za preverjanje se ne ujema z našo. Dvakrat preverite sporočilo, ki smo vam ga poslali.
+            success: Čestitamo! Uspešno ste bili preverjeni.
+      sms:
+        authorizations:
+          create:
+            error: Pri vaši zahtevi se je pojavila težava.
+            success: Hvala! Na vaš telefon smo poslali SMS-sporočilo.
+          destroy:
+            success: Potrditvena koda je bila uspešno ponastavljena. Ponovno vnesite svojo telefonsko številko.
+          edit:
+            confirm_destroy: Ali ste prepričani, da želite ponastaviti kodo za preverjanje?
+            destroy: Ponastavi kodo za preverjanje
+            resend: Niste prejeli kode za preverjanje?
+            send: Potrdi
+            title: Vnesi prejeto kodo za preverjanje
+          new:
+            send: Pošlji mi SMS-sporočilo
+            title: Zahtevaj kodo za preverjanje
+          update:
+            error: Vaša koda za preverjanje se ne ujema z našo. Preverite SMS-sporočilo, ki smo vam ga poslali.
+            success: Čestitamo! Uspešno ste bili preverjeni.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: mora biti z velikimi črkami in mora vsebovati samo črke in/ali številke
