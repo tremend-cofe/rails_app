@@ -1,0 +1,238 @@
+lv:
+  activemodel:
+    attributes:
+      answer:
+        description: Apraksts
+        image: Attēls
+        proposals: Saistītie priekšlikumi
+        title: Virsraksts
+      election:
+        description: Apraksts
+        end_time: Balsošana beidzas
+        start_time: Balsošana sākas
+        title: Virsraksts
+      question:
+        description: Apraksts
+        max_selections: Maksimālais izvēles iespēju skaits
+        title: Virsraksts
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Jāpievieno atkārtoti
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Jāpievieno atkārtoti
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Balsot
+        name: Vēlēšanas
+        settings:
+          global:
+            announcement: Paziņojums
+          step:
+            announcement: Paziņojums
+    elections:
+      actions:
+        confirm_destroy: Vai esat pārliecināts?
+        destroy: Likvidēt
+        edit: Rediģēt
+        edit_answers: Rediģēt atbildes
+        edit_questions: Rediģēt jautājumus
+        import: Importēt priekšlikumus atbildēs
+        new: Jaunais %{name}
+        preview: Priekšskatīt
+        publish: Publicēt
+        title: Darbības
+        unpublish: Atcelt publicēšanu
+      admin:
+        answers:
+          create:
+            invalid: Izveidojot šo atbildi, radās problēma
+            success: Atbilde ir veiksmīgi izveidota
+          destroy:
+            invalid: Dzēšot šo atbildi, radās problēma
+            success: Atbilde ir veiksmīgi izdzēsta
+          edit:
+            title: Rediģēt atbildi
+            update: Atjaunināt atbildi
+          index:
+            title: Atbildes
+          new:
+            create: Izveidot atbildi
+            title: Jauna atbilde
+          update:
+            invalid: Atjauninot šo atbildi, radās problēma
+            success: Atbilde ir veiksmīgi atjaunināta
+        elections:
+          create:
+            invalid: Izveidojot šīs vēlēšanas, radās problēma
+            success: Vēlēšanas ir veiksmīgi izveidotas
+          destroy:
+            invalid: Dzēšot šīs vēlēšanas, radās problēma
+            success: Vēlēšanas ir veiksmīgi izdzēstas
+          edit:
+            title: Rediģēt vēlēšanas
+            update: Atjaunināt vēlēšanas
+          index:
+            title: Vēlēšanas
+          new:
+            create: Izveidot vēlēšanas
+            title: Jaunas vēlēšanas
+          publish:
+            success: Vēlēšanas ir veiksmīgi publicētas.
+          unpublish:
+            success: Vēlēšanu publicēšana ir veiksmīgi atcelta.
+          update:
+            invalid: Atjauninot šīs vēlēšanas, radās problēma
+            success: Vēlēšanas ir veiksmīgi atjauninātas
+        models:
+          answer:
+            name: Atbilde
+          election:
+            name: Vēlēšanas
+          question:
+            name: Jautājums
+        proposals_imports:
+          create:
+            invalid: Importējot priekšlikumus atbildēs, radās problēma
+            success: "%{number} priekšlikumi ir veiksmīgi importēti atbildēs"
+          new:
+            create: Importēt priekšlikumus atbildēs
+            no_components: Šajā līdzdalības telpā nav citu priekšlikumu komponentu, lai importētu priekšlikumus atbildēs.
+            select_component: Lūdzu, atlasiet komponentu
+        questions:
+          create:
+            invalid: Izveidojot šo jautājumu, radās problēma
+            success: Jautājums ir veiksmīgi izveidots
+          destroy:
+            invalid: Dzēšot šo jautājumu, radās problēma
+            success: Jautājums ir veiksmīgi izdzēsts
+          edit:
+            title: Rediģēt jautājumu
+            update: Atjaunināt jautājumu
+          index:
+            title: Jautājumi
+          new:
+            create: Izveidot jautājumu
+            title: Jauns jautājums
+          update:
+            invalid: Atjauninot šo jautājumu, radās problēma
+            success: Jautājums ir veiksmīgi atjaunināts.
+      admin_log:
+        election:
+          publish: "%{user_name} publicēja vēlēšanas %{resource_name}"
+          unpublish: "%{user_name} atcēla vēlēšanu %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Pabeigtas
+          ongoing: Aktīvas
+          upcoming: Gaidāmās
+        end_date: Beigas
+        footer:
+          view: Skatīt
+          vote: Balsot
+        label:
+          date: Datumi
+        questions: Jautājumi %{count}
+        start_date: Sākums
+        unspecified: Nav norādīts
+      elections:
+        filters:
+          active: Aktīvas
+          all: Visas
+          finished: Pabeigtas
+          search: Meklēt
+          state: Statuss
+          upcoming: Gaidāmās
+        filters_small_view:
+          close_modal: Aizvērt modālo logu
+          filter: Filtrs
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        show:
+          back: Visas vēlēšanas
+          preview: Priekšskatīt
+          vote: Balsot
+          voting_period_status:
+            finished: Balsošana sākās %{start_time} un beidzās %{end_time}
+            ongoing: Balsošana beidzas %{end_time}
+            upcoming: Balsošana sākas %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Priekšlikumi
+            title: Virsraksts
+        election:
+          fields:
+            end_time: Beigu laiks
+            start_time: Sākuma laiks
+            title: Virsraksts
+        question:
+          fields:
+            answers: Atbildes
+            max_selections: Maksimālais izvēles iespēju skaits
+            title: Virsraksts
+      orders:
+        label: Sakārtot vēlēšanas pēc
+        older: Vecākās
+        recent: Nesenās
+      votes:
+        confirm:
+          answer: Atbilde
+          answer_number: atbilde %{number}
+          confirm: Apstiprināt
+          edit: rediģēt
+          header: Apstipriniet balsojumu
+          intro: Tālāk sniegts balsojuma kopsavilkums, kuru grasāties veikt. <br> Lūdzu, apstipriniet balsojumu vai rediģējiet savas atbildes.
+          question: Jautājums %{count}
+        confirmed:
+          back: Atgriezties pie vēlēšanām
+          experience: Kāda bija jūsu lietošanas pieredze?
+          feedback: Sniedziet mums savas atsauksmes
+          header: Balsojums ir apstiprināts
+          lead: Jūs jau nobalsojāt!
+          text: 'Varat pārbaudīt, ka jūsu balss ir veiksmīgi pievienota balsošanas kastē, izmantojot šādu identifikatoru: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Lai to pārbaudītu, kopējiet identifikatoru un ielīmējiet to <a href="evote-verify">balsojuma pārbaudes lapā</a>
+        encrypting:
+          header: Notiek balsojuma šifrēšana...
+          text: Jūs balsojums tiek šifrēts, lai nodrošinātu anonimitāti.
+        header:
+          confirm: Apstipriniet balsojumu
+          confirmed: Balsojums ir apstiprināts
+          encrypting: Notiek balsojuma apstiprināšana
+        messages:
+          not_allowed: Jums pašlaik nav atļauts balsot šajās vēlēšanās.
+        modal:
+          close: Aizvērt
+          proposal_header: 'Priekšlikumi:'
+        new:
+          answer_choices: Varat izvēlēties līdz %{choices} atbildēm vai nevienu atbildi
+          more_information: Papildinformācija
+          preview_alert: Tas ir balsošanas kabīnes priekšskatījums.
+          question_steps: '%{current_step}. jautājums no %{total_steps}'
+          selections: "%{selected} no %{max_selections}<br> izvēles iespējām"
+        voting_step:
+          back: Atpakaļ
+          continue: Tālāk
+      warnings:
+        no_elections_warning: Nevienas vēlēšanas neatbilst jūsu meklēšanas kritērijiem, vai nav paredzētas nevienas vēlēšanas.
+        no_scheduled_elections_warning: Pašlaik nav paredzētu vēlēšanu, taču šeit varat atrast visu iepriekšējo vēlēšanu sarakstu.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Telpā %{participatory_space_title} tagad ir aktīvas vēlēšanas %{resource_title}. Tās var skatīt šādā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat telpai %{participatory_space_title}. Jūs varat pārtraukt paziņojumu saņemšanu, sekojot iepriekš norādītajai saitei.
+          email_subject: Telpā %{participatory_space_title} tagad ir aktīvas vēlēšanas %{resource_title}.
+          notification_title: Telpā %{participatory_space_title} tagad ir aktīvas vēlēšanas <a href="%{resource_path}">%{resource_title}</a>.
+    participatory_processes:
+      statistics:
+        elections_count: Vēlēšanas
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Iziet

@@ -1,0 +1,78 @@
+cs:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nový příspěvek na blogu
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Opravdu chcete smazat tento příspěvek?
+        destroy: Smazat
+        edit: Upravit
+        new: Nové příspěvky
+        title: Akce
+      admin:
+        models:
+          components:
+            body: Hlavní část
+          post:
+            name: Příspěvek
+        posts:
+          create:
+            invalid: Při vytváření tohoto příspěvku nastal problém.
+            success: Příspěvek byl úspěšně vytvořen
+          destroy:
+            success: Příspěvek byl úspěšně smazán
+          edit:
+            save: Aktualizovat
+          index:
+            title: Příspěvky
+          new:
+            create: Vytvořit
+            title: Vytvořit příspěvek
+          update:
+            invalid: Při ukládání tohoto příspěvku nastal problém.
+            success: Příspěvek byl úspěšně uložen
+      last_activity:
+        new_post_at_html: "<span>Nový příspěvek v %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Hlavní část
+            created_at: Vytvořeno v
+            title: název
+      posts:
+        show:
+          back: Zpět na seznam
+          comments: Komentáře
+          view: Zobrazit
+        sidebar_blog:
+          comments: komentáře
+          most_commented_posts: Nejkomentovanější příspěvky
+      read_more: Zobrazit více
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Oznámení
+            comments_enabled: Komentáře byly povoleny
+            comments_max_length: Maximální délka komentáře (Ponechat 0 jako výchozí hodnotu)
+          step:
+            announcement: Oznámení
+            comments_blocked: Komentáře byly blokovány
+            endorsements_blocked: Schvalování blokováno
+            endorsements_enabled: Schvalování povoleno
+    events:
+      blogs:
+        post_created:
+          email_intro: Příspěvek "%{resource_title}" byl uveřejněn v "%{participatory_space_title}", který sledujete.
+          email_outro: Obdrželi jste oznámení, protože sledujete "%{participatory_space_title}". Pokud jej chcete přestat sledovat, přejděte na předchozí odkaz.
+          email_subject: V %{participatory_space_title} byl zveřejněn nový příspěvek
+          notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn v %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Příspěvky
+    participatory_processes:
+      statistics:
+        posts_count: Příspěvky

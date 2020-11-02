@@ -1,0 +1,223 @@
+et:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Olek
+        decidim_category_id: Kategooria
+        decidim_scope_id: Kohaldamisala
+        description: Kirjeldus
+        end_date: Lõppkuupäev
+        progress: Edenemisseis
+        project_ids: Hõlmatud projektid
+        proposals: Hõlmatud ettepanekud
+        start_date: Alguskuupäev
+        title: Pealkiri
+        updated_at: Värskendati
+      status:
+        description: Kirjeldus
+        key: Võti
+        name: Nimi
+        progress: Edenemisseis
+      timeline_entry:
+        description: Kirjeldus
+        entry_date: Kuupäev
+    models:
+      decidim/accountability/proposal_linked_event: Tulemuses hõlmatud ettepanek
+      decidim/accountability/result_progress_updated_event: Tulemuse edenemisseisu on värskendatud
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Tulemus
+        other: Tulemused
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Kas olete kindel, et soovite kirje %{name} kustutada?
+        destroy: Kustuta
+        edit: Muuda
+        import_csv: Impordi CSV-fail
+        new: Uus %{name}
+        preview: Eelvaade
+        timeline_entries: Projekti areng
+        title: Toimingud
+      admin:
+        exports:
+          results: Tulemused
+        import_results:
+          new:
+            import: Impordi
+            info: "<p>Soovitame toimida järgmiste juhiste järgi:</p><ol><li>Looge nende tulemuste jaoks, mida soovite lisada, olekud (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Looge enne importimisvõimaluse kasutamist vähemalt üks tulemus selle administraatoripaneeli kaudu käsitsi (<a href='%{link_new_result}' target='_blank'>link</a>), siis saate parema ettekujutuse vormingust ja sellest, millised väljad täita tuleb.</li><li>Laadige alla CSV-vormingus ekspordifail (%{link_export_csv})</li><li>Tehke kohalikud muudatused. Saate CSV-failis muuta üksnes järgmisi veerge:</li></ol><ul><li><b>category/id:</b> ID kategooria jaoks</li><li><b>scope/id:</b> ID kohaldamisala jaoks</li><li><b>parent/id:</b> ID ülemüksuse jaoks (seotud tulemuste jaoks). Valikuline</li><li><b>title/I18N:</b> pealkiri X keeles</li><li><b>description/I18N:</b> kirjeldus X keeles</li><li><b>start_date:</b> kuupäev, millal tulemustel põhinevat kava täitma hakatakse (vorming AAAA-KK-PP)</li><li><b>end_date:</b> kuupäev, millal tulemustel põhineva kava täitmine lõppeb (vorming AAAA-KK-PP)</li><li><b>status/id:</b> oleku ID selle tulemuse jaoks</li><li><b>progress:</b> kava täidetuse protsent (0–100)</li><li><b>proposals_ids:</b> seotud pakkumiste sisemised ID-d (komaeraldusega). See teisendatakse automaatselt ettepaneku URLiks <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Impordi tulemused CSV-failist
+        imports:
+          create:
+            success: Faili importimist on alustatud. Saate järgmise paari minuti jooksul importimise tulemuste kohta meili
+        models:
+          result:
+            name: Tulemus
+          status:
+            name: Olek
+          timeline_entry:
+            name: Ajateljekirje
+        results:
+          create:
+            invalid: Selle tulemuse loomisel tekkis probleem
+            success: Tulemused on loodud
+          destroy:
+            success: Tulemused on kustutatud
+          edit:
+            title: Muuda tulemust
+            update: Värskenda tulemust
+          index:
+            title: Tulemused
+          new:
+            create: Loo tulemus
+            title: Uus tulemus
+          update:
+            invalid: Selle tulemuse värskendamisel tekkis probleem
+            success: Tulemus on värskendatud
+        shared:
+          subnav:
+            statuses: Olekud
+        statuses:
+          create:
+            invalid: Selle oleku loomisel tekkis probleem
+            success: Olek on loodud
+          destroy:
+            success: Olek on kustutatud
+          edit:
+            title: Muuda olekut
+            update: Värskenda olekut
+          index:
+            title: Olekud
+          new:
+            create: Loo olek
+            title: Uus olek
+          update:
+            invalid: Selle oleku värskendamisel tekkis probleem
+            success: Olek on värskendatud
+        timeline_entries:
+          create:
+            invalid: Selle kirje loomisel tekkis probleem
+            success: Kirje on loodud
+          destroy:
+            success: Kirje on kustutatud
+          edit:
+            title: Muuda kirjet
+            update: Värskenda kirjet
+          index:
+            title: Projekti ajakavakirjed
+          new:
+            create: Loo kirje
+            title: Uus kirje
+          update:
+            invalid: Selle kirje värskendamisel tekkis probleem
+            success: Kirje on värskendatud
+      admin_log:
+        result:
+          create: "Kasutaja %{user_name} lõi tulemuse %{resource_name} osalusruumis %{space_name}"
+          delete: "Kasutaja %{user_name} kustutas tulemuse %{resource_name} osalusruumis %{space_name}"
+          update: "Kasutaja %{user_name} värskendas tulemust %{resource_name} osalusruumis %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Ülemüksust andmebaasist ei leitud (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Tõrked
+          errors_present: Tulemuste importimisel tekkis probleem
+          row_number: Rida
+          subject: Tulemused on imporditud
+          success: Tulemused on imporditud. Saate tulemused üle vaadata administreerimisliideses.
+      last_activity:
+        new_result_at_html: "<span>Uus tulemus lehel %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Lõppkuupäev
+            progress: Edenemisseis
+            start_date: Alguskuupäev
+            status: Olek
+            title: Pealkiri
+        status:
+          fields:
+            description: Kirjeldus
+            key: Võti
+            name: Nimi
+            progress: Edenemisseis
+        timeline_entry:
+          fields:
+            description: Kirjeldus
+            entry_date: Kuupäev
+      results:
+        count:
+          results_count:
+            one: 1 tulemus
+            other: "%{count} tulemust"
+        filters:
+          all: Kõik
+          scopes: Kohaldamisalad
+        home:
+          categories_label: Kategooriad
+          subcategories_label: Alamkategooriad
+        home_header:
+          global_status: Üldise täidetuse seis
+        nav_breadcrumb:
+          global: Üldine täidetus
+        search:
+          search: Toimingute otsing
+        show:
+          stats:
+            attendees: Osalejad
+            back_to_resource: Tagasi tulemuse lehele
+            comments: Kommentaarid
+            contributions: Panused
+            last_edited_by: Viimati muutis
+            last_updated_at: Viimati värskendati
+            meetings: Koosolekud
+            proposals: Ettepanekud
+            votes: Toetusavaldused
+        timeline:
+          title: Projekti areng
+    components:
+      accountability:
+        name: Aruandlus
+        settings:
+          global:
+            categories_label: Kategooriaüksuse nimi
+            comments_enabled: Kommentaarid lubatud
+            comments_max_length: Kommentaari maksimaalne pikkus (vaikeväärtuse valimiseks jätke väljale 0)
+            display_progress_enabled: Kuva edenemisseis
+            heading_leaf_level_results: Projektiüksuse nimi
+            heading_parent_level_results: Tulemuseüksuse nimi
+            intro: Sissejuhatus
+            subcategories_label: Alamkategooriaüksuse nimi
+          step:
+            comments_blocked: Kommenteerimine pole lubatud
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Tulemusse on hõlmatud ettepanek „%{proposal_title}“. Näete seda järgmisel lehel:'
+          email_outro: Saite selle teate, kuna jälgite ettepanekut „%{proposal_title}“. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Ettepanekut %{proposal_title} on värskendatud
+          notification_title: Ettepanek <a href="%{proposal_path}">%{proposal_title}</a> on hõlmatud üksuse <a href="%{resource_path}">%{resource_title}</a> tulemusse.
+        result_progress_updated:
+          email_intro: 'Tulemus „%{resource_title}“, mis hõlmab pakkumist „%{proposal_title}“, on nüüd %{progress}% valmis. Näete seda järgmisel lehel:'
+          email_outro: Saite selle teate, kuna jälgite ettepanekut „%{proposal_title}“, mis on hõlmatud tulemusse „%{resource_title}“. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Tulemuse %{resource_title} edenemisseisu on värskendatud
+          notification_title: Tulemus <a href="%{resource_path}">%{resource_title}</a>, mis hõlmab ettepanekut <a href="%{proposal_path}">%{proposal_title}</a>, on nüüd %{progress}% valmis.
+    metrics:
+      results:
+        description: Loodud tulemuste arv
+        object: tulemust
+        title: Tulemused
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Tulemused
+    participatory_spaces:
+      highlighted_results:
+        see_all: Kuva kõik tulemused (%{count})
+    resource_links:
+      included_projects:
+        result_project: Selles tulemuses hõlmatud projektid
+      included_proposals:
+        result_proposal: Selles tulemuses hõlmatud ettepanekud

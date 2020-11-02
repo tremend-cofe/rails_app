@@ -1,0 +1,237 @@
+sk:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Obrázok
+        proposals: Súvisiace návrhy
+        title: Nadpis
+      election:
+        description: Opis
+        end_time: 'Hlasovanie sa končí:'
+        start_time: 'Hlasovanie sa začína:'
+        title: Nadpis
+      question:
+        description: Opis
+        max_selections: Maximálny počet možností na výber
+        title: Nadpis
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Je potrebné znova priložiť
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Je potrebné znova priložiť
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Hlasovanie
+        name: Hlasovania
+        settings:
+          global:
+            announcement: Oznámenie
+          step:
+            announcement: Oznámenie
+    elections:
+      actions:
+        confirm_destroy: Naozaj to chcete urobiť?
+        destroy: Odstrániť
+        edit: Upraviť
+        edit_answers: Upraviť odpovede
+        edit_questions: Upraviť otázky
+        import: Importovať návrhy do odpovedí
+        new: Nová položka %{name}
+        preview: Ukážka
+        publish: Zverejniť
+        title: Akcie
+        unpublish: Zrušiť zverejnenie
+      admin:
+        answers:
+          create:
+            invalid: Pri vytváraní tejto odpovede sa vyskytol problém
+            success: Odpoveď bola úspešne vytvorená
+          destroy:
+            invalid: Pri odstraňovaní tejto odpovede sa vyskytol problém
+            success: Odpoveď bola úspešne odstránená
+          edit:
+            title: Upraviť odpoveď
+            update: Aktualizovať odpoveď
+          index:
+            title: Odpovede
+          new:
+            create: Vytvoriť odpoveď
+            title: Nová odpoveď
+          update:
+            invalid: Pri aktualizácii tejto odpovede sa vyskytol problém
+            success: Odpoveď bola úspešne aktualizovaná
+        elections:
+          create:
+            invalid: Pri vytváraní tohto hlasovania sa vyskytol problém
+            success: Hlasovanie bolo úspešne vytvorené
+          destroy:
+            invalid: Pri odstraňovaní tohto hlasovania sa vyskytol problém
+            success: Hlasovanie bolo úspešne odstránené
+          edit:
+            title: Upraviť hlasovanie
+            update: Aktualizovať hlasovanie
+          index:
+            title: Hlasovania
+          new:
+            create: Vytvoriť hlasovanie
+            title: Nové hlasovanie
+          publish:
+            success: Hlasovanie bolo úspešne zverejnené.
+          unpublish:
+            success: Zverejnenie hlasovania bolo úspešne zrušené.
+          update:
+            invalid: Pri aktualizácii tohto hlasovania sa vyskytol problém
+            success: Hlasovanie bolo úspešne aktualizované
+        models:
+          answer:
+            name: Odpoveď
+          election:
+            name: Hlasovanie
+          question:
+            name: Otázka
+        proposals_imports:
+          create:
+            invalid: Pri importovaní návrhov do odpovedí sa vyskytol problém
+            success: "Do odpovedí boli úspešne importované návrhy v počte %{number}"
+          new:
+            create: Importovať návrhy do odpovedí
+            no_components: V tomto participatívnom priestore sa nenachádzajú žiadne ďalšie komponenty návrhov na importovanie návrhov do odpovedí.
+            select_component: Vyberte komponent
+        questions:
+          create:
+            invalid: Pri vytváraní tejto otázky sa vyskytol problém
+            success: Otázka bola úspešne vytvorená
+          destroy:
+            invalid: Pri odstraňovaní tejto otázky sa vyskytol problém
+            success: Otázka bola úspešne odstránená
+          edit:
+            title: Upraviť otázku
+            update: Aktualizovať otázku
+          index:
+            title: Otázky
+          new:
+            create: Vytvoriť otázku
+            title: Nová otázka
+          update:
+            invalid: Pri aktualizácii tejto otázky sa vyskytol problém
+            success: Otázka bola úspešne aktualizovaná
+      admin_log:
+        election:
+          publish: "Používateľ %{user_name} zverejnil hlasovanie %{resource_name}"
+          unpublish: "Používateľ %{user_name} zrušil zverejnenie hlasovania %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Dokončené
+          ongoing: Aktívne
+          upcoming: Nadchádzajúce
+        end_date: Končí sa
+        footer:
+          view: Zobraziť
+          vote: Hlasovanie
+        label:
+          date: Dátumy
+        questions: Otázky %{count}
+        start_date: Začína sa
+        unspecified: Neuvedené
+      elections:
+        filters:
+          active: Aktívne
+          all: Všetko
+          finished: Dokončené
+          search: Vyhľadávanie
+          state: Stav
+          upcoming: Nadchádzajúce
+        filters_small_view:
+          close_modal: Zatvoriť kontextové okno
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        show:
+          back: Všetky hlasovania
+          preview: Ukážka
+          vote: Hlasovanie
+          voting_period_status:
+            finished: Hlasovanie sa začalo o %{start_time} a skončilo sa o %{end_time}
+            ongoing: Hlasovanie sa končí o %{end_time}
+            upcoming: Hlasovanie sa začína o %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Návrhy
+            title: Nadpis
+        election:
+          fields:
+            end_time: 'Končí sa:'
+            start_time: 'Začína sa:'
+            title: Nadpis
+        question:
+          fields:
+            answers: Odpovede
+            max_selections: Maximálny počet možností na výber
+            title: Nadpis
+      orders:
+        label: Zoradiť hlasovania podľa
+        older: Staršie
+        recent: Nedávne
+      votes:
+        confirm:
+          answer: Odpoveď
+          answer_number: odpoveď %{number}
+          confirm: Potvrdiť
+          edit: upraviť
+          header: Potvrďte svoje hlasovanie
+          intro: Tu je súhrn hlasovania, ktoré sa chystáte odovzdať. <br> Potvrďte svoje hlasovanie alebo upravte svoje odpovede.
+          question: Otázka %{count}
+        confirmed:
+          back: Späť na hlasovania
+          experience: Akú ste mali skúsenosť?
+          feedback: Poskytnite nám spätnú väzbu
+          header: Hlasovanie potvrdené
+          lead: Svoj hlas ste už odovzdali!
+          text: 'Pomocou tohto identifikátora si môžete overiť, či bol váš hlas úspešne vložený do hlasovacej schránky: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Ak chcete vykonať overenie, skopírujte identifikátor a vložte ho na <a href="evote-verify">stránke na overenie hlasovania</a>
+        encrypting:
+          header: Prebieha šifrovanie hlasovania…
+          text: Vaše hlasovanie sa šifruje, aby sa zaručilo jeho anonymné odovzdanie.
+        header:
+          confirm: Potvrďte svoje hlasovanie
+          confirmed: Hlasovanie potvrdené
+          encrypting: Potvrdzuje sa hlasovanie
+        messages:
+          not_allowed: V tomto hlasovaní v tejto chvíli nemôžete hlasovať.
+        modal:
+          close: Zatvoriť
+          proposal_header: 'Návrhy:'
+        new:
+          answer_choices: Maximálny počet odpovedí, ktoré si môžete zvoliť, je %{choices}, prípadne si nemusíte zvoliť žiadnu odpoveď
+          more_information: Ďalšie informácie
+          preview_alert: Toto je ukážka hlasovacej kabíny.
+          question_steps: Otázka %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> možností na výber"
+        voting_step:
+          back: Späť
+          continue: Ďalej
+      warnings:
+        no_elections_warning: Vašim kritériám vyhľadávania nezodpovedá žiadne hlasovanie alebo nie je plánované žiadne hlasovanie.
+        no_scheduled_elections_warning: V súčasnosti nie sú plánované žiadne hlasovania, tu však nájdete všetky predchádzajúce hlasovania.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Hlasovanie %{resource_title} je teraz aktívne pre participatívny priestor %{participatory_space_title}. Pozrite sa na túto stránku:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Hlasovanie %{resource_title} je teraz aktívne pre participatívny priestor %{participatory_space_title}.
+          notification_title: Hlasovanie <a href="%{resource_path}">%{resource_title}</a> je teraz aktívne pre participatívny priestor %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Hlasovania
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Ukončiť

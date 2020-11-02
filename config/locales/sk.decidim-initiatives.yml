@@ -1,0 +1,520 @@
+sk:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Opis
+        offline_votes: Osobné podpisy
+        scope_id: Rozsah pôsobnosti
+        signature_end_date: Koniec obdobia na získavanie podpisov
+        signature_start_date: Začiatok obdobia na získavanie podpisov
+        signature_type: Typ získavania podpisov
+        signature_type_values:
+          any: Zmiešané
+          offline: Osobné
+        state: Stav
+        title: Nadpis
+      initiative_author:
+        address: Adresa
+        city: Mesto
+        name: Meno a priezvisko
+        phone_number: Telefónne číslo
+        post_code: PSČ
+        province: Provincia
+      initiatives_committee_member:
+        user: Člen výboru
+      initiatives_type:
+        area_enabled: Povoliť autorom výber oblasti pre ich iniciatívu
+        attachments_enabled: Povoliť prílohy
+        banner_image: Obrázok banera
+        collect_user_extra_fields: Získať osobné údaje účastníka pri podpise
+        custom_signature_end_date_enabled: Povoliť autorom výber konca obdobia na získavanie podpisov
+        description: Opis
+        document_number_authorization_handler: Povolenie na overenie čísla dokumentu pri podpisoch
+        extra_fields_legal_information: Právne informácie o získavaní osobných údajov
+        minimum_committee_members: Minimálny počet členov výboru
+        online_signature_enabled: Povolený online podpis
+        promoting_committee_enabled: Povoliť organizačný výbor
+        title: Nadpis
+        undo_online_signatures_enabled: Povoliť účastníkom odvolať ich online podpisy
+        validate_sms_code_on_votes: Pridať krok overenia kódu zo správy SMS do procesu podpisovania
+      initiatives_vote:
+        date_of_birth: Dátum narodenia
+        document_number: Číslo dokumentu
+        name_and_surname: Meno a priezvisko
+        postal_code: PSČ
+      organization_data:
+        address: Adresa
+        id_document: Doklad totožnosti
+        name: Úplný názov
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Súbor je neplatný
+              needs_to_be_reattached: Je potrebné znova priložiť
+              title: Nadpis nemôže byť prázdny
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Nový typ iniciatívy
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Oblasť
+          state_eq:
+            label: Stav
+            values:
+              accepted: Dostatok podpisov
+              created: Vytvorené
+              discarded: Zahodené
+              published: Zverejnené
+              rejected: Nedostatok podpisov
+              validating: Technické overenie
+          type_id_eq:
+            label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Vyhľadajte položku %{collection} podľa nadpisu, opisu, identifikátora alebo mena autora.
+      menu:
+        initiatives: Iniciatívy
+        initiatives_types: Typy iniciatív
+      models:
+        initiatives:
+          fields:
+            created_at: 'Vytvorené:'
+            id: Identifikátor
+            published_at: 'Zverejnené:'
+            state: Stav
+            supports_count: Podpisy
+            title: Iniciatívy
+        initiatives_type_scope:
+          fields:
+            scope: Rozsah pôsobnosti
+            supports_required: Požadované podpisy
+          name: Rozsah pôsobnosti typu iniciatívy
+        initiatives_types:
+          fields:
+            created_at: 'Vytvorené:'
+            title: Typy iniciatív
+          name: Typ iniciatívy
+        initiatives_votes:
+          fields:
+            date_of_birth: Dátum narodenia
+            document_number: Číslo dokumentu
+            hash: Hodnota hash
+            initiative_end_date: Dátum ukončenia
+            initiative_id: Identifikátor iniciatívy
+            initiative_signatures_count: Počet podpisov
+            initiative_start_date: Dátum začatia
+            initiative_title: Názov iniciatívy
+            name_and_surname: Meno a priezvisko
+            postal_code: PSČ
+            time_and_date: Čas a dátum
+            timestamp: Časová pečiatka
+      titles:
+        initiatives: Iniciatívy
+        initiatives_types: Typy iniciatív
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Iniciatíva %{resource_title} bola odoslaná na technické overenie. Skontrolujte ju prostredníctvom <a href="%{admin_initiative_url}">panelu správcu</a>
+            email_outro: Toto oznámenie ste dostali, pretože ste správcom platformy.
+            email_subject: Iniciatíva %{resource_title} bola odoslaná na technické overenie.
+            notification_title: Iniciatíva %{resource_title} bola odoslaná na technické overenie. Skontrolujte ju prostredníctvom <a href="%{admin_initiative_path}">panelu správcu</a>
+        initiative_extended:
+          email_intro: Predĺžil sa termín ukončenia získavania podpisov pre iniciatívu %{resource_title}.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete iniciatívu %{resource_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Predĺžil sa termín ukončenia získavania podpisov pre iniciatívu.
+          notification_title: Predĺžil sa termín ukončenia získavania podpisov pre iniciatívu <a href="%{resource_path}">%{resource_title}</a>.
+        milestone_completed:
+          affected_user:
+            email_intro: Pri vašej iniciatíve %{resource_title} sa dosiahlo %{percentage} % podpisov.
+            email_outro: Toto oznámenie ste dostali, pretože ste autorom iniciatívy %{resource_title}.
+            email_subject: Dosiahol sa nový čiastkový cieľ.
+            notification_title: Pri vašej iniciatíve <a href="%{resource_path}">%{resource_title}</a> sa dosiahlo %{percentage} % podpisov.
+          follower:
+            email_intro: Pri iniciatíve %{resource_title} sa dosiahlo %{percentage} % podpisov.
+            email_outro: Toto oznámenie ste dostali, pretože sledujete iniciatívu %{resource_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+            email_subject: Dosiahol sa nový čiastkový cieľ.
+            notification_title: Pri iniciatíve <a href="%{resource_path}">%{resource_title}</a> sa dosiahlo %{percentage} % podpisov.
+        support_threshold_reached:
+          email_intro: Pri iniciatíve %{resource_title} sa dosiahla požadovaná hranica podpory
+          email_outro: Toto oznámenie ste dostali, pretože ste správcom platformy.
+          email_subject: Dosiahla sa požadovaná hranica podpory
+          notification_title: Pri iniciatíve <a href="%{resource_path}">%{resource_title}</a> sa dosiahla požadovaná hranica podpory
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Prejdite do participatívneho priestoru iniciatív
+            Podľa uvedeného postupu vytvorte novú iniciatívu
+          description: Tento odznak sa udeľuje, keď začnete nové iniciatívy a uskutočníte ich v partnerstve s ostatnými.
+          description_another: Počet iniciatív, ktoré zverejnil tento účastník, je %{score}.
+          description_own: Počet iniciatív, ktoré ste zverejnili, je %{score}.
+          name: Zverejnené iniciatívy
+          next_level_in: Ak chcete dosiahnuť ďalšiu úroveň, zverejnite ďalšie iniciatívy, potrebujete ich ešte %{score}.
+          unearned_another: Tento účastník ešte nezverejnil žiadne iniciatívy.
+          unearned_own: Ešte ste nezverejnili žiadne iniciatívy.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Iniciatíva</strong> je návrh, ktorý môže predložiť ktokoľvek z vlastného podnetu (nezávisle od iných kanálov alebo participatívnych priestorov) prostredníctvom získavania (digitálnych) podpisov pre určitú organizáciu s cieľom vykonať konkrétny postup (upraviť nariadenie, iniciovať projekt, zmeniť názov inštitúcie alebo ulice atď.).</p> <p>Predkladatelia iniciatívy môžu vymedziť jej ciele, získavať podporu, diskutovať, rozširovať ju a určiť miesta stretnutí, na ktorých možno získavať podpisy od účastníkov, alebo diskusií otvorených pre iných účastníkov.</p> <p>Príklady: V rámci iniciatívy možno získavať podpisy na zvolanie konzultácie za účasti všetkých osôb v určitej organizácii alebo na vytvorenie alebo zvolanie zhromaždenia alebo na iniciovanie procesu zvýšenia rozpočtu pre oblasť alebo priestor organizácie. Počas získavania podpisov sa k tejto požiadavke môžu pridať ďalšie osoby a v rámci organizácie ju ďalej rozširovať.</p>\n"
+          page: "<p><strong>Iniciatíva</strong> je návrh, ktorý môže predložiť ktokoľvek z vlastného podnetu (nezávisle od iných kanálov alebo participatívnych priestorov) prostredníctvom získavania (digitálnych) podpisov pre určitú organizáciu s cieľom vykonať konkrétny postup (upraviť nariadenie, iniciovať projekt, zmeniť názov inštitúcie alebo ulice atď.).</p> <p>Predkladatelia iniciatívy môžu vymedziť jej ciele, získavať podporu, diskutovať, rozširovať ju a určiť miesta stretnutí, na ktorých možno získavať podpisy od účastníkov, alebo diskusií otvorených pre iných účastníkov.</p> <p>Príklady: V rámci iniciatívy možno získavať podpisy na zvolanie konzultácie za účasti všetkých osôb v určitej organizácii alebo na vytvorenie alebo zvolanie zhromaždenia alebo na iniciovanie procesu zvýšenia rozpočtu pre oblasť alebo priestor organizácie. Počas získavania podpisov sa k tejto požiadavke môžu pridať ďalšie osoby a v rámci organizácie ju ďalej rozširovať.</p>\n"
+          title: Čo sú iniciatívy?
+    initiatives:
+      actions:
+        answer: Odpoveď
+      admin:
+        answers:
+          edit:
+            answer: Odpoveď
+            title: Odpoveď pre položku %{title}
+          info_initiative:
+            created_at: 'Vytvorené:'
+            description: Opis
+            initiative_votes_count: Počet hlasov
+            initiatives: Iniciatívy
+            state: Stav
+        committee_requests:
+          index:
+            approve: Schváliť
+            confirm_revoke: Naozaj to chcete urobiť?
+            invite_to_committee_help: Sprístupnením tohto odkazu pozvete ďalších účastníkov do organizačného výrobu
+            no_members_yet: V organizačnom výbore nie sú žiadni členovia
+            revoke: Odvolať
+            title: Členovia výboru
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maximálny počet prvkov na zobrazenie
+        exports:
+          initiatives: Iniciatívy
+        initiatives:
+          edit:
+            accept: Akceptovať iniciatívu
+            confirm: Naozaj to chcete urobiť?
+            discard: Zahodiť iniciatívu
+            export_pdf_signatures: Exportovať súbor PDF s podpismi
+            export_votes: Exportovať podpisy
+            reject: Odmietnuť iniciatívu
+            send_to_technical_validation: Odoslať na technické overenie
+            success: Iniciatíva bola odoslaná na technické overenie
+            update: Aktualizovať
+          form:
+            attachments: Prílohy
+            settings: Nastavenia
+            title: Všeobecné informácie
+          index:
+            actions_title: Akcia
+            preview: Ukážka
+            print: Vytlačiť
+          initiative_attachments:
+            documents: Dokumenty
+            edit: Upraviť
+            new: Nové
+            photos: Fotografie
+          show:
+            print: Vytlačiť
+          update:
+            error: Vyskytla sa chyba
+            success: Iniciatíva bola úspešne aktualizovaná
+        initiatives_type_scopes:
+          create:
+            error: Vyskytla sa chyba
+            success: Vytvoril sa nový rozsah pôsobnosti pre daný typ iniciatívy
+          destroy:
+            success: Rozsah pôsobnosti bol úspešne odstránený
+          edit:
+            back: Späť
+            confirm_destroy: Naozaj to chcete urobiť?
+            destroy: Odstrániť
+            title: Upraviť rozsah pôsobnosti typu iniciatívy
+            update: Aktualizovať
+          new:
+            back: Späť
+            create: Vytvoriť
+            title: Vytvoriť rozsah pôsobnosti typu iniciatívy
+          update:
+            error: Vyskytla sa chyba
+            success: Rozsah pôsobnosti bol úspešne aktualizovaný
+        initiatives_types:
+          create:
+            error: Vyskytla sa chyba
+            success: Nový typ iniciatívy bol úspešne vytvorený
+          destroy:
+            success: Nový typ iniciatívy bol úspešne odstránený
+          edit:
+            confirm_destroy: Naozaj to chcete urobiť?
+            destroy: Odstrániť
+            update: Aktualizovať
+          form:
+            title: Všeobecné informácie
+          initiative_type_scopes:
+            title: Rozsahy pôsobnosti pre typ iniciatívy
+          new:
+            create: Vytvoriť
+            title: Nový typ iniciatívy
+          update:
+            error: Vyskytla sa chyba
+            success: Typ iniciatívy bol úspešne aktualizovaný
+      admin_log:
+        initiative:
+          publish: "Používateľ %{user_name} zverejnil iniciatívu %{resource_name}"
+          send_to_technical_validation: "Používateľ %{user_name} odoslal iniciatívu %{resource_name} na technické overenie"
+          unpublish: "Používateľ %{user_name} zahodil iniciatívu %{resource_name}"
+          update: "Používateľ %{user_name} aktualizoval iniciatívu %{resource_name}"
+      admin_states:
+        accepted: Dostatok podpisov
+        created: Vytvorené
+        discarded: Zahodené
+        published: Zverejnené
+        rejected: Nedostatok podpisov
+        validating: Technické overenie
+      application_helper:
+        filter_area_values:
+          all: Všetko
+        filter_scope_values:
+          all: Všetko
+        filter_state_values:
+          accepted: Dostatok podpisov
+          all: Všetko
+          answered: Zodpovedané
+          closed: Uzatvorené
+          open: Otvorené
+          rejected: Nedostatok podpisov
+        filter_type_values:
+          all: Všetko
+      committee_requests:
+        new:
+          continue: Pokračovať
+          help_text: Chystáte sa požiadať o členstvo v organizačnom výbore tejto iniciatívy
+        spawn:
+          success: Vaša požiadavka bola odoslaná autorovi iniciatívy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Zvýraznené iniciatívy
+      create_initiative:
+        fill_data:
+          back: Späť
+          continue: Pokračovať
+          fill_data_help: "<ul> <li>Skontrolujte obsah svojej iniciatívy. Má zrozumiteľný nadpis? Má iniciatíva jasný cieľ?</li> <li>Budete si musieť vybrať druh podpisu: zadaný osobne, online alebo kombinácia oboch možností.</li> <li>Aký je geografický rozsah iniciatívy? Mesto, štvrť?</li> </ul>"
+          initiative_type: Typ iniciatívy
+          more_information: "(ďalšie informácie)"
+          select_area: Vybrať oblasť
+          select_scope: Vybrať rozsah pôsobnosti
+        finish:
+          back: Späť
+          back_to_initiatives: Späť k iniciatívam
+          callout_text: Blahoželáme! Vaša občianska iniciatíva bola úspešne vytvorená.
+          confirm: Potvrdiť
+          edit_my_initiative: Upraviť moje iniciatívy
+          go_to_my_initiatives: Prejsť na moje iniciatívy
+          more_information: "(ďalšie informácie)"
+          send_my_initiative: Odoslať moju iniciatívu
+        finish_help:
+          access_reminder: Zapamätajte si, že k svojim iniciatívam budete mať vždy prístup prostredníctvom ponuky účastníka.
+          help_for_organizations: V prípade združenia budete musieť nahrať zápisnicu správnej rady všetkých organizácií, ktoré tvoria organizačný výbor.
+          help_in_person_signatures: Ak ste sa rozhodli zbierať podpisy osobne alebo v kombinácii so zberom online, budete musieť nahrať požadované informácie.
+          help_text: Zapamätajte si, že na riadne spracovanie iniciatívy musíte otvoriť správcovský panel, v ktorom nájdete ponuku používateľa, nahrať požadované informácie a odoslať ich na spracovanie.
+          initiatives_page_link: Všetky tieto informácie môžete vyhľadať prostredníctvom odkazu %{link} na informovanie o iniciatívach.
+          page: strana
+        previous_form:
+          back: Späť
+          continue: Pokračovať
+          help: Z čoho sa skladá iniciatíva? Napíšte nadpis a opis. Odporúčame krátky a výstižný nadpis a opis so zameraním na navrhované riešenie.
+          more_information: "(ďalšie informácie)"
+        promotal_committee:
+          back: Späť
+          individual_help_text: Pri tomto druhu občianskej iniciatívy sa vyžaduje organizačný výbor zložený najmenej z %{committee_size} členov (overovateľov). Tento odkaz musíte sprístupniť ostatným osobám, ktoré sú súčasťou tejto iniciatívy. Po prijatí odkazu budú tieto osoby musieť postupovať podľa uvedených krokov.
+          more_information: "(ďalšie informácie)"
+        select_initiative_type:
+          back: Späť
+          choose_html: Chcem vytvoriť iniciatívu <strong>%{title}</strong>
+          more_information: "(ďalšie informácie)"
+          select: Chcem podporiť túto iniciatívu
+          select_initiative_type_help: Občianske iniciatívy predstavujú prostriedok, pomocou ktorého môžu občania intervenovať, aby mestské zastupiteľstvo prijalo opatrenia na ochranu všeobecného záujmu v oblastiach pôsobnosti miestnej samosprávy. Ktorú iniciatívu chcete začať?
+        share_committee_link:
+          continue: Pokračovať
+          invite_to_committee_help: Odkaz na pozvanie osôb, ktoré budú súčasťou organizačného výboru
+        show_similar_initiatives:
+          back: Späť
+          compare_help: Ak sa niektorá z nasledujúcich iniciatív podobá na vašu, odporúčame, aby ste ju podpísali. Váš návrh bude možné uskutočniť prostredníctvom viacerých možností.
+          continue: Moja iniciatíva je odlišná
+          more_information: "(ďalšie informácie)"
+      events:
+        create_initiative_event:
+          email_intro: "Autor %{author_name} %{author_nickname}, ktorého sledujete, vytvoril novú iniciatívu, pozrite si ju a zapojte sa do nej:"
+          email_outro: Toto oznámenie ste dostali, pretože sledujete autora %{author_nickname}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Nová iniciatíva od autora %{author_nickname}
+          notification_title: Iniciatívu <a href="%{resource_path}">%{resource_title}</a> vytvoril autor <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "Autor %{author_name} %{author_nickname}, ktorého sledujete, schválil túto iniciatívu, možno budete chcieť prispieť do konverzácie:"
+          email_outro: Toto oznámenie ste dostali, pretože sledujete autora %{author_nickname}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Iniciatívu schválil autor %{author_nickname}
+          notification_title: Iniciatívu <a href="%{resource_path}">%{resource_title}</a> schválil autor <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Iniciatívy
+      initiative_signatures:
+        fill_personal_data:
+          continue: Pokračovať
+          date_select:
+            day: Deň
+            month: Mesiac
+            year: Rok
+          help: Ak chcete podpísať iniciatívu, zadajte svoje osobné údaje do týchto polí
+        finish:
+          back_to_initiative: Späť k iniciatíve
+        sms_code:
+          continue: Overiť kód a pokračovať
+          help: Skontrolujte si správu SMS prijatú vo vašom telefóne
+        sms_phone_number:
+          continue: Odoslať mi správu SMS
+          help: Na vyžiadanie overovacieho kódu zadajte do formulára svoje overené telefónne číslo.
+      initiative_votes:
+        create:
+          error: Pri podpisovaní iniciatívy sa vyskytol problém.
+          invalid: Zadané údaje na podpísanie iniciatívy sú neplatné
+          success_html: Blahoželáme! Iniciatíva <strong> %{title}</strong> bola úspešne podpísaná
+        personal_data:
+          invalid: Osobné údaje sa nezhodujú s údajmi zadanými na účely autorizácie.
+        sms_code:
+          invalid: Váš overovací kód sa nezhoduje s naším kódom. Ešte raz skontrolujte správu SMS, ktorú sme vám poslali.
+        sms_phone:
+          invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontroluje svoje autorizácie.
+      initiatives:
+        author:
+          deleted: Odstránené
+        filters:
+          any: Každá
+          area: Oblasť
+          author: Autor
+          myself: Moje iniciatívy
+          scope: Rozsah pôsobnosti
+          search: Vyhľadávanie
+          state: Stav
+          type: Typ
+        filters_small_view:
+          close_modal: Zatvoriť okno
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        index_header:
+          new_initiative: Nová iniciatíva
+          not_authorized:
+            authorizations_page: Zobraziť autorizácie
+            close: Zatvoriť
+            explanation: Musíte absolvovať overenie, aby ste mohli vytvoriť novú iniciatívu.
+            title: Vyžaduje sa autorizácia
+        initiatives:
+          closed_initiatives_warning: V súčasnosti neexistujú otvorené iniciatívy, tu však nájdete všetky uzavreté iniciatívy.
+          no_initiatives_warning: Vašim kritériám vyhľadávania nezodpovedá žiadna iniciatíva.
+        orders:
+          label: 'Triediť iniciatívy podľa:'
+          most_commented: Najviac poznámok
+          most_voted: Najviac podpisov
+          random: Náhodné
+          recent: Najnovšie
+          recently_published: Najnovšie zverejnené
+        result:
+          answer_title:
+            accepted: Tento návrh bol prijatý, pretože
+            created: Tento návrh bol vytvorený
+            discarded: Tento návrh bol vyradený, pretože
+            published: Tento návrh bol zverejnený, pretože
+            rejected: Tento návrh bol odmietnutý, pretože
+            validating: Tento návrh sa vyhodnocuje
+          initiative_rejected_reason: Táto iniciatíva bola odmietnutá pre nedostatočný počet podpisov.
+        show:
+          any_vote_method: V tejto občianskej iniciatíve sa podpisy zbierajú online aj osobne.
+          follow_description: Prijať oznámenie, keď sa v tejto iniciatíve vyskytne niečo nové
+          offline_method: V tejto občianskej iniciatíve sa podpisy zbierajú len osobne.
+        signature_identities:
+          select_identity: Vybrať identifikátor účastníka
+        supports:
+          title: Zoznam podpisov
+        vote_cabin:
+          already_voted: Už podpísané
+          supports_required: "Počet požadovaných podpisov: %{total_supports}"
+          verification_required: Ak chcete podpísať iniciatívu, overte svoje konto
+          vote: Podpísať
+          votes_blocked: Podpisovanie zakázané
+        votes_count:
+          most_popular_initiative: Najpopulárnejšia iniciatíva
+          need_more_votes: Vyžaduje sa viac podpisov
+      initiatives_mailer:
+        creation_subject: Vaša iniciatíva %{title} bola vytvorená
+        initiative_link:
+          check_initiative_details: Podrobnosti iniciatívy si môžete pozrieť
+          here: tu
+        more_information: Na tomto mieste máte k dispozícii ďalšie informácie o procese vytvorenia iniciatívy.
+        progress_report_body_for: Pri iniciatíve %{title} sa dosiahlo %{percentage} % požadovaných podpisov.
+        progress_report_for: 'Zhrnutie iniciatívy: %{title}'
+        promotal_committee_help: Nezabudnite, že do organizačného výboru musíte pozvať najmenej %{member_count} ľudí. Odoslaním tohto odkazu pozvite ľudí do organizačného výboru
+        status_change_body_for: 'Stav iniciatívy %{title} sa zmenil na: %{state}'
+        status_change_for: Stav iniciatívy %{title} sa zmenil
+      last_activity:
+        new_initiative: Nová iniciatíva
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktívne iniciatívy
+            see_all_initiatives: Zobraziť všetky iniciatívy
+      show:
+        badge_name:
+          accepted: Dostatok podpisov
+          created: Vytvorené
+          discarded: Zahodené
+          published: Zverejnené
+          rejected: Nedostatok podpisov
+          validating: Technické overenie
+      states:
+        accepted: Schválené
+        expired: Po uplynutí platnosti
+      unavailable_scope: Nedostupný rozsah pôsobnosti
+      versions:
+        shared:
+          back_to_resource: Vrátiť sa k iniciatíve
+    menu:
+      initiatives: Iniciatívy
+    resources:
+      initiatives_type:
+        actions:
+          title: Akcie
+          vote: Podpísať
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Prílohy
+          committee_members: Členovia výboru
+          components: Komponenty
+          information: Informácie
+      initiative_creation_header:
+        back: Späť
+        fill_data: Vytvoriť
+        finish: Dokončiť
+        previous_form: Začať
+        promotal_committee: Organizačný výbor
+        select_initiative_type: Vybrať
+        show_similar_initiatives: Porovnať
+        step: Krok %{current} z %{total}
+        title: Vytvoriť novú iniciatívu
+      initiative_header:
+        initiative_menu_item: Iniciatíva
+      initiative_signature_creation_header:
+        back: Späť
+        fill_personal_data: Vyplňte svoje údaje
+        finish: Dokončiť
+        finished: Vytvoril sa podpis iniciatívy
+        see_steps: zobraziť kroky
+        select_identity: Vybrať identitu
+        sms_code: Overenie kódom SMS
+        sms_phone_number: Číslo mobilného telefónu
+        step: Krok %{current} z %{total}
+        title: Podpísať iniciatívu %{initiative_title}
+      initiatives:
+        initiative:
+          check: Pozrieť
+          check_and_support: Pozrieť a podpísať
+        no_initiatives_yet:
+          no_initiatives_yet: Zatiaľ žiadne iniciatívy!

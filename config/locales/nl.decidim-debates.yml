@@ -1,0 +1,203 @@
+nl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categorie
+        closed_at: Gesloten op
+        conclusions: Conclusies
+        decidim_category_id: Categorie
+        description: Beschrijving
+        end_time: Eindigt op
+        information_updates: Informatie-updates
+        instructions: Instructies voor deelname
+        start_time: Begint op
+        title: Titel
+        user_group_id: Debat aanmaken als
+    models:
+      decidim/debates/close_debate_event: Debat gesloten
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debatten uitgeschakeld
+      decidim/debates/creation_enabled_event: Debatten ingeschakeld
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: Debatten
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Aanmaken
+          endorse: Onderschrijven
+        name: Debatten
+        settings:
+          global:
+            announcement: Bekendmaking
+            comments_enabled: Opmerkingen ingeschakeld
+            comments_max_length: Opmerkingen max. lengte (behoud 0 als standaardwaarde)
+          step:
+            announcement: Bekendmaking
+            comments_blocked: Opmerkingen geblokkeerd
+            creation_enabled: Aanmaken debatten door deelnemers ingeschakeld
+            endorsements_blocked: Onderschrijven geblokkeerd
+            endorsements_enabled: Onderschrijven ingeschakeld
+    debates:
+      actions:
+        close: Sluiten
+        confirm_destroy: Weet u het zeker?
+        destroy: Verwijderen
+        edit: Bewerken
+        new: Nieuwe %{name}
+        title: Acties
+      admin:
+        debate_closes:
+          edit:
+            close: Sluiten
+            title: Debat sluiten
+        debates:
+          create:
+            invalid: Er is een probleem opgetreden bij het aanmaken van het debat.
+            success: Debat aangemaakt.
+          destroy:
+            success: Debat verwijderd.
+          edit:
+            title: Debat bewerken
+            update: Debat bijwerken
+          index:
+            title: Debatten
+          new:
+            create: Debat aanmaken
+            title: Nieuw debat
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit debat.
+            success: Debat bijgewerkt.
+        models:
+          debate:
+            name: Debat
+      admin_log:
+        debate:
+          close: "%{user_name} heeft het %{resource_name}-debat over de ruimte %{space_name} gesloten"
+          create: "%{user_name} heeft het %{resource_name}-debat over de ruimte %{space_name} aangemaakt"
+          update: "%{user_name} heeft het %{resource_name}-debat over de ruimte %{space_name} bijgewerkt"
+      debates:
+        close:
+          invalid: Er is een probleem opgetreden bij het sluiten van het debat.
+          success: Debat gesloten.
+        close_debate_modal:
+          close: Sluiten
+          description: Wat is de samenvatting of conclusie van dit debat?
+          send: Debat sluiten
+        closed: Gesloten
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debatten"
+        create:
+          invalid: Er is een probleem opgetreden bij het aanmaken van het debat.
+          success: Debat aangemaakt.
+        debate:
+          participate: Deelnemen
+        edit:
+          back: Terug
+          save: Wijzigingen bewaren
+          title: Debat bewerken
+        filters:
+          all: Alle
+          category: Categorie
+          category_prompt: Kies een categorie
+          citizens: Burgers
+          official: Officieel
+          origin: Oorsprong
+          search: Zoeken
+        filters_small_view:
+          close_modal: Modaal venster afsluiten
+          filter: Filteren
+          filter_by: Filteren op
+          unfold: Uitvouwen
+        form:
+          select_a_category: Kies een categorie
+        index:
+          new_debate: Nieuw debat
+        new:
+          back: Terug
+          create: Aanmaken
+          title: Nieuw debat
+        show:
+          back: Terug naar de lijst
+          close_debate: Debat sluiten
+          date: Datum
+          debate_closed: Gesloten
+          debate_conclusions_are: 'Het debat is gesloten op %{date} met de volgende conclusies:'
+          edit_conclusions: Conclusies bewerken
+          edit_debate: Debat bewerken
+          groups_count: Groepen
+          last_comment_by: Laatste opmerking van
+          no_comments_yet: Nog geen opmerkingen
+          participants_count: Deelnemers
+        update:
+          invalid: Er is een probleem opgetreden bij het bijwerken van het debat.
+          success: Debat bijgewerkt.
+        versions:
+          debates:
+            back_to_resource: Ga terug naar debat
+          index:
+            title: Versies
+        versions_list:
+          back_to_resource: Ga terug naar debat
+      last_activity:
+        new_debate_at_html: "<span>Nieuw debat op %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Einddatum
+            official_debate: Officieel debat
+            start_time: Begindatum
+            title: Titel
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hallo,
+              Er is een nieuw debat "%{resource_title}" aangemaakt in de participatieruimte %{space_title}; u kunt het hier bekijken en bijdragen:
+            email_outro: U hebt dit bericht ontvangen omdat u de participatieruimte %{space_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+            email_subject: Nieuw debat "%{resource_title}" in %{space_title}
+            notification_title: Het debat <a href="%{resource_path}">%{resource_title}</a> is aangemaakt in <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hallo,
+              %{author_name} %{author_nickname}, die u volgt, heeft een nieuw debat "%{resource_title}" aangemaakt. U kunt het hier bekijken en bijdragen:
+            email_outro: U hebt dit bericht ontvangen omdat u %{author_nickname} volgt. U kunt deze berichten via de vorige link stopzetten.
+            email_subject: Nieuw debat "%{resource_title}" door %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft het debat <a href="%{resource_path}">%{resource_title}</a> aangemaakt.
+        creation_disabled:
+          email_intro: 'Het aanmaken van debatten is niet meer actief in %{participatory_space_title}. U kunt nog altijd aan openbare debatten deelnemen vanaf deze pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u %{participatory_space_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Aanmaken van debatten uitgeschakeld in %{participatory_space_title}
+          notification_title: Het aanmaken van debatten is nu uitgeschakeld in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'U kunt nu nieuwe debatten starten in %{participatory_space_title}! Neem deel aan deze pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u %{participatory_space_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: Debatten nu beschikbaar in %{participatory_space_title}
+          notification_title: U kunt nu <a href="%{resource_path}">nieuwe debatten</a> starten in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Het debat "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u het debat "%{resource_title}" volgt. U kunt dit ontvolgen via de link hierboven.
+          email_subject: Het debat "%{resource_title}" is gesloten
+          notification_title: Het debat <a href="%{resource_path}">%{resource_title}</a> is gesloten.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Kies een open debat om aan deel te nemen
+          description: Deze badge wordt toegekend wanneer u actief deelneemt aan de verschillende debatten door opmerkingen te maken.
+          description_another: Deze deelnemer heeft aan %{score} debatten deelgenomen.
+          description_own: U hebt aan %{score} debatten deelgenomen.
+          name: Debatten
+          next_level_in: Neem deel aan %{score} meer debatten om het volgende niveau te bereiken!
+          unearned_another: Deze deelnemer heeft nog niet aan een debat deelgenomen.
+          unearned_own: U hebt nog niet aan debatten deelgenomen.
+    metrics:
+      debates:
+        description: Aantal aangemaakte debatten
+        object: debatten
+        title: Debatten

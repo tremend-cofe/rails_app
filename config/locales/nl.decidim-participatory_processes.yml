@@ -1,0 +1,418 @@
+nl:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Bekendmaking
+        area_id: Gebied
+        banner_image: Banner afbeelding
+        copy_categories: Categorieën kopiëren
+        copy_components: Onderdelen kopiëren
+        copy_steps: Stappen kopiëren
+        decidim_area_id: Gebied
+        description: Beschrijving
+        developer_group: Promotorgroep
+        domain: Domein
+        end_date: Einddatum
+        hero_image: Afbeelding startpagina
+        local_area: Organisatiegebied
+        meta_scope: Metagegevens toepassingsgebied
+        participatory_process_group_id: Processengroep
+        participatory_scope: Wat wordt beslist
+        participatory_structure: Hoe wordt het beslist
+        promoted: Gepromoot
+        published_at: Gepubliceerd op
+        related_process_ids: Gerelateerde processen
+        scope_id: Toepassingsgebied
+        scope_type_max_depth_id: Filterdiepte van het toepassingsgebied
+        scopes_enabled: Toepassingsgebieden ingeschakeld
+        short_description: Korte beschrijving
+        show_metrics: Cijfers weergeven
+        show_statistics: Statistieken tonen
+        slug: URL-slug
+        start_date: Begindatum
+        subtitle: Ondertitel
+        target: Wie neemt deel
+        title: Titel
+      participatory_process_group:
+        description: Beschrijving
+        hero_image: Afbeelding
+        name: Naam
+        participatory_process_ids: Gerelateerde processen
+      participatory_process_step:
+        cta_path: Oproep tot actie-pad
+        cta_text: Oproep tot actie-tekst
+        description: Beschrijving
+        end_date: Einddatum
+        short_description: Korte beschrijving
+        start_date: Begindatum
+        title: Titel
+      participatory_process_user_role:
+        email: E-mail
+        name: Naam
+        role: Functie
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ongeldig documenttype. Geaccepteerde formaten zijn: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Fase geactiveerd
+      decidim/participatory_process_step_changed_event: Fase gewijzigd
+  activerecord:
+    models:
+      decidim/participatory_process_group:
+        one: Participerende procesgroep
+        other: Participerende procesgroepen
+      decidim/participatory_process_step:
+        one: Fase
+        other: Fasen
+  decidim:
+    admin:
+      actions:
+        activate: Activeren
+        configure: Configureren
+        confirm_destroy: Verwijderen bevestigen
+        destroy: Verwijderen
+        duplicate: Dupliceren
+        edit: Bewerken
+        filter:
+          all_processes: Alle processen weergeven
+          process_groups: Procesgroepen
+        import_process: Importeren
+        new_process: Nieuw proces
+        new_process_group: Nieuwe procesgroep
+        new_process_step: Nieuwe fase
+        new_process_user_role: Nieuwe procesbeheerder
+        preview: Voorbeeld
+        publish: Publiceren
+        resend_invitation: Uitnodiging opnieuw verzenden
+        unpublish: Publiceren ongedaan maken
+      menu:
+        participatory_process_groups: Procesgroepen
+        participatory_processes_submenu:
+          attachment_collections: Mappen
+          attachment_files: Bestanden
+          attachments: Bijlagen
+          categories: Categorieën
+          components: Onderdelen
+          moderations: Gespreksronden
+          private_users: Privédeelnemers
+          process_admins: Beheerders verwerken
+          steps: Fasen
+      models:
+        participatory_process:
+          fields:
+            created_at: Aangemaakt op
+            private: Particulier
+            promoted: Uitgelicht
+            published: Gepubliceerd
+            title: Titel
+          name: Participatieproces
+        participatory_process_group:
+          fields:
+            name: Naam
+          name: Procesgroep
+        participatory_process_step:
+          fields:
+            end_date: Einddatum
+            start_date: Begindatum
+            title: Titel
+          name: Fase van het participatieproces
+        participatory_process_user_role:
+          fields:
+            email: E-mail
+            name: Naam
+            role: Functie
+          name: Beheerder van het participatieproces
+          roles:
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Gespreksleider
+            valuator: Beoordelaar
+        user:
+          fields:
+            invitation_accepted_at: Uitnodiging geaccepteerd op
+            invitation_sent_at: Uitnodiging verzonden op
+      participatory_process_copies:
+        new:
+          copy: Kopiëren
+          select: Selecteer welke gegevens u wilt dupliceren
+          title: Participatieproces dupliceren
+      participatory_process_groups:
+        destroy:
+          error: Er is een fout opgetreden bij het verwijderen van de participerende procesgroep.
+          success: Participerende procesgroep verwijderd.
+        edit:
+          title: Procesgroep bewerken
+          update: Bijwerken
+        new:
+          create: Aanmaken
+          title: Nieuwe procesgroep
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze participerende procesgroep.
+          success: Participerende procesgroep bijgewerkt.
+      participatory_process_imports:
+        create:
+          error: Er is een probleem opgetreden bij het importeren van dit participatieproces.
+          success: Participatieproces geïmporteerd.
+        new:
+          import: Importeren
+          select: Selecteer welke gegevens u wilt importeren
+          title: Participatieproces importeren
+      participatory_process_publications:
+        create:
+          error: Er is een probleem opgetreden bij het publiceren van dit participatieproces.
+          success: Participatieproces gepubliceerd.
+        destroy:
+          error: Er is een probleem opgetreden bij het ongedaan maken van de publicatie van dit participatieproces.
+          success: De publicatie van het participatieproces is ongedaan gemaakt.
+      participatory_process_step_activations:
+        create:
+          error: Er is een probleem opgetreden bij het activeren van deze fase van het participatieproces.
+          success: Fase van het participatieproces geactiveerd.
+      participatory_process_steps:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe fase van het participatieproces.
+          success: Fase van het participatieproces aangemaakt.
+        default_title: Inleiding
+        destroy:
+          error:
+            active_step: Kan de actieve fase niet verwijderen.
+            last_step: Kan de laatste fase van een proces niet verwijderen.
+          success: Fase van het participatieproces verwijderd.
+        edit:
+          title: Fase van het participatieproces bewerken
+          update: Bijwerken
+        index:
+          steps_title: Fasen
+        new:
+          create: Aanmaken
+          title: Nieuwe fase van het participatieproces
+        ordering:
+          error: Er is een probleem opgetreden bij het herschikken van deze fasen van het participatieproces.
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze fase van het participatieproces.
+          success: De participatiefase is bijgewerkt.
+      participatory_process_user_roles:
+        create:
+          error: Er is een probleem opgetreden bij het toevoegen van een deelnemer aan dit participatieproces.
+          success: De beheerder heeft een bijdrage aan dit participatieproces toegevoegd.
+        destroy:
+          success: Beheerder van dit participatieproces is verwijderd.
+        edit:
+          title: Beheerder van het participatieproces bijwerken
+          update: Bijwerken
+        index:
+          process_admins_title: Beheerders van het participatieproces
+        new:
+          create: Aanmaken
+          title: Nieuwe beheerder van het participatieproces
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van de beheerder van dit participatieproces.
+          success: De beheerder van dit participatieproces is bijgewerkt.
+      participatory_processes:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuw participatieproces.
+          success: Participatieproces aangemaakt. Nu de fasen configureren.
+        edit:
+          update: Bijwerken
+        index:
+          not_published: Niet gepubliceerd
+          private: Particulier
+          public: Openbaar
+          published: Gepubliceerd
+        new:
+          create: Aanmaken
+          title: Nieuw participatieproces
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van dit participatieproces.
+          success: Participatieproces bijgewerkt.
+      participatory_processes_copies:
+        create:
+          error: Er is een probleem opgetreden bij het dupliceren van dit participatieproces.
+          success: Participatieproces gedupliceerd.
+      participatory_processes_group:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe participerende procesgroep.
+          success: Participerende procesgroep aangemaakt.
+      titles:
+        participatory_process_groups: Participerende procesgroepen
+      users:
+        resend_invitation:
+          error: Er is een probleem opgetreden bij het opnieuw verzenden van de uitnodiging.
+          success: Uitnodiging opnieuw verzonden.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} heeft het participatieproces %{resource_name} aangemaakt"
+        publish: "%{user_name} heeft het participatieproces %{resource_name} gepubliceerd"
+        unpublish: "%{user_name} heeft de publicatie van het participatieproces %{resource_name} ongedaan gemaakt"
+        update: "%{user_name} heeft het participatieproces %{resource_name} bijgewerkt"
+      participatory_process_group:
+        create: "%{user_name} heeft de participerende procesgroep %{resource_name} aangemaakt"
+        update: "%{user_name} heeft de participerende procesgroep %{resource_name} bijgewerkt"
+      participatory_process_step:
+        activate: "%{user_name} heeft de fase %{resource_name} in het participatieproces %{space_name} geactiveerd"
+        create: "%{user_name} heeft de fase %{resource_name} in het participatieproces %{space_name} aangemaakt"
+        delete: "%{user_name} heeft de fase %{resource_name} in het participatieproces %{space_name} verwijderd"
+        update: "%{user_name} heeft de fase %{resource_name} in het participatieproces %{space_name} bijgewerkt"
+      participatory_process_user_role:
+        create: "%{user_name} heeft de deelnemer %{resource_name} uitgenodigd voor het participatieproces %{space_name}"
+        delete: "%{user_name} heeft de deelnemer %{resource_name} van het participatieproces %{space_name} verwijderd"
+        update: "%{user_name} heeft de rol van de deelnemer %{resource_name} in het participatieproces %{space_name} gewijzigd"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: U bent als %{role} toegewezen aan het participatieproces "%{resource_title}".
+          email_outro: U hebt dit bericht ontvangen omdat u de %{role} van het participatieproces "%{resource_title}" bent.
+          email_subject: U bent aangesteld als %{role} voor “%{resource_title}”.
+          notification_title: U bent als %{role} toegewezen aan het participatieproces <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'De fase %{resource_title} is nu actief voor %{participatory_space_title}. U kunt deze bekijken op deze pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u %{participatory_space_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: '%{participatory_space_title} bijgewerkt'
+          notification_title: De fase %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'De datums voor de fase %{resource_title} in %{participatory_space_title} zijn bijgewerkt. U kunt deze bekijken op deze pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u %{participatory_space_title} volgt. U kunt deze berichten via de vorige link stopzetten.
+          email_subject: '%{participatory_space_title} bijgewerkt'
+          notification_title: De datums voor de fase <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Een <strong>participatieproces</strong> is een opeenvolging van participatie-activiteiten (bv. eerst een enquête invullen, vervolgens voorstellen doen, ze bespreken in rechtstreekse of virtuele vergaderingen en uiteindelijk prioriteiten stellen) om een specifiek inspraakproces te definiëren en een besluit te nemen.</p> <p>Voorbeelden van participatieprocessen zijn: een proces van verkiezing van de commissieleden (waarbij de kandidaten eerst worden voorgedragen, vervolgens worden besproken en uiteindelijk een kandidatuur wordt gekozen), participatiebegrotingen (waarbij voorstellen worden gedaan, economisch worden gewaardeerd en over het beschikbare geld wordt gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of een norm, het ontwerpen van een stedelijke ruimte of het opstellen van een beleidsplan.</p>\n"
+          page: "<p>Een <strong>participatieproces</strong> is een opeenvolging van participatie-activiteiten (bv. eerst een enquête invullen, vervolgens voorstellen doen, ze bespreken in rechtstreekse of virtuele vergaderingen en uiteindelijk prioriteiten stellen) om een specifiek inspraakproces te definiëren en een besluit te nemen.</p> <p>Voorbeelden van participatieprocessen zijn: een proces van verkiezing van de commissieleden (waarbij de kandidaten eerst worden voorgedragen, vervolgens worden besproken en uiteindelijk een kandidatuur wordt gekozen), participatiebegrotingen (waarbij voorstellen worden gedaan, economisch worden gewaardeerd en over het beschikbare geld wordt gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of een norm, het ontwerpen van een stedelijke ruimte of het opstellen van een beleidsplan.</p>\n"
+          title: Wat is een participatieproces?
+    metrics:
+      participatory_processes:
+        description: Aantal participatieprocessen in deze organisatie
+        object: participatieprocessen
+        title: Participatieprocessen
+    participatory_process:
+      show:
+        related_assemblies: Aanverwante assemblees
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 proces voor %{group}
+          other: "%{count} processen voor %{group}"
+        title: Participerende procesgroepen
+    participatory_process_steps:
+      index:
+        process_steps: Fasen van het proces
+        title: Fasen van het participatieproces
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximum aantal weer te geven elementen
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Document toevoegen
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Gebruik hier gedeeltelijke paden, geen volledige URL''s. Aanvaardt letters, cijfers, streepjes en schuine strepen, en moet beginnen met een letter. Als dit niet is ingeschakeld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
+            cta_text_help: Als dit niet is ingeschakeld, wordt de knop niet weergegeven.
+        participatory_processes:
+          form:
+            announcement_help: De tekst die u hier invult, wordt rechts onder de procesinformatie aan de gebruiker weergegeven.
+            duration: Duur
+            images: Afbeeldingen
+            metadata: Metagegevens
+            other: Andere
+            related_processes: Gerelateerde processen
+            scope_type_max_depth_help: De filterdiepte van het toepassingsgebied beperken; De filter toont van algemeen tot het geselecteerde type toepassingsgebied.
+            select_an_area: Een gebied selecteren
+            select_process_group: Een procesgroep selecteren
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+            title: Algemene informatie
+            visbility: Zichtbaarheid
+      content_blocks:
+        highlighted_processes:
+          name: Uitgelichte processen
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Actieve fase
+            more_information: Meer informatie
+            participate: Deelnemen
+            participate_in: Aan proces %{resource_name} deelnemen
+      participatory_process_steps:
+        index:
+          back_to_process: Terug naar de pagina verwerking
+      participatory_processes:
+        filters:
+          explanations:
+            no_active_nor_upcoming: Geen actieve of geplande processen
+            no_active_nor_upcoming_callout: Er zijn geen actieve of geplande processen. Hier vindt u een lijst van vroegere processen.
+          names:
+            active: Actief
+            all: Alle
+            past: Voorbije
+            upcoming: Gepland(e)
+          see: Zie
+        index:
+          loading: Resultaten worden geladen...
+      show:
+        area: Gebied
+        dates: Datums
+        developer_group: Promotorgroep
+        end_date: Einddatum
+        local_area: Gebied van organisatie
+        participatory_scope: Wat wordt beslist
+        participatory_structure: Hoe wordt het beslist
+        private_space: Dit is een particulier proces
+        related_processes: Gerelateerde processen
+        scope: Toepassingsgebied
+        start_date: Begindatum
+        target: Wie neemt deel
+        unspecified: Niet gespecificeerd
+      statistics:
+        answers_count: Antwoorden
+        comments_count: Opmerkingen
+        debates_count: Debatten
+        endorsements_count: Onderschrijvingen
+        followers_count: Volgers
+        headline: Statistieken
+        no_stats: Er zijn nog geen statistieken.
+        orders_count: Steunbetuigingen
+        pages_count: Pagina‘s
+        participants_count: Deelnemers
+        projects_count: Projecten
+        results_count: Resultaten
+        supports_count: Steunbetuigingen
+        surveys_count: Enquêtes
+        users_count: Deelnemers
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Bladeren
+          browse_resource: Door procesgroep %{resource_name} bladeren
+          processes_count: 'Processen:'
+      participatory_process_widgets:
+        show:
+          active_step: Actieve fase
+          take_part: Deelnemen
+      participatory_processes:
+        index:
+          promoted_processes: Uitgelichte processen
+        participatory_process:
+          active_step: 'Huidige fase:'
+          more_info: Meer info
+          more_info_about: Meer informatie over het proces %{resource_name}
+          take_part: Deelnemen
+          take_part_in: Aan het proces %{resource_name} deelnemen
+        promoted_process:
+          active_step: 'Huidige fase:'
+          more_info: Meer info
+          more_info_about: Meer informatie over het proces %{resource_name}
+          take_part: Deelnemen
+          take_part_in: Aan het proces %{resource_name} deelnemen
+      process_header_steps:
+        step: Fase %{current} van %{total}
+        view_steps: Fasen van het proces

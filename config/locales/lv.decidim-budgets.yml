@@ -1,0 +1,242 @@
+lv:
+  activemodel:
+    attributes:
+      project:
+        budget: Budžets
+        decidim_category_id: Kategorija
+        decidim_scope_id: Darbības tvērums
+        description: Apraksts
+        proposal_ids: Saistītie priekšlikumi
+        title: Virsraksts
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Mapes
+        attachments: Pielikumi
+        confirm_destroy: Vai tiešām vēlaties dzēst šo projektu?
+        destroy: Dzēst
+        edit: Rediģēt
+        edit_projects: Pārvaldīt projektus
+        import: Importēt priekšlikumus projektos
+        new: Jaunais %{name}
+        preview: Priekšskatīt
+        title: Darbības
+      admin:
+        budgets:
+          create:
+            invalid: Izveidojot šo budžetu, radās problēma
+            success: Budžets ir veiksmīgi izveidots
+          destroy:
+            invalid: Dzēšot šo budžetu, radās problēma
+            success: Budžets ir veiksmīgi izdzēsts
+          edit:
+            title: Rediģēt budžetu
+            update: Atjaunināt budžetu
+          index:
+            title: Budžeti
+          new:
+            create: Izveidot budžetu
+            title: Jauns budžets
+          update:
+            invalid: Atjauninot šo budžetu, radās problēma
+            success: Budžets ir veiksmīgi atjaunināts
+        models:
+          budget:
+            name: Budžets
+          project:
+            name: Projekts
+        projects:
+          create:
+            invalid: Izveidojot šo projektu, radās problēma
+            success: Projekts ir veiksmīgi izveidots
+          destroy:
+            success: Projekts ir veiksmīgi izdzēsts
+          edit:
+            title: Rediģēt projektu
+            update: Atjaunināt
+          index:
+            finished_orders: Pabeigtie balsojumi
+            pending_orders: Notiekošie balsojumi
+            selected: Atlasīts
+            title: Projekti
+          new:
+            create: Izveidot
+            title: Jauns projekts
+          update:
+            invalid: Atjauninot šo projektu, radās problēma
+            success: Projekts ir veiksmīgi atjaunināts
+        proposals_imports:
+          create:
+            invalid: Importējot priekšlikumus projektos, radās problēma
+            success: "%{number} priekšlikumi ir veiksmīgi importēti projektos"
+          new:
+            create: Importēt priekšlikumus projektos
+            no_components: Šajā līdzdalības telpā nav citu priekšlikumu komponentu, lai importētu priekšlikumus projektos.
+            select_component: Lūdzu, atlasiet komponentu
+      admin_log:
+        budget:
+          create: "%{user_name} izveidoja budžetu %{resource_name} telpā %{space_name}"
+          delete: "%{user_name} izdzēsa budžetu %{resource_name} telpā %{space_name}"
+          update: "%{user_name} atjaunināja budžetu %{resource_name} telpā %{space_name}"
+        project:
+          create: "%{user_name} izveidoja projektu %{resource_name} telpā %{space_name}"
+          delete: "%{user_name} izdzēsa projektu %{resource_name} telpā %{space_name}"
+          update: "%{user_name} atjaunināja projektu %{resource_name} telpā %{space_name}"
+      budget:
+        view: Skatīt visus budžeta projektus
+      budget_information_modal:
+        back_to: Atgriezties pie %{component_name}
+        close_modal: Aizvērt modālo logu
+        continue: Turpināt
+        more_information: Papildinformācija
+      budgets_list:
+        cancel_order:
+          more_than_one: dzēst savu balsojumu par %{name} un sākt no jauna
+          only_one: dzēst savu balsojumu un sākt no jauna.
+        finished_message: Balsošanas process ir pabeigts. Paldies par dalību!
+        highlighted_cta: Balsot par %{name}
+        if_change_opinion: Ja pārdomājāt, varat
+        my_budgets: Mani budžeti
+        voted_on: Jūs esat balsojis par %{links}
+      limit_announcement:
+        cant_vote: Jūs nevarat balsot par šo budžetu. <a href="%{landing_path}">Mēģināt citu budžetu</a>.
+        limit_reached: 'Jums ir aktīvi balsojumi šādā saitē: %{links}. Lai balsotu par šo budžetu, jums <a href="%{landing_path}">jādzēš savs balsojums un jāsāk no jauna</a>.'
+      models:
+        budget:
+          fields:
+            name: Vārds un uzvārds
+            projects_count: Projektu skaits
+            total_budget: Kopējais budžets
+        project:
+          fields:
+            title: Virsraksts
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Jūs esat atlasījis šādus projektus:'
+          subject: Jūs esat nobalsojis par līdzdalības telpu %{space_name}
+          voted_on_space: Jūs esat nobalsojis par budžetu %{budget_name} līdzdalības telpai %{space_name}.
+          voted_on_space_with_scope: Jūs esat nobalsojis par budžetu %{budget_name} līdzdalības telpai %{space_name} attiecībā uz %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Ja pārdomājat, varat mainīt savu balsojumu vēlāk.
+          cancel: Atcelt
+          confirm: Apstiprināt
+          description: Tie ir projekti, kurus esat izvēlējies iekļaut budžetā.
+          title: Apstiprināt balsojumu
+        budget_excess:
+          close: Slēgt
+          description: Šis projekts pārsniedz maksimālo budžetu, un to nevar pievienot. Ja vēlaties, varat dzēst projektu, kuru jūs jau atlasījāt pievienošanai, vai veikt balsojumu ar iestatījumiem.
+          ok: Labi
+          title: Pārsniegts maksimālais budžets
+        budget_summary:
+          are_you_sure: Vai tiešām vēlaties atcelt savu balsojumu?
+          assigned: 'Piešķirts:'
+          cancel_order: dzēst savu balsojumu un sākt no jauna
+          checked_out:
+            description: Jūs jau esat nobalsojis par budžetu. Ja pārdomājāt, varat %{cancel_link}.
+            title: Balsojums par budžetu pabeigts
+          description: Kādiem projektiem, jūsuprāt, būtu jāpiešķir budžets? Piešķiriet vismaz %{minimum_budget} vēlamajiem projektiem un balsojiet, izmantojot savus iestatījumus, lai noteiktu budžetu.
+          description_minimum_projects_rule: Kādiem projektiem, jūsuprāt, būtu jāpiešķir budžets? Atlasiet vismaz %{minimum_number} vēlamos projektus un balsojiet, izmantojot savus iestatījumus, lai noteiktu budžetu.
+          title: Jūs pieņemat lēmumu par budžetu
+        filters:
+          category: Kategorija
+          scope: Darbības tvērums
+          search: Meklēt
+          status: Statuss
+          status_values:
+            all: Visi
+            not_selected: Nav atlasīts
+            selected: Atlasīts
+        filters_small_view:
+          close_modal: Aizvērt modālo logu
+          filter: Filtrs
+          filter_by: Filtrēt pēc
+          unfold: Atritināt
+        order_progress:
+          vote: Balsot
+        order_selected_projects:
+          remove: Dzēst
+          view: Skatīt
+        orders:
+          highest_cost: Augstākās izmaksas
+          label: Sakārtot projektus pēc
+          lowest_cost: Zemākās izmaksas
+          most_voted: Vislielākais balsu skaits
+          random: Nejauša secība
+          selected: Atlasīts
+        project:
+          add: Pievienot projektu %{resource_name} savam balsojumam
+          remove: Dzēst projektu %{resource_name} no sava balsojuma
+          selected: Atlasīts
+          view: Skatīt
+          you_voted: Jūs nobalsojāt
+        project_budget_button:
+          add: Pievienot savam balsojumam
+          add_descriptive: Pievienot projektu %{resource_name} savam balsojumam
+          added: Pievienots balsojumam
+          added_descriptive: Projekts %{resource_name} ir pievienots balsojumam
+        projects_for: '%{name} projekti'
+        show:
+          budget: Budžets
+          view_all_projects: Skatīt visus projektus
+    components:
+      budgets:
+        actions:
+          vote: Balsot
+        name: Budžeti
+        settings:
+          global:
+            announcement: Paziņojums
+            comments_enabled: Komentāri iespējoti
+            comments_max_length: Komentāru maksimālais garums (Atstājiet “0”, lai izmantotu noklusējuma vērtību)
+            form:
+              errors:
+                budget_voting_rule_only_one: Ir jābūt iespējotam tikai vienam balsošanas noteikums
+                budget_voting_rule_required: Ir nepieciešams viens balsošanas noteikums
+            landing_page_content: Budžetu mērķlapu
+            more_information_modal: Papildinformācijas modālais logs
+            projects_per_page: Projekti vienā lapā
+            resources_permissions_enabled: Darbību atļaujas var iestatīt katrai sanāksmei
+            total_budget: Kopējais budžets
+            vote_minimum_budget_projects_number: Projektu minimālais skaits, par kuriem var balsot
+            vote_rule_minimum_budget_projects_enabled: 'Iespējot noteikumu: Projektu minimālais skaits, par kuriem balsot'
+            vote_rule_threshold_percent_enabled: 'Iespējot noteikumu: Minimālā budžeta procentuālā vērtība'
+            vote_threshold_percent: Balsojuma sliekšņa procentuālā vērtība
+            workflow: Darbplūsma
+            workflow_choices:
+              all: 'Balsot visos: ļauj dalībniekiem balsot visos budžetos.'
+              one: 'Balsot vienā: ļauj dalībniekiem balsot jebkurā budžetā, taču tikai vienā.'
+          step:
+            announcement: Paziņojums
+            comments_blocked: Komentāri bloķēti
+            highlighted_heading: Iezīmēts virsraksts
+            landing_page_content: Budžetu mērķlapu
+            list_heading: Saraksta virsraksts
+            more_information_modal: Papildinformācijas modālais logs
+            show_votes: Rādīt balsojumus
+            title: Virsraksts
+            votes: Balsošana
+            votes_choices:
+              disabled: Balsošana atspējota
+              enabled: Balsošana iespējota
+              finished: Balsošana pabeigta
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Telpā %{participatory_space_title} tagad ir aktīvs budžets %{resource_title}. To var skatīt šādā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat telpai %{participatory_space_title}. Jūs varat pārtraukt paziņojumu saņemšanu, sekojot iepriekš norādītajai saitei.
+          email_subject: Telpā %{participatory_space_title} tagad ir aktīvs budžets %{resource_title}.
+          notification_title: Telpā %{participatory_space_title} tagad ir aktīvs budžets <a href="%{resource_path}">%{resource_title}</a>.
+    orders:
+      checkout:
+        error: Apstrādājot jūsu balsojumu, radās problēma
+        success: Jūsu balsojums ir veiksmīgi pieņemts
+      destroy:
+        error: Atceļot jūsu balsojumu, radās problēma
+        success: Jūsu balsojums ir veiksmīgi atcelts
+    resource_links:
+      included_proposals:
+        project_proposal: 'Šajā projektā iekļautie priekšlikumi:'
+  index:
+    confirmed_orders_count: Balsu skaits
+  total_budget: Kopējais budžets

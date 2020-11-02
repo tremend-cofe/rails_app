@@ -1,0 +1,473 @@
+hu:
+  activemodel:
+    attributes:
+      agenda:
+        description: Leírás
+        duration: Időtartam
+        title: Cím
+      close_meeting:
+        attendees_count: Résztvevők száma
+        attending_organizations: Résztvevő szervezetek listája
+        closing_report: Jelentés
+        contributions_count: Hozzájárulók száma
+        proposal_ids: Az ülés során létrehozott javaslatok
+      meeting:
+        address: Cím
+        available_slots: Az ülés elérhető időpontjai
+        decidim_category_id: Kategória
+        decidim_scope_id: Alkalmazási kör
+        decidim_user_group_id: Felhasználói csoport
+        description: Leírás
+        end_time: Záró időpont
+        location: Helyszín
+        location_hints: Helyszínre vonatkozó tippek
+        organizer_gid: 'Létrehozás mint:'
+        organizer_id: Szervező
+        private_meeting: Zártkörű ülés
+        registration_form_enabled: Regisztrációs űrlap engedélyezve
+        registration_terms: Regisztrációs feltételek
+        registrations_enabled: Regisztráció engedélyezve
+        start_time: Kezdő időpont
+        title: Cím
+        transparent: Átlátható
+      minutes:
+        audio_url: Hang URL-címe
+        description: Leírás
+        video_url: Videó URL-címe
+        visible: Látható
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Az elemek időtartama %{count} perccel meghaladja az ülés időtartamát
+              too_many_minutes_child: Az alárendelt elemek időtartama %{count} perccel meghaladja a(z) "%{parent_title}" fölérendelt elem időtartamát
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ezt az e-mail-fiókot már meghívták
+    models:
+      decidim/meetings/close_meeting_event: Ülés lezárva
+      decidim/meetings/create_meeting_event: Ülés
+      decidim/meetings/meeting_registrations_enabled_event: Regisztráció engedélyezve
+      decidim/meetings/meeting_registrations_over_percentage_event: A regisztrációk meghaladják a korlátot
+      decidim/meetings/update_meeting_event: Ülés frissítve
+  activerecord:
+    models:
+      decidim/meetings/minutes:
+        one: Jegyzőkönyv
+        other: Jegyzőkönyv
+      decidim/meetings/registration:
+        one: Regisztráció
+        other: Regisztrációk
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Hiba történt az üléshez duplikálása során.
+          success: Az ülés duplikálása sikeres.
+        new:
+          copy: Másolás
+          select: Válassza ki a duplikálni kívánt adatokat
+          title: Ülés duplikálása
+    components:
+      meetings:
+        actions:
+          join: Csatlakozás
+        settings:
+          global:
+            announcement: Bejelentés
+            comments_enabled: Hozzászólások engedélyezve
+            comments_max_length: A hozzászólások maximális hossza (Hagyja meg a 0-t, ha az alapértelmezett értéket szeretné használni)
+            creation_enabled_for_participants: A résztvevők létrehozhatnak üléseket
+            default_registration_terms: Alapértelmezett regisztrációs feltételek
+            enable_pads_creation: Tömbök létrehozásának engedélyezése
+            resources_permissions_enabled: A műveletek jogosultságai minden üléshez beállíthatók
+          step:
+            announcement: Bejelentés
+            comments_blocked: Hozzászólások letiltva
+            creation_enabled_for_participants: Résztvevők általi üléslétrehozás engedélyezve
+            creation_enabled_for_user_groups: Felhasználói csoportok általi üléslétrehozás engedélyezve
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'A(z) "%{resource_title}" ülést lezárták. A következtetéseket a kapcsolódó oldalon olvashatja el:'
+            email_outro: Azért kapta ezt az értesítést, mert Ön szervezte a(z) "%{resource_title}" ülést.
+            email_subject: A(z) "%{resource_title}" ülést lezárták
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülést lezárták.
+          follower:
+            email_intro: 'A(z) "%{resource_title}" ülést lezárták. A következtetéseket a kapcsolódó oldalon olvashatja el:'
+            email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" ülést. Az előző hivatkozás segítségével visszavonhatja a követést.
+            email_subject: A(z) "%{resource_title}" ülést lezárták
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülést lezárták.
+        meeting_created:
+          email_intro: 'A(z) "%{resource_title}" ülést olyan helyhez adták hozzá, amelyet követ: "%{participatory_space_title}".'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: "%{participatory_space_title}". Az előző hivatkozás segítségével visszavonhatja a követést.'
+          email_subject: 'Új ülést adtak hozzá a következő helyhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> ülést a következő helyhez adták hozzá: %{participatory_space_title}'
+        meeting_registration_confirmed:
+          notification_title: 'A(z) <a href="%{resource_url}">%{resource_title}</a> ülés regisztrációs szándékát megerősítették. A regisztrációs kód a következő: %{registration_code}.'
+        meeting_registrations_over_percentage:
+          email_intro: 'A(z) "%{resource_title}" üléshez rendelt helyek meghaladják a következőt: %{percentage}%.'
+          email_outro: Azért kapta ezt az értesítést, mert Ön az ülés részvételi terének adminisztrátora.
+          email_subject: 'A(z) "%{resource_title}" üléshez rendelt helyek meghaladják a következőt: %{percentage}%'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> üléshez rendelt helyek meghaladják a következőt: %{percentage}%.'
+        meeting_updated:
+          email_intro: 'A(z) "%{resource_title}" ülést frissítették. Az új verziót a következő oldalon olvashatja el:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" ülést. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" ülést frissítették
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülést frissítették.
+        registration_code_validated:
+          email_intro: A(z) "%{resource_title}" ülés regisztrációs kódját ("%{registration_code}") ellenőrizték.
+          email_outro: Azért kapta ezt az értesítést, mert a(z) "%{resource_title}" ülés regisztrációs kódját ellenőrizték.
+          email_subject: A(z) "%{resource_title}" ülés regisztrációs kódját ("%{registration_code}") ellenőrizték
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés regisztrációs kódját ("%{registration_code}") ellenőrizték.
+        registrations_enabled:
+          email_intro: 'A(z) "%{resource_title}" ülés engedélyezte a regisztrációt. Regisztrálhat az oldalán:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" ülést. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" ülés engedélyezte a regisztrációt.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés engedélyezte a regisztrációt.
+        upcoming_meeting:
+          email_intro: A(z) "%{resource_title}" kevesebb mint 48 órán belül kezdetét veszi.
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" ülést. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" kevesebb mint 48 órán belül kezdetét veszi.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kevesebb mint 48 órán belül kezdetét veszi.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Regisztráljon azokra az ülésekre, amelyeken részt kíván venni
+          description: Ezt a jelvényt akkor kapja meg, ha számos személyes ülésen részt vesz.
+          description_another: Ez a résztvevő %{score} ülésen vett részt.
+          description_own: Ön %{score} ülésen vett részt.
+          name: Ülések, amelyeken részt vett
+          next_level_in: Vegyen részt további %{score} ülésen, hogy elérje a következő szintet!
+          unearned_another: A résztvevő még nem vett részt üléseken.
+          unearned_own: Ön még nem vett részt üléseken.
+    meetings:
+      actions:
+        agenda: Napirend
+        attachment_collections: Mappák
+        attachments: Csatolmányok
+        close: Bezárás
+        confirm_destroy: Biztosan törölni szeretné az ülést?
+        destroy: Törlés
+        edit: Szerkesztés
+        invalid_destroy:
+          proposals_count:
+            one: 'Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik:'
+            other: 'Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik:'
+        minutes: Jegyzőkönyv
+        preview: Előnézet
+        registrations: Regisztrációk
+        title: Műveletek
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Napirendi alpont hozzáadása
+            agenda_item: Napirendi pont
+            agenda_item_children: Napirendi alpontok
+            down: Le
+            remove: Eltávolítás
+            up: Fel
+          agenda_item_child:
+            agenda_item_child: Napirendi alpont
+            down: Le
+            remove: Eltávolítás
+            up: Fel
+          create:
+            invalid: Hiba történt a napirend létrehozása során
+            success: A napirend létrehozása sikeres
+          edit:
+            title: Napirend szerkesztése
+            update: Frissítés
+          form:
+            add_agenda_item: Napirendi pont hozzáadása
+            agenda_items: Napirendi pontok
+            end_date: Záró dátum
+            start_date: Kezdő dátum
+          new:
+            create: Létrehozás
+            title: Új napirend
+          update:
+            invalid: Hiba történt a napirend frissítése során
+            success: A napirend frissítése sikeres
+        exports:
+          meetings: Ülések
+          registrations: Regisztrációk
+        invite_join_meeting_mailer:
+          invite:
+            decline: Meghívás elutasítása
+            invited_you_to_join_a_meeting: "%{invited_by} meghívta egy ülésre a következő alkalmazásban: %{application}. Az alábbi hivatkozások segítségével elutasíthatja vagy elfogadhatja a meghívást."
+            join: Csatlakozás a(z) '%{meeting_title}' üléshez
+        invites:
+          create:
+            error: Hiba történ a résztvevő ülésre történő meghívása során.
+            success: A résztvevő ülésre történő meghívása sikeres.
+          form:
+            attendee_type: Résztvevő típusa
+            existing_user: Meglévő résztvevő
+            invite: Meghívás
+            invite_explanation: A résztvevőt meghívják az ülésre és a szervezetbe is.
+            non_user: Nem létező résztvevő
+            select_user: Résztvevő kiválasztása
+          index:
+            filter:
+              accepted: Elfogadva
+              all: Összes
+              rejected: Elutasítva
+              sent: Elküldve
+            filter_by: Szűrési feltétel
+            invite_attendee: Résztvevő meghívása
+            invites: Meghívások
+            registrations_disabled: Nem hívhat meg résztvevőt, mert a regisztráció le van tiltva.
+            search: Keresés
+        meeting_closes:
+          edit:
+            close: Bezárás
+            title: Ülés lezárása
+        meetings:
+          close:
+            invalid: Hiba történt az ülés lezárása során
+            success: Az ülés lezárása sikeres
+          create:
+            invalid: Hiba történt az ülés létrehozása során
+            success: Az ülés létrehozása sikeres
+          destroy:
+            invalid:
+              proposals_count:
+                one: Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik
+                other: Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik
+            success: Az ülés törlése sikeres
+          edit:
+            update: Frissítés
+          form:
+            address_help: 'Cím: a Geocoder használja a helyszín megtalálásához'
+            location_help: 'Helyszín: a felhasználóknak szóló üzenet, amely az ülés helyszínét tartalmazza'
+            location_hints_help: 'Helyszínre vonatkozó tippek: kiegészítő információk. Példa: az épület emelete'
+          index:
+            title: Ülések
+          new:
+            create: Létrehozás
+            title: Ülés létrehozása
+          service:
+            description: Leírás
+            down: Le
+            remove: Eltávolítás
+            service: Szolgáltatás
+            title: Cím
+            up: Fel
+          services:
+            add_service: Szolgáltatás hozzáadása
+            services: Szolgáltatások
+          update:
+            invalid: Hiba történt az ülés frissítése során
+            success: Az ülés frissítése sikeres
+        minutes:
+          create:
+            invalid: Hiba történt a jegyzőkönyv létrehozása során
+            success: A jegyzőkönyv létrehozása sikeres
+          edit:
+            update: Frissítés
+          new:
+            create: Létrehozás
+            title: Jegyzőkönyv létrehozása
+          update:
+            invalid: Hiba történt a jegyzőkönyv frissítése során
+            success: A jegyzőkönyv frissítése sikeres
+        models:
+          meeting:
+            name: Ülés
+        registrations:
+          edit:
+            save: Mentés
+            validate: Ellenőrzés
+            validate_registration_code: Regisztrációs kód ellenőrzése
+          form:
+            available_slots_help: Hagyja meg a 0 értéket, ha korlátlan szabad helye van.
+            invites: Meghívások
+            recommendation_message: Adatvédelmi okokból javasoljuk, hogy törölje ezt az űrlapot, ha már nincs rá szüksége. Alapértelmezés szerint ez 3 hónap az ülés végét követően.
+            registration_form: Regisztrációs űrlap
+            registrations_count:
+              one: '%{count} regisztráció.'
+              other: '%{count} regisztráció.'
+            reserved_slots_help: Hagyja meg a 0 értéket, ha nem rendelkezik lefoglalt helyekkel
+            reserved_slots_less_than: Legfeljebb %{count} lehet
+            title: Regisztrációk
+          update:
+            invalid: Hiba történt a regisztrációs beállítások mentése során.
+            success: A regisztrációs beállítások mentése sikeres.
+          validate_registration_code:
+            invalid: Ez a regisztrációs kód érvénytelen.
+            success: A regisztrációs kód ellenőrzése sikeres.
+      admin_log:
+        invite:
+          create: "%{user_name} meghívta %{attendee_name} felhasználót a(z) %{resource_name} ülésre a következő térben: %{space_name}"
+          deleted: "%{user_name} visszavonta %{attendee_name} felhasználó meghívását a(z) %{resource_name} ülésre a következő térben: %{space_name}"
+          update: "%{user_name} meghívta %{attendee_name} felhasználót a(z) %{resource_name} ülésre a következő térben: %{space_name}"
+        meeting:
+          close: "%{user_name} lezárta a(z) %{resource_name} ülést a(z) %{space_name} térben"
+          create: "%{user_name} létrehozta a(z) %{resource_name} ülést a(z) %{space_name} térben"
+          delete: "%{user_name} törölte a(z) %{resource_name} ülést a(z) %{space_name} térben"
+          export_registrations: "%{user_name} exportálta a(z) %{resource_name} ülés regisztrációit a(z) %{space_name} térben"
+          update: "%{user_name} frissítette a(z) %{resource_name} ülést a(z) %{space_name} térben"
+          value_types:
+            organizer_presenter:
+              not_found: 'A szervező nem található az adatbázisban (azonosító: %{id})'
+        minutes:
+          create: "%{user_name} létrehozta a(z) %{resource_name} ülés jegyzőkönyvét a(z) %{space_name} térben"
+          update: "%{user_name} frissítette a(z) %{resource_name} ülés jegyzőkönyvét a(z) %{space_name} térben"
+      calendar_modal:
+        calendar_url: Naptár URL-címe
+        close_window: Ablak bezárása
+        export_calendar: Naptár exportálása
+      conference_venues: Konferencia-helyszínek
+      content_blocks:
+        upcoming_events:
+          name: Közelgő események
+          view_all_events: Az összes megtekintése
+      directory:
+        meetings:
+          index:
+            all: Összes
+            date: Dátum
+            past: Múltbeli
+            search: Keresés
+            space_type: Részvételi tér
+            upcoming: Közelgő
+      last_activity:
+        new_meeting_at_html: "<span>Új ülés: %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Meghívás az ülésre
+        registration_mailer:
+          confirmation:
+            subject: Az ülés regisztrációját megerősítették
+      meeting:
+        not_allowed: Ön nem láthatja ezt az ülést
+      meetings:
+        create:
+          invalid: Hiba történt az ülés létrehozása során.
+          success: Az ülés létrehozása sikeres.
+        edit:
+          back: Vissza
+          title: Saját ülés szerkesztése
+          update: Frissítés
+        filters:
+          category: Kategória
+          date: Dátum
+          date_values:
+            all: Összes
+            past: Múltbeli
+            upcoming: Közelgő
+          origin: Forrás
+          origin_values:
+            all: Összes
+            citizens: Polgárok
+            official: Hivatalos
+            user_groups: Csoportok
+          scope: Alkalmazási kör
+          search: Keresés
+        filters_small_view:
+          close_modal: Modális ablak bezárása
+          filter: Szűrő
+          filter_by: Szűrési feltétel
+          unfold: Kibontás
+        form:
+          address_help: 'Cím: a Geocoder használja a helyszín megtalálásához'
+          location_help: 'Helyszín: a felhasználóknak szóló üzenet, amely az ülés helyszínét tartalmazza'
+          location_hints_help: 'Helyszínre vonatkozó tippek: kiegészítő információk. Példa: az épület emelete'
+          select_a_category: Kérjük, válasszon egy kategóriát
+        meeting_minutes:
+          meeting_minutes: Az ülés jegyzőkönyve
+          related_information: Kapcsolódó információk
+        meetings:
+          no_meetings_warning: Egyetlen ülés sem felel meg a keresési feltételeknek, vagy nincsenek ülések beütemezve.
+          upcoming_meetings_warning: Jelenleg nincs ütemezett ülés, de itt megtalálhatja az összes múltbeli ülést.
+        new:
+          back: Vissza
+          create: Létrehozás
+        registration_confirm:
+          cancel: Mégse
+          confirm: Megerősítés
+        show:
+          attendees: Résztvevők száma
+          back: Vissza a listához
+          contributions: Támogatók száma
+          date: Dátum
+          edit_meeting: Ülés szerkesztése
+          going: Részvételi szándék
+          join: Csatlakozás az üléshez
+          meeting_report: Az ülés jegyzőkönyve
+          no_slots_available: Nincs szabad hely
+          organizations: Résztvevő szervezetek
+          registration_code_help_text: Az Ön regisztrációs kódja
+          registration_state:
+            validated: ELLENŐRIZVE
+            validation_pending: FÜGGŐBEN LÉVŐ ELLENŐRZÉS
+          remaining_slots:
+            one: "%{count} hely maradt"
+            other: "%{count} hely maradt"
+          view: Megtekintés
+        update:
+          invalid: Hiba történt az ülés frissítése során.
+          success: Az ülés frissítése sikeres.
+      meetings_map:
+        view_meeting: Ülés megtekintése
+      models:
+        invite:
+          fields:
+            email: E-mail-cím
+            name: Név
+            sent_at: 'Küldés ideje:'
+            status: Állapot
+          status:
+            accepted: Elfogadva (%{at})
+            rejected: Elutasítva (%{at})
+            sent: Elküldve
+        meeting:
+          fields:
+            closed: Lezárva
+            end_time: Záró dátum
+            map: Térkép
+            start_time: Kezdő dátum
+            title: Cím
+      read_more: "(bővebben)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: A(z) <a href="%{url}">%{title}</a> ülés regisztrációját megerősítették.
+          details: Az ülés részleteit a csatolmányban találja.
+          registration_code: 'A regisztrációs kód a következő: %{code}.'
+      registrations:
+        create:
+          invalid: Hiba történt az üléshez történő csatlakozás során.
+          success: Az üléshez történő csatlakozás sikeres. Mivel regisztrált erre az ülésre, értesítést küldünk a kapcsolódó hírekről.
+        decline_invitation:
+          invalid: Hiba történt a meghívás elutasítása során.
+          success: A meghívás elutasítása sikeres.
+        destroy:
+          invalid: Hiba történt az ülés elhagyása során.
+          success: Az ülés elhagyása sikeres.
+      types:
+        private_meeting: Zártkörű ülés
+        transparent: Átlátható
+      versions:
+        back_to_resource: Térjen vissza az üléshez
+    metrics:
+      meetings:
+        description: Létrehozott ülések száma
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Múltbeli ülések
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Kapcsolódó eredmények:'
+        result_meeting: 'Kapcsolódó ülések:'
+      proposals_from_meeting:
+        meeting_proposal: 'Kapcsolódó javaslatok:'
+        proposal_meeting: 'Kapcsolódó ülések:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Meghívás az ülésre

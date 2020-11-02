@@ -1,0 +1,215 @@
+lt:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Būsena
+        decidim_category_id: Kategorija
+        decidim_scope_id: Sritis
+        description: Aprašymas
+        end_date: Pabaigos data
+        progress: Eiga
+        project_ids: Įtraukti projektai
+        proposals: Įtraukti pasiūlymai
+        start_date: Pradžios data
+        title: Pavadinimas
+        updated_at: Atnaujinta
+      status:
+        description: Aprašymas
+        key: Raktas
+        name: Pavadinimas
+        progress: Eiga
+      timeline_entry:
+        description: Aprašymas
+        entry_date: Data
+    models:
+      decidim/accountability/proposal_linked_event: Pasiūlymas įtrauktas į rezultatą
+      decidim/accountability/result_progress_updated_event: Rezultato eigos duomenys atnaujinti.
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
+        destroy: Pašalinti
+        edit: Keisti
+        import_csv: Importuoti CSV
+        new: Naujas %{name}
+        preview: Peržiūrėti
+        timeline_entries: Projekto raida
+        title: Veiksmai
+      admin:
+        exports:
+          results: Rezultatai
+        import_results:
+          new:
+            import: Importuoti
+            info: "<p>Rekomenduojame atlikti šiuos veiksmus:</p><ol><li>Sukurti norimų pridėti rezultatų būsenas (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Sukurti bent vieną rezultatą rankiniu būdu pasinaudojant šia „Administratoriaus sritimi“ (<a href='%{link_new_result}' target='_blank'>link</a>) prieš spustelint „Importuoti“, kad geriau suprastumėte formatą ir tai, ką turite užpildyti.</li><li>Parsisiųskite eksporto rinkmeną CSV formatu (%{link_export_csv})</li><li>Atlikite pakeitimus vietoje. Galite pakeisti tik šias CSV skiltis:</li></ol><ul><li><b>category/id:</b> ID, skirtą kategorijai</li><li><b>scope/id:</b> ID, skirtą sričiai</li><li><b>parent/id:</b> pirminio elemento ID (skirtą susijusiems rezultatams). Neprivaloma</li><li><b>title/I18N:</b> Pavadinimas X kalba</li><li><b>description/I18N:</b> Aprašymas X kalba</li><li><b>start_date:</b> data, kada rezultatas pradedamas generuoti (MMMM-MM-DD formatas)</li><li><b>end_date:</b> data, kada rezultatas baigiamas generuoti (MMMM-MM-DD formatas)</li><li><b>status/id:</b> šio rezultato būsenos ID</li><li><b>progress:</b> Įvykdymo procentinė dalis (nuo 0 iki 100)</li><li><b>proposals_ids:</b> susijusių pasiūlymų vidaus ID (atskirta kableliu). Tai automatiškai pakeičiama į <span class='attribute-name'>proposal_url</span></li></ul>."
+            link: nuoroda
+            title: Importuoti rezultatus iš CSV
+        imports:
+          create:
+            success: Rinkmena pradėta importuoti. Po kelių minučių gausite e. laišką su importo rezultatu.
+        models:
+          result:
+            name: Rezultatas
+          status:
+            name: Būsena
+          timeline_entry:
+            name: Laiko juostos įrašas
+        results:
+          create:
+            invalid: Kuriant šį rezultatą iškilo problema.
+            success: Rezultatas sukurtas.
+          destroy:
+            success: Rezultatas pašalintas.
+          edit:
+            title: Keisti rezultatą
+            update: Atnaujinti rezultatą
+          index:
+            title: Rezultatai
+          new:
+            create: Sukurti rezultatą
+            title: Naujas rezultatas
+          update:
+            invalid: Atnaujinant šį rezultatą iškilo problema.
+            success: Rezultatas atnaujintas.
+        shared:
+          subnav:
+            statuses: Būsenos
+        statuses:
+          create:
+            invalid: Kuriant šią būseną iškilo problema.
+            success: Būsena sukurta.
+          destroy:
+            success: Būsena pašalinta.
+          edit:
+            title: Keisti būseną
+            update: Atnaujinti būseną
+          index:
+            title: Būsenos
+          new:
+            create: Sukurti būseną
+            title: Nauja būsena
+          update:
+            invalid: Atnaujinant šią būseną iškilo problema.
+            success: Būsena atnaujinta.
+        timeline_entries:
+          create:
+            invalid: Kuriant šį įrašą iškilo problema.
+            success: Įrašas sukurtas.
+          destroy:
+            success: Įrašas pašalintas.
+          edit:
+            title: Keisti įrašą
+            update: Atnaujinti įrašą
+          index:
+            title: Projekto laiko juostos įrašai
+          new:
+            create: Sukurti įrašą
+            title: Naujas įrašas
+          update:
+            invalid: Atnaujinant šį įrašą iškilo problema.
+            success: Įrašas atnaujintas.
+      admin_log:
+        result:
+          create: "%{user_name} sukūrė rezultatą %{resource_name} erdvėje %{space_name}."
+          delete: "%{user_name} pašalino %{resource_name} rezultatą erdvėje %{space_name}."
+          update: "%{user_name} atnaujino rezultatą %{resource_name} erdvėje %{space_name}."
+        value_types:
+          parent_presenter:
+            not_found: 'Pirminis elementas duomenų bazėje nerastas (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Klaidos
+          errors_present: Importuojant rezultatus iškilo problema.
+          row_number: Eilutė
+          subject: Rezultatai importuoti
+          success: Rezultatai importuoti. Rezultatus galite peržiūrėti administravimo sąsajoje.
+      last_activity:
+        new_result_at_html: "<span>Naujas rezultatas %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Pabaigos data
+            progress: Eiga
+            start_date: Pradžios data
+            status: Būsena
+            title: Pavadinimas
+        status:
+          fields:
+            description: Aprašymas
+            key: Raktas
+            name: Pavadinimas
+            progress: Eiga
+        timeline_entry:
+          fields:
+            description: Aprašymas
+            entry_date: Data
+      results:
+        filters:
+          all: Visi
+          scopes: Sritys
+        home:
+          categories_label: Kategorijos
+          subcategories_label: Pakategorės
+        home_header:
+          global_status: Bendra vykdymo būsena
+        nav_breadcrumb:
+          global: Bendras vykdymo rezultatas
+        search:
+          search: Ieškoti veiksmų
+        show:
+          stats:
+            attendees: Dalyviai
+            back_to_resource: Grįžti į rezultatą
+            comments: Komentarai
+            contributions: Nuomonės
+            last_edited_by: Paskutinį kartą keitė
+            last_updated_at: Paskutinį kartą atnaujinta
+            meetings: Posėdžiai
+            proposals: Pasiūlymai
+            votes: Parama
+        timeline:
+          title: Projekto raida
+    components:
+      accountability:
+        name: Atskaitomybė
+        settings:
+          global:
+            categories_label: '„Kategorijų“ pavadinimai'
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+            display_progress_enabled: Rodyti eigą
+            heading_leaf_level_results: '„Projektų“ pavadinimai'
+            heading_parent_level_results: '„Rezultatų“ pavadinimai'
+            intro: Įvadas
+            subcategories_label: '„Pakategorių“ pavadinimai'
+          step:
+            comments_blocked: Komentarai užblokuoti
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Pasiūlymas „%{proposal_title}“ įtrauktas į rezultatą. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{proposal_title} atnaujinimas'
+          notification_title: Pasiūlymas <a href="%{proposal_path}">%{proposal_title}</a> įtrauktas į <a href="%{resource_path}">%{resource_title}</a> rezultatą.
+        result_progress_updated:
+          email_intro: 'Rezultatas „%{resource_title}“, kuris apima pasiūlymą „%{proposal_title}“, dabar %{progress}% gautas. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{proposal_title}“, ir šis pasiūlymas įtrauktas į rezultatą „%{resource_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{resource_title} eigos atnaujinimas'
+          notification_title: Rezultatas <a href="%{resource_path}">%{resource_title}</a>, kuris apima pasiūlymą <a href="%{proposal_path}">%{proposal_title}</a>, dabar %{progress}% gautas.
+    metrics:
+      results:
+        description: Gautų rezultatų skaičius
+        object: rezultatai
+        title: Rezultatai
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Rezultatai
+    participatory_spaces:
+      highlighted_results:
+        see_all: Žiūrėti visus rezultatus (%{count})
+    resource_links:
+      included_projects:
+        result_project: Į šį rezultatą įtraukti projektai
+      included_proposals:
+        result_proposal: Į šį rezultatą įtraukti pasiūlymai

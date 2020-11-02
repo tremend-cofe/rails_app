@@ -1,0 +1,203 @@
+da:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategori
+        closed_at: Lukket kl.
+        conclusions: Konklusioner
+        decidim_category_id: Kategori
+        description: Beskrivelse
+        end_time: Slutter kl
+        information_updates: Opdateringer af oplysninger
+        instructions: Instruktioner til at deltage
+        start_time: Starter kl.
+        title: Betegnelse
+        user_group_id: Opret debat som
+    models:
+      decidim/debates/close_debate_event: Debatten lukket
+      decidim/debates/create_debate_event: Debat
+      decidim/debates/creation_disabled_event: Debatter deaktiveret
+      decidim/debates/creation_enabled_event: Debatter aktiveret
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debat
+        other: Debatter
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Opretter
+          endorse: Anbefal
+        name: Debatter
+        settings:
+          global:
+            announcement: Meddelelse
+            comments_enabled: Bemærkninger aktiveret
+            comments_max_length: Bemærkninger maks. Længde (lad 0 være standardværdi)
+          step:
+            announcement: Meddelelse
+            comments_blocked: Bemærkninger blokeret
+            creation_enabled: Debatoprettelse af deltagere aktiveret
+            endorsements_blocked: Blokerede anbefalinger
+            endorsements_enabled: Anbefalinger aktiveret
+    debates:
+      actions:
+        close: Luk
+        confirm_destroy: Er du sikker?
+        destroy: Slet
+        edit: Rediger
+        new: Nyt %{name}
+        title: Handlinger
+      admin:
+        debate_closes:
+          edit:
+            close: Luk
+            title: Luk debat
+        debates:
+          create:
+            invalid: Der var et problem med at oprette debatten.
+            success: Debat oprettet.
+          destroy:
+            success: Debatten slettet.
+          edit:
+            title: Rediger debat
+            update: Opdater debat
+          index:
+            title: Debatter
+          new:
+            create: Opret debat
+            title: Ny debat
+          update:
+            invalid: Der var et problem med opdatering af denne debat.
+            success: Debatten opdateret
+        models:
+          debate:
+            name: Debat
+      admin_log:
+        debate:
+          close: "%{user_name} lukkede %{resource_name}-debatten om %{space_name}-området"
+          create: "%{user_name} oprettede %{resource_name}-debatten om %{space_name}-området"
+          update: "%{user_name} opdaterede %{resource_name}-debatten om %{space_name}-området"
+      debates:
+        close:
+          invalid: Der var et problem med at lukke debatten.
+          success: Debatten lukket.
+        close_debate_modal:
+          close: Luk
+          description: Hvad er sammendraget eller konklusionen af denne debat?
+          send: Luk debat
+        closed: Lukket
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debatter"
+        create:
+          invalid: Der var et problem med at oprette debatten.
+          success: Debat oprettet.
+        debate:
+          participate: Deltage
+        edit:
+          back: Tilbage
+          save: Gem ændringer
+          title: Rediger debat
+        filters:
+          all: Alle
+          category: Kategori
+          category_prompt: Vælg en kategori
+          citizens: Borgere
+          official: Officiel
+          origin: Oprindelse
+          search: Søg
+        filters_small_view:
+          close_modal: Luk modal
+          filter: Filtrer
+          filter_by: Filtrer efter
+          unfold: Fold ud
+        form:
+          select_a_category: Vælg en kategori
+        index:
+          new_debate: Ny debat
+        new:
+          back: Tilbage
+          create: Opret
+          title: Ny debat
+        show:
+          back: Tilbage til listen
+          close_debate: Luk debat
+          date: Dato
+          debate_closed: Lukket
+          debate_conclusions_are: 'Debatten blev afsluttet den %{date} med disse konklusioner:'
+          edit_conclusions: Rediger konklusioner
+          edit_debate: Rediger debat
+          groups_count: Grupper
+          last_comment_by: Sidste bemærkning fra
+          no_comments_yet: Ingen bemærkninger endnu
+          participants_count: Deltagere
+        update:
+          invalid: Der var et problem med at opdatere debatten.
+          success: Debatten opdateret
+        versions:
+          debates:
+            back_to_resource: Gå tilbage til debat
+          index:
+            title: Versioner
+        versions_list:
+          back_to_resource: Gå tilbage til debat
+      last_activity:
+        new_debate_at_html: "<span>Ny debat på %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Slutdato
+            official_debate: Officiel debat
+            start_time: Startdato
+            title: Betegnelse
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hej,
+              En ny debat "%{resource_title}" er oprettet vedrørend %{space_title} detagelsesrum, tjek det ud og bidrag:
+            email_outro: Du har modtaget denne underretning, fordi du følger %{space_title} deltagelsesrum. Du kan standse modtagelsen af underretninger ved at følge det foregående link.
+            email_subject: Ny debat "%{resource_title}" om %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> Debatten blev oprettet på <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hej,
+              %{author_name} %{author_nickname}, som du følger, har oprettet en ny debat "%{resource_title}". Tjek det ud og bidrag:
+            email_outro: Du har modtaget denne underretning, fordi du følger %{author_nickname}. Du kan standse modtagelsen af underretninger ved at følge det foregående link.
+            email_subject: Ny debat "%{resource_title}" af %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> oprettede <a href="%{resource_path}">%{resource_title}</a> debatten.
+        creation_disabled:
+          email_intro: 'Debatoprettelse af er ikke længere aktiv i %{participatory_space_title}. Du kan stadig deltage i åbne debatter fra denne side:'
+          email_outro: Du har modtaget denne underretning, fordi du følger %{participatory_space_title}. Du kan standse modtagelsen af underretninger ved at følge det foregående link.
+          email_subject: Debatoprettelse deaktiveret i %{participatory_space_title}
+          notification_title: Debatoprettelse er nu deaktiveret i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Du kan nu starte nye debatter i %{participatory_space_title}! Begynd at deltage på denne side:'
+          email_outro: Du har modtaget denne underretning, fordi du følger %{participatory_space_title}. Du kan standse modtagelsen af underretninger ved at følge det foregående link.
+          email_subject: Debatter er nu tilgængelige på %{participatory_space_title}
+          notification_title: Du kan nu starte <a href="%{resource_path}">nye debatter</a> på <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: '”%{resource_title}"-debatten blev lukket. Du kan læse konklusionerne fra dens side:'
+          email_outro: Du har modtaget denne underretning, fordi du følger "%{resource_title}" debatten. Du kan holde op med at følge den fra det tidligere link.
+          email_subject: '”%{resource_title}"-debatten blev lukket'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a>-debatten blev lukket.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Vælg en åben debat at deltage i
+          description: Dette badge gives, når du deltager aktivt i de forskellige debatter ved at afgive dine bemærkninger.
+          description_another: Denne deltager har deltaget i %{score} debatter.
+          description_own: Du har deltaget i %{score} debatter.
+          name: Debatter
+          next_level_in: Deltage %{score} flere debatter for at nå det næste niveau!
+          unearned_another: Denne deltager har endnu ikke deltaget i nogen debatter.
+          unearned_own: Du har ikke endnu deltaget i nogen debatter.
+    metrics:
+      debates:
+        description: Antal debatter oprettet
+        object: debatter
+        title: Debatter

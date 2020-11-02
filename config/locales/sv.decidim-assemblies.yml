@@ -1,0 +1,462 @@
+sv:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Område
+        assembly_type: Typ av församling
+        assembly_type_other: Annan typ av församling
+        banner_image: Banderollbild
+        closing_date: Sista datum
+        closing_date_reason: Orsak till sista datum
+        composition: Sammansättning
+        copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
+        copy_features: Kopiera egenskaper
+        created_by: Skapad av
+        created_by_other: Skapas av någon annan
+        creation_date: Skapandedatum
+        decidim_area_id: Område
+        decidim_assemblies_type_id: Typ av församling
+        decidim_scope_id: Tillämpningsområde
+        description: Beskrivning
+        developer_group: Projektgrupp
+        domain: Domän
+        duration: Varaktighet
+        hashtag: Hashtagg
+        hero_image: Startbild
+        included_at: Inkluderad i
+        internal_organisation: Intern organisation
+        is_transparent: Är transparent
+        local_area: Organisationsområde
+        meta_scope: Metadata om tillämpningsområdet
+        parent_id: Överordnad församling
+        participatory_processes_ids: Relaterade deltagandeprocesser
+        participatory_scope: Vad som beslutas
+        participatory_structure: Hur det beslutas
+        private_space: Privat utrymme
+        promoted: Framhävt
+        published_at: Publicerat
+        purpose_of_action: Syfte med åtgärd
+        scope_id: Tillämpningsområde
+        scopes_enabled: Tillämpningsområden har aktiverats
+        short_description: Kort beskrivning
+        show_statistics: Visa statistik
+        slug: URL-slugg
+        special_features: Särskilda egenskaper
+        subtitle: Underrubrik
+        target: Vem deltar
+        title: Titel
+      assembly_member:
+        birthday: Födelsedatum
+        birthplace: Födelseort
+        ceased_date: Upphörandedatum
+        designation_date: Utnämningsdatum
+        designation_mode: Utnämningsläge
+        full_name: Fullständigt namn
+        gender: Kön
+      assembly_user_role:
+        email: E-post
+        name: Namn
+        role: Roll
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ogiltig dokumenttyp. Följande format godtas: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Församling
+        other: Församlingar
+      decidim/assembly_member:
+        one: Deltagare i församlingen
+        other: Medlemmar i församlingen
+      decidim/assembly_user_role:
+        one: Roll i församlingen
+        other: Roller i församlingen
+  decidim:
+    admin:
+      actions:
+        new_assembly: Ny församling
+        new_assembly_type: Ny församlingstyp
+      assemblies:
+        create:
+          error: Ett fel uppstod när en ny församling skulle skapas.
+          success: Församlingen har skapats.
+        edit:
+          update: Uppdatera
+        index:
+          not_published: Ej publicerat
+          private: Privat
+          public: Offentligt
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny församling
+        update:
+          error: Ett fel uppstod när församlingen skulle uppdateras.
+          success: Församlingen har uppdaterats.
+      assemblies_copies:
+        create:
+          error: Ett fel uppstod när församlingen kopierades.
+          success: Församlingen har kopierats.
+      assemblies_settings:
+        update:
+          error: Ett fel uppstod när inställningarna skulle uppdateras.
+          success: Inställningarna har uppdaterats.
+      assemblies_types:
+        create:
+          error: Ett fel uppstod när en ny församlingstyp skulle skapas.
+          success: Församlingstypen har skapats.
+        destroy:
+          success: Församlingstypen har raderats.
+        new:
+          create: Skapa
+          title: Ny församlingstyp
+        update:
+          error: Ett fel uppstod när församlingstypen skulle uppdateras.
+          success: Församlingstypen har uppdaterats.
+      assembly_copies:
+        new:
+          copy: Kopiera
+          select: Välj vilka uppgifter du vill kopiera
+          title: Kopiera församling
+      assembly_imports:
+        create:
+          error: Ett fel uppstod när församlingen skulle importeras.
+          success: Församlingen har importerats.
+        new:
+          select: Välj vilka uppgifter du vill importera
+          title: Importera församling
+      assembly_members:
+        create:
+          error: Ett fel uppstod när en deltagare skulle läggas till i församlingen.
+          success: Deltagaren har lagts till i församlingen.
+        destroy:
+          success: Deltagaren har tagits bort från församlingen.
+        edit:
+          title: Uppdatera deltagaren i församlingen.
+          update: Uppdatera
+        index:
+          assembly_members_title: Medlemmar i församlingen
+        new:
+          create: Skapa
+          title: Ny deltagare i församlingen.
+        update:
+          error: Ett fel uppstod när deltagaren i församlingen skulle uppdateras.
+          success: Deltagaren i församlingen har uppdaterats.
+      assembly_publications:
+        create:
+          error: Ett fel uppstod när församlingen skulle publiceras.
+          success: Församlingen har publicerats.
+        destroy:
+          error: Ett fel uppstod när församlingen skulle avpubliceras.
+          success: Församlingen har avpublicerats.
+      assembly_user_roles:
+        create:
+          error: Ett fel uppstod när en administratör skulle läggas till i församlingen.
+          success: Administratören har lagts till i församlingen.
+        destroy:
+          success: Administratören har tagits bort från församlingen.
+        edit:
+          title: Uppdatera församlingens administratör.
+          update: Uppdatera
+        index:
+          assembly_admins_title: Församlingens administratörer
+        new:
+          create: Skapa
+          title: Ny administratör av församlingen.
+        update:
+          error: Ett fel uppstod när en administratör av församlingen skulle uppdateras.
+          success: Administratören av församlingen har uppdaterats.
+      menu:
+        assemblies: Församlingar
+        assemblies_settings: Inställningar
+        assemblies_submenu:
+          assembly_admins: Församlingens administratörer
+          assembly_members: Medlemmar
+          attachment_collections: Mappar
+          attachment_files: Filer
+          attachments: Bilagor
+          categories: Kategorier
+          components: Komponenter
+          moderations: Modereringar
+          private_users: Privata användare
+        assemblies_types: Församlingstyper
+      models:
+        assemblies_types:
+          fields:
+            created_at: Skapad
+            title: Titel
+        assembly:
+          fields:
+            created_at: Skapad
+            private: Privat
+            promoted: Framhävd
+            published: Publicerad
+            title: Titel
+          name: Församling
+        assembly_member:
+          fields:
+            ceased_date: Upphörandedatum
+            designation_date: Utnämningsdatum
+            full_name: Namn
+          name: Medlem
+          positions:
+            other: Annan
+            president: Ordförande
+            secretary: Sekreterare
+            vice_president: Vice ordförande
+        assembly_user_role:
+          fields:
+            email: E-post
+            name: Namn
+            role: Roll
+          name: Administratör för församling
+          roles:
+            admin: Administratör
+            collaborator: Samarbetspartner
+            valuator: Värderingsman
+      titles:
+        assemblies: Församlingar
+        assemblies_types: Församlingstyper
+    admin_log:
+      assembly:
+        create: "%{user_name} skapade församlingen %{resource_name}"
+        publish: "%{user_name} publicerade församlingen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade församlingen %{resource_name}"
+        update: "%{user_name} uppdaterade församlingen %{resource_name}"
+      assembly_member:
+        create: "%{user_name} skapade medlemmen %{resource_name} i församlingen %{space_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingen %{space_name}"
+        update: "%{user_name} uppdaterade medlemmen %{resource_name} i församlingen %{space_name}"
+      assembly_setting:
+        update: "%{user_name} uppdaterade inställningarna för församlingen"
+      assembly_type:
+        create: "%{user_name} skapade församlingstypen %{resource_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från församlingstypen %{space_name}"
+        publish: "%{user_name} publicerade församlingstypen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade församlingstypen %{resource_name}"
+        update: "%{user_name} uppdaterade församlingstypen %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} bjöd in %{resource_name} till församlingen %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från församlingen %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i församlingen %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Varaktighet
+            duration_help: Om varaktigheten för församlingen är begränsad väljer du slutdatum. I annat fall visas varaktigheten som obestämd.
+            filters: Filter
+            images: Bilder
+            included_at_help: Välj det datum då församlingen lades till i Decidim. Det behöver inte nödvändigtvis vara samma som skapandedatumet.
+            other: Annan
+            select_a_created_by: Välj en skapad av
+            select_an_area: Välj ett område
+            select_an_assembly_type: Välj en typ av församling
+            select_parent_assembly: Välj en överordnad församling
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna församling. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+            social_handlers: Socialt
+            title: Allmän information
+            visbility: Synlighet
+        assemblies_settings:
+          edit:
+            update: Uppdatera
+          form:
+            title: Inställningar för församlingar
+        assemblies_types:
+          form:
+            title: Titel
+        assembly_copies:
+          form:
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna församling. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Lägg till ett dokument
+            slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot denna församling. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+        assembly_members:
+          form:
+            existing_user: Befintlig deltagare
+            non_user: Icke-deltagare
+            select_a_position: Välj en position
+            select_user: Välj en deltagare
+            user_type: Deltagartyp
+          index:
+            filter:
+              all: Alla
+              ceased: Upphört
+              not_ceased: Ej upphört
+            filter_by: Filtrera efter
+            search: Sök
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Högsta antal element som ska visas
+      assembly_members:
+        index:
+          members: Medlemmar
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Rådgivande
+        executive: Verkställande
+        government: Myndigheter
+        others: Övrigt
+        participatory: Deltagande
+        working_group: Arbetsgrupp
+      content_blocks:
+        highlighted_assemblies:
+          name: Framhävda församlingar
+      created_by:
+        city_council: Kommunfullmäktige
+        others: Övrigt
+        public: Offentligt
+      filter:
+        all: Alla typer
+        commission: Kommitté
+        consultative_advisory: Rådgivande
+        executive: Verkställande
+        government: Myndigheter
+        help: 'Visa:'
+        others: Övrigt
+        participatory: Deltagande
+        working_group: Arbetsgrupp
+      index:
+        title: Församlingar
+      last_activity:
+        new_assembly: Ny församling
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktiva församlingar
+            assemblies_button_title: Länk till församlingssidan, där alla församlingar visas
+            see_all_assemblies: Se alla församlingar
+        user_profile:
+          member_of:
+            member_of: Medlem i
+      show:
+        area: Område
+        assembly_type: Typ av församling
+        children: Församlingar
+        closing_date: Sista datum
+        composition: Sammansättning
+        created_by: Skapad av
+        creation_date: Skapandedatum
+        developer_group: Projektgrupp
+        duration: Varaktighet
+        included_at: Inkluderad i
+        indefinite_duration: Obegränsad
+        internal_organisation: Intern organisation
+        is_transparent:
+          'false': ogenomskinlig
+        local_area: Organisationsområde
+        participatory_scope: Vad som beslutas
+        participatory_structure: Hur det beslutas
+        private_space: Detta är en privat församling
+        purpose_of_action: Syfte med åtgärd
+        read_less: Läs mindre
+        read_more: Läs mer
+        related_participatory_processes: Relaterade deltagandeprocesser
+        scope: Tillämpningsområde
+        social_networks: Sociala nätverk
+        social_networks_title: Dela denna församling på
+        target: Vem deltar
+      statistics:
+        answers_count: Svar
+        assemblies_count: Församlingar
+        comments_count: Kommentarer
+        debates_count: Debatter
+        endorsements_count: Stödförklaringar
+        headline: Aktivitet
+        meetings_count: Möten
+        orders_count: Stöd
+        pages_count: Sidor
+        posts_count: Inlägg
+        projects_count: Projekt
+        proposals_count: Förslag
+        results_count: Resultat
+        surveys_count: Undersökningar
+        users_count: Deltagare
+        votes_count: Stöd
+    assembly_members:
+      assembly_member:
+        designated_on: Utnämnd
+      index:
+        title: Medlemmar
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Länk till konferenssidan som visar alla konferenser
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
+          email_outro: Du har fått denna avisering eftersom du har bjudits in till en församling. Ta en titt på <a href="%{resource_path}">församlingssidan</a> för att bidra!
+          email_subject: Du har bjudits in till att bli medlem i församlingen %{resource_name}!
+          notification_title: Du har registrerats som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Ta en titt på <a href="%{resource_path}">församlingssidan</a> för att bidra!
+      assembly:
+        role_assigned:
+          email_intro: Du har utsetts till %{role} för församlingen "%{resource_title}".
+          email_outro: Du har fått denna avisering eftersom du är %{role} för församlingen "%{resource_title}".
+          email_subject: Du har utsetts till %{role} för "%{resource_title}".
+          notification_title: Du har utsetts till %{role} för församlingen <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>En <strong>församling</strong> är en grupp medlemmar i organisationen som träffas regelbundet för att fatta beslut om ett specifikt område eller tillämpningsområde för organisationen.</p> <p>Församlingar håller möten, vissa privata och vissa öppna. Om de är öppna är det möjligt att delta i dem (till exempel: närvara om det finns plats, lägga till punkter i dagordningen eller kommentera förslagen och besluten som fattas av organet)</p> <p>Exempel: En generalförsamling (som träffas en gång om året för att genom omröstning definiera organisationens huvudsakliga handlingslinjer och dess verkställande organ), ett jämställdhetsråd (som träffas varannan månad för att ta fram förslag på hur man kan förbättra förhållandena mellan könen inom organisationen), en utvärderingskommitté (som träffas varje månad för att övervaka en process) och ett garantiorgan (som samlar in incidenter, missbruk eller förslag för att förbättra förfarandena för beslutsfattande) är alla exempel på församlingar.</p>\n"
+          page: "<p>En <strong>församling</strong> är en grupp medlemmar i organisationen som träffas regelbundet för att fatta beslut om ett specifikt område eller tillämpningsområde för organisationen.</p> <p>Församlingar håller möten, vissa privata och vissa öppna. Om de är öppna är det möjligt att delta i dem (till exempel: närvara om det finns plats, lägga till punkter i dagordningen eller kommentera förslagen och besluten som fattas av organet)</p> <p>Exempel: En generalförsamling (som träffas en gång om året för att genom omröstning definiera organisationens huvudsakliga handlingslinjer och dess verkställande organ), ett jämställdhetsråd (som träffas varannan månad för att ta fram förslag på hur man kan förbättra förhållandena mellan könen inom organisationen), en utvärderingskommitté (som träffas varje månad för att övervaka en process) och ett garantiorgan (som samlar in incidenter, missbruk eller förslag för att förbättra förfarandena för beslutsfattande) är alla exempel på församlingar.</p>\n"
+          title: Vad är församlingar?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Församlingen hittades inte i databasen (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Församlingstypen hittades inte i databasen (ID: %{id})'
+    menu:
+      assemblies: Församlingar
+    metrics:
+      assemblies:
+        description: Antal skapade församlingar
+        object: församlingar
+        title: Församlingar
+    pages:
+      home:
+        hero:
+          participate_title: Delta i plattformens processer
+        sub_hero:
+          register_title: Registrera dig för att skapa ett konto på plattformen
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Länk till processidan som visar alla processer
+      show:
+        related_assemblies: Berörda församlingar
+  errors:
+    messages:
+      cannot_be_blank: kan inte vara tomt
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Mer info
+          take_part: Delta
+        index:
+          children: 'Församlingar: '
+          organizational_chart: Organisationsplan
+          promoted_assemblies: Framhävda församlingar
+          reset_chart: Återställ
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} församlingar"
+            other: "%{count} församlingar"
+        promoted_assembly:
+          more_info: Mer info
+          take_part: Delta
+      assembly_navigation:
+        assembly_member_menu_item: Medlemmar
+        assembly_menu_item: Församlingen
+      assembly_widgets:
+        show:
+          take_part: Delta

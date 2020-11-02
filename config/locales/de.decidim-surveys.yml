@@ -1,0 +1,60 @@
+de:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Umfrage beendet
+      decidim/surveys/opened_survey_event: Umfragen begonnen
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Umfrage
+        other: Umfragen
+      decidim/surveys/survey_answer:
+        one: Antwort
+        other: Antworten
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Antwort
+        name: Umfrage
+        settings:
+          global:
+            announcement: Bekanntmachung
+            clean_after_publish: Antworten beim Veröffentlichen der Umfrage löschen
+          step:
+            allow_answers: Antworten zulassen
+            allow_unregistered: Nicht angemeldeten Benutzern erlauben, die Umfrage zu beantworten
+            allow_unregistered_help: Falls aktiv, ist für die Beantwortung der Umfrage keine Anmeldung erforderlich. Dies kann zu schlechten oder unzuverlässigen Daten führen und ist anfälliger für automatisierte Angriffe. Mit Vorsicht verwenden!
+            announcement: Bekanntmachung
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Die Umfrage %{resource_title} in %{participatory_space_title} wurde beendet.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine Umfrage in %{participatory_space_title} wurde beendet
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurde beendet.
+        survey_opened:
+          email_intro: 'Die Umfrage %{resource_title} in %{participatory_space_title} ist jetzt geöffnet. Von dieser Seite aus können Sie sich daran beteiligen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine neue Umfrage in %{participatory_space_title}
+          notification_title: Die Umfrage <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> ist jetzt geöffnet.
+    metrics:
+      survey_answers:
+        description: Anzahl der von den Teilnehmern beantworteten Umfragen
+        object: Antworten auf Umfragen
+        title: Antworten auf Umfragen
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Antworten der Umfrageteilnehmer
+        surveys:
+          update:
+            invalid: Beim Speichern der Umfrage ist ein Problem aufgetreten.
+            success: Umfrage erfolgreich gespeichert.
+      last_activity:
+        new_survey_at_html: "<span>Neue Umfrage unter %{link}</span>"
+      surveys:
+        answer:
+          invalid: Bei der Beantwortung der Umfrage ist ein Problem aufgetreten.
+          spam_detected: Bei der Beantwortung des Formulars ist ein Problem aufgetreten. Vielleicht waren Sie zu schnell, können Sie es noch einmal versuchen?
+          success: Umfrage erfolgreich beantwortet.

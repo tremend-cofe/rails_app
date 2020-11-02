@@ -1,0 +1,166 @@
+fi:
+  activemodel:
+    attributes:
+      answer:
+        body: Vastaus
+      question:
+        max_choices: Valintojen enimmäismäärä
+        question_type: Tyyppi
+      questionnaire_question:
+        mandatory: Pakollinen
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: eivät ole valmiita
+              too_many: on liian monta
+        questionnaire:
+          request_invalid: Pyyntöä käsiteltäessä tapahtui virhe. Yritä uudelleen
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Kuvaus
+            tos: Palveluehdot
+        questionnaires:
+          actions:
+            back: Takaisin kysymyksiin
+            show: Näytä vastaukset
+          answer_option:
+            answer_option: Vastausvaihtoehto
+            free_text: Vapaamuotoinen teksti
+            remove: Poista
+            statement: Lausunto
+          answers:
+            actions:
+              back: Takaisin vastauksiin
+              export: Vie
+              show: Näytä vastaukset
+            empty: Ei vielä vastauksia
+            export:
+              answer:
+                title: 'Vastaus #%{number}'
+            index:
+              title: "%{total} vastausta yhteensä"
+            show:
+              title: 'Vastaus #%{number}'
+          display_condition:
+            answer_option: Vastausvaihtoehto
+            condition_question: Kysymys
+            condition_type: Ehto
+            condition_types:
+              answered: Vastattu
+              equal: On yhtä kuin
+              match: Sisältää tekstiä
+              not_answered: Ei vastattu
+              not_equal: Ei sama kuin
+            condition_value: Sisällytetty teksti
+            display_condition: Näytä ehto
+            mandatory: Tämän ehdon on täytyttävä aina muiden ehtojen tilasta riippumatta
+            remove: Poista
+            save_warning: Muista tallentaa lomake ennen näyttöehtojen määrittämistä
+            select_answer_option: Valitse vastausvaihtoehto
+            select_condition_question: Valitse kysymys
+            select_condition_type: Valitse ehdon tyyppi
+          edit:
+            save: Tallenna
+            title: Muokkaa kyselyä
+          form:
+            add_question: Lisää kysymys
+            add_separator: Lisää erotin
+            already_answered_warning: Jotkut käyttäjät ovat jo vastanneet lomakkeeseen, joten et voi muokata sen kysymyksiä.
+            collapse: Pienennä kaikki kysymykset
+            expand: Näytä kaikki kysymykset
+            preview: Esikatselu
+            title: Muokkaa lomaketta
+            unpublished_warning: Lomaketta ei ole julkaistu. Voit muokata sen kysymyksiä, mutta tällöin nykyiset vastaukset poistetaan.
+          matrix_row:
+            matrix_row: Rivi
+            remove: Poista
+            statement: Lausunto
+          question:
+            add_answer_option: Lisää vastausvaihtoehto
+            add_display_condition: Lisää näyttöasetus
+            add_display_condition_info: Tallenna lomake näyttöasetusten määrittämistä varten
+            add_matrix_row: Lisää rivi
+            any: Kaikki
+            collapse: Pienennä
+            description: Kuvaus
+            down: Alas
+            expand: Laajenna
+            question: Kysymys
+            remove: Poista
+            statement: Lausunto
+            up: Ylös
+          separator:
+            down: Alas
+            remove: Poista
+            separator: Erotin
+            up: Ylös
+          update:
+            invalid: Lomakkeen tallentaminen epäonnistui.
+            success: Lomakkeet tallennettiin onnistuneesti.
+      errors:
+        answer:
+          body: Leipäteksti ei voi olla tyhjä
+      files:
+        extension_whitelist: 'Hyväksytyt muodot:'
+      images:
+        dimensions_info: 'Tämä kuva on:'
+        processors:
+          resize_and_pad: kokoa muutettu ja reunoja täytetty
+          resize_to_fit: Koko muutettu sopivaksi
+      question_types:
+        long_answer: Pitkä vastaus
+        matrix_multiple: Matriisi (useita vaihtoehtoja)
+        matrix_single: Matriisi (yksi vaihtoehto)
+        multiple_option: Monivalinta
+        short_answer: Lyhyt vastaus
+        single_option: Yksi vaihtoehto
+        sorting: Lajittelu
+      questionnaires:
+        answer:
+          invalid: Lomakkeeseen vastaaminen epäonnistui.
+          max_choices_alert: Valittuja vaihtoehtoja on liikaa
+          success: Lomakkeeseen vastattiin onnistuneesti.
+        question:
+          max_choices: 'Vaihtoehtoja enintään: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu tilillesi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi lomakkeeseen.
+            title: Vastaa lomakkeeseen
+          current_step: Vaihe %{step}
+          of_total_steps: '%{total_steps} vaiheesta'
+          questionnaire_answered:
+            body: Olet jo vastannut tähän lomakkeeseen.
+            title: Jo vastattu
+          questionnaire_closed:
+            body: Lomake on suljettu, eikä siihen voi vastata.
+            title: Lomake suljettu
+          questionnaire_for_private_users:
+            body: Lomake on vain yksityisten käyttäjien käytettävissä
+            title: Lomake suljettu
+          questionnaire_js_disabled:
+            body: Osa tämän lomakkeen ominaisuuksista on poissa käytöstä. Voit parantaa käyttökokemustasi ottamalla selaimesi JavaScriptin käyttöön.
+            title: JavaScript ei ole käytössä
+          questionnaire_not_published:
+            body: Tätä lomaketta ei ole vielä julkaistu.
+          tos_agreement: Osallistumalla hyväksyt sen käyttöehdot
+      step_navigation:
+        show:
+          are_you_sure: Tätä toimintoa ei voi kumota, etkä voi muokata vastauksiasi. Oletko varma?
+          back: Takaisin
+          continue: Jatka
+          submit: Lähetä
+      user_answers_serializer:
+        body: Vastaus
+        completion: Valmis
+        created_at: Vastattu
+        id: Vastaustunnus
+        question: Kysymys
+        registered: Rekisteröity
+        session_token: Käyttäjätunnus
+        unregistered: Rekisteröimätön
+        user_status: Käyttäjän status

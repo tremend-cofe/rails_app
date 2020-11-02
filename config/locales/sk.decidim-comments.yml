@@ -1,0 +1,115 @@
+sk:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Poznámka
+      decidim/comments/comment_created_event: Poznámka
+      decidim/comments/reply_created_event: Odpoveď na poznámku
+      decidim/comments/user_group_mentioned_event: Zmienka
+      decidim/comments/user_mentioned_event: Zmienka
+  decidim:
+    comments:
+      comments: Poznámky
+      comments_count: Počet poznámok
+      last_activity:
+        new_comment_at_html: "<span>Nová poznámka na %{link}</span>"
+      view: Zobraziť
+      votes:
+        create:
+          error: Pri hlasovaní o poznámke sa vyskytol problém.
+    components:
+      add_comment_form:
+        account_message: Ak chcete pridať poznámku, <a href="%{sign_in_url}">prihláste sa do svojho konta</a> alebo <a href="%{sign_up_url}">sa zaregistrujte</a>.
+        form:
+          body:
+            label: Poznámka
+            placeholder: Čo si o tom myslíte?
+          form_error: Musíte zadať text, ktorý nesmie byť dlhší než %{length} znakov.
+          submit: Odoslať
+          user_group_id:
+            label: Vložiť poznámku ako
+        opinion:
+          neutral: Neutrálne
+        remaining_characters: "Počet zvyšných znakov: %{count}"
+        remaining_characters_1: "Počet zvyšných znakov: %{count}"
+        title: Pridajte svoju poznámku
+      comment:
+        alignment:
+          against: Proti
+          in_favor: Za
+        deleted_user: Odstránený účastník
+        hide_replies: Skryť odpovede
+        reply: Odpovedať
+        report:
+          action: Nahlásiť
+          already_reported: Tento obsah už bol nahlásený a bude sa ním zaoberať správca.
+          close: Zatvoriť
+          description: Je tento obsah nevhodný?
+          details: Doplňujúce poznámky
+          reasons:
+            does_not_belong: Obsahuje nezákonnú činnosť, hrozby samovraždou, osobné informácie alebo iné informácie, ktoré podľa vás nepatria k organizácii %{organization_name}.
+            offensive: Obsahuje rasistické alebo sexistické vyjadrenia, očierňovanie, osobné útoky, vyhrážanie zabitím, výzvy na samovraždu alebo inú formu nenávistného prejavu.
+            spam: Obsahuje návnady na kliknutie, reklamu, podvody alebo boty vykonávajúce skripty.
+          title: Nahlásiť nevhodný obsah
+        show_replies: 'Zobraziť tento počet odpovedí: %{replies_count}'
+        single_comment_link_title: Získať odkaz na jednu poznámku
+      comment_order_selector:
+        order:
+          best_rated: Najlepšie hodnotené
+          most_discussed: Najviac diskutované
+          older: Staršie
+          recent: Nedávne
+        title: 'Zoradiť podľa:'
+      comment_thread:
+        title: Konverzácia s autorom %{authorName}
+      comments:
+        blocked_comments_for_user_warning: V tejto chvíli nemôžete vložiť poznámku, môžete však čítať predchádzajúce poznámky.
+        blocked_comments_warning: Poznámky sú práve teraz zakázané, môžete však čítať predchádzajúce poznámky.
+        comment_details_title: Údaje o poznámke
+        loading: Načítavajú sa poznámky…
+        single_comment_warning: Zvyšok poznámok si môžete pozrieť <a href="%{url}">tu</a>.
+        single_comment_warning_title: Zobrazuje sa jedna poznámka
+        title: "Poznámky v počte %{count}"
+      down_vote_button:
+        text: Nesúhlasím s touto poznámkou
+      up_vote_button:
+        text: Súhlasím s touto poznámkou
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "Autor %{author_name} zanechal poznámku v rámci položky %{resource_title}. Prečítať si ju môžete na tejto stránke:"
+          email_outro: Toto oznámenie ste dostali, pretože sledujete autora %{author_name}. Sledovanie tohto používateľa môžete zrušiť zo stránky s jeho profilom.
+          email_subject: V rámci položky %{resource_title} sa nachádza nová poznámka od autora %{author_name}
+          notification_title: V rámci položky <a href="%{resource_path}">%{resource_title}</a> sa nachádza nová poznámka od autora <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Skupina %{author_name} zanechala poznámku v rámci položky %{resource_title}. Prečítať si ju môžete na tejto stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete autora %{author_name}. Sledovanie tejto skupiny môžete zrušiť zo stránky s jej profilom.
+          email_subject: V rámci položky %{resource_title} sa nachádza nová poznámka od autora %{author_name}
+          notification_title: V rámci položky <a href="%{resource_path}">%{resource_title}</a> sa nachádza nová poznámka od autora <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        comment_created:
+          email_intro: "K položke %{resource_title} bola vložená poznámka. Prečítať si ju môžete na tejto stránke:"
+          email_outro: Toto oznámenie ste dostali, pretože sledujete položku %{resource_title} alebo jej autora. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: V rámci položky %{resource_title} sa nachádza nová poznámka od autora %{author_name}
+          notification_title: V rámci položky <a href="%{resource_path}">%{resource_title}</a> sa nachádza nová poznámka od autora <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        reply_created:
+          email_intro: "Autor %{author_name} odpovedal na vašu poznámku v rámci položky %{resource_title}. Prečítať si ju môžete na tejto stránke:"
+          email_outro: Toto oznámenie ste dostali, pretože na vašu poznámku niekto odpovedal.
+          email_subject: "Autor %{author_name} odpovedal na vašu poznámku v rámci položky %{resource_title}"
+          notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpovedal na vašu poznámku v rámci položky <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Skupina, do ktorej patríte, bola spomenutá
+          email_outro: Toto oznámenie ste dostali, pretože ste členom skupiny %{group_name}, ktorá bola spomenutá v rámci položky %{resource_title}.
+          email_subject: V položke %{resource_title} sa spomínate ako člen/členka skupiny %{group_name}
+          notification_title: V položke <a href="%{resource_path}">%{resource_title}</a> od autora <a href="%{author_path}">%{author_name} %{author_nickname}</a> sa spomínate ako člen/členka skupiny <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Existuje o vás zmienka
+          email_outro: Toto oznámenie ste dostali, pretože položka %{resource_title} obsahuje zmienku o vás.
+          email_subject: Položka %{resource_title} obsahuje zmienku o vás
+          notification_title: Položka <a href="%{resource_path}">%{resource_title}</a> od autora <a href="%{author_path}">%{author_name} %{author_nickname}</a> obsahuje zmienku o vás
+    metrics:
+      comments:
+        description: Počet poznámok vytvorených účastníkmi
+        object: poznámky
+        title: Poznámky
+  errors:
+    messages:
+      cannot_have_comments: nemôže mať poznámky

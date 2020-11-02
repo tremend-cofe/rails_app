@@ -1,0 +1,121 @@
+nl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Opmerking
+      decidim/comments/comment_created_event: Opmerking
+      decidim/comments/reply_created_event: Antwoord op opmerking
+      decidim/comments/user_group_mentioned_event: Vermelding
+      decidim/comments/user_mentioned_event: Vermelding
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Opmerking
+        other: Opmerkingen
+      decidim/comments/comment_vote:
+        one: Stemmen
+        other: Stemmen
+  decidim:
+    comments:
+      comments: Opmerkingen
+      comments_count: Aantal opmerkingen
+      last_activity:
+        new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
+      view: Weergeven
+      votes:
+        create:
+          error: Er is een probleem opgetreden bij het stemmen over de opmerking.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Meld u aan via uw account</a> of <a href="%{sign_up_url}">registreer</a> om uw opmerking toe te voegen.
+        form:
+          body:
+            label: Opmerking
+            placeholder: Wat denkt u hierover?
+          form_error: De tekst is verplicht en mag niet langer zijn dan %{length} tekens.
+          submit: Verzenden
+          user_group_id:
+            label: Opmerking maken als
+        opinion:
+          neutral: Neutraal
+        remaining_characters: "%{count} resterende tekens"
+        remaining_characters_1: "%{count} resterende tekens"
+        title: Uw opmerking toevoegen
+      comment:
+        alignment:
+          against: Tegen
+          in_favor: Voor
+        deleted_user: Verwijderde deelnemer
+        hide_replies: Antwoorden verbergen
+        report:
+          action: Rapporteren
+          already_reported: Deze inhoud is al gerapporteerd en zal door een beheerder worden beoordeeld.
+          close: Sluiten
+          description: Is deze inhoud ongepast?
+          details: Aanvullende opmerkingen
+          reasons:
+            does_not_belong: Bevat illegale activiteiten, dreiging met zelfmoord, persoonlijke informatie of iets anders dat volgens u niet thuishoort in %{organization_name}.
+            offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, doodsbedreigingen, zelfmoordwensen of een vorm van haatzaaiende uitspraken.
+            spam: Bevat clickbait, reclame, oplichting of scriptbots.
+          title: Ongepaste inhoud rapporteren
+        show_replies: '%{replies_count} antwoorden weergeven'
+        single_comment_link_title: Link naar een afzonderlijke opmerking verkrijgen
+      comment_order_selector:
+        order:
+          best_rated: Hoogst gerangschikt
+          most_discussed: Meest besproken
+          older: Ouder
+        title: 'Rangschik op:'
+      comment_thread:
+        title: Gesprek met %{authorName}
+      comments:
+        blocked_comments_for_user_warning: U kunt op dit moment geen opmerkingen maken, maar u kunt de eerdere opmerkingen lezen.
+        blocked_comments_warning: De opmerkingen zijn op dit moment uitgeschakeld, maar u kunt de eerdere opmerkingen lezen.
+        comment_details_title: Details opmerkingen
+        loading: Opmerkingen laden...
+        single_comment_warning: U kunt de overige opmerkingen <a href="%{url}">hier</a> bekijken.
+        single_comment_warning_title: U ziet één opmerking
+        title: "%{count} opmerkingen"
+      down_vote_button:
+        text: Ik ben het niet eens met deze opmerking
+      up_vote_button:
+        text: Ik ben het eens met deze opmerking
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} heeft een opmerking geplaatst in %{resource_title}. U kunt deze lezen op de volgende pagina:"
+          email_outro: U hebt dit bericht ontvangen omdat u %{author_name} volgt. U kunt deze gebruiker ontvolgen op de profielpagina.
+          email_subject: Er is een nieuwe opmerking geplaatst door %{author_name} in %{resource_title}
+          notification_title: Er is een nieuwe opmerking geplaatst door <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'De groep %{author_name} heeft een opmerking geplaatst in %{resource_title}. U kunt deze lezen op de volgende pagina:'
+          email_outro: U hebt dit bericht ontvangen omdat u %{author_name} volgt. U kunt deze groep ontvolgen via de profielpagina.
+          email_subject: Er is een nieuwe opmerking geplaatst door %{author_name} in %{resource_title}
+          notification_title: Er is een nieuwe opmerking geplaatst door <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "Er is een opmerking geplaatst over %{resource_title}. U kunt de opmerking op deze pagina lezen:"
+          email_outro: U hebt dit bericht ontvangen omdat u "%{resource_title}" of de auteur ervan volgt. U kunt deze ontvolgen via de link hierboven.
+          email_subject: Er is een nieuwe opmerking geplaatst door %{author_name} in %{resource_title}
+          notification_title: Er is een nieuwe opmerking geplaatst door <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} heeft geantwoord op uw opmerking in %{resource_title}. U kunt dit lezen op de volgende pagina:"
+          email_outro: U hebt dit bericht ontvangen omdat er geantwoord is op uw opmerking.
+          email_subject: "%{author_name} heeft geantwoord op uw opmerking in %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft geantwoord op uw opmerking in <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Een groep waartoe u behoort, is vermeld
+          email_outro: U hebt dit bericht ontvangen omdat u lid bent van de groep %{group_name} die is vermeld in %{resource_title}.
+          email_subject: U bent vermeld in %{resource_title} als lid van %{group_name}
+          notification_title: U bent vermeld in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a> als lid van <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: U bent vermeld
+          email_outro: U hebt dit bericht ontvangen omdat u bent vermeld in %{resource_title}.
+          email_subject: U bent vermeld in %{resource_title}
+          notification_title: U bent vermeld in <a href="%{resource_path}">%{resource_title}</a> door <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Aantal opmerkingen van deelnemers
+        object: opmerkingen
+        title: Opmerkingen
+  errors:
+    messages:
+      cannot_have_comments: geen opmerkingen mogelijk

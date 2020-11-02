@@ -1,0 +1,84 @@
+bg:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Нова публикация в блога
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Публикация
+        other: Публикации
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Наистина ли искате да изтриете тази публикация?
+        destroy: Изтриване
+        edit: Редактиране
+        new: Нова публикация
+        title: Действия
+      admin:
+        models:
+          components:
+            body: Основен текст
+          post:
+            name: Публикация
+        posts:
+          create:
+            invalid: Възникна проблем при създаването на тази публикация
+            success: Публикацията беше създадена успешно
+          destroy:
+            success: Публикацията беше изтрита успешно
+          edit:
+            save: Актуализиране
+          index:
+            title: Публикации
+          new:
+            create: Създаване
+            title: Създаване на публикация
+          update:
+            invalid: Възникна проблем при запазването на публикацията.
+            success: Публикацията беше запазена успешно
+      last_activity:
+        new_post_at_html: "<span>Нова публикация на адрес %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Автор
+            body: Основен текст
+            created_at: Създадено на
+            title: заглавие
+      posts:
+        show:
+          back: Обратно към списъка
+          comments: Коментари
+          view: Преглед
+        sidebar_blog:
+          comments: коментари
+          most_commented_posts: Публикации с най-много коментари
+      read_more: Прочетете повече
+    components:
+      blogs:
+        name: Блог
+        settings:
+          global:
+            announcement: Съобщение
+            comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (оставете 0 като стойност по подразбиране)
+          step:
+            announcement: Съобщение
+            comments_blocked: Коментарите са блокирани
+            endorsements_blocked: Препоръките са блокирани
+            endorsements_enabled: Препоръките са разрешени
+    events:
+      blogs:
+        post_created:
+          email_intro: Публикацията „%{resource_title}“ е публикувана в(ъв) :%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате „%{participatory_space_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Публикувана е нова публикация в(ъв) %{participatory_space_title}
+          notification_title: Публикацията <a href="%{resource_path}">%{resource_title}</a> е публикувана в(ъв) %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Публикации
+    participatory_processes:
+      statistics:
+        posts_count: Публикации

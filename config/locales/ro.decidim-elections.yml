@@ -1,0 +1,238 @@
+ro:
+  activemodel:
+    attributes:
+      answer:
+        description: Descriere
+        image: Imagine
+        proposals: Propuneri conexe
+        title: Titlu
+      election:
+        description: Descriere
+        end_time: Votarea se încheie la
+        start_time: Votarea începe la
+        title: Titlu
+      question:
+        description: Descriere
+        max_selections: Număr maxim de selecții
+        title: Titlu
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Trebuie să fie reanexat
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Trebuie să fie reanexat
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Vot
+        name: Alegeri
+        settings:
+          global:
+            announcement: Anunț
+          step:
+            announcement: Anunț
+    elections:
+      actions:
+        confirm_destroy: Sunteți sigur(ă)?
+        destroy: Distrugeți
+        edit: Editare
+        edit_answers: Editați răspunsul
+        edit_questions: Editați întrebările
+        import: Importați propunerile în răspunsuri
+        new: '%{name} nou'
+        preview: Previzualizare
+        publish: Publicare
+        title: Acțiuni
+        unpublish: Retrageți de la publicare
+      admin:
+        answers:
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestui răspuns
+            success: Răspunsul a fost creat
+          destroy:
+            invalid: S-a întâmpinat o problemă la ștergerea acestui răspuns
+            success: Răspunsul a fost șters
+          edit:
+            title: Editați răspunsul
+            update: Actualizați răspunsul
+          index:
+            title: Răspunsuri
+          new:
+            create: Creați răspuns
+            title: Răspuns nou
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestui răspuns
+            success: Răspunsul a fost actualizat
+        elections:
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestei alegeri
+            success: Alegerea a fost creată
+          destroy:
+            invalid: S-a întâmpinat o problemă la ștergerea acestei alegeri
+            success: Alegerea a fost ștearsă
+          edit:
+            title: Editați alegerea
+            update: Actualizați alegerea
+          index:
+            title: Alegeri
+          new:
+            create: Creați alegere
+            title: Alegere nouă
+          publish:
+            success: Alegerea a fost publicată.
+          unpublish:
+            success: Alegerea a fost retrasă de la publicare.
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestei alegeri
+            success: Alegerea a fost actualizată
+        models:
+          answer:
+            name: Răspuns
+          election:
+            name: Alegere
+          question:
+            name: Întrebare
+        proposals_imports:
+          create:
+            invalid: S-a întâmpinat o problemă la importarea propunerilor în răspunsuri
+            success: "%{number} propuneri au fost importate în răspunsuri"
+          new:
+            create: Importați propunerile în răspunsuri
+            no_components: Nu există alte componente ale propunerii în acest spațiu participativ pentru importarea propunerilor în răspunsuri.
+            select_component: Vă rugăm să selectați un component
+        questions:
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestei întrebări
+            success: Întrebarea a fost creată
+          destroy:
+            invalid: S-a întâmpinat o problemă la ștergerea acestei întrebări
+            success: Întrebarea a fost ștearsă
+          edit:
+            title: Editați întrebarea
+            update: Actualizați întrebarea
+          index:
+            title: Întrebări
+          new:
+            create: Creați o întrebare
+            title: Întrebare nouă
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestei întrebări.
+            success: Întrebarea a fost actualizată
+      admin_log:
+        election:
+          publish: "%{user_name} a publicat alegerea %{resource_name}"
+          unpublish: "%{user_name} a retras de la publicare alegerea %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Finalizate
+          ongoing: Activ
+          upcoming: Viitoare
+        end_date: Se încheie la
+        footer:
+          view: Afișare
+          vote: Vot
+        label:
+          date: Date
+        questions: Întrebări %{count}
+        start_date: Începe
+        unspecified: Nespecificat
+      elections:
+        filters:
+          active: Activ
+          all: Toate
+          finished: Finalizate
+          search: Căutare
+          state: Statut
+          upcoming: Viitoare
+        filters_small_view:
+          close_modal: Închideți elementul modal
+          filter: Filtrare
+          filter_by: Filtrare după
+          unfold: Desfășurați
+        show:
+          back: Toate alegerile
+          preview: Previzualizare
+          vote: Vot
+          voting_period_status:
+            finished: Votarea a început la %{start_time} și s-a încheiat la %{end_time}
+            ongoing: Votarea se încheie la %{end_time}
+            upcoming: Votarea începe la %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Propuneri
+            title: Titlu
+        election:
+          fields:
+            end_time: Se încheie la
+            start_time: Începe la
+            title: Titlu
+        question:
+          fields:
+            answers: Răspunsuri
+            max_selections: Nr. maxim de selecții
+            title: Titlu
+      orders:
+        label: Sortați alegerile după
+        older: Anterioare
+        recent: Recente
+      votes:
+        confirm:
+          answer: Răspuns
+          answer_number: răspunsul %{number}
+          confirm: Confirmați
+          edit: editare
+          header: Confirmați votul
+          intro: Iată un rezumat al votului pe care îl veți formula <br> Vă rugăm să vă confirmați votul sau să modificați răspunsurile.
+          question: Întrebarea %{count}
+        confirmed:
+          back: Înapoi la alegeri
+          experience: Cum a fost experiența dumneavoastră?
+          feedback: Trimiteți-ne observații
+          header: Vot confirmat
+          lead: Votul tău a fost deja exprimat!
+          text: 'Puteți verifica dacă votul dumneavoastră a fost adăugat cu succes la urnă, cu următorul identificator: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Pentru a verifica, copiați identificatorul și lipiți-l pe <a href="evote-verify">pagina de verificare a votului</a>
+        encrypting:
+          header: Încodarea votului...
+          text: Votul dumneavoastră este criptat pentru a vă putea exercita acest drept în mod anonim.
+        header:
+          confirm: Confirmați votul
+          confirmed: Vot confirmat
+          encrypting: Confirmarea votului
+        messages:
+          not_allowed: Nu puteți vota în acest moment pentru aceste alegeri.
+        modal:
+          close: Închidere
+          proposal_header: 'Propuneri:'
+        new:
+          answer_choices: Puteți selecta până la %{choices} răspunsuri sau niciunul
+          more_information: Informații suplimentare
+          preview_alert: Aceasta este o previzualizare a cabinei de vot.
+          question_steps: Întrebarea %{current_step} din %{total_steps}
+          selections: "%{selected} din %{max_selections}<br> selecții"
+        voting_step:
+          back: Înapoi
+          continue: Înainte
+      warnings:
+        no_elections_warning: Nu s-au găsit alegeri care să respecte criteriile de căutare sau nu este programată nicio alegere.
+        no_scheduled_elections_warning: În prezent, nu există alegeri programate, dar aici puteți găsi toate alegerile anterioare.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Alegerea %{resource_title} este în prezent activă pentru %{participatory_space_title}. Puteți vizualiza de pe această pagină.'
+          email_outro: Ați primit această notificare deoarece urmăriți %{participatory_space_title}. Dacă doriți să nu mai primiți notificări, accesați următorul link.
+          email_subject: Alegerea %{resource_title} este în prezent activă pentru %{participatory_space_title}.
+          notification_title: Alegerea <a href="%{resource_path}">%{resource_title}</a> este activă pentru %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Alegeri
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Ieșire

@@ -1,0 +1,153 @@
+bg:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Информация за жребий
+        decidim_category_id: Категории на набора от предложения, за които искате да приложите жребия
+        decidim_proposals_component_id: Набор от предложения
+        dice: Резултат от хвърлянето на зар. Хвърлете 6-стенен зар или потърсете друг начин, по който да изберете число от 1 до 6 на случаен принцип, и въведете тук полученото число пред свидетели. Това допринася за качеството и гарантира случайността на резултата
+        target_items: Брой на предложенията, които да бъдат избрани (указва броя на предложенията, които искате да бъдат избрани чрез хвърляне на жребий от групата предложения, които сте избрали по-рано)
+        title: Заглавие
+        witnesses: Свидетели
+    models:
+      decidim/sortitions/create_sortition_event: Жребий
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Жребий
+        other: Жребии
+  decidim:
+    components:
+      sortitions:
+        name: Жребии
+        settings:
+          global:
+            comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (оставете 0 за стойност по подразбиране)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Жребият „%{resource_title}“ беше добавен към пространството за участие „%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате „%{participatory_space_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Беше добавен нов жребий в(ъв) %{participatory_space_title}
+          notification_title: Жребият <a href="%{resource_path}">%{resource_title}</a> беше добавен в(ъв) %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Жребии
+    participatory_processes:
+      statistics:
+        sortitions_count: Жребии
+    sortitions:
+      admin:
+        actions:
+          destroy: Отмяна на жребия
+          edit: Редактиране
+          new: Нов жребий
+          show: Подробности за жребия
+        models:
+          sortition:
+            fields:
+              category: Категория
+              created_at: Дата на създаване
+              decidim_proposals_component: Компонент от предложения
+              dice: Зар
+              reference: Справка
+              request_timestamp: Време на хвърляне на жребий
+              seed: Подбор
+              target_items: Елементи за избиране
+              title: Заглавие
+            name:
+              one: Жребий
+              other: Жребии
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Наистина ли искате да отмените този жребий?
+            destroy: Отмяна на жребия
+            title: Отменяне на жребия
+          create:
+            error: Възникна проблем при създаването на нов жребий.
+            success: Жребият беше създаден успешно
+          destroy:
+            error: Жребият не може да се отмени.
+            success: Жребият беше отменен успешно
+          edit:
+            title: Актуализирайте информацията за жребия
+            update: Актуализация
+          form:
+            all_categories: Всички категории
+            select_proposal_component: Изберете набора от предложения
+            title: Нов жребий за предложения
+          index:
+            title: Жребии
+          new:
+            confirm: Когато натиснете бутона „Напред“, Decidim ще запише датата и часа (с точност до секунди) и заедно с хвърлянето на зара тази информация ще се използва за генериране на избор на случаен принцип. Действието няма да може да бъде отменено — когато щракнете върху бутона, резултатът от жребия ще бъде публикуван заедно с въведените в този формуляр данни и няма да подлежи на промяна. Моля, прегледайте съдържанието внимателно.
+            create: Създаване
+            title: Нов жребий
+          show:
+            selected_proposals: Избрани предложения за жребия
+          update:
+            error: Възникна проблем при актуализирането на жребия.
+            success: Жребият беше актуализиран успешно
+      admin_log:
+        sortition:
+          create: "%{user_name} създаде жребия %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} отмени жребия %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира жребия %{resource_name} в пространството %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 предложение
+            other: "%{count} предложения"
+        filters:
+          active: Активни
+          all: Всички
+          cancelled: Анулирано
+          category: Категория
+          category_prompt: Избор на категория
+          search: Търсене
+          state: Състояние
+        filters_small_view:
+          close_modal: Затваряне на модалния диалогов прозорец
+          filter: Филтър
+          filter_by: Филтриране по
+          unfold: Разгъване
+        linked_sortitions:
+          selected_proposals: Избрани предложения
+        orders:
+          label: 'Подреждане на жребиите по:'
+          random: На случаен принцип
+          recent: Скорошни
+        results_count:
+          count:
+            one: избрано предложение
+            other: избрани предложения
+        show:
+          algorithm: Код на алгоритъма на жребия
+          any_category: от всички категории
+          back: Назад към списъка
+          cancelled: Отменен жребий
+          candidate_proposal_ids: Ред и идент. номера на предложенията в жребия
+          candidate_proposals_info: 'Беше хвърлен жребий за следните предложения (%{category_label}) със следните идент. номера (избраните предложения са с получер шрифт)  '
+          category: от категорията %{category}
+          dice_result: "(1) Резултат от хвърлянето на зар"
+          introduction: 'Тази страница съдържа резултатите от жребия %{reference}. Чрез този жребий на случаен принцип и при равна вероятност бяха избрани %{target_items} резултата от показания по-долу набор от предложения. Показаните на тази страница данни и резултатите предоставят цялата необходима информация за осигуряване на максимални гаранции и за възпроизвеждане на резултатите. Най-важното за осигуряване на качеството на жребия е двойният случаен принцип чрез хвърлянето на зар (със свидетели) и точно посочване на датата и часа на жребия, които осигуряват входяща информация за алгоритъм, генериращ случаен избор. Датата и часът за жребия се посочват с такава точност (до секунди), че не подлежат на човешки контрол, което предоставя двойна „неконтролируема“ входяща информация за гарантиране на справедлив резултат.  '
+          mathematical_result: Резултат (1) x (2)
+          proposals_selected_by_sortition: Избрани чрез жребий предложения
+          sortition_reproducibility_details: Подробности за възпроизвеждане на жребия
+          time_seed: "(2) Дата и час"
+          witnesses: Свидетели
+        sortition:
+          random_seed: Случаен подбор
+          selected_proposals:
+            one: избрано предложение
+            other: избрани предложения
+          view: Преглед
+        sortition_author:
+          deleted: Изтрит участник
+        sortition_cancel_author:
+          deleted: Изтрит участник
+        sortitions_count:
+          count:
+            one: 1 жребий
+            other: "%{count} жребия"

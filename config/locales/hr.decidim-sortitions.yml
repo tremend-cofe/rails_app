@@ -1,0 +1,129 @@
+hr:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informacije o ždrijebu
+        decidim_category_id: Kategorije skupova prijedloga u kojima želite primijeniti ždrijeb
+        decidim_proposals_component_id: Skup prijedloga
+        dice: Rezultat bacanja kocke. Bacite igraću kocku ili na neki drugi nasumičan način generirajte broj od jedan do šest te ovdje unesite dobiveni broj pred svjedocima. Time se pridonosi kvaliteti i osigurava nasumičnost rezultata.
+        target_items: Broj prijedloga za odabir (pokazuje broj prijedloga koje želite odabrati ždrijebom u skupini prijedloga koju ste prethodno odabrali)
+        title: Naslov
+        witnesses: Svjedoci
+    models:
+      decidim/sortitions/create_sortition_event: Ždrijeb
+  decidim:
+    components:
+      sortitions:
+        name: Ždrijebovi
+        settings:
+          global:
+            comments_enabled: Komentari su omogućeni
+            comments_max_length: Maksimalna duljina komentara (ostavite 0 za zadanu vrijednost)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Ždrijeb "%{resource_title}" dodan je participativnom prostoru "%{participatory_space_title}", koji pratite.
+          email_outro: Primili ste ovu obavijest jer pratite participativni prostor "%{participatory_space_title}". Klikom na prethodnu poveznicu možete ga prestati pratiti.
+          email_subject: Novi ždrijeb dodan je participativnom prostoru %{participatory_space_title}
+          notification_title: Ždrijeb <a href="%{resource_path}">%{resource_title}</a> dodan je participativnom prostoru %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Ždrijebovi
+    participatory_processes:
+      statistics:
+        sortitions_count: Ždrijebovi
+    sortitions:
+      admin:
+        actions:
+          destroy: Odustani od ždrijeba
+          edit: Uređivanje
+          new: Novi ždrijeb
+          show: Pojedinosti ždrijeba
+        models:
+          sortition:
+            fields:
+              category: Kategorija
+              created_at: Datum stvaranja
+              decidim_proposals_component: Komponenta prijedloga
+              dice: Kocka
+              reference: Oznaka
+              request_timestamp: Vrijeme ždrijeba
+              seed: Početna vrijednost
+              target_items: Stavke za odabir
+              title: Naslov
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Želite li odustati od ždrijeba?
+            destroy: Odustani od ždrijeba
+            title: Odustajanje od ždrijeba
+          create:
+            error: Došlo je do problema pri stvaranju novog ždrijeba.
+            success: Ždrijeb je uspješno stvoren
+          destroy:
+            error: Nije moguće odustati od nasumičnog izvlačenja.
+            success: Ždrijeb je uspješno otkazan
+          edit:
+            title: Ažuriraj informacije o ždrijebu
+            update: Ažuriraj
+          form:
+            all_categories: Sve kategorije
+            select_proposal_component: Odaberite skup prijedloga
+            title: Novi ždrijeb prijedloga
+          index:
+            title: Ždrijebovi
+          new:
+            confirm: Klikom na gumb Sljedeće Decidim će zabilježiti datum i vrijeme (s preciznošću sekunde). Ta će se informacija zajedno s bacanjem kocke upotrijebiti za generiranje nasumičnog odabira. Radnja je nepovratna te se nakon klika na gumb rezultat ždrijeba objavljuje zajedno s podacima unesenima u ovaj obrazac i ne može se izmijeniti. Stoga pažljivo provjerite sadržaj.
+            create: Stvori
+            title: Novi ždrijeb
+          show:
+            selected_proposals: Prijedlozi odabrani za ždrijeb
+          update:
+            error: Došlo je do problema pri ažuriranju ždrijeba.
+            success: Ždrijeb je uspješno ažuriran
+      admin_log:
+        sortition:
+          create: "%{user_name} je stvorio ždrijeb %{resource_name} u prostoru %{space_name}"
+          delete: "%{user_name} je odustao od ždrijeba %{resource_name} u prostoru %{space_name}"
+          update: "%{user_name} je ažurirao ždrijeb %{resource_name} u prostoru %{space_name}"
+      sortitions:
+        filters:
+          active: Aktivno
+          all: Sve
+          cancelled: Otkazano
+          category: Kategorija
+          category_prompt: Odaberite kategoriju
+          search: Pretraži
+        filters_small_view:
+          close_modal: Zatvori modalni prozor
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Otvori
+        linked_sortitions:
+          selected_proposals: Odabrani prijedlozi
+        orders:
+          label: 'Poredaj ždrijebove po:'
+          random: Nasumično
+          recent: Najnovije
+        show:
+          algorithm: Algoritamski kôd ždrijeba
+          any_category: iz svih kategorija
+          back: Povratak na popis
+          cancelled: Otkazani ždrijeb
+          candidate_proposal_ids: Redoslijed i identifikacijske oznake prijedloga za ždrijeb
+          candidate_proposals_info: 'Ždrijebani su sljedeći prijedlozi (%{category_label}) sa sljedećim identifikacijskom oznakama (odabrani prijedlozi prikazani su podebljano)  '
+          category: iz kategorije %{category}
+          dice_result: "(1) Rezultat bacanja kocke"
+          introduction: 'Ova stranica sadržava rezultate ždrijeba %{reference}. Njime je nasumično i s jednakom distribucijom vjerojatnosti iz skupa prijedloga prikazanih u nastavku odabran sljedeći broj rezultata: %{target_items}. Na ovoj su stranici uz rezultate prikazane sve informacije potrebne za maksimalno povećanje jamstava i reprodukciju rezultata. Za kvalitetu ždrijeba ključni su dvostruka nasumičnost koja se postiže bacanjem kocke (što potvrđuju svjedoci) i njegovo precizno vrijeme koje je ulazna informacija algoritmu za generiranje nasumičnog odabira. Početno vrijeme ždrijeba toliko je precizno (u sekundama) da ga ljudi ne mogu kontrolirati, čime se osiguravaju dva ulazna podataka kojima se ne može manipulirati kako bi se zajamčio pošten rezultat.  '
+          mathematical_result: Rezultat (1) x (2)
+          proposals_selected_by_sortition: Prijedlozi odabrani ždrijebom
+          sortition_reproducibility_details: Pojedinosti o mogućnosti reproduciranja ždrijeba
+          time_seed: "(2) Početno vrijeme"
+          witnesses: Svjedoci
+        sortition:
+          random_seed: Nasumična početna vrijednost
+          view: Prikaži
+        sortition_author:
+          deleted: Izbrisani sudionik
+        sortition_cancel_author:
+          deleted: Izbrisani sudionik

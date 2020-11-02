@@ -1,0 +1,194 @@
+mt:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorija
+        closed_at: Magħluq fi
+        conclusions: Konklużjonijiet
+        decidim_category_id: Kategorija
+        description: Deskrizzjoni
+        end_time: Jintemm fi
+        information_updates: Aġġornamenti tal-informazzjoni
+        instructions: Istruzzjonijiet għall-parteċipazzjoni
+        start_time: Jibda fi
+        title: Titlu
+        user_group_id: Oħloq dibattitu bħala
+    models:
+      decidim/debates/close_debate_event: Dibattitu magħluq
+      decidim/debates/create_debate_event: Dibattitu
+      decidim/debates/creation_disabled_event: Dibattiti diżattivati
+      decidim/debates/creation_enabled_event: Dibattiti attivati
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Oħloq
+          endorse: Approva
+        name: Dibattiti
+        settings:
+          global:
+            announcement: Tħabbira
+            comments_enabled: Kummenti attivati
+            comments_max_length: Tul massimu tal-kummenti (Ħallih 0 għall-valur prestabbilit)
+          step:
+            announcement: Tħabbira
+            comments_blocked: Kummenti mblukkati
+            creation_enabled: Il-ħolqien tad-dibattitu mill-parteċipanti attivat
+            endorsements_blocked: Approvazzjonijiet imblukkati
+            endorsements_enabled: Approvazzjonijiet attivati
+    debates:
+      actions:
+        close: Agħlaq
+        confirm_destroy: Żgur?
+        destroy: Ħassar
+        edit: Editja
+        new: '%{name} ġdid'
+        title: Azzjonijiet
+      admin:
+        debate_closes:
+          edit:
+            close: Agħlaq
+            title: Agħlaq id-dibattitu
+        debates:
+          create:
+            invalid: Kien hemm problema biex jinħoloq id-dibattitu.
+            success: Id-dibattitu nħoloq.
+          destroy:
+            success: Id-dibattitu tħassar.
+          edit:
+            title: Editja d-dibattitu
+            update: Aġġorna d-dibattitu
+          index:
+            title: Dibattiti
+          new:
+            create: Oħloq dibattitu
+            title: Dibattitu ġdid
+          update:
+            invalid: Kien hemm problema biex jiġi aġġornat dan id-dibattitu.
+            success: Id-dibattitu ġie aġġornat.
+        models:
+          debate:
+            name: Dibattitu
+      admin_log:
+        debate:
+          close: "%{user_name} għalaq id-dibattitu %{resource_name} fl-ispazju %{space_name}"
+          create: "%{user_name} ħoloq id-dibattitu %{resource_name} fl-ispazju %{space_name}"
+          update: "%{user_name} aġġorna d-dibattitu %{resource_name} fl-ispazju %{space_name}"
+      debates:
+        close:
+          invalid: Kien hemm problema biex jingħalaq id-dibattitu.
+          success: Id-dibattitu ngħalaq.
+        close_debate_modal:
+          close: Agħlaq
+          description: X’inhu s-sommarju jew il-konklużjoni ta’ dan id-dibattitu?
+          send: Agħlaq id-dibattitu
+        closed: Magħluq
+        create:
+          invalid: Kien hemm problema biex jinħoloq id-dibattitu.
+          success: Id-dibattitu nħoloq.
+        debate:
+          participate: Ipparteċipa
+        edit:
+          back: Lura
+          save: Issejvja t-tibdiliet
+          title: Editja d-dibattitu
+        filters:
+          all: Kollha
+          category: Kategorija
+          category_prompt: Agħżel kategorija
+          citizens: Ċittadini
+          official: Uffiċjali
+          origin: Oriġini
+          search: Fittex
+        filters_small_view:
+          close_modal: Agħlaq il-kaxxa ż-żgħira
+          filter: Iffiltra
+          filter_by: Iffiltra skont
+          unfold: Iftaħ
+        form:
+          select_a_category: Agħżel kategorija
+        index:
+          new_debate: Dibattitu ġdid
+        new:
+          back: Lura
+          create: Oħloq
+          title: Dibattitu ġdid
+        show:
+          back: Lura għal-lista
+          close_debate: Agħlaq id-dibattitu
+          date: Data
+          debate_closed: Magħluq
+          debate_conclusions_are: 'Id-dibattitu ngħalaq fil-%{date} b’dawn il-konklużjonijiet:'
+          edit_conclusions: Editja l-konklużjonijiet
+          edit_debate: Editja d-dibattitu
+          groups_count: Gruppi
+          last_comment_by: L-aħħar kumment minn
+          no_comments_yet: Għad m’hemmx kummenti
+          participants_count: Parteċipanti
+        update:
+          invalid: Kien hemm problema biex jiġi aġġornat id-dibattitu.
+          success: Id-dibattitu ġie aġġornat.
+        versions:
+          debates:
+            back_to_resource: Mur lura għad-dibattitu
+          index:
+            title: Verżjonijiet
+        versions_list:
+          back_to_resource: Mur lura għad-dibattitu
+      last_activity:
+        new_debate_at_html: "<span>Dibattitu ġdid fi %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Data tat-tmiem
+            official_debate: Dibattitu uffiċjali
+            start_time: Data tal-bidu
+            title: Titlu
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Insellmulek,
+              Inħoloq dibattitu "%{resource_title}" ġdid dwar l-ispazju parteċipatorju %{space_title}, mur arah u kkontribwixxi:
+            email_outro: Irċevejt din in-notifika għax qed issegwi l-ispazju parteċipatorju %{space_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+            email_subject: Dibattitu "%{resource_title}” ġdid dwar %{space_title}
+            notification_title: Id-<a href="%{resource_path}">%{resource_title}</a> dibattitu nħoloq fi <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Insellmulek,
+              %{author_name} %{author_nickname}, li qed issegwi, ħoloq dibattitu "%{resource_title}” ġdid. Mur araha u kkontribwixxi:
+            email_outro: Irċevejt din in-notifika għax qed issegwi lil %{author_nickname}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+            email_subject: Dibattitu "%{resource_title}" ġdid minn %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ħoloq id-dibattitu <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Il-ħolqien tad-dibattitu m’għadux attiv fi %{participatory_space_title}. Xorta tista’ tipparteċipa f’dibattiti miftuħa minn din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi %{participatory_space_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Il-ħolqien tad-dibattitu ġie diżattivat fi %{participatory_space_title}
+          notification_title: Il-ħolqien tad-dibattitu issa huwa diżattivat fi <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Issa tista’ tibda dibattiti ġodda fi %{participatory_space_title}! Ibda pparteċipa f’din il-paġna:'
+          email_outro: Irċevejt din in-notifika għax qed issegwi %{participatory_space_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Id-dibattiti issa huma disponibbli fi %{participatory_space_title}
+          notification_title: Issa tista’ tibda <a href="%{resource_path}">dibattiti ġodda</a> fi <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Id-dibattitu dwar "%{resource_title}” ingħalaq. Tista’ taqra l-konklużjonijiet mill-paġna tiegħu:'
+          email_outro: Irċevejt din in-notifika minħabba li qed issegwi d-dibattitu "%{resource_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
+          email_subject: Id-dibattitu dwar "%{resource_title}” ingħalaq
+          notification_title: Id-dibattitu <a href="%{resource_path}">%{resource_title}</a> ingħalaq.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Agħżel dibattitu miftuħ biex tieħu sehem
+          description: Din il-badge tingħata meta tipparteċipa b’mod attiv fid-dibattiti differenti billi tħalli l-kummenti tiegħek.
+          description_another: Dan il-parteċipant ħa sehem fi %{score} dibattiti.
+          description_own: Ipparteċipajt fi %{score} dibattiti.
+          name: Dibattiti
+          next_level_in: Ipparteċipa fi %{score} dibattiti oħra biex tilħaq il-livell li jmiss!
+          unearned_another: Dan il-parteċipant għadu ma ħa sehem fl-ebda dibattitu.
+          unearned_own: Għadek ma ħadt sehem fl-ebda dibattitu.
+    metrics:
+      debates:
+        description: Numru ta’ dibattiti li nħolqu
+        object: dibattiti
+        title: Dibattiti

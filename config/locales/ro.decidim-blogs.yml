@@ -1,0 +1,78 @@
+ro:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nouă postare pe blog
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Sigur doriți să ștergeți această postare?
+        destroy: Ștergere
+        edit: Editare
+        new: Postare nouă
+        title: Acțiuni
+      admin:
+        models:
+          components:
+            body: Corp
+          post:
+            name: Postare
+        posts:
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestei postări
+            success: Postarea a fost creată
+          destroy:
+            success: Postarea a fost ștearsă
+          edit:
+            save: Actualizare
+          index:
+            title: Postări
+          new:
+            create: Creare
+            title: Creare a unei postări
+          update:
+            invalid: S-a întâmpinat o problemă la salvarea postării.
+            success: Postarea a fost salvată
+      last_activity:
+        new_post_at_html: "<span>Postare nouă la %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autorul
+            body: Corp
+            created_at: Creat la
+            title: titlu
+      posts:
+        show:
+          back: Înapoi la listă
+          comments: Comentarii
+          view: Vizualizare
+        sidebar_blog:
+          comments: comentarii
+          most_commented_posts: Postările cele mai comentate
+      read_more: Citiți mai mult
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Anunț
+            comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
+          step:
+            announcement: Anunț
+            comments_blocked: Comentarii blocate
+            endorsements_blocked: Avizări blocate
+            endorsements_enabled: Avizări activate
+    events:
+      blogs:
+        post_created:
+          email_intro: Postarea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care îl urmăriți.
+          email_outro: Ați primit această notificare deoarece urmăriți "%{participatory_space_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Postare nouă publicată în %{participatory_space_title}
+          notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Postări
+    participatory_processes:
+      statistics:
+        posts_count: Postări

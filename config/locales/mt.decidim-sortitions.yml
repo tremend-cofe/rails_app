@@ -1,0 +1,128 @@
+mt:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informazzjoni dwar l-għażla bix-xorti
+        decidim_category_id: Kategoriji tas-sett ta’ proposti li fihom tixtieq tapplika t-tlugħ tal-poloz
+        decidim_proposals_component_id: Proposti stabbiliti
+        dice: Riżultat ta’ tfigħ ta’ damma. Itfa’ damma b’6 naħat, jew sib mod ieħor każwali biex tiġġenera numru mill-1 sas-6, u hawnhekk daħħal in-numru li jirriżulta quddiem xi xhieda. Dan jikkontribwixxi għall-kwalità u l-garanziji tal-każwalità tar-riżultat
+        target_items: Numru ta’ proposti li jridu jintgħażlu (jindika n-numru ta’ proposti li tixtieq li jintgħażlu bit-tlugħ tal-poloz tal-gruppi ta’ proposti li tkun għażilt qabel)
+        title: Titlu
+        witnesses: Xhieda
+    models:
+      decidim/sortitions/create_sortition_event: Għażla bix-xorti
+  decidim:
+    components:
+      sortitions:
+        name: Għażliet bix-xorti
+        settings:
+          global:
+            comments_enabled: Kummenti attivati
+            comments_max_length: Tul massimu tal-kummenti (Ħallih 0 għall-valur prestabbilit)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: L-għażla bix-xorti "%{resource_title}” inżdiedet ma’ "%{participatory_space_title}” li qed issegwi.
+          email_outro: Irċevejt din in-notifika għax qed issegwi "%{participatory_space_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
+          email_subject: Għażla bix-xorti ġdida inżdiedet ma’ %{participatory_space_title}
+          notification_title: L-għażla bix-xorti <a href="%{resource_path}">%{resource_title}</a> inżdiedet ma’ %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Għażliet bix-xorti
+    participatory_processes:
+      statistics:
+        sortitions_count: Għażliet bix-xorti
+    sortitions:
+      admin:
+        actions:
+          destroy: Ikkanċella l-għażla bix-xorti
+          edit: Editja
+          new: Għażla bix-xorti ġdida
+          show: Dettalji dwar l-għażla bix-xorti
+        models:
+          sortition:
+            fields:
+              category: Kategorija
+              created_at: Data meta nħoloq
+              decidim_proposals_component: Komponent tal-proposti
+              dice: Dammi
+              reference: Referenza
+              request_timestamp: Ħin tat-tlugħ
+              target_items: Oġġetti li jridu jintgħażlu
+              title: Titlu
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Żgur li trid tħassar din l-għażla bix-xorti?
+            destroy: Ikkanċella l-għażla bix-xorti
+            title: Kanċellazzjoni tal-għażla bix-xorti
+          create:
+            error: Kien hemm problema biex tinħoloq għażla bix-xorti ġdida.
+            success: L-għażla bix-xorti nħolqot
+          destroy:
+            error: Ma tistax tikkanċella l-għażla bix-xorti.
+            success: L-għażla bix-xorti ġiet ikkanċellata
+          edit:
+            title: Aġġorna l-informazzjoni dwar l-għażla bix-xorti
+            update: Aġġorna
+          form:
+            all_categories: Il-kategoriji kollha
+            select_proposal_component: Agħżel il-proposti stabbiliti
+            title: Għażla bix-xorti ġdida għall-proposti
+          index:
+            title: Għażliet bix-xorti
+          new:
+            confirm: Billi tagħfas il-buttuna li jmiss Decidim jirreġistra d-data u l-ħin (bi preċiżjoni ta’ sekondi) u flimkien mat-tfigħ tad-dammi, din l-informazzjoni tintuża biex tiġġenera għażla każwali. L-azzjoni tkun irriversibbli, ladarba l-buttuna tiġi kklikkjata, ir-riżultat ta’ dan it-tlugħ tal-poloz jiġi ppubblikat, flimkien mad-data mdaħħla f’din il-formola u ma tkunx tista’ tiġi modifikata, jekk jogħġbok ivverifika l-kontenut bir-reqqa
+            create: Oħloq
+            title: Għażla bix-xorti ġdida
+          show:
+            selected_proposals: Proposti magħżula għat-tlugħ tal-poloz
+          update:
+            error: Kien hemm problema biex tiġi aġġornata l-għażla bix-xorti.
+            success: L-għażla bix-xorti ġiet aġġornata
+      admin_log:
+        sortition:
+          create: "%{user_name} ħoloq l-għażla bix-xorti %{resource_name} fi %{space_name}"
+          delete: "%{user_name} ikkanċella l-għażla bix-xorti %{resource_name} fi %{space_name}"
+          update: "%{user_name} aġġorna l-għażla bix-xorti %{resource_name} fi %{space_name}"
+      sortitions:
+        filters:
+          active: Attivi
+          all: Kollha
+          cancelled: Ikkanċellata
+          category: Kategorija
+          category_prompt: Agħżel kategorija
+          search: Fittex
+        filters_small_view:
+          close_modal: Agħlaq il-kaxxa ż-żgħira
+          filter: Iffiltra
+          filter_by: Iffiltra skont
+          unfold: Iftaħ
+        linked_sortitions:
+          selected_proposals: Proposti magħżula
+        orders:
+          label: 'Organizza l-għażliet bix-xorti skont:'
+          random: Mod każwali
+          recent: Reċenti
+        show:
+          algorithm: Kodiċi tal-algoritmu tal-għażla bix-xorti
+          any_category: mill-kategoriji kollha
+          back: Lura għal-lista
+          cancelled: Għażla bix-xorti kkanċellata
+          candidate_proposal_ids: L-ordni tal-proposti tal-għażla bix-xorti u l-IDs
+          candidate_proposals_info: 'L-għażla bix-xorti saret minn fost il-proposti li ġejjin (%{category_label}), bl-IDs li ġejjin (il-proposti magħżula b’tipa grassa)  '
+          category: mill-kategorija %{category}
+          dice_result: "(1) Riżultat tad-dammi"
+          introduction: 'Din il-paġna fiha r-riżultati tal-għażla bix-xorti %{reference}. Permezz ta’ din l-għażla bix-xorti, numru ta’ riżultati %{target_items} ntgħażlu b’mod każwali u b’distribuzzjoni ta’ probabbiltà ugwali mis-sett ta’ proposti murija hawn taħt. Flimkien mar-riżultati, l-informazzjoni murija f’din il-paġna tipprovdi l-informazzjoni kollha meħtieġa biex jiġu mmassimizzati l-garanziji u riprodotti r-riżultati. Iċ-ċavetta għall-kwalità ta’ din l-għażla bix-xorti hija l-każwalità doppja pprovduta mit-tfigħ tad-dammi (ivverifikata mix-xhieda) u l-ħin preċiż tal-għażla bix-xorti li tipprovdi input għal algoritmu li jiġġenera għażla każwali. Is-seed tal-ħin għall-għażla bix-xorti tant hija preċiża (sekondi) li impossibbli li jiġi kkontrollat mill-bnedmin u b’hekk jipprovdi input doppju “inkontrollabbli” biex jiġi ggarantit riżultat ġust.  '
+          mathematical_result: Riżultat (1) x (2)
+          proposals_selected_by_sortition: Proposti magħżula bix-xorti
+          sortition_reproducibility_details: Dettalji dwar ir-riproduċibbiltà tal-għażla bix-xorti
+          time_seed: "(2) Seed tal-ħin"
+          witnesses: Xhieda
+        sortition:
+          random_seed: Seed każwali
+          view: Ara
+        sortition_author:
+          deleted: Parteċipant imħassar
+        sortition_cancel_author:
+          deleted: Parteċipant imħassar

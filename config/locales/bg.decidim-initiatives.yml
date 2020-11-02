@@ -1,0 +1,552 @@
+bg:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Автор
+        description: Описание
+        offline_votes: Подписи, положени лично
+        scope_id: Обхват
+        signature_end_date: Край на периода на събиране на подписи
+        signature_start_date: Начало на периода на събиране на подписи
+        signature_type: Тип събиране на подписи
+        signature_type_values:
+          any: Смесено
+          offline: Лично
+          online: Онлайн
+        state: Състояние
+        title: Заглавие
+      initiative_author:
+        address: Адрес
+        city: Град
+        name: Име и фамилия
+        phone_number: Телефонен номер
+        post_code: Пощенски код
+        province: Провинция
+      initiatives_committee_member:
+        user: Член на комисията
+      initiatives_type:
+        area_enabled: Разрешаване на авторите да избират областта за инициативата си
+        attachments_enabled: Разрешаване на прикачени файлове
+        banner_image: Банерно изображение
+        collect_user_extra_fields: Събиране на личните данни на участниците при подписване
+        custom_signature_end_date_enabled: Разрешаване на авторите да избират края на периода на събиране на подписи
+        description: Описание
+        document_number_authorization_handler: Разрешение за потвърждаване на номера на документа при подписване
+        extra_fields_legal_information: Правна информация относно събирането на лични данни
+        minimum_committee_members: Минимален брой членове на комисията
+        online_signature_enabled: Разрешено подписване онлайн
+        promoting_committee_enabled: Разрешаване на комисия за популяризиране
+        title: Заглавие
+        undo_online_signatures_enabled: Разрешаване на участниците да премахват подписите си, положени онлайн
+        validate_sms_code_on_votes: Добавяне на стъпка за потвърждение чрез код от SMS към процеса на подписване
+      initiatives_vote:
+        date_of_birth: Дата на раждане
+        document_number: Номер на документа
+        name_and_surname: Име и фамилия
+        postal_code: Пощенски код
+      organization_data:
+        address: Адрес
+        id_document: Документ за самоличност
+        name: Пълно наименование
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Файлът е невалиден
+              needs_to_be_reattached: Нужно е повторно прикачване
+              title: Заглавието не трябва да бъде празно
+  activerecord:
+    models:
+      decidim/initiative:
+        one: Инициатива
+        other: Инициативи
+      decidim/initiative_comittee:
+        one: Комисия
+        other: Комисии
+      decidim/initiative_vote:
+        one: Подпис
+        other: Подписи
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Нов тип инициатива
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Област
+          state_eq:
+            label: Състояние
+            values:
+              accepted: Достатъчно подписи
+              created: Създадени
+              discarded: Премахнати
+              published: Публикувани
+              rejected: Няма достатъчно подписи
+              validating: Техническа проверка
+          type_id_eq:
+            label: Тип
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Търсете в %{collection} по заглавие, описание, идент. № или име на автора.
+      menu:
+        initiatives: Инициативи
+        initiatives_types: Типове инициативи
+      models:
+        initiatives:
+          fields:
+            created_at: Създадено на
+            id: Идент. №
+            published_at: Публикувана на
+            state: Състояние
+            supports_count: Подписи
+            title: Инициативи
+        initiatives_type_scope:
+          fields:
+            scope: Обхват
+            supports_required: Необходими подписи
+          name: Обхват на типа инициатива
+        initiatives_types:
+          fields:
+            created_at: Създадено на
+            title: Типове инициативи
+          name: Тип инициатива
+        initiatives_votes:
+          fields:
+            date_of_birth: Дата на раждане
+            document_number: Номер на документа
+            hash: Хеш
+            initiative_end_date: Крайна дата
+            initiative_id: Идент. № на инициативата
+            initiative_signatures_count: Брой подписи
+            initiative_start_date: Начална дата
+            initiative_title: Заглавие на инициативата
+            name_and_surname: Име и фамилия
+            postal_code: Пощенски код
+            time_and_date: Дата и час
+            timestamp: Времеви печат
+      titles:
+        initiatives: Инициативи
+        initiatives_types: Типове инициативи
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Инициативата „%{resource_title}“ е изпратена за техническа проверка. Вижте повече в <a href="%{admin_initiative_url}">администраторския панел</a>
+            email_outro: Получавате това известие, защото сте администратор на платформата.
+            email_subject: Инициативата „%{resource_title}“ беше изпратена за техническа проверка.
+            notification_title: Инициативата „%{resource_title}“ е изпратена за техническа проверка. Вижте повече в <a href="%{admin_initiative_path}">администраторския панел</a>
+        initiative_extended:
+          email_intro: Крайната дата за подписите на инициативата %{resource_title} беше удължена!
+          email_outro: Получавате това известие, защото следвате %{resource_title}. Можете да престанете да получавате известия, като щракнете на предходната връзка.
+          email_subject: Крайната дата за подписите на инициативата е удължена!
+          notification_title: Крайната дата за подписите на инициативата <a href="%{resource_path}">%{resource_title}</a> беше удължена.
+        milestone_completed:
+          affected_user:
+            email_intro: Инициативата Ви %{resource_title} събра %{percentage} % подписи!
+            email_outro: Получавате това известие, защото сте авторът на инициативата %{resource_title}.
+            email_subject: Достигнат е нов важен етап!
+            notification_title: Инициативата Ви <a href="%{resource_path}">%{resource_title}</a> събра %{percentage} % подписи.
+          follower:
+            email_intro: Инициативата %{resource_title} събра %{percentage} % подписи!
+            email_outro: Получавате това известие, защото следвате %{resource_title}. Можете да престанете да получавате известия, като щракнете на предходната връзка.
+            email_subject: Достигнат е нов важен етап!
+            notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> събра %{percentage} % подписи.
+        support_threshold_reached:
+          email_intro: Инициативата %{resource_title} достигна прага за подкрепа
+          email_outro: Получавате това известие, защото сте администратор на платформата.
+          email_subject: Прагът за подкрепа е достигнат
+          notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> достигна прага за подкрепа
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Към пространството за участие за инициативи
+            Следвайте стъпките, за да създадете нова инициатива
+          description: Тази значка се предоставя, когато стартирате нови инициативи, като си партнирате с други, за да ги изпълните.
+          description_another: Този участник е публикувал %{score} инициативи.
+          description_own: Публикували сте %{score} инициативи.
+          name: Публикувани инициативи
+          next_level_in: Публикувайте още %{score} инициативи, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е публикувал нито една инициатива.
+          unearned_own: Все още не сте публикували нито една инициатива.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Инициативата</strong> представлява предложение, което всеки може да популяризира по свое собствено желание (независимо от другите канали или пространства за участие) чрез събиране на (цифрови) подписи от името на организацията за извършване на конкретно действие (промяна на разпоредба, лансиране на проект, промяна на името на служба или улица и т.н.).</p> <p>Лицата, които популяризират инициативата, могат да зададат целите ѝ, да събират подкрепа, да провеждат дебати, да разпространяват информация за инициативата и да определят места, където да се събират подписи от участниците или от присъстващите на дебатите.</p> <p>Примери: Инициативата може да има за цел събиране на подписи за свикване на консултация сред всички лица в организацията, за създаване или свикване на събрание, както и за стартиране на процес за увеличение на бюджета за област или територия на организацията. По време на процеса на събиране на подписи могат да се подпишат още хора, за да подкрепят инициативата и да задействат изпълнението ѝ в организацията.</p>\n"
+          page: "<p><strong>Инициативата</strong> представлява предложение, което всеки може да популяризира по свое собствено желание (независимо от другите канали или пространства за участие) чрез събиране на (цифрови) подписи от името на организацията за извършване на конкретно действие (промяна на разпоредба, лансиране на проект, промяна на името на служба или улица и т.н.).</p> <p>Лицата, които популяризират инициативата, могат да зададат целите ѝ, да събират подкрепа, да провеждат дебати, да разпространяват информация за инициативата и да определят места, където да се събират подписи от участниците или от присъстващите на дебатите.</p> <p>Примери: Инициативата може да има за цел събиране на подписи за свикване на консултация сред всички лица в организацията, за създаване или свикване на събрание, както и за стартиране на процес за увеличение на бюджета за област или територия на организацията. По време на процеса на събиране на подписи могат да се подпишат още хора, за да подкрепят инициативата и да задействат изпълнението ѝ в организацията.</p>\n"
+          title: Какво представляват инициативите?
+    initiatives:
+      actions:
+        answer: Отговор
+      admin:
+        answers:
+          edit:
+            answer: Отговор
+            title: Отговор за %{title}
+          info_initiative:
+            created_at: Създадено на
+            description: Описание
+            initiative_votes_count: Брой гласове
+            initiatives: Инициативи
+            state: Състояние
+        committee_requests:
+          index:
+            approve: Одобряване
+            confirm_revoke: Сигурни ли сте?
+            invite_to_committee_help: Споделете тази връзка, за да поканите други участници в комисията за популяризиране
+            no_members_yet: В комисията за популяризиране няма членове
+            revoke: Оттегляне
+            title: Членове на комисията
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Максимален брой елементи, които да се показват
+        exports:
+          initiatives: Инициативи
+        initiatives:
+          edit:
+            accept: Приемане на инициативата
+            confirm: Сигурни ли сте?
+            discard: Премахване на инициативата
+            export_pdf_signatures: Експортиране на подписите като файл във формат PDF
+            export_votes: Експортиране на подписите
+            reject: Отхвърляне на инициативата
+            send_to_technical_validation: Изпращане за техническа проверка
+            success: Инициативата е изпратена за техническа проверка.
+            update: Актуализация
+          form:
+            attachments: Прикачени файлове
+            settings: Настройки
+            title: Обща информация
+          index:
+            actions_title: Действие
+            preview: Визуализация
+            print: Отпечатване
+          initiative_attachments:
+            documents: Документи
+            edit: Редактиране
+            new: Нови
+            photos: Снимки
+          show:
+            print: Отпечатване
+          update:
+            error: Възникна грешка.
+            success: Инициативата беше актуализирана успешно.
+        initiatives_type_scopes:
+          create:
+            error: Възникна грешка.
+            success: Беше създаден нов обхват за въпросния тип инициатива
+          destroy:
+            success: Обхватът беше премахнат успешно
+          edit:
+            back: Назад
+            confirm_destroy: Сигурни ли сте?
+            destroy: Изтриване
+            title: Редактиране на обхвата на типа инициатива
+            update: Актуализация
+          new:
+            back: Назад
+            create: Създаване
+            title: Създаване на обхват на типа инициатива
+          update:
+            error: Възникна грешка.
+            success: Обхватът беше актуализиран успешно
+        initiatives_types:
+          create:
+            error: Възникна грешка.
+            success: Беше създаден успешно нов тип инициатива
+          destroy:
+            success: Типът инициатива беше премахнат успешно
+          edit:
+            confirm_destroy: Сигурни ли сте?
+            destroy: Изтриване
+            update: Актуализация
+          form:
+            title: Обща информация
+          initiative_type_scopes:
+            title: Обхвати за типа инициатива
+          new:
+            create: Създаване
+            title: Нов тип инициатива
+          update:
+            error: Възникна грешка.
+            success: Типът инициатива беше актуализиран успешно
+      admin_log:
+        initiative:
+          publish: "%{user_name} публикува инициативата %{resource_name}"
+          send_to_technical_validation: "%{user_name} изпрати инициативата %{resource_name} за техническа проверка"
+          unpublish: "%{user_name} премахна инициативата %{resource_name}"
+          update: "%{user_name} актуализира инициативата %{resource_name}"
+      admin_states:
+        accepted: Достатъчно подписи
+        created: Създадени
+        discarded: Премахнати
+        published: Публикувани
+        rejected: Няма достатъчно подписи
+        validating: Техническа проверка
+      application_helper:
+        filter_area_values:
+          all: Всички
+        filter_scope_values:
+          all: Всички
+        filter_state_values:
+          accepted: Достатъчно подписи
+          all: Всички
+          answered: С отговор
+          closed: Затворени
+          open: Открити
+          rejected: Няма достатъчно подписи
+        filter_type_values:
+          all: Всички
+      committee_requests:
+        new:
+          continue: Продължаване
+          help_text: Напът сте да изпратите заявка да станете член на комисията за популяризиране на тази инициатива
+        spawn:
+          success: Заявката Ви беше изпратена до автора на инициативата.
+      content_blocks:
+        highlighted_initiatives:
+          name: Откроени инициативи
+      create_initiative:
+        fill_data:
+          back: Назад
+          continue: Продължаване
+          fill_data_help: "<ul> <li>Прегледайте съдържанието на инициативата си. Заглавието Ви лесно ли е за разбиране? Ясна ли е целта на инициативата Ви?</li> <li>Трябва да изберете типа на подписа. Лично, онлайн или комбинация от двете</li> <li>Какъв е географският обхват на инициативата? Град, област?</li> </ul>"
+          initiative_type: Тип инициатива
+          more_information: "(Повече информация)"
+          select_area: Избор на област
+          select_scope: Избор на обхват
+        finish:
+          back: Назад
+          back_to_initiatives: Назад към инициативите
+          callout_text: Поздравления! Гражданската Ви инициатива беше създадена успешно.
+          confirm: Потвърждаване
+          edit_my_initiative: Редактиране на инициативите ми
+          go_to_my_initiatives: Към инициативите ми
+          more_information: "(Повече информация)"
+          send_my_initiative: Изпращане на инициативата ми
+        finish_help:
+          access_reminder: Не забравяйте, че винаги ще имате достъп до инициативите си чрез менюто за участници.
+          help_for_organizations: Ако представлявате асоциация, ще трябва да качите протоколите на управителните съвети на всички организации, които образуват комисията за популяризиране
+          help_in_person_signatures: Ако сте избрали да събирате подписите чрез лично полагане или в съчетание с онлайн подписка, ще трябва да качите необходимата информация.
+          help_text: Не забравяйте, че за да обработим правилно инициативата, трябва да отворите администраторския панел, където ще намерите потребителското меню, след което качете необходимата информация и я изпратете за обработване.
+          initiatives_page_link: 'Можете да намерите цялата посочена по-горе информация на следния адрес за запознаване с инициативите: %{link}.'
+          page: страница
+        previous_form:
+          back: Назад
+          continue: Продължаване
+          help: От какво се състои инициативата? Напишете заглавието и описанието. Препоръчваме кратко заглавие и описание, което да включва предложеното решение.
+          more_information: "(Повече информация)"
+        promotal_committee:
+          back: Назад
+          individual_help_text: При този тип гражданска инициатива се изисква комисия за популяризиране, която се състои от поне %{committee_size} души (свидетели). Трябва да споделите следната връзка с другите участници в тази инициатива. Когато контактите Ви получат връзката, ще трябва да изпълнят посочените стъпки.
+          more_information: "(Повече информация)"
+        select_initiative_type:
+          back: Назад
+          choose_html: Искам да създам <strong>%{title}</strong>
+          more_information: "(Повече информация)"
+          select: Искам да популяризирам тази инициатива
+          select_initiative_type_help: Гражданските инициативи са средствa, чрез които гражданите могат да се намесят, така че градската управа да предприеме действия в защита на общия интерес, които попадат в юрисдикцията ѝ. Коя инициатива искате да стартирате?
+        share_committee_link:
+          continue: Продължаване
+          invite_to_committee_help: Връзка, с която да поканите хора да участват в комисията за популяризиране
+        show_similar_initiatives:
+          back: Назад
+          compare_help: Ако някоя от следните инициативи е подобна на Вашата, препоръчваме да се подпишете в нея. Така ще има повече възможности за осъществяването на предложението Ви.
+          continue: Моята инициатива е различна
+          more_information: "(Повече информация)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, когото следвате, създаде нова инициатива, разгледайте я и дайте своя принос:"
+          email_outro: Получавате това известие, защото следвате %{author_nickname}. Можете да престанете да получавате известия, като щракнете на предходната връзка.
+          email_subject: Нова инициатива на %{author_nickname}
+          notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> беше създадена от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, когото следвате, подкрепи следната инициатива; може би бихте искали да допринесете към дискусията:"
+          email_outro: Получавате това известие, защото следвате %{author_nickname}. Можете да престанете да получавате известия, като щракнете на предходната връзка.
+          email_subject: Инициативата е подкрепена от %{author_nickname}
+          notification_title: Инициативата <a href="%{resource_path}">%{resource_title}</a> беше подкрепена от <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Инициативи
+      initiative_signatures:
+        fill_personal_data:
+          continue: Продължаване
+          date_select:
+            day: Ден
+            month: Месец
+            year: Година
+          help: Моля, попълнете личната си информация в следните полета, за да подпишете инициативата
+        finish:
+          back_to_initiative: Назад към инициативата
+        sms_code:
+          continue: Проверете кода и продължете
+          help: Проверете съобщението, което получихте на телефона си чрез SMS.
+        sms_phone_number:
+          continue: Изпратете ми SMS
+          help: Попълнете потвърдения си телефонен номер във формуляра, за да заявите кода си за потвърждение
+      initiative_votes:
+        create:
+          error: Възникна проблем при подписването на инициативата.
+          invalid: Предоставената информация за подписване на инициативата не е валидна
+          success_html: Поздравления! Подписахте успешно инициативата <strong> %{title}</strong>
+        personal_data:
+          invalid: Личната информация не отговаря на предоставените данни за удостоверяване.
+        sms_code:
+          invalid: Кодът Ви за потвърждение не съвпада с нашия. Моля, проверете отново съобщението, което Ви изпратихме със SMS.
+        sms_phone:
+          invalid: Телефонният номер е невалиден или изчаква удостоверяване. Моля, проверете удостоверенията си.
+      initiatives:
+        author:
+          deleted: Изтрит
+        author_list:
+          hidden_authors_count:
+            one: и още 1 човек
+            other: и още %{count} души
+        count:
+          title:
+            one: "%{count} инициатива"
+            other: "%{count} инициативи"
+        filters:
+          any: Всички
+          area: Област
+          author: Автор
+          myself: Моите инициативи
+          scope: Обхват
+          search: Търсене
+          state: Състояние
+          type: Тип
+        filters_small_view:
+          close_modal: Затваряне на прозореца
+          filter: Филтър
+          filter_by: Филтриране по
+          unfold: Разгъване
+        index_header:
+          new_initiative: Нова инициатива
+          not_authorized:
+            authorizations_page: Преглед на удостоверенията
+            close: Затваряне
+            explanation: Трябва да преминете проверка, за да създадете нова инициатива.
+            title: Изисква се удостоверяване
+        initiatives:
+          closed_initiatives_warning: Понастоящем няма отворени инициативи, но тук можете да намерите изброени всички приключили инициативи.
+          no_initiatives_warning: Няма инициативи, които да съответстват на критериите Ви за търсене.
+        interactions:
+          comments_count:
+            count:
+              one: Коментар
+              other: Забележки
+        orders:
+          label: 'Сортиране на инициативите по:'
+          most_commented: С най-много коментари
+          most_voted: С най-много подписи
+          random: На случаен принцип
+          recent: Най-скорошни
+          recently_published: Най-скоро публикувани
+        result:
+          answer_title:
+            accepted: Това предложение е прието, защото
+            created: Това предложение е създадено
+            discarded: Това предложение е премахнато, защото
+            published: Това предложение е публикувано, защото
+            rejected: Това предложение е отхвърлено, защото
+            validating: Това предложение е в процес на оценяване
+          initiative_rejected_reason: Тази инициатива е отхвърлена поради липса на подписи
+        show:
+          any_vote_method: За тази гражданска инициатива се събират подписи както онлайн, така и лично.
+          follow_description: Получавайте известия, когато има новини в тази инициатива
+          offline_method: За тази гражданска инициатива се събират подписи само лично.
+        signature_identities:
+          select_identity: Избор на идентификатор на участниците
+        signatures_count:
+          one: " подпис"
+          other: " подписи"
+        supports:
+          title: Списък с подписи
+        vote_cabin:
+          already_voted: Вече подписани
+          supports_required: "Необходими са %{total_supports} подписа"
+          verification_required: Потвърдете профила си, за да подпишете инициативата
+          vote: Подписване
+          votes_blocked: Подписването е забранено
+        votes_count:
+          count:
+            one: Подпис
+            other: Подписи
+          most_popular_initiative: Най-популярна инициатива
+          need_more_votes: Има нужда от повече подписи
+      initiatives_mailer:
+        creation_subject: Инициативата Ви „%{title}“ беше създадена
+        initiative_link:
+          check_initiative_details: Можете да видите подробностите за инициативата
+          here: тук
+        more_information: Тук можете да намерите повече информация за процеса за създаване на инициатива.
+        progress_report_body_for: Инициативата %{title} събра %{percentage} % от необходимите подписи.
+        progress_report_for: 'Обобщение на инициативата: %{title}'
+        promotal_committee_help: Не забравяйте, че трябва да поканите най-малко %{member_count} души в комисията за популяризиране. Препратете следната връзка, да поканите хора в комисията за популяризиране
+        status_change_body_for: 'Състоянието на инициативата %{title} беше променено на: %{state}'
+        status_change_for: Състоянието на инициативата %{title} беше променено
+      last_activity:
+        new_initiative: Нова инициатива
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Активни инициативи
+            see_all_initiatives: Вижте всички инициативи
+      show:
+        badge_name:
+          accepted: Достатъчно подписи
+          created: Създадени
+          discarded: Премахнати
+          published: Публикувани
+          rejected: Няма достатъчно подписи
+          validating: Техническа проверка
+      states:
+        accepted: Приети
+        expired: С изтекъл срок
+      unavailable_scope: Недостъпен обхват
+      versions:
+        shared:
+          back_to_resource: Връщане назад към инициативата
+    menu:
+      initiatives: Инициативи
+    resources:
+      initiatives_type:
+        actions:
+          title: Действия
+          vote: Подписване
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Прикачени файлове
+          committee_members: Членове на комисията
+          components: Компоненти
+          information: Информация
+      initiative_creation_header:
+        back: Назад
+        fill_data: Създаване
+        finish: Край
+        previous_form: Начало
+        promotal_committee: Комисия за популяризиране
+        select_initiative_type: Избор
+        show_similar_initiatives: Сравнение
+        step: Стъпка %{current} от %{total}
+        title: Създаване на нова инициатива
+      initiative_header:
+        initiative_menu_item: Инициатива
+      initiative_signature_creation_header:
+        back: Назад
+        fill_personal_data: Попълнете данните си
+        finish: Край
+        finished: Подписът на инициативата е създаден
+        see_steps: вижте стъпките
+        select_identity: Избор на самоличност
+        sms_code: Потвърждение чрез код от SMS
+        sms_phone_number: Номер на мобилен телефон
+        step: Стъпка %{current} от %{total}
+        title: Подписване на %{initiative_title}
+      initiatives:
+        initiative:
+          check: Запознаване
+          check_and_support: 'Разгледайте и се подпишете:'
+        no_initiatives_yet:
+          no_initiatives_yet: Все още няма инициативи!

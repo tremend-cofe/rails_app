@@ -1,0 +1,251 @@
+mt:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Metodi disponibbli
+        offline_explanation: Istruzzjonijiet għal verifika offline
+      id_document_information:
+        document_number: Numru tad-dokument (bl-ittra)
+        document_type: Tip ta’ dokument
+      id_document_upload:
+        document_number: Numru tad-dokument (bl-ittra)
+        document_type: Tip ta’ dokument tiegħek
+        user: Parteċipant
+        verification_attachment: Kopja skennjata tad-dokument tiegħek
+      offline_confirmation:
+        email: Indirizz tal-email tal-parteċipant
+      postal_letter_address:
+        full_address: Indirizz sħiħ
+      postal_letter_confirmation:
+        verification_code: Kodiċi tal-Verifika
+      postal_letter_postage:
+        full_address: Indirizz sħiħ
+        verification_code: Kodiċi tal-Verifika
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Utli jekk il-proċess ikun diġà beda u tkun tixtieq tirrevoka l-permessi tal-proċess preċedenti.
+          button: Irrevokahom kollha
+          button_before: Irrevoka ta’ qabel id-data
+          destroy:
+            confirm: Irrevoka ta’ qabel id-data l-awtorizzazzjonijiet ma jistgħux jitreġġgħu lura. Żgur tixtieq tkompli?
+            confirm_all: Ir-revoka tal-awtorizzazzjonijiet kollha ma tistax titreġġa’ lura. Żgur tixtieq tkompli?
+          destroy_nok: Kien hemm problema biex jiġu rrevokati l-awtorizzazzjonijiet.
+          destroy_ok: L-awtorizzazzjonijiet kollha li qablu ġew irrevokati!
+          info: Hemm total ta’ %{count} parteċipanti vverifikati.
+          no_data: L-ebda parteċipant ivverifikat
+          title: Ir-revoka tal-verifiki
+        authorization_workflows: Verifiki
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} aġġorna l-konfigurazzjoni tal-verifika tad-Dokumenti tal-Identità"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ivverifika %{resource_name} bl-użu ta’ verifika offline tad-Dokumenti tal-Identità"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            L-amministraturi jtellgħu CSV bl-emails tal-parteċipanti aċċettati
+            Huma biss il-parteċipanti b’email f’dak il-fajl CSV li jistgħu jiġu vverifikati
+        id_documents:
+          help: |-
+            L-utenti jimlew l-informazzjoni tal-identità tagħhom u jtellgħu kopja tad-dokument tagħhom.
+            Inti timla l-informazzjoni preżenti fl-immaġni mtella’.
+            L-informazzjoni għandha taqbel ma’ xi jkun imtela mill-utent.
+            Jekk ma tistax tara l-informazzjoni b’mod ċar jew ma tistax tivverifikaha, tista’ tiċħad it-talba u l-utent ikun jista’ jirranġaha.
+        postal_letter:
+          help: |-
+            Il-parteċipanti jitolbu li jintbagħat kodiċi ta’ verifika fl-indirizz tagħhom.
+            Inti tibgħat l-ittra fl-indirizz tagħhom bil-kodiċi tal-verifika.
+            Timmarka l-ittra bħala mibgħuta.
+            Ladarba timmarka l-ittra bħala mibgħuta, il-parteċipant ikun jista’ jintroduċi l-kodiċi u jiġi vverifikat.
+      csv_census:
+        explanation: Uża ċ-ċensiment tal-organizzazzjoni biex tiġi vverifikat
+        name: Ċensiment tal-organizzazzjoni
+      direct: Dirett
+      help: Għajnuna
+      id_documents:
+        explanation: Tella’ d-dokument tal-identità tiegħek biex inkunu nistgħu nivverifikaw l-identità tiegħek
+        name: Dokumenti tal-identità
+      multistep: Passi Multipli
+      name: Isem
+      postal_letter:
+        explanation: Se nibagħtulek ittra bil-posta b’kodiċi li jkollok iddaħħal sabiex inkunu nistgħu nivverifikaw l-indirizz tiegħek
+        name: Kodiċi b’ittra bil-posta
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Din hija d-data tal-verifika attwali:'
+          no_data_stored: L-ebda data maħżuna.
+        create:
+          error: Kien hemm problema biex tinħoloq l-awtorizzazzjoni.
+          success: Ġejt awtorizzat.
+          unconfirmed: Trid tikkonferma l-email tiegħek sabiex tiġi awtorizzat.
+        destroy:
+          error: Kien hemm problema biex titħassar l-awtorizzazzjoni.
+          success: Ħassart l-awtorizzazzjoni.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ivverifika bi tqabbil ma’ eżempju ieħor ta’ ġestjonarju tal-awtorizzazzjoni
+            csv_census: Ivverifika bi tqabbil maċ-ċensiment tal-organizzazzjoni
+            dummy_authorization_handler: Ivverifika bi tqabbil mal-eżempju ta’ ġestjonarju tal-awtorizzazzjoni
+            dummy_authorization_workflow: Ivverifika bi tqabbil mal-eżempju ta’ workflow tal-awtorizzazzjoni
+            id_documents: Tella’ d-dokument tal-identità tiegħek biex tiġi vverifikat
+            postal_letter: Irċievi kodiċi ta’ verifika bil-posta biex tiġi vverifikat
+            sms: Irċievi kodiċi ta’ verifika bl-SMS biex tiġi vverifikat
+          title: Ivverifika l-identità tiegħek
+          verify_with_these_options: 'Dawn huma l-possibiltajiet disponibbli biex tivverifika l-identità tiegħek:'
+        index:
+          expired_verification: Verifika skadiet
+          pending_verification: Verifika pendenti
+          show_renew_info: Ikklikkja biex iġġedded il-verifika
+          unauthorized_verification: Verifika ġdida
+        new:
+          authorize: Ibgħat
+          authorize_with: Ivverifika bi %{authorizer}
+        renew_modal:
+          cancel: Ikkanċella
+          close: agħlaq
+          continue: Kompli
+          info_renew: Jekk tixtieq taġġorna d-data, kompli bit-tiġdid
+          title: Ġedded il-Verifika
+        skip_verification: Din tista’ taqbiżha għalissa u %{link}
+        start_exploring: ibda esplora
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Kien hemm żball biex jiġi implimentat iċ-ċensiment.
+              success: '%{count} oġġetti ġew importati (%{errors} errors)'
+            destroy_all:
+              success: Id-data kollha taċ-ċensiment tħassret
+          destroy:
+            confirm: Ħassar iċ-ċensiment kollu ma tistax titreġġa’ lura. Żgur tixtieq tkompli?
+            title: Ħassar id-data kollha taċ-ċensiment
+          index:
+            data: Hemm %{count} rekords illowdjati b’kollox. L-aħħar data tat-tlugħ kienet fil-%{due_date}
+            empty: Ma hemm l-ebda data taċ-ċensiment. Uża l-formola ta’ hawn taħt biex timportaha bl-użu ta’ fajl CSV.
+            title: Data attwali taċ-ċensiment
+          instructions:
+            body: Biex tagħmel hekk trid tidħol fl-amministrazzjoni tas-sistema u żżid l-awtorizzazzjonijiet taċ-ċensiment_csv mal-organizzazzjoni
+            title: Trid tattiva ċ-ċensiment csv għal din l-organizzazzjoni
+          new:
+            file: "fajl .csv bid-data tal-emails"
+            info: 'Irid ikun fajl fil-format CSV b’kolonna waħda biss bl-indirizz tal-email:'
+            submit: Tella’ fajl
+            title: Tella’ ċensiment ġdid
+        authorizations:
+          new:
+            error: Ma stajniex nivverifikaw il-kont tiegħek jew m’intix fiċ-ċensiment tal-organizzazzjoni.
+            success: Il-kont tiegħek ġie vverifikat.
+      dummy_authorization:
+        extra_explanation:
+          scope: Il-parteċipazzjoni hija limitata għall-parteċipanti bil-kamp ta' applikazzjoni %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfigurazzjoni tad-dokumenti tal-identità
+              update: Aġġorna
+            update:
+              error: Kien hemm problema biex tiġi aġġornata l-konfigurazzjoni.
+              success: Il-konfigurazzjoni ġiet aġġornata
+          confirmations:
+            create:
+              error: Il-verifika ma taqbilx. Jekk jogħġbok erġa’ pprova jew iċħad il-verifika sabiex il-parteċipant ikun jista’ jemendaha
+              success: Il-parteċipant ġie vverifikat
+            new:
+              introduce_user_data: Introduzzjoni d-data fl-istampa
+              reject: Iċħad
+              verify: Ivverifika
+          offline_confirmations:
+            create:
+              error: Il-verifika ma taqbilx. Jekk jogħġbok erġa’ pprova jew għid lill-parteċipant jemendaha
+              success: Il-parteċipant ġie vverifikat
+            new:
+              cancel: Ikkanċella
+              introduce_user_data: Daħħal l-email tal-parteċipant u d-data tad-dokument
+              verify: Ivverifika
+          pending_authorizations:
+            index:
+              config: Konfig
+              offline_verification: Verifika offline
+              title: Verifiki online pendenti
+              verification_number: 'Verifika #%{n}'
+          rejections:
+            create:
+              success: Verifika miċħuda. Il-parteċipant se jintalab jemenda d-dokumenti tiegħu
+        authorizations:
+          choose:
+            choose_a_type: 'Jekk jogħġbok agħżel kif tixtieq tiġi vverifikat:'
+            title: Uża d-dokument tal-identità tiegħek biex tiġi vverifikat
+          create:
+            error: Kien hemm problema biex jitla’ d-dokument tiegħek
+            success: Id-dokument tela’
+          edit:
+            being_reviewed: Qed nirrevedu d-dokumenti tiegħek. Se tiġi vverifikat dalwaqt
+            offline: Uża l-verifika offline
+            online: Uża l-verifika online
+            rejection_clarity: Kun ċert li l-informazzjoni fl-immaġni mtella’ hija viżibbli b’mod ċar
+            rejection_correctness: Kun ċert li l-informazzjoni mdaħħla hija korretta
+            rejection_notice: Kien hemm problema bil-verifika tiegħek. Erġa’ pprova
+            send: Erġa’ itlob verifika
+          new:
+            send: Itlob verifika
+            title: Tella’ d-dokument tal-identità tiegħek
+          update:
+            error: Kien hemm problema biex jerġa’ jittella’ d-dokument tiegħek
+            success: Id-dokument reġa’ tela’
+        passport: Passaport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Indirizz
+              letter_sent_at: Ittra mibgħuta fi
+              mark_as_sent: Immarka bħala mibgħuta
+              not_yet_sent: Għadha ma ntbagħtitx
+              title: Verifiki li għaddejjin
+              username: Identifikatur
+              verification_code: Kodiċi tal-Verifika
+          postages:
+            create:
+              error: Żball fl-immarkar tal-ittra bħala mibgħuta
+              success: L-ittra ġiet immarkata bħala mibgħuta
+        authorizations:
+          create:
+            error: Kien hemm problema bit-talba tiegħek
+            success: Grazzi! Se nibagħtu kodiċi ta’ verifika fl-indirizz tiegħek
+          edit:
+            send: Ikkonferma
+            title: Daħħal il-kodiċi ta’ verifika li rċevejt
+            waiting_for_letter: Dalwaqt se nibagħtu ittra fl-indirizz tiegħek bil-kodiċi ta’ verifika tiegħek
+          new:
+            send: Ibgħatli ittra
+            title: Itlob il-kodiċi ta’ verifika tiegħek
+          update:
+            error: Il-kodiċi ta’ verifika tiegħek ma jaqbilx ma’ tagħna. Jekk jogħġbok erġa’ ċċekkja l-ittra li bgħatnielek
+            success: Proset. Ġejt ivverifikat
+      sms:
+        authorizations:
+          create:
+            error: Kien hemm problema bit-talba tiegħek
+            success: Grazzi! Bgħatna SMS fuq it-telefown tiegħek.
+          destroy:
+            success: Il-kodiċi ta’ verifika ġie rrisettjat. Jekk jogħġbok erġa’ daħħal in-numru tat-telefown tiegħek.
+          edit:
+            confirm_destroy: Żgur trid tirrisettja il-kodiċi ta’ verifika?
+            destroy: Irrisettja l-kodiċi ta’ verifika
+            resend: Il-kodiċi ta’ verifika ma rċevejtux?
+            send: Ikkonferma
+            title: Daħħal il-kodiċi ta’ verifika li rċevejt
+          new:
+            send: Ibgħatli SMS
+            title: Itlob il-kodiċi ta’ verifika tiegħek
+          update:
+            error: Il-kodiċi ta’ verifika tiegħek ma jaqbilx ma’ tagħna. Jekk jogħġbok erġa’ ċċekkja l-SMS li bgħatnielek.
+            success: Proset. Ġejt ivverifikat.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: iridu jkunu kollha kapitali u jkun fihom ittri u/jew numri biss

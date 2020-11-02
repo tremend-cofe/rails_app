@@ -1,0 +1,373 @@
+sv:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banderollbild
+        decidim_highlighted_scope_id: Framhävt tillämpningsområde
+        description: Beskrivning
+        end_voting_date: Omröstningen avslutas
+        introductory_image: Introduktionsbild
+        introductory_video_url: Webbadress för introduktionsvideo
+        questions: Frågor
+        slug: URL-slugg
+        start_voting_date: Omröstningen inleds
+        subtitle: Underrubrik
+        title: Titel
+      question:
+        banner_image: Banderollbild
+        decidim_scope_id: Kommunalt område
+        hashtag: Hashtagg
+        hero_image: Startbild
+        i_frame_url: URL för externt omröstningssystem
+        instructions: Ytterligare instruktioner för omröstningar
+        max_votes: Högsta antal röster
+        min_votes: Minsta antal röster
+        origin_scope: Tillämpningsområde
+        origin_title: Ursprung
+        origin_url: Ursprungs-URL
+        participatory_scope: Deltagandets tillämpningsområde
+        promoter_group: Projektgrupp
+        question_context: Sammanhang
+        reference: Referens
+        scope: Kommunalt område
+        slug: URL-slugg
+        subtitle: Underrubrik
+        vote: Externt omröstningssystem
+        what_is_decided: Vad som beslutas
+      response:
+        decidim_consultations_response_group_id: Grupp
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Det maximala antalet röster bör inte vara högre än eller samma som det minsta antalet röster.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svar hittades inte.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Ogiltigt antal röster
+    models:
+      decidim/consultation:
+        one: Samråd
+        other: Samråd
+      decidim/consultations/question:
+        one: Fråga
+        other: Frågor
+      decidim/consultations/response:
+        one: Svar
+        other: Svar
+      decidim/consultations/vote:
+        one: Rösta
+        other: Röster
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Tillbaka till svaren
+        new_consultation: Nytt samråd
+        new_question: Ny fråga
+        new_response: Nytt svar
+        new_response_group: Ny grupp
+        publish_results: Publicera resultat
+        response_groups: Hantera svarsgrupper
+        unpublish_results: Avpublicera resultat
+      consultation_publications:
+        create:
+          error: Ett fel uppstod när samrådet skulle publiceras.
+          success: Samrådet har publicerats.
+        destroy:
+          error: Ett fel uppstod när samrådet skulle avpubliceras.
+          success: Samrådet har avpublicerats.
+      consultation_results_publications:
+        create:
+          error: Ett fel uppstod när resultaten från samrådet skulle publiceras.
+          success: Resultaten från samrådet har publicerats.
+        destroy:
+          error: Ett fel uppstod när resultaten från samrådet skulle avpubliceras.
+          success: Resultaten från samrådet har avpublicerats.
+      consultations:
+        create:
+          error: Ett fel uppstod när ett nytt samråd skulle skapas.
+          success: Samrådet har skapats.
+        edit:
+          update: Uppdatera
+        form:
+          slug_help: 'URL-sluggar används för att generera webbadresser som pekar mot detta samråd. Endast bokstäver, siffror och bindestreck godtas, och första tecknet måste vara en bokstav. Exempel: %{url}'
+          title: Allmänna uppgifter
+        index:
+          not_published: Ej publicerat
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Nytt samråd
+        results:
+          not_visible: Resultaten kommer att finnas tillgängliga när samrådet avslutas
+          participants: "%{count} deltagare"
+          total_votes: 'Totalt: %{count} röster'
+        update:
+          error: Ett fel uppstod när samrådet skulle uppdateras.
+          success: Samrådet har uppdaterats.
+      menu:
+        consultations: Samråd
+        consultations_submenu:
+          questions: Frågor
+          results: Resultat
+        questions_submenu:
+          components: Komponenter
+          configuration: Konfiguration
+          consultation: Samråd
+          responses: Svar
+      models:
+        consultation:
+          fields:
+            created_at: Skapad
+            published: Publicerad
+            title: Titel
+          name:
+            one: Samråd
+            other: Samråd
+        question:
+          fields:
+            created_at: Skapad
+            published: Publicerad
+            title: Titel
+          name:
+            one: Fråga
+            other: Frågor
+        response:
+          fields:
+            created_at: Skapad
+            response_group: Grupp
+            title: Titel
+          name:
+            one: Svar
+            other: Svar
+      question_configuration:
+        disable_external_voting: Inaktivera extern röstning för avancerade konfigurationer
+        form:
+          help: Skapa flervalsfrågor genom att öka det maximala antalet svar som en deltagare kan välja. Maximalt standardvärde är 1, vilket innebär att det bara går att rösta på ett svar.
+          title: Avancerad konfiguration
+      question_publications:
+        create:
+          error: Ett fel uppstod när frågan skulle publiceras.
+          success: Frågan har publicerats.
+        destroy:
+          error: Ett fel uppstod när frågan skulle avpubliceras.
+          success: Frågan har avpublicerats.
+      questions:
+        create:
+          error: Ett fel uppstod när en ny fråga skulle skapas.
+          success: Frågan har skapats.
+        destroy:
+          success: Frågan har tagits bort.
+        edit:
+          update: Uppdatera
+        form:
+          title: Allmänna uppgifter
+        index:
+          not_published: Ej publicerad
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny fråga
+        update:
+          error: Ett fel uppstod när frågan skulle uppdateras.
+          success: Frågan har uppdaterats.
+      response_groups:
+        create:
+          error: Ett fel uppstod när en ny svarsgrupp skulle skapas.
+          success: Svarsgruppen har skapats.
+        destroy:
+          error: Ett fel uppstod när svarsgruppen skulle tas bort. Kontrollera att inga svar är beroende av den.
+          success: Svarsgruppen har raderats.
+        edit:
+          update: Uppdatera
+        form:
+          title: Allmänna uppgifter
+        help: Använd grupper för att organisera flervalsfrågor i paket.
+        new:
+          create: Skapa
+          title: Ny svarsgrupp
+        update:
+          error: Ett fel uppstod när svaret skulle uppdateras.
+          success: Svaret har uppdaterats.
+      responses:
+        create:
+          error: Ett fel uppstod när ett nytt svar skulle skapas.
+          success: Svaret har skapats.
+        destroy:
+          error: Ett fel uppstod när svaret skulle tas bort.
+          success: Svaret har raderats.
+        edit:
+          update: Uppdatera
+        form:
+          title: Allmänna uppgifter
+        new:
+          create: Skapa
+          title: Nytt svar
+        update:
+          error: Ett fel uppstod när svaret skulle uppdateras.
+          success: Svaret har uppdaterats.
+      titles:
+        consultations: Samråd
+        questions: Frågor
+        response_groups: Svarsgrupper
+        responses: Svar
+        results: Resultat
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Högsta antal element som ska visas
+      consultation:
+        start_voting_date: Omröstningen inleds
+        view_results: Visa resultat
+      consultation_card:
+        view_results: Visa resultat
+      consultations:
+        orders:
+          label: 'Sortera samråd efter:'
+          random: Slumpmässigt
+          recent: Senaste
+        show:
+          dates: Datum
+      content_blocks:
+        highlighted_consultations:
+          name: Framhävda samråd
+      count:
+        title:
+          one: "%{count} samråd"
+          other: "%{count} samråd"
+      filters:
+        active: Aktiva
+        all: Alla
+        finished: Avslutade
+        search: Sök
+        upcoming: Kommande
+      filters_small_view:
+        close_modal: Stäng fönstret
+        filter_by: Filtrera efter
+        unfold: Öppna
+      highlighted_questions:
+        title: Frågor från %{scope_name}
+      index:
+        title: Samråd
+      last_activity:
+        new_consultation: Nytt samråd
+        new_question_at_html: "<span>Ny fråga på %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktiva samråd
+            see_all_consultations: Se alla samråd
+            voting_ends_in:
+              one: Omröstningen avslutas <strong>i morgon</strong>
+              other: Omröstningen avslutas om <strong>%{count} dagar</strong>
+            voting_ends_today: Omröstningen avslutas <strong>i dag</strong>
+      question:
+        take_part: Delta
+        view_results: Visa resultat
+        votes_out_of:
+          one: röst av
+          other: röster av
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Deltagare kan fördela minst %{votes} röster bland olika alternativ.
+          title: På denna fråga tilläts flera svar
+          total_participants: Totalt %{count} personer deltog i omröstningen.
+          vote_limit:
+            description: Deltagarna kan rösta på upp till %{limit} alternativ.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Du måste fördela minst %{votes} röster bland olika alternativ.
+          title: 'Följande regler gäller för omröstningar:'
+          vote_limit:
+            description: Du kan rösta på upp till %{limit} alternativ.
+            left: Återstående
+            votes: Röster
+      question_votes:
+        create:
+          error: Ett fel uppstod vid röstning på frågan
+          success: Du kan genomföra ändringar fram till slutet av samrådet. Endast den sista rösten godtas.
+          title_error: Fel vid röstningen!
+          title_success: Rösten har registrerats
+      regular_questions:
+        title: Frågor gällande detta samråd
+      show:
+        badge_name:
+          finished: Avslutade
+          open: Öppna
+          open_votes: Öppna omröstningar
+          published_results: Resultat publicerade
+        footer_button_text:
+          debate: Debatt
+          view: Visa
+          view_results: Visa resultat
+          vote: Rösta
+        unspecified: Ej specificerat
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Samråd</strong> är utrymmen där du kan ställa frågor till alla personer som bildar en organisation, ringa ett samtal för att delta i samrådet samt arrangera en debatt för eller emot ett svar. När samrådet har ägt rum kan du rösta och publicera resultatet från omröstningen.</p> <p>Exempel: Samråd kan handla om nästan vilken aspekt som helst av en organisation: Några exempel är byte av organisationens namn eller logotyp, beslut om huruvida organisationen ska bli en del av en större organisation, bekräfta eller avvisa en ny strategisk plan eller resultatet för en arbetsgrupp, eller bestämma om positionerna ska ha maximalt 1, 2 eller 3 mandat i fortsättningen.</p>\n"
+          page: "<p><strong>Samråd</strong> är utrymmen där du kan ställa frågor till alla personer som bildar en organisation, ringa ett samtal för att delta i samrådet samt arrangera en debatt för eller emot ett svar. När samrådet har ägt rum kan du rösta och publicera resultatet från omröstningen.</p> <p>Exempel: Samråd kan handla om nästan vilken aspekt som helst av en organisation: Några exempel är byte av organisationens namn eller logotyp, beslut om huruvida organisationen ska bli en del av en större organisation, bekräfta eller avvisa en ny strategisk plan eller resultatet för en arbetsgrupp, eller bestämma om positionerna ska ha maximalt 1, 2 eller 3 mandat i fortsättningen.</p>\n"
+          title: Vad är samråd?
+    menu:
+      consultations: Samråd
+    pages:
+      home:
+        statistics:
+          consultations_count: Samråd
+    questions:
+      next_button: Nästa fråga
+      previous_button: Föregående fråga
+      results:
+        title: Resultat
+      show:
+        read_more: Läs mer
+      statistics:
+        assistants_count_title: Assistenter
+        comments_count_title: Kommentarer
+        meetings_count_title: Möten
+        supports_count_title: Röster
+      technical_info:
+        technical_data: Tekniska uppgifter
+      vote_button:
+        already_voted: Redan röstat
+        already_voted_hover: Återkalla röst
+        starting_from: Med start %{date}
+        verification_required: Verifiera ditt konto för att rösta
+        vote: Rösta
+      vote_modal:
+        close_modal: Stäng modalt fönster
+        contextual_help: Välj ett alternativ.
+        title: 'Samråd: ifrågasätt omröstning'
+      vote_modal_confirm:
+        change: Ändra
+        close_modal: Stäng modalt fönster
+        confirm: Bekräfta
+        contextual_help: Bekräfta det valda alternativet.
+        title: 'Samråd: bekräfta röst'
+    resources:
+      consultations:
+        actions:
+          vote: Rösta
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Bilagor
+          categories: Kategorier
+      consultation_voting_data:
+        start_voting_date: Omröstningen inleds
+      question_components:
+        question_menu_item: Frågan
+        unfold: Öppna
+      question_header:
+        back_to_consultation: Se alla samråd
+        back_to_question: Tillbaka till frågan

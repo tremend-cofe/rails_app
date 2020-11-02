@@ -1,0 +1,515 @@
+mt:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Awtur
+        description: Deskrizzjoni
+        offline_votes: Firem iffirmati personalment
+        scope_id: Kamp ta’ applikazzjoni
+        signature_end_date: Tmiem il-perjodu tal-ġbir tal-firem
+        signature_start_date: Bidu tal-perjodu tal-ġbir tal-firem
+        signature_type: Tip ta’ ġbir tal-firem
+        signature_type_values:
+          any: Imħallat
+          offline: Personalment
+        title: Titlu
+      initiative_author:
+        address: Indirizz
+        city: Belt
+        name: Isem u Kunjom
+        phone_number: Numru tat-telefown
+        post_code: Kodiċi postali
+        province: Provinċja
+      initiatives_committee_member:
+        user: Membru tal-kumitat
+      initiatives_type:
+        area_enabled: Ippermetti lill-awturi jagħżlu ż-żona ġeografika għall-inizjattiva tagħhom
+        attachments_enabled: Attiva l-hemżiet
+        banner_image: Immaġni tal-istrixxun
+        collect_user_extra_fields: Iġbor id-data personali tal-parteċipant mal-firma
+        custom_signature_end_date_enabled: Ippermetti lill-awturi jagħżlu t-tmiem tal-perjodu tal-ġbir tal-firem
+        description: Deskrizzjoni
+        document_number_authorization_handler: Awtorizzazzjoni għall-verifika tan-numru tad-dokument dwar il-firem
+        extra_fields_legal_information: Informazzjoni legali dwar il-ġbir ta’ data personali
+        minimum_committee_members: Minimu ta’ membri tal-kumitat
+        online_signature_enabled: Firma online attivata
+        promoting_committee_enabled: Attiva l-kumitat għall-promozzjoni
+        title: Titlu
+        undo_online_signatures_enabled: Ippermetti lill-parteċipanti jneħħu l-firem online tagħhom
+        validate_sms_code_on_votes: Żid pass ta’ validazzjoni bil-kodiċi bl-SMS mal-proċess tal-firem
+      initiatives_vote:
+        date_of_birth: Data tat-twelid
+        document_number: Numru tad-dokument
+        name_and_surname: Isem u kunjom
+        postal_code: Kodiċi postali
+      organization_data:
+        address: Indirizz
+        id_document: Dokument tal-ID
+        name: Isem sħiħ
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Il-fajl huwa invalidu
+              needs_to_be_reattached: Jeħtieġ li jerġa’ jinhemeż
+              title: It-titlu m’għandux ikun vojt
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Tip ta’ inizjattiva ġdid
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Żona Ġeografika
+          state_eq:
+            label: Stat
+            values:
+              accepted: Biżżejjed firem
+              created: Maħluqa
+              discarded: Imwarrba
+              published: Ippubblikat
+              rejected: Ma hemmx biżżejjed firem
+              validating: Validazzjoni teknika
+          type_id_eq:
+            label: Tip
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Fittex %{collection} bit-titlu, id-deskrizzjoni, l-ID jew l-isem tal-awtur.
+      menu:
+        initiatives: Inizjattivi
+        initiatives_types: Tipi ta’ inizjattiva
+      models:
+        initiatives:
+          fields:
+            created_at: Inħolqot fi
+            published_at: Ippubblikat fi
+            supports_count: Firem
+            title: Inizjattivi
+        initiatives_type_scope:
+          fields:
+            scope: Kamp ta’ applikazzjoni
+            supports_required: Firem meħtieġa
+          name: Kamp ta’ applikazzjoni tat-tip ta’ inizjattiva
+        initiatives_types:
+          fields:
+            created_at: Inħolqot fi
+            title: Tipi ta’ inizjattiva
+          name: Tip ta’ inizjattiva
+        initiatives_votes:
+          fields:
+            date_of_birth: Data tat-twelid
+            document_number: Numru tad-dokument
+            initiative_end_date: Data tat-tmiem
+            initiative_id: ID tal-inizjattiva
+            initiative_signatures_count: Numru ta’ firem
+            initiative_start_date: Data tal-bidu
+            initiative_title: Titlu tal-inizjattiva
+            name_and_surname: Isem u kunjom
+            postal_code: Kodiċi postali
+            time_and_date: Ħin u data
+            timestamp: Kronogramma
+      titles:
+        initiatives: Inizjattivi
+        initiatives_types: Tipi ta’ inizjattiva
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: L-inizjattiva "%{resource_title}” intbagħtet għall-validazzjoni teknika. Mur araha fil-<a href="%{admin_initiative_url}">panel tal-amministratur</a>
+            email_outro: Irċevejt din in-notifika għax inti amministratur tal-pjattaforma.
+            email_subject: L-inizjattiva "%{resource_title}” intbagħtet għall-validazzjoni teknika.
+            notification_title: L-inizjattiva "%{resource_title}” intbagħtet għall-validazzjoni teknika. Mur araha fil-<a href="%{admin_initiative_path}">panel amministrattiv</a>
+        initiative_extended:
+          email_intro: Id-data tat-tmiem tal-firem għall-inizjattiva %{resource_title} ġiet estiża!
+          email_outro: Irċevejt din in-notifika għax qed issegwi %{resource_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Id-data tat-tmiem tal-firem għall-inizjattiva ġiet estiża!
+          notification_title: Id-data tat-tmiem tal-firem għall-inizjattiva <a href="%{resource_path}">%{resource_title}</a> ġiet estiża.
+        milestone_completed:
+          affected_user:
+            email_intro: L-inizjattiva tiegħek %{resource_title} kisbet il-%{percentage}% tal-firem!
+            email_outro: Irċevejt din in-notifika għax inti awtur tal-inizjattiva %{resource_title}.
+            email_subject: Pass importanti ġdid milħuq!
+            notification_title: L-inizjattiva <a href="%{resource_path}">%{resource_title}</a> tiegħek kisbet il-%{percentage}% tal-firem.
+          follower:
+            email_intro: L-inizjattiva %{resource_title} kisbet il-%{percentage}% tal-firem!
+            email_outro: Irċevejt din in-notifika għax qed issegwi %{resource_title}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+            email_subject: Pass importanti ġdid milħuq!
+            notification_title: L-inizjattiva <a href="%{resource_path}">%{resource_title}</a> kisbet il-%{percentage}% tal-firem.
+        support_threshold_reached:
+          email_intro: L-inizjattiva %{resource_title} laħqet il-livell minimu ta’ sostenn
+          email_outro: Irċevejt din in-notifika għax inti amministratur tal-pjattaforma.
+          email_subject: Il-livell minimu ta’ sostenn intlaħaq
+          notification_title: L-inizjattiva <a href="%{resource_path}">%{resource_title}</a> laħqet il-livell minimu ta’ sostenn
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Mur fl-ispazju tal-parteċipazzjoni tal-Inizjattivi
+            Segwi l-passi biex toħloq inizjattiva ġdida
+          description: Din il-badge tingħata meta tniedi inizjattivi ġodda, billi tissieħeb ma’ oħrajn biex twettaqhom.
+          description_another: Bis saħħa ta’ dan il-parteċipant ġew ippubblikati %{score} inizjattivi.
+          description_own: Bis saħħa tiegħek ġew ippubblikati %{score} inizjattivi.
+          name: Inizjattivi ppubblikati
+          next_level_in: Wassal biex %{score} inizjattivi oħra jiġu ppubblikati biex tilħaq il-livell li jmiss!
+          unearned_another: S’issa l-ebda inizjattiva ma ġiet ippubblikata bis-saħħa ta’ dan il-parteċipant.
+          unearned_own: Għadek ma wassal għall-pubblikazzjoni tal-ebda inizjattiva.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Inizjattiva</strong> hija proposta li tista’ tiġi promossa minn kwalunkwe persuna fuq l-inizjattiva tagħha stess (indipendentement minn kanali jew spazji ta’ parteċipazzjoni oħrajn) permezz tal-ġbir ta’ firem (diġitali) biex l-organizzazzjoni twettaq azzjoni speċifika (timmodifika regolament, tibda proġett, tibdel l-isem ta’ dipartiment jew triq, eċċ.).</p> <p>Il-promoturi ta’ inizjattiva jistgħu jiddefinixxu l-objettivi tagħha, jiġbru s-sostenn, jiddibattu, ixerrduha u jiddefinixxu l-postijiet għall-ġbir tal-firem mingħand min jattendi jew jinfetħu d-dibattiti għall-parteċipanti l-oħrajn.</p> <p>Eżempji: Inizjattiva tista’ tiġbor firem biex issejjaħ konsultazzjoni fost in-nies kollha ta’ organizzazzjoni, jew biex toħloq jew issejjaħ assemblea, jew biex tagħti bidu għal proċess ta’ żieda fil-baġit għal territorju jew żona ġeografika tal-organizzazzjoni. Matul il-proċess tal-ġbir tal-firem, aktar nies jistgħu jżidu ma’ din id-domanda u jressquha fl-organizzazzjoni.</p>\n"
+          page: "<p><strong>Inizjattiva</strong> hija proposta li tista’ tiġi promossa minn kwalunkwe persuna fuq l-inizjattiva tagħha stess (indipendentement minn kanali jew spazji ta’ parteċipazzjoni oħrajn) permezz tal-ġbir ta’ firem (diġitali) biex l-organizzazzjoni twettaq azzjoni speċifika (timmodifika regolament, tibda proġett, tibdel l-isem ta’ dipartiment jew triq, eċċ.).</p> <p>Il-promoturi ta’ inizjattiva jistgħu jiddefinixxu l-objettivi tagħha, jiġbru s-sostenn, jiddibattu, ixerrduha u jiddefinixxu l-postijiet għall-ġbir tal-firem mingħand min jattendi jew jinfetħu d-dibattiti għall-parteċipanti l-oħrajn.</p> <p>Eżempji: Inizjattiva tista’ tiġbor firem biex issejjaħ konsultazzjoni fost in-nies kollha ta’ organizzazzjoni, jew biex toħloq jew issejjaħ assemblea, jew biex tagħti bidu għal proċess ta’ żieda fil-baġit għal territorju jew żona ġeografika tal-organizzazzjoni. Matul il-proċess tal-ġbir tal-firem, aktar nies jistgħu jżidu ma’ din id-domanda u jressquha fl-organizzazzjoni.</p>\n"
+          title: X’inhuma l-inizjattivi?
+    initiatives:
+      actions:
+        answer: Tweġiba
+      admin:
+        answers:
+          edit:
+            answer: Tweġiba
+            title: Tweġiba għal %{title}
+          info_initiative:
+            created_at: Inħolqot fi
+            description: Deskrizzjoni
+            initiative_votes_count: L-għadd ta' voti
+            initiatives: Inizjattivi
+            state: Stat
+        committee_requests:
+          index:
+            approve: Approva
+            confirm_revoke: Żgur?
+            invite_to_committee_help: Ixxerja din il-link biex tistieden parteċipanti oħrajn fil-kumitat promotur
+            no_members_yet: Ma hemm l-ebda membru fil-kumitat promotur
+            revoke: Irrevoka
+            title: Membri tal-kumitat
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Ammont massimu ta’ elementi li jridu jintwerew
+        exports:
+          initiatives: Inizjattivi
+        initiatives:
+          edit:
+            accept: Aċċetta l-inizjattiva
+            confirm: Żgur?
+            discard: Warrab l-inizjattiva
+            export_pdf_signatures: Esporta PDF tal-firem
+            export_votes: Esporta l-firem
+            reject: Irrifjuta l-inizjattiva
+            send_to_technical_validation: Ibgħat għall-validazzjoni teknika
+            success: L-inizjattiva ntbagħtet għall-validazzjoni teknika
+            update: Aġġorna
+          form:
+            attachments: Hemżiet
+            settings: Konfigurazzjonijiet
+            title: Informazzjoni ġenerali
+          index:
+            actions_title: Azzjoni
+            print: Ipprintja
+          initiative_attachments:
+            documents: Dokumenti
+            edit: Editja
+            new: Ġdida
+            photos: Ritratti
+          show:
+            print: Ipprintja
+          update:
+            error: Seħħ żball
+            success: L-inizjattiva ġiet aġġornata
+        initiatives_type_scopes:
+          create:
+            error: Seħħ żball
+            success: Inħoloq kamp ta’ applikazzjoni ġdid għat-tip ta’ inizjattiva partikolari
+          destroy:
+            success: Il-kamp ta’ applikazzjoni tneħħa
+          edit:
+            back: Lura
+            confirm_destroy: Żgur?
+            destroy: Ħassar
+            title: Editja kamp ta’ applikazzjoni tat-tip ta’ inizjattiva
+            update: Aġġorna
+          new:
+            back: Lura
+            create: Oħloq
+            title: Oħloq kamp ta’ applikazzjoni tat-tip ta’ inizjattiva
+          update:
+            error: Seħħ żball
+            success: Il-kamp ta’ applikazzjoni ġie aġġornat
+        initiatives_types:
+          create:
+            error: Seħħ żball
+            success: Inħoloq tip ġdid ta’ inizjattiva
+          destroy:
+            success: It-tip ta’ inizjattiva tneħħa
+          edit:
+            confirm_destroy: Żgur?
+            destroy: Ħassar
+            update: Aġġorna
+          form:
+            title: Informazzjoni ġenerali
+          initiative_type_scopes:
+            title: Kampijiet ta’ applikazzjoni għat-tip ta’ inizjattiva
+          new:
+            create: Oħloq
+            title: Tip ta’ inizjattiva ġdid
+          update:
+            error: Seħħ żball
+            success: It-tip ta’ inizjattiva ġie aġġornat
+      admin_log:
+        initiative:
+          publish: "%{user_name} ippubblika l-inizjattiva %{resource_name}"
+          send_to_technical_validation: "%{user_name} bagħat l-inizjattiva %{resource_name} għall-validazzjoni teknika"
+          unpublish: "%{user_name} warrab l-inizjattiva %{resource_name}"
+          update: "%{user_name} aġġorna l-inizjattiva %{resource_name}"
+      admin_states:
+        accepted: Biżżejjed firem
+        created: Maħluqa
+        discarded: Imwarrba
+        published: Ippubblikat
+        rejected: Ma hemmx biżżejjed firem
+        validating: Validazzjoni teknika
+      application_helper:
+        filter_area_values:
+          all: Kollha
+        filter_scope_values:
+          all: Kollha
+        filter_state_values:
+          accepted: Biżżejjed firem
+          all: Kollha
+          answered: Imwieġba
+          closed: Magħluq
+          open: Miftuħa
+          rejected: Ma hemmx biżżejjed firem
+        filter_type_values:
+          all: Kollha
+      committee_requests:
+        new:
+          continue: Kompli
+          help_text: Se titlob li ssir membru tal-kumitat promotur ta’ din l-inizjattiva
+        spawn:
+          success: It-talba tiegħek intbagħtet lill-awtur tal-inizjattiva.
+      content_blocks:
+        highlighted_initiatives:
+          name: Inizjattivi ħħajlajtjati
+      create_initiative:
+        fill_data:
+          back: Lura
+          continue: Kompli
+          fill_data_help: "<ul> <li>Irrevedi l-kontenut tal-inizjattiva tiegħek. It-titlu tiegħek faċli biex jinftiehem? L-għan tal-inizjattiva tiegħek ċar?</li> <li>Trid tagħżel it-tip ta’ firma. Personalment, online jew kombinazzjoni tat-tnejn</li> <li>Liema huwa l-kamp ta’ applikazzjoni ġeografiku tal-inizjattiva? Belt, distrett?</li> </ul>"
+          initiative_type: Tip ta’ inizjattiva
+          more_information: "(Aktar informazzjoni)"
+          select_area: Agħżel żona ġeografika
+          select_scope: Agħżel kamp ta’ applikazzjoni
+        finish:
+          back: Lura
+          back_to_initiatives: Lura għall-inizjattivi
+          callout_text: Proset! L-inizjattiva taċ-ċittadini tiegħek inħolqot.
+          confirm: Ikkonferma
+          edit_my_initiative: Editja l-inizjattivi tiegħi
+          go_to_my_initiatives: Mur fl-inizjattivi tiegħi
+          more_information: "(Aktar informazzjoni)"
+          send_my_initiative: Ibgħat l-inizjattiva tiegħi
+        finish_help:
+          access_reminder: Ftakar li dejjem se tkun tista’ taċċessa l-inizjattivi tiegħek permezz tal-menù tal-parteċipanti.
+          help_for_organizations: Jekk inti assoċjazzjoni se jkollok ittella’ l-minuti tal-bord maniġerjali tal-organizzazzjonijiet kollha li jiffurmaw il-Kummissjoni Promotorja
+          help_in_person_signatures: Jekk għażilt li tiġbor il-firem personalment jew tikkombinahom mal-firem online, se jkollok ittella’ l-informazzjoni meħtieġa.
+          help_text: Ftakar li sabiex tipproċessa b’mod xieraq l-inizjattiva trid taċċessa l-penel tal-amministrazzjoni fejn issib il-menù tal-utent, ittella’ l-informazzjoni meħtieġa u tibgħatha għall-ipproċessar.
+          initiatives_page_link: Tista’ tfittex din l-informazzjoni kollha fil-%{link} iddedikata biex tinforma dwar l-inizjattivi.
+          page: paġna
+        previous_form:
+          back: Lura
+          continue: Kompli
+          help: Fiex tikkonsisti l-inizjattiva? Niżżel it-titolu u d-deskrizzjoni. Nirrakkomandaw titlu qasir u konċiż u deskrizzjoni ffukata fuq is-soluzzjoni proposta.
+          more_information: "(Aktar informazzjoni)"
+        promotal_committee:
+          back: Lura
+          individual_help_text: Dan it-tip ta’ inizjattiva taċ-ċittadini teħtieġ Kummissjoni Promotorja li tikkonsisti minn tal-inqas %{committee_size} persuni (attestaturi). Trid tixxerja l-link li ġejja man-nies l-oħrajn li huma parti minn din l-inizjattiva. Meta l-kuntatti tiegħek jirċievu din il-link ikollhom isegwu l-passi indikati.
+          more_information: "(Aktar informazzjoni)"
+        select_initiative_type:
+          back: Lura
+          choose_html: Irrid noħloq <strong>%{title}</strong>
+          more_information: "(Aktar informazzjoni)"
+          select: Irrid nippromwovi din l-inizjattiva
+          select_initiative_type_help: L-inizjattivi taċ-ċittadini huma mezz li bih iċ-ċittadini jistgħu jintervjenu biex il-Kunsill tal-belt ikun ikun jista’ jieħu azzjonijiet għad-difiża tal-interess ġenerali li jkunu koperti mill-oqsma tal-ġuriżdizzjoni muniċipali. X’inizjattiva tixtieq tniedi?
+        share_committee_link:
+          continue: Kompli
+          invite_to_committee_help: Link biex tistieden in-nies li se jkunu parti mill-kumitat promotorju
+        show_similar_initiatives:
+          back: Lura
+          compare_help: Jekk xi waħda mill-inizjattivi li ġejjin hija simili għal tiegħek, inħeġġuk tiffirmaha. Il-proposta tiegħek ikollha aktar possibbiltajiet biex issir.
+          continue: L-inizjattiva tiegħi differenti
+          more_information: "(Aktar informazzjoni)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, li qed issegwi, ħoloq inizjattiva ġdida:"
+          email_outro: Irċevejt din in-notifika għax qed issegwi lil %{author_nickname}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Inizjattiva ġdida minn %{author_nickname}
+          notification_title: L-inizjattiva <a href="%{resource_path}">%{resource_title}</a> inħolqot minn <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, li qed issegwi, approva l-inizjattiva li ġejja, forsi tixtieq tikkontribwixxi għall-konverżazzjoni:"
+          email_outro: Irċevejt din in-notifika għax qed issegwi lil %{author_nickname}. Tista’ tieqaf tirċievi n-notifiki billi tikklikkja fuq il-link preċedenti.
+          email_subject: Inizjattiva approvata minn %{author_nickname}
+          notification_title: L-inizjattiva <a href="%{resource_path}">%{resource_title}</a> ġiet approvata minn <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Inizjattivi
+      initiative_signatures:
+        fill_personal_data:
+          continue: Kompli
+          date_select:
+            day: Jum
+            month: Xahar
+            year: Sena
+          help: Imla l-kampijiet tad-data li ġejjin bid-data personali tiegħek biex tiffirma l-inizjattiva
+        finish:
+          back_to_initiative: Lura għall-inizjattiva
+        sms_code:
+          continue: Ivverifika l-kodiċi u kompli
+          help: Ivverifika l-SMS li rċevejt fuq it-telefown tiegħek
+        sms_phone_number:
+          continue: Ibgħatli SMS
+          help: Imla l-formola bin-numru tat-telefown ivverifikat tiegħek biex titlob il-kodiċi ta’ verifika tiegħek
+      initiative_votes:
+        create:
+          error: Kien hemm problema biex tiġi ffirmata l-inizjattiva.
+          invalid: Id-data pprovduta biex tiġi ffirmata l-inizjattiva mhijiex valida
+          success_html: Proset! L-inizjattiva <strong> %{title}</strong> ġiet iffirmata
+        personal_data:
+          invalid: Id-data personali mhijiex konsistenti mad-data pprovduta għall-awtorizzazzjoni.
+        sms_code:
+          invalid: Il-kodiċi ta’ verifika tiegħek ma jaqbilx ma’ tagħna. Jekk jogħġbok erġa’ ċċekkja l-SMS li bgħatnielek.
+        sms_phone:
+          invalid: In-numru tat-telefown mhuwiex validu jew għandu l-awtorizzazzjoni pendenti. Iċċekkja l-awtorizzazzjonijiet tiegħek.
+      initiatives:
+        author:
+          deleted: Imħassra
+        filters:
+          any: Kwalunkwe
+          area: Żona Ġeografika
+          author: Awtur
+          myself: L-inizjattivi tiegħi
+          scope: Kamp ta’ applikazzjoni
+          search: Fittex
+          type: Tip
+        filters_small_view:
+          close_modal: Agħlaq it-tieqa
+          filter: Iffiltra
+          filter_by: Iffiltra skont
+          unfold: Iftaħ
+        index_header:
+          new_initiative: Inizjattiva ġdida
+          not_authorized:
+            authorizations_page: Ara l-awtorizzazzjonijiet
+            close: Agħlaq
+            explanation: Trid tiġi vverifikat sabiex toħloq inizjattiva ġdida.
+            title: Meħtieġa awtorizzazzjoni
+        initiatives:
+          closed_initiatives_warning: Bħalissa, ma hemm l-ebda inizjattiva miftuħa, iżda hawnhekk tista’ ssib elenkati l-inizjattivi magħluqin kollha.
+          no_initiatives_warning: L-ebda inizjattiva ma taqbel mal-kriterji tat-tiftix tiegħek.
+        orders:
+          label: 'Issortja l-inizjattivi skont:'
+          most_commented: L-aktar ikkummentati
+          most_voted: L-aktar iffirmati
+          random: Mod każwali
+          recent: L-aktar reċenti
+          recently_published: L-aktar ippubblikati reċentement
+        result:
+          answer_title:
+            accepted: Din il-proposta ġiet aċċettata għax
+            created: Din il-proposta nħolqot
+            discarded: Din il-proposta twarrbet għax
+            published: Din il-proposta ġiet ippubblikata għax
+            rejected: Din il-proposta ġiet irrifjutata għax
+            validating: Din il-proposta qed tiġi evalwata
+          initiative_rejected_reason: Din l-inizjattiva ġiet irrifjutata minħabba n-nuqqas ta’ firem tagħha.
+        show:
+          any_vote_method: Din l-inizjattiva taċ-ċittadini tiġbor kemm firem online kif ukoll personalment.
+          follow_description: Irċievi notifika meta jkun hemm aħbarijiet f’din l-inizjattiva
+          offline_method: Din l-inizjattiva taċ-ċittadini tiġbor il-firem personalment biss.
+        signature_identities:
+          select_identity: Agħżel identifikatur tal-parteċipant
+        supports:
+          title: Elenkar tal-firem
+        vote_cabin:
+          already_voted: Diġà ffirmat
+          supports_required: "%{total_supports} firma meħtieġa"
+          verification_required: Ivverifika l-kont tiegħek biex tiffirma l-inizjattiva
+          vote: Iffirma
+          votes_blocked: L-iffirmar diżattivat
+        votes_count:
+          most_popular_initiative: L-aktar inizjattiva popolari
+          need_more_votes: Teħtieġ aktar firem
+      initiatives_mailer:
+        creation_subject: L-inizjattiva tiegħek '%{title}’ inħolqot
+        initiative_link:
+          check_initiative_details: Tista’ tara d-dettalji tal-inizjattiva
+          here: hawnhekk
+        more_information: Hawnhekk għandek aktar informazzjoni dwar il-proċess tal-ħolqien ta’ inizjattiva.
+        progress_report_body_for: L-inizjattiva %{title} laħqet il-%{percentage}% tal-firem meħtieġa.
+        progress_report_for: 'Sommarju tal-inizjattiva: %{title}'
+        promotal_committee_help: Ftakar li trid tistieden mill-inqas %{member_count} persuni għall-kumitat promotorju. Iffowerdja l-link li ġejja biex tistieden in-nies għall-kumitat promotorju
+        status_change_body_for: 'L-inizjattiva %{title} bidlet l-istatus tagħha għal: %{state}'
+        status_change_for: L-inizjattiva %{title} bidlet l-istatus tagħha
+      last_activity:
+        new_initiative: Inizjattiva ġdida
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Inizjattivi attivi
+            see_all_initiatives: Ara l-inizjattivi kollha
+      show:
+        badge_name:
+          accepted: Biżżejjed firem
+          created: Maħluqa
+          discarded: Imwarrba
+          published: Ippubblikat
+          rejected: Ma hemmx biżżejjed firem
+          validating: Validazzjoni teknika
+      states:
+        accepted: Aċċettat
+        expired: Skadiet
+      unavailable_scope: Kamp ta' applikazzjoni mhux disponibbli
+      versions:
+        shared:
+          back_to_resource: Mur lura għall-inizjattiva
+    menu:
+      initiatives: Inizjattivi
+    resources:
+      initiatives_type:
+        actions:
+          title: Azzjonijiet
+          vote: Iffirma
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Hemżiet
+          committee_members: Membri tal-kumitat
+          components: Komponenti
+          information: Informazzjoni
+      initiative_creation_header:
+        back: Lura
+        fill_data: Oħloq
+        finish: Temm
+        previous_form: Ibda
+        promotal_committee: Kumitat promotorju
+        select_initiative_type: Agħżel
+        show_similar_initiatives: Qabbel
+        step: Pass %{current} minn %{total}
+        title: Oħloq inizjattiva ġdida
+      initiative_header:
+        initiative_menu_item: Inizjattiva
+      initiative_signature_creation_header:
+        back: Lura
+        fill_personal_data: Imla d-data tiegħek
+        finish: Temm
+        finished: Firma tal-inizjattiva maħluqa
+        see_steps: ara l-passi
+        select_identity: Agħżel l-identità
+        sms_code: Verifika bil-kodiċi bl-SMS
+        sms_phone_number: Numru tal-mowbajl
+        step: Pass %{current} minn %{total}
+        title: Iffirma %{initiative_title}
+      initiatives:
+        initiative:
+          check: Araha
+          check_and_support: Araha u ffirma
+        no_initiatives_yet:
+          no_initiatives_yet: Għad ma hemm l-ebda inizjattiva!

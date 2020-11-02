@@ -1,0 +1,253 @@
+it:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Metodi disponibili
+        offline_explanation: Istruzioni per la verifica offline
+      id_document_information:
+        document_number: Numero del documento (con lettera)
+        document_type: Tipo di documento
+      id_document_upload:
+        document_number: Numero del documento (con lettera)
+        document_type: Tipo di documento
+        user: Partecipante
+        verification_attachment: Copia scannerizzata del documento
+      offline_confirmation:
+        email: E-mail del partecipante
+      postal_letter_address:
+        full_address: Indirizzo completo
+      postal_letter_confirmation:
+        verification_code: Codice di verifica
+      postal_letter_postage:
+        full_address: Indirizzo completo
+        verification_code: Codice di verifica
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Utile se il processo è già iniziato e si desidera revocare le autorizzazioni del processo precedente.
+          button: Revoca tutto
+          button_before: Revoca prima di una data
+          destroy:
+            confirm: Le autorizzazioni di revoca prima di una data non possono essere annullate. Continuare ugualmente?
+            confirm_all: La revoca di tutte le autorizzazioni non può essere annullata. Continuare ugualmente?
+          destroy_nok: Si è verificato un problema durante la revoca delle autorizzazioni.
+          destroy_ok: Tutte le autorizzazioni corrispondenti sono state revocate correttamente!
+          info: Vi è un totale di %{count} partecipanti verificati.
+          no_data: Nessun partecipante verificato
+          title: Revoca delle verifiche
+        authorization_workflows: Verifiche
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} ha aggiornato la configurazione di verifica dei documenti di identità"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ha verificato %{resource_name} utilizzando un sistema di verifica offline dei documenti di identità"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Gli amministratori caricano un CSV con le e-mail dei partecipanti accettati
+            Solo i partecipanti la cui e-mail è contenuta in tale file CSV potranno essere verificati
+        id_documents:
+          help: |-
+            Gli utenti inseriscono i loro dati di identità e caricano una copia del documento.
+            Tu inserisci le informazioni presenti nell'immagine caricata.
+            Le informazioni devono corrispondere a quanto inserito dall'utente.
+            Se non riesci a visualizzare correttamente le informazioni o a verificarle, puoi rifiutare la richiesta e l'utente avrà la possibilità di correggerla.
+        postal_letter:
+          help: |-
+            I partecipanti chiedono l'invio di un codice di verifica al loro indirizzo.
+            Invia la lettera con il codice di verifica al loro indirizzo.
+            Contrassegna la lettera come inviata.
+            Dopo che avrai contrassegnato la lettera come inviata, il partecipante sarà in grado di introdurre il codice e ottenere la verifica.
+      csv_census:
+        explanation: Ottieni la verifica utilizzando il censimento dell'organizzazione
+        name: Censimento dell'organizzazione
+      direct: Diretto
+      help: Guida
+      id_documents:
+        explanation: Carica i documenti d'identità per consentirci di verificare la tua identità
+        name: Documenti d'identità
+      multistep: A più fasi
+      name: Nome
+      postal_letter:
+        explanation: Ti invieremo una lettera postale con un codice che dovrai inserire per consentirci di verificare il tuo indirizzo
+        name: Invio codice mediante lettera postale
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'I dati dell''attuale verifica sono i seguenti:'
+          no_data_stored: Nessun dato memorizzato.
+        create:
+          error: Si è verificato un problema durante la creazione dell'autorizzazione.
+          success: Sei stato autorizzato correttamente.
+          unconfirmed: Devi confermare la tua e-mail per autorizzarti.
+        destroy:
+          error: Si è verificato un problema durante l'eliminazione dell'autorizzazione.
+          success: L'autorizzazione è stata eliminata correttamente.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verificare rispetto a un altro esempio di gestore dell'autorizzazione
+            csv_census: Verifica rispetto al censimento dell'organizzazione
+            dummy_authorization_handler: Verifica rispetto all'esempio di gestore dell'autorizzazione
+            dummy_authorization_workflow: Verifica rispetto all'esempio di iter di autorizzazione
+            id_documents: Ottieni la verifica caricando il tuo documento d'identità
+            postal_letter: Ottieni la verifica ricevendo un codice di verifica tramite posta ordinaria
+            sms: Ottieni la verifica ricevendo un codice di verifica via SMS
+          title: Verifica la tua identità
+          verify_with_these_options: 'Le seguenti opzioni sono disponibili per la verifica della tua identità:'
+        index:
+          expired_verification: Verifica scaduta
+          pending_verification: In attesa di verifica
+          show_renew_info: Clicca per rinnovare la verifica
+          unauthorized_verification: Nuova verifica
+        new:
+          authorize: Invia
+          authorize_with: Verifica con %{authorizer}
+        renew_modal:
+          cancel: Annulla
+          close: chiudi
+          continue: Continua
+          info_renew: Se desideri aggiornare i dati, prosegui con il rinnovo
+          title: Rinnova verifica
+        skip_verification: Per il momento puoi saltare questo passaggio e %{link}
+        start_exploring: iniziare a esplorare
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Si è verificato un errore durante l'importazione del censimento.
+              success: '%{count} Elementi (%{errors} errors) importati correttamente'
+            destroy_all:
+              success: Tutti i dati del censimento sono stati eliminati
+          destroy:
+            confirm: L'eliminazione di tutti i dati del censimento non può essere annullata. Continuare ugualmente?
+            title: Elimina tutti i dati del censimento
+          index:
+            data: Sono stati caricati in totale %{count} documenti. La data dell'ultimo caricamento è il %{due_date}
+            empty: Non vi sono dati censuari. Utilizza il modulo sottostante per importarli tramite un file CSV.
+            title: Dati censuari attuali
+          instructions:
+            body: A tal fine occorre accedere all'amministrazione del sistema e aggiungere all'organizzazione le autorizzazioni csv_census
+            title: È necessario attivare il censimento csv per questa organizzazione
+          new:
+            file: ".csv file contenente i dati relativi agi indirizzi e-mail"
+            info: 'Deve essere un file in formato CSV e gli indirizzi e-mail devono figurare in un''unica colonna:'
+            submit: Carica file
+            title: Carica un nuovo censimento
+        authorizations:
+          new:
+            error: Non siamo stati in grado di verificare il tuo account oppure il tuo profilo non figura nel censimento dell'organizzazione.
+            success: Il tuo account è stato verificato correttamente.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: La partecipazione è limitata ai partecipanti il cui indirizzo abbia il codice postale %{postal_codes}.
+            other: 'La partecipazione è limitata ai partecipanti il cui indirizzo contenga uno dei seguenti codici postali: %{postal_codes}.'
+          scope: La partecipazione è limitata ai partecipanti il cui ambito sia %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configurazione dei documenti di identità
+              update: Aggiorna
+            update:
+              error: Si è verificato un problema durante l'aggiornamento della configurazione.
+              success: Configurazione aggiornata correttamente
+          confirmations:
+            create:
+              error: Verifica non corrispondente. Riprova o rifiuta la verifica in modo che il partecipante possa modificarla
+              success: Partecipante verificato correttamente
+            new:
+              introduce_user_data: Inserisci i dati nell'immagine
+              reject: Respingi
+              verify: Verifica
+          offline_confirmations:
+            create:
+              error: Verifica non corrispondente. Riprova oppure chiedi al partecipante di modificare la verifica
+              success: Partecipante verificato correttamente
+            new:
+              cancel: Annulla
+              introduce_user_data: Inserisci l'indirizzo e-mail del partecipante e i dati del documento
+              verify: Verifica
+          pending_authorizations:
+            index:
+              config: Configurazione
+              offline_verification: Verifica offline
+              title: In attesa di verifiche online
+              verification_number: 'Verifica n. %{n}'
+          rejections:
+            create:
+              success: Verifica respinta. Il partecipante sarà invitato a modificare i suoi documenti
+        authorizations:
+          choose:
+            choose_a_type: 'Selezionare le modalità di verifica:'
+            title: Ottieni la verifica utilizzando il tuo documento d'identità
+          create:
+            error: Si è verificato un problema durante il caricamento del documento
+            success: Documento caricato correttamente
+          edit:
+            being_reviewed: Stiamo esaminando i tuoi documenti. La tua verifica sarà effettuata a breve
+            offline: Utilizza la verifica offline
+            online: Utilizza la verifica online
+            rejection_clarity: Assicurati che le informazioni siano chiaramente visibili nell'immagine caricata
+            rejection_correctness: Assicurati che le informazioni inserite siano corrette
+            rejection_notice: Si è verificato un problema durante la tua verifica. Riprovare
+            send: Richiedi nuovamente la verifica
+          new:
+            send: Richiedi la verifica
+            title: Carica il tuo documento d'identità
+          update:
+            error: Si è verificato un problema durante il ricaricamento del documento
+            success: Documento ricaricato correttamente
+        passport: Passaporto
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Indirizzo
+              letter_sent_at: Lettera inviata a
+              mark_as_sent: Contrassegna come inviata
+              not_yet_sent: Non ancora inviata
+              title: Verifiche in corso
+              verification_code: Codice di verifica
+          postages:
+            create:
+              error: Errore nel contrassegnare la lettera come inviata
+              success: Lettera contrassegnata correttamente come inviata
+        authorizations:
+          create:
+            error: Si è verificato un problema con la tua richiesta
+            success: Grazie! Invieremo un codice di verifica al tuo indirizzo
+          edit:
+            send: Conferma
+            title: Introdurre il codice di verifica ricevuto
+            waiting_for_letter: Invieremo presto una lettera al tuo indirizzo con il codice di verifica
+          new:
+            send: Inviami una lettera
+            title: Richiedi il tuo codice di verifica
+          update:
+            error: Il tuo codice di verifica non corrisponde a quello in nostro possesso. Ti preghiamo di verificare nuovamente la lettera che ti abbiamo inviato
+            success: Congratulazioni. Sei stato verificato correttamente
+      sms:
+        authorizations:
+          create:
+            error: Si è verificato un problema con la tua richiesta
+            success: Grazie! Abbiamo inviato un SMS al tuo numero di telefono.
+          destroy:
+            success: Codice di verifica azzerato correttamente. Inserisci nuovamente il tuo numero di telefono.
+          edit:
+            confirm_destroy: Confermi di voler reimpostare il codice di verifica?
+            destroy: Reimposta il codice di verifica
+            resend: Non ha ricevuto il codice di verifica?
+            send: Conferma
+            title: Introdurre il codice di verifica ricevuto
+          new:
+            send: Inviatemi un SMS
+            title: Richiedi il tuo codice di verifica
+          update:
+            error: Il tuo codice di verifica non corrisponde a quello in nostro possesso. Ti preghiamo di verificare nuovamente l'SMS che ti abbiamo inviato.
+            success: Congratulazioni. Sei stato verificato correttamente.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: deve essere tutto maiuscolo e contenere solo lettere e/o cifre

@@ -1,0 +1,252 @@
+et:
+  activemodel:
+    attributes:
+      answer:
+        description: Kirjeldus
+        image: Pilt
+        proposals: Seotud ettepanekud
+        title: Pealkiri
+      election:
+        description: Kirjeldus
+        end_time: Hääletamine lõppeb
+        start_time: Hääletamine algab
+        title: Pealkiri
+      question:
+        description: Kirjeldus
+        max_selections: Maksimaalne valikute arv
+        title: Pealkiri
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Tuleb uuesti manustada
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Tuleb uuesti manustada
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Vastus
+        other: Vastused
+      decidim/elections/election:
+        one: Hääletamine
+        other: Hääletamised
+      decidim/elections/question:
+        one: Küsimus
+        other: Küsimused
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Hääleta
+        name: Hääletamised
+        settings:
+          global:
+            announcement: Teadaanne
+          step:
+            announcement: Teadaanne
+    elections:
+      actions:
+        confirm_destroy: Kas olete kindel?
+        destroy: Kustuta
+        edit: Muuda
+        edit_answers: Muuda vastuseid
+        edit_questions: Muuda küsimusi
+        import: Impordi ettepanekud vastustesse
+        new: Uus %{name}
+        preview: Eelvaade
+        publish: Avalda
+        title: Toimingud
+        unpublish: Peata avaldamine
+      admin:
+        answers:
+          create:
+            invalid: Selle vastuse loomisel tekkis probleem
+            success: Vastus on loodud
+          destroy:
+            invalid: Selle vastuse kustutamisel tekkis probleem
+            success: Vastus on kustutatud
+          edit:
+            title: Muuda vastust
+            update: Värskenda vastust
+          index:
+            title: Vastused
+          new:
+            create: Loo vastus
+            title: Uus vastus
+          update:
+            invalid: Selle vastuse värskendamisel tekkis probleem
+            success: Vastus on värskendatud
+        elections:
+          create:
+            invalid: Selle hääletuse loomisel tekkis probleem
+            success: Hääletus on loodud
+          destroy:
+            invalid: Selle hääletuse kustutamisel tekkis probleem
+            success: Hääletus on kustutatud
+          edit:
+            title: Muuda hääletust
+            update: Värskenda hääletust
+          index:
+            title: Hääletused
+          new:
+            create: Loo hääletus
+            title: Uus hääletus
+          publish:
+            success: Hääletus on avaldatud.
+          unpublish:
+            success: Hääletuse avaldamine on peatatud.
+          update:
+            invalid: Selle hääletuse värskendamisel tekkis probleem
+            success: Hääletus on värskendatud
+        models:
+          answer:
+            name: Vastus
+          election:
+            name: Hääletus
+          question:
+            name: Küsimus
+        proposals_imports:
+          create:
+            invalid: Ettepanekute vastustesse importimisel tekkis probleem
+            success: "%{number} ettepanekut on imporditud vastustesse"
+          new:
+            create: Impordi ettepanekud vastustesse
+            no_components: Selles osalusruumis ei ole muid ettepaneku komponente, mida saaks vastustesse importida.
+            select_component: Valige komponent
+        questions:
+          create:
+            invalid: Selle küsimuse loomisel tekkis probleem
+            success: Küsimus on loodud
+          destroy:
+            invalid: Selle küsimuse kustutamisel tekkis probleem
+            success: Küsimus on kustutatud
+          edit:
+            title: Muuda küsimust
+            update: Värskenda küsimust
+          index:
+            title: Küsimused
+          new:
+            create: Loo küsimus
+            title: Uus küsimus
+          update:
+            invalid: Selle küsimuse värskendamisel tekkis probleem
+            success: Küsimus on värskendatud
+      admin_log:
+        election:
+          publish: "Kasutaja %{user_name} avaldas hääletuse %{resource_name}"
+          unpublish: "Kasutaja %{user_name} peatas hääletuse %{resource_name} avaldamise"
+      election_m:
+        badge_name:
+          finished: Lõppenud
+          ongoing: Aktiivsed
+          upcoming: Eelseisvad
+        end_date: Lõppeb
+        footer:
+          view: Kuva
+          vote: Hääleta
+        label:
+          date: Kuupäevad
+        questions: Küsimused %{count}
+        start_date: Algab
+        unspecified: Pole täpsustatud
+      elections:
+        count:
+          elections_count:
+            one: "%{count} hääletus"
+            other: "%{count} hääletust"
+        filters:
+          active: Aktiivsed
+          all: Kõik
+          finished: Lõppenud
+          search: Otsing
+          state: Olek
+          upcoming: Eelseisvad
+        filters_small_view:
+          close_modal: Sulge modaalaken
+          filter_by: Filtrimisalus
+          unfold: Ava
+        show:
+          back: Kõik hääletused
+          preview: Eelvaade
+          vote: Hääleta
+          voting_period_status:
+            finished: Hääletus algas %{start_time} ja lõppes %{end_time}
+            ongoing: Hääletamine lõppeb %{end_time}
+            upcoming: Hääletamine algab %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Ettepanekud
+            title: Pealkiri
+        election:
+          fields:
+            end_time: Lõppeb
+            start_time: Algab
+            title: Pealkiri
+        question:
+          fields:
+            answers: Vastused
+            max_selections: Valikuid maksimaalselt
+            title: Pealkiri
+      orders:
+        label: 'Hääletuste järjestusalus:'
+        older: Vanemad
+        recent: Hiljutised
+      votes:
+        confirm:
+          answer: Vastus
+          answer_number: vastus %{number}
+          confirm: Kinnita
+          edit: muuda
+          header: Kinnitage oma hääl
+          intro: Siin on kokkuvõte hääletusest, milles osaleda kavatsete. <br> Kinnitage oma hääl või muutke oma vastuseid.
+          question: Küsimus %{count}
+        confirmed:
+          back: Tagasi hääletuste lehele
+          experience: Kuidas läks?
+          feedback: Andke meile tagasisidet
+          header: Hääl kinnitatud
+          lead: Teie hääl on juba antud!
+          text: 'Saate kontrollida, kas teie hääl on hääletuskasti lisatud, kasutades järgmist identifikaatorit: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Kontrollimiseks kopeerige identifikaator ja kleepige see <a href="evote-verify">hääle kinnitamise lehele</a>
+        encrypting:
+          header: Häält kodeeritakse
+          text: Hääletamisel anonüümsuse tagamiseks teie hääl krüptitakse.
+        header:
+          confirm: Kinnitage oma hääl
+          confirmed: Hääl kinnitatud
+          encrypting: Hääle kinnitamine
+        messages:
+          not_allowed: Te ei saa selles hääletuses praegu hääletada.
+        modal:
+          close: Sulge
+          proposal_header: 'Ettepanekud:'
+        new:
+          answer_choices: Saate valida kuni %{choices} vastust või mitte ühtegi
+          more_information: Lisateave
+          preview_alert: See on hääletuskoha (kabiini) eelvaade.
+          question_steps: Küsimus %{current_step} / %{total_steps}
+          selections: "valitud %{selected} / %{max_selections}<br>"
+        voting_step:
+          back: Tagasi
+          continue: Järgmine
+      warnings:
+        no_elections_warning: Teie otsingukriteeriumile vastavaid hääletusi pole või hääletusi pole kavandatud.
+        no_scheduled_elections_warning: Praegu hääletusi kavas ei ole, kuid siit loendist leiate kõik juba toimunud hääletused.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Hääletus %{resource_title} on nüüd osalusruumis %{participatory_space_title} aktiivne. Näete seda järgmisel lehel:'
+          email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Hääletus %{resource_title} on nüüd osalusruumis %{participatory_space_title} aktiivne.
+          notification_title: Hääletus <a href="%{resource_path}">%{resource_title}</a> on nüüd osalusruumis %{participatory_space_title} aktiivne.
+    participatory_processes:
+      statistics:
+        elections_count: Hääletused
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Välju

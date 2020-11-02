@@ -1,0 +1,83 @@
+hu:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Új blogbejegyzés
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Bejegyzés
+        other: Bejegyzések
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Biztosan törölni szeretné ezt a bejegyzést?
+        destroy: Törlés
+        edit: Szerkesztés
+        new: Új bejegyzés
+        title: Műveletek
+      admin:
+        models:
+          components:
+            body: Szöveg
+          post:
+            name: Bejegyzés
+        posts:
+          create:
+            invalid: Hiba történt a bejegyzés létrehozása során
+            success: A bejegyzés létrehozása sikeres
+          destroy:
+            success: A bejegyzés törlése sikeres
+          edit:
+            save: Frissítés
+          index:
+            title: Bejegyzések
+          new:
+            create: Létrehozás
+            title: Bejegyzés létrehozása
+          update:
+            invalid: Hiba történt a bejegyzés mentése során.
+            success: A bejegyzés mentése sikeres
+      last_activity:
+        new_post_at_html: "<span>Új bejegyzés itt: %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Szerző
+            body: Szöveg
+            created_at: 'Létrehozás ideje:'
+            title: cím
+      posts:
+        show:
+          back: Vissza a listához
+          comments: Hozzászólások
+          view: Megtekintés
+        sidebar_blog:
+          comments: hozzászólások
+          most_commented_posts: A legtöbb hozzászólással rendelkező bejegyzések
+      read_more: Több megjelenítése
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Bejelentés
+            comments_enabled: Hozzászólások engedélyezve
+            comments_max_length: A hozzászólások maximális hossza (Hagyja meg a 0-t, ha az alapértelmezett értéket szeretné használni)
+          step:
+            announcement: Bejelentés
+            comments_blocked: Hozzászólások letiltva
+            endorsements_blocked: Jóváhagyások letiltva
+            endorsements_enabled: Jóváhagyások engedélyezve
+    events:
+      blogs:
+        post_created:
+          email_intro: 'A(z) "%{resource_title}" bejegyzést olyan helyen osztották meg, amelyet követ: "%{participatory_space_title}".'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: "%{participatory_space_title}". Az előző hivatkozás segítségével visszavonhatja a követést.'
+          email_subject: 'Új bejegyzést tettek közzé itt: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> bejegyzést itt tették közzé: %{participatory_space_title}'
+    pages:
+      home:
+        statistics:
+          posts_count: Bejegyzések
+    participatory_processes:
+      statistics:
+        posts_count: Bejegyzések

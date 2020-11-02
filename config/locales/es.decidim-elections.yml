@@ -1,0 +1,253 @@
+es:
+  activemodel:
+    attributes:
+      answer:
+        description: Descripción
+        image: Imagen
+        proposals: Propuestas relacionadas
+        title: Título
+      election:
+        description: Descripción
+        end_time: La votación finaliza el
+        start_time: La votación empieza el
+        title: Título
+      question:
+        description: Descripción
+        max_selections: Número máximo de elementos seleccionados
+        title: Título
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Adjúntalo de nuevo
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Adjúntalo de nuevo
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Respuesta
+        other: Respuestas
+      decidim/elections/election:
+        one: Elección
+        other: Elecciones
+      decidim/elections/question:
+        one: Pregunta
+        other: Preguntas
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Votar
+        name: Elecciones
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            announcement: Anuncio
+    elections:
+      actions:
+        confirm_destroy: '¿Estás seguro/a?'
+        destroy: Eliminar
+        edit: Editar
+        edit_answers: Editar respuestas
+        edit_questions: Editar preguntas
+        import: Importar propuestas a respuestas
+        new: Nueva %{name}
+        preview: Vista previa
+        publish: Publicar
+        title: Acciones
+        unpublish: Despublicar
+      admin:
+        answers:
+          create:
+            invalid: Se ha producido un error al crear la respuesta
+            success: Respuesta correctamente creada
+          destroy:
+            invalid: Se ha producido un error al eliminar la respuesta
+            success: Respuesta correctamente eliminada
+          edit:
+            title: Editar respuesta
+            update: Actualizar respuesta
+          index:
+            title: Respuestas
+          new:
+            create: Crear respuesta
+            title: Nueva respuesta
+          update:
+            invalid: Se ha producido un error al actualizar la respuesta
+            success: Respuesta correctamente actualizada
+        elections:
+          create:
+            invalid: Se ha producido un error al crear la elección
+            success: Elección correctamente creada
+          destroy:
+            invalid: Se ha producido un error al eliminar la elección
+            success: Elección correctamente eliminada
+          edit:
+            title: Editar elección
+            update: Actualizar elección
+          index:
+            title: Elecciones
+          new:
+            create: Crear elección
+            title: Nueva elección
+          publish:
+            success: La elección se ha publicado correctamente.
+          unpublish:
+            success: La elección se ha despublicado correctamente.
+          update:
+            invalid: Se ha producido un error al actualizar la elección
+            success: Elección correctamente actualizada
+        models:
+          answer:
+            name: Respuesta
+          election:
+            name: Elección
+          question:
+            name: Pregunta
+        proposals_imports:
+          create:
+            invalid: Se ha producido un error al importar las propuestas a respuestas
+            success: "%{number} propuestas correctamente importadas a respuestas"
+          new:
+            create: Importar propuestas a respuestas
+            no_components: No hay más componentes de propuestas en este espacio participativo para importar las propuestas a respuestas.
+            select_component: Selecciona un componente
+        questions:
+          create:
+            invalid: Se ha producido un error al crear la pregunta
+            success: Pregunta correctamente creada
+          destroy:
+            invalid: Se ha producido un error al eliminar la pregunta
+            success: Pregunta correctamente eliminada
+          edit:
+            title: Editar pregunta
+            update: Actualizar pregunta
+          index:
+            title: Preguntas
+          new:
+            create: Crear pregunta
+            title: Nueva pregunta
+          update:
+            invalid: Se ha producido un error al actualizar la pregunta
+            success: Pregunta correctamente actualizada
+      admin_log:
+        election:
+          publish: "%{user_name} ha publicado la elección %{resource_name}"
+          unpublish: "%{user_name} ha despublicado la elección %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Finalizada
+          ongoing: Activa
+          upcoming: Próxima
+        end_date: Finaliza el
+        footer:
+          view: Ver
+          vote: Votar
+        label:
+          date: Fechas
+        questions: '%{count} preguntas'
+        start_date: Empieza el
+        unspecified: No se especifica
+      elections:
+        count:
+          elections_count:
+            one: "%{count} elección"
+            other: "%{count} elecciones"
+        filters:
+          active: Activas
+          all: Todas
+          finished: Finalizadas
+          search: Buscar
+          state: Estado
+          upcoming: Próximas
+        filters_small_view:
+          close_modal: Cerrar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desplegar
+        show:
+          back: Todas las elecciones
+          preview: Vista previa
+          vote: Votar
+          voting_period_status:
+            finished: La votación empezó el %{start_time} y finalizó el %{end_time}
+            ongoing: La votación finaliza el %{end_time}
+            upcoming: La votación empieza el %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Propuestas
+            title: Título
+        election:
+          fields:
+            end_time: Finaliza el
+            start_time: Empieza el
+            title: Título
+        question:
+          fields:
+            answers: Respuestas
+            max_selections: Máx. opciones seleccionadas
+            title: Título
+      orders:
+        label: Ordenar elecciones por
+        older: Más antiguas primero
+        recent: Más recientes primero
+      votes:
+        confirm:
+          answer: Respuesta
+          answer_number: respuesta %{number}
+          confirm: Confirmar
+          edit: editar
+          header: Confirmar voto
+          intro: A continuación se resume el voto que estás a punto de emitir. <br> Confirma tu voto o edita tus respuestas.
+          question: Pregunta %{count}
+        confirmed:
+          back: Volver a las elecciones
+          experience: '¿Cómo ha sido tu experiencia?'
+          feedback: Déjanos algún comentario
+          header: Voto confirmado
+          lead: '¡Tu voto se ha emitido!'
+          text: 'Puedes comprobar que tu voto se ha introducido correctamente en la urna con el siguiente identificador: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Para comprobarlo, copia el identificador y pégalo en la <a href="evote-verify">página de verificación de votos</a>
+        encrypting:
+          header: Codificando voto...
+          text: Estamos encriptando tu voto para garantizar que lo puedes emitir de forma anónima.
+        header:
+          confirm: Confirmar voto
+          confirmed: Voto confirmado
+          encrypting: Confirmando voto
+        messages:
+          not_allowed: En estos momentos no te está permitido votar en esta elección.
+        modal:
+          close: Cerrar
+          proposal_header: 'Propuestas:'
+        new:
+          answer_choices: Puedes seleccionar hasta %{choices} respuestas, o bien ninguna
+          more_information: Más información
+          preview_alert: Esta es una vista previa de la cabina de votación.
+          question_steps: Pregunta %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> opciones seleccionadas"
+        voting_step:
+          back: Atrás
+          continue: Siguiente
+      warnings:
+        no_elections_warning: No hay ninguna elección que se ajuste a tus criterios de búsqueda o no hay ninguna elección programada.
+        no_scheduled_elections_warning: En estos momentos no hay ninguna elección programada, pero aquí tienes una lista de todas las elecciones ya celebradas.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Se ha activado la elección %{resource_title} para %{participatory_space_title}. Puedes consultarla en la siguiente página:'
+          email_outro: Has recibido esta notificación porque sigues el espacio %{participatory_space_title}. Para dejar de recibir notificaciones, haz clic en el enlace anterior.
+          email_subject: Se ha activado la elección %{resource_title} para %{participatory_space_title}.
+          notification_title: Se ha activado la elección <a href="%{resource_path}">%{resource_title}</a> para %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Elecciones
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Salir
