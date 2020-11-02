@@ -1,0 +1,516 @@
+pl:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Opis
+        offline_votes: Podpisy osobiste
+        scope_id: Zakres
+        signature_end_date: Koniec okresu zbierania podpisów
+        signature_start_date: Początek okresu zbierania podpisów
+        signature_type: Typ zbierania podpisów
+        signature_type_values:
+          any: Mieszany
+          offline: Osobiście
+        title: Tytuł
+      initiative_author:
+        address: Adres
+        city: Miejscowość
+        id_document: Numer dokumentu tożsamości
+        name: Imię i nazwisko
+        phone_number: Numer telefonu
+        post_code: Kod pocztowy
+        province: Region
+      initiatives_committee_member:
+        user: Członek komisji
+      initiatives_type:
+        area_enabled: Aktywuj opcję określania przez autorów obszaru inicjatywy
+        attachments_enabled: Aktywuj załączniki
+        banner_image: Obraz baneru
+        collect_user_extra_fields: Zbieraj dane osobowe uczestników w momencie składania podpisu
+        custom_signature_end_date_enabled: Aktywuj opcję określania przez autorów zakończenia okresu zbierania podpisów
+        description: Opis
+        document_number_authorization_handler: Zezwolenie na weryfikowanie numeru dokumentu w momencie składania podpisu
+        extra_fields_legal_information: Nota prawna o zbieraniu danych osobowych
+        minimum_committee_members: Minimum członków komisji
+        online_signature_enabled: Aktywowano podpisy online
+        promoting_committee_enabled: Aktywuj komisję promującą
+        title: Tytuł
+        undo_online_signatures_enabled: Aktywuj opcję wycofywania podpisów online przez uczestników
+        validate_sms_code_on_votes: Dodaj krok walidacji kodem SMS do procesu składania podpisu
+      initiatives_vote:
+        date_of_birth: Data urodzenia
+        document_number: Numer dokumentu
+        name_and_surname: Imię i nazwisko
+        postal_code: Kod pocztowy
+      organization_data:
+        address: Adres
+        id_document: Dokument tożsamości
+        name: Pełna nazwa
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Plik jest nieprawidłowy
+              needs_to_be_reattached: Należy załączyć ponownie
+              title: Tytuł nie powinien być pusty
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Nowy typ inicjatywy
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Obszar
+          state_eq:
+            label: Państwo
+            values:
+              accepted: Dostateczna liczba podpisów
+              created: Utworzono
+              discarded: Odrzucono
+              published: Opublikowane
+              rejected: Niewystarczająca liczba podpisów
+              validating: Walidacja techniczna
+          type_id_eq:
+            label: Typ
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Szukaj %{collection} wg tytułu, opisu, ID lub autora.
+      menu:
+        initiatives: Inicjatywy
+        initiatives_types: Typy inicjatyw
+      models:
+        initiatives:
+          fields:
+            created_at: 'Utworzono:'
+            published_at: Opublikowano w
+            supports_count: Podpisy
+            title: Inicjatywy
+        initiatives_type_scope:
+          fields:
+            scope: Zakres
+            supports_required: Wymagane podpisy
+          name: Zakres typu inicjatywy
+        initiatives_types:
+          fields:
+            created_at: 'Utworzono:'
+            title: Typy inicjatyw
+          name: Typ inicjatywy
+        initiatives_votes:
+          fields:
+            date_of_birth: Data urodzenia
+            document_number: Numer dokumentu
+            initiative_end_date: Data zakończenia
+            initiative_id: ID inicjatywy
+            initiative_signatures_count: Liczba podpisów
+            initiative_start_date: Data rozpoczęcia
+            initiative_title: Tytuł inicjatywy
+            name_and_surname: Imię i nazwisko
+            postal_code: Kod pocztowy
+            time_and_date: Godzina i data
+            timestamp: Znacznik czasu
+      titles:
+        initiatives: Inicjatywy
+        initiatives_types: Typy inicjatyw
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Inicjatywa „%{resource_title}” została przesłana do walidacji technicznej. Zapoznaj się z nią w <a href="%{admin_initiative_url}">panelu administratora</a>
+            email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+            email_subject: Inicjatywa „%{resource_title}” została przesłana do walidacji technicznej.
+            notification_title: Inicjatywa „%{resource_title}” została przesłana do walidacji technicznej. Zapoznaj się z nią w <a href="%{admin_initiative_path}">panelu administratora</a>
+        initiative_extended:
+          email_intro: Wydłużono okres zbierania podpisów w odniesieniu do inicjatywy %{resource_title}!
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{resource_title}”. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Wydłużono okres zbierania podpisów!
+          notification_title: Wydłużono okres zbierania podpisów w odniesieniu do inicjatywy <a href="%{resource_path}">%{resource_title}</a>.
+        milestone_completed:
+          affected_user:
+            email_intro: Twoja inicjatywa %{resource_title} uzyskała %{percentage}% podpisów!
+            email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem inicjatywy %{resource_title}.
+            email_subject: Zakończono kolejny etap!
+            notification_title: Twoja inicjatywa <a href="%{resource_path}">%{resource_title}</a> uzyskała %{percentage}% podpisów.
+          follower:
+            email_intro: Inicjatywa %{resource_title} uzyskała %{percentage}% podpisów!
+            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{resource_title}”. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+            email_subject: Zakończono kolejny etap!
+            notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> uzyskała %{percentage}% podpisów.
+        support_threshold_reached:
+          email_intro: Inicjatywa %{resource_title} przekroczyła próg poparcia
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
+          email_subject: Osiągnięto próg poparcia
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> przekroczyła próg poparcia
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Przejdź do przestrzeni partycypacyjnej InicjatywWykonaj przedstawione kroki, aby utworzyć nową inicjatywę
+          description: Ta odznaka jest przyznawana za uruchomienie nowych inicjatyw i współpracę z innymi w celu ich realizacji.
+          description_another: 'Ten uczestnik opublikował następującą liczbę inicjatyw: %{score}.'
+          description_own: 'Opublikowano następującą liczbę Twoich inicjatyw: %{score}.'
+          name: Opublikowane inicjatywy
+          next_level_in: Jeszcze trochę inicjatyw (dokładnie %{score}) i wejdziesz na kolejny poziom!
+          unearned_another: Ten uczestnik nie opublikował jeszcze żadnych inicjatyw.
+          unearned_own: Nie opublikowano jeszcze żadnych Twoich inicjatyw.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p><strong>Inicjatywa</strong> to propozycja, która może być promowana przez każdego z jego własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) w drodze zbiórki (cyfrowych) podpisów dla organizacji w celu realizacji określonego działania (np. zmiany przepisów, uruchomienia projektu, zmiany nazwy departamentu lub ulicy itp.).</p> <p>Promotorzy inicjatywy mogą określić jej cele, zbierać głosy poparcia, debatować, rozpowszechniać inicjatywę i określać miejsca zbiórki podpisów, w których można zbierać podpisy od uczestników, lub prowadzić debaty otwarte dla innych uczestników.</p> <p>Przykłady: W ramach inicjatywy można zbierać podpisy w celu przeprowadzenia konsultacji pośród wszystkich osób w organizacji, zwołania zgromadzenia lub uruchomienia procedury zwiększania budżetu dla danego terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów do postulatu może dołączyć się większa liczba osób i przekazywać go innym osobom w organizacji.</p>\n"
+          page: "<p><strong>Inicjatywa</strong> to propozycja, która może być promowana przez każdego z jego własnej inicjatywy (niezależnie od innych kanałów lub przestrzeni partycypacyjnych) w drodze zbiórki (cyfrowych) podpisów dla organizacji w celu realizacji określonego działania (np. zmiany przepisów, uruchomienia projektu, zmiany nazwy departamentu lub ulicy itp.).</p> <p>Promotorzy inicjatywy mogą określić swoje cele, zbierać głosy poparcia, debatować, rozpowszechniać inicjatywę i określać miejsca zbiórki podpisów, w których można zbierać podpisy od uczestników, lub prowadzić debaty otwarte dla innych uczestników.</p> <p>Przykłady: W ramach inicjatywy można zbierać podpisy w celu przeprowadzenia konsultacji pośród wszystkich osób w organizacji, zwołania zgromadzenia lub uruchomienia procedury zwiększania budżetu dla danego terytorium lub obszaru organizacji. Podczas procesu zbierania podpisów do postulatu może dołączyć się większa liczba osób i przekazywać go innym osobom w organizacji.</p>\n"
+          title: Czym są inicjatywy?
+    initiatives:
+      actions:
+        answer: Odpowiedź
+      admin:
+        answers:
+          edit:
+            answer: Odpowiedź
+            title: Odpowiedz na %{title}
+          info_initiative:
+            created_at: 'Utworzono:'
+            description: Opis
+            initiative_votes_count: Liczba głosów
+            initiatives: Inicjatywy
+            state: Państwo
+        committee_requests:
+          index:
+            approve: Zatwierdź
+            confirm_revoke: Na pewno?
+            invite_to_committee_help: Udostępnij ten link, aby zaprosić innych uczestników do komisji promującej
+            no_members_yet: W komisji promującej nie ma innych członków
+            revoke: Wycofaj
+            title: Członkowie komisji
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Maksymalna liczba elementów do wyświetlenia
+        exports:
+          initiatives: Inicjatywy
+        initiatives:
+          edit:
+            accept: Zaakceptuj inicjatywę
+            confirm: Na pewno?
+            discard: Odrzuć inicjatywę
+            export_pdf_signatures: Eksportuj podpisy w formacie PDF
+            export_votes: Eksportuj podpisy
+            reject: Odrzuć inicjatywę
+            send_to_technical_validation: Prześlij do walidacji technicznej
+            success: Inicjatywa została przesłana do walidacji technicznej
+            update: Aktualizuj
+          form:
+            attachments: Załączniki
+            settings: Ustawienia
+            title: Informacje ogólne
+          index:
+            actions_title: Działanie
+            preview: Podgląd
+            print: Drukuj
+          initiative_attachments:
+            documents: Dokumenty
+            edit: Edytuj
+            new: Nowe
+            photos: Zdjęcia
+          show:
+            print: Drukuj
+          update:
+            error: Wystąpił błąd
+            success: Aktualizacja inicjatywy powiodła się
+        initiatives_type_scopes:
+          create:
+            error: Wystąpił błąd
+            success: Utworzono nowy zakres dla danego typu inicjatywy
+          destroy:
+            success: Usunięcie zakresu powiodło się
+          edit:
+            back: Powrót
+            confirm_destroy: Na pewno?
+            destroy: Usuń
+            title: Edytuj zakres typu inicjatywy
+            update: Aktualizuj
+          new:
+            back: Powrót
+            create: Utwórz
+            title: Utwórz zakres typu inicjatywy
+          update:
+            error: Wystąpił błąd
+            success: Aktualizacja zakresu powiodła się
+        initiatives_types:
+          create:
+            error: Wystąpił błąd
+            success: Utworzenie nowego typu inicjatywy powiodło się
+          destroy:
+            success: Usunięcie typu inicjatywy powiodło się
+          edit:
+            confirm_destroy: Na pewno?
+            destroy: Usuń
+            update: Aktualizuj
+          form:
+            title: Informacje ogólne
+          initiative_type_scopes:
+            title: Zakresy typu inicjatywy
+          new:
+            create: Utwórz
+            title: Nowy typ inicjatywy
+          update:
+            error: Wystąpił błąd
+            success: Aktualizacja typu inicjatywy powiodła się
+      admin_log:
+        initiative:
+          publish: "%{user_name} opublikował(a) inicjatywę %{resource_name}"
+          send_to_technical_validation: "%{user_name} wysłał(a) inicjatywę %{resource_name} do walidacji technicznej"
+          unpublish: "%{user_name} odrzucił(a) inicjatywę %{resource_name}"
+          update: "%{user_name} zaktualizował(a) inicjatywę %{resource_name}"
+      admin_states:
+        accepted: Dostateczna liczba podpisów
+        created: Utworzono
+        discarded: Odrzucono
+        published: Opublikowane
+        rejected: Niewystarczająca liczba podpisów
+        validating: Walidacja techniczna
+      application_helper:
+        filter_area_values:
+          all: Wszystkie
+        filter_scope_values:
+          all: Wszystkie
+        filter_state_values:
+          accepted: Dostateczna liczba podpisów
+          all: Wszystkie
+          answered: Udzielono odpowiedzi
+          closed: Zamknięte
+          open: Otwarte
+          rejected: Niewystarczająca liczba podpisów
+        filter_type_values:
+          all: Wszystkie
+      committee_requests:
+        new:
+          continue: Dalej
+          help_text: Chcesz wystąpić o członkostwo w komisji promującej tę inicjatywę
+        spawn:
+          success: Wniosek został przesłany do autora inicjatywy.
+      content_blocks:
+        highlighted_initiatives:
+          name: Wyróżnione inicjatywy
+      create_initiative:
+        fill_data:
+          back: Powrót
+          continue: Dalej
+          fill_data_help: "<ul> <li>Przejrzyj treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Należy wybrać typ podpisu. Podpis składany osobiście, online lub połączenie obu</li> <li>Jaki jest zakres geograficzny inicjatywy? Miasto, gmina?</li> </ul>"
+          initiative_type: Typ inicjatywy
+          more_information: "(Informacje dodatkowe)"
+          select_area: Wybierz obszar
+          select_scope: Wybierz zakres
+        finish:
+          back: Powrót
+          back_to_initiatives: Powrót do inicjatyw
+          callout_text: Gratulacje! Utworzenie nowej inicjatywy obywatelskiej powiodło się.
+          confirm: Potwierdź
+          edit_my_initiative: Edytuj moje inicjatywy
+          go_to_my_initiatives: Przejdź do moich inicjatyw
+          more_information: "(Informacje dodatkowe)"
+          send_my_initiative: Wyślij moją inicjatywę
+        finish_help:
+          access_reminder: Pamiętaj, że zawsze możesz przejść do swoich inicjatyw, korzystając z menu uczestnika.
+          help_for_organizations: Jeżeli reprezentujesz stowarzyszenie, konieczne będzie zamieszczenie protokołu posiedzenia zarządu wszystkich organizacji wchodzących w skład komisji promującej
+          help_in_person_signatures: Jeżeli decydujesz się zbierać podpisy składane osobiście lub w połączeniu z podpisami online, należy zamieścić wymagane informacje.
+          help_text: Należy pamiętać, że w celu prawidłowego przeprowadzenia inicjatywy należy przejść do panelu administratora, gdzie znajduje się menu użytkownika, zamieścić wymagane informacje i przesłać je do dalszego przetwarzania.
+          initiatives_page_link: Wszystkie te informacje można znaleźć na stronie %{link} poświęconej informacjom na temat inicjatyw.
+          page: strona
+        previous_form:
+          back: Powrót
+          continue: Dalej
+          help: Z jakich elementów składa się inicjatywa? Zamieść tytuł i opis. Zalecamy, aby tytuł był krótki i zwięzły, a opis skupiał się na proponowanym rozwiązaniu.
+          more_information: "(Informacje dodatkowe)"
+        promotal_committee:
+          back: Powrót
+          individual_help_text: Tego rodzaju inicjatywa obywatelska wymaga komisji promującej, która składa się z co najmniej %{committee_size} osób (osób zaświadczających). Należy udostępnić poniższy link innym osobom zaangażowanym w inicjatywę. Gdy osoby kontaktowe otrzymają link, będą musiały wykonać kroki opisane w instrukcji.
+          more_information: "(Informacje dodatkowe)"
+        select_initiative_type:
+          back: Powrót
+          choose_html: Chcę utworzyć <strong>%{title}</strong>
+          more_information: "(Informacje dodatkowe)"
+          select: Chcę promować tę inicjatywę
+          select_initiative_type_help: Inicjatywy obywatelskie to narzędzie interwencji obywateli, które pozwala Radzie Miasta podejmować działania w obronie interesu ogólnego w zakresie objętym kompetencjami władz miasta. Jaką inicjatywę chcesz uruchomić?
+        share_committee_link:
+          continue: Dalej
+          invite_to_committee_help: Link z zaproszeniem do uczestnictwa w komisji promującej
+        show_similar_initiatives:
+          back: Powrót
+          compare_help: Jeżeli którakolwiek z poniższych inicjatyw jest podobna do Twojej, zachęcamy do złożenia podpisu. Twoja propozycja będzie miała większe szanse na powodzenie.
+          continue: Moja inicjatywa jest inna
+          more_information: "(Informacje dodatkowe)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, którą/którego obserwujesz, utworzył(a) nową inicjatywę. Zapoznaj się z nią i zabierz głos:"
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Nowa inicjatywa autorstwa %{author_nickname}
+          notification_title: Inicjatywa <a href="%{resource_path}">%{resource_title}</a> autorstwa <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, którego/którą obserwujesz, poparł(a) następującą inicjatywę. Możesz zabrać głos w dyskusji:"
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Inicjatywę poparł(a) %{author_nickname}
+          notification_title: Inicjatywę <a href="%{resource_path}">%{resource_title}</a> poparł(a) <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Inicjatywy
+      initiative_signatures:
+        fill_personal_data:
+          continue: Dalej
+          date_select:
+            day: Dzień
+            month: Miesiąc
+            year: Rok
+          help: Prosimy o podanie w poniższych polach danych osobowych w celu złożenia podpisu pod inicjatywą
+        finish:
+          back_to_initiative: Powrót do inicjatyw
+        sms_code:
+          continue: Odczytaj kod i kontynuuj
+          help: Odczytaj SMS wysłany na Twój numer telefonu
+        sms_phone_number:
+          continue: Chcę otrzymać SMS
+          help: Wypełnij formularz, podając zweryfikowany numer telefonu, aby otrzymać kod weryfikacyjny
+      initiative_votes:
+        create:
+          error: Przy podpisywaniu inicjatywy pojawił się problem.
+          invalid: Dane podane przy podpisywaniu inicjatywy są nieprawidłowe
+          success_html: Gratulacje! Składanie podpisu pod inicjatywą <strong>%{title}</strong> powiodło się
+        personal_data:
+          invalid: Dane osobowe nie są spójne z przekazanymi danymi autoryzacyjnymi.
+        sms_code:
+          invalid: Kod weryfikacyjny nie odpowiada naszemu kodowi. Prosimy o ponowne sprawdzenie wiadomości SMS.
+        sms_phone:
+          invalid: Numer telefonu jest nieprawidłowy lub oczekuje na autoryzację. Prosimy o sprawdzenie autoryzacji.
+      initiatives:
+        author:
+          deleted: Usunięto
+        filters:
+          any: Wszystkie
+          area: Obszar
+          author: Autor
+          myself: Moje inicjatywy
+          scope: Zakres
+          search: Szukaj
+          type: Typ
+        filters_small_view:
+          close_modal: Zamknij okno
+          filter: Filtr
+          filter_by: Filtruj wg
+          unfold: Rozwiń
+        index_header:
+          new_initiative: Nowa inicjatywa
+          not_authorized:
+            authorizations_page: Zobacz autoryzacje
+            close: Zamknij
+            explanation: Aby stworzyć nową inicjatywę, należy przejść proces weryfikacji.
+            title: Wymagana autoryzacja
+        initiatives:
+          closed_initiatives_warning: Obecnie nie ma otwartych inicjatyw, ale wykaz zawiera wszystkie zamknięte inicjatywy.
+          no_initiatives_warning: Żadna inicjatywa nie spełnia kryteriów wyszukiwania.
+        orders:
+          label: 'Sortuj inicjatywy według:'
+          most_commented: Największa liczba komentarzy
+          most_voted: Największa liczba podpisów
+          random: Losowe
+          recent: Najnowsze
+          recently_published: Ostatnio opublikowane
+        result:
+          answer_title:
+            accepted: Ta propozycja została zaakceptowana, ponieważ
+            created: Utworzono propozycję
+            discarded: Ta propozycja została odrzucona, ponieważ
+            published: Ta propozycja została opublikowana, ponieważ
+            rejected: Ta propozycja została odrzucona, ponieważ
+            validating: Ta propozycja jest poddawana ocenie
+          initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
+        show:
+          any_vote_method: W przypadku tej inicjatywy obywatelskiej zbierane są podpisy online i podpisy składane osobiście.
+          follow_description: Przyślij powiadomienie, jeżeli pojawią się nowe wiadomości o tej inicjatywie
+          offline_method: W przypadku tej inicjatywy obywatelskiej zbierane są tylko podpisy składane osobiście.
+        signature_identities:
+          select_identity: Wybierz identyfikator uczestnika
+        supports:
+          title: Lista podpisów
+        vote_cabin:
+          already_voted: Już podpisane
+          supports_required: "Liczba wymaganych podpisów: %{total_supports}"
+          verification_required: Przeprowadź weryfikację konta, aby podpisać inicjatywę
+          vote: Podpisz
+          votes_blocked: Aktywowano podpisywanie
+        votes_count:
+          most_popular_initiative: Najpopularniejsza inicjatywa
+          need_more_votes: Potrzeba więcej podpisów
+      initiatives_mailer:
+        creation_subject: Utworzono inicjatywę „%{title}”
+        initiative_link:
+          check_initiative_details: Zobacz szczegółowe informacje na temat inicjatywy
+          here: tutaj
+        more_information: Tutaj znajdziesz więcej informacji na temat procesu tworzenia inicjatywy.
+        progress_report_body_for: Inicjatywa %{title} uzyskała %{percentage}% wymaganych podpisów.
+        progress_report_for: 'Podsumowanie inicjatywy: %{title}'
+        promotal_committee_help: Pamiętaj, że musisz zaprosić do komisji promującej co najmniej %{member_count} osób. Prześlij dalej podany link, aby zaprosić inne osoby do komisji promującej
+        status_change_body_for: 'Status inicjatywy %{title} zmienił się na: %{state}'
+        status_change_for: Status inicjatywy %{title} uległ zmianie
+      last_activity:
+        new_initiative: Nowa inicjatywa
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktywne inicjatywy
+            see_all_initiatives: Zobacz wszystkie inicjatywy
+      show:
+        badge_name:
+          accepted: Dostateczna liczba podpisów
+          created: Utworzone
+          discarded: Odrzucone
+          published: Opublikowane
+          rejected: Niewystarczająca liczba podpisów
+          validating: Walidacja techniczna
+      states:
+        accepted: Przyjęte
+        expired: Wygasłe
+      unavailable_scope: Niedostępny zakres
+      versions:
+        shared:
+          back_to_resource: Powrót do inicjatywy
+    menu:
+      initiatives: Inicjatywy
+    resources:
+      initiatives_type:
+        actions:
+          title: Działania
+          vote: Podpisz
+  layouts:
+    decidim:
+      admin:
+        initiative:
+          attachments: Załączniki
+          committee_members: Członkowie komisji
+          components: Komponenty
+          information: Informacje
+      initiative_creation_header:
+        back: Powrót
+        fill_data: Utwórz
+        finish: Zakończ
+        previous_form: Rozpocznij
+        promotal_committee: Komisja promująca
+        select_initiative_type: Wybierz
+        show_similar_initiatives: Porównaj
+        step: Krok %{current} z %{total}
+        title: Utwórz nową inicjatywę
+      initiative_header:
+        initiative_menu_item: Inicjatywa
+      initiative_signature_creation_header:
+        back: Powrót
+        fill_personal_data: Uzupełnij swoje dane
+        finish: Zakończ
+        finished: Utworzono podpis inicjatywy
+        see_steps: zobacz kroki
+        select_identity: Wybierz tożsamość
+        sms_code: Kod weryfikacyjny SMS
+        sms_phone_number: Numer telefonu komórkowego
+        step: Krok %{current} z %{total}
+        title: Podpisz %{initiative_title}
+      initiatives:
+        initiative:
+          check: Zapoznaj się
+          check_and_support: Zapoznaj się i podpisz
+        no_initiatives_yet:
+          no_initiatives_yet: Nie ma jeszcze żadnych inicjatyw!
