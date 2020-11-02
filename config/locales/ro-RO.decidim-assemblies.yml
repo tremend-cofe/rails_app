@@ -1,30 +1,450 @@
 ro:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Zonă
+        assembly_type: Tipul de adunare
+        assembly_type_other: Alt tip de adunare
+        banner_image: Imagine banner
+        closing_date: Data-limită
+        closing_date_reason: Motivul datei-limită
+        composition: Componența
+        copy_categories: Copiere categorii
+        copy_components: Copiere componente
+        copy_features: Copiere caracteristici
+        created_by: Creat de
+        created_by_other: Creat de altcineva
+        creation_date: Data creării
+        decidim_area_id: Zonă
+        decidim_assemblies_type_id: Tipul de adunare
+        decidim_scope_id: Domeniu de aplicare
+        description: Descriere
+        developer_group: Grup de promotori
+        domain: Domeniu
+        duration: Durată
+        hero_image: Imaginea de pornire
+        included_at: Inclus la
+        internal_organisation: Organizare internă
+        is_transparent: Este transparent
+        local_area: Zona organizației
+        meta_scope: Metadate privind domeniul
+        parent_id: Adunarea-părinte
+        participatory_processes_ids: Procese participative înrudite
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Spațiu privat
+        promoted: Evidențiat
+        published_at: Publicat la
+        purpose_of_action: Scopul acțiunii
+        scope_id: Domeniu de aplicare
+        scopes_enabled: Domenii activate
+        short_description: Scurtă descriere
+        show_statistics: Afișarea statisticilor
+        slug: Slug URL
+        special_features: Caracteristici particulare
+        subtitle: Subtitlu
+        target: Cine participă
+        title: Titlu
+      assembly_member:
+        birthday: Data nașterii
+        birthplace: Locul nașterii
+        ceased_date: Dată încetării
+        designation_date: Data desemnării
+        designation_mode: Modul de desemnare
+        full_name: Nume complet
+        gender: Sex
+        position: Funcție
+      assembly_user_role:
+        email: E-mail
+        name: Nume
+        role: Rol
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Tip de document nevalid Formatele acceptate sunt: %{valid_mime_types}'
   decidim:
     admin:
-      assembly_user_roles:
+      actions:
+        import_assembly: Importare
+        new_assembly: Adunare nouă
+        new_assembly_type: Tip nou de adunare
+      assemblies:
+        create:
+          error: S-a întâmpinat o problemă la crearea unei noi adunări.
+          success: Adunarea a fost creată.
+        edit:
+          update: Actualizare
+        index:
+          not_published: Nepublicat
+          private: Privat
+          published: Publicat
         new:
+          create: Creare
+          title: Adunare nouă
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei adunări.
+          success: Adunarea a fost actualizată.
+      assemblies_copies:
+        create:
+          error: S-a întâmpinat o problemă la duplicarea acestei adunări.
+          success: Adunarea a fost duplicată.
+      assemblies_settings:
+        update:
+          error: S-a întâmpinat o problemă la actualizarea setărilor.
+          success: Setările au fost actualizate.
+      assemblies_types:
+        create:
+          error: S-a întâmpinat o problemă la crearea unui nou tip de adunare.
+          success: Tipul de adunare a fost creat.
+        destroy:
+          success: Tipul de adunare a fost șters.
+        new:
+          create: Creare
+          title: Tip nou de adunare
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui tip de adunare.
+          success: Tipul de adunare a fost actualizat.
+      assembly_copies:
+        new:
+          copy: Copiere
+          select: Selectați datele pe care doriți să le duplicați
+          title: Duplicarea adunării
+      assembly_imports:
+        create:
+          error: S-a întâmpinat o problemă la importarea acestei adunări.
+          success: Adunarea a fost importată.
+        new:
+          import: Importare
+          select: Selectați datele pe care doriți să le importați
+          title: Importarea adunării
+      assembly_members:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui membru pentru această adunare.
+          success: Membrul a fost creat pentru această adunare.
+        destroy:
+          success: Membrul a fost șters pentru această adunare.
+        edit:
+          title: Actualizarea membrului adunării.
+          update: Actualizare
+        index:
+          assembly_members_title: Membri ai adunării
+        new:
+          create: Creare
+          title: Nou membru al adunării.
+        update:
+          error: S-a întâmpinat o problemă la actualizarea membrului acestei adunări.
+          success: Membrul a fost actualizat pentru această adunare.
+      assembly_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea acestei adunări.
+          success: Adunarea a fost publicată.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestei adunări.
+          success: Adunarea a fost retrasă de la publicare.
+      assembly_user_roles:
+        create:
+          error: S-a întâmpinat o problemă la adăugarea unui admin pentru această adunare.
+          success: Administratorul a fost adăugat la această adunare.
+        destroy:
+          success: Administratorul a fost eliminat din această adunare.
+        edit:
+          title: Actualizarea administratorului adunării.
+          update: Actualizare
+        index:
+          assembly_admins_title: Administratorii adunării
+        new:
+          create: Creare
           title: Administrator nou al adunării
+        update:
+          error: S-a întâmpinat o problemă la actualizarea unui admin pentru această adunare.
+          success: Administratorul a fost actualizat pentru această adunare.
+      menu:
+        assemblies: Adunări
+        assemblies_settings: Setări
+        assemblies_submenu:
+          assembly_admins: Administratorii adunării
+          assembly_members: Membri
+          attachment_collections: Dosare
+          attachment_files: Fișiere
+          attachments: Atașamente
+          categories: Categorii
+          components: Componente
+          info: Informații
+          moderations: Moderări
+          private_users: Utilizatori privați
+        assemblies_types: Tipuri de adunări
       models:
+        assemblies_types:
+          fields:
+            created_at: Creat la
+            title: Titlu
+        assembly:
+          fields:
+            created_at: Creat la
+            private: Privat
+            promoted: Evidențiat
+            published: Publicat
+            title: Titlu
+          name: Adunare
+        assembly_member:
+          fields:
+            ceased_date: Dată încetării
+            designation_date: Data desemnării
+            full_name: Nume
+            position: Funcție
+          name: Membru
+          positions:
+            other: Altele
+            president: Președinte
+            secretary: Secretar
+            vice_president: Vicepreședinte/Vicepreședintă
         assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nume
+            role: Rol
+          name: Administratorii adunării
           roles:
+            collaborator: Colaborator
             moderator: Moderator
+            valuator: Evaluator
+      titles:
+        assemblies: Adunări
+        assemblies_types: Tipuri de adunări
     admin_log:
+      assembly:
+        create: "%{user_name} a creat adunarea %{resource_name}"
+        publish: "%{user_name} a publicat adunarea %{resource_name}"
+        unpublish: "%{user_name} a retras de la publicare adunarea %{resource_name}"
+        update: "%{user_name} a actualizat adunarea %{resource_name}"
+      assembly_member:
+        create: "%{user_name} a creat membrul %{resource_name} în adunarea %{space_name}"
+        delete: "%{user_name} a eliminat membrul %{resource_name} din adunarea %{space_name}"
+        update: "%{user_name} actualizat membrul %{resource_name} din adunarea %{space_name}"
+      assembly_setting:
+        update: "%{user_name} a actualizat setările pentru adunări"
+      assembly_type:
+        create: "%{user_name} a creat tipul de adunare %{resource_name}"
+        delete: "%{user_name} a eliminat membrul %{resource_name} din tipul de adunare %{space_name}"
+        publish: "%{user_name} a publicat tipul de adunare %{resource_name}"
+        unpublish: "%{user_name} a retras de la publicare tipul de adunare %{resource_name}"
+        update: "%{user_name} a actualizat tipul de adunare %{resource_name}"
       assembly_user_role:
+        create: "%{user_name} a invitat %{resource_name} la adunarea %{space_name}"
         delete: "%{user_name} a eliminat participantul %{resource_name} din adunare %{space_name}"
+        update: "%{user_name} a modificat rolul %{resource_name} în adunarea %{space_name}"
     assemblies:
       admin:
+        assemblies:
+          form:
+            duration: Durată
+            duration_help: În cazul în care durata acestei adunări este limitată, se alege data de sfârșit. În caz contrar, aceasta va fi nedeterminată.
+            filters: Filtre
+            images: Imagini
+            included_at_help: Selectați data la care această adunare a fost adăugată la Decidim. Aceasta nu trebuie să coincidă în mod necesar cu data creării.
+            metadata: Metadate
+            other: Altele
+            select_a_created_by: Selectați după persoana care a creat
+            select_an_area: Selectați o zonă
+            select_an_assembly_type: Selectați un tip de adunare
+            select_parent_assembly: Selectați adunarea-părinte
+            slug_help: 'Se utilizează slug-uri URL care direcționează către această adunare. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            social_handlers: Platforme de socializare
+            title: Informații generale
+            visbility: Vizibilitate
+        assemblies_settings:
+          edit:
+            update: Actualizare
+          form:
+            title: Setări pentru adunări
+        assemblies_types:
+          form:
+            title: Titlu
+        assembly_copies:
+          form:
+            slug_help: 'Se utilizează slug-uri URL care direcționează către această adunare. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Adăugați un document
+            slug_help: 'Se utilizează slug-uri URL care direcționează către această adunare. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         assembly_members:
+          form:
+            existing_user: Participant existent
+            non_user: Neparticipant
+            select_a_position: Selectați o funcție
+            select_user: Selectați un participant
+            user_type: Tipul de participant
           index:
             filter:
+              all: Toate
+              ceased: Sistat
               not_ceased: Nesistat
+            filter_by: Filtrare după
+            search: Căutare
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Număr maxim de elemente care vor fi afișate
+      assembly_members:
+        index:
+          members: Membri
       assembly_types:
+        commission: Comisia
         consultative_advisory: Consultativ(ă)
         executive: Executiv(ă)
+        government: Administrație publică
+        others: Altele
+        participatory: Participativ
+        working_group: Grup de lucru
+      content_blocks:
+        highlighted_assemblies:
+          name: Adunări evidențiate
+      created_by:
+        city_council: Consiliu municipal
+        others: Altele
       filter:
+        all: Toate tipurile
+        commission: Comisia
         consultative_advisory: Consultativ(ă)
         executive: Executiv(ă)
+        government: Administrație publică
         help: 'Afișare'
+        others: Altele
+        participatory: Participativ
+        working_group: Grup de lucru
+      index:
+        title: Adunări
+      last_activity:
+        new_assembly: Adunare nouă
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Adunări active
+            assemblies_button_title: Link către pagina Adunări care afișează toate adunările
+            see_all_assemblies: Toate adunările
+        user_profile:
+          member_of:
+            member_of: Membru al
+      show:
+        area: Zonă
+        assembly_type: Tipul de adunare
+        children: Adunări
+        closing_date: Data-limită
+        composition: Componența
+        created_by: Creat de
+        creation_date: Data creării
+        developer_group: Grup de promotori
+        duration: Durată
+        included_at: Inclus la
+        indefinite_duration: Nedeterminată
+        internal_organisation: Organizare internă
+        is_transparent:
+          'false': opac
+        local_area: Zona organizației
+        participatory_scope: Ce se decide
+        participatory_structure: Cum se decide
+        private_space: Aceasta este o adunare privată
+        purpose_of_action: Scopul acțiunii
+        read_less: Citiți mai puțin
+        read_more: Informații suplimentare
+        related_participatory_processes: Procese participative înrudite
+        scope: Domeniu de aplicare
+        social_networks: Rețele de socializare
+        social_networks_title: Partajați această adunare pe
+        target: Cine participă
+      statistics:
+        answers_count: Răspunsuri
+        assemblies_count: Adunări
+        comments_count: Comentarii
+        debates_count: Dezbateri
+        endorsements_count: Avizări
+        headline: Activitate
+        meetings_count: Reuniuni
+        orders_count: Suporturi
+        pages_count: Pagini
+        posts_count: Postări
+        projects_count: Proiecte
+        proposals_count: Propuneri
+        results_count: Rezultate
+        surveys_count: Sondaje
+        users_count: Participanți
+        votes_count: Suporturi
+    assembly_members:
+      assembly_member:
+        designated_on: Desemnat la
+      index:
+        title: Membri
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link către pagina Conferințe care afișează toate conferințele
     events:
       assemblies:
         create_assembly_member:
+          email_intro: Un administrator al adunării <a href="%{resource_url}">%{resource_name}</a> v-a adăugat ca unul dintre membrii săi.
+          email_outro: Ați primit această notificare deoarece ați fost invitat la o adunare. Accesați <a href="%{resource_path}">pagina adunării</a> pentru a contribui!
           email_subject: Ați fost invitat (ă) să fiți membru al adunării %{resource_name}!
+          notification_title: Ați fost înregistrat ca membru al Adunării <a href="%{resource_path}">%{resource_name}</a> Accesați <a href="%{resource_path}">pagina adunării</a> pentru a contribui!
+      assembly:
+        role_assigned:
+          email_intro: Ați fost numit %{role} pentru adunarea "%{resource_title}".
+          email_outro: Ați primit această notificare deoarece sunteți %{role} al adunării "%{resource_title}".
+          email_subject: Ați fost numit %{role} pentru "%{resource_title}".
+          notification_title: Ați fost numit %{role} pentru adunarea <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se reunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de activitate al organizației. </p> <p> Adunările organizează reuniuni, unele sunt private și unele sunt deschise. Dacă sunt deschise, participarea la acestea este posibilă (de exemplu: în cazul în care capacitatea permite acest lucru, adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: O adunare generală (care se reunește o dată pe an pentru a defini principalele linii de acțiune ale organizației, precum și organele sale executive prin vot), un consiliu consultativ pentru egalitate (care se reunește o dată la două luni pentru a face propuneri cu privire la modul de îmbunătățire a relațiilor de gen în cadrul organizației), o comisie de evaluare (care se reunește în fiecare lună pentru a monitoriza un proces) sau un organism de garantare (care colectează incidente, abuzuri sau propuneri de îmbunătățire a procedurilor decizionale) sunt exemple de adunări.</p>\n"
+          page: "<p>O <strong>adunare</strong> este un grup de membri ai unei organizații care se reunesc periodic pentru a lua decizii cu privire la o anumită zonă sau domeniu de activitate al organizației. </p> <p> Adunările organizează reuniuni, unele sunt private și unele sunt deschise. Dacă sunt deschise, participarea la acestea este posibilă (de exemplu: în cazul în care capacitatea permite acest lucru, adăugarea de puncte pe ordinea de zi sau formularea de observații cu privire la propunerile și deciziile luate de acest organ).</p> <p>Exemple: O adunare generală (care se reunește o dată pe an pentru a defini principalele linii de acțiune ale organizației, precum și organele sale executive prin vot), un consiliu consultativ pentru egalitate (care se reunește o dată la două luni pentru a face propuneri cu privire la modul de îmbunătățire a relațiilor de gen în cadrul organizației), o comisie de evaluare (care se reunește în fiecare lună pentru a monitoriza un proces) sau un organism de garantare (care colectează incidente, abuzuri sau propuneri de îmbunătățire a procedurilor decizionale) sunt exemple de adunări.</p>\n"
+          title: Ce sunt adunările?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Adunarea nu a fost găsită în baza de date (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Tipul de adunare nu a fost găsit în baza de date (ID: %{id})'
+    menu:
+      assemblies: Adunări
+    metrics:
+      assemblies:
+        description: Numărul de adunări create
+        object: adunări
+        title: Adunări
+    pages:
+      home:
+        hero:
+          participate_title: Participați la procesele platformei
+        sub_hero:
+          register_title: Înscrieți-vă pentru a crea un cont pe platformă
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link către pagina Procese care afișează toate procesele
+      show:
+        related_assemblies: Adunări înrudite
+  errors:
+    messages:
+      cannot_be_blank: nu poate fi gol
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Informații suplimentare
+          take_part: Participați
+        index:
+          children: 'Adunări: '
+          organizational_chart: Organigramă
+          promoted_assemblies: Adunări evidențiate
+          reset_chart: Resetare
+        promoted_assembly:
+          more_info: Informații suplimentare
+          take_part: Participați
+      assembly_navigation:
+        assembly_member_menu_item: Membri
+        assembly_menu_item: Adunarea
+      assembly_widgets:
+        show:
+          take_part: Participați
