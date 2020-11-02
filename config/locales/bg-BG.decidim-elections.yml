@@ -1,0 +1,253 @@
+bg:
+  activemodel:
+    attributes:
+      answer:
+        description: Описание
+        image: Изображение
+        proposals: Свързани предложения
+        title: Заглавие
+      election:
+        description: Описание
+        end_time: Край на гласуването на
+        start_time: Начало на гласуването на
+        title: Заглавие
+      question:
+        description: Описание
+        max_selections: Максимален брой избрани елементи
+        title: Заглавие
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Нужно е повторно прикачване
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Нужно е повторно прикачване
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Отговор
+        other: Отговори
+      decidim/elections/election:
+        one: Избор
+        other: Избори
+      decidim/elections/question:
+        one: Въпрос
+        other: Въпроси
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Гласуване
+        name: Избори
+        settings:
+          global:
+            announcement: Съобщение
+          step:
+            announcement: Съобщение
+    elections:
+      actions:
+        confirm_destroy: Сигурни ли сте?
+        destroy: Премахване
+        edit: Редактиране
+        edit_answers: Редактиране на отговорите
+        edit_questions: Редактиране на въпросите
+        import: Импортиране на предложения в отговори
+        new: Ново %{name}
+        preview: Визуализация
+        publish: Публикуване
+        title: Действия
+        unpublish: Премахване на публикацията
+      admin:
+        answers:
+          create:
+            invalid: Възникна проблем при създаването на този отговор
+            success: Отговорът беше създаден успешно
+          destroy:
+            invalid: Възникна проблем при изтриването на този отговор
+            success: Отговорът беше изтрит успешно
+          edit:
+            title: Редактиране на отговора
+            update: Актуализиране на отговора
+          index:
+            title: Отговори
+          new:
+            create: Създаване на отговор
+            title: Нов отговор
+          update:
+            invalid: Възникна проблем при актуализирането на този отговор
+            success: Отговорът беше актуализиран успешно
+        elections:
+          create:
+            invalid: Възникна проблем при създаването на тези избори
+            success: Изборите бяха създадени успешно
+          destroy:
+            invalid: Възникна проблем при изтриването на тези избори
+            success: Изборите бяха изтрити успешно
+          edit:
+            title: Редактиране на изборите
+            update: Актуализиране на изборите
+          index:
+            title: Избори
+          new:
+            create: Създаване на избори
+            title: Нови избори
+          publish:
+            success: Изборите бяха публикувани успешно.
+          unpublish:
+            success: Публикацията на изборите беше премахната успешно.
+          update:
+            invalid: Възникна проблем при актуализирането на тези избори
+            success: Изборите бяха актуализирани успешно
+        models:
+          answer:
+            name: Отговор
+          election:
+            name: Избор
+          question:
+            name: Въпрос
+        proposals_imports:
+          create:
+            invalid: Възникна проблем при импортирането на предложенията в отговорите
+            success: "%{number} предложения бяха импортирани успешно в отговорите"
+          new:
+            create: Импортиране на предложения в отговори
+            no_components: Няма други компоненти на предложения в това пространство за участие за импортиране на предложенията в отговори.
+            select_component: Моля, изберете компонент
+        questions:
+          create:
+            invalid: Възникна проблем при създаването на този въпрос
+            success: Въпросът беше създаден успешно
+          destroy:
+            invalid: Възникна проблем при изтриването на този въпрос
+            success: Въпросът беше изтрит успешно
+          edit:
+            title: Редактиране на въпроса
+            update: Актуализиране на въпроса
+          index:
+            title: Въпроси
+          new:
+            create: Създаване на въпрос
+            title: Нов въпрос
+          update:
+            invalid: Възникна проблем при актуализирането на този въпрос
+            success: Въпросът беше актуализиран успешно
+      admin_log:
+        election:
+          publish: "%{user_name} публикува изборите %{resource_name}"
+          unpublish: "%{user_name} премахна публикацията на изборите %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Завършени
+          ongoing: Активни
+          upcoming: Предстоящи
+        end_date: Край
+        footer:
+          view: Преглед
+          vote: Гласуване
+        label:
+          date: Дати
+        questions: Въпроси %{count}
+        start_date: Начало
+        unspecified: Не е посочено
+      elections:
+        count:
+          elections_count:
+            one: "%{count} избори"
+            other: "%{count} избори"
+        filters:
+          active: Активни
+          all: Всички
+          finished: Завършени
+          search: Търсене
+          state: Състояние
+          upcoming: Предстоящи
+        filters_small_view:
+          close_modal: Затваряне на модалния диалогов прозорец
+          filter: Филтър
+          filter_by: Филтриране по
+          unfold: Разгъване
+        show:
+          back: Всички избори
+          preview: Визуализация
+          vote: Гласуване
+          voting_period_status:
+            finished: Гласуването започна на %{start_time} и приключи на %{end_time}
+            ongoing: Гласуването приключва на %{end_time}
+            upcoming: Гласуването започва на %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Предложения
+            title: Заглавие
+        election:
+          fields:
+            end_time: 'Край:'
+            start_time: 'Начало:'
+            title: Заглавие
+        question:
+          fields:
+            answers: Отговори
+            max_selections: Макс. избрани елементи
+            title: Заглавие
+      orders:
+        label: Подреждане на изборите по
+        older: По-стари
+        recent: Скорошни
+      votes:
+        confirm:
+          answer: Отговор
+          answer_number: отговор %{number}
+          confirm: Потвърждаване
+          edit: редактиране
+          header: Потвърдете гласа си
+          intro: Тук ще намерите обобщение на гласа, който сте напът да подадете. <br> Моля, потвърдете гласа си или редактирайте отговорите си.
+          question: Въпрос %{count}
+        confirmed:
+          back: Назад към изборите
+          experience: С какви впечатления останахте?
+          feedback: Споделете мнението си с нас
+          header: Гласът е потвърден
+          lead: Вече сте гласували!
+          text: 'Можете да проверите дали гласът Ви е добавен успешно в урната със следния идентификатор: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: За да извършите проверка, копирайте идентификатора и го поставете на <a href="evote-verify">страницата за потвърждаване на гласа</a>
+        encrypting:
+          header: Гласът се кодира…
+          text: Гласът Ви беше кодиран, за да се гарантира, че можете да гласувате анонимно.
+        header:
+          confirm: Потвърдете гласа си
+          confirmed: Гласът е потвърден
+          encrypting: Гласът се потвърждава
+        messages:
+          not_allowed: Не можете да гласувате на тези избори в настоящия момент.
+        modal:
+          close: Затваряне
+          proposal_header: 'Предложения:'
+        new:
+          answer_choices: Можете да избере до %{choices} отговора или нито един
+          more_information: Повече информация
+          preview_alert: Това е визуализация на кабината за гласуване.
+          question_steps: Въпрос %{current_step} от %{total_steps}
+          selections: "%{selected} от %{max_selections}<br> елемента с възможност за избор"
+        voting_step:
+          back: Назад
+          continue: Напред
+      warnings:
+        no_elections_warning: На критериите Ви за търсене не съответстват избори или няма насрочени избори.
+        no_scheduled_elections_warning: Понастоящем няма насрочени избори, но тук можете да намерите изброени всички минали избори.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Изборите %{resource_title} вече са активни за %{participatory_space_title}. Можете да ги видите на следната страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Можете да престанете да получавате известия, като щракнете на предходната връзка.
+          email_subject: Изборите %{resource_title} вече са активни за %{participatory_space_title}.
+          notification_title: Изборите <a href="%{resource_path}">%{resource_title}</a> вече са активни за %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Избори
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Изход
