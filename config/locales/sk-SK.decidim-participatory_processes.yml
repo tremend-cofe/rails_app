@@ -1,1 +1,409 @@
 sk:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Oznámenie
+        area_id: Oblasť
+        banner_image: Obrázok banera
+        copy_categories: Kopírovať kategórie
+        copy_components: Kopírovať komponenty
+        copy_steps: Kopírovať kroky
+        decidim_area_id: Oblasť
+        description: Opis
+        developer_group: Skupina predkladateľov
+        domain: Oblasť
+        end_date: Dátum ukončenia
+        hero_image: Obrázok domovskej stránky
+        local_area: Oblasť organizácie
+        meta_scope: Metaúdaje o rozsahu pôsobnosti
+        participatory_process_group_id: Skupina procesov
+        participatory_scope: Čo sa rozhodlo
+        participatory_structure: Ako sa prijalo rozhodnutie
+        promoted: Podporené
+        published_at: 'Zverejnené:'
+        related_process_ids: Súvisiace procesy
+        scope_id: Rozsah pôsobnosti
+        scope_type_max_depth_id: Hĺbka filtra rozsahu pôsobnosti
+        scopes_enabled: Povolené rozsahy pôsobnosti
+        short_description: Stručný opis
+        show_metrics: Zobraziť metriky
+        show_statistics: Zobraziť štatistiky
+        slug: Prvok slug adresy URL
+        start_date: Dátum začatia
+        subtitle: Podnadpis
+        target: Kto sa zúčastňuje
+        title: Nadpis
+      participatory_process_group:
+        description: Opis
+        hero_image: Obrázok
+        name: Názov
+        participatory_process_ids: Súvisiace procesy
+      participatory_process_step:
+        cta_path: Cesta k tlačidlu Výzva na akciu
+        cta_text: Text výzvy na akciu
+        description: Opis
+        end_date: Dátum ukončenia
+        short_description: Stručný opis
+        start_date: Dátum začatia
+        title: Nadpis
+      participatory_process_user_role:
+        email: E-mail
+        name: Meno
+        role: Rola
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Neplatný typ dokumentu. Akceptované formáty sú: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Fáza aktivovaná
+      decidim/participatory_process_step_changed_event: Fáza zmenená
+  decidim:
+    admin:
+      actions:
+        activate: Aktivovať
+        configure: Konfigurovať
+        confirm_destroy: Potvrdiť odstránenie
+        destroy: Odstrániť
+        duplicate: Vytvoriť kópiu
+        edit: Upraviť
+        filter:
+          all_processes: Zobraziť všetky procesy
+          process_groups: Skupiny procesov
+        import_process: Importovať
+        new_process: Nový proces
+        new_process_group: Nová skupina procesov
+        new_process_step: Nová fáza
+        new_process_user_role: Nový správca procesu
+        preview: Ukážka
+        publish: Zverejniť
+        resend_invitation: Znova odoslať pozvanie
+        unpublish: Zrušiť zverejnenie
+      menu:
+        participatory_process_groups: Skupiny procesov
+        participatory_processes_submenu:
+          attachment_collections: Priečinky
+          attachment_files: Súbory
+          attachments: Prílohy
+          categories: Kategórie
+          components: Komponenty
+          info: Informácie
+          moderations: Moderovanie
+          private_users: Súkromní účastníci
+          process_admins: Správcovia procesov
+          steps: Fázy
+      models:
+        participatory_process:
+          fields:
+            created_at: 'Vytvorené:'
+            private: Súkromné
+            promoted: Zvýraznené
+            published: Zverejnené
+            title: Nadpis
+          name: Participatívny proces
+        participatory_process_group:
+          fields:
+            name: Názov
+          name: Skupina procesov
+        participatory_process_step:
+          fields:
+            end_date: Dátum ukončenia
+            start_date: Dátum začatia
+            title: Nadpis
+          name: Fáza participatívneho procesu
+        participatory_process_user_role:
+          fields:
+            email: E-mail
+            name: Meno
+            role: Rola
+          name: Správca participatívneho procesu
+          roles:
+            admin: Správca
+            collaborator: Spolupracovník
+            moderator: Moderátor
+            valuator: Hodnotiteľ
+        user:
+          fields:
+            invitation_accepted_at: 'Pozvánka prijatá:'
+            invitation_sent_at: 'Pozvánka odoslaná::'
+      participatory_process_copies:
+        new:
+          copy: Kopírovať
+          select: Vyberte, ktoré údaje chcete skopírovať
+          title: Vytvoriť kópiu participatívneho procesu
+      participatory_process_groups:
+        destroy:
+          error: Pri odstraňovaní skupiny participatívneho procesu sa vyskytla chyba.
+          success: Skupina participatívneho procesu bola úspešne odstránená.
+        edit:
+          title: Upraviť skupinu procesov
+          update: Aktualizovať
+        new:
+          create: Vytvoriť
+          title: Nová skupina procesov
+        update:
+          error: Pri aktualizácii tejto skupiny participatívneho procesu sa vyskytol problém.
+          success: Skupina participatívneho procesu bola úspešne aktualizovaná.
+      participatory_process_imports:
+        create:
+          error: Pri importovaní participatívneho procesu sa vyskytol problém.
+          success: Participatívny proces bol úspešne importovaný.
+        new:
+          import: Importovať
+          select: Vyberte, ktoré údaje chcete importovať
+          title: Importovať participatívny proces
+      participatory_process_publications:
+        create:
+          error: Pri zverejňovaní participatívneho procesu sa vyskytol problém.
+          success: Participatívny proces bol úspešne zverejnený.
+        destroy:
+          error: Pri rušení zverejnenia participatívneho procesu sa vyskytol problém.
+          success: Zverejnenie participatívneho procesu bolo úspešne zrušené.
+      participatory_process_step_activations:
+        create:
+          error: Pri aktivácii tejto fázy participatívneho procesu sa vyskytol problém.
+          success: Fáza participatívneho procesu bola úspešne aktivovaná.
+      participatory_process_steps:
+        create:
+          error: Pri vytváraní novej fázy participatívneho procesu sa vyskytol problém.
+          success: Fáza participatívneho procesu bola úspešne vytvorená.
+        default_title: Úvod
+        destroy:
+          error:
+            active_step: Aktívnu fázu nemožno odstrániť.
+            last_step: Poslednú fázu procesu nemožno odstrániť.
+          success: Fáza participatívneho procesu bola úspešne odstránená.
+        edit:
+          title: Upraviť fázu participatívneho procesu
+          update: Aktualizovať
+        index:
+          steps_title: Fázy
+        new:
+          create: Vytvoriť
+          title: Nová fáza participatívneho procesu
+        ordering:
+          error: Pri zmene poradia týchto fáz participatívneho procesu sa vyskytol problém.
+        update:
+          error: Pri aktualizácii tejto fázy participatívneho procesu sa vyskytol problém.
+          success: Fáza participatívneho procesu bola úspešne aktualizovaná.
+      participatory_process_user_roles:
+        create:
+          error: Pri pridávaní účastníka k tomuto participatívnemu procesu sa vyskytol problém.
+          success: Správca bol úspešne pridaný k tomuto participatívnemu procesu.
+        destroy:
+          success: Správca bol úspešne odstránený z tohto participatívneho procesu.
+        edit:
+          title: Aktualizovať správcu participatívneho procesu
+          update: Aktualizovať
+        index:
+          process_admins_title: Správcovia participatívneho procesu
+        new:
+          create: Vytvoriť
+          title: Nový správca participatívneho procesu
+        update:
+          error: Pri aktualizácii správcu pre tento participatívny proces sa vyskytol problém.
+          success: Správca pre tento participatívny proces bol úspešne aktualizovaný.
+      participatory_processes:
+        create:
+          error: Pri vytváraní nového participatívneho procesu sa vyskytol problém.
+          success: Participatívny proces bol úspešne vytvorený. Teraz nakonfigurujte jeho fázy.
+        edit:
+          update: Aktualizovať
+        index:
+          not_published: Nezverejnené
+          private: Súkromné
+          public: Verejné
+          published: Zverejnené
+        new:
+          create: Vytvoriť
+          title: Nový participatívny proces
+        update:
+          error: Pri aktualizácii participatívneho procesu sa vyskytol problém.
+          success: Participatívny proces bol úspešne aktualizovaný.
+      participatory_processes_copies:
+        create:
+          error: Pri vytváraní kópie tohto participatívneho procesu sa vyskytol problém.
+          success: Kópia participatívneho procesu bola úspešne vytvorená.
+      participatory_processes_group:
+        create:
+          error: Pri vytváraní novej skupiny participatívneho procesu sa vyskytol problém.
+          success: Skupina participatívneho procesu bola úspešne vytvorená.
+      titles:
+        participatory_process_groups: Skupiny participatívneho procesu
+      users:
+        resend_invitation:
+          error: Pri opätovnom odosielaní pozvánky sa vyskytol problém.
+          success: Pozvánka bola úspešne opätovne odoslaná.
+    admin_log:
+      participatory_process:
+        create: "Používateľ %{user_name} vytvoril participatívny proces %{resource_name}"
+        publish: "Používateľ %{user_name} zverejnil participatívny proces %{resource_name}"
+        unpublish: "Používateľ %{user_name} zrušil zverejnenie participatívneho procesu %{resource_name}"
+        update: "Používateľ %{user_name} aktualizoval participatívny proces %{resource_name}"
+      participatory_process_group:
+        create: "Používateľ %{user_name} vytvoril skupinu participatívneho procesu %{resource_name}"
+        update: "Používateľ %{user_name} aktualizoval skupinu participatívneho procesu %{resource_name}"
+      participatory_process_step:
+        activate: "Používateľ %{user_name} aktivoval fázu %{resource_name} v participatívnom procese %{space_name}"
+        create: "Používateľ %{user_name} vytvoril fázu %{resource_name} v participatívnom procese %{space_name}"
+        delete: "Používateľ %{user_name} odstránil fázu %{resource_name} v participatívnom procese %{space_name}"
+        update: "Používateľ %{user_name} aktualizoval fázu %{resource_name} v participatívnom procese %{space_name}"
+      participatory_process_user_role:
+        create: "Používateľ %{user_name} pozval účastníka %{resource_name} do participatívneho procesu %{space_name}"
+        delete: "Používateľ %{user_name} odstránil účastníka %{resource_name} z participatívneho procesu %{space_name}"
+        update: "Používateľ %{user_name} zmenil rolu účastníka %{resource_name} v participatívnom procese %{space_name}"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Priradila sa vám rola %{role} pre participatívny proces %{resource_title}“
+          email_outro: Toto oznámenie ste dostali, pretože máte rolu %{role} v participatívnom procese %{resource_title}.
+          email_subject: Bola vám priradená rola %{role} v participatívnom procese %{resource_title}.
+          notification_title: Bola vám priradená rola %{role} v participatívnom procese <a href="%{resource_url}">%{resource_title}</a>.
+        step_activated:
+          email_intro: 'Fáza %{resource_title} je teraz aktívna pre participatívny priestor %{participatory_space_title}. Pozrite sa na túto stránku:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Aktualizácia participatívneho priestoru %{participatory_space_title}
+          notification_title: Fáza %{resource_title} je teraz aktívna pre participatívny priestor <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Dátumy týkajúce sa fázy %{resource_title} v participatívnom priestore %{participatory_space_title} boli aktualizované. Pozrite sa na túto stránku:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Aktualizácia participatívneho priestoru %{participatory_space_title}
+          notification_title: Dátumy týkajúce sa fázy <a href="%{resource_path}">%{resource_title}</a> v participatívnom priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a> boli aktualizované.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p><strong>Participatívny proces</strong> je postupnosť participatívnych aktivít (napr. vyplnenie prieskumu, za ktorým nasleduje predloženie návrhov, ich prediskutovanie na osobných alebo virtuálnych stretnutiach a nakoniec určenie priority návrhov) s cieľom vymedziť a prijať rozhodnutie o určitej téme.</p> <p>Príklady participatívneho procesu sú: proces voľby členov výboru (v rámci ktorého sa najskôr predstavia podmienky kandidatúry, potom sú predmetom diskusie a nakoniec sa vyberie, kto bude kandidovať), participatívne rozpočty (pri ktorých sa predkladajú návrhy, potom sa posúdia z hospodárskeho hľadiska a hlasuje sa o nich so zreteľom na dostupné finančné prostriedky), proces strategického plánovania, príprava spoločného návrhu nariadenia alebo normy, návrh mestského priestoru alebo vytvorenie plánu verejnej politiky.</p>\n"
+          page: "<p><strong>Participatívny proces</strong> je postupnosť participatívnych aktivít (napr. vyplnenie prieskumu, za ktorým nasleduje predloženie návrhov, ich prediskutovanie na osobných alebo virtuálnych stretnutiach a nakoniec určenie priority návrhov) s cieľom vymedziť a prijať rozhodnutie o určitej téme.</p> <p>Príklady participatívneho procesu sú: proces voľby členov výboru (v rámci ktorého sa najskôr predstavia podmienky kandidatúry, potom sú predmetom diskusie a nakoniec sa vyberie, kto bude kandidovať), participatívne rozpočty (pri ktorých sa predkladajú návrhy, potom sa posúdia z hospodárskeho hľadiska a hlasuje sa o nich so zreteľom na dostupné finančné prostriedky), proces strategického plánovania, príprava spoločného návrhu nariadenia alebo normy, návrh mestského priestoru alebo vytvorenie plánu verejnej politiky.</p>\n"
+          title: Čo je participatívny proces?
+    metrics:
+      participatory_processes:
+        description: Počet participatívnych procesov v tejto organizácii
+        object: participatívne procesy
+        title: Participatívne procesy
+    participatory_process:
+      show:
+        related_assemblies: Súvisiace zhromaždenia
+    participatory_process_groups:
+      show:
+        title: Skupiny participatívneho procesu
+    participatory_process_steps:
+      index:
+        process_steps: Fázy procesu
+        title: Fázy participatívneho procesu
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximálny počet prvkov na zobrazenie
+        participatory_process_copies:
+          form:
+            slug_help: 'Prvky slug adresy URL slúžia na generovanie adries URL, ktoré smerujú na tento proces. Možno v nich používať len písmená, číslice a spojovníky, pričom sa musia začínať písmenom. Príklad: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Pridať dokument
+            slug_help: 'Prvky slug adresy URL slúžia na generovanie adries URL, ktoré smerujú na tento proces. Možno v nich používať len písmená, číslice a spojovníky, pričom sa musia začínať písmenom. Príklad: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Na tomto mieste používajte čiastočné cesty, nie celé adresy URL. Možno v nich používať písmená, číslice, spojovníky a lomky a musia sa začínať písmenom. Ak táto možnosť nie je nastavená, tlačidlo sa nezobrazí. Príklad: %{url}'
+            cta_text_help: Ak táto možnosť nie je nastavená, tlačidlo sa nezobrazí.
+        participatory_processes:
+          form:
+            announcement_help: Text, ktorý tu zadáte, sa používateľovi zobrazí priamo pod informáciami o procese.
+            duration: Trvanie
+            filters: Filtre
+            images: Obrázky
+            metadata: Metaúdaje
+            other: Iné
+            related_processes: Súvisiace procesy
+            scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu pôsobnosti; v rámci filtra sa zobrazia údaje od všeobecných až po vybratý typ rozsahu pôsobnosti.
+            select_an_area: Vyberte oblasť
+            select_process_group: Vyberte skupinu procesov
+            slug_help: 'Prvky slug adresy URL slúžia na generovanie adries URL, ktoré smerujú na tento proces. Možno v nich používať len písmená, číslice a spojovníky, pričom sa musia začínať písmenom. Príklad: %{url}'
+            title: Všeobecné informácie
+            visbility: Viditeľnosť
+      content_blocks:
+        highlighted_processes:
+          name: Zvýraznené procesy
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktívna fáza
+            more_information: Ďalšie informácie
+            participate: Zúčastniť sa
+            participate_in: Zapojiť sa do procesu %{resource_name}
+      participatory_process_steps:
+        index:
+          back_to_process: Späť na stránku procesu
+      participatory_processes:
+        filters:
+          explanations:
+            no_active_nor_upcoming: Žiadne aktívne ani nadchádzajúce procesy
+            no_active_nor_upcoming_callout: Neexistujú žiadne aktívne ani nadchádzajúce procesy. V tomto zozname sú uvedené minulé procesy.
+          names:
+            active: Aktívne
+            all: Všetko
+            past: Minulé
+            upcoming: Nadchádzajúce
+          see: Pozrieť
+        index:
+          loading: Načítavajú sa výsledky…
+      show:
+        area: Oblasť
+        dates: Dátumy
+        developer_group: Skupina predkladateľov
+        end_date: Dátum ukončenia
+        local_area: Oblasť organizácie
+        participatory_scope: Čo sa rozhodlo
+        participatory_structure: Ako sa prijalo rozhodnutie
+        private_space: Toto je súkromný proces
+        related_processes: Súvisiace procesy
+        scope: Rozsah pôsobnosti
+        start_date: Dátum začatia
+        target: Kto sa zúčastňuje
+        unspecified: Neuvedené
+      statistics:
+        answers_count: Odpovede
+        comments_count: Poznámky
+        debates_count: Diskusie
+        endorsements_count: Schválenia
+        followers_count: Sledujúci
+        headline: Štatistika
+        no_stats: Ešte nie je k dispozícii štatistika.
+        orders_count: Hlasy
+        pages_count: Stránky
+        participants_count: Účastníci
+        projects_count: Projekty
+        results_count: Výsledky
+        supports_count: Hlasy
+        surveys_count: Prieskumy
+        users_count: Účastníci
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Prehľadávať
+          browse_resource: Prehľadávať skupinu procesu %{resource_name}
+          processes_count: 'Procesy:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktívna fáza
+          take_part: Zapojiť sa
+      participatory_processes:
+        index:
+          promoted_processes: Zvýraznené procesy
+        participatory_process:
+          active_step: 'Aktuálna fáza:'
+          more_info: Viac informácií
+          more_info_about: Viac informácií o procese %{resource_name}
+          take_part: Zapojiť sa
+          take_part_in: Zapojiť sa do procesu %{resource_name}
+        promoted_process:
+          active_step: 'Aktuálna fáza:'
+          more_info: Viac informácií
+          more_info_about: Viac informácií o procese %{resource_name}
+          take_part: Zapojiť sa
+          take_part_in: Zapojiť sa do procesu %{resource_name}
+      process_header_steps:
+        step: Fáza %{current} z %{total}
+        view_steps: Fázy procesu
