@@ -1,0 +1,224 @@
+hu:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: Állapot
+        decidim_category_id: Kategória
+        decidim_scope_id: Alkalmazási kör
+        description: Leírás
+        end_date: Záró dátum
+        progress: Előrehaladás
+        project_ids: Tartalmazott projektek
+        proposals: Tartalmazott javaslatok
+        start_date: Kezdő dátum
+        title: Cím
+        updated_at: 'Frissítve:'
+      status:
+        description: Leírás
+        key: Kulcs
+        name: Név
+        progress: Előrehaladás
+      timeline_entry:
+        description: Leírás
+        entry_date: Dátum
+    models:
+      decidim/accountability/proposal_linked_event: A javaslat szerepel egy eredményben
+      decidim/accountability/result_progress_updated_event: Az eredmény előrehaladása frissítve
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Eredmény
+        other: Eredmények
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: 'Biztosan törölni szeretné a következőt: %{name}?'
+        destroy: Törlés
+        edit: Szerkesztés
+        import_csv: CSV importálása
+        new: Új %{name}
+        preview: Előnézet
+        timeline_entries: A projekt alakulása
+        title: Műveletek
+      admin:
+        exports:
+          results: Eredmények
+        import_results:
+          new:
+            import: Importálás
+            info: "<p>Javasoljuk, hogy kövesse az alábbi lépéseket:</p><ol><li>Hozza létre a hozzáadni kívánt Eredmények állapotait (<a href='%{link_new_status}' target='_blank'>link</a>).</li><li>Az Importálás lehetőség használata előtt hozzon létre legalább egy eredményt manuálisan ezen az Adminisztrációs panelen keresztül (<a href='%{link_new_result}' target='_blank'>link</a>), hogy jobban megismerje a használni kívánt formátumot, valamint az adatokat, amelyeket meg kell adnia.</li><li>Töltse le az Exportált elemet CSV-formátumban (%{link_export_csv})</li><li>A módosításokat helyileg végezze el. A CSV-fájlban kizárólag a következő oszlopokat módosíthatja:</li></ol><ul><li><b>category/id:</b> a Kategória azonosítója</li><li><b>scope/id:</b> az Alkalmazási kör azonosítója</li><li><b>parent/id:</b> a Fölérendelt objektum azonosítója (a kapcsolódó Eredmények esetében). Opcionális</li><li><b>title/I18N:</b> Cím X nyelven</li><li><b>description/I18N:</b> Leírás X nyelven</li><li><b>start_date:</b> az eredmény végrehajtásának kezdő dátuma (formátum: ÉÉÉÉ-HH-NN)</li><li><b>end_date:</b> az eredmény végrehajtásának záró dátuma (formátum: ÉÉÉÉ-HH-NN)</li><li><b>status/id:</b> az eredmény Állapotának azonosítója</li><li><b>progress:</b> a végrehajtás mértéke százalékban kifejezve (0 és 100 közötti érték)</li><li><b>proposals_ids:</b> a kapcsolódó javaslatok belső azonosítói (vesszővel elválasztva). Automatikusan a következőre konvertálva: <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: hivatkozás
+            title: Eredmények importálása CSV-fájlból
+        imports:
+          create:
+            success: A fájl importálása megkezdődött. Néhány percen belül e-mailt kap az importálás eredményéről
+        models:
+          result:
+            name: Eredmény
+          status:
+            name: Állapot
+          timeline_entry:
+            name: Ütemtervbejegyzés
+        results:
+          create:
+            invalid: Hiba történt az eredmény létrehozása során
+            success: Az eredmény létrehozása sikeres
+          destroy:
+            success: Az eredmény törlése sikeres
+          edit:
+            title: Eredmény szerkesztése
+            update: Eredmény frissítése
+          index:
+            title: Eredmények
+          new:
+            create: Eredmény létrehozása
+            title: Új eredmény
+          update:
+            invalid: Hiba történt az eredmény frissítése során
+            success: Az eredmény frissítése sikeres
+        shared:
+          subnav:
+            statuses: Állapotok
+        statuses:
+          create:
+            invalid: Hiba történt az állapot létrehozása során
+            success: Az állapot létrehozása sikeres
+          destroy:
+            success: Az állapot törlése sikeres
+          edit:
+            title: Állapot szerkesztése
+            update: Állapot frissítése
+          index:
+            title: Állapotok
+          new:
+            create: Állapot létrehozása
+            title: Új állapot
+          update:
+            invalid: Hiba történt az állapot frissítése során
+            success: Az állapot frissítése sikeres
+        timeline_entries:
+          create:
+            invalid: Hiba történt a bejegyzés létrehozása során
+            success: A bejegyzés létrehozása sikeres
+          destroy:
+            success: A bejegyzés törlése sikeres
+          edit:
+            title: Bejegyzés szerkesztése
+            update: Bejegyzés frissítése
+          index:
+            title: Projektütemterv-bejegyzések
+          new:
+            create: Bejegyzés létrehozása
+            title: Új bejegyzés
+          update:
+            invalid: Hiba történt a bejegyzés frissítése során
+            success: A bejegyzés frissítése sikeres
+      admin_log:
+        result:
+          create: "%{user_name} létrehozta a(z) %{resource_name} eredményt itt: %{space_name}"
+          delete: "%{user_name} törölte a(z) %{resource_name} eredményt itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} eredményt itt: %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'A fölérendelt objektum nem található az adatbázisban (azonosító: %{id})'
+      import_mailer:
+        import:
+          errors: Hibák
+          errors_present: Hiba történt az eredmények importálása során
+          row_number: Sor
+          subject: Az eredmények importálása sikeres
+          success: Az eredmények importálása sikeres. Az eredményeket az adminisztrációs felületen tekintheti meg.
+      last_activity:
+        new_result_at_html: "<span>Új eredmény itt: %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Záró dátum
+            progress: Előrehaladás
+            start_date: Kezdő dátum
+            status: Állapot
+            title: Cím
+        status:
+          fields:
+            description: Leírás
+            key: Kulcs
+            name: Név
+            progress: Előrehaladás
+        timeline_entry:
+          fields:
+            description: Leírás
+            entry_date: Dátum
+      results:
+        count:
+          results_count:
+            one: 1 eredmény
+            other: "%{count} eredmény"
+        filters:
+          all: Összes
+          scopes: Alkalmazási körök
+        home:
+          categories_label: Kategóriák
+          subcategories_label: Alkategóriák
+        home_header:
+          global_status: Globális végrehajtási állapot
+        nav_breadcrumb:
+          global: Globális végrehajtás
+        search:
+          search: Műveletek keresése
+        show:
+          stats:
+            attendees: Résztvevők
+            back_to_resource: Vissza az eredményhez
+            comments: Hozzászólások
+            contributions: Hozzájárulások
+            last_edited_by: 'Utolsó szerkesztő:'
+            last_updated_at: 'Utoljára frissítve:'
+            meetings: Ülések
+            proposals: Javaslatok
+            votes: Támogatások
+        timeline:
+          title: A projekt alakulása
+    components:
+      accountability:
+        name: Elszámoltathatóság
+        settings:
+          global:
+            categories_label: A „Kategóriák” elem neve
+            comments_enabled: Hozzászólások engedélyezve
+            comments_max_length: A hozzászólások maximális hossza (Hagyja meg a 0-t, ha az alapértelmezett értéket szeretné használni)
+            display_progress_enabled: Előrehaladás megjelenítése
+            heading_leaf_level_results: A „Projektek” elem neve
+            heading_parent_level_results: Az „Eredmények” elem neve
+            intro: Bevezetés
+            subcategories_label: Az „Alkategóriák” elem neve
+          step:
+            comments_blocked: Hozzászólások letiltva
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A(z) „%{proposal_title}” javaslat bekerült egy eredménybe. Ezen az oldalon láthatja:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) „%{proposal_title}” javaslatot. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.
+          email_subject: A(z) %{proposal_title} javaslat frissítése
+          notification_title: A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslatot a(z) <a href="%{resource_path}">%{resource_title}</a> eredmény tartalmazza.
+        result_progress_updated:
+          email_intro: 'A(z) „%{proposal_title}” javaslatot tartalmazó „%{resource_title}” eredmény befejezettségének mértéke: %{progress}%. Ezen az oldalon láthatja:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) „%{proposal_title}” javaslatot, és ez a javaslat a(z) „%{resource_title}” eredmény részét képezi. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.
+          email_subject: A(z) %{resource_title} előrehaladásának frissítése
+          notification_title: 'A(z) <a href="%{proposal_path}">%{proposal_title}</a> javaslatot tartalmazó <a href="%{resource_path}">%{resource_title}</a> eredmény befejezettségének mértéke: %{progress}%.'
+    metrics:
+      results:
+        description: A létrehozott eredmények száma
+        object: eredmények
+        title: Eredmények
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Eredmények
+    participatory_spaces:
+      highlighted_results:
+        see_all: Az összes eredmény megtekintése (%{count})
+    resource_links:
+      included_projects:
+        result_project: Az eredmény részét képező projektek
+      included_proposals:
+        result_proposal: Az eredmény részét képező javaslatok
