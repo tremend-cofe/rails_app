@@ -1,0 +1,166 @@
+it:
+  activemodel:
+    attributes:
+      answer:
+        body: Risposta
+      question:
+        max_choices: Numero massimo di scelte
+        question_type: Tipo
+      questionnaire_question:
+        mandatory: Obbligatorio
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: non sono complete
+              too_many: sono troppo numerose
+        questionnaire:
+          request_invalid: Si è verificato un errore durante la gestione della richiesta. Riprovare
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Descrizione
+            tos: Condizioni di servizio
+        questionnaires:
+          actions:
+            back: Torna ai quesiti
+            show: Mostra risposte
+          answer_option:
+            answer_option: Opzione di risposta
+            free_text: Testo libero
+            remove: Rimuovi
+            statement: Affermazione
+          answers:
+            actions:
+              back: Torna alle risposte
+              export: Esporta
+              show: Mostra risposte
+            empty: Non sono ancora pervenute risposte
+            export:
+              answer:
+                title: 'Risposta n. %{number}'
+            index:
+              title: "%{total} risposte totali"
+            show:
+              title: 'Risposta n. %{number}'
+          display_condition:
+            answer_option: Opzione di risposta
+            condition_question: Quesito
+            condition_type: Condizione
+            condition_types:
+              answered: Con risposta
+              equal: Uguale
+              match: Comprende testo
+              not_answered: Senza risposta
+              not_equal: Non uguale
+            condition_value: Testo inserito
+            display_condition: Condizione di visualizzazione
+            mandatory: Questa condizione deve essere sempre soddisfatta indipendentemente dallo stato di altre condizioni
+            remove: Rimuovi
+            save_warning: Ricordati di salvare il modulo prima di configurare le condizioni di visualizzazione
+            select_answer_option: Seleziona l'opzione risposta
+            select_condition_question: Seleziona un quesito
+            select_condition_type: Seleziona un tipo di condizione
+          edit:
+            save: Salva
+            title: Modifica questionario
+          form:
+            add_question: Aggiungi un quesito
+            add_separator: Aggiungi separatore
+            already_answered_warning: Alcuni utenti hanno già risposto al modulo, per cui non è possibile modificarne i quesiti.
+            collapse: Comprimi tutti i quesiti
+            expand: Espandi tutte le domande
+            preview: Anteprima
+            title: Modifica modulo
+            unpublished_warning: Il modulo non è stato pubblicato. È possibile modificarne i quesiti, ma in tal modo saranno eliminate le risposte attuali.
+          matrix_row:
+            matrix_row: Riga
+            remove: Rimuovi
+            statement: Affermazione
+          question:
+            add_answer_option: Aggiungi opzione di risposta
+            add_display_condition: Aggiungi condizione di visualizzazione
+            add_display_condition_info: Salva il modulo per configurare le condizioni di visualizzazione
+            add_matrix_row: Aggiungi riga
+            any: Tutti
+            collapse: Comprimi
+            description: Descrizione
+            down: Sposta giù
+            expand: Espandi
+            question: Quesito
+            remove: Rimuovi
+            statement: Affermazione
+            up: Sposta su
+          separator:
+            down: Sposta giù
+            remove: Rimuovi
+            separator: Separatore
+            up: Sposta su
+          update:
+            invalid: Si è verificato un problema durante il salvataggio del modulo.
+            success: Moduli salvati correttamente.
+      errors:
+        answer:
+          body: Il corpo non può essere vuoto
+      files:
+        extension_whitelist: 'Formati accettati:'
+      images:
+        dimensions_info: 'L''immagine sarà:'
+        processors:
+          resize_and_pad: Ridimensionata e adattata a
+          resize_to_fit: Ridimensionata per adattarsi a
+      question_types:
+        long_answer: Risposta lunga
+        matrix_multiple: Matrice (opzione multipla)
+        matrix_single: Matrice (opzione singola)
+        multiple_option: Opzione multipla
+        short_answer: Risposta breve
+        single_option: Opzione singola
+        sorting: Classificazione
+      questionnaires:
+        answer:
+          invalid: Si è verificato un problema durante la creazione della risposta al modulo.
+          max_choices_alert: Sono state selezionate troppe scelte
+          success: Risposta al modulo inserita correttamente.
+        question:
+          max_choices: 'Numero di scelte massime: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Accedi con il tuo account</a> o <a href="%{sign_up_link}">iscriviti</a> per rispondere al modulo.
+            title: Rispondi al modulo
+          current_step: Fase %{step}
+          of_total_steps: di %{total_steps}
+          questionnaire_answered:
+            body: Hai già risposto a questo modulo.
+            title: Hai già risposto
+          questionnaire_closed:
+            body: Il modulo è chiuso e non può ricevere altre risposte.
+            title: Modulo chiuso
+          questionnaire_for_private_users:
+            body: Il modulo è disponibile solo agli utenti privati
+            title: Modulo chiuso
+          questionnaire_js_disabled:
+            body: Alcune delle caratteristiche di questo modulo saranno disabilitate. Per migliorare la tua esperienza, abilita JavaScript nel browser.
+            title: JavaScript è disabilitato
+          questionnaire_not_published:
+            body: Questo modulo non è ancora stato pubblicato.
+          tos_agreement: Partecipando, accetti le condizioni di servizio
+      step_navigation:
+        show:
+          are_you_sure: Questa azione non può essere annullata e non sarà più possibile modificare le risposte. Procedere?
+          back: Indietro
+          continue: Continua
+          submit: Invia
+      user_answers_serializer:
+        body: Risposta
+        completion: Compilazione
+        created_at: Risposta in data
+        id: ID risposta
+        question: Quesito
+        registered: Registrato
+        session_token: Identificativo utente
+        unregistered: Non registrato
+        user_status: Stato utente
