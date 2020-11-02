@@ -1,1 +1,233 @@
 fr:
+  activemodel:
+    attributes:
+      answer:
+        proposals: Propositions associées
+        title: Intitulé
+      election:
+        end_time: Le vote se termine à
+        start_time: Le vote débute à
+        title: Intitulé
+      question:
+        max_selections: Nombre maximum de sélections
+        title: Intitulé
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être ré-annexé
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être ré-annexé
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Réponse
+        other: Réponses
+      decidim/elections/election:
+        one: Élection
+        other: Élections
+  decidim:
+    components:
+      elections:
+        name: Élections
+        settings:
+          global:
+            announcement: Annonce des résultats
+          step:
+            announcement: Annonce des résultats
+    elections:
+      actions:
+        confirm_destroy: Vous êtes sûr(e)?
+        destroy: Supprimer
+        edit: Modifier
+        edit_answers: Modifier les réponses
+        edit_questions: Éditer les questions
+        import: Importer des propositions dans des questions
+        new: Nouveau %{name}
+        preview: Aperçu
+        publish: Publier
+        unpublish: Annuler la publication
+      admin:
+        answers:
+          create:
+            invalid: Un problème est survenu lors de la création de cette réponse
+            success: La réponse a été créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette réponse
+            success: La réponse a été supprimée avec succès
+          edit:
+            title: Modifier la réponse
+            update: Mettre la réponse à jour
+          index:
+            title: Réponses
+          new:
+            create: Créer une réponse
+            title: Nouvelle réponse
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette réponse
+            success: La réponse a été mise à jour avec succès
+        elections:
+          create:
+            invalid: Un problème est survenu lors de la création de cette élection
+            success: L’élection a été créée avec succès
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette élection
+            success: L’élection a été supprimée avec succès
+          edit:
+            title: Modifier l’élection
+            update: Mettre l’élection à jour
+          index:
+            title: Élections
+          new:
+            create: Créer une élection
+            title: Nouvelle élection
+          publish:
+            success: L’élection a été publiée avec succès
+          unpublish:
+            success: La publication de l’élection a été annulée avec succès.
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette élection
+            success: L’élection a été mise à jour avec succès
+        models:
+          answer:
+            name: Réponse
+          election:
+            name: Élection
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l’importation des propositions dans les réponses
+            success: "%{number} propositions ont été importées avec succès dans les réponses"
+          new:
+            create: Importer des propositions dans des questions
+            no_components: Il n’y a pas d’autre composant de proposition dans cet espace participatif pour importer les propositions dans les réponses.
+            select_component: Veuillez sélectionner un composant
+        questions:
+          create:
+            invalid: Un problème est survenu lors de la création de cette question
+            success: La question a été créée avec succès.
+          destroy:
+            invalid: Un problème est survenu lors de la suppression de cette question
+            success: La question a été supprimée avec succès.
+          edit:
+            title: Éditer une question
+            update: Mettre une question à jour
+          new:
+            create: Créer une question
+            title: Nouvelle question
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette question.
+            success: Question mise à jour avec succès
+      admin_log:
+        election:
+          publish: "%{user_name} a publié l’élection %{resource_name}"
+          unpublish: "%{user_name} a annulé la publication de l’élection %{resource_name}"
+      election_m:
+        badge_name:
+          finished: finies
+          ongoing: Actif/-ve
+          upcoming: À venir
+        end_date: Se termine
+        footer:
+          view: Visualiser
+        start_date: Débute
+        unspecified: Non spécifié
+      elections:
+        count:
+          elections_count:
+            one: "%{count} élection"
+            other: "%{count} élections"
+        filters:
+          active: Actif/-ve
+          all: Tous
+          finished: finies
+          search: Rechercher
+          state: Statut
+          upcoming: A venir
+        filters_small_view:
+          close_modal: Fermer la fenêtre modale
+          filter: Filtre
+          filter_by: Filtrer sur la base de
+          unfold: Dérouler
+        show:
+          back: Toutes les élections
+          preview: Aperçu
+          voting_period_status:
+            finished: Le vote a débuté le %{start_time} et s’est terminé le %{end_time}
+            ongoing: Le vote se termine le %{end_time}
+            upcoming: Le vote débute le %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Propositions
+            title: Intitulé
+        election:
+          fields:
+            end_time: Se termine à
+            start_time: Débute à
+            title: Intitulé
+        question:
+          fields:
+            answers: Réponses
+            max_selections: Sélections max.
+            title: Intitulé
+      orders:
+        label: Classer les sélections selon l’ordre suivant
+        older: Ancien
+        recent: Récent
+      votes:
+        confirm:
+          answer: Réponse
+          answer_number: réponse %{number}
+          confirm: Confirmer
+          edit: modifier
+          header: Confirmez votre vote
+          intro: Voici un résumé du vote que vous êtes sur le point d’émettre. <br> Veuillez confirmer votre vote ou modifier vos réponses.
+        confirmed:
+          back: Retour aux élections
+          experience: Quelle a été votre expérience?
+          feedback: Donnez-nous un feed-back
+          header: Vote confirmé
+          lead: Votre vote a déjà été émis!
+          text: 'Vous pouvez vérifier si votre vote a été ajouté avec succès à l’urne en utilisant l’identifiant suivant: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Pour vérifier, copier l’identifiant et collez-le sur la <a href="evote-verify">page de vérification de vote </a>
+        encrypting:
+          header: Encodage du vote en cours...
+          text: Votre vote est en cours d’encryptage afin d’en assurer l’anonymat.
+        header:
+          confirm: Confirmez votre vote
+          confirmed: Vote confirmé
+          encrypting: Confirmation du vote en cours
+        messages:
+          not_allowed: Vous n’êtes pas autorisé(e) pour l’instant à voter lors de cette élection.
+        modal:
+          close: Fermer
+          proposal_header: 'Propositions:'
+        new:
+          answer_choices: Vous pouvez sélectionner jusqu’à %{choices} réponses ou aucune
+          more_information: En savoir plus
+          preview_alert: Voici un aperçu de l’isoloir.
+          question_steps: Question %{current_step} de %{total_steps}
+          selections: "%{selected} de %{max_selections}<br> sélections"
+        voting_step:
+          back: Retour
+          continue: Suivant
+      warnings:
+        no_elections_warning: Aucune élection ne correspond à votre critère de recherche ou il n’y a aucune élection prévue.
+        no_scheduled_elections_warning: Il n’y a aucune élection prévue pour l’instant, mais vous trouverez ici une liste de toutes les élections passées.
+    events:
+      elections:
+        election_published:
+          email_intro: 'L’élection %{resource_title} est à présent active pour %{participatory_space_title}. Vous pouvez la visualiser à partir de cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: L’élection %{resource_title} est à présent active pour %{participatory_space_title}.
+          notification_title: <a href="%{resource_path}">L’élection %{resource_title}</a> est à présent active pour %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Élections
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Sortie
