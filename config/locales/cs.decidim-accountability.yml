@@ -1,0 +1,210 @@
+cs:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategorie
+        decidim_scope_id: Rozsah
+        description: Popis
+        end_date: Datum ukončení
+        progress: Stav
+        project_ids: Zahrnuté projekty
+        proposals: Zahrnuté návrhy
+        start_date: Datum zahájení
+        title: Název
+        updated_at: Aktualizován v
+      status:
+        description: Popis
+        key: Legenda
+        name: Název
+        progress: Stav
+      timeline_entry:
+        description: Popis
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: Návrh zahrnutý ve výsledku
+      decidim/accountability/result_progress_updated_event: Stav výsledku aktualizován
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Opravdu chcete smazat své %{name}?
+        destroy: Smazat
+        edit: Upravit
+        import_csv: Import souboru CSV
+        new: Nové %{name}
+        preview: Náhled
+        timeline_entries: Vývoj projektu
+        title: Akce
+      admin:
+        exports:
+          results: Výsledky
+        import_results:
+          new:
+            info: "<p>Doporučujeme postupovat následujícím způsobem:</p><ol><li>Vytvořte statusy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Prostřednictvím tohoto administrátorského panelu vytvořte alespoň jeden výsledek manuálně (<a href='%{link_new_result}' target='_blank'>link</a>), než zadáte import, abyste měli lepší představu o formátu a o tom, co budete potřebovat vyplnit.</li><li>Stáhnout export ve formátu CSV (%{link_export_csv})</li><li>Změny proveďte lokálně. Můžete změnit pouze následující sloupce CSV:</li></ol><ul><li><b>category/id:</b> ID kategorie</li><li><b>scope/id:</b> ID rozsahu</li><li><b>parent/id:</b> ID nadřazeného prvku (u souvisejících výsledků). Nepovinné</li><li><b>title/I18N:</b> Název v jazyce X</li><li><b>description/I18N:</b> Popis v jazyce X</li><li><b>start_date:</b> datum, kdy se výsledek začne uskutečňovat (ve formátu RRRR-MM-DD)</li><li><b>end_date:</b> datum ukončení uskutečňování výsledku (ve formátu RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu tohoto výsledku</li><li><b>progress:</b> Procentní míra uskutečnění (od 0 do 100)</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
+            link: odkaz
+            title: Import výsledků ze souboru CSV
+        imports:
+          create:
+            success: Zahájen import souboru. Během několika minut obdržíte e-mail s výsledkem importu.
+        models:
+          result:
+            name: Výsledek
+          timeline_entry:
+            name: Záznam v harmonogramu
+        results:
+          create:
+            invalid: Při vytváření tohoto výsledku nastal problém
+            success: Výsledek byl úspěšně vytvořen
+          destroy:
+            success: Výsledek byl úspěšně smazán
+          edit:
+            title: Upravit výsledek
+            update: Aktualizovat výsledek
+          index:
+            title: Výsledky
+          new:
+            create: Vytvořit výsledek
+            title: Nový výsledek
+          update:
+            invalid: Při aktualizaci tohoto výsledku nastal problém
+            success: Výsledek byl úspěšně aktualizován
+        shared:
+          subnav:
+            statuses: Statusy
+        statuses:
+          create:
+            invalid: Při vytváření statusu nastal problém
+            success: Status byl úspěšně vytvořen
+          destroy:
+            success: Status byl úspěšně smazán
+          edit:
+            title: Upravit status
+            update: Aktualizovat status
+          index:
+            title: Statusy
+          new:
+            create: Vytvořit status
+            title: Nový status
+          update:
+            invalid: Při aktualizaci tohoto statusu nastal problém
+            success: Status byl úspěšně aktualizován
+        timeline_entries:
+          create:
+            invalid: Při vytváření tohoto záznamu nastal problém
+            success: Záznam byl úspěšně vytvořen
+          destroy:
+            success: Záznam byl úspěšně smazán
+          edit:
+            title: Upravit záznam
+            update: Aktualizovat záznam
+          index:
+            title: Záznamy na v harmonogramu projektu
+          new:
+            create: Vytvořit záznam
+            title: Nový záznam
+          update:
+            invalid: Při aktualizaci tohoto záznamu nastal problém
+            success: Záznam byl úspěšně aktualizován
+      admin_log:
+        result:
+          create: "%{user_name} vytvořil výsledek %{resource_name} v %{space_name}"
+          delete: "%{user_name} smazal výsledek %{resource_name} v %{space_name}"
+          update: "%{user_name} aktualizoval výsledek %{resource_name} v %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Základní projekt nebyl v databázi nalezen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Chyby
+          errors_present: Při importu výsledků nastal problém
+          row_number: Řádek
+          subject: Úspěšný import výsledků
+          success: Úspěšný import výsledků Výsledky můžete zkontrolovat ve správcovském rozhraní
+      last_activity:
+        new_result_at_html: "<span>Nový výsledek v %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Datum ukončení
+            progress: Stav
+            start_date: Datum zahájení
+            title: Název
+        status:
+          fields:
+            description: Popis
+            key: Legenda
+            name: Název
+            progress: Stav
+        timeline_entry:
+          fields:
+            description: Popis
+            entry_date: Datum
+      results:
+        filters:
+          all: Vše
+          scopes: Rozsahy
+        home:
+          categories_label: Kategorie
+          subcategories_label: Podkategorie
+        home_header:
+          global_status: Obecný status provedení
+        nav_breadcrumb:
+          global: Obecné provedení
+        search:
+          search: Vyhledávání akcí
+        show:
+          stats:
+            attendees: Účastníci
+            back_to_resource: Vrátit se k výsledku
+            comments: Poznámky
+            contributions: Příspěvky
+            last_edited_by: Naposledy upraveno
+            last_updated_at: Naposledy aktualizováno v
+            meetings: Schůze
+            proposals: Návrhy
+            votes: Hlasy pro
+        timeline:
+          title: Vývoj projektu
+    components:
+      accountability:
+        name: Odpovědnost
+        settings:
+          global:
+            categories_label: Název „kategorie“
+            comments_enabled: Komentáře byly povoleny
+            comments_max_length: Maximální délka komentáře (Ponechat 0 jako výchozí hodnotu)
+            display_progress_enabled: Zobrazit stav
+            heading_leaf_level_results: Název „projektu“
+            heading_parent_level_results: Název „výsledků“
+            intro: Úvod
+            subcategories_label: Název „podkategorií“
+          step:
+            comments_blocked: Komentáře byly blokovány
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Návrh "%{proposal_title}" byl zahrnut do výsledku. Podívat se můžete na této stránce:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete "%{proposal_title}". Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+          email_subject: Aktualizace %{proposal_title}
+          notification_title: Návrh <a href="%{proposal_path}">%{proposal_title}</a> byl zahrnut do<a href="%{resource_path}">%{resource_title}</a> výsledku.
+        result_progress_updated:
+          email_intro: 'Výsledek "%{resource_title}", který zahrnuje návrh "%{proposal_title}", je nyní %{progress}% kompletní. Podívat se můžete na této stránce:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete "%{proposal_title}“ a tento návrh je zahrnut do výsledku "%{resource_title}". Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+          email_subject: Aktualizace stavu %{resource_title}
+          notification_title: Výsledek <a href="%{resource_path}">%{resource_title}</a>, který zahrnuje návrh <a href="%{proposal_path}">%{proposal_title}</a>, je nyní %{progress}% kompletní.
+    metrics:
+      results:
+        description: Počet vygenerovaných výsledků
+        object: výsledky
+        title: Výsledky
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Výsledky
+    participatory_spaces:
+      highlighted_results:
+        see_all: Zhlédnout všechny výsledky (%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekty zahrnuté do tohoto výsledku
+      included_proposals:
+        result_proposal: Návrhy zahrnuté do tohoto výsledku
