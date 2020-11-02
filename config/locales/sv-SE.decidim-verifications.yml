@@ -1,0 +1,254 @@
+sv:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Tillgängliga metoder
+        offline_explanation: Instruktioner för verifiering offline
+      id_document_information:
+        document_number: Dokumentnummer (med brev)
+        document_type: Typ av dokument
+      id_document_upload:
+        document_number: Dokumentnummer (med brev)
+        document_type: Typ av dokument
+        user: Deltagare
+        verification_attachment: Skannad kopia av ditt dokument
+      offline_confirmation:
+        email: Deltagarens e-postadress
+      postal_letter_address:
+        full_address: Fullständig adress
+      postal_letter_confirmation:
+        verification_code: Verifieringskod
+      postal_letter_postage:
+        full_address: Fullständig adress
+        verification_code: Verifieringskod
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Användbar om processen redan har påbörjats och du vill återkalla behörigheter för föregående process.
+          button: Återkalla alla
+          button_before: Återkalla före-datum
+          destroy:
+            confirm: Det går inte att ångra godkännanden av Återkalla före-datum. Är du säker på att du vill fortsätta?
+            confirm_all: Det går inte att ångra återkallelse av alla godkännanden. Är du säker på att du vill fortsätta?
+          destroy_nok: Ett fel uppstod när godkännanden skulle återkallas.
+          destroy_ok: Alla matchande godkännanden har återkallats!
+          info: Det finns totalt %{count} verifierade deltagare.
+          no_data: Inga verifierade deltagare
+          title: Återkallelse av verifiering
+        authorization_workflows: Verifieringar
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} uppdaterade konfigurationen av verifiering av ID-handlingar"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifierade %{resource_name} genom verifiering av ID-handlingar offline"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Administratörer laddar upp en CSV-fil med e-postadresser till godkända deltagare
+            Endast deltagare med en e-postadress i denna CSV-fil kan bli verifierade
+        id_documents:
+          help: |-
+            Användare fyller i sina identitetsuppgifter och laddar upp en kopia av sin ID-handling.
+            Fyll i informationen i den uppladdade bilden.
+            Informationen ska stämma överens med de uppgifter som angavs av användaren.
+            Om informationen inte syns tydligt eller om du inte kan bli verifierad, kan du avvisa förfrågan så kan användaren åtgärda problemet.
+        postal_letter:
+          help: |-
+            Deltagare ber om att få en verifieringskod skickad till sin adress.
+            Du skickar brevet till deras adress med verifieringskoden.
+            Markera brevet som skickat.
+            När du har markerat brevet som skickat kan deltagaren ange koden och bli verifierad.
+      csv_census:
+        explanation: Bli verifierad genom organisationens totalräkning
+        name: Organisationens totalräkning
+      direct: Direkt
+      help: Hjälp
+      id_documents:
+        explanation: Ladda upp dina ID-handlingar så att vi kan kontrollera din identitet
+        name: ID-handlingar
+      multistep: I flera steg
+      name: Namn
+      postal_letter:
+        explanation: Vi skickar ett brev med en kod som du måste ange för att vi ska kunna verifiera din adress
+        name: Kod per post
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Följande är uppgifter för den aktuella verifieringen:'
+          no_data_stored: Inga lagrade uppgifter.
+        create:
+          error: Ett fel uppstod när godkännandet skapades.
+          success: Du har godkänts.
+          unconfirmed: Du måste bekräfta din e-postadress för att bli godkänd.
+        destroy:
+          error: Ett fel uppstod när godkännandet raderades.
+          success: Du har raderat godkännandet.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verifiera mot ett annat exempel på godkännandeansvarig
+            csv_census: Verifiera mot organisationens totalräkning
+            dummy_authorization_handler: Verifiera mot exemplet på godkännandeansvarig
+            dummy_authorization_workflow: Verifiera mot exemplet på godkännandeflöde
+            id_documents: Bli verifierad genom att ladda upp din ID-handling
+            postal_letter: Bli verifierad genom att få en verifieringskod per post
+            sms: Bli verifierad genom att få en verifieringskod per sms
+          title: Verifiera din identitet
+          verify_with_these_options: 'Följande är de tillgängliga alternativen för att verifiera din identitet:'
+        index:
+          expired_verification: Verifieringen har löpt ut
+          pending_verification: Pågående verifiering
+          show_renew_info: Klicka för att förnya verifieringen
+          unauthorized_verification: Ny verifiering
+        new:
+          authorize: Skicka
+          authorize_with: Verifiera med %{authorizer}
+        renew_modal:
+          cancel: Annullera
+          close: stäng
+          continue: Fortsätt
+          info_renew: Fortsätt med förnyelsen om du vill uppdatera uppgifterna
+          title: Förnya verifiering
+        skip_verification: Du kan hoppa över detta för tillfället och %{link}
+        start_exploring: börja utforska
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Ett fel uppstod när totalräkningen importerades.
+              success: '%{count} objekt har importerats (%{errors} fel)'
+            destroy_all:
+              success: Alla totalräkningsuppgifter har raderats
+          destroy:
+            confirm: Det går inte att ångra radering av alla totalräkningsuppgifter Är du säker på att du vill fortsätta?
+            title: Radera alla totalräkningsuppgifter
+          index:
+            data: Totalt %{count} register har lästs in. Senaste uppladdningsdatum var %{due_date}
+            empty: Det finns inga totalräkningsuppgifter. Använd formuläret nedan för att importera det som en CSV-fil.
+            title: Aktuella totalräkningsuppgifter
+          instructions:
+            body: För att göra detta måste du öppna systemadministrationen och lägga till godkännandet csv-census i organisationen
+            title: Du måste aktivera csv-totalräkning för organisationen
+          new:
+            file: ".csv-fil med e-postuppgifter"
+            info: 'Måste vara en fil i CSV-format med en enda kolumn med e-postadressen:'
+            submit: Ladda upp fil
+            title: Ladda upp ny totalräkning
+        authorizations:
+          new:
+            error: Vi kunde inte verifiera ditt konto eller så är du inte med i organisationens totalräkning.
+            success: Ditt konto har verifierats.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Deltagande begränsas till deltagare med postnumret %{postal_codes}.
+            other: 'Deltagande begränsas till deltagare med något av följande postnummer: %{postal_codes}.'
+          scope: Deltagande begränsas till deltagare med tillämpningsområdet %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfiguration av ID-handlingar
+              update: Uppdatera
+            update:
+              error: Ett fel uppstod när konfigurationen uppdaterades.
+              success: Konfigurationen har uppdaterats
+          confirmations:
+            create:
+              error: Verifieringen matchar inte. Försök igen eller avvisa verifieringen så att deltagaren kan ändra den
+              success: Deltagaren har verifierats
+            new:
+              introduce_user_data: Ange uppgifterna på bilden
+              reject: Avvisa
+              verify: Verifiera
+          offline_confirmations:
+            create:
+              error: Verifieringen matchar inte. Försök igen eller be deltagaren att ändra
+              success: Deltagaren har verifierats
+            new:
+              cancel: Annullera
+              introduce_user_data: Ange deltagarens e-postadress och uppgifter från handlingarna
+              verify: Verifiera
+          pending_authorizations:
+            index:
+              config: Konfig.
+              offline_verification: Verifiering offline
+              title: Pågående verifieringar offline
+              verification_number: 'Verifiering #%{n}'
+          rejections:
+            create:
+              success: Verifieringen avvisades. Deltagaren kommer att uppmanas att ändra sina dokument
+        authorizations:
+          choose:
+            choose_a_type: 'Välj hur du vill verifieras:'
+            title: Bli verifierad med hjälp av din ID-handling
+          create:
+            error: Ett fel uppstod när dokumentet skulle laddas upp
+            success: Dokumentet har laddats upp
+          edit:
+            being_reviewed: Vi granskar dina dokument. Du kommer att verifieras inom kort
+            offline: Använd verifiering offline
+            online: Använd verifiering online
+            rejection_clarity: Se till att informationen syns tydligt i den uppladdade bilden
+            rejection_correctness: Se till att de angivna uppgifterna är korrekta
+            rejection_notice: Ett fel uppstod med din verifiering. Försök igen
+            send: Begär ny verifiering
+          new:
+            send: Begär verifiering
+            title: Ladda upp din ID-handling
+          update:
+            error: Ett fel uppstod när dokumentet skulle laddas upp på nytt
+            success: Dokumentet har laddats upp
+        passport: Pass
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adress
+              letter_sent_at: Brev skickat
+              mark_as_sent: Markera som skickat
+              not_yet_sent: Ännu inte skickat
+              title: Pågående verifieringar
+              username: Smeknamn
+              verification_code: Verifieringskod
+          postages:
+            create:
+              error: Ett fel uppstod när brevet skulle markeras som skickat
+              success: Brevet har markerats som skickat
+        authorizations:
+          create:
+            error: Ett fel uppstod med din begäran
+            success: Tack! Vi skickar en verifieringskod till din adress
+          edit:
+            send: Bekräfta
+            title: Ange den verifieringskod du fick
+            waiting_for_letter: Vi kommer snart att skicka ett brev till din adress med din verifieringskod
+          new:
+            send: Skicka ett brev
+            title: Begär din verifieringskod
+          update:
+            error: Din verifieringskod stämmer inte överens med vår. Dubbelkolla det brev som vi skickade till dig
+            success: Gratulerar! Du har verifierats
+      sms:
+        authorizations:
+          create:
+            error: Ett fel uppstod med din begäran
+            success: Tack! Vi har skickat ett sms till din telefon.
+          destroy:
+            success: Verifieringskoden har återställts. Ange ditt telefonnummer på nytt.
+          edit:
+            confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
+            destroy: Återställ verifieringskod
+            resend: Har du inte fått verifieringskoden?
+            send: Bekräfta
+            title: Ange den verifieringskod du fick
+          new:
+            send: Skicka ett sms till mig
+            title: Begär din verifieringskod
+          update:
+            error: Din verifieringskod stämmer inte överens med vår. Dubbelkolla det sms som vi skickade till dig.
+            success: Gratulerar! Du har verifierats.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: får endast innehålla bokstäver och siffror, och alla bokstäver måste vara versaler
