@@ -1,0 +1,129 @@
+cs:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informace o volbě losem
+        decidim_category_id: Kategorie sady návrhů, u kterých chcete uplatnit losování
+        decidim_proposals_component_id: Sada návrhů
+        dice: Výsledek hodu kostkou. Hoďte šestistrannou kostkou nebo najděte jiný náhodný způsob, jak získat číslo od 1 do 6, a výsledné číslo sem před svědky vložte. To přispěje ke kvalitě a zaručí nahodilost výsledku
+        target_items: Počet návrhů, které se mají zvolit (určuje počet návrhů, které chcete vybrat pomocí losování ze skupiny návrhů, jež byly předtím vybrány)
+        title: Název
+        witnesses: Svědci
+    models:
+      decidim/sortitions/create_sortition_event: Volba losem
+  decidim:
+    components:
+      sortitions:
+        name: Volby losem
+        settings:
+          global:
+            comments_enabled: Komentáře povoleny
+            comments_max_length: Maximální délka komentářů (nechte 0 jako standardní hodnotu)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Volba losem "%{resource_title}" byla přidána do prostoru "%{participatory_space_title}", který sledujete.
+          email_outro: Toto oznámení jste obdrželi, protože sledujete prostor "%{participatory_space_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
+          email_subject: Nová volba losem přidána do prostoru %{participatory_space_title}
+          notification_title: Volba losem <a href="%{resource_path}">%{resource_title}</a> byla přidána do prostoru %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Volby losem
+    participatory_processes:
+      statistics:
+        sortitions_count: Volby losem
+    sortitions:
+      admin:
+        actions:
+          destroy: Zrušit volbu losem
+          edit: Upravit
+          new: Nová volba losem
+          show: Podrobnosti o volbě losem
+        models:
+          sortition:
+            fields:
+              category: Kategorie
+              created_at: Datum vytvoření
+              decidim_proposals_component: Prvek návrhu
+              dice: Kostky
+              reference: Odkaz
+              request_timestamp: Čas losování
+              seed: Hodnota
+              target_items: Položky k výběru
+              title: Název
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Opravdu chcete zrušit tuto volbu losem?
+            destroy: Zrušit volbu losem
+            title: Rušení volby losem
+          create:
+            error: Při vytváření nové volby losem došlo k problému.
+            success: Volba losem byla úspěšně vytvořena
+          destroy:
+            error: Volbu losem nelze zrušit.
+            success: Volba losem byla úspěšně zrušena
+          edit:
+            title: Aktualizovat informace o volbě losem
+            update: Aktualizovat
+          form:
+            all_categories: Všechny kategorie
+            select_proposal_component: Vybrat sadu návrhů
+            title: Nová volba návrhů losem
+          index:
+            title: Volby losem
+          new:
+            confirm: Stisknutím dalšího tlačítka Decidim nahraje datum a čas (s přesností na sekundy) a tato informace bude společně s hodem kostkou použita k získání náhodného výběru. Tato akce je nevratná, po kliknutí na tlačítko bude výsledek tohoto losování zveřejněn, a to společně s údaji vyplněnými v tomto formuláři, a nebude možné ho změnit, zkontrolujte proto obsah
+            create: Vytvořit
+            title: Nová volba losem
+          show:
+            selected_proposals: Návrhy vybrané k losování
+          update:
+            error: Při aktualizaci volby losem došlo k problému.
+            success: Volba losem byla úspěšně aktualizována
+      admin_log:
+        sortition:
+          create: "Uživatel %{user_name} vytvořil volbu losem %{resource_name} v prostoru %{space_name}"
+          delete: "Uživatel %{user_name} zrušil volbu losem %{resource_name} v prostoru %{space_name}"
+          update: "Uživatel %{user_name} aktualizoval volbu losem %{resource_name} v prostoru %{space_name}"
+      sortitions:
+        filters:
+          active: Aktivní
+          all: Vše
+          cancelled: Zrušeno
+          category: Kategorie
+          category_prompt: Zvolit kategorii
+          search: Hledat
+        filters_small_view:
+          close_modal: Zavřít modální okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        linked_sortitions:
+          selected_proposals: Vybrané návrhy
+        orders:
+          label: 'Seřadit volby losem podle:'
+          random: Náhodný výběr
+          recent: Nedávné
+        show:
+          algorithm: Kód algoritmu volby losem
+          any_category: ze všech kategorií
+          back: Zpět k seznamu
+          cancelled: Zrušené volby losem
+          candidate_proposal_ids: Pořadí a ID návrhů volby losem
+          candidate_proposals_info: 'Volba losem byla provedena mezi následujícími návrhy (%{category_label}), s následujícími ID (vybrané návrhy jsou uvedeny tučným písmem)  '
+          category: z kategorie %{category}
+          dice_result: "(1) Výsledek hodu kostkou"
+          introduction: 'Tato stránka obsahuje výsledky volby losem %{reference}. Prostřednictvím této volby losem bylo náhodně vybráno množství výsledků %{target_items}, a to se stejnou pravděpodobností ze sady návrhů zobrazené níže. Společně s výsledky poskytují informace zobrazené na této stránce všechny informace potřebné k maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě této volby losem je dvojitá nahodilost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas volby losem, jež poskytuje vstup pro algoritmus, který generuje náhodný výběr. Časová hodnota pro volbu losem je tak přesná (na sekundy), že je jeho kontrola lidmi nemožná, proto poskytuje dvojitý „nekontrolovatelný“ vstup, který zaručuje spravedlivý výsledek.  '
+          mathematical_result: Výsledek (1) x (2)
+          proposals_selected_by_sortition: Návrhy vybrané volbou losem
+          sortition_reproducibility_details: Podrobnosti o reprodukovatelnosti volby losem
+          time_seed: "(2) Časová hodnota"
+          witnesses: Svědci
+        sortition:
+          random_seed: Náhodná hodnota
+          view: Zobrazit
+        sortition_author:
+          deleted: Smazaný účastník
+        sortition_cancel_author:
+          deleted: Smazaný účastník
