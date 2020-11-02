@@ -1,5 +1,167 @@
 hu:
+  activemodel:
+    attributes:
+      answer:
+        body: Válasz
+      question:
+        max_choices: A választások maximális száma
+        question_type: Típus
+      questionnaire_question:
+        mandatory: Kötelező
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: nem teljes
+              too_many: túl sok
+        questionnaire:
+          request_invalid: Hiba történt a kérés kezelésekor. Kérjük, próbálkozzon újra
   decidim:
     forms:
+      admin:
+        models:
+          components:
+            description: Leírás
+            tos: Szolgáltatási feltételek
+        questionnaires:
+          actions:
+            back: Vissza a kérdésekhez
+            show: Válaszok megjelenítése
+          answer_option:
+            answer_option: Válaszlehetőség
+            free_text: Szabad szöveg
+            remove: Eltávolítás
+            statement: Nyilatkozat
+          answers:
+            actions:
+              back: Vissza a válaszokhoz
+              export: Exportálás
+              show: Válaszok megjelenítése
+            empty: Még nincsenek válaszok
+            export:
+              answer:
+                title: 'Válasz: #%{number}'
+            index:
+              title: "%{total} válasz összesen"
+            show:
+              title: 'Válasz: #%{number}'
+          display_condition:
+            answer_option: Válaszlehetőség
+            condition_question: Kérdés
+            condition_type: Feltétel
+            condition_types:
+              answered: Megválaszolt
+              equal: Egyenlő
+              match: Szöveget tartalmaz
+              not_answered: Nincs megválaszolva
+              not_equal: Nem egyenlő
+            condition_value: Tartalmazott szöveg
+            display_condition: Megjelenítési feltétel
+            mandatory: Ezt a feltételt mindig teljesíteni kell, függetlenül a többi feltétel állapotától
+            remove: Eltávolítás
+            save_warning: Ne felejtse el menteni az űrlapot a megjelenítési feltételek konfigurálása előtt
+            select_answer_option: Válaszlehetőség kiválasztása
+            select_condition_question: Kérdés kiválasztása
+            select_condition_type: Feltételtípus kiválasztása
+          edit:
+            save: Mentés
+            title: Kérdőív szerkesztése
+          form:
+            add_question: Kérdés hozzáadása
+            add_separator: Elválasztó hozzáadása
+            already_answered_warning: Néhány felhasználó már kitöltötte az űrlapot, így nem módosíthatja a kérdéseket.
+            collapse: Az összes kérdés összecsukása
+            expand: Az összes kérdés kibontása
+            preview: Előnézet
+            title: Űrlap szerkesztése
+            unpublished_warning: Az űrlap nincs közzétéve. Módosíthatja a kérdéseit, de ezzel törli az aktuális válaszokat.
+          matrix_row:
+            matrix_row: Sor
+            remove: Eltávolítás
+            statement: Nyilatkozat
+          question:
+            add_answer_option: Válaszlehetőség hozzáadása
+            add_display_condition: Megjelenítési feltétel hozzáadása
+            add_display_condition_info: Mentse az űrlapot a megjelenítési feltételek konfigurálásához
+            add_matrix_row: Sor hozzáadása
+            any: Bármely
+            collapse: Összecsukás
+            description: Leírás
+            down: Le
+            expand: Kibontás
+            question: Kérdés
+            remove: Eltávolítás
+            statement: Nyilatkozat
+            up: Fel
+          separator:
+            down: Le
+            remove: Eltávolítás
+            separator: Elválasztó
+            up: Fel
+          update:
+            invalid: Hiba történt az űrlap mentése során.
+            success: Az űrlapok mentése sikeres.
+      errors:
+        answer:
+          body: A fő szöveg nem lehet üres
+      files:
+        extension_whitelist: 'Elfogadott formátumok:'
+      images:
+        dimensions_info: 'Ez a kép:'
+        processors:
+          resize_and_pad: Átméretezésre és feltöltésre kerül
+          resize_to_fit: Átméretezésre kerül az illeszkedéshez
+      question_types:
+        long_answer: Hosszú válasz
+        matrix_multiple: Mátrix (Több lehetőség)
+        matrix_single: Mátrix (Egy lehetőség)
+        multiple_option: Több lehetőség
+        short_answer: Rövid válasz
+        single_option: Egy lehetőség
+        sorting: Rendezés
+      questionnaires:
+        answer:
+          invalid: Hiba történt az űrlap kitöltése során.
+          max_choices_alert: Túl sok választási lehetőség van kiválasztva
+          success: Az űrlap kitöltése sikeres.
+        question:
+          max_choices: 'Választások maximális száma: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: <a href="%{sign_in_link}">Jelentkezzen be a fiókjával</a> vagy <a href="%{sign_up_link}">regisztráljon</a> az űrlap kitöltéséhez.
+            title: Űrlap kitöltése
+          current_step: '%{step}/'
+          of_total_steps: '%{total_steps}. lépés'
+          questionnaire_answered:
+            body: Már kitöltötte ezt az űrlapot.
+            title: Már kitöltve
+          questionnaire_closed:
+            body: Az űrlapot lezárták, és nem tölthető ki.
+            title: Űrlap lezárva
+          questionnaire_for_private_users:
+            body: Az űrlap csak privát felhasználók számára érhető el
+            title: Űrlap lezárva
+          questionnaire_js_disabled:
+            body: Az űrlap egyes funkciói le lesznek tiltva. A felhasználói élmény javítása érdekében engedélyezze a JavaScript használatát a böngészőben.
+            title: A JavaScript le van tiltva
+          questionnaire_not_published:
+            body: Ezt az űrlapot még nem tették közzé.
+          tos_agreement: A részvétellel elfogadja a Szolgáltatási feltételeket
+      step_navigation:
+        show:
+          are_you_sure: Ezt a műveletet nem lehet visszavonni, és nem fogja tudni szerkeszteni a válaszait. Biztos ebben?
+          back: Vissza
+          continue: Folytatás
+          submit: Küldés
       user_answers_serializer:
+        body: Válasz
+        completion: Kitöltés
         created_at: 'Válasz időpontja:'
+        id: Válaszazonosító
+        ip_hash: IP-cím kivonata
+        question: Kérdés
+        registered: Regisztrált
+        session_token: Felhasználói azonosító
+        unregistered: Nem regisztrált
+        user_status: Felhasználói állapot
