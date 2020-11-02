@@ -1,0 +1,218 @@
+da:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategori
+        decidim_scope_id: Anvendelsesområde
+        description: Beskrivelse
+        end_date: Slutdato
+        progress: Fremskridt
+        project_ids: Omfattede projekter
+        proposals: Omfattede forslag
+        start_date: Startdato
+        title: Betegnelse
+        updated_at: Opdateret pr.
+      status:
+        description: Beskrivelse
+        key: Symbolforklaring
+        name: Navn
+        progress: Fremskridt
+      timeline_entry:
+        description: Beskrivelse
+        entry_date: Dato
+    models:
+      decidim/accountability/proposal_linked_event: Forslag medtaget i resultatet
+      decidim/accountability/result_progress_updated_event: Resultater, der er ajourført
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Resultat
+        other: Resultater
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Er du sikker på, at du vil slette dette %{name}?
+        destroy: Slet
+        edit: Rediger
+        import_csv: Importer CSV
+        new: Nyt %{name}
+        preview: Forhåndsvisning
+        timeline_entries: Projektudvikling
+        title: Handlinger
+      admin:
+        exports:
+          results: Resultater
+        import_results:
+          new:
+            info: "<p>Vi anbefaler, at du følger disse trin:</p><ol><li>Opret status for de resultater, du ønsker at tilføje (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Opret mindst ét resultat manuelt via dette administrationspanel (<a href='%{link_new_result}' target='_blank'>link</a>) før brug af import for at få en bedre forståelse af formatet, og hvad du har brug for til at udfylde det.</li><li>Download eksporten med CSV-format (%{link_export_csv})</li><li>Lav ændringerne lokalt. Du kan kun ændre følgende kolonner i CSV’et:</li></ol><ul><li><b>category/id:</b> ID for kategorien</li><li><b>scope/id:</b> ID for the Scope</li><li><b>parent/id:</b> ID for moder(tilknyttede resultater). Valgfrit</li><li><b>title/I18N:</b> Titel for X-sprog</li><li><b>description/I18N:</b> Beskrivelse af X-sprog</li><li><b> start_date:</b> dato, hvor resultatet begynder at blive gennemført (format YYYY-MM-DD)</li><li><b>end_date:</b> dato, hvor gennemførelsen af resultatet afsluttes (format YYYY-MM-DD)</li><li><b>status/id:</b> ID for status for dette resultat</li><li><b>progress:</b> procentandel (fra 0 til 100) for gennemførelsen </li><li><b>proposals_ids:</b> internal ID for de tilknytte forslag (adskilt med et komma). Den konverteres automatisk til <span class='attribute-name'>proposal_url</span></li></ul>"
+            title: Importresultater fra CSV
+        imports:
+          create:
+            success: Import af filen er begyndt. Du vil inden for de næste få minutter modtage en e-mail med resultatet af importen.
+        models:
+          result:
+            name: Resultat
+          timeline_entry:
+            name: Indførsel på tidslinje
+        results:
+          create:
+            invalid: Der opstod et problem med oprettelsen af dette resultat
+            success: Resultat oprettet
+          destroy:
+            success: Resultat slettet
+          edit:
+            title: Rediger resultat
+            update: Opdater resultat
+          index:
+            title: Resultater
+          new:
+            create: Opret resultat
+            title: Nyt resultat
+          update:
+            invalid: Der opstod et problem med opdateringen af dette resultat.
+            success: Resultat opdateret
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Der opstod et problem med oprettelsen af denne status
+            success: Status oprettet
+          destroy:
+            success: Status slettet
+          edit:
+            title: Rediger status
+            update: Opdater status
+          index:
+            title: Status
+          new:
+            create: Opret status
+            title: Ny status
+          update:
+            invalid: Der var et problem med at opdatere denne status
+            success: Status er opdateret
+        timeline_entries:
+          create:
+            invalid: Der opstod et problem med oprettelsen af denne tilførsel
+            success: Tilførsel oprettet
+          destroy:
+            success: Tilførsel slettet
+          edit:
+            title: Rediger indgang
+            update: Opdater indgang
+          index:
+            title: Projekttidslinje tilførsler
+          new:
+            create: Opret tilførsel
+            title: Ny tilførsel
+          update:
+            invalid: Der var et problem med at opdatere denne tilførsel.
+            success: Punktet er blevet ajourført
+      admin_log:
+        result:
+          create: "%{user_name} oprettede resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettede %{resource_name} resultat i %{space_name}"
+          update: "%{user_name} opdateret resultat %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Moder blev ikke fundet i databasen (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fejl
+          errors_present: Der var et problem med at importere resultater
+          row_number: Række
+          subject: Vellykket import af resultater
+          success: Vellykket import af resultater. Du kan se resultaterne i grænsefladen til administrationen.
+      last_activity:
+        new_result_at_html: "<span>Nyt resultat på %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Slutdato
+            progress: Fremskridt
+            start_date: Startdato
+            title: Betegnelse
+        status:
+          fields:
+            description: Beskrivelse
+            key: Symbolforklaring
+            name: Navn
+            progress: Fremskridt
+        timeline_entry:
+          fields:
+            description: Beskrivelse
+            entry_date: Dato
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultater"
+        filters:
+          all: Alle
+          scopes: Områder
+        home:
+          categories_label: Kategorier
+          subcategories_label: Underkategorier
+        home_header:
+          global_status: Samlet gennemførelsesstatus
+        nav_breadcrumb:
+          global: Samlet gennemførelse
+        search:
+          search: Søg efter handlinger
+        show:
+          stats:
+            attendees: Deltagere
+            back_to_resource: Tilbage til resultatet
+            comments: Bemærkninger
+            contributions: Bidrag
+            last_edited_by: Senest redigeret af
+            last_updated_at: Senest opdateret den
+            meetings: Møder
+            proposals: Forslag
+            votes: Støtter
+        timeline:
+          title: Projektudvikling
+    components:
+      accountability:
+        name: Ansvarlighed
+        settings:
+          global:
+            categories_label: Navn for "kategorier"
+            comments_enabled: Bemærkninger aktiveret
+            comments_max_length: Bemærkninger maksimumslængde (Lad 0 forblive standardværdi)
+            display_progress_enabled: Vis fremskridt
+            heading_leaf_level_results: Navn for "Projekter"
+            heading_parent_level_results: Navn for "Resultater"
+            intro: Indledning
+            subcategories_label: Navn for "Underkategorier"
+          step:
+            comments_blocked: Bemærkninger, der er blokeret
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Forslaget "%{proposal_title}" er medtaget i et resultat. Du kan se det fra denne side:'
+          email_outro: Du har modtaget denne meddelelse, fordi du følger "%{proposal_title}". Du kan standse modtagelsen af meddelelser ved at følge det foregående link.
+          email_subject: En opdatering til %{proposal_title}
+          notification_title: Forslaget <a href="%{proposal_path}">%{proposal_title}</a> medtaget i <a href="%{resource_path}">%{resource_title}</a> resultatet.
+        result_progress_updated:
+          email_intro: 'Resultatet "%{resource_title}", som omfatter "%{proposal_title}", er nu %{progress}% fuldstændigt. Du kan se det fra denne side:'
+          email_outro: Du har modtaget denne meddelelse, fordi du følger "%{proposal_title}", og dette forslag er medtaget i resultatet "%{resource_title}". Du kan standse modtagelsen af meddelelser ved at følge det foregående link.
+          email_subject: En opdatering til %{resource_title} fremskridt
+          notification_title: Resultatet <a href="%{resource_path}">%{resource_title}</a>, der omfatter forslaget <a href="%{proposal_path}">%{proposal_title}</a>, er nu %{progress}% fuldstændigt.
+    metrics:
+      results:
+        description: Antal genererede resultater
+        object: resultater
+        title: Resultater
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultater
+    participatory_spaces:
+      highlighted_results:
+        see_all: Se alle resultater(%{count})
+    resource_links:
+      included_projects:
+        result_project: Projekter, der indgår i dette resultat
+      included_proposals:
+        result_proposal: Forslag, der indgår i dette resultat
