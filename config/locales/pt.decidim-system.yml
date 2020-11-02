@@ -1,0 +1,142 @@
+pt:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Nome da aplicação OAuth
+        organization_logo: Logótipo da organização (quadrado)
+        organization_name: Organização
+        organization_url: URL da organização
+        redirect_uri: URI de redirecionamento
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: O URI de redirecionamento deve ser um URI SSL
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Tem a certeza de que pretende eliminar isto?
+        destroy: Eliminar
+        edit: Editar
+        new: Novo
+        save: Guardar
+        title: Ações
+      admins:
+        create:
+          error: Houve um problema ao criar um novo administrador.
+          success: Administrador criado com êxito
+        destroy:
+          success: Administrador eliminado com êxito
+        edit:
+          title: Editar administrador
+          update: Atualizar
+        index:
+          title: Administradores
+        new:
+          create: Criar
+          title: Novo administrador
+        update:
+          error: Houve um problema ao atualizar este administrador.
+          success: Administrador atualizado com êxito
+      default_pages:
+        placeholders:
+          content: Adicione conteúdo relevante à página estática %{page} no painel de administração.
+          title: Título predefinido para %{page}
+      menu:
+        admins: Administradores
+        dashboard: Painel de controlo
+        oauth_applications: Aplicações OAuth
+        organizations: Organizações
+      models:
+        admin:
+          fields:
+            created_at: Criado em
+            email: Correio eletrónico
+          name: Administrador
+          validations:
+            email_uniqueness: já existe um administrador com o mesmo endereço de correio eletrónico
+        oauth_application:
+          fields:
+            created_at: Criado em
+            name: Nome da aplicação OAuth
+            organization_name: Organização
+          name: Aplicação OAuth
+        organization:
+          actions:
+            save_and_invite: Criar organização e convidar administrador
+          fields:
+            created_at: Criado em
+            name: Nome
+            omniauth_settings: Definições Omniauth
+            smtp_settings: Definições SMTP
+          name: Organização
+      oauth_applications:
+        create:
+          error: Houve um problema ao criar esta aplicação.
+          success: Aplicação criada com êxito.
+        destroy:
+          error: Houve um problema ao eliminar esta aplicação.
+          success: Aplicação suprimida com êxito.
+        edit:
+          save: Guardar
+          title: Editar aplicação
+        form:
+          select_organization: Selecione uma organização
+        index:
+          confirm_delete: Tem a certeza de que pretende eliminar esta aplicação?
+          title: Aplicações OAuth
+        new:
+          save: Guardar
+          title: Nova aplicação
+        update:
+          error: Houve um problema ao atualizar esta aplicação.
+          success: Aplicação atualizada com êxito.
+      organizations:
+        create:
+          error: Houve um problema ao criar uma nova organização.
+          success: Organização criada com êxito.
+        edit:
+          secondary_hosts_hint: Introduza cada uma delas numa nova linha
+        index:
+          title: Organizações
+        new:
+          reference_prefix_hint: O prefixo de referência é utilizado para identificar unicamente recursos em toda a organização
+          secondary_hosts_hint: Introduza cada uma delas numa nova linha
+          title: Nova organização
+        omniauth_settings:
+          decidim:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+            site_url: URL do sítio
+          enabled: Ativado
+          enabled_by_default: Este fornecedor está ativado por defeito. Pode ser editado, mas não desativado.
+          facebook:
+            app_id: ID da aplicação
+            app_secret: Segredo da aplicação
+          google_oauth2:
+            client_id: ID do cliente
+            client_secret: Segredo do cliente
+          icon: Ícone
+          icon_path: Caminho do ícone
+          twitter:
+            api_key: Chave API
+            api_secret: Segredo da API
+        smtp_settings:
+          instructions:
+            from_label: 'O remetente do correio eletrónico será: "your-organization-name <your-organization@your-provider.org>". Deixe em branco para utilizar ''from_email'' como etiqueta'
+          placeholder:
+            from_label: nome-da-sua-organização
+        update:
+          error: Houve um problema ao atualizar esta organização.
+          success: Organização atualizada com êxito.
+        users_registration_mode:
+          disabled: Só é possível aceder com contas externas
+          enabled: Permitir que os participantes se registem e iniciem sessão
+          existing: Não permitir que os participantes se registem, mas permitir que os participantes existentes iniciem sessão
+      shared:
+        notices:
+          no_organization_warning_html: Tem de criar uma organização para começar. Certifique-se de que lê %{guide} antes de continuar.
+          our_getting_started_guide: o nosso guia de introdução
+      titles:
+        dashboard: Painel de controlo
