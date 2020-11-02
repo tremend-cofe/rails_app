@@ -2,31 +2,128 @@ sl:
   activemodel:
     attributes:
       sortition:
+        additional_info: Informacije o žrebu
+        decidim_category_id: Kategorije nabora predlogov, v katerih želite opraviti žreb
+        decidim_proposals_component_id: Nabori predlogov
         dice: Rezultat meta kocke. Vrzite 6-stransko kocko ali poiščite drug naključen način za pridobitev števila od 1 do 6 in tukaj vnesite izžrebano število pred nekaj pričami. To prispeva h kakovosti in zagotavlja naključnost rezultata.
+        target_items: Število predlogov, ki bodo izbrani (označuje število predlogov, ki jih želite izbrati z žrebom serije predlogov skupine, ki ste jih prej izbrali)
+        title: Naslov
+        witnesses: Priče
+    models:
+      decidim/sortitions/create_sortition_event: Žreb
   decidim:
     components:
       sortitions:
+        name: Žreb
         settings:
           global:
             comments_enabled: Komentarji so omogočeni.
+            comments_max_length: Največja dolžina komentarjev (za privzeto vrednost pusti 0)
     events:
       sortitions:
         sortition_created:
+          email_intro: Žreb "%{resource_title}" je bil dodan v "%{participatory_space_title}", ki mu sledite.
+          email_outro: To obvestilo ste prejeli, ker sledite "%{participatory_space_title}". Odsleditev je mogoča s prejšnje povezave.
           email_subject: Nov žreb je bil dodan v %{participatory_space_title}.
           notification_title: Žreb <a href="%{resource_path}">%{resource_title}</a> je bil dodan v %{participatory_space_title}.
+    pages:
+      home:
+        statistics:
+          sortitions_count: Žreb
+    participatory_processes:
+      statistics:
+        sortitions_count: Žreb
     sortitions:
       admin:
+        actions:
+          destroy: Prekliči žreb
+          edit: Uredi
+          new: Nov žreb
+          show: Podrobnosti o žrebu
+        models:
+          sortition:
+            fields:
+              category: Kategorija
+              created_at: Ustvarjeno dne
+              decidim_proposals_component: Komponenta predlogov
+              dice: Kocke
+              reference: Referenca
+              request_timestamp: Čas žrebanja
+              seed: Čas
+              target_items: Elementi za izbiro
+              title: Naslov
         sortitions:
+          confirm_destroy:
+            confirm_destroy: Ali res želite preklicati ta žreb?
+            destroy: Prekliči žreb
+            title: Preklic žreba
           create:
+            error: Pri ustvarjanju novega žreba se je pojavila težava.
             success: Žreb je bil uspešno ustvarjen.
           destroy:
+            error: Žreba ni mogoče preklicati.
             success: Žreb je bil uspešno preklican.
+          edit:
+            title: Posodobi informacije o žrebu
+            update: Posodobi
+          form:
+            all_categories: Vse kategorije
+            select_proposal_component: Izberi nabor predlogov
+            title: Nov žreb za predloge
+          index:
+            title: Žreb
           new:
             confirm: S pritiskom na naslednji gumb bo Decidim zabeležil datum in čas (z natančnostjo do sekunde) in skupaj z izidom meta kock bo te podatke uporabil za ustvarjanje naključne izbire. Dejanje bo nepreklicno, ko kliknete gumb, se objavi rezultat žrebanja, skupaj s podatki, vnesenimi v ta obrazec, ki jih ni mogoče spremeniti. Natančno preverite vsebino.
+            create: Ustvari
+            title: Nov žreb
+          show:
+            selected_proposals: Predlogi, izbrani za žrebanje
           update:
+            error: Pri posodabljanju žreba se je pojavila težava.
             success: Žreb je uspešno posodobljen.
       admin_log:
         sortition:
           create: "%{user_name} je ustvaril žreb %{resource_name} v %{space_name}."
           delete: "%{user_name} je preklical žreb %{resource_name} v %{space_name}."
           update: "%{user_name} je posodobil žreb %{resource_name} v %{space_name}."
+      sortitions:
+        filters:
+          active: Aktivno
+          all: Vse
+          cancelled: Preklicano
+          category: Kategorija
+          category_prompt: Izberi kategorijo
+          search: Išči
+        filters_small_view:
+          close_modal: Zapri modalno okno
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Razgrni
+        linked_sortitions:
+          selected_proposals: Izbrani predlogi
+        orders:
+          label: 'Žreb razvrsti po:'
+          random: Naključni
+          recent: Novejši
+        show:
+          algorithm: Koda algoritma žreba
+          any_category: iz vseh kategorij
+          back: Nazaj na seznam
+          cancelled: Preklican žreb
+          candidate_proposal_ids: Razvrstitev žreba predlogov in ID številk
+          candidate_proposals_info: 'Žreb je bil izveden med naslednjimi predlogi (%{category_label}), z naslednjimi ID številkami (izbrani predlogi so označeni krepko)  '
+          category: iz kategorije %{category}
+          dice_result: "(1) Izid kock"
+          introduction: 'Ta stran vsebuje izide žreba %{reference}. S tem žrebom je bilo število izodov %{target_items} izbranih naključno in z enako porazdelitvijo verjetnosti iz niza predlogov, prikazanih spodaj. Informacije, prikazane na tej strani, skupaj z izidi dajo vse informacije, potrebne za čim večje zagotovilo in ponovitev izidov. Ključ do kakovosti žreba je dvojna naključnost, ki jo omogoča metanje kocke (pred pričami) in natančni čas žreba, ki da vhodne podatke za algoritem za ustvarjanje naključne izbire. Čas izvajanja žreba je tako natančen (v sekundah), da ga ljudje ne moremo nadzorovati, kar daje dvojni „nenadzorljiv“ vhodni podatek, ki zagotavlja pošten rezultat.  '
+          mathematical_result: Izid (1) x (2)
+          proposals_selected_by_sortition: Predlogi, izbrani z žrebom
+          sortition_reproducibility_details: Podrobnosti o ponovljivosti žreba
+          time_seed: "(2) Čas žrebanja"
+          witnesses: Priče
+        sortition:
+          random_seed: Naključni čas
+          view: Prikaži
+        sortition_author:
+          deleted: Izbrisani udeleženec
+        sortition_cancel_author:
+          deleted: Izbrisani udeleženec
