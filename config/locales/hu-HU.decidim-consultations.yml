@@ -1,24 +1,377 @@
 hu:
   activemodel:
     attributes:
+      consultation:
+        banner_image: Szalagcím képe
+        decidim_highlighted_scope_id: Kiemelt alkalmazási kör
+        description: Leírás
+        end_voting_date: A szavazás véget ér
+        introductory_image: Bemutató kép
+        introductory_video_url: Bemutató videó URL-címe
+        questions: Kérdések
+        slug: URL-slug
+        start_voting_date: Kezdetét veszi a szavazás
+        subtitle: Felirat
+        title: Cím
       question:
+        banner_image: Szalagcím képe
+        decidim_scope_id: Városi közigazgatási terület
+        hashtag: Címke
+        hero_image: Kezdőlap képe
+        i_frame_url: Külső szavazási rendszer URL-címe
+        instructions: További utasítások a szavazáshoz
+        max_votes: A szavazatok maximális száma
+        min_votes: A szavazatok minimális száma
+        origin_scope: Alkalmazási kör
+        origin_title: Forrás
+        origin_url: Forrás URL-címe
+        participatory_scope: Részvételi alkalmazási kör
+        promoter_group: Támogató csoport
+        question_context: Kontextus
+        reference: Referencia
+        scope: Városi közigazgatási terület
+        slug: URL-slug
+        subtitle: Felirat
+        vote: Külső szavazási rendszer
         what_is_decided: Miről születik döntés?
+      response:
+        decidim_consultations_response_group_id: Csoport
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: A szavazatok maximális számának legalább a minimális értékkel megegyezőnek kell lennie.
+      vote:
+        decidim_consultations_response_id:
+          not_found: A válasz nem található.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: A szavazatok száma érvénytelen
+    models:
+      decidim/consultation:
+        one: Konzultáció
+        other: Konzultációk
+      decidim/consultations/question:
+        one: Kérdés
+        other: Kérdések
+      decidim/consultations/response:
+        one: Válasz
+        other: Válaszok
+      decidim/consultations/vote:
+        one: Szavazat
+        other: Szavazatok
   decidim:
     admin:
+      actions:
+        back_to_responses: Vissza a válaszokhoz
+        new_consultation: Új konzultáció
+        new_question: Új kérdés
+        new_response: Új válasz
+        new_response_group: Új csoport
+        publish_results: Eredmények közzététele
+        response_groups: Válaszcsoportok kezelése
+        unpublish_results: Eredmények közzétételének visszavonása
+      consultation_publications:
+        create:
+          error: Hiba történt a konzultáció közzététele során.
+          success: A konzultáció közzététele sikeres.
+        destroy:
+          error: Hiba történt a konzultáció közzétételének visszavonása során.
+          success: A konzultáció közzétételének visszavonása sikeres.
+      consultation_results_publications:
+        create:
+          error: Hiba történt a konzultáció eredményeinek közzététele során.
+          success: A konzultáció eredményeinek közzététele sikeres.
+        destroy:
+          error: Hiba történt a konzultáció eredményei közzétételének visszavonása során.
+          success: A konzultáció eredményei közzétételének visszavonása sikeres.
+      consultations:
+        create:
+          error: Hiba történt az új konzultáció létrehozása során.
+          success: A konzultáció létrehozása sikeres.
+        edit:
+          update: Frissítés
+        form:
+          slug_help: 'Az URL-slugokat arra használják, hogy létrehozzák az URL-címeket, amelyek erre a konzultációra mutatnak. Csak betűket, számokat és kötőjeleket tartalmazhat, és betűvel kell kezdődnie. Példa: %{url}'
+          title: Általános információk
+        index:
+          not_published: Nem közzétett
+          published: Közzétett
+        new:
+          create: Létrehozás
+          title: Új konzultáció
+        results:
+          not_visible: Az eredmények a konzultáció végét követően válnak elérhetővé
+          participants: "%{count} résztvevő"
+          total_votes: 'Összesen: %{count} szavazat'
+        update:
+          error: Hiba történt a konzultáció frissítése során.
+          success: A konzultáció frissítése sikeres.
+      menu:
+        consultations: Konzultációk
+        consultations_submenu:
+          info: Információ
+          questions: Kérdések
+          results: Eredmények
+        questions_submenu:
+          components: Komponensek
+          configuration: Konfiguráció
+          consultation: Konzultáció
+          info: Információ
+          responses: Válaszok
       models:
         consultation:
           fields:
             created_at: 'Létrehozás ideje:'
+            published: Közzétett
+            title: Cím
+          name:
+            one: Konzultáció
+            other: Konzultációk
         question:
           fields:
             created_at: 'Létrehozás ideje:'
+            published: Közzétett
+            title: Cím
+          name:
+            one: Kérdés
+            other: Kérdések
         response:
           fields:
             created_at: 'Létrehozás ideje:'
+            response_group: Csoport
+            title: Cím
+          name:
+            one: Válasz
+            other: Válaszok
+      question_configuration:
+        disable_external_voting: Kérjük, tiltsa le a külső szavazást a magas szintű konfigurációk esetében
+        form:
+          help: Állítson be feleletválasztós kérdéseket a résztvevők által választható válaszok maximális számának növelésével. Az alapértelmezett maximális érték 1, ami azt jelenti, hogy csak egy válaszra lehet szavazni.
+          title: Haladó konfiguráció
+      question_publications:
+        create:
+          error: Hiba történt a kérdés közzététele során.
+          success: A kérdés közzététele sikeres.
+        destroy:
+          error: Hiba történt a kérdés közzétételének visszavonása során.
+          success: A kérdés közzétételének visszavonása sikeres.
+      questions:
+        create:
+          error: Hiba történt az új kérdés létrehozása során.
+          success: A kérdés létrehozása sikeres.
+        destroy:
+          success: A kérdés törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          title: Általános információk
+        index:
+          not_published: Nem közzétett
+          published: Közzétett
+        new:
+          create: Létrehozás
+          title: Új kérdés
+        update:
+          error: Hiba történt a kérdés frissítése során.
+          success: A kérdés frissítése sikeres.
+      response_groups:
+        create:
+          error: Hiba történt az új válaszcsoport létrehozása során.
+          success: A válaszcsoport létrehozása sikeres.
+        destroy:
+          error: Hiba történt az új válaszcsoport eltávolítása során. Ellenőrizze, hogy nincsenek-e függő válaszok.
+          success: A vállalatcsoport törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          title: Általános információk
+        help: Használjon csoportokat a feleletválasztó kérdések csomagokba rendezéséhez.
+        new:
+          create: Létrehozás
+          title: Új vállalatcsoport
+        update:
+          error: Hiba történt a válasz frissítése során.
+          success: A válasz frissítése sikeres.
+      responses:
+        create:
+          error: Hiba történt az új válasz létrehozása során.
+          success: A válasz létrehozása sikeres.
+        destroy:
+          error: Hiba történt a válasz eltávolítása során.
+          success: A válasz törlése sikeres.
+        edit:
+          update: Frissítés
+        form:
+          title: Általános információk
+        new:
+          create: Létrehozás
+          title: Új válasz
+        update:
+          error: Hiba történt a válasz frissítése során.
+          success: A válasz frissítése sikeres.
+      titles:
+        consultations: Konzultációk
+        questions: Kérdések
+        response_groups: Vállalatcsoportok
+        responses: Válaszok
+        results: Eredmények
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: A megjelenítendő elemek maximális száma
+      consultation:
+        start_voting_date: Kezdetét veszi a szavazás
+        view_results: Eredmények megtekintése
+      consultation_card:
+        view_results: Eredmények megtekintése
+      consultations:
+        orders:
+          label: 'Konzultációk rendezési elve:'
+          random: Véletlenszerű
+          recent: Legújabb
+        show:
+          dates: Dátum
+      content_blocks:
+        highlighted_consultations:
+          name: Kiemelt konzultációk
+      count:
+        title:
+          one: "%{count} konzultáció"
+          other: "%{count} konzultáció"
+      filters:
+        active: Aktív
+        all: Összes
+        finished: Befejezett
+        search: Keresés
+        state: Állapot
+        upcoming: Közelgő
+      filters_small_view:
+        close_modal: Ablak bezárása
+        filter: Szűrő
+        filter_by: Szűrési feltétel
+        unfold: Kibontás
       highlighted_questions:
         title: A(z) %{scope_name} alkalmazási kör kérdései
+      index:
+        title: Konzultációk
+      last_activity:
+        new_consultation: Új konzultáció
+        new_question_at_html: "<span>Új kérdések: %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktív konzultációk
+            see_all_consultations: Az összes konzultáció megtekintése
+            voting_ends_in:
+              one: A szavazás <strong>holnap</strong> ér véget
+              other: A szavazás <strong>%{count} nap</strong> múlva ér véget
+            voting_ends_today: A szavazás <strong>ma</strong> ér véget
       question:
+        take_part: Részvétel
+        view_results: Eredmények megtekintése
         votes_out_of:
           one: 'szavazat ennyiből:'
           other: 'szavazat ennyiből:'
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: A résztvevők legalább %{votes} szavazatot oszthatnak szét a különböző lehetőségek között.
+          title: Ennél a kérdésnél több válasz is megengedett
+          total_participants: Összesen %{count} személy vett részt a szavazásban.
+          vote_limit:
+            description: A résztvevők legfeljebb %{limit} lehetőségre szavazhattak.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Legalább %{votes} szavazatot kell szétosztania a különböző lehetőségek között.
+          title: 'A szavazatokra a következő szabályok vonatkoznak:'
+          vote_limit:
+            description: Legfeljebb %{limit} lehetőségre szavazhat.
+            left: Fennmaradó
+            votes: Szavazatok
+      question_votes:
+        create:
+          error: Hiba történt a kérdéssel kapcsolatos szavazás során
+          success: A konzultáció végéig módosíthatja. Csak egy szavazat fogadható el.
+          title_error: Szavazási hiba!
+          title_success: A szavazat regisztrációja sikeres
+      regular_questions:
+        title: A konzultáció kérdései
+      show:
+        badge_name:
+          finished: Befejezett
+          open: Nyílt
+          open_votes: Nyílt szavazások
+          published_results: Közzétett eredmények
+        footer_button_text:
+          debate: Vita
+          view: Megtekintés
+          view_results: Eredmények megtekintése
+          vote: Szavazat
+        unspecified: Nincs meghatározva
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p>A <strong>konzultációk</strong> olyan terek, amelyek lehetővé teszik, hogy egyértelmű kérdést tegyen fel minden olyan személy számára, aki a szervezet részét képezi, valamint részvételi felhívást tegyen közzé és vitát ösztönözzön vagy rendeljen el a válasz elfogadásával vagy elutasításával kapcsolatban. Amikor elérkezik a konzultáció időpontja, szavazhat és közzéteheti a szavazások eredményét.</p> <p>Példák: A konzultációk szinte minden szempontból érinthetik a szervezetet: például a szervezet nevének vagy logójának megváltoztatására irányuló alternatívák megosztása, Igen vagy a Nem döntés egy nagyobb szervezet részévé válása tekintetében, egy új stratégiai terv vagy egy munkacsoport eredményének jóváhagyása vagy elutasítása, illetve annak meghatározása, hogy a pozíciók továbbra is legfeljebb 1, 2 vagy 3 mandátumot foglaljanak-e magukban.</p>\n"
+          page: "<p>A <strong>konzultációk</strong> olyan terek, amelyek lehetővé teszik, hogy egyértelmű kérdést tegyen fel minden olyan személy számára, aki a szervezet részét képezi, valamint részvételi felhívást tegyen közzé és vitát ösztönözzön vagy rendeljen el a válasz elfogadásával vagy elutasításával kapcsolatban. Amikor elérkezik a konzultáció időpontja, szavazhat és közzéteheti a szavazások eredményét.</p> <p>Példák: A konzultációk szinte minden szempontból érinthetik a szervezetet: például a szervezet nevének vagy logójának megváltoztatására irányuló alternatívák megosztása, Igen vagy a Nem döntés egy nagyobb szervezet részévé válása tekintetében, egy új stratégiai terv vagy egy munkacsoport eredményének jóváhagyása vagy elutasítása, illetve annak meghatározása, hogy a pozíciók továbbra is legfeljebb 1, 2 vagy 3 mandátumot foglaljanak-e magukban a szervezeten belül.</p>\n"
+          title: Mik a konzultációk?
+    menu:
+      consultations: Konzultációk
+    pages:
+      home:
+        statistics:
+          consultations_count: Konzultációk
+    questions:
+      next_button: Következő kérdés
+      previous_button: Előző kérdés
+      results:
+        title: Eredmények
+      show:
+        read_more: Több megjelenítése
+      statistics:
+        assistants_count_title: Asszisztensek
+        comments_count_title: Hozzászólások
+        meetings_count_title: Ülések
+        supports_count_title: Szavazatok
+      technical_info:
+        technical_data: Technikai adatok
+      vote_button:
+        already_voted: Már szavazott
+        already_voted_hover: Szavazat visszavonása
+        starting_from: 'Kezdési dátum: %{date}'
+        verification_required: Ellenőrizze a fiókot a szavazáshoz
+        vote: Szavazat
+      vote_modal:
+        close_modal: Modális ablak bezárása
+        contextual_help: Kérjük, válasszon egy lehetőséget.
+        title: 'Konzultáció: szavazás kérdése'
+      vote_modal_confirm:
+        change: Változás
+        close_modal: Modális ablak bezárása
+        confirm: Megerősítés
+        contextual_help: Kérjük, erősítse meg a kiválasztott lehetőséget.
+        title: 'Konzultáció: szavazat megerősítése'
+    resources:
+      consultations:
+        actions:
+          vote: Szavazat
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Csatolmányok
+          categories: Kategóriák
+      consultation_voting_data:
+        start_voting_date: Kezdetét veszi a szavazás
+      question_components:
+        question_menu_item: A kérdés
+        unfold: Kibontás
+      question_header:
+        back_to_consultation: Az összes konzultáció megtekintése
+        back_to_question: Vissza a kérdéshez
