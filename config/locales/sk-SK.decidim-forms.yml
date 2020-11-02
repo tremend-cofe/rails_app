@@ -1,1 +1,168 @@
 sk:
+  activemodel:
+    attributes:
+      answer:
+        body: Odpoveď
+      question:
+        max_choices: Maximálny počet možností na výber
+        question_type: Typ
+      questionnaire_question:
+        mandatory: Povinné
+    errors:
+      models:
+        answer:
+          attributes:
+            choices:
+              missing: sú neúplné
+              too_many: sú nadpočetné
+        questionnaire:
+          request_invalid: Pri spracovaní tejto požiadavky sa vyskytla chyba. Skúste to znova
+  decidim:
+    forms:
+      admin:
+        models:
+          components:
+            description: Opis
+            tos: Podmienky poskytovania služby
+        questionnaires:
+          actions:
+            back: Späť k otázkam
+            show: Zobraziť odpovede
+          answer_option:
+            answer_option: Možnosť odpovede
+            free_text: Voľný text
+            remove: Odstrániť
+            statement: Vyhlásenie
+          answers:
+            actions:
+              back: Späť k odpovediam
+              export: Exportovať
+              show: Zobraziť odpovede
+            empty: Zatiaľ bez odpovedí
+            export:
+              answer:
+                title: 'Odpoveď č. %{number}'
+            index:
+              title: "Celkový počet odpovedí %{total}"
+            show:
+              title: 'Odpoveď č. %{number}'
+          display_condition:
+            answer_option: Možnosť odpovede
+            condition_question: Otázka
+            condition_type: Podmienka
+            condition_types:
+              answered: Zodpovedané
+              equal: Rovná sa
+              match: Obsahuje text
+              not_answered: Nezodpovedané
+              not_equal: Nerovná sa
+            condition_value: Obsahovalo text
+            display_condition: Možnosť zobrazenia
+            mandatory: Táto podmienka musí byť splnená bez ohľadu na stav iných podmienok
+            remove: Odstrániť
+            save_warning: Pred konfiguráciou možností zobrazenia nezabudnite formulár uložiť
+            select_answer_option: Zvoliť možnosť odpovede
+            select_condition_question: Zvoliť otázku
+            select_condition_type: Zvoliť typ podmienky
+          edit:
+            save: Uložiť
+            title: Upraviť dotazník
+          form:
+            add_question: Pridať otázku
+            add_separator: Pridať oddeľovač
+            already_answered_warning: Niektorí používatelia už tento formulár vyplnili, otázky v ňom preto nemôžete upraviť.
+            collapse: Zbaliť všetky otázky
+            expand: Rozbaliť všetky otázky
+            preview: Ukážka
+            title: Upraviť formulár
+            unpublished_warning: Formulár nie je zverejnený. Otázky v ňom môžete upraviť, v takom prípade sa však odstránia súčasné odpovede.
+          matrix_row:
+            matrix_row: Riadok
+            remove: Odstrániť
+            statement: Vyhlásenie
+          question:
+            add_answer_option: Pridať možnosť odpovede
+            add_display_condition: Pridať možnosť zobrazenia
+            add_display_condition_info: Ak chcete konfigurovať možnosti zobrazenia, uložte formulár
+            add_matrix_row: Pridať riadok
+            any: Každá
+            collapse: Zbaliť
+            description: Opis
+            down: Nadol
+            expand: Rozbaliť
+            question: Otázka
+            remove: Odstrániť
+            statement: Vyhlásenie
+            up: Nahor
+          separator:
+            down: Nadol
+            remove: Odstrániť
+            separator: Oddeľovač
+            up: Nahor
+          update:
+            invalid: Pri ukladaní formulára sa vyskytol problém.
+            success: Formuláre boli úspešne uložené.
+      errors:
+        answer:
+          body: Text položky nemôže byť prázdny
+      files:
+        extension_whitelist: 'Akceptované formáty:'
+      images:
+        dimensions: "%{width} × %{height} pixelov"
+        dimensions_info: 'Pri tomto obrázku sa:'
+        processors:
+          resize_and_pad: zmení veľkosť a vyplní sa na
+          resize_to_fit: prispôsobí veľkosť
+      question_types:
+        long_answer: Dlhá odpoveď
+        matrix_multiple: Matica (viaceré možnosti)
+        matrix_single: Matica (jedna možnosť)
+        multiple_option: Viaceré možnosti
+        short_answer: Krátka odpoveď
+        single_option: Jedna možnosť
+        sorting: Triedenie
+      questionnaires:
+        answer:
+          invalid: Pri vypĺňaní formulára sa vyskytol problém.
+          max_choices_alert: Vybrali ste príliš veľa možností
+          success: Formulár bol úspešne vyplnený.
+        question:
+          max_choices: 'Maximálny počet možností na výber: %{n}'
+        show:
+          answer_questionnaire:
+            anonymous_user_message: Ak chcete vyplniť formulár, <a href="%{sign_in_link}">prihláste sa pomocou svojho konta</a> alebo <a href="%{sign_up_link}">sa zaregistrujte</a>.
+            title: Vyplniť formulár
+          current_step: Krok %{step}
+          of_total_steps: z %{total_steps}
+          questionnaire_answered:
+            body: Tento formulár ste už vyplnili.
+            title: Už vyplnené
+          questionnaire_closed:
+            body: Formulár je uzavretý a nemožno ho vyplniť.
+            title: Formulár je uzavretý
+          questionnaire_for_private_users:
+            body: Formulár je k dispozícii len pre súkromných používateľov
+            title: Formulár je uzavretý
+          questionnaire_js_disabled:
+            body: Niektoré z funkcií tohto formulára budú neaktívne. Na zlepšenie možností používania povoľte jazyk JavaScript v prehliadači.
+            title: Jazyk JavaScript je zakázaný
+          questionnaire_not_published:
+            body: Tento formulár ešte nie je zverejnený.
+          tos_agreement: Svojou účasťou súhlasíte s podmienkami poskytovania služby
+      step_navigation:
+        show:
+          are_you_sure: Túto akciu nemožno vrátiť späť a svoje odpovede nebudete môcť upraviť. Naozaj to chcete urobiť?
+          back: Späť
+          continue: Pokračovať
+          submit: Odoslať
+      user_answers_serializer:
+        body: Odpoveď
+        completion: Vyplnenie
+        created_at: Vyplnené
+        id: Identifikátor odpovede
+        ip_hash: Hodnota hash adresy IP
+        question: Otázka
+        registered: Registrované
+        session_token: Identifikátor používateľa
+        unregistered: Neregistrované
+        user_status: Stav používateľa
