@@ -1,16 +1,520 @@
 ro:
+  activemodel:
+    attributes:
+      initiative:
+        decidim_user_group_id: Autor
+        description: Descriere
+        offline_votes: Semnături în persoană
+        scope_id: Domeniu de aplicare
+        signature_end_date: Încheierea perioadei de colectare a semnăturilor
+        signature_start_date: Începutul perioadei de colectare a semnăturilor
+        signature_type: Tipul de colectare a semnăturilor
+        signature_type_values:
+          any: Mixt
+          offline: Parsonal
+          online: On-line
+        state: Statut
+        title: Titlu
+      initiative_author:
+        address: Adresă
+        city: Orașul
+        name: Nume și prenume
+        phone_number: Numărul de telefon
+        post_code: Codul poștal
+        province: Provincia
+      initiatives_committee_member:
+        user: Membru al comitetului
+      initiatives_type:
+        area_enabled: Permite autorilor să aleagă zona pentru inițiativa lor
+        attachments_enabled: Activarea atașamentelor
+        banner_image: Imagine banner
+        collect_user_extra_fields: Colectați datele cu caracter personal ale participanților la semnare
+        custom_signature_end_date_enabled: Activași posibilitatea autorilor de a alege momentul de încheiere a perioadei de colectare a semnăturilor
+        description: Descriere
+        document_number_authorization_handler: Autorizație de verificare a numărului documentului la semnare
+        extra_fields_legal_information: Informații juridice privind colectarea datelor cu caracter personal
+        minimum_committee_members: Numărul minim de membri ai comitetului
+        online_signature_enabled: Semnare electronică activată
+        promoting_committee_enabled: Activarea comitetului de promovare
+        title: Titlu
+        undo_online_signatures_enabled: Permiteți participanților să își anuleze semnăturile online
+        validate_sms_code_on_votes: Adăugați etapa de validare a codului SMS la procesul de semnare
+      initiatives_vote:
+        date_of_birth: Data nașterii
+        document_number: Numărul documentului
+        name_and_surname: Nume și prenume
+        postal_code: Cod poștal
+      organization_data:
+        address: Adresă
+        id_document: Documentul de identitate
+        name: Denumirea completă
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Fișier nevalid
+              needs_to_be_reattached: Trebuie să fie reanexat
+              title: Titlul nu ar trebui să fie necompletat
   decidim:
+    admin:
+      actions:
+        new_initiative_type: Tip nou de inițiativă
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Zonă
+          state_eq:
+            label: Stare
+            values:
+              accepted: Destule semnături
+              created: Creartă
+              discarded: Eliminat
+              published: Publicat
+              rejected: Insuficiente semnături
+              validating: Validare tehnică
+          type_id_eq:
+            label: Tip
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Căutați în %{collection} după titlu, descriere, ID sau numele autorului.
+      menu:
+        initiatives: Inițiative
+        initiatives_types: Tipuri de inițiative
+      models:
+        initiatives:
+          fields:
+            created_at: Creat la
+            published_at: Publicat la
+            state: Statut
+            supports_count: Semnături
+            title: Inițiative
+        initiatives_type_scope:
+          fields:
+            scope: Domeniu de aplicare
+            supports_required: Semnături necesare
+          name: Domeniul tipului de inițiativă
+        initiatives_types:
+          fields:
+            created_at: Creat la
+            title: Tipuri de inițiative
+          name: Tip de inițiativă
+        initiatives_votes:
+          fields:
+            date_of_birth: Data nașterii
+            document_number: Numărul documentului
+            initiative_end_date: Data de sfârșit
+            initiative_id: ID inițiativă
+            initiative_signatures_count: Numărul de semnături
+            initiative_start_date: Data începerii
+            initiative_title: Titlul inițiativei
+            name_and_surname: Nume și prenume
+            postal_code: Cod poștal
+            time_and_date: Data și ora
+            timestamp: Marcă temporală (Timestamp)
+      titles:
+        initiatives: Inițiative
+        initiatives_types: Tipuri de inițiative
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. Puteți verifica pe <a href="%{admin_initiative_url}">panoul de administrare</a>
+            email_outro: Ați primit această notificare deoarece sunteți administrator al platformei.
+            email_subject: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică.
+            notification_title: Inițiativa "%{resource_title}" a fost trimisă pentru validare tehnică. O puteți examina în <a href="%{admin_initiative_path}">panoul de administrare</a>
+        initiative_extended:
+          email_intro: Termenul pentru semnarea online pentru inițiativa %{resource_title} a fost prelungit!
+          email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Dacă doriți să nu mai primiți notificări, accesați următorul link.
+          email_subject: Termenul pentru semnarea inițiativei a fost prelungit!
+          notification_title: Termenul de semnare pentru <a href="%{resource_path}">%{resource_title}</a> a fost prelungit.
+        milestone_completed:
+          affected_user:
+            email_intro: Inițiativa dumneavoastră %{resource_title} a atins %{percentage}% din semnături!
+            email_outro: Ați primit această notificare deoarece sunteți unul din autorii inițiativei %{resource_title}.
+            email_subject: Etapă majoră nouă finalizată!
+            notification_title: Inițiativa dvs. <a href="%{resource_path}">%{resource_title}</a> a atins %{percentage}% semnături.
+          follower:
+            email_intro: Inițiativa %{resource_title} a atins %{percentage}% din semnături!
+            email_outro: Ați primit această notificare deoarece urmăriți %{resource_title}. Dacă doriți să nu mai primiți notificări, accesați următorul link.
+            email_subject: Etapă majoră nouă finalizată!
+            notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins %{percentage}% semnături.
+        support_threshold_reached:
+          email_intro: Inițiativa %{resource_title} a atins pragul de sprijin
+          email_outro: Ați primit această notificare deoarece sunteți administrator al platformei.
+          email_subject: Pragul de sprijin a fost atins
+          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a atins pragul de sprijin
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Accesați spațiul participativ al inițiativelor
+            Urmați etapele pentru a crea o nouă inițiativă
+          description: Acest ecuson se acordă la lansarea de noi inițiative, în parteneriat cu alte persoane.
+          description_another: Acest participant are %{score} inițiative publicate.
+          description_own: Au fost publicate %{score} inițiative.
+          name: Inițiative publicate
+          next_level_in: Creați încă %{score} inițiative pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu are nicio inițiativă publicată.
+          unearned_own: Nu ați publicat încă nicio inițiativă.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p>O <strong>inițiativă</strong> este o propunere care poate fi promovată de oricine din proprie inițiativă (independent de alte canale sau spații participative) prin colectarea de semnături (digitale) pentru ca organizația să desfășoare o acțiune specifică (modificarea unui regulament, inițierea unui proiect, modificarea denumirii unui departament sau al unei străzi etc.).</p> <p>Promotorii unei inițiative pot defini obiectivele acesteia, pot căuta sprijin, pot dezbate, pot disemina și pot defini punctele în care semnăturile pot fi colectate de la participanți sau dezbaterile pot fi deschise altor participanți.</p> <p>Exemple: O inițiativă poate colecta semnături pentru a convoca o consultare a tuturor persoanelor dintr-o organizație sau pentru a crea sau convoca o adunare sau pentru a iniția un proces de majorare a bugetului pentru un teritoriu sau o zonă acoperită de organizație. Pe parcursul procesului de colectare a semnăturilor, un număr mai mare de persoane de pot asocia cererii și o pot promova în interiorul organizației.</p>\n"
+          page: "<p>O <strong>inițiativă</strong> este o propunere care poate fi promovată de oricine din proprie inițiativă (independent de alte canale sau spații participative) prin colectarea de semnături (digitale) pentru ca organizația să desfășoare o acțiune specifică (modificarea unui regulament, inițierea unui proiect, modificarea denumirii unui departament sau al unei străzi etc.).</p> <p>Promotorii unei inițiative pot defini obiectivele acesteia, pot căuta sprijin, pot dezbate, pot disemina și pot defini punctele în care semnăturile pot fi colectate de la participanți sau dezbaterile pot fi deschise altor participanți.</p> <p>Exemple: O inițiativă poate colecta semnături pentru a convoca o consultare a tuturor persoanelor dintr-o organizație sau pentru a crea sau convoca o adunare sau pentru a iniția un proces de majorare a bugetului pentru un teritoriu sau o zonă acoperită de organizație. Pe parcursul procesului de colectare a semnăturilor, un număr mai mare de persoane de pot asocia cererii și o pot promova în interiorul organizației.</p>\n"
+          title: Ce sunt inițiativele?
     initiatives:
+      actions:
+        answer: Răspuns
+      admin:
+        answers:
+          edit:
+            answer: Răspuns
+            title: Răspuns pentru %{title}
+          info_initiative:
+            created_at: Creat la
+            description: Descriere
+            initiative_votes_count: Numărul de voturi
+            initiatives: Inițiative
+            state: Stare
+        committee_requests:
+          index:
+            approve: Aprobați
+            confirm_revoke: Sunteți sigur(ă)?
+            invite_to_committee_help: Partajați acest link pentru a invita alți participanți în cadrul comitetului de promovare
+            no_members_yet: Nu există membri în comitetul de promovare
+            revoke: Revocare
+            title: Membrii comitetului
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Număr maxim de elemente care vor fi afișate
+        exports:
+          initiatives: Inițiative
+        initiatives:
+          edit:
+            accept: Acceptați inițiativa
+            confirm: Sunteți sigur(ă)?
+            discard: Renunțați la inițiativă
+            export_pdf_signatures: Exportați documentul de semnături în format PDF
+            export_votes: Exportați semnăturile
+            reject: Respingeți inițiativa
+            send_to_technical_validation: Trimiteți pentru validare tehnică
+            success: Inițiativa a fost trimisă pentru validare tehnică.
+            update: Actualizare
+          form:
+            attachments: Atașamente
+            settings: Setări
+            title: Informații generale
+          index:
+            actions_title: Acțiune
+            preview: Previzualizare
+            print: Tipărire
+          initiative_attachments:
+            documents: Documente
+            edit: Editare
+            new: Nou
+            photos: Fotografii
+          show:
+            print: Tipărire
+          update:
+            error: S-a produs o eroare
+            success: Inițiativa a fost actualizată
+        initiatives_type_scopes:
+          create:
+            error: S-a produs o eroare
+            success: A fost creat un nou domeniu pentru un anumit tip de inițiativă
+          destroy:
+            success: Domeniul a fost eliminat
+          edit:
+            back: Înapoi
+            confirm_destroy: Sunteți sigur(ă)?
+            destroy: Ștergere
+            title: Editați domeniul tipului de inițiativă
+            update: Actualizare
+          new:
+            back: Înapoi
+            create: Creare
+            title: Creați domeniul tipului de inițiativă
+          update:
+            error: S-a produs o eroare
+            success: Domeniul a fost actualizat
+        initiatives_types:
+          create:
+            error: S-a produs o eroare
+            success: Un nou tip de inițiativă a fost creat
+          destroy:
+            success: Tipul de inițiativă a fost eliminat
+          edit:
+            confirm_destroy: Sunteți sigur(ă)?
+            destroy: Ștergere
+            update: Actualizare
+          form:
+            title: Informații generale
+          initiative_type_scopes:
+            title: Domenii pentru tipul de inițiativă
+          new:
+            create: Creare
+            title: Tip nou de inițiativă
+          update:
+            error: S-a produs o eroare
+            success: Tipul de inițiativă a fost actualizat
+      admin_log:
+        initiative:
+          publish: "%{user_name} a publicat inițiativa %{resource_name}"
+          send_to_technical_validation: "%{user_name} a trimis inițiativa %{resource_name} pentru validare tehnică"
+          unpublish: "%{user_name} a renunțat la inițiativa %{resource_name}"
+          update: "%{user_name} a actualizat inițiativa %{resource_name}"
+      admin_states:
+        accepted: Destule semnături
+        created: Creartă
+        discarded: Eliminat
+        published: Publicat
+        rejected: Insuficiente semnături
+        validating: Validare tehnică
+      application_helper:
+        filter_area_values:
+          all: Toate
+        filter_scope_values:
+          all: Toate
+        filter_state_values:
+          accepted: Destule semnături
+          all: Toate
+          answered: Răspuns completat
+          closed: Închisă
+          open: Deschise
+          rejected: Insuficiente semnături
+        filter_type_values:
+          all: Toate
+      committee_requests:
+        new:
+          continue: Continuare
+          help_text: Sunteți pe punctul de a solicita să deveniți membru al comitetului de promovare a inițiativei
+        spawn:
+          success: Solicitarea dumneavoastră a fost trimisă autorului inițiativei.
+      content_blocks:
+        highlighted_initiatives:
+          name: Inițiative evidențiate
       create_initiative:
+        fill_data:
+          back: Înapoi
+          continue: Continuare
+          fill_data_help: "<ul> <li>Reexaminarea conținutului inițiativei dumneavoastră Titlul dumneavoastră este ușor de înțeles? Obiectivul inițiativei dumneavoastră este clar?</li> <li>Trebuie să alegeți tipul de semnătură. Personal, online sau o combinație</li> <li>Care este aria de acoperire geografică a inițiativei? Oraș, district?</li> </ul>"
+          initiative_type: Tip de inițiativă
+          more_information: "(Informații suplimentare)"
+          select_area: Selectați o zonă
+          select_scope: Selectați un domeniu
+        finish:
+          back: Înapoi
+          back_to_initiatives: Înapoi la inițiative
+          callout_text: Felicitări! Inițiativa dvs. cetățenească a fost creată.
+          confirm: Confirmați
+          edit_my_initiative: Editarea inițiativelor mele
+          go_to_my_initiatives: Inițiativele mele
+          more_information: "(Informații suplimentare)"
+          send_my_initiative: Trimiteți inițiativa
         finish_help:
+          access_reminder: Rețineți că veți avea întotdeauna acces la inițiativele dumneavoastră prin intermediul meniului pentru participanți.
           help_for_organizations: Dacă sunteți o asociație, va trebui să încărcați procesele-verbale ale consiliului de administrație al tuturor organizațiilor care alcătuiesc Comisia de promovare
+          help_in_person_signatures: Dacă ați ales să colectați semnături personal sau personal și online, va trebui să încărcați informațiile solicitate.
+          help_text: Rețineți că, pentru a prelucra în mod corespunzător inițiativa, trebuie să accesați panoul de gestionare unde veți găsi meniul utilizatorului, să încărcați informațiile necesare și să le trimiteți în vederea prelucrării.
+          initiatives_page_link: Puteți consulta toate aceste informații pe pagina %{link} dedicată informării cu privire la inițiative.
           page: Pagina
+        previous_form:
+          back: Înapoi
+          continue: Continuare
+          help: În ce constă inițiativa? Scrieți titlul și descrierea. Vă recomandăm un titlu scurt și concis, precum și o descriere axată pe soluția propusă.
+          more_information: "(Informații suplimentare)"
+        promotal_committee:
+          back: Înapoi
+          individual_help_text: Acest tip de inițiativă cetățenească necesită o Comisie de promovare care să constea din cel puțin %{committee_size} persoane (atestatori). Trebuie să partajați următorul link cu celelalte persoane care iau parte la această inițiativă. Atunci când contactele dumneavoastră primesc acest link, ele vor trebui să urmeze etapele indicate.
+          more_information: "(Informații suplimentare)"
+        select_initiative_type:
+          back: Înapoi
+          choose_html: Doresc să creez o <strong>%{title}</strong>
+          more_information: "(Informații suplimentare)"
+          select: Doresc să promovez această inițiativă
+          select_initiative_type_help: Inițiativele cetățenești reprezintă un mijloc prin care cetățenii pot interveni, astfel încât Consiliul local să poată întreprinde acțiuni în apărarea interesului general care se încadrează în domeniile de competență ale municipalității. Ce inițiativă doriți să lansați?
+        share_committee_link:
+          continue: Continuare
+          invite_to_committee_help: Link pentru invitarea de persoane care să facă face parte din comitetul de promovare
+        show_similar_initiatives:
+          back: Înapoi
+          compare_help: În cazul în care oricare dintre următoarele inițiative este similară cu a dumneavoastră, vă încurajăm să o semnați. Propunerea dumneavoastră va avea mai multe posibilități de a fi promovată.
+          continue: Inițiativa mea este diferită
+          more_information: "(Informații suplimentare)"
       events:
         create_initiative_event:
           email_intro: "%{author_name} %{author_nickname}, pe care îl urmăriți a creat o inițiativă nouă, examinați-o și contribuiți:"
+          email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Dacă doriți să nu mai primiți notificări, accesați următorul link.
+          email_subject: O nouă inițiativă din partea %{author_nickname}
+          notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost creată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, pe care îl urmăriți, a avizat următoarea inițiativă, poate că doriți să contribuiți la conversație:"
+          email_outro: Ați primit această notificare deoarece urmăriți %{author_nickname}. Dacă doriți să nu mai primiți notificări, accesați următorul link.
+          email_subject: Inițiativă avizată de %{author_nickname}
           notification_title: Inițiativa <a href="%{resource_path}">%{resource_title}</a> a fost avizată de <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Inițiative
+      initiative_signatures:
+        fill_personal_data:
+          continue: Continuare
+          date_select:
+            day: Ziua
+            month: Luna
+            year: Anul
+          help: Completați următoarele câmpuri cu datele dumneavoastră personale pentru a semna inițiativa
+        finish:
+          back_to_initiative: Înapoi la inițiativă
+        sms_code:
+          continue: Verificați codul și continuați
+          help: Verificați mesajele SMS primite pe telefon
+        sms_phone_number:
+          continue: Trimiteți-mi un SMS
+          help: Completați formularul cu numărul de telefon verificat pentru a solicita codul de verificare
+      initiative_votes:
+        create:
+          error: S-a întâmpinat o problemă la semnarea inițiativei.
+          invalid: Datele furnizate pentru semnarea inițiativei nu sunt valabile
+          success_html: Felicitări! Inițiativa <strong> %{title}</strong> a fost semnată
+        personal_data:
+          invalid: Datele personale nu sunt în concordanță cu datele furnizate pentru autorizare.
+        sms_code:
+          invalid: Codul dvs. de verificare nu este confirmat de codul nostru. Vă rugăm să verificați de două ori SMS-ul pe care vi l-am trimis.
+        sms_phone:
+          invalid: Numărul de telefon nu este valabil sau este în curs de autorizare. Vă rugăm să verificați autorizațiile.
+      initiatives:
+        author:
+          deleted: Ștearsă
+        filters:
+          any: Oricare
+          area: Zonă
+          author: Autor
+          myself: Inițiativele mele
+          scope: Domeniu de aplicare
+          search: Căutare
+          state: Statut
+          type: Tip
+        filters_small_view:
+          close_modal: Închideți fereastra
+          filter: Filtrare
+          filter_by: Filtrare după
+          unfold: Desfășurați
+        index_header:
+          new_initiative: Inițiativă nouă
+          not_authorized:
+            authorizations_page: Vizualizare autorizații
+            close: Închidere
+            explanation: Trebuie să fiți verificat(ă) pentru a crea o nouă inițiativă.
+            title: Autorizare necesară
+        initiatives:
+          closed_initiatives_warning: În prezent, nu există inițiative deschise, dar aici puteți găsi toate inițiativele anterioare.
+          no_initiatives_warning: Nicio inițiativă nu corespunde criteriilor de căutare.
+        orders:
+          label: 'Sortați inițiativele după:'
+          most_commented: Cele mai comentate
+          most_voted: Cele mai semnate
+          random: Aleatoriu
+          recent: Cele mai recente
+          recently_published: Cel mai recent publicate
+        result:
+          answer_title:
+            accepted: Această propunere a fost acceptată deoarece
+            created: Această propunere a fost creată
+            discarded: La această propunere s-a renunțat deoarece
+            published: Această propunere este publicată deoarece
+            rejected: Această propunere a fost respinsă deoarece
+            validating: Această propunere este în curs de evaluare
+          initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
+        show:
+          any_vote_method: Această inițiativă cetățenească colectează atât semnături online, cât și pe cele în persoană.
+          follow_description: Primirea unei notificări în cazul în care există noutăți în această inițiativă
+          offline_method: Această inițiativă cetățenească colectează doar semnături în persoană.
+        signature_identities:
+          select_identity: Selectați identificatorul participantului
+        supports:
+          title: Lista de semnături
+        vote_cabin:
+          already_voted: Deja semnată
+          supports_required: "%{total_supports} semnături necesare"
+          verification_required: Verificați-vă contul pentru a semna inițiativa
+          vote: Semnare
+          votes_blocked: Semnare dezactivată
+        votes_count:
+          most_popular_initiative: Cea mai populară inițiativă
+          need_more_votes: Necesită mai multe semnături
+      initiatives_mailer:
+        creation_subject: Inițiativa dumneavoastră „%{title}” a fost creată
+        initiative_link:
+          check_initiative_details: Puteți vedea detaliile inițiativei
+          here: aici
+        more_information: Aici aveți mai multe informații despre procesul de creare a inițiativei.
+        progress_report_body_for: Inițiativa %{title} a atins %{percentage}% din semnăturile necesare
+        progress_report_for: 'Rezumatul inițiativei: %{title}'
+        promotal_committee_help: Nu uitați că trebuie să invitați cel puțin %{member_count} persoane în comitetul de promovare. Transmiteți următorul link pentru a invita participanți în cadrul comitetului de promovare
+        status_change_body_for: 'Inițiativa %{title} și-a schimbat statutul după cum urmează: %{state}'
+        status_change_for: Inițiativa %{title} și-a schimbat statutul
+      last_activity:
+        new_initiative: Inițiativă nouă
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Inițiative active
+            see_all_initiatives: Afișați toate inițiativele
+      show:
+        badge_name:
+          accepted: Destule semnături
+          created: Creartă
+          discarded: Eliminat
+          published: Publicat
+          rejected: Insuficiente semnături
+          validating: Validare tehnică
+      states:
+        accepted: Acceptată
+        expired: Expirată
+      unavailable_scope: Domeniu indisponibil
+      versions:
+        shared:
+          back_to_resource: Înapoi la inițiativă
+    menu:
+      initiatives: Inițiative
+    resources:
+      initiatives_type:
+        actions:
+          title: Acțiuni
+          vote: Semnare
   layouts:
     decidim:
+      admin:
+        initiative:
+          attachments: Atașamente
+          committee_members: Membrii comitetului
+          components: Componente
+          information: Informare
+      initiative_creation_header:
+        back: Înapoi
+        fill_data: Creare
+        finish: Finalizare
+        previous_form: Început
+        promotal_committee: Comisia de promovare
+        select_initiative_type: Alegere
+        show_similar_initiatives: Comparare
+        step: Etapa %{current} din %{total}
+        title: Creați o nouă inițiativă
+      initiative_header:
+        initiative_menu_item: Inițiativă
       initiative_signature_creation_header:
+        back: Înapoi
+        fill_personal_data: Completați datele
+        finish: Finalizare
+        finished: Semnarea inițiativei a fost creată
+        see_steps: afișarea etapelor
+        select_identity: Selectați identitatea
+        sms_code: Verificare prin cod SMS
+        sms_phone_number: Număr de telefon mobil
+        step: Etapa %{current} din %{total}
         title: Semnați %{initiative_title}
+      initiatives:
+        initiative:
+          check: Verificați
+          check_and_support: 'Verificați și semnați:'
+        no_initiatives_yet:
+          no_initiatives_yet: Nu există încă inițiative!
