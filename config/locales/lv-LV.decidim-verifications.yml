@@ -1,0 +1,255 @@
+lv:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Pieejamās metodes
+        offline: Bezsaistes
+        offline_explanation: Instrukcijas bezsaistes verifikācijai
+        online: Tiešsaistes
+      id_document_information:
+        document_number: Dokumenta numurs (ar burtu)
+        document_type: Dokumenta tips
+      id_document_upload:
+        document_number: Dokumenta numurs (ar burtu)
+        document_type: Jūsu dokumenta tips
+        user: Dalībnieks
+        verification_attachment: Jūsu dokumenta skenēta kopija
+      offline_confirmation:
+        email: Dalībnieka e-pasts
+      postal_letter_address:
+        full_address: Pilna adrese
+      postal_letter_confirmation:
+        verification_code: Verifikācijas kods
+      postal_letter_postage:
+        full_address: Pilna adrese
+        verification_code: Verifikācijas kods
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Noderīgi, ja process jau ir sākts un vēlaties atsaukt iepriekšējā procesa atļaujas.
+          button: Atsaukt visas
+          button_before: Atsaukt pirms datuma
+          destroy:
+            confirm: Atļauju atsaukšanu pirms datuma nevar atcelt. Vai tiešām vēlaties turpināt?
+            confirm_all: Visu atļauju atsaukšanu nevar atcelt. Vai tiešām vēlaties turpināt?
+          destroy_nok: Atsaucot atļaujas, radās problēma
+          destroy_ok: Visas atbilstošās atļaujas ir veiksmīgi atsauktas!
+          info: Kopumā ir %{count} verificēti dalībnieki.
+          no_data: Nav verificētu dalībnieku
+          title: Verifikācijas atsaukšana
+        authorization_workflows: Verifikācijas
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} atjaunināja personu apliecinošu dokumentu verifikācijas konfigurāciju"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verificēja %{resource_name}, izmantojot bezsaistes personu apliecinošu dokumentu verifikāciju"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Administratori augšupielādē CSV failu ar pieņemto dalībnieku e-pastiem
+            Verificēšanu var veikt tikai dalībniekiem, kuru e-pasts ir iekļauts minētajā CSV failā
+        id_documents:
+          help: |-
+            Lietotāji norāda identitātes informāciju un augšupielādē dokumenta kopiju.
+            Aizpildiet informāciju, kas norādīta augšupielādētajā attēlā.
+            Datiem ir jāatbilst lietotāja aizpildītajai informācijai.
+            Ja informācija nav skaidri saskatāma vai nevarat to verificēt, varat noraidīt pieprasījumu un lietotājs varēs to novērst.
+        postal_letter:
+          help: |-
+            Dalībnieki pieprasa verifikācijas kodu, kas tiek nosūtīts uz to adresi.
+            Nosūtiet uz viņu adresi vēstuli ar verifikācijas kodu.
+            Atzīmējiet vēstuli kā nosūtītu.
+            kad vēstule ir atzīmēta kā nosūtīta, dalībnieki varēs ievadīt kodu un veikt verifikāciju.
+      csv_census:
+        explanation: Veiciet verifikāciju, izmantojot organizācijas uzskaiti
+        name: Organizācijas uzskaites dati
+      direct: Tieši
+      help: Palīdzība
+      id_documents:
+        explanation: Augšupielādējiet savus personu apliecinošos dokumentus, lai varam pārbaudīt jūsu identitāti
+        name: Personu apliecinoši dokumenti
+      multistep: Vairāku soļu
+      name: Nosaukums
+      postal_letter:
+        explanation: Mēs nosūtīsim jums pa pastu vēstuli ar kodu, kas būs jāievada, lai varētu veikt jūsu adreses verifikāciju.
+        name: Kods pasta vēstulē
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Tie pašreizējās verifikācijas dati'
+          no_data_stored: Nav saglabāti nekādi dati.
+        create:
+          error: Izveidojot autorizāciju, radās problēma.
+          success: Jūs esat veiksmīgi autorizēts.
+          unconfirmed: Jums nepieciešams apstiprināt e-pasta adresi, lai veiktu autorizāciju.
+        destroy:
+          error: Dzēšot autorizāciju, radās problēma.
+          success: Autorizācija ir veiksmīgi dzēsta.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Veikt verifikāciju, balstoties uz citu autorizācijas apstrādātāja piemēru
+            csv_census: Veikt verifikāciju, izmantojot organizācijas uzskaites datus
+            dummy_authorization_handler: Veikt verifikāciju, balstoties uz autorizācijas apstrādātāja piemēru
+            dummy_authorization_workflow: Veikt verifikāciju, balstoties uz autorizācijas darbplūsmas piemēru
+            id_documents: Veiciet verifikāciju, augšupielādējot personu apliecinošu dokumentu
+            postal_letter: Veiciet verifikāciju, saņemot verifikācijas kodu pa pastu
+            sms: Veiciet verifikāciju, saņemot īsziņu ar verifikācijas kodu
+          title: Verificējiet savu identitāti
+          verify_with_these_options: 'Identitātes verifikācijai ir pieejamas šādas iespējas:'
+        index:
+          expired_verification: Verifikācijas derīgums beidzies
+          pending_verification: Gaida verifikāciju
+          show_renew_info: Noklikšķiniet, lai atjaunotu verifikāciju
+          unauthorized_verification: Jauna verifikācija
+        new:
+          authorize: Sūtīt
+          authorize_with: Verificēt ar %{authorizer}
+        renew_modal:
+          cancel: Atcelt
+          close: aizvērt
+          continue: Turpināt
+          info_renew: Ja vēlaties atjaunināt datus, turpiniet atjaunošanu
+          title: Atjaunot verifikāciju
+        skip_verification: Pagaidām var to izlaist un %{link}
+        start_exploring: sākt pārlūkošanu
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Importējot uzskaites datus, radās kļūda.
+              success: Veiksmīgi importēti %{count} vienumi (%{errors} kļūdas)
+            destroy_all:
+              success: Visi uzskaites dati ir dzēsti
+          destroy:
+            confirm: Visu uzskaites datu dzēšanu nevar atcelt. Vai tiešām vēlaties turpināt?
+            title: Dzēst visus uzskaites datus
+          index:
+            data: Kopumā ir ielādēti %{count} ieraksti. Pēdējā augšupielāde veikta %{due_date}
+            empty: Nav uzskaites datu. Izmantojiet tālāk redzamo veidlapu, lai tos importētu, izmantojot CSV failu.
+            title: Pašreizējie uzskaites dati
+          instructions:
+            body: Lai to veiktu, ir jāatver sistēmas administrēšanas sadaļa un organizācijai jāpievieno csv uzskaites datu izmantošanas atļaujas
+            title: Ir jāaktivizē csv uzskaites datu izmantošana šai organizācijai
+          new:
+            file: ".csv fails ar e-pasta datiem"
+            info: 'Failam jābūt CSV formātā tikai ar vienu kolonnu, kurā norādīta e-pasta adrese:'
+            submit: Augšupielādēt failu
+            title: Augšupielādēt jaunus uzskaites datus
+        authorizations:
+          new:
+            error: Mēs nevarējām verificēt jūsu kontu, vai arī jūs neesat ietverts organizācijas uzskaites datos.
+            success: Jūsu konts ir veiksmīgi verificēts.
+      dummy_authorization:
+        extra_explanation:
+          scope: Piedalīties var tikai tādi dalībnieki, kuru darbības tvērums ir %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Personu apliecinošu dokumentu konfigurācija
+              update: Atjaunināt
+            update:
+              error: Atjauninot konfigurāciju, radās problēma.
+              success: Konfigurācija ir veiksmīgi atjaunināta
+          confirmations:
+            create:
+              error: Verifikācija neatbilst. Mēģiniet vēlreiz vai noraidiet verifikāciju, lai dalībnieks to varētu labot
+              success: Dalībnieks ir veiksmīgi verificēts
+            new:
+              introduce_user_data: Ievadiet attēlā redzamos datus
+              reject: Noraidīt
+              verify: Pārbaudīt
+          offline_confirmations:
+            create:
+              error: Verifikācija neatbilst. Mēģiniet vēlreiz vai palūdziet dalībniekam to labot
+              success: Dalībnieks ir veiksmīgi verificēts
+            new:
+              cancel: Atcelt
+              introduce_user_data: Ievadiet dalībnieka e-pastu un dokumenta datus
+              verify: Verificēt
+          pending_authorizations:
+            index:
+              config: Konfigurācija
+              offline_verification: Bezsaistes verifikācija
+              title: Notiek tiešsaistes verifikācija
+              verification_number: 'Verifikācija #%{n}'
+          rejections:
+            create:
+              success: Verifikācija noraidīta. Dalībniekam tiks lūgts labot dokumentus
+        authorizations:
+          choose:
+            choose_a_type: 'Atlasiet verifikācijas veidu:'
+            offline: Bezsaistes
+            online: Tiešsaistes
+            title: Verificējiet sevi, izmantojot savu personu apliecinošo dokumentu
+          create:
+            error: Augšupielādējot jūsu dokumentu, radās problēma
+            success: Dokuments ir veiksmīgi augšupielādēts
+          edit:
+            being_reviewed: Mēs pārbaudām jūsu dokumentus. Pēc brīža tiks veikta jūsu verifikācija
+            offline: Izmantot bezsaistes verifikāciju
+            online: Izmantot tiešsaistes verifikāciju
+            rejection_clarity: Pārliecinieties, ka informācija augšupielādētajā attēlā ir skaidri redzama
+            rejection_correctness: Pārliecinieties, ka ievadītā informācija ir pareiza
+            rejection_notice: Veicot jūsu verifikāciju, radās problēma. Mēģiniet vēlreiz
+            send: Pieprasīt verifikāciju vēlreiz
+          new:
+            send: Pieprasīt verifikāciju
+            title: Augšupielādējiet personu apliecinošu dokumentu
+          update:
+            error: Atkārtoti augšupielādējot jūsu dokumentu, radās problēma
+            success: Dokuments ir veiksmīgi atkārtoti augšupielādēts
+        passport: Pase
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adrese
+              letter_sent_at: Vēstule nosūtīta
+              mark_as_sent: Atzīmēt kā nosūtītu
+              not_yet_sent: Pagaidām nav nosūtīta
+              title: Notiek verifikācija
+              username: Segvārds
+              verification_code: Verifikācijas kods
+          postages:
+            create:
+              error: Atzīmējot vēstuli kā nosūtītu, radās kļūda
+              success: Vēstule ir veiksmīgi atzīmēta kā nosūtīta
+        authorizations:
+          create:
+            error: Saistībā ar jūsu pieprasījumu radās problēma
+            success: Paldies! Mēs nosūtīsim verifikācijas kodu uz jūsu adresi
+          edit:
+            send: Apstiprināt
+            title: Ievadiet saņemto verifikācijas kodu
+            waiting_for_letter: Drīzumā nosūtīsim uz jūsu pasta adresi vēstuli ar verifikācijas kodu
+          new:
+            send: Nosūtiet man vēstuli
+            title: Pieprasiet verifikācijas kodu
+          update:
+            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Vēlreiz pārbaudiet jums nosūtīto vēstuli
+            success: Apsveicam! Jūs esat veiksmīgi verificēts
+      sms:
+        authorizations:
+          create:
+            error: Saistībā ar jūsu pieprasījumu radās problēma
+            success: Paldies! Mēs nosūtījām īsziņu uz jūsu tālruņa numuru.
+          destroy:
+            success: Verifikācijas kods ir veiksmīgi atiestatīts. Ievadiet tālruņa numuru vēlreiz.
+          edit:
+            confirm_destroy: Vai tiešām vēlaties atiestatīt verifikācijas kodu?
+            destroy: Atiestatīt verifikācijas kodu
+            resend: Vai nesaņēmāt verifikācijas kodu?
+            send: Apstiprināt
+            title: Ievadiet saņemto verifikācijas kodu
+          new:
+            send: Nosūtiet man īsziņu
+            title: Pieprasiet verifikācijas kodu
+          update:
+            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Vēlreiz pārbaudiet jums nosūtīto īsziņu.
+            success: Apsveicam! Jūs esat veiksmīgi verificēts.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: visiem jābūt lielajiem burtiem, un drīkst izmantot tikai burtus un/vai skaitļus
