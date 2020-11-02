@@ -1,1 +1,36 @@
 hu:
+  activemodel:
+    attributes:
+      debate:
+        closed_at: 'Lezárás időpontja:'
+        end_time: 'Befejezés időpontja:'
+        start_time: 'Kezdés időpontja:'
+        user_group_id: 'Vita létrehozása, mint:'
+  decidim:
+    debates:
+      admin_log:
+        debate:
+          close: "%{user_name} lezárta a(z) %{resource_name} vitát a(z) %{space_name} térben"
+          create: "%{user_name} létrehozta a(z) %{resource_name} vitát a(z) %{space_name} térben"
+          update: "%{user_name} frissítette a(z) %{resource_name} vitát a(z) %{space_name} térben"
+      debates:
+        show:
+          debate_conclusions_are: 'A vitát a(z) %{date} időpontban lezárták a következő következtetésekkel:'
+          last_comment_by: 'Utolsó hozzászólás:'
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Kedves Felhasználó!
+              Új vitát ("%{resource_title}") hoztak létre a(z) %{space_title} részvételi térben. Tekintse meg és működjön közre:
+            email_outro: Azért kapta ezt az értesítést, mert követi a(z) %{space_title} részvételi teret. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.
+            email_subject: 'Új vita ("%{resource_title}") itt: %{space_title}'
+            notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> vitát itt hozták létre: <a href="%{space_path}">%{space_title}</a>.'
+          user_followers:
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> létrehozta a(z) <a href="%{resource_path}">%{resource_title}</a> vitát.
+        debate_closed:
+          email_intro: 'A(z) "%{resource_title}" vitát lezárták. A következtetéseket a kapcsolódó oldalon olvashatja el:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" vitát. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" vitát lezárták
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> vitát lezárták.
