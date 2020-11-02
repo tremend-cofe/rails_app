@@ -1,0 +1,253 @@
+el:
+  activemodel:
+    attributes:
+      answer:
+        description: Περιγραφή
+        image: Εικόνα
+        proposals: Σχετικές προτάσεις
+        title: Τίτλος
+      election:
+        description: Περιγραφή
+        end_time: Η ψηφοφορία λήγει στις
+        start_time: Η ψηφοφορία αρχίζει στις
+        title: Τίτλος
+      question:
+        description: Περιγραφή
+        max_selections: Μέγιστος αριθμός επιλογών
+        title: Τίτλος
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί εκ νέου
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Πρέπει να επισυναφθεί εκ νέου
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Απάντηση
+        other: Απαντήσεις
+      decidim/elections/election:
+        one: Εκλογή
+        other: Εκλογές
+      decidim/elections/question:
+        one: Ερώτηση
+        other: Ερωτήσεις
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Ψήφος
+        name: Εκλογές
+        settings:
+          global:
+            announcement: Ανακοίνωση
+          step:
+            announcement: Ανακοίνωση
+    elections:
+      actions:
+        confirm_destroy: Είστε βέβαιοι;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        edit_answers: Επεξεργασία απαντήσεων
+        edit_questions: Επεξεργασία ερωτήσεων
+        import: Εισαγωγή προτάσεων σε απαντήσεις
+        new: Νέο στοιχείο %{name}
+        preview: Προεπισκόπηση
+        publish: Δημοσίευση
+        title: Ενέργειες
+        unpublish: Κατάργηση δημοσίευσης
+      admin:
+        answers:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της απάντησης
+            success: Η απάντηση δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη διαγραφή αυτής της απάντησης
+            success: Η απάντηση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία απάντησης
+            update: Επικαιροποίηση απάντησης
+          index:
+            title: Απαντήσεις
+          new:
+            create: Δημιουργία απάντησης
+            title: Νέα απάντηση
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της απάντησης
+            success: Η απάντηση επικαιροποιήθηκε με επιτυχία
+        elections:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της εκλογής
+            success: Η εκλογή δημιουργήθηκε με επιτυχία
+          destroy:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη διαγραφή αυτής της εκλογής
+            success: Η εκλογή διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία εκλογής
+            update: Επικαιροποίηση εκλογής
+          index:
+            title: Εκλογές
+          new:
+            create: Δημιουργία εκλογής
+            title: Νέα εκλογή
+          publish:
+            success: Η εκλογή δημοσιεύτηκε με επιτυχία.
+          unpublish:
+            success: Η δημοσίευση της εκλογής καταργήθηκε με επιτυχία.
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της εκλογής
+            success: Η εκλογή επικαιροποιήθηκε με επιτυχία
+        models:
+          answer:
+            name: Απάντηση
+          election:
+            name: Εκλογή
+          question:
+            name: Ερώτηση
+        proposals_imports:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την εισαγωγή των προτάσεων στις ερωτήσεις
+            success: "%{number} προτάσεις εισήχθηκαν με επιτυχία σε απαντήσεις"
+          new:
+            create: Εισαγωγή προτάσεων σε απαντήσεις
+            no_components: Δεν υπάρχουν στοιχεία προτάσεων σε αυτόν τον συμμετοχικό χώρο για εισαγωγή των προτάσεων σε απαντήσεις.
+            select_component: Επιλέξτε στοιχείο
+        questions:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της ερώτησης
+            success: Η ερώτηση δημιουργήθηκε με επιτυχία.
+          destroy:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη διαγραφή αυτής της ερώτησης
+            success: Η ερώτηση διαγράφηκε με επιτυχία
+          edit:
+            title: Επεξεργασία ερώτησης
+            update: Επικαιροποίηση ερώτησης
+          index:
+            title: Ερωτήσεις
+          new:
+            create: Δημιουργία ερώτησης
+            title: Νέα ερώτηση
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτής της ερώτησης
+            success: Η ερώτηση επικαιροποιήθηκε με επιτυχία
+      admin_log:
+        election:
+          publish: "Ο χρήστης %{user_name} δημοσίευσε την εκλογή %{resource_name}"
+          unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση για την εκλογή %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Ολοκληρωμένες
+          ongoing: Ενεργές
+          upcoming: Προσεχείς
+        end_date: Λήξη
+        footer:
+          view: Προβολή
+          vote: Ψήφος
+        label:
+          date: Ημερομηνίες
+        questions: Ερωτήσεις %{count}
+        start_date: Έναρξη
+        unspecified: Δεν προσδιορίζεται
+      elections:
+        count:
+          elections_count:
+            one: "%{count} εκλογή"
+            other: "%{count} εκλογές"
+        filters:
+          active: Ενεργές
+          all: Όλες
+          finished: Ολοκληρωμένες
+          search: Αναζήτηση
+          state: Κατάσταση
+          upcoming: Προσεχείς
+        filters_small_view:
+          close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Ανάπτυξη
+        show:
+          back: Όλες οι εκλογές
+          preview: Προεπισκόπηση
+          vote: Ψήφος
+          voting_period_status:
+            finished: Η ψηφοφορία ξεκίνησε στις %{start_time} και ολοκληρώθηκε στις %{end_time}
+            ongoing: Η ψηφοφορία ολοκληρώνεται στις %{end_time}
+            upcoming: Η ψηφοφορία ξεκινά στις %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Προτάσεις
+            title: Τίτλος
+        election:
+          fields:
+            end_time: Ολοκληρώνεται στις
+            start_time: Ξεκινά στις
+            title: Τίτλος
+        question:
+          fields:
+            answers: Απαντήσεις
+            max_selections: Μέγιστος αριθμός επιλογών
+            title: Τίτλος
+      orders:
+        label: Ταξινόμηση εκλογών κατά
+        older: Παλαιότερες
+        recent: Πρόσφατες
+      votes:
+        confirm:
+          answer: Απάντηση
+          answer_number: απάντηση %{number}
+          confirm: Επιβεβαίωση
+          edit: επεξεργασία
+          header: Επιβεβαιώστε την ψήφο σας
+          intro: Ακολουθεί μια σύνοψη της ψήφου που πρόκειται να δώσετε. <br> Επιβεβαιώστε την ψήφο σας ή επεξεργαστείτε τις απαντήσεις σας.
+          question: Ερώτηση %{count}
+        confirmed:
+          back: Επιστροφή στις εκλογές
+          experience: Πώς ήταν η εμπειρία σας;
+          feedback: Πείτε μας μερικά σχόλια
+          header: Η ψήφος επιβεβαιώθηκε
+          lead: Η ψήφος σας έχει ήδη καταχωριστεί!
+          text: 'Μπορείτε να ελέγξετε ότι η ψήφος σας προστέθηκε με επιτυχία στην κάλπη με το ακόλουθο αναγνωριστικό: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Για να το ελέγξετε, αντιγράψτε το αναγνωριστικό και επικολλήστε το στη <a href="evote-verify">σελίδα επαλήθευσης ψήφου</a>
+        encrypting:
+          header: Κωδικοποίηση ψήφου...
+          text: Η ψήφος σας κρυπτογραφείται για να διασφαλιστεί ότι μπορείτε να την καταχωρίσετε ανώνυμα.
+        header:
+          confirm: Επιβεβαιώστε την ψήφο σας
+          confirmed: Η ψήφος επιβεβαιώθηκε
+          encrypting: Επιβεβαίωση ψήφου
+        messages:
+          not_allowed: Δεν επιτρέπεται να ψηφίσετε σε αυτήν την εκλογή επί του παρόντος.
+        modal:
+          close: Κλείσιμο
+          proposal_header: 'Προτάσεις:'
+        new:
+          answer_choices: Μπορείτε να επιλέξετε έως και %{choices} απαντήσεις ή καμία απάντηση
+          more_information: Περισσότερες πληροφορίες
+          preview_alert: Αυτή είναι μια προεπισκόπηση του παραβάν ψηφοφορίας.
+          question_steps: Ερώτηση %{current_step} από %{total_steps}
+          selections: "%{selected} από %{max_selections}<br> επιλογές"
+        voting_step:
+          back: Πίσω
+          continue: Επόμενο
+      warnings:
+        no_elections_warning: Δεν υπάρχουν εκλογές που να αντιστοιχούν στα κριτήρια αναζήτησης ή δεν έχουν προγραμματιστεί εκλογές.
+        no_scheduled_elections_warning: Επί του παρόντος, δεν υπάρχουν προγραμματισμένες εκλογές, αλλά εδώ μπορείτε να βρείτε έναν κατάλογο με όλες τις προηγούμενες εκλογές.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Η εκλογή %{resource_title} είναι πλέον ενεργή για τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να το δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Η εκλογή %{resource_title} είναι πλέον ενεργή για τον συμμετοχικό χώρο %{participatory_space_title}.
+          notification_title: Η εκλογή <a href="%{resource_path}">%{resource_title}</a> είναι πλέον ενεργή για τον χώρο %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Εκλογές
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Έξοδος
