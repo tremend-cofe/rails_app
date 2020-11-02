@@ -1,0 +1,252 @@
+cs:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Dostupné metody
+        offline_explanation: Instrukce k offline ověření
+        online: On-line
+      id_document_information:
+        document_number: Číslo dokumentu (s dopisem)
+        document_type: Typ dokumentu
+      id_document_upload:
+        document_number: Číslo dokumentu (s dopisem)
+        document_type: Typ vašeho dokumentu
+        user: Účastník
+        verification_attachment: Naskenovaná kopie vašeho dokumentu
+      offline_confirmation:
+        email: E-mail účastníka
+      postal_letter_address:
+        full_address: Úplná adresa
+      postal_letter_confirmation:
+        verification_code: Ověřovací kód
+      postal_letter_postage:
+        full_address: Úplná adresa
+        verification_code: Ověřovací kód
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Užitečné, pokud proces již začal a pokud chcete zrušit povolení předchozího procesu.
+          button: Zrušit vše
+          button_before: Zrušit před datem
+          destroy:
+            confirm: Zrušení autorizací před datem nelze vzít zpět. Chcete pokračovat?
+            confirm_all: Zrušení všech autorizací nelze vzít zpět. Chcete pokračovat?
+          destroy_nok: Při rušení autorizací došlo k problému
+          destroy_ok: Všechny shodné autorizace byly úspěšně zrušeny.
+          info: 'Celkový počet ověřených účastníků: %{count}.'
+          no_data: Žádní ověření účastníci
+          title: Zrušení ověření
+        authorization_workflows: Ověřování
+    admin_log:
+      organization:
+        update_id_documents_config: "Uživatel %{user_name} aktualizoval konfiguraci pro ověřování dokladů totožnosti"
+      user:
+        grant_id_documents_offline_verification: "Uživatel %{user_name} ověřil %{resource_name} prostřednictvím offline ověřování dokladů totožnosti"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Správci nahrají soubor CSV s e-maily přijatých účastníků
+            Pouze účastníci s e-mailem v tomto souboru CSV mohou být ověřeni
+        id_documents:
+          help: |-
+            Uživatelé vyplní své identifikační údaje a nahrají kopii svého dokladu.
+            Vy vyplníte informace nacházející se v nahraném obrázku.
+            Informace by měla souhlasit s tím, co uživatel vyplnil.
+            Pokud informace zřetelně nevidíte nebo je nemůžete ověřit, můžete žádost zamítnout a uživatel bude moci informace opravit.
+        postal_letter:
+          help: |-
+            Účastníci požádají o zaslání ověřovacího kódu na svou adresu.
+            Vy dopis s ověřovacím kódem zašlete na jejich adresu.
+            Dopis označíte jako odeslaný.
+            Jakmile dopis označíte jako odeslaný, bude účastník moci zadat kód a nechat se ověřit.
+      csv_census:
+        explanation: Ověřte se prostřednictvím cenzu organizace
+        name: Cenzus organizace
+      direct: Přímá
+      help: Nápověda
+      id_documents:
+        explanation: Nahrajte své doklady totožnosti, abychom mohli ověřit vaši totožnost
+        name: Doklady totožnosti
+      multistep: Více kroků
+      name: Jméno
+      postal_letter:
+        explanation: Zašleme vám poštou dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu
+        name: Kód v listovní zásilce
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Toto jsou data aktuálního ověření:'
+          no_data_stored: Nejsou uložena žádná data.
+        create:
+          error: Při vytváření autorizace došlo k problému.
+          success: Vaše autorizace byla úspěšná.
+          unconfirmed: Aby došlo k autorizaci, je potřeba potvrdit e-mail.
+        destroy:
+          error: Při mazání autorizace došlo k problému.
+          success: Autorizaci jste úspěšně smazali.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ověřit podle jiného příkladu autorizační funkce
+            csv_census: Ověřit podle cenzu organizace
+            dummy_authorization_handler: Ověřit podle vzorové autorizační funkce
+            dummy_authorization_workflow: Ověřit podle vzorového autorizačního postupu
+            id_documents: Ověřte se prostřednictvím dokladu totožnosti
+            postal_letter: Ověřte se prostřednictvím ověřovacího kódu v listovní zásilce
+            sms: Ověřte se prostřednictvím ověřovacího kódu v SMS
+          title: Ověřte svou totožnost
+          verify_with_these_options: 'Svou totožnost můžete ověřit prostřednictvím následujících možností:'
+        index:
+          expired_verification: Ověření vypršelo
+          pending_verification: Čeká se na ověření
+          show_renew_info: Klikněte a ověření obnovte
+          unauthorized_verification: Nové ověření
+        new:
+          authorize: Odeslat
+          authorize_with: Ověřit prostřednictvím %{authorizer}
+        renew_modal:
+          cancel: Zrušit
+          close: zavřít
+          continue: Pokračovat
+          info_renew: Pokud chcete údaje aktualizovat, pokračujte s obnovou
+          title: Obnovit ověření
+        skip_verification: Tento krok můžete prozatím přeskočit a %{link}
+        start_exploring: začít objevovat
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Při importu cenzu došlo k chybě.
+              success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors})'
+            destroy_all:
+              success: Všechna data cenzu byla smazána
+          destroy:
+            confirm: Smazání cenzu nelze vzít zpět. Chcete pokračovat?
+            title: Smazat všechna data cenzu
+          index:
+            data: 'Celkový počet nahraných záznamů: %{count}. Datum posledního nahrání bylo %{due_date}'
+            empty: K dispozici nejsou žádná data cenzu. Naimportujte je ve formátu CSV prostřednictvím níže uvedeného formuláře.
+            title: Aktuální data cenzu
+          instructions:
+            body: Aby to bylo možné provést, je potřeba jít do administrace systému a přidat soubor CSV s autorizacemi z cenzu k organizaci
+            title: Je potřeba aktivovat cenzus CSV pro tuto organizaci
+          new:
+            file: "soubor .csv s e-maily"
+            info: 'Musí jít o soubor ve formátu CSV s pouze jedním sloupcem s e-mailovou adresou:'
+            submit: Nahrát soubor
+            title: Nahrát nový cenzus
+        authorizations:
+          new:
+            error: Váš účet jsme nemohli ověřit nebo nejste v cenzu organizace.
+            success: Váš účet byl úspěšně ověřen.
+      dummy_authorization:
+        extra_explanation:
+          scope: Účast je omezena na účastníky s rozsahem působnosti %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Konfigurace dokladů totožnosti
+              update: Aktualizovat
+            update:
+              error: Při aktualizaci konfigurace došlo k problému.
+              success: Konfigurace byla úspěšně aktualizována
+          confirmations:
+            create:
+              error: Ověření nesouhlasí. Zkuste to znovu nebo ověření zamítněte, aby ho účastník mohl pozměnit
+              success: Účastník byl úspěšně ověřen
+            new:
+              introduce_user_data: Zadejte údaje na obrázku
+              reject: Zamítnout
+              verify: Ověřit
+          offline_confirmations:
+            create:
+              error: Ověření nesouhlasí. Zkuste to znovu nebo účastníka požádejte o změnu
+              success: Účastník byl úspěšně ověřen
+            new:
+              cancel: Zrušit
+              introduce_user_data: Zadejte e-mail účastníka a údaje z dokladu
+              verify: Ověřit
+          pending_authorizations:
+            index:
+              offline_verification: Offline ověření
+              title: Nevyřízená online ověření
+              verification_number: 'Ověření #%{n}'
+          rejections:
+            create:
+              success: Ověření zamítnuto. Účastník bude požádán o změnu dokladů
+        authorizations:
+          choose:
+            choose_a_type: 'Zvolte si způsob ověření:'
+            online: On-line
+            title: Ověřte se prostřednictvím dokladu totožnosti
+          create:
+            error: Při nahrávání dokladu došlo k problému
+            success: Doklad byl úspěšně nahrán
+          edit:
+            being_reviewed: Vaše doklady prověřujeme. Brzy vás ověříme
+            offline: Použít offline ověření
+            online: Použít online ověření
+            rejection_clarity: Ujistěte se, že informace jsou v nahraném obrázku zřetelně vidět
+            rejection_correctness: Ujistěte se, že zadané informace jsou správné
+            rejection_notice: Při vašem ověřování došlo k problému. Zkuste to prosím znovu
+            send: Požádat opět o ověření
+          new:
+            send: Požádat o ověření
+            title: Nahrajte doklad totožnosti
+          update:
+            error: Při opětovném nahrávání dokladu došlo k problému
+            success: Doklad byl úspěšně opět nahrán
+        passport: Cestovní pas
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresa
+              letter_sent_at: Dopis zaslán na
+              mark_as_sent: Označit jako odesláno
+              not_yet_sent: Zatím neodesláno
+              title: Probíhající ověření
+              username: Uživatelské jméno
+              verification_code: Ověřovací kód
+          postages:
+            create:
+              error: Chyba při označování dopisu jako odeslaného
+              success: Dopis byl úspěšně označen jako odeslán
+        authorizations:
+          create:
+            error: U vaší žádosti došlo k problému
+            success: Děkujeme! Na vaši adresu zašleme ověřovací kód
+          edit:
+            send: Potvrdit
+            title: Zadejte ověřovací kód, který vám přišel
+            waiting_for_letter: Brzy na vaši adresu odešleme dopis s ověřovacím kódem
+          new:
+            send: Zašlete mi dopis
+            title: Požádejte si o ověřovací kód
+          update:
+            error: Váš ověřovací kód nesouhlasí s naším. Zkontrolujte si dopis, který jsme vám zaslali
+            success: Gratulujeme. Byli jste úspěšně ověřeni
+      sms:
+        authorizations:
+          create:
+            error: U vaší žádosti došlo k problému
+            success: Děkujeme! Na váš telefon jsme odeslali SMS.
+          destroy:
+            success: Ověřovací kód byl úspěšně resetován. Znovu zadejte své telefonní číslo.
+          edit:
+            confirm_destroy: Opravdu chcete ověřovací kód resetovat?
+            destroy: Resetovat ověřovací kód
+            resend: Ověřovací kód vám nepřišel?
+            send: Potvrdit
+            title: Zadejte ověřovací kód, který vám přišel
+          new:
+            send: Zašlete mi SMS
+            title: Požádejte si o ověřovací kód
+          update:
+            error: Váš ověřovací kód nesouhlasí s naším. Zkontrolujte si SMS, kterou jsme vám zaslali.
+            success: Gratulujeme. Byli jste úspěšně ověřeni.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: musí být napsaný velkými písmeny a obsahovat jen písmena anebo čísla
