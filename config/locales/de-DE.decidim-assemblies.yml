@@ -1,22 +1,458 @@
 de:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Gebiet
+        assembly_type: Versammlungstyp
+        assembly_type_other: Sonstiger Versammlungstyp
+        banner_image: Banner-Bild
+        closing_date: Ende der Frist
+        closing_date_reason: Grund Ende der Frist
+        composition: Zusammensetzung
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_features: Merkmale kopieren
+        created_by: Erstellt von
+        created_by_other: Erstellt von anderen
+        creation_date: Erstellungsdatum
+        decidim_area_id: Gebiet
+        decidim_assemblies_type_id: Versammlungstyp
+        decidim_scope_id: Reichweite
+        description: Beschreibung
+        developer_group: Gruppe der Unterstützer
+        duration: Dauer
+        hero_image: Bildstartseite
+        included_at: Aufgenommen am
+        internal_organisation: Interne Organisation
+        is_transparent: Ist transparent
+        local_area: Gebiet der Organisation
+        meta_scope: Reichweiten-Metadaten
+        parent_id: Übergeordnete Versammlung
+        participatory_processes_ids: Verbundene Beteiligungsprozesse
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird entschieden
+        private_space: Privater Bereich
+        promoted: Hervorgehoben
+        published_at: Veröffentlicht unter
+        purpose_of_action: Zweck der Aktion
+        scope_id: Reichweite
+        scopes_enabled: Reichweite aktiviert
+        short_description: Kurzbeschreibung
+        show_statistics: Statistiken einblenden
+        slug: URL-Slug
+        special_features: Besondere Merkmale
+        subtitle: Untertitel
+        target: Wer nimmt teil
+        title: Titel
+      assembly_member:
+        birthday: Geburtstag
+        birthplace: Geburtsort
+        ceased_date: Datum der Einstellung
+        designation_date: Datum der Benennung
+        designation_mode: Modus der Benennung
+        full_name: Vollständiger Name
+        gender: Geschlecht
+        position: Standort
+      assembly_user_role:
+        email: E-Mail
+        role: Rolle
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Ungültiger Dokumenttyp. Akzeptierte Formate sind: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Versammlung
+        other: Versammlungen
+      decidim/assembly_member:
+        one: Versammlungsmitglied
+        other: Versammlungsmitglieder
+      decidim/assembly_user_role:
+        one: Benutzerrolle der Versammlung
+        other: Benutzerrollen der Versammlung
   decidim:
     admin:
-      assembly_user_roles:
+      actions:
+        new_assembly: Neue Versammlung
+        new_assembly_type: Neuer Versammlungstyp
+      assemblies:
+        create:
+          error: Bei der Erstellung einer neuen Versammlung ist ein Problem aufgetreten.
+          success: Versammlung erfolgreich erstellt.
+        edit:
+          update: Aktualisieren
+        index:
+          not_published: Nicht veröffentlicht
+          private: Privat
+          public: Öffentlich
+          published: Veröffentlicht
         new:
+          create: Erstellen
+          title: Neue Versammlung
+        update:
+          error: Bei der Aktualisierung dieser Versammlung ist ein Problem aufgetreten.
+          success: Versammlung erfolgreich aktualisiert.
+      assemblies_copies:
+        create:
+          error: Beim Duplizieren dieser Versammlung ist ein Problem aufgetreten.
+          success: Versammlung erfolgreich dupliziert.
+      assemblies_settings:
+        update:
+          error: Bei der Aktualisierung der Einstellungen ist ein Problem aufgetreten.
+          success: Einstellungen erfolgreich aktualisiert.
+      assemblies_types:
+        create:
+          error: Bei der Erstellung eines neuen Versammlungstyps ist ein Problem aufgetreten.
+          success: Versammlungstyp erfolgreich erstellt.
+        destroy:
+          success: Versammlungstyp erfolgreich gelöscht.
+        new:
+          create: Erstellen
+          title: Neuer Versammlungstyp
+        update:
+          error: Bei der Aktualisierung dieses Versammlungstyps ist ein Problem aufgetreten.
+          success: Versammlungstyp erfolgreich aktualisiert.
+      assembly_copies:
+        new:
+          copy: Kopie
+          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
+          title: Versammlung duplizieren
+      assembly_imports:
+        create:
+          error: Beim Importieren dieser Versammlung ist ein Problem aufgetreten.
+          success: Versammlung erfolgreich importiert.
+        new:
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Versammlung importieren
+      assembly_members:
+        create:
+          error: Beim Hinzufügen eines Mitglieds für diese Versammlung ist ein Problem aufgetreten.
+          success: Mitglied für diese Versammlung erfolgreich erstellt.
+        destroy:
+          success: Mitglied für diese Versammlung erfolgreich gelöscht.
+        edit:
+          title: Versammlungsmitglied aktualisieren.
+          update: Aktualisieren
+        index:
+          assembly_members_title: Versammlungsmitglieder
+        new:
+          create: Erstellen
+          title: Neues Versammlungsmitglied.
+        update:
+          error: Beim Aktualisieren der Mitglieder für diese Versammlung ist ein Problem aufgetreten.
+          success: Mitglied für diese Versammlung erfolgreich aktualisiert.
+      assembly_publications:
+        create:
+          error: Beim Veröffentlichen dieser Versammlung ist ein Problem aufgetreten.
+          success: Versammlung erfolgreich veröffentlicht.
+        destroy:
+          error: Die Veröffentlichung dieser Versammlung konnte nicht rückgängig gemacht werden.
+          success: Die Veröffentlichung der Versammlung wurde erfolgreich rückgängig gemacht.
+      assembly_user_roles:
+        create:
+          error: Beim Hinzufügen eines Administrators für diese Versammlung ist ein Problem aufgetreten.
+          success: Administrator zu dieser Versammlung erfolgreich hinzugefügt.
+        destroy:
+          success: Administrator aus dieser Versammlung erfolgreich entfernt.
+        edit:
+          title: Administrator der Versammlung aktualisieren.
+          update: Aktualisieren
+        index:
+          assembly_admins_title: Administratoren der Versammlung
+        new:
+          create: Erstellen
           title: Neuer Administrator der Versammlung
+        update:
+          error: Beim Aktualisieren eines Administrators für diese Versammlung ist ein Problem aufgetreten.
+          success: Administrator für diese Versammlung erfolgreich aktualisiert.
+      menu:
+        assemblies: Versammlungen
+        assemblies_settings: Einstellungen
+        assemblies_submenu:
+          assembly_admins: Administratoren der Versammlung
+          assembly_members: Mitglieder
+          attachment_collections: Ordner
+          attachment_files: Dateien
+          attachments: Anlagen
+          categories: Kategorien
+          components: Komponenten
+          info: Infos
+          moderations: Moderationen
+          private_users: Private Benutzer
+        assemblies_types: Versammlungstypen
+      models:
+        assemblies_types:
+          fields:
+            created_at: Erstellt am
+            title: Titel
+        assembly:
+          fields:
+            created_at: Erstellt am
+            private: Privat
+            promoted: Hervorgehoben
+            published: Veröffentlicht
+            title: Titel
+          name: Versammlung
+        assembly_member:
+          fields:
+            ceased_date: Datum der Einstellung
+            designation_date: Datum der Benennung
+            position: Standort
+          name: Mitglied
+          positions:
+            other: Sonstige
+            president: Präsident
+            secretary: Sekretär
+            vice_president: Vizepräsident
+        assembly_user_role:
+          fields:
+            email: E-Mail
+            role: Rolle
+          name: Administrator der Versammlung
+          roles:
+            collaborator: Mitarbeiter
+            valuator: Bewerter
+      titles:
+        assemblies: Versammlungen
+        assemblies_types: Versammlungstypen
+    admin_log:
+      assembly:
+        create: "%{user_name} hat die %{resource_name} Versammlung erstellt"
+        publish: "%{user_name} hat die %{resource_name} Versammlung veröffentlicht"
+        unpublish: "%{user_name} hat die Veröffentlichung der Versammlung %{resource_name} rückgängig gemacht"
+        update: "%{user_name} hat die %{resource_name} die Versammlung aktualisiert"
+      assembly_member:
+        create: "%{user_name} hat das %{resource_name} Mitglied der %{space_name} Versammlung erstellt"
+        delete: "%{user_name} hat das %{resource_name} Mitglied der %{space_name} Versammlung entfernt"
+        update: "%{user_name} hat das %{resource_name} Mitglied der %{space_name} Versammlung aktualisiert"
+      assembly_setting:
+        update: "%{user_name} hat die Einstellungen der Versammlungen aktualisiert"
+      assembly_type:
+        create: "%{user_name} hat den %{resource_name} Versammlungstyp erstellt"
+        delete: "%{user_name} hat das %{resource_name} Mitglied des %{space_name} Versammlungstyps entfernt"
+        publish: "%{user_name} hat den %{resource_name} Versammlungstyp veröffentlicht"
+        unpublish: "%{user_name} hat die Veröffentlichung des Versammlungstyps %{resource_name} rückgängig gemacht"
+        update: "%{user_name} hat den %{resource_name} Versammlungstyp aktualisiert"
+      assembly_user_role:
+        create: "%{user_name} hat %{resource_name} zur %{space_name} Versammlung eingeladen"
+        delete: "%{user_name} hat den Teilnehmer %{resource_name} aus der %{space_name} Versammlung entfernt"
+        update: "%{user_name} hat die Rolle von %{resource_name} in der %{space_name} Versammlung geändert"
     assemblies:
       admin:
         assemblies:
           form:
+            duration: Dauer
             duration_help: Wenn die Dauer dieser Versammlung begrenzt ist, wählen Sie das Enddatum. Andernfalls erscheint dies als unbefristet
+            filters: Filter
+            images: Abbildungen
+            included_at_help: Wählen Sie das Datum, an dem diese Versammlung zu Decidim hinzugefügt wurde. Es muss nicht unbedingt mit dem Erstellungsdatum identisch sein.
+            metadata: Metadaten
+            other: Sonstige
+            select_a_created_by: '„Erstellt von“ auswählen'
+            select_an_area: Ein Gebiet auswählen
+            select_an_assembly_type: Einen Versammlungstyp auswählen
+            select_parent_assembly: Eine übergeordnete Versammlung auswählen
+            slug_help: 'URL-Slugs werden verwendet, um die URLs zu erstellen, die auf diese Versammlung verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+            title: Allgemeine Informationen
+            visbility: Sichtbarkeit
+        assemblies_settings:
+          edit:
+            update: Aktualisieren
+          form:
+            title: Einstellungen der Versammlungen
+        assemblies_types:
+          form:
+            title: Titel
+        assembly_copies:
+          form:
+            slug_help: 'URL-Slugs werden verwendet, um die URLs zu erstellen, die auf diese Versammlung verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Ein Dokument hinzufügen
+            slug_help: 'URL-lugs werden verwendet, um die URLs zu erstellen, die auf diese Versammlung verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+        assembly_members:
+          form:
+            existing_user: Bestehender Teilnehmer
+            non_user: Nicht-Teilnehmer
+            select_a_position: Position auswählen
+            select_user: Einen Teilnehmer auswählen
+            user_type: Teilnehmertyp
+          index:
+            filter:
+              all: Alle
+              ceased: Eingestellt
+              not_ceased: Nicht eingestellt
+            filter_by: Filtern nach
+            search: Suche
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Maximale Anzahl der anzuzeigenden Elemente
+      assembly_members:
+        index:
+          members: Mitglieder
+      assembly_types:
+        commission: Kommission
+        consultative_advisory: Konsultativ/Beratend
+        executive: Exekutiv
+        government: Verwaltung
+        others: Sonstige
+        participatory: Partizipatorisch
+        working_group: Arbeitsgruppe
+      content_blocks:
+        highlighted_assemblies:
+          name: Hervorgehobene Versammlungen
+      created_by:
+        city_council: Stadtrat
+        others: Sonstige
+        public: Öffentlich
+      filter:
+        all: Alle Typen
+        commission: Kommission
+        consultative_advisory: Konsultativ/Beratend
+        executive: Exekutiv
+        government: Verwaltung
+        help: 'Anzeigen:'
+        others: Sonstige
+        participatory: Partizipatorisch
+        working_group: Arbeitsgruppe
+      index:
+        title: Versammlungen
+      last_activity:
+        new_assembly: Neue Versammlung
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktive Versammlungen
+            assemblies_button_title: Link zur Seite Versammlungen, auf der alle Versammlungen anzeigt sind
+            see_all_assemblies: Alle Versammlungen anzeigen
+        user_profile:
+          member_of:
+            member_of: Mitglied von
+      show:
+        area: Gebiet
+        assembly_type: Versammlungstyp
+        children: Versammlungen
+        closing_date: Ende der Frist
+        composition: Zusammensetzung
+        created_by: Erstellt von
+        creation_date: Erstellungsdatum
+        developer_group: Gruppe der Unterstützer
+        duration: Dauer
+        included_at: Aufgenommen am
+        indefinite_duration: Unbefristet
+        internal_organisation: Interne Organisation
+        is_transparent:
+          'false': undurchsichtig
+        local_area: Gebiet der Organisation
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird entschieden
+        private_space: Dies ist eine private Versammlung
+        purpose_of_action: Zweck der Aktion
+        read_less: Weniger lesen
+        read_more: Mehr lesen
+        related_participatory_processes: Verbundene Beteiligungsprozesse
+        scope: Reichweite
+        social_networks: Soziale Netze
+        social_networks_title: Diese Versammlung teilen auf
+        target: Wer nimmt teil
+      statistics:
+        answers_count: Antworten
+        assemblies_count: Versammlungen
+        comments_count: Kommentare
+        debates_count: Debatten
+        endorsements_count: Genehmigungen
+        headline: Aktivität
+        meetings_count: Sitzungen
+        orders_count: Unterstützungen
+        pages_count: Seiten
+        projects_count: Projekte
+        proposals_count: Vorschläge
+        results_count: Ergebnisse
+        surveys_count: Umfragen
+        users_count: Teilnehmer
+        votes_count: Unterstützungen
+    assembly_members:
+      assembly_member:
+        designated_on: Benannt auf
+      index:
+        title: Mitglieder
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Link zur Seite Versammlungen, auf der alle Konferenzen anzeigt sind
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Ein Administrator der <a href="%{resource_url}">%{resource_name}</a> Versammlung hat Sie als ein Mitglied hinzugefügt.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Prüfen Sie die <a href="%{resource_path}">Seite der Versammlung</a>, um einen Beitrag zu leisten!
+          email_subject: Sie wurden eingeladen, Mitglied der %{resource_name} Versammlung zu werden!
+          notification_title: Sie sind als Mitglied der Versammlung <a href="%{resource_path}">%{resource_name}</a> angemeldet worden. Prüfen Sie die <a href="%{resource_path}">Seite der Versammlung</a>, um einen Beitrag zu leisten!
+      assembly:
+        role_assigned:
+          email_intro: Sie sind als %{role} für die Versammlung "%{resource_title}" zugewiesen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{role} der "%{resource_title}" Versammlung sind.
+          email_subject: Sie sind als %{role} für "%{resource_title}" zugewiesen.
+          notification_title: Sie sind als %{role} für die <a href="%{resource_url}">%{resource_title}</a> Versammlung zugewiesen.
     help:
       participatory_spaces:
         assemblies:
           contextual: "<p>Eine <strong>Versammlung</strong> ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig trifft, um Entscheidungen über das Gebiet oder die Reichweite der Organisation zu treffen.</p> <p>Versammlungen halten Sitzungen ab, einige sind privat und andere öffentlich. Wenn sie öffentlich sind, ist es möglich, an ihnen teilzunehmen (z.B. teilzunehmen, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung zu setzen oder die Vorschläge und Beschlüsse dieses Gremiums zu kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal jährlich zusammenkommt, um die Hauptaktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung zu bestimmen), ein Gleichstellungsbeirat (der alle zwei Monate zusammenkommt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen in der Organisation zu machen), eine Evaluierungskommission (die monatlich zusammenkommt, um einen Prozess zu überwachen) oder ein Garantieorgan (das Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) sind Beispiele für Versammlungen.</p>\n"
           page: "<p>Eine <strong>Versammlung</strong> ist eine Gruppe von Mitgliedern einer Organisation, die sich regelmäßig trifft, um Entscheidungen über das Gebiet oder die Reichweite der Organisation zu treffen.</p> <p>Versammlungen halten Sitzungen ab, einige sind privat und andere öffentlich. Wenn sie öffentlich sind, ist es möglich, an ihnen teilzunehmen (z.B. teilzunehmen, wenn die Kapazität es erlaubt, Punkte auf die Tagesordnung zu setzen oder die Vorschläge und Beschlüsse dieses Gremiums zu kommentieren).</p> <p>Beispiele: Eine Generalversammlung (die einmal jährlich zusammenkommt, um die Hauptaktionslinien der Organisation sowie ihre Exekutivorgane per Abstimmung zu bestimmen), ein Gleichstellungsbeirat (der alle zwei Monate zusammenkommt, um Vorschläge zur Verbesserung der Geschlechterbeziehungen in der Organisation zu machen), eine Evaluierungskommission (die monatlich zusammenkommt, um einen Prozess zu überwachen) oder ein Garantieorgan (das Vorfälle, Missbräuche oder Vorschläge zur Verbesserung der Entscheidungsverfahren sammelt) sind Beispiele für Versammlungen.</p>\n"
+          title: Was sind Versammlungen?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Die Versammlung wurde in der Datenbank (ID: %{id}) nicht gefunden'
+        assembly_type_presenter:
+          not_found: 'Der Versammlungstyp wurde in der Datenbank (ID: %{id}) nicht gefunden'
+    menu:
+      assemblies: Versammlungen
     metrics:
       assemblies:
+        description: Anzahl der erstellten Versammlungen
         object: Versammlungen
+        title: Versammlungen
+    pages:
+      home:
+        hero:
+          participate_title: An den Prozessen der Plattform teilnehmen
+        sub_hero:
+          register_title: Anmelden, um ein Konto auf der Plattform einzurichten
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Link zur Seite Prozesse, auf der alle Prozesse anzeigt sind
+      show:
+        related_assemblies: Verbundene Versammlungen
   errors:
     messages:
       cannot_be_blank: Kann nicht leer sein
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Weitere Informationen
+          take_part: Teilnehmen
+        index:
+          children: 'Versammlungen: '
+          organizational_chart: Organisationsplan
+          promoted_assemblies: Hervorgehobene Versammlungen
+          reset_chart: Zurücksetzen
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Versammlungen"
+            other: "%{count} Versammlungen"
+        promoted_assembly:
+          more_info: Weitere Informationen
+          take_part: Teilnehmen
+      assembly_navigation:
+        assembly_member_menu_item: Mitglieder
+        assembly_menu_item: Die Versammlung
+      assembly_widgets:
+        show:
+          take_part: Teilnehmen
