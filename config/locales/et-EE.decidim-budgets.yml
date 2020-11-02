@@ -1,0 +1,255 @@
+et:
+  activemodel:
+    attributes:
+      project:
+        budget: Eelarve
+        decidim_category_id: Kategooria
+        decidim_scope_id: Kohaldamisala
+        description: Kirjeldus
+        proposal_ids: Seotud ettepanekud
+        title: Pealkiri
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        other: Projektid
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Kaustad
+        attachments: Manused
+        confirm_destroy: Kas olete kindel, et soovite selle projekti kustutada?
+        destroy: Kustuta
+        edit: Muuda
+        edit_projects: Halda projekte
+        import: Impordi ettepanekud projektidesse
+        new: Uus %{name}
+        preview: Eelvaade
+        title: Toimingud
+      admin:
+        budgets:
+          create:
+            invalid: Selle eelarve loomisel tekkis probleem
+            success: Eelarve on loodud
+          destroy:
+            invalid: Selle eelarve kustutamisel tekkis probleem
+            success: Eelarve on kustutatud
+          edit:
+            title: Muuda eelarvet
+            update: Värskenda eelarvet
+          index:
+            title: Eelarved
+          new:
+            create: Loo eelarve
+            title: Uus eelarve
+          update:
+            invalid: Selle eelarve värskendamisel tekkis probleem
+            success: Eelarve on värskendatud
+        models:
+          budget:
+            name: Eelarve
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Selle projekti loomisel tekkis probleem
+            success: Projekt on loodud
+          destroy:
+            success: Projekt on kustutatud
+          edit:
+            title: Muuda projekti
+            update: Värskenda
+          index:
+            finished_orders: Lõppenud hääletused
+            pending_orders: Pooleliolevad hääletused
+            selected: Valitud
+            title: Projektid
+          new:
+            create: Loo
+            title: Uus projekt
+          update:
+            invalid: Selle projekti värskendamisel tekkis probleem
+            success: Projekt on värskendatud
+        proposals_imports:
+          create:
+            invalid: Ettepanekute projektidesse importimisel tekkis probleem
+            success: "%{number} ettepanekut on imporditud projektidesse"
+          new:
+            create: Impordi ettepanekud projektidesse
+            no_components: Selles osalusruumis ei ole muid ettepaneku komponente, mida saaks projektidesse importida.
+            select_component: Valige komponent
+      admin_log:
+        budget:
+          create: "Kasutaja %{user_name} lõi osalusruumis %{space_name} eelarve %{resource_name}"
+          delete: "Kasutaja %{user_name} kustutas osalusruumis %{space_name} eelarve %{resource_name}"
+          update: "Kasutaja %{user_name} värskendas osalusruumis %{space_name} eelarvet %{resource_name}"
+        project:
+          create: "Kasutaja %{user_name} lõi osalusruumis %{space_name} projekti %{resource_name}"
+          delete: "Kasutaja %{user_name} kustutas osalusruumis %{space_name} projekti %{resource_name}"
+          update: "Kasutaja %{user_name} värskendas osalusruumis %{space_name} projekti %{resource_name}"
+      budget:
+        view: Kuva kõik eelarveprojektid
+      budget_information_modal:
+        back_to: Tagasi komponendi %{component_name} jaotisse
+        close_modal: Sulge modaalaken
+        continue: Jätka
+        more_information: Lisateave
+      budgets_list:
+        cancel_order:
+          more_than_one: eelarvele %{name} antud hääle kustutada ja uuesti alustada
+          only_one: oma hääle kustutada ja uuesti alustada.
+        finished_message: Olete nüüd oma hääle andnud. Täname osalemast!
+        highlighted_cta: Anna hääl eelarvele %{name}
+        if_change_opinion: Kui olete meelt muutnud, saate
+        my_budgets: Minu eelarved
+        voted_on: Andsite hääle eelarvele %{links}
+      limit_announcement:
+        cant_vote: Te ei saa seda eelarvet hääletada. <a href="%{landing_path}">Valige mõni muu eelarve</a>.
+        limit_reached: Teil on aktiivsed hääled üksuses %{links}. Selle eelarve üle hääletamiseks peate <a href="%{landing_path}">oma hääle kustutama ja uuesti alustama</a>.
+      models:
+        budget:
+          fields:
+            name: Nimi
+            projects_count: Projektide arv
+            total_budget: Kogueelarve
+        project:
+          fields:
+            title: Pealkiri
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Teie valitud projektid:'
+          subject: Olete osalusruumis %{space_name} hääletanud
+          voted_on_space: Osalesite eelarve %{budget_name} hääletamisel osalusruumis %{space_name}.
+          voted_on_space_with_scope: Osalesite eelarve %{budget_name} hääletamisel osalusruumis %{space_name} kohaldamisalaga %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Kui muudate meelt, saate oma häält muuta.
+          cancel: Tühista
+          confirm: Kinnita
+          description: Olete eelarve eraldamiseks valinud need projektid.
+          title: Kinnita hääl
+        budget_excess:
+          close: Sulge
+          description: Selle projekti eelarve on lubatud maksimaalsest eelarvest suurem, mistõttu seda ei saa lisada. Soovi korral saate lisamiseks valitud projekti kustutada või hääletada oma eelistuste järgi.
+          title: Maksimaalne eelarve ületatud
+        budget_summary:
+          are_you_sure: Kas olete kindel, et soovite oma hääle tühistada?
+          assigned: 'Määratud:'
+          cancel_order: kustutage oma hääl ja alustage uuesti
+          checked_out:
+            description: Olete eelarve jaoks oma hääle juba andnud. Kui olete meelt muutnud, saate selle tühistada (%{cancel_link}).
+            title: Eelarvehääletus on lõppenud
+          description: Millistele projektidele peaksime teie arvates eelarve eraldama? Määrake soovitud projektidele vähemalt %{minimum_budget} ja hääletage oma eelistuste järgi, et määrata eelarve.
+          description_minimum_projects_rule: Millistele projektidele peaksime teie arvates eelarve eraldama? Valige vähemalt %{minimum_number} projekt(i) ja hääletage oma eelistuste järgi, et määrata eelarve.
+          title: Teie otsustate eelarve üle
+        count:
+          projects_count:
+            one: 1 projekt
+            other: "%{count} projekti"
+        filters:
+          category: Kategooria
+          scope: Kohaldamisala
+          search: Otsing
+          status: Olek
+          status_values:
+            all: Kõik
+            not_selected: Pole valitud
+            selected: Valitud
+        filters_small_view:
+          close_modal: Sulge modaalaken
+          filter_by: Filtrimisalus
+          unfold: Ava
+        order_progress:
+          vote: Hääleta
+        order_selected_projects:
+          remove: Eemalda
+          selected_projects:
+            one: projekt valitud
+            other: projekti valitud
+          view: Kuva
+        orders:
+          highest_cost: Suurim kulu
+          label: 'Projektide järjestusalus:'
+          lowest_cost: Väikseim kulu
+          most_voted: Enim hääli saanud
+          random: Suvaline järjestus
+          selected: Valitud
+        project:
+          add: Lisage projekt %{resource_name} oma hääletusele
+          remove: Eemaldage projekt %{resource_name} oma hääletuselt
+          selected: Valitud
+          view: Kuva
+          votes:
+            one: hääl
+            other: hääled
+          you_voted: Hääletasite
+        project_budget_button:
+          add: Lisage oma hääletusele
+          add_descriptive: Lisage projekt %{resource_name} oma hääletusele
+          added: Lisatud teie hääletusele
+          added_descriptive: Projekt %{resource_name} on lisatud teie hääletusele
+        projects_for: 'Projektid järgmise jaoks: %{name}'
+        show:
+          budget: Eelarve
+          view_all_projects: Kuva kõik projektid
+    components:
+      budgets:
+        actions:
+          vote: Hääleta
+        name: Eelarved
+        settings:
+          global:
+            announcement: Teadaanne
+            comments_enabled: Kommentaarid lubatud
+            comments_max_length: Kommentaari maksimaalne pikkus (vaikeväärtuse valimiseks jätke väljale 0)
+            form:
+              errors:
+                budget_voting_rule_only_one: Lubada saab ainult ühe hääletusreegli
+                budget_voting_rule_required: Üks hääletusreegel on nõutav
+            landing_page_content: Eelarvete sihtleht
+            more_information_modal: Lisateabe modaalaken
+            projects_per_page: Projekte lehe kohta
+            resources_permissions_enabled: Iga koosoleku jaoks saab määrata toiminguõigused
+            total_budget: Kogueelarve
+            vote_minimum_budget_projects_number: Hääletatavate projektide minimaalne arv
+            vote_rule_minimum_budget_projects_enabled: 'Luba reegel: Hääletatavate projektide minimaalne arv'
+            vote_rule_threshold_percent_enabled: 'Luba reegel: Minimaalne eelarve protsent'
+            vote_threshold_percent: Häälte künniseprotsent
+            workflow: Töövoog
+            workflow_choices:
+              all: 'Hääleta kõigis: võimaldab osalejatel hääletada kõikide eelarvete puhul.'
+              one: 'Hääletamine ühes: lubab osalejatel hääletada mistahes eelarve puhul, kuid ainult üht.'
+          step:
+            announcement: Teadaanne
+            comments_blocked: Kommenteerimine pole lubatud
+            highlighted_heading: Esiletõstetud pealkiri
+            landing_page_content: Eelarvete avaleht
+            list_heading: Loendi pealkiri
+            more_information_modal: Lisateabe modaalaken
+            show_votes: Kuva hääled
+            title: Pealkiri
+            votes: Hääletamine
+            votes_choices:
+              disabled: Hääletamine pole lubatud
+              enabled: Hääletamine on lubatud
+              finished: Hääletamine on lõppenud
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Eelarve %{resource_title} on nüüd osalusruumis %{participatory_space_title} aktiivne. Näete seda järgmisel lehel:'
+          email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
+          email_subject: Eelarve %{resource_title} on nüüd osalusruumis %{participatory_space_title} aktiivne.
+          notification_title: Eelarve <a href="%{resource_path}">%{resource_title}</a> on nüüd osalusruumis %{participatory_space_title} aktiivne.
+    orders:
+      checkout:
+        error: Teie hääle töötlemisel tekkis probleem
+        success: Teie antud hääl võeti vastu
+      destroy:
+        error: Teie hääle tühistamisel tekkis probleem
+        success: Teie antud hääl tühistati
+    resource_links:
+      included_proposals:
+        project_proposal: 'Selles projektis hõlmatud ettepanekud:'
+  index:
+    confirmed_orders_count: Häälte arv
+  total_budget: Kogueelarve
