@@ -1,10 +1,217 @@
 de:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategorie
+        decidim_scope_id: Reichweite
+        description: Beschreibung
+        end_date: Enddatum
+        progress: Fortschritt
+        project_ids: Enthaltene Projekte
+        proposals: Enthaltene Vorschläge
+        start_date: Anfangsdatum
+        title: Titel
+        updated_at: Aktualisiert am
+      status:
+        description: Beschreibung
+        key: Schlüsselwort
+        progress: Fortschritt
+      timeline_entry:
+        description: Beschreibung
+        entry_date: Datum
+    models:
+      decidim/accountability/proposal_linked_event: In einem Ergebnis enthaltener Vorschlag
+      decidim/accountability/result_progress_updated_event: Ergebnisfortschritt aktualisiert
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Ergebnis
+        other: Ergebnisse
   decidim:
     accountability:
+      actions:
+        confirm_destroy: Sind Sie sicher, dass Sie %{name} löschen möchten?
+        destroy: Löschen
+        edit: Bearbeiten
+        import_csv: CSV importieren
+        new: 'Neu: %{name}'
+        preview: Vorschau
+        timeline_entries: Projektverlauf
+        title: Aktionen
       admin:
+        exports:
+          results: Ergebnisse
         import_results:
           new:
+            info: "<p>Wir empfehlen, die folgenden Schritte zu durchlaufen:</p><ol><li>Status für die hinzuzufügenden Ergebnisse erstellen (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Mindestens ein Ergebnis manuell über Admin Panel erstellen, (<a href='%{link_new_result}' target='_blank'>link</a>) bevor die Funktion Import verwendet wird, um das Format und die auszufüllenden Felder besser zu verstehen.</li><li>Export im CSV-Format herunterladen (%{link_export_csv})</li><li>Änderungen lokal vornehmen. Es können nur die folgenden Spalten der CSV-Datei geändert werden:</li></ol><ul><li><b>category/id:</b> ID der Kategorie</li><li><b>scope/id:</b> ID der Reichweite</li><li><b>parent/id:</b> ID des übergeordneten Ordners (für verbundene Ergebnisse). Optional</li><li><b>title/I18N:</b> Titel in Sprache X</li><li><b>description/I18N:</b> Beschreibung in Sprache X </li><li><b>start_date:</b> Datum, ab dem das Ergebnis mit der Ausführung beginnt (Format JJJJ-MM-TT)</li><li><b>end_date:</b> Datum, ab dem das Ergebnis die Ausführung beendet (Format JJJJ-MM-TT)</li><li><b>status/id:</b> ID des Status dieses Ergebnisses</li><li><b>progress:</b> Prozentzahl (von 0 bis 100) der Ausführung</li><li><b>proposals_ids:</b> interne ID der verbundenen Vorschläge (getrennt durch eine Komma). Wird automatisch konvertiert in <span class='attribute-name'>proposal_url</span></li></ul>"
             link: Link
+            title: Ergebnisse aus CSV importieren
+        imports:
+          create:
+            success: Der Import der Datei hat begonnen. In den nächsten Minuten wird eine E-Mail mit dem Ergebnis des Imports eingehen
+        models:
+          result:
+            name: Ergebnis
+          timeline_entry:
+            name: Eintrag Zeitplan
+        results:
+          create:
+            invalid: Bei der Erstellung dieses Ergebnisses ist ein Problem aufgetreten
+            success: Ergebnis erfolgreich erstellt
+          destroy:
+            success: Ergebnis erfolgreich gelöscht
+          edit:
+            title: Ergebnis bearbeiten
+            update: Ergebnis aktualisieren
+          index:
+            title: Ergebnisse
+          new:
+            create: Ergebnis erstellen
+            title: Neues Ergebnis
+          update:
+            invalid: Bei der Aktualisierung dieses Ergebnisses ist ein Problem aufgetreten
+            success: Ergebnis erfolgreich aktualisiert
+        shared:
+          subnav:
+            statuses: Status
+        statuses:
+          create:
+            invalid: Bei der Erstellung dieses Status ist ein Problem aufgetreten
+            success: Status erfolgreich erstellt
+          destroy:
+            success: Status erfolgreich gelöscht
+          edit:
+            title: Status bearbeiten
+            update: Status aktualisieren
+          index:
+            title: Status
+          new:
+            create: Status erstellen
+            title: Neuer Status
+          update:
+            invalid: Bei der Aktualisierung dieses Status ist ein Problem aufgetreten
+            success: Status erfolgreich aktualisiert
+        timeline_entries:
+          create:
+            invalid: Bei der Erstellung dieses Eintrags ist ein Problem aufgetreten
+            success: Eintrag erfolgreich erstellt
+          destroy:
+            success: Eintrag erfolgreich gelöscht
+          edit:
+            title: Eintrag bearbeiten
+            update: Eintrag aktualisieren
+          index:
+            title: Projekt-Zeitplan-Einträge
+          new:
+            create: Eintrag erstellen
+            title: Neuer Eintrag
+          update:
+            invalid: Bei der Aktualisierung dieses Eintrags ist ein Problem aufgetreten
+            success: Eintrag erfolgreich aktualisiert
+      admin_log:
+        result:
+          create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat das %{resource_name} Ergebnis in %{space_name} gelöscht"
+          update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
+        value_types:
+          parent_presenter:
+            not_found: 'Der übergeordnete Ordner wurde in der Datenbank nicht gefunden (ID: %{id})'
+      import_mailer:
+        import:
+          errors: Fehler
+          errors_present: Beim Import der Ergebnisse ist ein Problem aufgetreten
+          row_number: Zeile
+          subject: Erfolgreicher Import von Ergebnissen
+          success: Erfolgreicher Import von Ergebnissen. Die Ergebnisse können auf der Verwaltungsbenutzeroberfläche überprüft werden.
+      last_activity:
+        new_result_at_html: "<span>Neues Ergebnis bei %{link}</span>"
+      models:
+        result:
+          fields:
+            end_date: Enddatum
+            progress: Fortschritt
+            start_date: Anfangsdatum
+            title: Titel
+        status:
+          fields:
+            description: Beschreibung
+            key: Schlüsselwort
+            progress: Fortschritt
+        timeline_entry:
+          fields:
+            description: Beschreibung
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 Ergebnis
+            other: "%{count} Ergebnisse"
+        filters:
+          all: Alle
+          scopes: Reichweiten
+        home:
+          categories_label: Kategorien
+          subcategories_label: Unterkategorien
+        home_header:
+          global_status: Status der globalen Ausführung
+        nav_breadcrumb:
+          global: Globale Ausführung
+        search:
+          search: Suche nach Aktionen
+        show:
+          stats:
+            attendees: Teilnehmer
+            back_to_resource: Zurück zum Ergebnis
+            comments: Kommentare
+            contributions: Beiträge
+            last_edited_by: Zuletzt bearbeitet von
+            last_updated_at: Zuletzt aktualisiert am
+            meetings: Sitzungen
+            proposals: Vorschläge
+            votes: Unterstützungen
+        timeline:
+          title: Projektverlauf
+    components:
+      accountability:
+        name: Rechenschaftspflicht
+        settings:
+          global:
+            categories_label: Name für „Kategorien“
+            comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge des Kommentars (0 als Standardwert unverändert lassen)
+            display_progress_enabled: Fortschritt anzeigen
+            heading_leaf_level_results: Name für „Projekte“
+            heading_parent_level_results: Name für „Ergebnisse“
+            intro: Einführung
+            subcategories_label: Name für „Unterkategorien“
+          step:
+            comments_blocked: Kommentare deaktiviert
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Der Vorschlag "%{proposal_title}" ist Teil eines Ergebnisses. Einsehbar von dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine Aktualisierung zu %{proposal_title}
+          notification_title: Der Vorschlag <a href="%{proposal_path}">%{proposal_title}</a> ist Teil des Ergebnisses <a href="%{resource_path}">%{resource_title}</a>.
+        result_progress_updated:
+          email_intro: 'Das Ergebnis "%{resource_title}", das den Vorschlag "%{proposal_title}“ enthält, ist jetzt zu %{progress}% abgeschlossen. Einsehbar von dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{proposal_title}" folgen und dieser Vorschlag ist Teil des Ergebnisses "%{resource_title}". Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine Aktualisierung zu %{resource_title} Fortschritt
+          notification_title: Das Ergebnis, <a href="%{resource_path}">%{resource_title}</a>, das den Vorschlag <a href="%{proposal_path}“>%{proposal_title}</a> enthält, ist jetzt zu %{progress}% abgeschlossen.
     metrics:
       results:
+        description: Anzahl der erzeugten Ergebnisse
         object: Ergebnisse
+        title: Ergebnisse
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Ergebnisse
+    participatory_spaces:
+      highlighted_results:
+        see_all: Alle Ergebnisse anzeigen (%{count})
+    resource_links:
+      included_projects:
+        result_project: In diesem Ergebnis enthaltene Projekte
+      included_proposals:
+        result_proposal: In diesem Ergebnis enthaltene Vorschläge
