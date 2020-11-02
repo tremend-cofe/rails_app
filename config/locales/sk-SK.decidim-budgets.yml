@@ -1,1 +1,240 @@
 sk:
+  activemodel:
+    attributes:
+      project:
+        budget: Rozpočet
+        decidim_category_id: Kategória
+        decidim_scope_id: Rozsah pôsobnosti
+        description: Opis
+        proposal_ids: Súvisiace návrhy
+        title: Nadpis
+  decidim:
+    budgets:
+      actions:
+        attachment_collections: Priečinky
+        attachments: Prílohy
+        confirm_destroy: Naozaj chcete odstrániť tento projekt?
+        destroy: Odstrániť
+        edit: Upraviť
+        edit_projects: Spravovať projekty
+        import: Importovať návrhy do projektov
+        new: Nová položka %{name}
+        preview: Ukážka
+        title: Akcie
+      admin:
+        budgets:
+          create:
+            invalid: Pri vytváraní tohto rozpočtu sa vyskytol problém
+            success: Rozpočet bol úspešne vytvorený
+          destroy:
+            invalid: Pri odstraňovaní tohto rozpočtu sa vyskytol problém
+            success: Rozpočet bol úspešne odstránený
+          edit:
+            title: Upraviť rozpočet
+            update: Aktualizovať rozpočet
+          index:
+            title: Rozpočty
+          new:
+            create: Vytvoriť rozpočet
+            title: Nový rozpočet
+          update:
+            invalid: Pri aktualizácii tohto rozpočtu sa vyskytol problém
+            success: Aktualizácia rozpočtu bola úspešná
+        models:
+          budget:
+            name: Rozpočet
+          project:
+            name: Projekt
+        projects:
+          create:
+            invalid: Pri vytváraní tohto projektu sa vyskytol problém
+            success: Projekt bol úspešne vytvorený
+          destroy:
+            success: Projekt bol úspešne odstránený
+          edit:
+            title: Upraviť projekt
+            update: Aktualizovať
+          index:
+            finished_orders: Dokončené hlasovania
+            pending_orders: Čaká sa na hlasovanie
+            selected: Vybraté
+            title: Projekty
+          new:
+            create: Vytvoriť
+            title: Nový projekt
+          update:
+            invalid: Pri aktualizácii tohto projektu sa vyskytol problém
+            success: Projekt bol úspešne aktualizovaný
+        proposals_imports:
+          create:
+            invalid: Pri importovaní návrhov do projektov sa vyskytol problém
+            success: "Počet návrhov úspešne importovaných do projektov: %{number}"
+          new:
+            create: Importovať návrhy do projektov
+            no_components: V tomto participatívnom priestore nie sú žiadne ďalšie komponenty návrhov určené na importovanie návrhov do projektov.
+            select_component: Vyberte komponent
+      admin_log:
+        budget:
+          create: "Používateľ %{user_name} vytvoril rozpočet %{resource_name} v rámci priestoru %{space_name}"
+          delete: "Používateľ %{user_name} odstránil rozpočet %{resource_name} v rámci priestoru %{space_name}"
+          update: "Používateľ %{user_name} aktualizoval rozpočet %{resource_name} v rámci priestoru %{space_name}"
+        project:
+          create: "Používateľ %{user_name} vytvoril projekt %{resource_name} v rámci priestoru %{space_name}"
+          delete: "Používateľ %{user_name} odstránil projekt %{resource_name} v rámci priestoru %{space_name}"
+          update: "Používateľ %{user_name} aktualizoval projekt %{resource_name} v rámci priestoru %{space_name}"
+      budget:
+        view: Zobraziť všetky rozpočtové projekty
+      budget_information_modal:
+        back_to: Späť na komponent %{component_name}
+        close_modal: Zatvoriť kontextové okno
+        continue: Pokračovať
+        more_information: Ďalšie informácie
+      budgets_list:
+        cancel_order:
+          more_than_one: odstrániť svoje hlasovanie o položke %{name} a začať odznova
+          only_one: odstrániť svoje hlasovanie a začať odznova.
+        finished_message: Dokončili ste hlasovanie. Ďakujeme za účasť!
+        highlighted_cta: Hlasovanie o položke %{name}
+        if_change_opinion: Ak ste zmenili svoj názor, môžete
+        my_budgets: Moje rozpočty
+        voted_on: Hlasovali ste o položke %{links}
+      limit_announcement:
+        cant_vote: Nemôžete hlasovať o tomto rozpočte. <a href="%{landing_path}">Skúste iný rozpočet</a>.
+        limit_reached: Máte aktívne hlasovania v položke %{links}. Ak chcete hlasovať o tomto rozpočte, musíte <a href="%{landing_path}">odstrániť svoje hlasovanie a začať odznova</a>.
+      models:
+        budget:
+          fields:
+            name: Názov
+            projects_count: Počet projektov
+            total_budget: Celkový rozpočet
+        project:
+          fields:
+            title: Nadpis
+      order_summary_mailer:
+        order_summary:
+          selected_projects: 'Vybrali ste tieto projekty:'
+          subject: Hlasovali ste o participatívnom priestore %{space_name}
+          voted_on_space: Hlasovali ste o rozpočte %{budget_name} pre participatívny priestor %{space_name}.
+          voted_on_space_with_scope: Hlasovali ste o rozpočte %{budget_name} pre participatívny priestor %{space_name} v rámci rozsahu pôsobnosti %{scope_name} (%{scope_type}).
+      projects:
+        budget_confirm:
+          are_you_sure: Ak zmeníte názor, svoj hlas môžete neskôr zmeniť.
+          cancel: Zrušiť
+          confirm: Potvrdiť
+          description: Toto sú projekty, o ktorých ste rozhodli, že budú časťou rozpočtu.
+          title: Potvrdiť hlasovanie
+        budget_excess:
+          close: Zatvoriť
+          description: Tento projekt prevyšuje maximálny rozpočet a nemožno ho pridať. Ak chcete, môžete odstrániť projekt, ktorý ste už vybrali na pridanie, alebo môžete hlasovať podľa svojho výberu.
+          title: Prekročenie maximálneho rozpočtu
+        budget_summary:
+          are_you_sure: Naozaj chcete zrušiť svoje hlasovanie?
+          assigned: 'Pridelené:'
+          cancel_order: odstrániť svoje hlasovanie a začať odznova
+          checked_out:
+            description: Už ste hlasovali za tento rozpočet. Ak ste zmenili svoj názor, môžete %{cancel_link}.
+            title: Hlasovanie o rozpočte dokončené
+          description: Na ktoré projekty by sme podľa vás mali prideliť rozpočtové prostriedky? Priraďte aspoň %{minimum_budget} na projekty, ktoré chcete financovať, a hlasujte podľa svojho výberu s cieľom určiť rozpočet.
+          description_minimum_projects_rule: Na ktoré projekty by sme podľa vás mali prideliť rozpočtové prostriedky? Vyberte projekty v minimálnom počte %{minimum_number}, ktoré chcete financovať, a hlasujte podľa svojho výberu s cieľom určiť rozpočet.
+          title: Rozhodnite o rozpočte
+        filters:
+          category: Kategória
+          scope: Rozsah pôsobnosti
+          search: Vyhľadávanie
+          status: Stav
+          status_values:
+            all: Všetky
+            not_selected: Nevybraté
+            selected: Vybraté
+        filters_small_view:
+          close_modal: Zatvoriť kontextové okno
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        order_progress:
+          vote: Hlasovanie
+        order_selected_projects:
+          remove: Odstrániť
+          view: Zobraziť
+        orders:
+          highest_cost: Najvyššie náklady
+          label: Zoradiť projekty podľa
+          lowest_cost: Najnižšie náklady
+          most_voted: Najviac hlasov
+          random: Náhodné poradie
+          selected: Vybraté
+        project:
+          add: Pridať projekt %{resource_name} do vášho hlasovania
+          remove: Odstrániť projekt %{resource_name} z vášho hlasovania
+          selected: Vybraté
+          view: Zobraziť
+          you_voted: Hlasovali ste
+        project_budget_button:
+          add: Pridať do vášho hlasovania
+          add_descriptive: Pridať projekt %{resource_name} do vášho hlasovania
+          added: Pridané do vášho hlasovania
+          added_descriptive: Projekt %{resource_name} pridaný do vášho hlasovania
+        projects_for: Projekty na %{name}
+        show:
+          budget: Rozpočet
+          view_all_projects: Zobraziť všetky projekty
+    components:
+      budgets:
+        actions:
+          vote: Hlasovanie
+        name: Rozpočty
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_enabled: Poznámky povolené
+            comments_max_length: Maximálna dĺžka poznámok (ponechaním hodnoty 0 sa zachová predvolená hodnota)
+            form:
+              errors:
+                budget_voting_rule_only_one: Povolené musí byť iba jedno pravidlo hlasovania
+                budget_voting_rule_required: Vyžaduje sa jedno pravidlo hlasovania
+            landing_page_content: Cieľová stránka pre rozpočty
+            more_information_modal: Kontextové okno Viac informácií
+            projects_per_page: Počet projektov na stránku
+            resources_permissions_enabled: Pre každé stretnutie možno nastaviť povolenia akcií
+            total_budget: Celkový rozpočet
+            vote_minimum_budget_projects_number: Minimálny počet projektov na hlasovanie
+            vote_rule_minimum_budget_projects_enabled: 'Povoliť pravidlo: Minimálny počet projektov, o ktorých sa má hlasovať'
+            vote_rule_threshold_percent_enabled: 'Povoliť pravidlo: Minimálny percentuálny podiel rozpočtu'
+            vote_threshold_percent: Percento hlasov potrebných pri hlasovaní
+            workflow: Pracovný postup
+            workflow_choices:
+              all: 'Hlasovanie vo všetkých: účastníci môžu hlasovať vo všetkých rozpočtoch.'
+              one: 'Hlasovanie v jednom: účastníci môžu hlasovať v rámci akéhokoľvek, avšak len jedného rozpočtu.'
+          step:
+            announcement: Oznámenie
+            comments_blocked: Poznámky zablokované
+            highlighted_heading: Zvýraznená hlavička
+            landing_page_content: Cieľová stránka pre rozpočty
+            list_heading: Hlavička zoznamu
+            more_information_modal: Kontextové okno Viac informácií
+            show_votes: Zobraziť hlasy
+            title: Nadpis
+            votes: Hlasovanie
+            votes_choices:
+              disabled: Hlasovanie zakázané
+              enabled: Hlasovanie povolené
+              finished: Hlasovanie dokončené
+    events:
+      budgets:
+        budget_published:
+          email_intro: 'Rozpočet %{resource_title} je teraz aktívny pre participatívny priestor %{participatory_space_title}. Pozrieť si ho môžete na tejto stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Rozpočet %{resource_title} je teraz aktívny pre participatívny priestor %{participatory_space_title}.
+          notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je teraz aktívny pre participatívny priestor %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Pri spracovaní vášho hlasovania sa vyskytol problém
+        success: Váš hlas bol úspešne prijatý
+      destroy:
+        error: Pri pokuse o zrušenie vášho hlasovania sa vyskytol problém
+        success: Vaše hlasovanie bolo úspešne zrušené
+    resource_links:
+      included_proposals:
+        project_proposal: 'Návrhy zahrnuté do tohto projektu:'
+  index:
+    confirmed_orders_count: Počet hlasov
+  total_budget: Celkový rozpočet
