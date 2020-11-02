@@ -1,1 +1,151 @@
 de:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Auslosungsinformationen
+        decidim_category_id: Kategorien der Gruppe von Vorschlägen, auf welche Sie die Auslosung anwenden möchten
+        decidim_proposals_component_id: Gruppe von Vorschlägen
+        dice: Ergebnis des Würfelwurfs. Würfeln Sie mit einem 6-seitigen Würfel oder suchen Sie nach einer anderen zufälligen Methode, um eine Zahl von 1 bis 6 zu erzeugen, und geben Sie hier die resultierende Zahl vor einigen Zeugen ein. Dies trägt zur Qualität bei und garantiert die Zufälligkeit des Ergebnisses
+        target_items: Anzahl der Vorschläge, die ausgewählt werden sollen (gibt die Anzahl der Vorschläge an, die Sie durch Auslosung der von Ihnen zuvor ausgewählten Gruppe von Vorschlägen auswählen möchten)
+        title: Titel
+        witnesses: Zeugen
+    models:
+      decidim/sortitions/create_sortition_event: Auslosung
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Auslosung
+        other: Auslosungen
+  decidim:
+    components:
+      sortitions:
+        name: Auslosungen
+        settings:
+          global:
+            comments_enabled: Kommentare aktiviert
+            comments_max_length: Maximale Länge des Kommentars (0 als Standardwert unverändert lassen)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Der Auslosung "%{resource_title}" wurde "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können sich über den vorstehenden Link abmelden.
+          email_subject: Neue Auslosung %{participatory_space_title} hinzugefügt
+          notification_title: Die Auslosung <a href="%{resource_path}">%{resource_title}</a> wurde %{participatory_space_title} hinzugefügt
+    pages:
+      home:
+        statistics:
+          sortitions_count: Auslosungen
+    participatory_processes:
+      statistics:
+        sortitions_count: Auslosungen
+    sortitions:
+      admin:
+        actions:
+          destroy: Auslosung annullieren
+          edit: Bearbeiten
+          new: Neue Auslosung
+          show: Details Auslosung
+        models:
+          sortition:
+            fields:
+              category: Kategorie
+              created_at: Erstellungsdatum
+              decidim_proposals_component: Komponente Vorschläge
+              dice: Würfel
+              reference: Quelle
+              request_timestamp: Zeitpunkt der Auslosung
+              seed: Startwert
+              target_items: Auszuwählende Elemente
+              title: Titel
+            name:
+              one: Auslosung
+              other: Auslosungen
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Sind Sie sicher, dass Sie diese Auslosung annullieren möchten?
+            destroy: Auslosung annullieren
+            title: Annullierung der Auslosung
+          create:
+            error: Beim Erstellen einer neuen Auslosung ist ein Problem aufgetreten.
+            success: Auslosung erfolgreich erstellt
+          destroy:
+            error: Auslosung kann nicht annulliert werden.
+            success: Auslosung erfolgreich annulliert
+          edit:
+            title: Aktualisieren Sie die Informationen über die Auslosung
+            update: Aktualisieren
+          form:
+            all_categories: Alle Kategorien
+            select_proposal_component: Vorschlagssatz auswählen
+            title: Neue Auslosung für Vorschläge
+          index:
+            title: Auslosungen
+          new:
+            confirm: Durch Drücken der nächsten Schaltfläche zeichnet Decidim das Datum und die Uhrzeit (sekundengenau) auf und zusammen mit dem Würfelwurf wird aus diesen Informationen eine Zufallsauswahl generiert. Die Aktion ist irreversibel, sobald die Schaltfläche angeklickt wird, wird das Ergebnis dieser Auslosung zusammen mit den in diesem Formular eingegebenen Daten veröffentlicht und kann nicht geändert werden; bitte überprüfen Sie den Inhalt sorgfältig
+            create: Erstellen
+            title: Neue Auslosung
+          show:
+            selected_proposals: Zur Auslosung ausgewählte Vorschläge
+          update:
+            error: Bei der Aktualisierung der Auslosung ist ein Problem aufgetreten.
+            success: Auslosung erfolgreich aktualisiert
+      admin_log:
+        sortition:
+          create: "%{user_name} hat die %{resource_name} Auslosung in %{space_name} erstellt"
+          delete: "%{user_name} hat die %{resource_name} Auslosung in %{space_name} annulliert"
+          update: "%{user_name} hat die %{resource_name} Auslosung in %{space_name} aktualisiert"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 Vorschlag
+            other: "%{count} Vorschläge"
+        filters:
+          active: Aktiv
+          all: Alle
+          cancelled: Annulliert
+          category: Kategorie
+          category_prompt: Eine Kategorie auswählen
+          search: Suche
+        filters_small_view:
+          close_modal: Fenster schließen
+          filter_by: Filtern nach
+          unfold: Aufklappen
+        linked_sortitions:
+          selected_proposals: Ausgewählte Vorschläge
+        orders:
+          label: 'Auslosungen ordnen nach:'
+          random: Zufallsauswahl
+          recent: Jüngere
+        results_count:
+          count:
+            one: ausgewählter Vorschlag
+            other: ausgewählte Vorschläge
+        show:
+          algorithm: Algorithmus-Code der Auslosung
+          any_category: aus allen Kategorien
+          back: Zurück zur Liste
+          cancelled: Auslosung annulliert
+          candidate_proposal_ids: Reihenfolge und IDs der Auslosungsvorschläge
+          candidate_proposals_info: 'Die Sortierung wurde unter den folgenden Vorschlägen (%{category_label}) mit den folgenden IDs (fettgedruckt die ausgewählten Vorschläge) durchgeführt  '
+          category: aus der Kategorie %{category}
+          dice_result: "(1) Würfelergebnis"
+          introduction: 'Diese Seite enthält die Ergebnisse der Auslosung %{reference}. Mit Hilfe dieser Auslosung wurden aus der Menge der unten angezeigten Vorschläge zufällig und mit gleicher Wahrscheinlichkeitsverteilung %{target_items} Ergebnisse ausgewählt. Zusammen mit den Ergebnissen bieten die auf dieser Seite angezeigten Informationen alle Informationen, die zur Maximierung der Garantien und zur Reproduktion der Ergebnisse erforderlich sind. Der Schlüssel zur Qualität dieser Auslosung ist die doppelte Zufälligkeit, die durch den (von Zeugen verifizierten) Wurf eines Würfels entsteht, und der genaue Zeitpunkt der Auslosung, der einen Input für einen Algorithmus liefert, der eine Zufallsauswahl generiert. Der Startwert für die Auslosung ist so genau (in Sekunden), dass sie von Menschen nicht kontrolliert werden kann, so dass ein doppelter „unkontrollierbarer" Input erfolgt, um ein faires Ergebnis zu garantieren.  '
+          mathematical_result: Ergebnis (1) x (2)
+          proposals_selected_by_sortition: Nach Auslosung ausgewählte Vorschläge
+          sortition_reproducibility_details: Details zur Reproduzierbarkeit der Auslosung
+          time_seed: "(2) Startwert"
+          witnesses: Zeugen
+        sortition:
+          random_seed: Zufalls-Startwert
+          selected_proposals:
+            one: Vorschlag ausgewählt
+            other: Vorschläge ausgewählt
+          view: Anzeigen
+        sortition_author:
+          deleted: Teilnehmer gelöscht
+        sortition_cancel_author:
+          deleted: Teilnehmer gelöscht
+        sortitions_count:
+          count:
+            one: 1 Auslosung
+            other: "%{count} Auslosungen"
