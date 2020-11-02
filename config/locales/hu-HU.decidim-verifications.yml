@@ -1,0 +1,254 @@
+hu:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Elérhető módszerek
+        offline_explanation: Az offline ellenőrzés utasításai
+      id_document_information:
+        document_number: Dokumentumszám (betűkkel)
+        document_type: Dokumentum típusa
+      id_document_upload:
+        document_number: Dokumentumszám (betűkkel)
+        document_type: Dokumentum típusa
+        user: Résztvevő
+        verification_attachment: A dokumentum beolvasott másolata
+      offline_confirmation:
+        email: Résztvevő e-mail-címe
+      postal_letter_address:
+        full_address: Teljes cím
+      postal_letter_confirmation:
+        verification_code: Ellenőrzési kód
+      postal_letter_postage:
+        full_address: Teljes cím
+        verification_code: Ellenőrzési kód
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Hasznos, ha a folyamat már megkezdődött, és vissza szeretné vonni az előző folyamat jogosultságait.
+          button: Az összes visszavonása
+          button_before: 'A következő dátum előttiek visszavonása:'
+          destroy:
+            confirm: A dátum előtti engedélyezések visszavonása nem vonható vissza. Biztosan folytatja?
+            confirm_all: Az összes engedélyezés visszavonása nem vonható vissza. Biztosan folytatja?
+          destroy_nok: Hiba történt az engedélyezések visszavonása során.
+          destroy_ok: Az egyező engedélyezések visszavonása sikeres!
+          info: Összesen %{count} ellenőrzött résztvevő.
+          no_data: Nincsenek ellenőrzött résztvevők
+          title: Ellenőrzés visszavonása
+        authorization_workflows: Ellenőrzések
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} frissítette a személyazonosságot igazoló dokumentumok ellenőrzésének konfigurációját"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} ellenőrizve a következőt személyazonosságot igazoló dokumentumok offline ellenőrzésével: %{resource_name}"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Az adminisztrátorok feltöltenek egy CSV-fájlt, amely az elfogadott résztvevők e-mail-címét tartalmazza
+            Csak azokat a résztvevőket lehet ellenőrizni, akiknek e-mail-címe szerepel a CSV-fájlban
+        id_documents:
+          help: |-
+            A felhasználók kitöltik személyazonosító adataikat, és feltöltenek egy dokumentummásolatot.
+            Ön adja meg a feltöltött képen található adatokat.
+            Az adatoknak meg kell egyezniük a felhasználó által megadott adatokkal.
+            Ha nem látja egyértelműen az adatokat, vagy nem tudja ellenőrizni, elutasíthatja a kérelmet, és a felhasználónak lehetősége van a javításra.
+        postal_letter:
+          help: |-
+            A résztvevők ellenőrzési kód küldését kérik a címükre.
+            ön elküldi az ellenőrzési kódot tartalmazó levelet a címükre.
+            Elküldöttnek jelöli a levelet.
+            Miután a levelet megjelöli elküldöttként, a résztvevő meg tudja adni a kódot és lehetősége van az ellenőrzésre.
+      csv_census:
+        explanation: Ellenőrzés a szervezeti állomány segítségével
+        name: Szervezeti állomány
+      direct: Közvetlen
+      help: Súgó
+      id_documents:
+        explanation: Töltse fel személyazonosságot igazoló dokumentumokat a személyazonossága ellenőrzéséhez
+        name: Személyazonosságot igazoló dokumentumok
+      multistep: Több lépéses
+      name: Név
+      postal_letter:
+        explanation: Egy kódot tartalmazó postai levelet küldünk, amelyet meg kell adnia, hogy ellenőrizni tudjuk a címét
+        name: Kód küldése postai úton
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'A jelenlegi ellenőrzés adatai:'
+          no_data_stored: Nincsenek rendezett adatok.
+        create:
+          error: Hiba történt az engedélyezés létrehozása során.
+          success: Az engedélyezés sikeres.
+          unconfirmed: Az engedélyezéshez meg kell erősítenie az e-mail-címét.
+        destroy:
+          error: Hiba történt az engedélyezés törlése során.
+          success: Az engedélyezés törlése sikeres.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Ellenőrzés az engedélyezéskezelő másik példája segítségével
+            csv_census: Ellenőrzés a szervezeti állomány segítségével
+            dummy_authorization_handler: Ellenőrzés az engedélyezéskezelő példája segítségével
+            dummy_authorization_workflow: Ellenőrzés az engedélyezés példamunkamenetének segítségével
+            id_documents: Ellenőrzés személyazonosságot igazoló dokumentum feltöltése révén
+            postal_letter: Ellenőrzés postai úton kapott ellenőrzési kóddal
+            sms: Ellenőrzés SMS-ben kapott ellenőrzési kóddal
+          title: Személyazonosság ellenőrzése
+          verify_with_these_options: 'A személyazonosság igazolásához a következő lehetőségek állnak rendelkezésre:'
+        index:
+          expired_verification: Az ellenőrzés lejárt
+          pending_verification: Függőben lévő ellenőrzés
+          show_renew_info: Kattintson az ellenőrzés megújításához
+          unauthorized_verification: Új ellenőrzés
+        new:
+          authorize: Küldés
+          authorize_with: 'Ellenőrzés a következővel: %{authorizer}'
+        renew_modal:
+          cancel: Mégse
+          close: lezárás
+          continue: Folytatás
+          info_renew: Ha frissíteni kívánja az adatokat, folytassa a megújítással
+          title: Ellenőrzés megújítása
+        skip_verification: Ezt átugorhatja és %{link}
+        start_exploring: megkezdheti a felfedezést
+      csv_census:
+        admin:
+          census:
+            create:
+              error: Hiba történt az állomány importálása során.
+              success: '%{count} elem importálás sikeres (%{errors} hiba)'
+            destroy_all:
+              success: Az összes állományadat törlésre került
+          destroy:
+            confirm: Az összes állományadat törlése művelet nem vonható vissza. Biztosan folytatja?
+            title: Az összes állományadat törlése
+          index:
+            data: 'Összesen %{count} rekord rögzítésére került sor. Az utolsó frissítés dátuma: %{due_date}'
+            empty: Nincsenek állományadatok. Használja a lenti űrlapot a CSV-fájllal történő importáláshoz.
+            title: Jelenlegi állományadatok
+          instructions:
+            body: Ehhez meg kell adnia a rendszeradminisztrátort, és hozzá kell adnia a csv_census engedélyezéseket a szervezethez
+            title: Aktiválnia kell a szervezet CSV-állományadatait
+          new:
+            file: ".csv-fájl az e-mail-címek adataival"
+            info: 'CSV-formátumú fájlnak kell lennie, és csak egy oszlopot kell tartalmaznia az e-mail-címekkel:'
+            submit: Fájl felöltése
+            title: Új állományadatok felöltése
+        authorizations:
+          new:
+            error: Nem tudtuk ellenőrizni fiókját, vagy Ön nem szerepel a szervezet állományadataiban.
+            success: A fiók ellenőrzése sikeres.
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: A részvétel kizárólag a(z) %{postal_codes} irányítószámmal rendelkező résztvevőkre korlátozódik.
+            other: 'A részvétel csak az alábbi irányítószámok bármelyikével rendelkező résztvevőkre vonatkozik: %{postal_codes}.'
+          scope: A részvétel kizárólag a(z) %{scope_name} alkalmazási körrel rendelkező résztvevőkre korlátozódik.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Személyazonosságot igazoló dokumentumok konfigurációja
+              update: Frissítés
+            update:
+              error: Hiba történt a konfiguráció frissítése során.
+              success: A konfiguráció frissítése sikeres
+          confirmations:
+            create:
+              error: Az ellenőrzés nem egyezik. Kérjük, próbálkozzon újra, vagy utasítsa el az ellenőrzést, hogy a résztvevő módosíthassa azt
+              success: A résztvevő ellenőrzése sikeres
+            new:
+              introduce_user_data: Adja meg a képen szereplő adatokat
+              reject: Elutasítás
+              verify: Ellenőrzés
+          offline_confirmations:
+            create:
+              error: Az ellenőrzés nem egyezik. Kérjük, próbálkozzon újra, vagy mondja meg a résztvevőnek, hogy módosítsa az adatokat
+              success: A résztvevő ellenőrzése sikeres
+            new:
+              cancel: Mégse
+              introduce_user_data: Adja meg a résztvevő e-mail-címét és a dokumentum adatait
+              verify: Ellenőrzés
+          pending_authorizations:
+            index:
+              config: Konfiguráció
+              offline_verification: Offline ellenőrzés
+              title: Függőben lévő ellenőrzések
+              verification_number: 'Ellenőrzés: #%{n}'
+          rejections:
+            create:
+              success: Ellenőrzés elutasítva. A résztvevőt arra kérjük, hogy módosítsa dokumentumait
+        authorizations:
+          choose:
+            choose_a_type: 'Kérjük, válassza ki az ellenőrzés módját:'
+            title: Ellenőrzés személyazonosságot igazoló dokumentummal
+          create:
+            error: Hiba történt a dokumentum felöltése során
+            success: A dokumentum feltöltése sikeres
+          edit:
+            being_reviewed: Áttekintjük a dokumentumokat. Hamarosan ellenőrizzük
+            offline: Offline ellenőrzés használata
+            online: Online ellenőrzés használata
+            rejection_clarity: Győződjön meg arról, hogy az adatok jól láthatók-e a feltöltött képen
+            rejection_correctness: Győződjön meg arról, hogy a megadott adatok helyesek-e
+            rejection_notice: Hiba történt az ellenőrzése során. Kérjük, próbálkozzon újra
+            send: Ismételt ellenőrzés kérelmezése
+          new:
+            send: Ellenőrzés kérelmezése
+            title: Személyazonosságot igazoló dokumentum feltöltése
+          update:
+            error: Hiba történt a dokumentum ismételt feltöltése során
+            success: A dokumentum ismételt feltöltése sikeres
+        passport: Útlevél
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Cím
+              letter_sent_at: 'Levél elküldésének időpontja:'
+              mark_as_sent: Megjelölés elküldöttként
+              not_yet_sent: Még nincs elküldve
+              title: Folyamatban lévő ellenőrzések
+              username: Becenév
+              verification_code: Ellenőrzési kód
+          postages:
+            create:
+              error: Hiba történt a levél elküldöttnek jelölése során
+              success: A levél elküldöttnek jelölés sikeres
+        authorizations:
+          create:
+            error: Hiba történt a kérelmével
+            success: Köszönjük! Ellenőrzési kódot küldünk az Ön címére
+          edit:
+            send: Megerősítés
+            title: Adja meg az ellenőrzési kódot
+            waiting_for_letter: Hamarosan levelet küldünk az Ön címére az ellenőrzési kóddal együtt
+          new:
+            send: Küldjenek levelet
+            title: Ellenőrzési kód kérelmezése
+          update:
+            error: Az ellenőrzési kódja nem egyezik a miénkkel. Kérjük, ellenőrizze még egyszer az általunk küldött levelet
+            success: Gratulálunk! Az ellenőrzése sikeres
+      sms:
+        authorizations:
+          create:
+            error: Hiba történt a kérelmével
+            success: Köszönjük! SMS-t küldtünk a telefonszámára.
+          destroy:
+            success: Az ellenőrzési kód visszaállítása sikeres. Kérjük, adja meg új a telefonszámát.
+          edit:
+            confirm_destroy: Biztosan vissza szeretné állítani az ellenőrzési kódot?
+            destroy: Ellenőrzési kód visszaállítása
+            resend: Nem kapott ellenőrzési kódot?
+            send: Megerősítés
+            title: Adja meg az ellenőrzési kódot
+          new:
+            send: Küldjön SMS-t
+            title: Ellenőrzési kód kérelmezése
+          update:
+            error: Az ellenőrzési kódja nem egyezik a miénkkel. Kérjük, ellenőrizze újra az általunk küldött SMS-t.
+            success: Gratulálunk! Az ellenőrzése sikeres.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: nagybetűket kell használnia, és csak betűket és/vagy számokat tartalmazhat
