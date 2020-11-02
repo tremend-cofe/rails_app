@@ -1,1 +1,52 @@
 pl:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Ankieta zakończona
+      decidim/surveys/opened_survey_event: Ankieta rozpoczęta
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Odpowiedź
+        name: Ankieta
+        settings:
+          global:
+            announcement: Ogłoszenie
+            clean_after_publish: Usuń odpowiedzi przy publikacji ankiety
+          step:
+            allow_answers: Zezwól na odpowiedzi
+            allow_unregistered: Zezwól niezarejestrowanym użytkownikom na udział w ankiecie
+            allow_unregistered_help: W przypadku wyboru tej opcji do udziału w ankiecie nie będzie konieczne logowanie się. Może to prowadzić do uzyskania słabych lub nierzetelnych danych i większego zagrożenia w postaci zautomatyzowanych ataków. Należy zachować ostrożność przy korzystaniu z tej opcji!
+            announcement: Ogłoszenie
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Ankieta %{resource_title} w przestrzeni %{participatory_space_title} została zakończona.
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Ankieta w przestrzeni %{participatory_space_title} została zakończona
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a> została zakończona.
+        survey_opened:
+          email_intro: 'Ankieta %{resource_title} w przestrzeni %{participatory_space_title} jest teraz otwarta. Możesz wziąć w niej udział przez stronę:'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
+          email_subject: Nowa ankieta w przestrzeni %{participatory_space_title}
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
+    metrics:
+      survey_answers:
+        description: Liczba ankiet wypełnionych przez uczestników
+        object: odpowiedzi na ankiety
+        title: Odpowiedzi na ankiety
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Odpowiedzi uczestników ankiety
+        surveys:
+          update:
+            invalid: Przy zapisywaniu ankiety pojawił się problem.
+            success: Zapisanie ankiety powiodło się.
+      last_activity:
+        new_survey_at_html: "<span>Nowa ankieta na %{link}</span>"
+      surveys:
+        answer:
+          invalid: Przy wypełnianiu ankiety pojawił się problem.
+          spam_detected: Przy wypełnianiu formularza pojawił się problem. Może poszło zbyt szybko; czy możesz spróbować ponownie?
+          success: Wypełnienie ankiety powiodło się.
