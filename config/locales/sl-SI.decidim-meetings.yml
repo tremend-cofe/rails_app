@@ -1,6 +1,112 @@
 sl:
   activemodel:
     attributes:
+      meeting:
+        registration_form_enabled: Obrazec za registracijo je omogočen.
+        registrations_enabled: Registracije so omogočene.
       minutes:
         audio_url: Avdio URL
         video_url: Video URL
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Trajanje postavk presega trajanje sestanka za %{count} minut.
+              too_many_minutes_child: Trajanje podrejenih postavk presega trajanje dnevnega reda nadrejenih postavk "%{parent_title}" za %{count} minut.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Ta e-račun je že povabljen.
+    models:
+      decidim/meetings/meeting_registrations_enabled_event: Registracije so omogočene.
+      decidim/meetings/update_meeting_event: Sestanek je posodobljen.
+  decidim:
+    admin:
+      meeting_copies:
+        new:
+          select: Izberite podatke, ki jih želite podvojiti.
+    components:
+      meetings:
+        settings:
+          global:
+            comments_enabled: Komentarji so omogočeni.
+            creation_enabled_for_participants: Udeleženci lahko ustvarijo sestanke.
+            resources_permissions_enabled: Za vsak sestanek je mogoče določiti dovoljenja za ukrepe.
+          step:
+            comments_blocked: Komentarji so blokirani.
+            creation_enabled_for_participants: Ustvarjanje sestanka s strani udeležencev je omogočeno.
+            creation_enabled_for_user_groups: Ustvarjanje sestanka s strani skupin uporabnikov je omogočeno.
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_subject: Sestanek "%{resource_title}" je bil zaprt.
+          follower:
+            email_subject: Sestanek "%{resource_title}" je bil zaprt.
+        meeting_registrations_over_percentage:
+          email_intro: Dodeljena mesta za sestanek "%{resource_title}" presegajo %{percentage}%
+        meeting_updated:
+          email_subject: Sestanek "%{resource_title}" je bil posodobljen.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Registrirajte se na sestanke, ki se jih želite udeležiti.
+    meetings:
+      admin:
+        agenda:
+          create:
+            invalid: Pri ustvarjanju tega dnevnega reda se je pojavila težava.
+            success: Dnevni red je bil uspešno ustvarjen.
+          update:
+            invalid: Pri posodabljanju tega dnevnega reda se je pojavila težava.
+            success: Dnevni red je bil uspešno posodobljen.
+        invites:
+          form:
+            non_user: Udeleženec ne obstaja.
+        meetings:
+          close:
+            invalid: Pri zapiranju tega sestanka se je pojavila težava.
+            success: Sestanek je bil uspešno zaprt.
+          create:
+            invalid: Pri ustvarjanju tega sestanka se je pojavila težava.
+            success: Sestanek je bil uspešno ustvarjen.
+          destroy:
+            success: Sestanek je bil uspešno izbrisan.
+          update:
+            invalid: Pri posodobitvi tega sestanka se je pojavila težava.
+            success: Sestanek je bil uspešno posodobljen.
+        minutes:
+          create:
+            invalid: Pri ustvarjanju tega zapisnika se je pojavila težava.
+            success: Zapisnik je bil uspešno ustvarjen.
+          update:
+            invalid: Pri posodabljanju tega zapisnika se je pojavila težava.
+            success: Zapisnik je bil uspešno posodobljen.
+        registrations:
+          form:
+            reserved_slots_help: Pustite 0, če nimate rezerviranih mest.
+            reserved_slots_less_than: Biti mora manjši ali enak %{count}.
+      admin_log:
+        invite:
+          create: "%{user_name} je povabil %{attendee_name}, da se pridruži sestanku %{resource_name} v prostoru %{space_name}."
+          deleted: "%{user_name} je preklical povabilo %{attendee_name}, da se pridruži sestanku %{resource_name} v prostoru %{space_name}."
+          update: "%{user_name} je povabil %{attendee_name}, da se pridruži sestanku %{resource_name} v prostoru %{space_name}."
+        meeting:
+          close: "%{user_name} je zaprl sestanek %{resource_name} v prostoru %{space_name}."
+          create: "%{user_name} je ustvaril sestanek %{resource_name} v prostoru %{space_name}."
+          delete: "%{user_name} je izbrisal sestanek %{resource_name} v prostoru %{space_name}."
+          export_registrations: "%{user_name} je izvozil registracije sestanka %{resource_name} v prostoru %{space_name}."
+          update: "%{user_name} je posodobil sestanek %{resource_name} v prostoru %{space_name}."
+        minutes:
+          create: "%{user_name} je ustvaril zapisnik sestanka %{resource_name} v prostoru %{space_name}."
+          update: "%{user_name} je posodobil zapisnik sestanka %{resource_name} v prostoru %{space_name}."
+      mailer:
+        registration_mailer:
+          confirmation:
+            subject: Registracija vašega sestanka je bila potrjena.
+      meeting:
+        not_allowed: Nimate dovoljenja za ogled tega sestanka.
+      meetings:
+        show:
+          no_slots_available: Mesta niso na voljo.
