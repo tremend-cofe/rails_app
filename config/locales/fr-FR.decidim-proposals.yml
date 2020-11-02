@@ -1,0 +1,861 @@
+fr:
+  activemodel:
+    attributes:
+      collaborative_draft:
+        address: Adresse
+        body: Corps
+        category_id: Catégorie
+        decidim_scope_id: Périmètre d’application
+        has_address: Possède une adresse
+        scope_id: Périmètre d’application
+        state: État
+        title: Intitulé
+        user_group_id: Créer un avant-projet collaboratif en tant que
+      proposal:
+        address: Adresse
+        answer: Réponse
+        answered_at: Répondu à
+        automatic_hashtags: Hashtags ajoutés automatiquement
+        body: Corps
+        category_id: Catégorie
+        decidim_scope_id: Périmètre d’application
+        has_address: Possède une adresse
+        scope_id: Périmètre d’application
+        state: État
+        suggested_hashtags: Hashtags suggérés
+        title: Intitulé
+        user_group_id: Créer une proposition en tant que
+      proposal_answer:
+        answer: Réponse
+      proposals_copy:
+        copy_proposals: Je comprends que cette opération va importer toutes les propositions à partir du composant sélectionné vers le composant actuel et que cette action est irréversible.
+        origin_component_id: Composant à partir duquel les propositions doivent être copiées
+      proposals_import:
+        import_proposals: Importer des propositions
+        keep_authors: Conserver les auteurs originaux
+      valuation_assignment:
+        admin_log:
+          valuator_role_id: Nom de l’évaluateur
+    errors:
+      models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Type de document non valide. Formats acceptés: %{valid_mime_types}'
+        proposal:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Doit être ré-annexé
+            body:
+              cant_be_equal_to_template: Ne peut pas être identique au modèle
+              identical: ET le titre ne peut pas être identique
+            title:
+              identical: ET le corps ne peut pas être identique
+    models:
+      decidim/proposals/accepted_proposal_event: Proposition acceptée
+      decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
+      decidim/proposals/admin/update_proposal_scope_event: Périmètre d’application de la proposition modifié
+      decidim/proposals/creation_enabled_event: Création de propositions activée
+      decidim/proposals/endorsing_enabled_event: Approbation de la proposition activée
+      decidim/proposals/evaluating_proposal_event: La proposition est en cours d’évaluation
+      decidim/proposals/proposal_mentioned_event: Proposition mentionnée
+      decidim/proposals/publish_proposal_event: Proposition publiée
+      decidim/proposals/rejected_proposal_event: Proposition rejetée
+      decidim/proposals/voting_enabled_event: Vote de la proposition activé
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Avant-projet collaboratif
+        other: Avant-projets collaboratifs
+      decidim/proposals/proposal:
+        one: Proposition
+        other: Propositions
+      decidim/proposals/proposal_note:
+        one: Remarque
+        other: Remarques
+      decidim/proposals/proposal_vote:
+        one: Soutien
+        other: Soutiens
+  decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Catégorie
+          is_emendation_true:
+            values:
+              'false': Propositions
+              'true': Modifications
+          scope_id_eq:
+            label: Périmètre d’application
+          state_eq:
+            label: État
+            values:
+              accepted: accepté
+              evaluating: En cours d’évaluation
+              published: Publié
+              rejected: Refusé
+              validating: Validation technique
+              withdrawn: Retirée
+          state_null:
+            label: État
+            values:
+              'true': Non répondu
+          valuator_role_ids_has:
+            label: Attribué à l’évaluateur
+        search_placeholder:
+          id_string_or_title_cont: Rechercher %{collection} sur la base de l’identité ou du titre.
+    components:
+      proposals:
+        actions:
+          amend: Modifier
+          create: Créer
+          endorse: Approuver
+          vote: Soutien
+          withdraw: Retirer
+        name: Propositions
+        settings:
+          global:
+            allow_card_image: Autoriser une image de carte
+            amendments_enabled: Modifications activées
+            amendments_enabled_help: Si actif, configurer les caractéristiques de modification pour chaque étape.
+            amendments_wizard_help_text: Modifications du texte d’aide de l’Assistant
+            announcement: Annonce des résultats
+            attachments_allowed: Autoriser des annexes
+            can_accumulate_supports_beyond_threshold: Peut accumuler des soutiens au-delà du seuil
+            collaborative_drafts_enabled: Avant-projets collaboratifs activés
+            comments_enabled: Commentaires activés
+            comments_max_length: Observations longueur max. (Laisser 0 comme valeur par défaut)
+            geocoding_enabled: Géocodage activé
+            minimum_votes_per_user: Soutiens minimums par utilisateur
+            new_proposal_body_template: Nouvelle proposition de modèle de corps
+            new_proposal_body_template_help: Vous pouvez définir le texte pré-rempli des nouvelles propositions
+            new_proposal_help_text: Nouvelle proposition texte d’aide
+            official_proposals_enabled: Propositions officielles activées
+            participatory_texts_enabled: Textes participatifs activés
+            participatory_texts_enabled_readonly: Ne peut pas interagir avec cette configuration s’il y a des propositions existantes. Veuillez créer un nouveau ‘Composant de propositions’ si vous voulez activer cette caractéristique ou abandonner toutes les propositions importées dans le menu ‘Textes participatifs’ si vous voulez le désactiver.
+            proposal_answering_enabled: Réponse à la proposition activée
+            proposal_edit_before_minutes: Les propositions peuvent être modifiées par les auteurs durant plusieurs minutes
+            proposal_length: Longueur maximum du corps de la proposition
+            proposal_limit: Limite de proposition par participant
+            proposal_wizard_step_1_help_text: Proposition texte d’aide étape «Créer» de l’Assistant
+            proposal_wizard_step_2_help_text: Proposition texte d’aide étape «Comparer» de l’Assistant
+            proposal_wizard_step_3_help_text: Proposition texte d’aide étape «Terminer» de l’Assistant
+            proposal_wizard_step_4_help_text: Proposition texte d’aide étape «Publier» de l’Assistant
+            resources_permissions_enabled: Des autorisations d’actions peuvent être configurées pour chaque proposition
+            threshold_per_proposal: Seuil pour chaque proposition
+            vote_limit: Limite de soutien pour chaque participant
+          step:
+            amendment_creation_enabled: Création de modification activée
+            amendment_creation_enabled_help: Le participant peut modifier des propositions
+            amendment_promotion_enabled: Promotion de modification activée
+            amendment_promotion_enabled_help: Les auteurs de modifications pourront promouvoir la modification rejetée en une Proposition.
+            amendment_reaction_enabled: Réaction modification activée
+            amendment_reaction_enabled_help: Les auteurs d’une proposition pourront accepter ou refuser les corrections apportées par des Participants.
+            amendments_visibility: Visibilité des modifications
+            amendments_visibility_choices:
+              all: Les modifications sont visibles pour tous
+              participants: Les modifications sont uniquement visibles pour leurs auteurs
+            amendments_visibility_help: Si l’option «Modifications uniquement visibles pour leurs auteurs» est sélectionnée, le participant doit être connecté pour voir les modifications apportées.
+            announcement: Annonce des résultats
+            answers_with_costs: Activer les coûts sur les réponses à la proposition
+            automatic_hashtags: Hashtags ajoutés à toutes les propositions
+            comments_blocked: Commentaires bloqués
+            creation_enabled: Création de propositions activée
+            endorsements_blocked: Approbations bloquées
+            endorsements_enabled: Approbations activées
+            proposal_answering_enabled: Réponse à la proposition activée
+            publish_answers_immediately: Publier des réponses à la proposition immédiatement
+            suggested_hashtags: Hashtags suggérés aux participants pour les nouvelles propositions
+            votes_blocked: Soutiens bloqués
+            votes_enabled: Soutiens activés
+            votes_hidden: Soutiens masqués (si les soutiens sont activés, cocher cette case masquera le nombre de soutiens)
+    events:
+      proposals:
+        admin:
+          proposal_note_created:
+            email_intro: Quelqu’un a laissé une remarque concernant la proposition "%{resource_title}". Consulter celle-ci sur <a href="%{admin_proposal_info_url}">le panneau d’administration</a>
+            email_outro: Cette notification vous a été envoyée parce que vous pouvez évaluer la proposition
+            email_subject: Quelqu’un a laissé une remarque concernant la proposition %{resource_title}.
+            notification_title: Quelqu’un a laissé une remarque concernant la proposition <a href="%{resource_path}">%{resource_title}</a>. Consulter celle-ci sur <a href="%{admin_proposal_info_path}">le panneau d’administration</a>
+        collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} a été autorisé(e) à accéder au système pour avoir participé à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Cette notification vous a été envoyée parce que vous collaborez à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a été autorisé(e) à accéder au système en qualité de participant à %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong> autorisé(e) à accéder au système en qualité de participant</strong> à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>
+        collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} a été autorisé(e) à accéder au système en qualité de participant à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Cette notification vous a été envoyée parce que vous collaborez à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} n’a pas été autorisé(e) à accéder au système en qualité de participant à l‘avant-projet collaboratif %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong> autorisé(e) à accéder au système en qualité de participant</strong> à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requested:
+          email_intro: '%{requester_name} a demandé un accès en tant que participant. Vous pouvez <strong>accepter ou rejeter la demande </strong> à partir de la page de l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
+          email_outro: Cette notification vous a été envoyée parce que vous collaborez à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{requester_name} a demandé un accès pour contribuer à %{resource_title}."
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a demandé un accès pour contribuer à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>. Veuillez <strong>accepter ou rejeter la demande</strong>.
+        collaborative_draft_access_requester_accepted:
+          email_intro: Vous avez été autorisé(e) à accéder au système en qualité de participant à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Cette notification vous a été envoyée parce que vous avez demandé à collaborer à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous avez été autorisé(e) à accéder au système en qualité de participant à %{resource_title}.
+          notification_title: Vous avez été autorisé(e) à accéder au système en qualité de participant à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_access_requester_rejected:
+          email_intro: Vous n’avez pas été autorisé(e) à accéder au système en qualité de participant à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Cette notification vous a été envoyée parce que vous avez demandé à collaborer à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: Vous n’avez pas été autorisé(e) à accéder au système en qualité de participant à %{resource_title}.
+          notification_title: Vous n’avez pas <strong>été autorisé(e) à accéder au système en qualité de participant </strong> à l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+        collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a retiré l’avant-projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
+          email_outro: Cette notification vous a été envoyée parce que vous collaborez à <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: "%{author_name} %{author_nickname} a retiré l’avant-projet collaboratif %{resource_title}."
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>a retiré l’avant-projet collaboratif </strong><a href="%{resource_path}">%{resource_title}</a>.
+        creation_enabled:
+          email_intro: 'Vous pouvez à présent créer de nouvelles propositions dans %{participatory_space_title}! Commencez à participer sur cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Propositions à présent disponibles dans %{participatory_space_title}
+          notification_title: Vous pouvez maintenant lancer de <a href="%{resource_path}">nouvelles propositions </a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Vous pouvez maintenant approuver des propositions dans %{participatory_space_title}! Commencez à participer sur cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: L’approbation des propositions a débuté pour %{participatory_space_title}
+          notification_title: Vous pouvez à présent commencer à <a href="%{resource_path}"> approuver des propositions </a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        proposal_accepted:
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous êtes un auteur de "%{resource_title}".
+            email_subject: Votre proposition a été acceptée
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+          follower:
+            email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous suivez "%{resource_title}". Vous pouvez vous désabonner en cliquant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a été acceptée
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+        proposal_evaluating:
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" est actuellement en cours d’évaluation. Vous pouvez vérifier s’il y a une réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous êtes un auteur de "%{resource_title}".
+            email_subject: Votre proposition est en cours d’évaluation
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d’évaluation.
+          follower:
+            email_intro: 'La proposition "%{resource_title}" est actuellement en cours d’évaluation. Vous pouvez vérifier s’il y a une réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous suivez "%{resource_title}". Vous pouvez vous désabonner en cliquant sur le lien précédent.
+            email_subject: Une proposition que vous suivez est en cours d’évaluation
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d’évaluation.
+        proposal_mentioned:
+          email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
+          email_outro: Cette notification vous a été envoyée parce que vous êtes un auteur de "%{resource_title}".
+          email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
+          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a> dans les commentaires.
+        proposal_published:
+          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition nommée "%{resource_title}". Consulter et apporter votre contribution:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{author_nickname}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Nouvelle proposition "%{resource_title}" formulée par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: La proposition "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
+          email_outro: Cette notification vous a été envoyée parce que vous suivez "%{participatory_space_title}". Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
+        proposal_rejected:
+          affected_user:
+            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous êtes un auteur de "%{resource_title}".
+            email_subject: Votre proposition a été rejetée
+            notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+          follower:
+            email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
+            email_outro: Cette notification vous a été envoyée parce que vous suivez "%{resource_title}". Vous pouvez vous désabonner en cliquant sur le lien précédent.
+            email_subject: Une proposition que vous suivez a été rejetée
+            notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+        proposal_update_category:
+          email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}", consultez-la sur cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous êtes l’auteur de la proposition.
+          email_subject: La catégorie de proposition %{resource_title} a été mise à jour
+          notification_title: La catégorie de proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+        proposal_update_scope:
+          email_intro: 'Un administrateur a mis à jour le périmètre d’application de votre proposition "%{resource_title}", consultez-le sur cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous êtes l’auteur de la proposition.
+          email_subject: Le périmètre d’application de la proposition %{resource_title} a été mis à jour
+          notification_title: Le périmètre d’application de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mis à jour par un administrateur.
+        voting_enabled:
+          email_intro: 'Vous pouvez soutenir des propositions dans %{participatory_space_title}! Commencez à participer sur cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Le soutien à la proposition a commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez à présent commencer à <a href="%{resource_path}"> soutenir des propositions </a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions: |-
+            Sélectionnez l’espace participatif qui vous intéresse avec soumission pour les propositions activées. Essayez de formuler des propositions réalisables. Elles auront alors plus de chances d’être acceptées.
+          description: Ce badge est accordé lorsque vous participez activement en formulant de nouvelles propositions qui sont ensuite acceptées.
+          description_another: '%{score} propositions de ce participant ont été acceptées.'
+          description_own: '%{score} de vos propositions ont été acceptées.'
+          name: Propositions acceptées
+          next_level_in: Obtenez %{score} propositions acceptées de plus et atteignez le niveau suivant!
+          unearned_another: Ce participant n’a pas encore de propositions acceptées.
+          unearned_own: Vous n’avez pas encore de propositions acceptées.
+        proposal_votes:
+          conditions: |-
+            Parcourez et prenez le temps de lire les propositions des autres personnes. Appuyez les propositions qui vous plaisent ou que vous trouvez intéressantes
+          description: Ce badge est accordé lorsque vous appuyez les propositions d’autres personnes.
+          description_another: Ce participant a soutenu %{score} propositions.
+          description_own: Vous avez soutenu %{score} propositions.
+          name: Soutiens de propositions
+          next_level_in: Soutenez %{score} propositions de plus pour atteindre le niveau suivant!
+          unearned_another: Ce participant n’a pas encore soutenu de proposition.
+          unearned_own: Vous n’avez pas encore soutenu de proposition.
+        proposals:
+          conditions: |-
+            Sélectionnez l’espace participatif qui vous intéresse avec soumission pour les propositions activées. Créer une nouvelle proposition
+          description: Ce badge est accordé lorsque vous participez activement en formulant de nouvelles propositions.
+          description_another: Ce participant a créé %{score} propositions.
+          description_own: Vous avez créé %{score} propositions.
+          name: Propositions
+          next_level_in: Créez %{score} propositions de plus pour atteindre le niveau suivant!
+          unearned_another: Ce participant n’a pas encore créé de propositions.
+          unearned_own: Vous n’avez pas encore créé de propositions.
+    metrics:
+      accepted_proposals:
+        description: Nombre de propositions acceptées
+        object: propositions
+        title: Propositions acceptées
+      endorsements:
+        description: Nombre d’approbations de propositions
+        object: approbations
+        title: Approbations
+      proposals:
+        description: Nombre de propositions
+        object: propositions
+        title: Propositions
+      votes:
+        description: Nombre de soutiens apportés aux propositions
+        object: soutiens
+        title: Soutiens
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Propositions
+    proposals:
+      actions:
+        answer_proposal: Répondre à la proposition
+        edit_proposal: Modifier la proposition
+        import: Importer à partir d’un autre composant
+        new: Nouvelle proposition
+        participatory_texts: Textes participatifs
+        show: Montrer la proposition
+      admin:
+        actions:
+          preview: Aperçu
+        exports:
+          comments: Commentaires
+          proposals: Propositions
+        models:
+          proposal:
+            name: Proposition
+        participatory_texts:
+          bulk-actions:
+            are_you_sure: Êtes-vous sûr(e) de vouloir abandonner l’intégralité de l’avant-projet de texte participatif?
+            discard_all: Abandonner tout
+            import_doc: Importer un document
+          discard:
+            success: Tous les avant-projets de textes participatifs ont été abandonnés.
+          import:
+            invalid: La forme n’est pas valide!
+            invalid_file: Le fichier contient des erreurs, tentez de modifier le contenu du fichier et téléchargez-le à nouveau sur le serveur.
+            success: Félicitations, les sections suivantes ont été transformées en propositions. Vous pouvez à présent les examiner et les adapter avant de les publier.
+          index:
+            info_1: Les sections suivantes ont été transformées en propositions. Vous pouvez à présent les examiner et les adapter avant de les publier.
+            publish_document: Publier le document
+            save_draft: Sauvegarder le projet
+            title: Obtenir un aperçu du texte participatif
+          new_import:
+            bottom_hint: "(Vous pourrez obtenir un aperçu et trier des sections de document)"
+            document_legend: 'Ajouter un document inférieur à 2MB, chaque section comportant maximum 3 niveaux de profondeur sera analysée en Proposition. Les formats pris en charge sont: %{valid_mime_types}'
+            title: Ajouter un document
+            upload_document: Télécharger un document sur le serveur
+          publish:
+            invalid: N’a pas pu publier les propositions
+            success: Toutes les propositions ont été publiées
+          sections:
+            sub-section: "<em>Sous-section:</em> %{title}"
+          update:
+            success: Le texte participatif a été mis à jour avec succès.
+        proposal_answers:
+          form:
+            accepted: accepté
+            answer_proposal: Réponse
+            evaluating: En cours d’évaluation
+            rejected: Refusé
+            title: Réponse à la proposition %{title}
+        proposal_notes:
+          create:
+            error: Un problème est survenu lors de la création de cette note de proposition
+            success: La note de proposition a été créée avec succès
+          form:
+            note: Remarque
+            submit: Soumettre
+          leave_your_note: Laisser votre note
+          title: Notes privées
+        proposals:
+          answer:
+            invalid: Un problème est survenu lorsque vous avez répondu à cette proposition
+            success: Vous avez répondu à cette proposition avec succès
+          create:
+            invalid: Un problème est survenu lors de la création de cette proposition
+            success: La proposition a été créée avec succès
+          edit:
+            title: Mettre la proposition à jour
+            update: Mettre à jour
+          form:
+            attachment_legend: "(Facultatif) Ajouter une annexe"
+            created_in_meeting: Cette proposition est issue d’une réunion
+            select_a_category: Sélectionner une catégorie
+            select_a_meeting: Sélectionner une réunion
+          index:
+            assign_to_valuator: Attribuer à l’évaluateur
+            assign_to_valuator_button: Attribuer
+            cancel: Annuler
+            change_category: Modifier la catégorie
+            change_scope: Modifier le périmètre d’application
+            merge: Fusionner en une nouvelle
+            merge_button: Fusionner
+            publish: Publier
+            publish_answers: Publier des réponses
+            select_component: Sélectionner un composant
+            selected: sélectionnées
+            split: Scinder des propositions
+            split_button: Obtenu par cassage
+            title: Propositions
+            unassign_from_valuator: Annuler l’attribution à l’évaluateur
+            unassign_from_valuator_button: Annuler l’attribution
+            update: Mettre à jour
+            update_scope_button: Mettre à jour le périmètre d’application
+          new:
+            create: Créer
+            title: Créer une proposition
+          publish_answers:
+            number_of_proposals: Des réponses à %{number} propositions vont être publiées.
+            select_a_proposal: Veuillez sélectionner une proposition
+          show:
+            amendments_count: Décompte des modifications
+            assigned_valuators: Évaluateurs désignés
+            authors: Auteurs
+            body: Corps
+            comments_count: Décompte des observations
+            comments_negative_count: contre
+            comments_neutral_count: Neutre
+            comments_positive_count: Pour
+            created_at: Date de création
+            endorsements_count: Décompte des approbations
+            endorsements_ranking: Classer par approbations
+            endorsers: Endosseurs
+            link: Lien
+            n_more_endorsers:
+              one: et 1 de plus
+              other: et %{count} de plus
+            proposals: Propositions
+            ranking: "%{ranking} de %{total}"
+            related_meetings: Réunions associées
+            remove_assignment: Supprimer la mission
+            remove_assignment_confirmation: Êtes-vous sûr(e) de vouloir supprimer l’évaluateur de cette proposition?
+            valuators: Évaluateurs
+            votes_count: Décompte des soutiens
+            votes_ranking: Classer sur la base des soutiens
+          update_category:
+            invalid: 'Ces propositions avaient déjà la catégorie %{subject_name}: %{proposals}.'
+            select_a_category: Veuillez sélectionner une catégorie
+            select_a_proposal: Veuillez sélectionner une proposition
+            success: 'Les propositions ont été mises à jour avec succès pour la catégorie %{subject_name}: %{proposals}.'
+          update_scope:
+            invalid: 'Ces propositions avaient déjà le périmètre d’application %{subject_name}: %{proposals}.'
+            select_a_proposal: Veuillez sélectionner une proposition
+            select_a_scope: Veuillez sélectionner un périmètre d’application
+            success: 'Les propositions ont été mises à jour avec succès pour le périmètre d’application %{subject_name}: %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l’importation des propositions
+            success: "%{number} propositions ont été importées avec succès"
+          new:
+            create: Importer des propositions
+            no_components: Cet espace participatif ne comporte pas d’autres composants de proposition à partir desquels des propositions doivent être importées.
+            select_component: Veuillez sélectionner un composant
+            select_states: Vérifier le statut des propositions à importer
+        proposals_merges:
+          create:
+            invalid: Un problème est survenu lors de la fusion des propositions sélectionnées.
+            success: Les propositions ont été fusionnées en une nouvelle proposition avec succès.
+        proposals_splits:
+          create:
+            invalid: Un problème est survenu lors de la scission des propositions sélectionnées.
+            success: Les propositions ont été scindées avec succès en de nouvelles propositions.
+        valuation_assignments:
+          create:
+            invalid: Une erreur est survenue lors de l’attribution des propositions à l’évaluateur.
+            success: Les propositions ont été attribuées à l’évaluateur avec succès.
+          delete:
+            invalid: Une erreur est survenue lors de l’annulation de l’attribution des propositions à l’évaluateur.
+            success: L’annulation de l’attribution des propositions à l’évaluateur a été effectuée avec succès.
+      admin_log:
+        proposal:
+          answer: "%{user_name} a répondu à la proposition %{resource_name} sur l’espace %{space_name}"
+          create: "%{user_name} a créé la proposition %{resource_name} sur l’espace %{space_name} en tant que proposition officielle"
+          publish_answer: "%{user_name} a publié la réponse à la proposition %{resource_name} sur l’espace %{space_name}"
+          update: "%{user_name} a mis à jour la proposition officielle %{resource_name} sur l’espace %{space_name}"
+        proposal_note:
+          create: "%{user_name} a laissé une note privée concernant la proposition %{resource_name} sur l’espace %{space_name}"
+        valuation_assignment:
+          create: "%{user_name} a attribué la proposition %{resource_name} à l’évaluateur"
+          delete: "%{user_name} a annulé la désignation d’un évaluateur pour la proposition %{proposal_title}"
+      answers:
+        accepted: accepté
+        evaluating: En cours d’évaluation
+        not_answered: Non répondu
+        rejected: Refusé
+        withdrawn: Retirée
+      application_helper:
+        filter_category_values:
+          all: Tous
+        filter_origin_values:
+          all: Tous
+          citizens: Citoyens
+          meetings: Réunions
+          official: Fonctionnaire
+          user_groups: Groupes
+        filter_scope_values:
+          all: Tous
+        filter_state_values:
+          accepted: accepté
+          all: Tous
+          evaluating: En cours d’évaluation
+          not_answered: Non répondu
+          rejected: Refusé
+        filter_type_values:
+          all: Tous
+          amendments: Modifications
+          proposals: Propositions
+      collaborative_drafts:
+        collaborative_draft:
+          publish:
+            error: Un problème est survenu lors de la publication de l’avant-projet collaboratif.
+            irreversible_action_modal:
+              body: L’avant-projet ne pourra plus être modifié lorsqu’il aura été publié en tant que proposition La proposition n’acceptera pas de nouveaux auteurs ou de nouvelles participations.
+              cancel: Annuler
+              ok: Publier comme Proposition
+              title: L’action suivante est irréversible
+            success: L’avant-projet collaboratif a été publié avec succès en tant que proposition
+          view_collaborative_draft: Visualiser l’avant-projet collaboratif
+          withdraw:
+            error: Un problème est survenu lors de la fermeture de l’avant-projet collaboratif.
+            irreversible_action_modal:
+              body: L’avant-projet ne pourra plus être modifié après sa fermeture. L’avant-projet n’acceptera plus de nouveaux auteurs ou de nouvelles contributions.
+              cancel: Annuler
+              ok: Retirer l’avant-projet collaboratif
+              title: L’action suivante est irréversible
+            success: L’avant-projet collaboratif a été retiré avec succès.
+        compare:
+          mine_is_different: Mon avant-projet collaboratif est différent
+          no_similars_found: Bien joué! Aucun avant-projet collaboratif similaire n’a été trouvé
+          title: Avant-projets collaboratifs similaires
+        complete:
+          send: Envoyer
+          title: Finalisez votre avant-projet collaboratif
+        count:
+          drafts_count:
+            one: "%{count} avant-projet collaboratif"
+            other: "%{count} avant-projets collaboratifs"
+        create:
+          error: Un problème est survenu lors de la création de ces avant-projets collaboratifs
+          success: L’avant-projet collaboratif a été créé avec succès.
+        edit:
+          attachment_legend: "(Facultatif) Ajouter une annexe"
+          back: Retour
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier l’avant-projet collaboratif
+        filters:
+          all: Tous
+          amendment: Modifications
+          category: Catégorie
+          open: Ouvert
+          published: Publié
+          related_to: Liée à
+          scope: Périmètre d’application
+          search: Rechercher
+          state: Statut
+          withdrawn: Retirée
+        filters_small_view:
+          close_modal: Fermer la fenêtre modale
+          filter: Filtre
+          filter_by: Filtrer sur la base de
+          unfold: Dérouler
+        new:
+          send: Continuer
+          title: Créez votre avant-projet collaboratif
+        new_collaborative_draft_button:
+          new_collaborative_draft: Nouvel avant-projet collaboratif
+        orders:
+          label: 'Classer les avant-projets par:'
+          most_contributed: Avant-projets ayant obtenu le plus de participations
+          random: Aléatoire
+          recent: Récent
+        requests:
+          accepted_request:
+            error: N’a pu être accepté en tant que participant, réessayez plus tard.
+            success: "@%{user} a été accepté comme participant avec succès"
+          access_requested:
+            error: Votre demande n’a pu être finalisée, réessayez plus tard
+            success: Votre demande de collaboration a été envoyée avec succès
+          collaboration_requests:
+            accept_request: Acceptation
+            reject_request: Refuser
+            title: Demandes de collaboration
+          rejected_request:
+            error: N’a pu être refusé en tant que collaborateur, réessayez plus tard
+            success: "@%{user} a été refusé comme collaborateur avec succès"
+        show:
+          back: Retour
+          edit: Modifier l’avant-projet collaboratif
+          final_proposal: proposition finale
+          final_proposal_help_text: Cet avant-projet est terminé. Consulter la proposition finale
+          hidden_authors_count:
+            one: et %{count} personne de plus
+            other: et %{count} personnes de plus
+          info-message: Il s’agit d’un <strong>avant-projet collaboratif</strong> pour une proposition. Cela signifie que vous pouvez aider leur auteur à donner forme à la proposition en utilisant la section des commentaires ci-dessous ou à améliorer celle-ci en demandant un accès afin de la modifier. Lorsque les auteurs vous auront accordé un accès, vous pourrez apporter des modifications à cet avant-projet.
+          publish: Publier
+          publish_info: Publier cette version de l’avant-projet ou
+          published_proposal: proposition publiée
+          request_access: Demander un accès
+          requested_access: Accès.demandé
+          version_history: Voir l’historique des versions pour cette proposition
+          withdraw: retirer l’avant-projet
+        states:
+          open: Ouvert
+          published: Publié
+          withdrawn: Retirée
+        update:
+          error: Un problème est survenu lors de la sauvegarde de l’avant-projet collaboratif.
+          success: L’avant-projet collaboratif a été mis à jour avec succès.
+          title: Modifier l’avant-projet collaboratif
+        wizard_aside:
+          back: Retour
+          back_from_collaborative_draft: Retour aux avant-projets collaboratifs
+          back_from_step_1: Retour aux avant-projets collaboratifs
+          back_from_step_2: Retour aux avant-projets collaboratifs
+          back_from_step_3: Revenir en arrière pour comparer les avant-projets collaboratifs
+          back_from_step_4: Revenir en arrière pour modifier l’avant-projet
+          info: Vous êtes en train de créer un <strong>avant-projet collaboratif</strong>.
+        wizard_steps:
+          current_step: Etape actuelle
+          see_steps: voir étapes
+          step_1: Créez votre avant-projet collaboratif
+          step_2: Comparer avec des avant-projets collaboratifs
+          step_3: Finalisez votre avant-projet collaboratif
+          step_of: Étape %{current_step_num} de %{total_steps}
+          title: Etapes de création d’un avant-projet collaboratif
+      create:
+        error: Un problème est survenu lors de la sauvegarde de la proposition.
+        success: La proposition a été créée avec succès. Sauvegardée comme Avant-Projet.
+      destroy_draft:
+        error: Un problème est survenu lors de la suppression de l’avant-projet collaboratif.
+        success: L’avant-projet collaboratif a été supprimé avec succès.
+      models:
+        collaborative_draft:
+          fields:
+            authors: Auteurs
+            comments: Commentaires
+        proposal:
+          fields:
+            category: Catégorie
+            comments: Commentaires
+            notes: Remarques
+            official_proposal: Proposition officielle
+            published_answer: Réponse publiée
+            published_at: Publié à
+            scope: Périmètre d’application
+            state: Statut
+            title: Intitulé
+            valuator: Évaluateur
+            valuators: Évaluateurs
+            votes: Voix
+      new:
+        limit_reached: Vous ne pouvez pas créer de nouvelles propositions parce que vous avez dépassé la limite.
+      participatory_text_proposal:
+        alternative_title: Il n’y a aucun texte participatif pour l’instant.
+        buttons:
+          amend: Modifier
+          comment: Commentaire
+          comments: Commentaires
+      proposal_votes:
+        create:
+          error: Un problème est survenu lors du soutien de cette proposition.
+      proposals:
+        compare:
+          continue: Continuer
+          no_similars_found: Bien joué! Aucune proposition similaire trouvée
+          title: Propositions similaires
+        complete:
+          send: Envoyer
+          title: Finalisez votre proposition
+        edit:
+          attachment_legend: "(Facultatif) Ajouter une annexe"
+          back: Retour
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier la proposition
+        edit_draft:
+          discard: Abandonner cet avant-projet
+          discard_confirmation: Êtes-vous sûr(e) de vouloir abandonner cet avant-projet de proposition?
+          send: Aperçu
+          title: Modifier l’avant-projet de proposition
+        filters:
+          activity: Mon activité
+          all: Tous
+          category: Catégorie
+          my_proposals: Mes propositions
+          origin: Origine
+          related_to: Liée à
+          scope: Périmètre d’application
+          search: Rechercher
+          state: Statut
+          voted: Soutenu
+        filters_small_view:
+          close_modal: Fermer la fenêtre modale
+          filter: Filtre
+          filter_by: Filtrer sur la base de
+          unfold: Dérouler
+        index:
+          collaborative_drafts_list: Accéder aux avant-projets collaboratifs
+          see_all_withdrawn: Voir toutes les propositions retirées
+        linked_proposals:
+          proposal_votes:
+            one: soutien
+            other: soutiens
+        new:
+          send: Continuer
+        orders:
+          label: 'Classer les propositions sur la base de:'
+          most_commented: Les plus commentées
+          most_endorsed: Les plus approuvées
+          most_followed: Les plus suivies
+          most_voted: Les plus soutenues
+          random: Aléatoire
+          recent: Récent
+          with_more_authors: Avec plus d’auteurs
+        participatory_texts:
+          index:
+            document_index: Répertoire de documents
+          view_index:
+            see_index: Voir répertoire
+        preview:
+          modify: Modifier la proposition
+          proposal_edit_before_minutes:
+            one: Vous pourrez modifier cette proposition durant la première minute après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez pas modifier la proposition.
+            other: Vous pourrez modifier cette proposition durant les premières %{count} minutes après sa publication. Une fois ce laps de temps écoulé, vous ne pourrez pas modifier la proposition.
+          publish: Publier
+          title: Publiez votre proposition
+        proposal:
+          creation_date: 'Création: %{date}'
+        proposals:
+          empty: Il n’y a pas encore de proposition
+          empty_filters: Il n’y a aucune proposition répondant à ce critère
+        show:
+          answer: Réponse
+          back_to: Revenir à
+          back_to_list: Retour à la liste
+          changes_at_title: Modification à "%{title}"
+          comments: Commentaires
+          edit_proposal: Modifier la proposition
+          endorsements_list: Liste des approbations
+          estimated_cost: Coût estimé
+          hidden_endorsers_count:
+            one: et %{count} personne de plus
+            other: et %{count} personnes de plus
+          link_to_collaborative_draft_help_text: Cette proposition résulte d’un avant-projet collaboratif. Examiner l’historique
+          link_to_collaborative_draft_text: Voir l’avant-projet collaboratif
+          link_to_promoted_emendation_help_text: Cette proposition est une correction promue
+          link_to_promoted_emendation_text: Voir la correction refusée
+          link_to_proposal_from_emendation_help_text: Il s’agit d'une correction refusée
+          link_to_proposal_from_emendation_text: Voir la Proposition
+          proposal_accepted_reason: 'Cette proposition a été acceptée car:'
+          proposal_in_evaluation_reason: Cette proposition est en cours d’évaluation
+          proposal_rejected_reason: 'Cette proposition a été rejetée car:'
+          read_less: Lire moins
+          read_more: Pour en savoir plus
+          report: Signaler
+          withdraw_btn_hint: Si vous changez d’avis, vous pouvez retirer votre proposition tant que vous n’avez pas reçu de soutien. La proposition ne sera pas supprimée, elle apparaîtra dans la liste des propositions retirées.
+          withdraw_confirmation_html: Êtes-vous sûr(e) de vouloir retirer cette proposition? <br><br><strong>Cette action est irréversible!</strong>
+          withdraw_proposal: Retirer une proposition
+        tags:
+          changed_from: "(modifié de <u>%{previous_name}</u> par un administrateur)"
+        update:
+          title: Mettre la proposition à jour
+        vote_button:
+          already_voted: A déjà reçu des soutiens
+          already_voted_hover: Retirer un soutien
+          maximum_votes_reached: Limite de soutien atteinte
+          no_votes_remaining: Aucun soutien restant
+          vote: Soutien
+          votes_blocked: Soutiens désactivés
+        votes_count:
+          count:
+            one: Soutien
+            other: Soutiens
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Nécessite plus de soutiens
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Chaque proposition peut accumuler plus de %{limit} soutiens
+          minimum_votes_per_user:
+            description: Vous devez distribuer un minimum de %{votes} soutiens parmi différentes propositions.
+            given_enough_votes: Vous n’avez pas donné suffisamment de soutiens.
+            supports_remaining: Vous devez soutenir %{remaining_votes} propositions de plus pour que vos soutiens soient pris en compte.
+          proposal_limit:
+            description: Vous pouvez créer jusqu’à %{limit} propositions.
+          threshold_per_proposal:
+            description: Pour être validées, les propositions doivent atteindre %{limit} soutiens
+          title: 'Les soutiens sont soumis aux règles suivantes:'
+          vote_limit:
+            description: Vous pouvez soutenir jusqu’à %{limit} propositions.
+            left: Restant
+            votes: Soutiens
+        wizard_aside:
+          back: Retour
+          back_from_step_3: Revenir en arrière pour comparer des propositions
+          back_from_step_4: Revenir en arrière pour modifier l’avant-projet
+        wizard_steps:
+          current_step: Etape actuelle
+          see_steps: voir étapes
+          step_2: Comparaison
+          step_3: Complète
+          step_of: Étape %{current_step_num} de %{total_steps}
+      proposals_picker:
+        choose_proposals: Sélectionner des propositions
+        close: Fermer
+        more_proposals: Il y a %{number} propositions de plus. Affinez votre recherche pour les localiser.
+        no_proposals: Aucune proposition ne correspond à votre critère de recherche ou il n’y a aucune proposition.
+      publish:
+        error: Un problème est survenu lors de la publication de cette proposition.
+        success: La proposition a été publiée avec succès.
+      publish_answers:
+        success: Les réponses aux propositions ont été publiées avec succès.
+      update:
+        error: Un problème est survenu lors de la sauvegarde de la proposition.
+        success: La proposition a été mise à jour avec succès.
+      update_draft:
+        error: Un problème est survenu lors de la sauvegarde de l’avant-projet collaboratif.
+        success: L’avant-projet collaboratif a été mis à jour avec succès.
+      versions:
+        collaborative_drafts:
+          back_to_resource: Revenir à l’avant-projet collaboratif
+        index:
+          title: Version
+      withdraw:
+        errors:
+          has_supports: Cette proposition ne peut pas être retirée car elle a déjà des soutiens.
+    resource_links:
+      copied_from_component:
+        proposal_proposal: Propositions associées
+      included_projects:
+        project_result: 'Résultats apparaissant dans ce projet:'
+      included_proposals:
+        proposal_project: 'Proposition apparaissant dans ces projets:'
+        proposal_result: 'Proposition apparaissant dans ces résultats:'
