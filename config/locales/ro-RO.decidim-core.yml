@@ -1,6 +1,15 @@
 ro:
   decidim:
+    admin_log:
+      scope:
+        delete_with_parent: "%{user_name} a șters domeniul %{resource_name} din domeniul %{parent_scope}"
     events:
+      amendments:
+        amendment_promoted:
+          affected_user:
+            email_subject: O modificare din partea %{emendation_author_nickname} a fost publicată ca %{amendable_type} nou
+          follower:
+            email_subject: O modificare din partea %{emendation_author_nickname} a fost publicată ca %{amendable_type} nou
       email_event:
         email_greeting: Bine ați venit, %{user_name},
       groups:
