@@ -1,1 +1,62 @@
 hu:
+  decidim:
+    admin:
+      filters:
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
+      models:
+        initiatives:
+          fields:
+            created_at: 'Létrehozás ideje:'
+            published_at: 'Megjelent:'
+        initiatives_types:
+          fields:
+            created_at: 'Létrehozás ideje:'
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: A(z) „%{resource_title}” kezdeményezést elküldték technikai ellenőrzésre. Ellenőrizze <a href="%{admin_initiative_url}">az adminisztrációs panelen</a>
+            email_subject: A(z) „%{resource_title}” kezdeményezést elküldték technikai ellenőrzésre.
+            notification_title: A(z) „%{resource_title}” kezdeményezést elküldték technikai ellenőrzésre. Ellenőrizze <a href="%{admin_initiative_path}">az adminisztrációs panelen</a>
+        initiative_extended:
+          email_intro: A(z) %{resource_title} kezdeményezés aláírásának befejezési dátumát meghosszabbították!
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés aláírásának befejezési dátumát meghosszabbították.
+        milestone_completed:
+          affected_user:
+            email_intro: A(z) %{resource_title} kezdeményezés %{percentage}% aláírási arányt ért el!
+            email_outro: Azért kapta ezt az értesítést, mert Ön a(z) %{resource_title} kezdeményezés szerzője.
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés %{percentage}% aláírási arányt ért el.
+          follower:
+            email_intro: A(z) %{resource_title} kezdeményezés %{percentage}% aláírási arányt ért el!
+            notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés %{percentage}% aláírási arányt ért el.
+        support_threshold_reached:
+          email_intro: A(z) %{resource_title} kezdeményezés elérte a támogatási küszöbértéket
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezés elérte a támogatási küszöbértéket
+    initiatives:
+      admin:
+        answers:
+          info_initiative:
+            created_at: 'Létrehozás ideje:'
+      admin_log:
+        initiative:
+          publish: "%{user_name} közzétette a(z) %{resource_name} kezdeményezést"
+          send_to_technical_validation: "%{user_name} elküldte a(z) %{resource_name} kezdeményezést technikai ellenőrzésre"
+          unpublish: "%{user_name} elvetette a(z) %{resource_name} kezdeményezést"
+          update: "%{user_name} frissítette a(z) %{resource_name} kezdeményezést"
+      create_initiative:
+        finish_help:
+          initiatives_page_link: Ezeket az adatokat a(z) %{link} oldalon tekintheti meg, amelyek célja a kezdeményezésekről történő tájékoztatás.
+      events:
+        create_initiative_event:
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést <a href="%{author_path}">%{author_name} %{author_nickname}</a> hozta létre.
+        endorse_initiative_event:
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> kezdeményezést <a href="%{author_path}">%{author_name} %{author_nickname}</a> jóváhagyta.
+      initiative_votes:
+        create:
+          success_html: Gratulálunk! A(z) <strong> %{title}</strong> kezdeményezés aláírása sikeres
+      initiatives_mailer:
+        creation_subject: A(z) '%{title}' kezdeményezés létrehozása sikeres
+        progress_report_body_for: A(z) %{title} kezdeményezés %{percentage}% aláírási arányt ért el.
+        status_change_body_for: 'A(z) %{title} kezdeményezés állapota megváltozott a következőre: %{state}'
+        status_change_for: A(z) %{title} kezdeményezés állapota megváltozott
