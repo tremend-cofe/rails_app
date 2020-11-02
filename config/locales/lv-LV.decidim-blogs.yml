@@ -1,0 +1,79 @@
+lv:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Jauna emuāra ziņa
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Vai tiešām vēlaties dzēst šo ziņu?
+        destroy: Dzēst
+        edit: Rediģēt
+        new: Jauna ziņa
+        title: Darbības
+      admin:
+        models:
+          components:
+            body: Pamatteksts
+          post:
+            name: Ziņa
+        posts:
+          create:
+            invalid: Izveidojot šo ziņu, radās problēma
+            success: Ziņa ir veiksmīgi izveidota
+          destroy:
+            success: Ziņa ir veiksmīgi izdzēsta
+          edit:
+            save: Atjaunināt
+          index:
+            title: Ziņas
+          new:
+            create: Izveidot
+            title: Izveidot ziņu
+          update:
+            invalid: Saglabājot ziņu, radās problēma.
+            success: Ziņa ir veiksmīgi saglabāta
+      last_activity:
+        new_post_at_html: "<span>Jauna ziņa šādā saitē: %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autors
+            body: Pamatteksts
+            created_at: Izveidošanas laiks
+            title: virsraksts
+      posts:
+        show:
+          back: Atgriezties pie saraksta
+          comments: Komentāri
+          view: Skatīt
+        sidebar_blog:
+          comments: komentāri
+          most_commented_posts: Ziņas ar lielāko komentāru skaitu
+      read_more: Rādīt vairāk
+    components:
+      blogs:
+        name: Emuārs
+        settings:
+          global:
+            announcement: Paziņojums
+            comments_enabled: Komentāri iespējoti
+            comments_max_length: Komentāru maksimālais garums (Atstājiet “0”, lai izmantotu noklusējuma vērtību)
+          step:
+            announcement: Paziņojums
+            comments_blocked: Komentāri bloķēti
+            endorsements_blocked: Apstiprinājumi ir bloķēti
+            endorsements_enabled: Apstiprinājumi ir iespējoti
+    events:
+      blogs:
+        post_created:
+          email_intro: Ziņa "%{resource_title}" ir publicēta telpā "%{participatory_space_title}", kurai sekojat.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat telpai "%{participatory_space_title}". Varat atcelt sekošanu, izmantojot iepriekšējo saiti.
+          email_subject: Telpā %{participatory_space_title} ir publicēta jauna ziņa
+          notification_title: Ziņa <a href="%{resource_path}">%{resource_title}</a> ir publicēta telpā %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Ziņas
+    participatory_processes:
+      statistics:
+        posts_count: Ziņas
