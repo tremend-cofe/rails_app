@@ -1,1 +1,78 @@
 sl:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nova objava na blogu
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ali res želite izbrisati to objavo?
+        destroy: Izbriši
+        edit: Uredi
+        new: Nova objava
+        title: Dejanja
+      admin:
+        models:
+          components:
+            body: Telo
+          post:
+            name: Objava
+        posts:
+          create:
+            invalid: Pri ustvarjanju te objave se je pojavila težava.
+            success: Objava je bila uspešno ustvarjena.
+          destroy:
+            success: Objava je bila uspešno izbrisana.
+          edit:
+            save: Posodobi
+          index:
+            title: Objave
+          new:
+            create: Ustvari
+            title: Ustvari objavo
+          update:
+            invalid: Pri shranjevanju te objave se je pojavila težava.
+            success: Objava je bila uspešno shranjena.
+      last_activity:
+        new_post_at_html: "<span>Nova objava v %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Avtor
+            body: Telo
+            created_at: Ustvarjeno ob
+            title: naslov
+      posts:
+        show:
+          back: Nazaj na seznam
+          comments: Komentarji
+          view: Prikaži
+        sidebar_blog:
+          comments: komentarji
+          most_commented_posts: Najbolj komentirane objave
+      read_more: Več
+    components:
+      blogs:
+        settings:
+          global:
+            announcement: Obvestilo
+            comments_enabled: Komentarji so omogočeni.
+            comments_max_length: Največja dolžina komentarjev (za privzeto vrednost pusti 0)
+          step:
+            announcement: Obvestilo
+            comments_blocked: Komentarji so blokirani.
+            endorsements_blocked: Odobravanje onemogočeno
+            endorsements_enabled: Odobravanje omogočeno
+    events:
+      blogs:
+        post_created:
+          email_intro: Objava "%{resource_title}" je bila objavljena v "%{participatory_space_title}", ki mu sledite.
+          email_outro: To obvestilo ste prejeli, ker sledite "%{participatory_space_title}". Odsleditev je mogoča s prejšnje povezave.
+          email_subject: Nova objava objavljena v %{participatory_space_title}
+          notification_title: Objava <a href="%{resource_path}">%{resource_title}</a> je bila objavljena v %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Objave
+    participatory_processes:
+      statistics:
+        posts_count: Objave
