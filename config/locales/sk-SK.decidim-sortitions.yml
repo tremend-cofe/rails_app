@@ -1,1 +1,129 @@
 sk:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informácie o žrebovaní
+        decidim_category_id: Kategórie množiny návrhov, v ktorých chcete použiť žrebovanie
+        decidim_proposals_component_id: Množina návrhov
+        dice: Výsledok hodu kockou. Pred niekoľkými svedkami hoďte šesťbokou kockou alebo nájdite iný náhodný spôsob na vygenerovanie čísla od 1 do 6 a zadajte výsledné číslo. Prispeje sa tým ku kvalite a zaručí sa náhodnosť výsledku.
+        target_items: Počet návrhov, ktoré sa majú vybrať (označuje počet návrhov, ktoré chcete vybrať žrebovaním zo skupiny návrhov, ktoré ste predtým vybrali)
+        title: Nadpis
+        witnesses: Svedkovia
+    models:
+      decidim/sortitions/create_sortition_event: Žrebovanie
+  decidim:
+    components:
+      sortitions:
+        name: Žrebovania
+        settings:
+          global:
+            comments_enabled: Poznámky povolené
+            comments_max_length: Maximálna dĺžka poznámok (ponechaním hodnoty 0 sa zachová predvolená hodnota)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Žrebovanie %{resource_title} bolo pridané do participatívneho priestoru %{participatory_space_title}, ktorý sledujete.
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Nové žrebovanie bolo pridané do participatívneho priestoru %{participatory_space_title}
+          notification_title: Žrebovanie <a href="%{resource_path}">%{resource_title}</a> bolo pridané do participatívneho priestoru %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Žrebovania
+    participatory_processes:
+      statistics:
+        sortitions_count: Žrebovania
+    sortitions:
+      admin:
+        actions:
+          destroy: Zrušiť žrebovanie
+          edit: Upraviť
+          new: Nové žrebovanie
+          show: Podrobnosti o žrebovaní
+        models:
+          sortition:
+            fields:
+              category: Kategória
+              created_at: Dátum vytvorenia
+              decidim_proposals_component: Komponent návrhov
+              dice: Kocka
+              reference: Referencia
+              request_timestamp: Čas žrebovania
+              seed: Základná hodnota
+              target_items: Položky na výber
+              title: Nadpis
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Naozaj chcete odstrániť toto žrebovanie?
+            destroy: Zrušiť žrebovanie
+            title: Zrušenie žrebovania
+          create:
+            error: Pri vytváraní nového žrebovania sa vyskytol problém.
+            success: Žrebovanie bolo úspešne vytvorené
+          destroy:
+            error: Žrebovanie nemožno zrušiť.
+            success: Žrebovanie bolo úspešne zrušené
+          edit:
+            title: Aktualizovať informácie o žrebovaní
+            update: Aktualizovať
+          form:
+            all_categories: Všetky kategórie
+            select_proposal_component: Vybrať množinu návrhov
+            title: Nové žrebovanie návrhov
+          index:
+            title: Žrebovania
+          new:
+            confirm: Pri stlačení tlačidla Ďalej platforma Decidim zaznamená dátum a čas (s presnosťou na sekundy) a spolu s hodom kockou sa na základe týchto informácií vygeneruje náhodný výber. Túto akciu nemožno vrátiť späť, po kliknutí na tlačidlo sa zverejní výsledok žrebovania spolu s údajmi zadanými v tomto formulári a nemožno ho upraviť. Dôkladne skontrolujte obsah.
+            create: Vytvoriť
+            title: Nové žrebovanie
+          show:
+            selected_proposals: Návrhy vybraté na žrebovanie
+          update:
+            error: Pri aktualizácii žrebovania sa vyskytol problém.
+            success: Žrebovanie bolo úspešne aktualizované
+      admin_log:
+        sortition:
+          create: "Používateľ %{user_name} vytvoril žrebovanie %{resource_name} v priestore %{space_name}"
+          delete: "Používateľ %{user_name} zrušil žrebovanie %{resource_name} v priestore %{space_name}"
+          update: "Používateľ %{user_name} aktualizoval žrebovanie %{resource_name} v priestore %{space_name}"
+      sortitions:
+        filters:
+          active: Aktívne
+          all: Všetko
+          cancelled: Zrušené
+          category: Kategória
+          category_prompt: Vybrať kategóriu
+          search: Vyhľadávanie
+          state: Stav
+        filters_small_view:
+          close_modal: Zatvoriť kontextové okno
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        linked_sortitions:
+          selected_proposals: Vybraté návrhy
+        orders:
+          label: 'Zoradiť žrebovania podľa:'
+          random: Náhodné
+          recent: Nedávne
+        show:
+          algorithm: Kód algoritmu žrebovania
+          any_category: zo všetkých kategórií
+          back: Späť na zoznam
+          cancelled: Zrušené žrebovanie
+          candidate_proposal_ids: Poradie a identifikátory návrhov v žrebovaní
+          candidate_proposals_info: 'Žrebovanie sa uskutočnilo medzi týmito návrhmi (%{category_label}) s týmito identifikátormi (vybraté návrhy sú uvedené tučným písmom)  '
+          category: z kategórie %{category}
+          dice_result: "(1) Výsledok hodu kockou"
+          introduction: 'Na tejto stránke sa uvádzajú výsledky žrebovania %{reference}. Pomocou tohto žrebovania sa výsledky v počte %{target_items} vybrali náhodne a s rovnomerným rozdelením pravdepodobnosti z množiny návrhov zobrazenej ďalej. Údaje zobrazené na tejto stránke spolu s výsledkami poskytujú všetky informácie potrebné na maximalizáciu záruk a reprodukovanie výsledkov. Kľúčom ku kvalite tohto žrebovania je dvojnásobná náhodnosť, ktorú zabezpečuje hod kockou (overený svedkami) a presný čas žrebovania, čo predstavuje vstup pre algoritmus na generovanie náhodného výberu. Časová základná hodnota žrebovania je taká presná (v sekundách), že ju nie je možné ľudskými schopnosťami ovládať, čím sa poskytuje dvojnásobný „nekontrolovateľný“ vstup ako záruka čestného výsledku.  '
+          mathematical_result: Výsledok (1) × (2)
+          proposals_selected_by_sortition: Návrhy vybraté žrebovaním
+          sortition_reproducibility_details: Podrobnosti o reprodukovateľnosti žrebovania
+          time_seed: "(2) Časová základná hodnota"
+          witnesses: Svedkovia
+        sortition:
+          random_seed: Náhodná základná hodnota
+          view: Zobraziť
+        sortition_author:
+          deleted: Odstránený účastník
+        sortition_cancel_author:
+          deleted: Odstránený účastník
