@@ -1,1 +1,22 @@
 sk:
+  activemodel:
+    attributes:
+      conference:
+        published_at: 'Zverejnené:'
+  decidim:
+    admin:
+      models:
+        conference:
+          fields:
+            created_at: 'Vytvorené:'
+    conferences:
+      models:
+        conference_invite:
+          fields:
+            sent_at: 'Odoslané:'
+    events:
+      conferences:
+        conference_registrations_over_percentage:
+          email_subject: Na konferencii %{resource_title} je obsadených viac než %{percentage} % miest.
+        conference_updated:
+          email_subject: Konferencia %{resource_title} bola aktualizovaná.
