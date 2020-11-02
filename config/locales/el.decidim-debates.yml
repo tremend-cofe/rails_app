@@ -1,0 +1,203 @@
+el:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Κατηγορία
+        closed_at: Έκλεισε στις
+        conclusions: Συμπεράσματα
+        decidim_category_id: Κατηγορία
+        description: Περιγραφή
+        end_time: Λήγει στις
+        information_updates: Επικαιροποιήσεις πληροφοριών
+        instructions: Οδηγίες συμμετοχής
+        start_time: Ξεκινά στις
+        title: Τίτλος
+        user_group_id: Δημιουργία διαλόγου ως
+    models:
+      decidim/debates/close_debate_event: Ο διάλογος έκλεισε
+      decidim/debates/create_debate_event: Διάλογος
+      decidim/debates/creation_disabled_event: Οι διάλογοι απενεργοποιήθηκαν
+      decidim/debates/creation_enabled_event: Οι διάλογοι ενεργοποιήθηκαν
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Διάλογος
+        other: Διάλογοι
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Δημιουργία
+          endorse: Έγκριση
+        name: Διάλογοι
+        settings:
+          global:
+            announcement: Ανακοίνωση
+            comments_enabled: Τα σχόλια ενεργοποιήθηκαν
+            comments_max_length: Μέγιστο μήκος σχολίων (για την προεπιλεγμένη τιμή πληκτρολογήστε «0»)
+          step:
+            announcement: Ανακοίνωση
+            comments_blocked: Τα σχόλια απενεργοποιήθηκαν
+            creation_enabled: Η δημιουργία διαλόγου από τους συμμετέχοντες ενεργοποιήθηκε
+            endorsements_blocked: Οι εγκρίσεις απενεργοποιήθηκαν
+            endorsements_enabled: Οι εγκρίσεις ενεργοποιήθηκαν
+    debates:
+      actions:
+        close: Κλείσιμο
+        confirm_destroy: Είστε βέβαιοι;
+        destroy: Διαγραφή
+        edit: Επεξεργασία
+        new: Νέο στοιχείο %{name}
+        title: Ενέργειες
+      admin:
+        debate_closes:
+          edit:
+            close: Κλείσιμο
+            title: Κλείσιμο διαλόγου
+        debates:
+          create:
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του διαλόγου.
+            success: Ο διάλογος δημιουργήθηκε με επιτυχία.
+          destroy:
+            success: Ο διάλογος διαγράφηκε με επιτυχία.
+          edit:
+            title: Επεξεργασία διαλόγου
+            update: Επικαιροποίηση διαλόγου
+          index:
+            title: Διάλογοι
+          new:
+            create: Δημιουργία διαλόγου
+            title: Νέος διάλογος
+          update:
+            invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση αυτού του διαλόγου.
+            success: Ο διάλογος επικαιροποιήθηκε με επιτυχία.
+        models:
+          debate:
+            name: Διάλογος
+      admin_log:
+        debate:
+          close: "Ο χρήστης %{user_name} έκλεισε τον διάλογο %{resource_name} στον χώρο %{space_name}"
+          create: "Ο χρήστης %{user_name} δημιούργησε τον διάλογο %{resource_name} στον χώρο %{space_name}"
+          update: "Ο χρήστης %{user_name} επικαιροποίησε τον διάλογο %{resource_name} στον χώρο %{space_name}"
+      debates:
+        close:
+          invalid: Παρουσιάστηκε πρόβλημα κατά το κλείσιμο του διαλόγου.
+          success: Ο διάλογος έκλεισε με επιτυχία.
+        close_debate_modal:
+          close: Κλείσιμο
+          description: Ποια είναι η σύνοψη ή το συμπέρασμα αυτού του διαλόγου;
+          send: Κλείσιμο διαλόγου
+        closed: Έχει κλείσει
+        count:
+          debates_count:
+            one: "%{count} διάλογος"
+            other: "%{count} διάλογοι"
+        create:
+          invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία του διαλόγου.
+          success: Ο διάλογος δημιουργήθηκε με επιτυχία.
+        debate:
+          participate: Συμμετοχή
+        edit:
+          back: Πίσω
+          save: Αποθήκευση αλλαγών
+          title: Επεξεργασία διαλόγου
+        filters:
+          all: Όλα
+          category: Κατηγορία
+          category_prompt: Επιλέξτε κατηγορία
+          citizens: Πολίτες
+          official: Επίσημος
+          origin: Προέλευση
+          search: Αναζήτηση
+        filters_small_view:
+          close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+          filter: Φίλτρο
+          filter_by: Φιλτράρισμα κατά
+          unfold: Ανάπτυξη
+        form:
+          select_a_category: Επιλέξτε κατηγορία
+        index:
+          new_debate: Νέος διάλογος
+        new:
+          back: Πίσω
+          create: Δημιουργία
+          title: Νέος διάλογος
+        show:
+          back: Επιστροφή στον κατάλογο
+          close_debate: Κλείσιμο διαλόγου
+          date: Ημερομηνία
+          debate_closed: Έχει κλείσει
+          debate_conclusions_are: 'Ο διάλογος έκλεισε στις %{date} με τα εξής συμπεράσματα:'
+          edit_conclusions: Επεξεργασία συμπερασμάτων
+          edit_debate: Επεξεργασία διαλόγου
+          groups_count: Ομάδες
+          last_comment_by: Τελευταίο σχόλιο από
+          no_comments_yet: Δεν υπάρχουν σχόλια ακόμη
+          participants_count: Συμμετέχοντες
+        update:
+          invalid: Παρουσιάστηκε πρόβλημα κατά την επικαιροποίηση του διαλόγου.
+          success: Ο διάλογος επικαιροποιήθηκε με επιτυχία.
+        versions:
+          debates:
+            back_to_resource: Επιστροφή στον διάλογο
+          index:
+            title: Εκδόσεις
+        versions_list:
+          back_to_resource: Επιστροφή στον διάλογο
+      last_activity:
+        new_debate_at_html: "<span>Νέος διάλογος στη διεύθυνση %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Ημερομηνία λήξης
+            official_debate: Επίσημος διάλογος
+            start_time: Ημερομηνία έναρξης
+            title: Τίτλος
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Γεια σας,
+              Δημιουργήθηκε ένας νέος διάλογος με τίτλο "%{resource_title}" στον συμμετοχικό χώρο %{space_title}, δείτε τον και λάβετε μέρος:
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Νέος διάλογος με τίτλο "%{resource_title}" στον χώρο %{space_title}
+            notification_title: Ο διάλογος <a href="%{resource_path}">%{resource_title}</a> δημιουργήθηκε στον χώρο <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Γεια σας,
+              Ο χρήστης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημιούργησε έναν νέο διάλογο "%{resource_title}". Δείτε τον και λάβετε μέρος:
+            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
+            email_subject: Νέος διάλογος "%{resource_title}" από τον χρήστη %{author_nickname}
+            notification_title: Ο χρήστης <a href="%{author_path}">%{author_name} %{author_nickname}</a> δημιούργησε τον διάλογο <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Η δημιουργία διαλόγου δεν είναι πλέον ενεργή στον χώρο %{participatory_space_title}. Μπορείτε ακόμη να συμμετάσχετε σε ανοικτούς διαλόγους από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Η δημιουργία διαλόγου απενεργοποιήθηκε στον χώρο %{participatory_space_title}
+          notification_title: Η δημιουργία διαλόγου έχει πλέον απενεργοποιηθεί στον χώρο <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Μπορείτε πλέον να ξεκινήσετε νέους διαλόγους στον χώρο %{participatory_space_title}! Έναρξη συμμετοχής σε αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Οι διάλογοι είναι πλέον διαθέσιμοι στον χώρο %{participatory_space_title}
+          notification_title: Μπορείτε πλέον να ξεκινήσετε <a href="%{resource_path}">νέους διαλόγους</a> σε έναν χώρο <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Ο διάλογος "%{resource_title}" ολοκληρώθηκε. Μπορείτε να διαβάσετε τα συμπεράσματα από την αντίστοιχη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον διάλογο "%{resource_title}". Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
+          email_subject: Ο διάλογος "%{resource_title}" έκλεισε
+          notification_title: Ο διάλογος <a href="%{resource_path}">%{resource_title}</a> έκλεισε.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Επιλέξτε έναν ανοικτό διάλογο για να λάβετε μέρος
+          description: Αυτό το σήμα απονέμεται όταν συμμετέχετε ενεργά στους διάφορους διαλόγους με σχόλια.
+          description_another: Αυτός ο συμμετέχων έχει λάβει μέρος σε %{score} διαλόγους.
+          description_own: Έχετε συμμετάσχει σε %{score} διαλόγους.
+          name: Διάλογοι
+          next_level_in: Λάβετε μέρος σε %{score} ακόμη διαλόγους για να περάσετε στο επόμενο επίπεδο!
+          unearned_another: Αυτός ο συμμετέχων δεν έχει λάβει μέρος σε κανέναν διάλογο ακόμη.
+          unearned_own: Δεν έχετε συμμετάσχει σε καμία συζήτηση ακόμη.
+    metrics:
+      debates:
+        description: Αριθμός διαλόγων που δημιουργήθηκαν
+        object: διάλογοι
+        title: Διάλογοι
