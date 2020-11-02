@@ -1,32 +1,253 @@
 hu:
   activemodel:
     attributes:
+      answer:
+        description: Leírás
+        image: Kép
+        proposals: Kapcsolódó javaslatok
+        title: Cím
       election:
+        description: Leírás
         end_time: 'A szavazás ekkor ér véget:'
         start_time: 'A szavazás ekkor kezdődik:'
+        title: Cím
+      question:
+        description: Leírás
+        max_selections: Kiválasztások maximális száma
+        title: Cím
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Ismételt csatolásra van szükség
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Ismételt csatolásra van szükség
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Válasz
+        other: Válaszok
+      decidim/elections/election:
+        one: Választás
+        other: Választások
+      decidim/elections/question:
+        one: Kérdés
+        other: Kérdések
   decidim:
+    components:
+      elections:
+        actions:
+          vote: Szavazat
+        name: Választások
+        settings:
+          global:
+            announcement: Bejelentés
+          step:
+            announcement: Bejelentés
     elections:
+      actions:
+        confirm_destroy: Biztos ebben?
+        destroy: Törlés
+        edit: Szerkesztés
+        edit_answers: Válaszok szerkesztése
+        edit_questions: Kérdések szerkesztése
+        import: Válaszjavaslatok importálása
+        new: Új %{name}
+        preview: Előnézet
+        publish: Közzététel
+        title: Műveletek
+        unpublish: Közzététel visszavonása
       admin:
-        proposals_imports:
+        answers:
+          create:
+            invalid: Hiba történt a válasz létrehozása során
+            success: A válasz létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a válasz törlése során
+            success: A válasz törlése sikeres
+          edit:
+            title: Válasz szerkesztése
+            update: Válasz frissítése
+          index:
+            title: Válaszok
           new:
+            create: Válasz létrehozása
+            title: Új válasz
+          update:
+            invalid: Hiba történt a válasz frissítése során
+            success: A válasz frissítése sikeres
+        elections:
+          create:
+            invalid: Hiba történt a választás létrehozása során
+            success: A választás létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a választás törlése során
+            success: A választás törlése sikeres
+          edit:
+            title: Választás szerkesztése
+            update: Választás frissítése
+          index:
+            title: Választások
+          new:
+            create: Választás létrehozása
+            title: Új választás
+          publish:
+            success: A új választás közzététele sikeres.
+          unpublish:
+            success: A választás közzétételének visszavonása sikeres.
+          update:
+            invalid: Hiba történt a választás frissítése során
+            success: A választás frissítése sikeres
+        models:
+          answer:
+            name: Válasz
+          election:
+            name: Választás
+          question:
+            name: Kérdés
+        proposals_imports:
+          create:
+            invalid: Hiba történt a javaslatok válaszokba történő importálása során
+            success: "%{number} javaslat sikeresen importálva a válaszokba"
+          new:
+            create: Válaszjavaslatok importálása
+            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
             select_component: Kérjük, válasszon egy komponenst!
+        questions:
+          create:
+            invalid: Hiba történt a kérdés létrehozása során
+            success: A kérdés létrehozása sikeres
+          destroy:
+            invalid: Hiba történt a kérdés törlése során
+            success: A kérdés törlése sikeres
+          edit:
+            title: Kérdés szerkesztése
+            update: Kérdés frissítése
+          index:
+            title: Kérdések
+          new:
+            create: Kérdés létrehozása
+            title: Új kérdés
+          update:
+            invalid: Hiba történt a kérdés frissítése során
+            success: A kérdés frissítése sikeres
       admin_log:
         election:
           publish: "%{user_name} közzétette a(z) %{resource_name} választást"
           unpublish: "%{user_name} visszavonta a(z) %{resource_name} választás közzétételét"
+      election_m:
+        badge_name:
+          finished: Befejezett
+          ongoing: Aktív
+          upcoming: Közelgő
+        end_date: Véget ér
+        footer:
+          view: Megtekintés
+          vote: Szavazat
+        label:
+          date: Dátum
+        questions: 'Kérdések: %{count}'
+        start_date: Kezdetét veszi
+        unspecified: Nincs meghatározva
+      elections:
+        count:
+          elections_count:
+            one: "%{count} választás"
+            other: "%{count} választás"
+        filters:
+          active: Aktív
+          all: Összes
+          finished: Befejezett
+          search: Keresés
+          state: Állapot
+          upcoming: Közelgő
+        filters_small_view:
+          close_modal: Modális ablak bezárása
+          filter: Szűrő
+          filter_by: Szűrési feltétel
+          unfold: Kibontás
+        show:
+          back: Az összes választás
+          preview: Előnézet
+          vote: Szavazat
+          voting_period_status:
+            finished: 'A szavazás kezdete: %{start_time}. A szavazás vége: %{end_time}'
+            ongoing: 'A szavazás vége: %{end_time}'
+            upcoming: 'A szavazás kezdete: %{start_time}'
       models:
+        answer:
+          fields:
+            proposals: Javaslatok
+            title: Cím
         election:
           fields:
             end_time: 'Befejezés időpontja:'
             start_time: 'Kezdés időpontja:'
+            title: Cím
+        question:
+          fields:
+            answers: Válaszok
+            max_selections: Kiválasztások maximális száma
+            title: Cím
       orders:
         label: 'Választások rendezési elve:'
+        older: Régebbi
+        recent: Új
       votes:
+        confirm:
+          answer: Válasz
+          answer_number: 'válasz: %{number}'
+          confirm: Megerősítés
+          edit: szerkesztés
+          header: Szavazat megerősítése
+          intro: Itt egy összefoglaló arról a szavazatról, amelyet leadni készül. <br> Kérjük, erősítse meg szavazatát vagy szerkessze a válaszait.
+          question: 'Kérdés: %{count}'
+        confirmed:
+          back: Vissza a választásokhoz
+          experience: Milyen volt az élménye?
+          feedback: Adjon visszajelzést
+          header: Szavazat megerősítve
+          lead: Már szavazott!
+          text: 'A következő azonosítóval ellenőrizheti, hogy szavazatát sikeresen hozzáadta-e az urnához: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Az ellenőrzéshez illessze be az azonosítót a <a href="evote-verify">szavazatellenőrző oldalon</a>
         encrypting:
           header: Szavazat kódolása…
+          text: A szavazat titkosításra kerül annak érdekében, hogy névtelenül leadhassa azt.
+        header:
+          confirm: Szavazat megerősítése
+          confirmed: Szavazat megerősítve
+          encrypting: Szavazat megerősítése
+        messages:
+          not_allowed: Ön jelenleg nem szavazhat ezen a választáson.
+        modal:
+          close: Bezárás
+          proposal_header: 'Javaslatok:'
+        new:
+          answer_choices: Legfeljebb %{choices} válasz mellett dönthet, vagy mellőzheti a választást
+          more_information: További információk
+          preview_alert: Ez a szavazófülke előnézete.
+          question_steps: '%{current_step}/%{total_steps}. kérdés'
+          selections: "%{selected}/%{max_selections}<br> kiválasztás"
+        voting_step:
+          back: Vissza
+          continue: Következő
+      warnings:
+        no_elections_warning: Egy választás sem felel meg a keresési feltételeknek, vagy nincs ütemezett választás.
+        no_scheduled_elections_warning: Jelenleg nincs ütemezett választás, de itt megtalálhatja az összes múltbeli választást.
     events:
       elections:
         election_published:
           email_intro: 'A(z) %{resource_title} választás mostantól aktív a következő esetében: %{participatory_space_title}. Ezen az oldalon láthatja:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{participatory_space_title}. Az előző hivatkozásra kattintva leállíthatja az értesítések fogadását.'
           email_subject: 'A(z) %{resource_title} választás mostantól aktív a következő esetében: %{participatory_space_title}.'
           notification_title: 'A(z)<a href="%{resource_path}">%{resource_title}</a> választás mostantól aktív a következő esetében: %{participatory_space_title}.'
+    participatory_processes:
+      statistics:
+        elections_count: Választások
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Kilépés
