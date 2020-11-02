@@ -1,0 +1,151 @@
+nl:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informatie over loting
+        decidim_category_id: Categorieën van de reeks voorstellen waarin u de trekking wilt toepassen
+        decidim_proposals_component_id: Voorstellenreeks
+        dice: Resultaat van dobbelsteenworp. Gooi een zeszijdige dobbelsteen of gebruik een andere willekeurige manier om een getal van 1 tot 6 te genereren, en voer hier het resulterende getal in in de aanwezigheid van enkele getuigen. Dit draagt bij tot de kwaliteit en garandeert de willekeur van het resultaat
+        target_items: Aantal te selecteren voorstellen (geeft aan hoeveel voorstellen u wilt selecteren door het trekken van loten van de groep voorstellen die u eerder hebt geselecteerd)
+        title: Titel
+        witnesses: Getuigen
+    models:
+      decidim/sortitions/create_sortition_event: Loting
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Loting
+        other: Lotingen
+  decidim:
+    components:
+      sortitions:
+        name: Lotingen
+        settings:
+          global:
+            comments_enabled: Opmerkingen ingeschakeld
+            comments_max_length: Opmerkingen max. lengte (behoud 0 als standaardwaarde)
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: De loting "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die u volgt.
+          email_outro: U hebt dit bericht ontvangen omdat u “%{participatory_space_title}” volgt. U kunt deze ontvolgen via de link hierboven.
+          email_subject: Nieuwe loting toegevoegd aan %{participatory_space_title}
+          notification_title: De loting <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          sortitions_count: Lotingen
+    participatory_processes:
+      statistics:
+        sortitions_count: Lotingen
+    sortitions:
+      admin:
+        actions:
+          destroy: Loting annuleren
+          edit: Bewerken
+          new: Nieuwe loting
+          show: Lotingsgegevens
+        models:
+          sortition:
+            fields:
+              category: Categorie
+              created_at: Aanmaakdatum
+              decidim_proposals_component: Onderdeel voorstellen
+              dice: Dobbelstenen
+              reference: Referentie
+              request_timestamp: Tijd van de trekking
+              seed: Zaadgetal
+              target_items: Te selecteren punten
+              title: Titel
+            name:
+              one: Loting
+              other: Lotingen
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Weet u zeker dat u deze loting wilt annuleren?
+            destroy: Loting annuleren
+            title: Annulering van de loting
+          create:
+            error: Er is een probleem opgetreden bij het aanmaken van een nieuwe loting.
+            success: Loting aangemaakt
+          destroy:
+            error: Kan de loting niet annuleren.
+            success: Loting geannuleerd
+          edit:
+            title: De informatie over de loting bijwerken
+            update: Bijwerken
+          form:
+            all_categories: Alle categorieën
+            select_proposal_component: De voorstellenreeks selecteren
+            title: Nieuwe loting van voorstellen
+          index:
+            title: Lotingen
+          new:
+            confirm: Door de volgende knop in te drukken, registreert Decidim de datum en tijd (nauwkeurig tot de seconde); en samen met de dobbelsteenworp wordt deze informatie gebruikt om een willekeurige selectie te maken. De actie is onomkeerbaar. Zodra op de knop wordt geklikt, wordt het resultaat van deze trekking gepubliceerd, samen met de gegevens die in dit formulier zijn ingevoerd, en kan dit niet worden gewijzigd. Gelieve de inhoud zorgvuldig te controleren
+            create: Aanmaken
+            title: Nieuwe loting
+          show:
+            selected_proposals: Voor trekking geselecteerde voorstellen
+          update:
+            error: Er is een probleem opgetreden bij het updaten van de loting.
+            success: Loting bijgewerkt
+      admin_log:
+        sortition:
+          create: "%{user_name} heeft de loting %{resource_name} aangemaakt in %{space_name}"
+          delete: "%{user_name} heeft de loting %{resource_name} geannuleerd in %{space_name}"
+          update: "%{user_name} heeft de loting %{resource_name} bijgewerkt in %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 voorstel
+            other: "%{count} voorstellen"
+        filters:
+          active: Actief
+          all: Alle
+          cancelled: Geannuleerd
+          category: Categorie
+          category_prompt: Kies een categorie
+          search: Zoeken
+        filters_small_view:
+          close_modal: Modaal venster afsluiten
+          filter: Filteren
+          filter_by: Filteren op
+          unfold: Uitvouwen
+        linked_sortitions:
+          selected_proposals: Geselecteerde voorstellen
+        orders:
+          label: 'Lotingen sorteren op:'
+          random: Willekeurig
+        results_count:
+          count:
+            one: geselecteerd voorstel
+            other: geselecteerde voorstellen
+        show:
+          algorithm: Algoritmecode van de loting
+          any_category: van alle categorieën
+          back: Terug naar de lijst
+          cancelled: Geannuleerde loting
+          candidate_proposal_ids: Volgorde en ID's van loting van voorstellen
+          candidate_proposals_info: 'De loting werd uitgevoerd uit de volgende voorstellen (%{category_label}), met de volgende ID''s (de geselecteerde voorstellen vetgedrukt)  '
+          category: van de categorie %{category}
+          dice_result: "(1) Resultaat dobbelsteen"
+          introduction: 'Deze pagina bevat de resultaten van de loting %{reference}. Door middel van deze loting zijn %{target_items} resultaten willekeurig en met een gelijke waarschijnlijkheidsverdeling geselecteerd uit de reeks voorstellen die hieronder worden weergegeven. Samen met de resultaten biedt de informatie op deze pagina alle informatie die nodig is om de garanties te maximaliseren en de resultaten te reproduceren. De sleutel tot de kwaliteit van deze loting is de dubbele willekeur die wordt geboden door de dobbelsteenworp (gecontroleerd door getuigen) en het precieze tijdstip van de loting die input levert voor een algoritme dat een willekeurige selectie genereert. Het tijd-zaadgetal voor de loting is zo nauwkeurig (seconden) dat mensen er onmogelijk controle op uit kunnen oefenen, waardoor een dubbele “oncontroleerbare” input wordt verkregen om een eerlijk resultaat te garanderen.  '
+          mathematical_result: Resultaat (1) x (2)
+          proposals_selected_by_sortition: Door loting geselecteerde voorstellen
+          sortition_reproducibility_details: Details van de reproduceerbaarheid van de loting
+          time_seed: "(2) Tijd-zaadgetal"
+          witnesses: Getuigen
+        sortition:
+          random_seed: Willekeurig zaadgetal
+          selected_proposals:
+            one: geselecteerd voorstel
+            other: geselecteerde voorstellen
+          view: Weergeven
+        sortition_author:
+          deleted: Verwijderde deelnemer
+        sortition_cancel_author:
+          deleted: Verwijderde deelnemer
+        sortitions_count:
+          count:
+            one: 1 loting
+            other: "%{count} lotingen"
