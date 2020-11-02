@@ -1,0 +1,374 @@
+da:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Bannerbillede
+        decidim_highlighted_scope_id: Fremhævet anvendelsesområde
+        description: Beskrivelse
+        end_voting_date: Afstemningsformål
+        introductory_image: Indledende billede
+        introductory_video_url: URL til indledende video
+        questions: Spørgsmål
+        slug: URL-slug
+        start_voting_date: Afstemning indledes
+        subtitle: Underoverskrift
+        title: Betegnelse
+      question:
+        banner_image: Bannerbillede
+        decidim_scope_id: Fælles område
+        hero_image: Hjemmebillede
+        i_frame_url: URL til eksternt afstemningssystem
+        instructions: Supplerende afstemningsanvisninger
+        max_votes: Højeste antal stemmer
+        min_votes: Mindste antal stemmer
+        origin_scope: Omfang
+        origin_title: Oprindelse
+        origin_url: Oprindelses-URL
+        participatory_scope: Deltagerområde
+        promoter_group: Initiativtagergruppe
+        question_context: Kontekst
+        scope: Fælles område
+        slug: URL-slug
+        subtitle: Underoverskrift
+        vote: Det eksterne afstemningssystem
+        what_is_decided: Hvad er der besluttet?
+      response:
+        decidim_consultations_response_group_id: Gruppe
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Det maksimale antal stemmer bør være højere end eller lig med det nødvendige minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Svar ikke fundet
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Antal stemmer er ugyldig
+    models:
+      decidim/consultation:
+        one: Høring
+        other: Høringer
+      decidim/consultations/question:
+        one: Spørgsmål
+        other: Spørgsmål
+      decidim/consultations/response:
+        one: Svar
+        other: Svar
+      decidim/consultations/vote:
+        one: Afstemning
+        other: Stemmer
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Tilbage til svarene
+        new_consultation: Ny høring
+        new_question: Nyt spørgsmål
+        new_response: Ny besvarelse
+        new_response_group: Ny gruppe
+        publish_results: Offentliggør resultater
+        response_groups: Administration af besvarelsesgrupper
+        unpublish_results: Afpublicer resultaterne
+      consultation_publications:
+        create:
+          error: Der var et problem med at offentliggøre denne høring.
+          success: Høringen blev offentliggjort.
+        destroy:
+          error: Der var et problem med af afpublicere denne høring.
+          success: Høringen blev afpubliceret.
+      consultation_results_publications:
+        create:
+          error: Der var et problem med at offentliggøre resultaterne af høringen.
+          success: Høringsresultaterne blev offentliggjort.
+        destroy:
+          error: Der var et problem med at afpublicere resultaterne af høringen.
+          success: Høringsresultaterne blev afpubliceret.
+      consultations:
+        create:
+          error: Der var et problem med at oprette en ny høring.
+          success: Høring oprettet
+        edit:
+          update: Opdater
+        form:
+          slug_help: 'URL''er anvendes til at generere de URL-adresser, der ligger til grund for denne høring. Accepterer kun bogstaver, tal og bindestreg og skal begynde med et bogstav. Eksempel: %{url}'
+          title: Generelle oplysninger
+        index:
+          not_published: Ikke offentliggjort
+          published: Offentliggjort
+        new:
+          create: Opretter
+          title: Ny høring
+        results:
+          not_visible: Resultaterne vil foreligge i forbindelse med afslutningen af høringen
+          participants: "%{count} deltagere"
+          total_votes: 'I alt: %{count} afstemninger'
+        update:
+          error: Der var et problem med at opdatere denne høring.
+          success: Høringen er opdateret.
+      menu:
+        consultations: Høringer
+        consultations_submenu:
+          info: Oplysninger
+          questions: Spørgsmål
+          results: Resultater
+        questions_submenu:
+          components: Komponenter
+          configuration: Konfiguration
+          consultation: Høring
+          info: Oplysninger
+          responses: Svar
+      models:
+        consultation:
+          fields:
+            created_at: Oprettet kl.
+            published: Offentliggjort
+            title: Betegnelse
+          name:
+            one: Høring
+            other: Høringer
+        question:
+          fields:
+            created_at: Oprettet kl.
+            published: Offentliggjort
+            title: Betegnelse
+          name:
+            one: Spørgsmål
+            other: Spørgsmål
+        response:
+          fields:
+            created_at: Oprettet kl.
+            response_group: Gruppe
+            title: Betegnelse
+          name:
+            one: Svar
+            other: Svar
+      question_configuration:
+        disable_external_voting: Deaktivér ekstern afstemning for avancerede konfigurationer
+        form:
+          help: Opstil multiple choice-spørgsmål ved at øge det maksimale antal svar, som en deltager kan vælge. Standardmaksimumsværdien er 1, hvilket betyder, at der kun kan stemmes om ét svar.
+          title: Avanceret konfiguration
+      question_publications:
+        create:
+          error: Der var et problem med offentliggørelsen af dette spørgsmål.
+          success: Spørgsmålet blev offentliggjort.
+        destroy:
+          error: Der var et problem med afpubliceringen af dette spørgsmål.
+          success: Spørgsmål afpubliceret.
+      questions:
+        create:
+          error: Der opstod et problem med at oprette et nyt spørgsmål.
+          success: Spørgsmålet blev oprettet.
+        destroy:
+          success: Spørgsmålet blev slettet.
+        edit:
+          update: Opdater
+        form:
+          title: Generelle oplysninger
+        index:
+          not_published: Ikke offentliggjort
+          published: Offentliggjort
+        new:
+          create: Opretter
+          title: Nyt spørgsmål
+        update:
+          error: Der var et problem med at opdatere dette spørgsmål.
+          success: Spørgsmålet blev opdateret.
+      response_groups:
+        create:
+          error: Der var et problem med at oprette en ny svargruppe.
+          success: Svargruppe oprettet.
+        destroy:
+          error: Der var et problem med at fjerne svargruppen. Kontrollér, at der ikke er noget svar, der afhænger af det.
+          success: Svargruppe slettet.
+        edit:
+          update: Opdater
+        form:
+          title: Generelle oplysninger
+        help: Brug grupper til at udforme multiple choice-spørgsmål i pakker.
+        new:
+          create: Opretter
+          title: Ny svargruppe
+        update:
+          error: Der var et problem med at opdatere dette svar.
+          success: Svar opdateret.
+      responses:
+        create:
+          error: Der var et problem med at oprette et nyt svar.
+          success: Svar oprettet
+        destroy:
+          error: Der var et problem med at fjerne svaret.
+          success: Svar slettet.
+        edit:
+          update: Opdater
+        form:
+          title: Generelle oplysninger
+        new:
+          create: Opretter
+          title: Nyt svar
+        update:
+          error: Der var et problem med at opdatere dette svar.
+          success: Svar opdateret.
+      titles:
+        consultations: Høringer
+        questions: Spørgsmål
+        response_groups: Svargrupper
+        responses: Svar
+        results: Resultater
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maksimalt antal elementer, der skal vises
+      consultation:
+        start_voting_date: Afstemning begynder
+        view_results: Se resultater
+      consultation_card:
+        view_results: Se resultater
+      consultations:
+        orders:
+          label: 'Sortere høringer efter:'
+          random: Tilfældigt
+          recent: Seneste
+        show:
+          dates: Datoer
+      content_blocks:
+        highlighted_consultations:
+          name: Fremhævede høringer
+      count:
+        title:
+          one: "%{count} høring"
+          other: "%{count} høring"
+      filters:
+        active: Aktiv
+        all: Alle
+        finished: Færdige
+        search: Søg
+        upcoming: Kommende
+      filters_small_view:
+        close_modal: Luk vindue
+        filter: Filtrer
+        filter_by: Filtrer efter
+        unfold: Fold ud
+      highlighted_questions:
+        title: Spørgsmål fra %{scope_name}
+      index:
+        title: Høringer
+      last_activity:
+        new_consultation: Ny høring
+        new_question_at_html: "<span>Nyt spørgsmål på %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Aktive høringer
+            see_all_consultations: Se alle høringer
+            voting_ends_in:
+              one: Afstemning slutter <strong>i morgen</strong>
+              other: Afstemning slutter om <strong>%{count} dage</strong>
+            voting_ends_today: Afstemninger slutter <strong>i dag</strong>
+      question:
+        take_part: Deltag
+        view_results: Se resultater
+        votes_out_of:
+          one: stemme ud af
+          other: stemmer ud af
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Deltagerne kunne fordele et minimum af %{votes} mellem forskellige muligheder.
+          title: I dette spørgsmål skal der træffes flere valg, hvor det er tilladt.
+          total_participants: I alt %{count} mennesker deltog i afstemningen.
+          vote_limit:
+            description: Deltagerne kunne stemme på op til %{limit} muligheder.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Du skal fordele et minimum af %{votes} stemmer blandt forskellige muligheder.
+          title: 'For afstemninger gælder følgende regler:'
+          vote_limit:
+            description: Du kan stemme på op til %{limit}.
+            left: Resterende
+            votes: Stemmer
+      question_votes:
+        create:
+          error: Der var et problem med at afgive stemme vedrørende spørgsmålet
+          success: Du kan ændre det indtil høringens afslutning. Kun den sidste steme vil blive accepteret.
+          title_error: Stemmefejl!
+          title_success: Afstemning registreret
+      regular_questions:
+        title: Spørgsmål til høringen
+      show:
+        badge_name:
+          finished: Færdige
+          open: Åbn
+          open_votes: Åbne afstemninger
+          published_results: Offentliggjorte resultater
+        footer_button_text:
+          debate: Debat
+          view: Vis
+          view_results: Se resultater
+          vote: Afstemning
+        unspecified: Ikke specificeret
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Høringer</strong> er et rum, der giver dig mulighed for at stille et klart spørgsmål til alle de mennesker, der danner en organisation, opfordre til at deltage i høringen, sætte gang i debatten for eller imod et svar. Når høringsdatoen ankommer, kan du stemme og offentliggøre afstemningsresultatet.</p> <p>Eksempler: Høringerne kan dreje sig om næsten alle aspekter, der berører en organisation: nogle eksempler er at ændre navnet eller logoet for den organisation, der tilbyder flere alternativer, at beslutte ja eller nej til at blive en del af en større organisation, at godkende eller forkaste en ny strategisk plan eller resultatet af en arbejdsgruppe eller fastlægge, om positionerne bør forblive højst 1, 2 eller 3 mandater.</p>\n"
+          page: "<p><strong>Høringer</strong> er et rum, der giver dig mulighed for at stille et klart spørgsmål til alle de mennesker, der danner en organisation, opfordre til at deltage i høringen, sætte gang i debatten for eller imod et svar. Når høringsdatoen kommer, kan du stemme og offentliggøre afstemningsresultatet.</p> <p>Eksempler: Høringerne kan dreje sig om næsten alle aspekter, der berører en organisation: nogle eksempler er at ændre navnet eller logoet for den organisation, der tilbyder flere alternativer, at beslutte ja eller nej til at blive en del af en større organisation, at godkende eller forkaste en ny strategisk plan eller resultatet af en arbejdsgruppe eller fastlægge, om positionerne bør forblive højst 1, 2 eller 3 mandater i organisationen.</p>\n"
+          title: Hvad er høringer?
+    menu:
+      consultations: Høringer
+    pages:
+      home:
+        statistics:
+          consultations_count: Høringer
+    questions:
+      next_button: Næste spørgsmål
+      previous_button: Foregående spørgsmål
+      results:
+        title: Resultater
+      show:
+        read_more: Læs mere
+      statistics:
+        assistants_count_title: Assistenter
+        comments_count_title: Bemærkninger
+        meetings_count_title: Møder
+        supports_count_title: Stemmer
+      technical_info:
+        technical_data: Tekniske data
+      vote_button:
+        already_voted: Allerede vedtaget
+        already_voted_hover: Tilbagekald afstemning
+        starting_from: Start fra %{date}
+        verification_required: Bekræft din konto for at stemme
+        vote: Afstemning
+      vote_modal:
+        close_modal: Luk modal
+        contextual_help: Vælg en mulighed.
+        title: 'Høring: spørgsmål ved afstemning'
+      vote_modal_confirm:
+        change: Ændring
+        close_modal: Luk modal
+        confirm: Bekræft
+        contextual_help: Bekræft venligst den valgte løsning.
+        title: 'Høring: bekræft afstemning'
+    resources:
+      consultations:
+        actions:
+          vote: Afstemning
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Bilag
+          categories: Kategorier
+      consultation_voting_data:
+        start_voting_date: Afstemning begynder
+      question_components:
+        question_menu_item: Spørgsmålet
+        unfold: Fold ud
+      question_header:
+        back_to_consultation: Se alle høringer
+        back_to_question: Tilbage til spørgsmålet
