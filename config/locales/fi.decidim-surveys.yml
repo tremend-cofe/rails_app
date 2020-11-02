@@ -1,0 +1,60 @@
+fi:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: Kysely päättynyt
+      decidim/surveys/opened_survey_event: Kysely aloitettu
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Kysely
+        other: Kyselyä
+      decidim/surveys/survey_answer:
+        one: Vastaus
+        other: Vastausta
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Vastaus
+        name: Kysely
+        settings:
+          global:
+            announcement: Ilmoitus
+            clean_after_publish: Poista vastaukset kyselyn julkaisun yhteydessä
+          step:
+            allow_answers: Salli vastaukset
+            allow_unregistered: Salli rekisteröitymättömien käyttäjien vastata kyselyyn
+            allow_unregistered_help: Jos tämä on käytössä, käyttäjän ei tarvitse olla kirjautunut sisään vastatakseen kyselyyn. Tämä saattaa johtaa huonoihin tai epäluotettaviin tietoihin, ja kysely on alttiimpi automatisoiduille hyökkäyksille. Käytä harkiten!
+            announcement: Ilmoitus
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Kysely %{resource_title} tilassa %{participatory_space_title} on suljettu.
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Tilassa %{participatory_space_title} oleva kysely on päättynyt
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on päättynyt.
+        survey_opened:
+          email_intro: 'Kysely %{resource_title} on avattu tilaan %{participatory_space_title}. Voit osallistua siihen seuraavalta sivulta:'
+          email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa näiden ilmoitusten saamisen aiemmasta linkistä.
+          email_subject: Uusi kysely tilassa %{participatory_space_title}
+          notification_title: Kysely <a href="%{resource_path}">%{resource_title}</a> tilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a> on avattu.
+    metrics:
+      survey_answers:
+        description: Sellaisten kyselyjen määrä, joihin osallistujat ovat vastanneet
+        object: vastausta kyselyihin
+        title: Vastaukset kyselyihin
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Kyselyosallistujien vastaukset
+        surveys:
+          update:
+            invalid: Kyselyn tallentaminen epäonnistui.
+            success: Kysely tallennettiin onnistuneesti.
+      last_activity:
+        new_survey_at_html: "<span>Uusi kysely kohteessa %{link}</span>"
+      surveys:
+        answer:
+          invalid: Kyselyyn vastaaminen epäonnistui.
+          spam_detected: Lomakkeeseen vastaaminen epäonnistui. Saatoit toimia liian nopeasti. Yritä uudelleen.
+          success: Kyselyyn vastattiin onnistuneesti.
