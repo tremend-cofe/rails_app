@@ -1,0 +1,238 @@
+lt:
+  activemodel:
+    attributes:
+      answer:
+        description: Aprašymas
+        image: Paveikslėlis
+        proposals: Susiję pasiūlymai
+        title: Pavadinimas
+      election:
+        description: Aprašymas
+        end_time: Balsavimas baigiasi
+        start_time: Balsavimas prasideda
+        title: Pavadinimas
+      question:
+        description: Aprašymas
+        max_selections: Didžiausias pasirenkamų atsakymų skaičius
+        title: Pavadinimas
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Reikia pridėti iš naujo
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Balsuoti
+        name: Rinkimai
+        settings:
+          global:
+            announcement: Pranešimas
+          step:
+            announcement: Pranešimas
+    elections:
+      actions:
+        confirm_destroy: Ar tikrai?
+        destroy: Panaikinti
+        edit: Keisti
+        edit_answers: Keisti atsakymus
+        edit_questions: Keisti klausimus
+        import: Importuoti pasiūlymus į atsakymus
+        new: Naujas %{name}
+        preview: Peržiūrėti
+        publish: Skelbti
+        title: Veiksmai
+        unpublish: Naikinti skelbimą
+      admin:
+        answers:
+          create:
+            invalid: Kuriant šią atsakymą iškilo problema.
+            success: Atsakymas sukurtas.
+          destroy:
+            invalid: Šalinant šį atsakymą iškilo problema.
+            success: Atsakymas pašalintas.
+          edit:
+            title: Keisti atsakymą
+            update: Atnaujinti atsakymą
+          index:
+            title: Atsakymai
+          new:
+            create: Sukurti atsakymą
+            title: Naujas atsakymas
+          update:
+            invalid: Atnaujinant šį atsakymą iškilo problema.
+            success: Atsakymas atnaujintas.
+        elections:
+          create:
+            invalid: Kuriant šiuos rinkimus iškilo problema.
+            success: Rinkimai sukurti.
+          destroy:
+            invalid: Šalinant šiuos rinkimus iškilo problema.
+            success: Rinkimai pašalinti.
+          edit:
+            title: Keisti rinkimus
+            update: Atnaujinti rinkimus
+          index:
+            title: Rinkimai
+          new:
+            create: Sukurti rinkimus
+            title: Nauji rinkimai
+          publish:
+            success: Rinkimai paskelbti.
+          unpublish:
+            success: Rinkimų skelbimas panaikintas.
+          update:
+            invalid: Atnaujinant šiuos rinkimus iškilo problema.
+            success: Rinkimai atnaujinti.
+        models:
+          answer:
+            name: Atsakymas
+          election:
+            name: Rinkimai
+          question:
+            name: Klausimas
+        proposals_imports:
+          create:
+            invalid: Importuojant į atsakymus įtrauktinus pasiūlymus iškilo problema.
+            success: "%{number} pasiūlymai importuoti į atsakymus"
+          new:
+            create: Importuoti pasiūlymus į atsakymus
+            no_components: Šioje dalyvaujamojoje erdvėje nėra kitų pasiūlymų komponentų, pagal kuriuos pasiūlymai būtų įtraukiami į atsakymus.
+            select_component: Pasirinkite komponentą
+        questions:
+          create:
+            invalid: Kuriant šį klausimą iškilo problema.
+            success: Klausimas sukurtas.
+          destroy:
+            invalid: Šalinant šį klausimą iškilo problema.
+            success: Klausimas pašalintas.
+          edit:
+            title: Keisti klausimą
+            update: Atnaujinti klausimą
+          index:
+            title: Klausimai
+          new:
+            create: Sukurti klausimą
+            title: Naujas klausimas
+          update:
+            invalid: Atnaujinant šį klausimą iškilo problema.
+            success: Klausimas atnaujintas.
+      admin_log:
+        election:
+          publish: "%{user_name} paskelbė %{resource_name} rinkimus."
+          unpublish: "%{user_name} panaikino %{resource_name} rinkimų skelbimą."
+      election_m:
+        badge_name:
+          finished: Baigta
+          ongoing: Aktyvus
+          upcoming: Būsima
+        end_date: Baigiasi
+        footer:
+          view: Peržiūrėti
+          vote: Balsuoti
+        label:
+          date: Datos
+        questions: Klausimai %{count}
+        start_date: Prasideda
+        unspecified: Nenurodyta
+      elections:
+        filters:
+          active: Aktyvus
+          all: Visos
+          finished: Baigta
+          search: Ieškoti
+          state: Būsena
+          upcoming: Būsima
+        filters_small_view:
+          close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
+          filter_by: Filtravimo kriterijai
+          unfold: Išskleisti
+        show:
+          back: Visi rinkimai
+          preview: Peržiūrėti
+          vote: Balsuoti
+          voting_period_status:
+            finished: Balsavimas prasidėjo %{start_time} ir baigėsi %{end_time}.
+            ongoing: Balsavimas baigiasi %{end_time}.
+            upcoming: Balsavimas prasideda %{start_time}.
+      models:
+        answer:
+          fields:
+            proposals: Pasiūlymai
+            title: Pavadinimas
+        election:
+          fields:
+            end_time: Baigiasi
+            start_time: Prasideda
+            title: Pavadinimas
+        question:
+          fields:
+            answers: Atsakymai
+            max_selections: Didžiausias pasirenkamų atsakymų skaičius
+            title: Pavadinimas
+      orders:
+        label: Rinkimų rikiavimo kriterijai
+        older: Senesni
+        recent: Naujausi
+      votes:
+        confirm:
+          answer: Atsakymas
+          answer_number: '%{number} atsakymas'
+          confirm: Patvirtinti
+          edit: keisti
+          header: Patvirtinkite savo balsą
+          intro: Toliau pateikiama balsavimo, kurį rengiatės atlikti, santrauka. <br> Patvirtinkite savo balsą arba pakeiskite savo atsakymus.
+          question: Klausimas %{count}
+        confirmed:
+          back: Grįžti į rinkimus.
+          experience: Kokia jūsų patirtis?
+          feedback: Pateikite atsiliepimų
+          header: Balsas patvirtintas
+          lead: Jau atidavėte balsą!
+          text: 'Galite patikrinti, ar jūsų balsas pateko į balsadėžę, pasinaudodami šiuo identifikatoriumi: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Norėdami patikrinti, kopijuokite identifikatorių ir jį įklijuokite <a href="evote-verify">balsavimo patikros puslapyje</a>
+        encrypting:
+          header: Balsas koduojamas...
+          text: Jūsų balsas užšifruojamas, kad galėtumėte balsuoti anonimiškai.
+        header:
+          confirm: Patvirtinkite savo balsą
+          confirmed: Balsas patvirtintas
+          encrypting: Balsas patvirtinamas
+        messages:
+          not_allowed: Dabar balsuoti šiuose rinkimuose negalite.
+        modal:
+          close: Uždaryti
+          proposal_header: 'Pasiūlymai:'
+        new:
+          answer_choices: Galite pasirinkti ne daugiau kaip %{choices} atsakymų arba nė vieno.
+          more_information: Daugiau informacijos
+          preview_alert: Tai – balsavimo kabinos peržiūra.
+          question_steps: '%{current_step} klausimas iš %{total_steps}'
+          selections: "%{selected} iš %{max_selections}<br> pasirinkčių"
+        voting_step:
+          back: Grįžti
+          continue: Kitas
+      warnings:
+        no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
+        no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
+    events:
+      elections:
+        election_published:
+          email_intro: '%{participatory_space_title} %{resource_title} rinkimai dabar aktyvūs. Juos galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} %{resource_title} rinkimai dabar aktyvūs.'
+          notification_title: '%{participatory_space_title} <a href="%{resource_path}">%{resource_title}</a> rinkimai dabar aktyvūs.'
+    participatory_processes:
+      statistics:
+        elections_count: Rinkimai
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Baigti
