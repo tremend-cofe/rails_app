@@ -1,1 +1,32 @@
 hu:
+  decidim:
+    components:
+      add_comment_form:
+        account_message: A hozzászólás hozzáadásához <a href="%{sign_in_url}">jelentkezzen be a fiókjával,</a> vagy <a href="%{sign_up_url}">regisztráljon.</a>.
+        form:
+          user_group_id:
+            label: 'Hozzászólás írása mint:'
+      comment:
+        report:
+          reasons:
+            does_not_belong: Jogellenes tevékenységet, öngyilkossági fenyegetéseket, személyes adatokat vagy mást tartalmaz, amelyről úgy gondolja, hogy nem megfelelő a(z) %{organization_name} szervezet összefüggésén belül.
+      comments:
+        loading: Hozzászólások betöltése…
+    events:
+      comments:
+        comment_by_followed_user_group:
+          email_intro: 'A(z) %{author_name} csoport hozzáadott egy hozzászólást a következőhöz: %{resource_title}. Ezen az oldalon olvashatja el:'
+        comment_created:
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" tartalmat vagy a szerzőjét. Az előző hivatkozás segítségével visszavonhatja a követést.
+        reply_created:
+          email_intro: "%{author_name} válaszolt a(z) %{resource_title} tartalomhoz tartozó hozzászólásához. Ezen az oldalon olvashatja el:"
+          email_subject: "%{author_name} válaszolt a hozzászólására a(z) %{resource_title} tartalom esetében"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a hozzászólására a(z) <a href="%{resource_path}">%{resource_title}</a> tartalom esetében
+        user_group_mentioned:
+          email_outro: Azért kapta ezt az értesítést, mert tagja a(z) %{group_name} csoportnak, amelyet megemlítettek a(z) %{resource_title} tartalomban.
+          email_subject: Megemlítették a(z) %{resource_title} tartalomban a(z) %{group_name} csoport tagjaként
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlítette a(z) <a href="%{resource_path}">%{resource_title}</a> tartalomban a(z) <a href="%{group_path}">%{group_name} %{group_nickname}</a> csoport tagjaként
+        user_mentioned:
+          email_outro: Azért kapta ezt az értesítést, mert megemlítették a(z) %{resource_title} tartalomban.
+          email_subject: Megemlítették a(z) %{resource_title} tartalomban
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlítette a(z) <a href="%{resource_path}">%{resource_title}</a> tartalomban
