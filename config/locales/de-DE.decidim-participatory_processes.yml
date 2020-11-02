@@ -1,0 +1,407 @@
+de:
+  activemodel:
+    attributes:
+      participatory_process:
+        announcement: Bekanntmachung
+        area_id: Gebiet
+        banner_image: Banner-Bild
+        copy_categories: Kategorien kopieren
+        copy_components: Komponenten kopieren
+        copy_steps: Schritte kopieren
+        decidim_area_id: Gebiet
+        description: Beschreibung
+        developer_group: Gruppe der Unterstützer
+        end_date: Enddatum
+        hero_image: Bildstartseite
+        local_area: Gebiet der Organisation
+        meta_scope: Reichweiten-Metadaten
+        participatory_process_group_id: Prozessgruppe
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird entschieden
+        promoted: Unterstützt
+        published_at: Veröffentlicht unter
+        related_process_ids: Verbundene Prozesse
+        scope_id: Reichweite
+        scope_type_max_depth_id: Tiefe des Reichweitenfilters
+        scopes_enabled: Reichweiten aktiviert
+        short_description: Kurzbeschreibung
+        show_metrics: Metriken anzeigen
+        show_statistics: Statistiken einblenden
+        slug: URL-Slug
+        start_date: Anfangsdatum
+        subtitle: Untertitel
+        target: Wer nimmt teil
+        title: Titel
+      participatory_process_group:
+        description: Beschreibung
+        hero_image: Bild
+        participatory_process_ids: Verbundene Prozesse
+      participatory_process_step:
+        cta_path: Pfad der Handlungsaufforderung
+        cta_text: Text der Handlungsaufforderung
+        description: Beschreibung
+        end_date: Enddatum
+        short_description: Kurzbeschreibung
+        start_date: Anfangsdatum
+        title: Titel
+      participatory_process_user_role:
+        email: E-Mail
+        role: Rolle
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Ungültiger Dokumenttyp. Akzeptierte Formate sind: %{valid_mime_types}'
+    models:
+      decidim/participatory_process_step_activated_event: Phase aktiviert
+      decidim/participatory_process_step_changed_event: Phase geändert
+  activerecord:
+    models:
+      decidim/participatory_process_group:
+        one: Beteiligungsprozessgruppe
+        other: Beteiligungsprozessgruppen
+  decidim:
+    admin:
+      actions:
+        activate: Aktivieren
+        configure: Konfigurieren
+        confirm_destroy: Löschen bestätigen
+        destroy: Löschen
+        duplicate: Duplizieren
+        edit: Bearbeiten
+        filter:
+          all_processes: Alle Prozesse anzeigen
+          process_groups: Prozessgruppen
+        new_process: Neuer Prozess
+        new_process_group: Neue Prozessgruppe
+        new_process_step: Neue Phase
+        new_process_user_role: Administrator neuer Prozess
+        preview: Vorschau
+        publish: Veröffentlichen
+        resend_invitation: Einladung erneut senden
+        unpublish: Veröffentlichung rückgängig machen
+      menu:
+        participatory_process_groups: Prozessgruppen
+        participatory_processes_submenu:
+          attachment_collections: Ordner
+          attachment_files: Dateien
+          attachments: Anlagen
+          categories: Kategorien
+          components: Komponenten
+          info: Infos
+          moderations: Moderationen
+          private_users: Private Teilnehmer
+          process_admins: Prozess-Administratoren
+          steps: Phasen
+      models:
+        participatory_process:
+          fields:
+            created_at: Erstellt am
+            private: Privat
+            promoted: Hervorgehoben
+            published: Veröffentlicht
+            title: Titel
+          name: Beteiligungsprozesse
+        participatory_process_group:
+          name: Prozessgruppe
+        participatory_process_step:
+          fields:
+            end_date: Enddatum
+            start_date: Anfangsdatum
+            title: Titel
+          name: Beteiligungsprozessphase
+        participatory_process_user_role:
+          fields:
+            email: E-Mail
+            role: Rolle
+          name: Administrator Beteiligungsprozess
+          roles:
+            collaborator: Mitarbeiter
+            valuator: Bewerter
+        user:
+          fields:
+            invitation_accepted_at: Einladung angenommen am
+            invitation_sent_at: Einladung versendet am
+      participatory_process_copies:
+        new:
+          copy: Kopie
+          select: Wählen Sie aus, welche Daten Sie duplizieren möchten
+          title: Duplizieren Beteiligungsprozess
+      participatory_process_groups:
+        destroy:
+          error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
+          success: Beteiligungsprozessgruppe erfolgreich gelöscht.
+        edit:
+          title: Prozessgruppe bearbeiten
+          update: Aktualisieren
+        new:
+          create: Erstellen
+          title: Neue Prozessgruppe
+        update:
+          error: Beim Aktualisieren dieser Beteiligungsprozessgruppe ist ein Problem aufgetreten.
+          success: Beteiligungsprozessgruppe erfolgreich aktualisiert.
+      participatory_process_imports:
+        create:
+          error: Beim Import dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich importiert.
+        new:
+          select: Wählen Sie aus, welche Daten Sie importieren möchten
+          title: Beteiligungsprozess importiert
+      participatory_process_publications:
+        create:
+          error: Beim Veröffentlichen dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich veröffentlicht.
+        destroy:
+          error: Die Veröffentlichung dieses Beteiligungsprozesses konnte nicht rückgängig gemacht werden.
+          success: Die Veröffentlichung des Beteiligungsprozesses erfolgreich rückgängig gemacht.
+      participatory_process_step_activations:
+        create:
+          error: Beim Aktivieren dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozessphase erfolgreich aktiviert.
+      participatory_process_steps:
+        create:
+          error: Bei der Erstellung einer neuen Beteiligungsprozessphase ist ein Problem aufgetreten.
+          success: Beteiligungsprozessphase erfolgreich erstellt.
+        default_title: Einführung
+        destroy:
+          error:
+            active_step: Die aktive Phase kann nicht gelöscht werden.
+            last_step: Die letzte Phase eines Prozesses kann nicht gelöscht werden.
+          success: Beteiligungsprozessphase erfolgreich gelöscht.
+        edit:
+          title: Beteiligungsprozessphase bearbeiten
+          update: Aktualisieren
+        index:
+          steps_title: Phasen
+        new:
+          create: Erstellen
+          title: Neue Beteiligungsprozessphase
+        ordering:
+          error: Bei der Neuordnung dieser Phasen des Beteiligungsprozesses ist ein Problem aufgetreten.
+        update:
+          error: Bei der Aktualisierung dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_process_user_roles:
+        create:
+          error: Beim Hinzufügen eines Teilnehmers für diesen Beteiligungsprozess ist ein Problem aufgetreten.
+          success: Administrator zu diesem Beteiligungsprozess erfolgreich hinzugefügt.
+        destroy:
+          success: Administrator aus diesem Beteiligungsprozess erfolgreich entfernt.
+        edit:
+          title: Administrator des Beteiligungsprozesses aktualisieren
+          update: Aktualisieren
+        index:
+          process_admins_title: Administratoren von Beteiligungsprozessen
+        new:
+          create: Erstellen
+          title: Administrator neuer Beteiligungsprozess
+        update:
+          error: Beim Aktualisieren eines Administrators für diesen Beteiligungsprozess ist ein Problem aufgetreten.
+          success: Administrator für diesen Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_processes:
+        create:
+          error: Bei der Erstellung eines neuen Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich erstellt. Konfigurieren Sie jetzt seine Phasen.
+        edit:
+          update: Aktualisieren
+        index:
+          not_published: Nicht veröffentlicht
+          private: Privat
+          public: Öffentlich
+          published: Veröffentlicht
+        new:
+          create: Erstellen
+          title: Neuer Beteiligungsprozess
+        update:
+          error: Bei der Aktualisierung dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich aktualisiert.
+      participatory_processes_copies:
+        create:
+          error: Beim Duplizieren dieses Beteiligungsprozesses ist ein Problem aufgetreten.
+          success: Beteiligungsprozess erfolgreich dupliziert.
+      participatory_processes_group:
+        create:
+          error: Bei der Erstellung einer neuen Beteiligungsprozessgruppe ist ein Problem aufgetreten.
+          success: Beteiligungsprozessgruppe erfolgreich erstellt.
+      titles:
+        participatory_process_groups: Beteiligungsprozessgruppen
+      users:
+        resend_invitation:
+          error: Beim erneuten Versenden der Einladung ist ein Problem aufgetreten.
+          success: Einladung erfolgreich erneut versendet.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} hat den %{resource_name} Beteiligungsprozess erstellt"
+        publish: "%{user_name} hat den %{resource_name} Beteiligungsprozess veröffentlicht"
+        unpublish: "%{user_name} hat die Veröffentlichung des Beteiligungsprozesses %{resource_name} rückgängig gemacht."
+        update: "%{user_name} hat den %{resource_name} Beteiligungsprozess aktualisiert"
+      participatory_process_group:
+        create: "%{user_name} hat die %{resource_name} Beteiligungsprozessgruppe erstellt"
+        update: "%{user_name} hat die %{resource_name} Beteiligungsprozessgruppe aktualisiert"
+      participatory_process_step:
+        activate: "%{user_name} hat die %{resource_name} Phase im %{space_name} Beteiligungsprozess aktiviert"
+        create: "%{user_name} hat die %{resource_name} Phase im %{space_name} Beteiligungsprozess erstellt"
+        delete: "%{user_name} hat die %{resource_name} Phase im %{space_name} Beteiligungsprozess gelöscht"
+        update: "%{user_name} hat die %{resource_name} Phase im %{space_name} Beteiligungsprozess aktualisiert"
+      participatory_process_user_role:
+        create: "%{user_name} hat den Teilnehmer %{resource_name} zum %{space_name} Beteiligungsprozess eingeladen"
+        delete: "%{user_name} hat den Teilnehmer %{resource_name} aus dem %{space_name} Beteiligungsprozess entfernt"
+        update: "%{user_name} hat die Rolle des Teilnehmers %{resource_name} im %{space_name} Beteiligungsprozess geändert"
+    events:
+      participatory_process:
+        role_assigned:
+          email_intro: Sie wurden als %{role} für den Beteiligungsprozess "%{resource_title}" zugewiesen.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{role} des "%{resource_title}" Beteiligungsprozesses sind.
+          email_subject: Sie sind als %{role} für "%{resource_title}" zugewiesen.
+          notification_title: Sie wurden als %{role} für den Beteiligungsprozess <a href="%{resource_url}">%{resource_title}</a> zugewiesen.
+        step_activated:
+          email_intro: 'Die %{resource_title} Phase ist jetzt aktiv für %{participatory_space_title}. Einsehbar von dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine Aktualisierung zu %{participatory_space_title}
+          notification_title: Die %{resource_title} Phase ist jetzt aktiv für <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Die Daten für die %{resource_title} Phase im %{participatory_space_title} wurden aktualisiert. Einsehbar von dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Eine Aktualisierung zu %{participatory_space_title}
+          notification_title: Die Daten für die <a href="%{resource_path}">%{resource_title}</a> Phase im <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
+    help:
+      participatory_spaces:
+        participatory_processes:
+          contextual: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipatorischen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese in persönlichen oder virtuellen Treffen diskutieren und schließlich eine Priorisierung vornehmen) mit dem Ziel, ein bestimmtes Thema zu definieren und eine Entscheidung zu treffen.</p> <p>Beispiele für Beteiligungsprozesse: ein Prozess der Wahl von Ausschussmitgliedern (bei dem zunächst Kandidaturen präsentiert, dann diskutiert und schließlich ein Kandidat ausgewählt wird), partizipatorische Haushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit den verfügbaren Mitteln abgestimmt wird), ein strategischer Planungsprozess, die gemeinsame Erarbeitung einer Verordnung oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines Plans für die öffentliche Ordnung.</p>\n"
+          page: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipatorischen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese in persönlichen oder virtuellen Treffen diskutieren und schließlich eine Priorisierung vornehmen) mit dem Ziel, ein bestimmtes Thema zu definieren und eine Entscheidung zu treffen.</p> <p>Beispiele für Beteiligungsprozesse: ein Prozess der Wahl von Ausschussmitgliedern (bei dem zunächst Kandidaturen präsentiert, dann diskutiert und schließlich ein Kandidat ausgewählt wird), partizipatorische Haushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit den verfügbaren Mitteln abgestimmt wird), ein strategischer Planungsprozess, die gemeinsame Erarbeitung einer Verordnung oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines Plans für die öffentliche Ordnung.</p>\n"
+          title: Was ist ein Beteiligungsprozess?
+    metrics:
+      participatory_processes:
+        description: Anzahl der Beteiligungsprozesse in dieser Organisation
+        object: Beteiligungsprozesse
+        title: Beteiligungsprozesse
+    participatory_process:
+      show:
+        related_assemblies: Verbundene Versammlungen
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 Prozess für %{group}
+          other: "%{count} Prozesse für %{group}"
+        title: Beteiligungsprozessgruppen
+    participatory_process_steps:
+      index:
+        process_steps: Prozessphasen
+        title: Beteiligungsprozessphasen
+    participatory_processes:
+      admin:
+        content_blocks:
+          highlighted_processes:
+            max_results: Maximale Anzahl der anzuzeigenden Elemente
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-Slugs werden verwendet, um die URLs zu erstellen, die auf diesen Prozess verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+        participatory_process_imports:
+          form:
+            document_legend: Ein Dokument hinzufügen
+            slug_help: 'URL-Slugs werden verwendet, um die URLs zu erstellen, die auf diesen Prozess verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+        participatory_process_steps:
+          form:
+            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
+            cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
+        participatory_processes:
+          form:
+            announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer rechts unterhalb der Prozessinformationen angezeigt.
+            duration: Dauer
+            filters: Filter
+            images: Abbildungen
+            metadata: Metadaten
+            other: Sonstige
+            related_processes: Verbundene Prozesse
+            scope_type_max_depth_help: Schränken Sie die Filtertiefe für die Reichweite ein; der Filter reicht von allgemein bis zur ausgewählten Reichweite.
+            select_an_area: Ein Gebiet auswählen
+            select_process_group: Eine Prozessgruppe auswählen
+            slug_help: 'URL-Slugs werden verwendet, um die URLs zu erstellen, die auf diesen Prozess verweisen. Es sind nur Buchstaben, Zahlen und Bindestriche erlaubt; an der ersten Stelle muss ein Buchstabe stehen. Beispiel: %{url}'
+            title: Allgemeine Informationen
+            visbility: Sichtbarkeit
+      content_blocks:
+        highlighted_processes:
+          name: Hervorgehobene Prozesse
+      pages:
+        home:
+          highlighted_processes:
+            active_step: Aktive Phase
+            more_information: Weitere Informationen
+            participate: Teilnehmen
+            participate_in: Am Prozess %{resource_name} teilnehmen
+      participatory_process_steps:
+        index:
+          back_to_process: Zurück zur Prozessseite
+      participatory_processes:
+        filters:
+          explanations:
+            no_active_nor_upcoming: Keine aktiven oder anstehenden Prozesse
+            no_active_nor_upcoming_callout: Es gibt keine aktiven oder anstehenden Prozesse. Hier ist eine Liste der früheren Prozesse.
+          names:
+            active: Aktiv
+            all: Alle
+            past: Frühere
+            upcoming: Anstehend
+          see: Siehe
+        index:
+          loading: Ergebnisse laden...
+      show:
+        area: Gebiet
+        dates: Daten
+        developer_group: Gruppe der Unterstützer
+        end_date: Enddatum
+        local_area: Gebiet der Organisation
+        participatory_scope: Was wird entschieden
+        participatory_structure: Wie wird entschieden
+        private_space: Dies ist ein privater Prozess
+        related_processes: Verbundene Prozesse
+        scope: Reichweite
+        start_date: Anfangsdatum
+        target: Wer nimmt teil
+        unspecified: Keine Angabe
+      statistics:
+        answers_count: Antworten
+        comments_count: Kommentare
+        debates_count: Debatten
+        endorsements_count: Genehmigungen
+        followers_count: Follower
+        headline: Statistik
+        no_stats: Es gibt noch keine Statistiken.
+        orders_count: Unterstützungen
+        pages_count: Seiten
+        participants_count: Teilnehmer
+        projects_count: Projekte
+        results_count: Ergebnisse
+        supports_count: Unterstützungen
+        surveys_count: Umfragen
+        users_count: Teilnehmer
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Durchsuchen
+          browse_resource: Prozessgruppe durchsuchen %{resource_name}
+          processes_count: 'Prozesse:'
+      participatory_process_widgets:
+        show:
+          active_step: Aktive Phase
+          take_part: Teilnehmen
+      participatory_processes:
+        index:
+          promoted_processes: Hervorgehobene Prozesse
+        participatory_process:
+          active_step: 'Derzeitige Phase:'
+          more_info: Weitere Informationen
+          more_info_about: Weitere Informationen über den Prozess %{resource_name}
+          take_part: Teilnehmen
+          take_part_in: Am Prozess teilnehmen %{resource_name}
+        promoted_process:
+          active_step: 'Derzeitige Phase:'
+          more_info: Weitere Informationen
+          more_info_about: Weitere Informationen über den Prozess %{resource_name}
+          take_part: Teilnehmen
+          take_part_in: Am Prozess teilnehmen %{resource_name}
+      process_header_steps:
+        step: Phase %{current} von %{total}
+        view_steps: Prozessphasen
