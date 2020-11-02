@@ -1,0 +1,237 @@
+cs:
+  activemodel:
+    attributes:
+      answer:
+        description: Popis
+        image: Obrázek
+        proposals: Související návrhy
+        title: Název
+      election:
+        description: Popis
+        end_time: Hlasování končí
+        start_time: Hlasování začíná
+        title: Název
+      question:
+        description: Popis
+        max_selections: Maximální počet možností na výběr
+        title: Název
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Je potřeba znovu přiložit
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Je potřeba znovu přiložit
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Hlasovat
+        name: Volby
+        settings:
+          global:
+            announcement: Oznámení
+          step:
+            announcement: Oznámení
+    elections:
+      actions:
+        confirm_destroy: Jste si jistí?
+        destroy: Odstranit
+        edit: Upravit
+        edit_answers: Upravit odpovědi
+        edit_questions: Upravit otázky
+        import: Importovat návrhy k odpovědím
+        new: Nová %{name}
+        preview: Náhled
+        publish: Zveřejnit
+        title: Akce
+        unpublish: Zrušit zveřejnění
+      admin:
+        answers:
+          create:
+            invalid: Při vytváření této odpovědi došlo k problému
+            success: Odpověď byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této odpovědi došlo k problému
+            success: Odpověď byla úspěšně smazána
+          edit:
+            title: Upravit odpověď
+            update: Aktualizovat odpověď
+          index:
+            title: Odpovědi
+          new:
+            create: Vytvořit odpověď
+            title: Nová odpověď
+          update:
+            invalid: Při aktualizaci této odpovědi došlo k problému
+            success: Odpověď byla úspěšně aktualizována
+        elections:
+          create:
+            invalid: Při vytváření této volby došlo k problému
+            success: Volba byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této volby došlo k problému
+            success: Volba byla úspěšně smazána
+          edit:
+            title: Upravit volbu
+            update: Aktualizovat volbu
+          index:
+            title: Volby
+          new:
+            create: Vytvořit volbu
+            title: Nová volba
+          publish:
+            success: Volba byla úspěšně zveřejněna.
+          unpublish:
+            success: Zveřejnění volby bylo úspěšně zrušeno.
+          update:
+            invalid: Při aktualizaci této volby došlo k problému
+            success: Volba byla úspěšně aktualizována
+        models:
+          answer:
+            name: Odpověď
+          election:
+            name: Volba
+          question:
+            name: Otázka
+        proposals_imports:
+          create:
+            invalid: Při importu návrhů k odpovědím došlo k problému
+            success: "Počet návrhů, které byly úspěšně importovány k odpovědím: %{number}"
+          new:
+            create: Importovat návrhy k odpovědím
+            no_components: V tomto prostoru pro účastníky nejsou další prvky návrhu, které mají nahrát návrhy k odpovědím.
+            select_component: Vyberte prvek
+        questions:
+          create:
+            invalid: Při vytváření této otázky došlo k problému
+            success: Otázka byla úspěšně vytvořena
+          destroy:
+            invalid: Při mazání této otázky došlo k problému
+            success: Otázka byla úspěšně smazána
+          edit:
+            title: Upravit otázku
+            update: Aktualizovat otázku
+          index:
+            title: Otázky
+          new:
+            create: Vytvořit otázku
+            title: Nová otázka
+          update:
+            invalid: Při aktualizaci této otázky došlo k problému
+            success: Otázka byla úspěšně aktualizována
+      admin_log:
+        election:
+          publish: "Uživatel %{user_name} zveřejnil volbu %{resource_name}"
+          unpublish: "Uživatel %{user_name} zrušil zveřejnění volby %{resource_name}"
+      election_m:
+        badge_name:
+          finished: Dokončené
+          ongoing: Aktivní
+          upcoming: Nadcházející
+        end_date: Končí
+        footer:
+          view: Zobrazit
+          vote: Hlasovat
+        label:
+          date: Data
+        questions: 'Počet otázek: %{count}'
+        start_date: Začíná
+        unspecified: Neurčeno
+      elections:
+        filters:
+          active: Aktivní
+          all: Všechny
+          finished: Dokončené
+          search: Hledat
+          upcoming: Nadcházející
+        filters_small_view:
+          close_modal: Zavřít modální okno
+          filter: Filtrovat
+          filter_by: Filtrovat podle
+          unfold: Rozbalit
+        show:
+          back: Všechny volby
+          preview: Náhled
+          vote: Hlasovat
+          voting_period_status:
+            finished: Hlasování začalo v %{start_time} a skončilo v %{end_time}
+            ongoing: Hlasování končí v %{end_time}
+            upcoming: Hlasování začíná v %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Návrhy
+            title: Název
+        election:
+          fields:
+            end_time: Konec v
+            start_time: Začátek v
+            title: Název
+        question:
+          fields:
+            answers: Odpovědi
+            max_selections: Max. počet možností na výběr
+            title: Název
+      orders:
+        label: Seřadit volby podle
+        older: Starší
+        recent: Nedávné
+      votes:
+        confirm:
+          answer: Odpověď
+          answer_number: odpověď %{number}
+          confirm: Potvrdit
+          edit: upravit
+          header: Potvrdit hlas
+          intro: Tady je shrnutí hlasů, které chcete odevzdat. <br> Potvrďte svůj hlas nebo upravte své odpovědi.
+          question: 'Počet otázek: %{count}'
+        confirmed:
+          back: Zpět k volbám
+          experience: Jaká byla vaše zkušenost?
+          feedback: Podělte se o zpětnou vazbu
+          header: Hlasování potvrzeno
+          lead: Váš hlas už byl odevzdán.
+          text: 'Pomocí tohoto identifikátoru si můžete ověřit, že váš hlas byl úspěšně vložen do volební urny: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Za účelem ověření identifikátor zkopírujte a vložte ho na <a href="evote-verify">stránku ověření hlasů</a>
+        encrypting:
+          header: Hlas se šifruje...
+          text: Váš hlas se šifruje, abyste ho mohli odevzdat anonymně.
+        header:
+          confirm: Potvrdit hlas
+          confirmed: Hlasování potvrzeno
+          encrypting: Hlas se potvrzuje
+        messages:
+          not_allowed: Momentálně nemáte povoleno hlasovat v této volbě.
+        modal:
+          close: Zavřít
+          proposal_header: 'Návrhy:'
+        new:
+          answer_choices: Můžete vybrat až %{choices} odpovědí nebo žádnou
+          more_information: Další informace
+          preview_alert: Toto je náhled volební budky.
+          question_steps: Otázka %{current_step} z %{total_steps}
+          selections: "%{selected} z %{max_selections}<br> voleb"
+        voting_step:
+          back: Zpět
+          continue: Další
+      warnings:
+        no_elections_warning: Vašim kritériím vyhledávání neodpovídají žádné volby nebo žádné volby nejsou naplánovány.
+        no_scheduled_elections_warning: Momentálně nejsou naplánovány žádné volby, ale tady najdete seznam všech uplynulých voleb.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}. Můžete ji vidět na této stránce:'
+          email_outro: Toto oznámení jste obdrželi, protože sledujete prostor %{participatory_space_title}. Pokud nechcete oznámení dostávat, klikněte na předchozí odkaz.
+          email_subject: Volba %{resource_title} je nyní aktivní pro %{participatory_space_title}.
+          notification_title: Volba <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Volby
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Odejít
