@@ -1,1 +1,79 @@
 lt:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Ar tikrai norite pašalinti šį įrašą?
+        destroy: Pašalinti
+        edit: Keisti
+        new: Naujas įrašas
+        title: Veiksmai
+      admin:
+        models:
+          components:
+            body: Pagrindinė dalis
+          post:
+            name: Įrašas
+        posts:
+          create:
+            invalid: Kuriant šį įrašą iškilo problema.
+            success: Įrašas sukurtas.
+          destroy:
+            success: Įrašas pašalintas.
+          edit:
+            save: Atnaujinti
+          index:
+            title: Įrašai
+          new:
+            create: Sukurti
+            title: Sukurti įrašą
+          update:
+            invalid: Išsaugant šį įrašą iškilo problema.
+            success: Įrašas išsaugotas.
+      last_activity:
+        new_post_at_html: "<span>Naujas įrašas %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autorius
+            body: Pagrindinė dalis
+            created_at: Sukurta
+            title: pavadinimas
+      posts:
+        show:
+          back: Grįžti į sąrašą
+          comments: Komentarai
+          view: Peržiūrėti
+        sidebar_blog:
+          comments: komentarai
+          most_commented_posts: Labiausiai komentuojami įrašai
+      read_more: Išskleisti
+    components:
+      blogs:
+        name: Tinklaraštis
+        settings:
+          global:
+            announcement: Pranešimas
+            comments_enabled: Komentarai įjungti
+            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
+          step:
+            announcement: Pranešimas
+            comments_blocked: Komentarai užblokuoti
+            endorsements_blocked: Pritarimai užblokuoti
+            endorsements_enabled: Pritarimai aktyvinti
+    events:
+      blogs:
+        post_created:
+          email_intro: Erdvėje „%{participatory_space_title}“, kurią sekate, paskelbtas įrašas „%{resource_title}“.
+          email_outro: Šį pranešimą gavote dėl to, kad sekate „%{participatory_space_title}“. Jūs galite jos nebesekti spustelėdami ankstesnę nuorodą.
+          email_subject: Naujas įrašas paskelbtas %{participatory_space_title}
+          notification_title: '%{participatory_space_title} paskelbtas įrašas <a href="%{resource_path}">%{resource_title}</a>.'
+    pages:
+      home:
+        statistics:
+          posts_count: Įrašai
+    participatory_processes:
+      statistics:
+        posts_count: Įrašai
