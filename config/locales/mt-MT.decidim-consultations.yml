@@ -1,0 +1,341 @@
+mt:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Immaġni tal-istrixxun
+        decidim_highlighted_scope_id: Kamp ta’ applikazzjoni ħħajlajtjat
+        description: Deskrizzjoni
+        end_voting_date: Tintemm il-votazzjoni
+        introductory_image: Immaġni introduttorja
+        introductory_video_url: URL tal-vidjow introduttorju
+        questions: Mistoqsijiet
+        start_voting_date: Tibda l-votazzjoni
+        subtitle: Sottotitlu
+        title: Titlu
+      question:
+        banner_image: Immaġni tal-istrixxun
+        decidim_scope_id: Żona muniċipali
+        hero_image: Immaġni tal-paġna ewlenija
+        i_frame_url: URL tas-sistema ta’ votazzjoni esterna
+        instructions: Istruzzjonijiet addizzjonali għall-votazzjoni
+        max_votes: Għadd massimu ta' voti
+        min_votes: Għadd minimu ta’ voti
+        origin_scope: Kamp ta’ applikazzjoni
+        origin_title: Oriġini
+        origin_url: URL tal-Oriġini
+        participatory_scope: Kamp ta’ applikazzjoni parteċipatorju
+        promoter_group: Grupp promotur
+        question_context: Kuntest
+        reference: Referenza
+        scope: Żona muniċipali
+        subtitle: Sottotitlu
+        vote: Sistema ta’ votazzjoni esterna
+        what_is_decided: X’jiġi deċiż
+      response:
+        decidim_consultations_response_group_id: Grupp
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: In-numru massimu ta’ voti għandu jkun ogħla mill-minimu jew daqsu.
+      vote:
+        decidim_consultations_response_id:
+          not_found: It-tweġiba ma nstabitx.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: In-numru ta’ voti huwa invalidu
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Lura għat-tweġibiet
+        new_consultation: Konsultazzjoni ġdida
+        new_question: Mistoqsija ġdida
+        new_response: Tweġiba ġdida
+        new_response_group: Grupp ġdid
+        publish_results: Ippubblika r-riżultati
+        response_groups: Ġestixxi l-gruppi tat-tweġibiet
+        unpublish_results: Neħħi l-pubblikazzjoni tar-riżultati
+      consultation_publications:
+        create:
+          error: Kien hemm problema bil-pubblikazzjoni ta’ din il-konsultazzjoni.
+          success: Il-konsultazzjoni ġiet ippubblikata.
+        destroy:
+          error: Kien hemm problema biex titneħħa l-pubblikazzjoni ta’ din il-konsultazzjoni.
+          success: Il-pubblikazzjoni tal-konsultazzjoni tneħħiet.
+      consultation_results_publications:
+        create:
+          error: Kien hemm problema biex jiġu ppubblikati r-riżultati għal din il-konsultazzjoni.
+          success: Ir-riżultati tal-konsultazzjoni ġew ippubblikati.
+        destroy:
+          error: Kien hemm problema biex titneħħa l-pubblikazzjoni tar-riżultati għal din il-konsultazzjoni.
+          success: Il-pubblikazzjoni tar-riżultati tal-konsultazzjoni tneħħiet.
+      consultations:
+        create:
+          error: Kien hemm problema biex tinħoloq konsultazzjoni ġdida.
+          success: Il-konsultazzjoni nħolqot.
+        edit:
+          update: Aġġorna
+        form:
+          slug_help: 'Jintużaw URL slugs biex jiġu ġġenerati l-URLs li joħduk f’din il-konsultazzjoni. Jaċċettaw biss ittri, numri u singijiet, u jridu jibdew b’ittra. Eżempju: %{url}'
+          title: Informazzjoni ġenerali
+        index:
+          not_published: Mhux ippubblikat
+          published: Ippubblikat
+        new:
+          create: Oħloq
+          title: Konsultazzjoni ġdida
+        results:
+          not_visible: Ir-riżultati se jkunu disponibbli meta tagħlaq il-konsultazzjoni
+          participants: "Parteċipanti: %{count}"
+          total_votes: 'Total ta'' voti: %{count}'
+        update:
+          error: Kien hemm problema bl-aġġornament ta’ din il-konsultazzjoni.
+          success: Il-konsultazzjoni ġiet aġġornata.
+      menu:
+        consultations: Konsultazzjonijiet
+        consultations_submenu:
+          info: Informazzjoni
+          questions: Mistoqsijiet
+          results: Riżultati
+        questions_submenu:
+          components: Komponenti
+          configuration: Konfigurazzjoni
+          consultation: Konsultazzjoni
+          info: Informazzjoni
+          responses: Tweġibiet
+      models:
+        consultation:
+          fields:
+            created_at: Inħolqot fi
+            published: Ippubblikat
+            title: Titlu
+        question:
+          fields:
+            created_at: Inħolqot fi
+            published: Ippubblikat
+            title: Titlu
+        response:
+          fields:
+            created_at: Inħolqot fi
+            response_group: Grupp
+            title: Titlu
+      question_configuration:
+        disable_external_voting: Iddiżattiva l-votazzjoni esterna għall-konfigurazzjonijiet avvanzati
+        form:
+          help: Stabbilixxi mistoqsijiet b’għażliet multipli billi żżid l-għadd massimu ta’ tweġibiet li jista’ jagħżel parteċipant. Il-valur massimu prestabbilit huwa 1, li jfisser li tista’ tiġi vvutata tweġiba waħda biss.
+          title: Konfigurazzjoni avvanzata
+      question_publications:
+        create:
+          error: Kien hemm problema bil-pubblikazzjoni ta’ din il-mistoqsija.
+          success: Il-mistoqsija ġiet ippubblikata.
+        destroy:
+          error: Kien hemm problema biex titneħħa l-pubblikazzjoni ta’ din il-mistoqsija.
+          success: Il-pubblikazzjoni tal-mistoqsija tneħħiet.
+      questions:
+        create:
+          error: Kien hemm problema biex tinħoloq mistoqsija ġdida.
+          success: Il-mistoqsija nħolqot.
+        destroy:
+          success: Il-mistoqsija tħassret.
+        edit:
+          update: Aġġorna
+        form:
+          title: Informazzjoni ġenerali
+        index:
+          not_published: Mhux ippubblikat
+          published: Ippubblikat
+        new:
+          create: Oħloq
+          title: Mistoqsija ġdida
+        update:
+          error: Kien hemm problema biex tiġi aġġornata din il-mistoqsija.
+          success: Il-mistoqsija ġiet aġġornata.
+      response_groups:
+        create:
+          error: Kien hemm problema biex jinħoloq grupp ġdid għat-tweġibiet.
+          success: Il-grupp għat-tweġibiet inħoloq.
+        destroy:
+          error: Kien hemm problema biex jitneħħa l-grupp għat-tweġibiet. Ara li l-ebda tweġiba ma tkun tiddependi minnu.
+          success: Il-grupp għat-tweġibiet tħassar.
+        edit:
+          update: Aġġorna
+        form:
+          title: Informazzjoni ġenerali
+        help: Uża l-gruppi biex torganizza mistoqsijiet b’għażliet multipli f’pakketti.
+        new:
+          create: Oħloq
+          title: Grupp għat-tweġibiet ġdid
+        update:
+          error: Kien hemm problema biex tiġi aġġornata din it-tweġiba.
+          success: It-tweġiba ġiet aġġornata.
+      responses:
+        create:
+          error: Kien hemm problema biex tinħoloq tweġiba ġdida.
+          success: It-tweġiba nħolqot.
+        destroy:
+          error: Kien hemm problema biex titneħħa t-tweġiba.
+          success: It-tweġiba tħassret.
+        edit:
+          update: Aġġorna
+        form:
+          title: Informazzjoni ġenerali
+        new:
+          create: Oħloq
+          title: Tweġiba ġdida
+        update:
+          error: Kien hemm problema biex tiġi aġġornata din it-tweġiba.
+          success: It-tweġiba ġiet aġġornata.
+      titles:
+        consultations: Konsultazzjonijiet
+        questions: Mistoqsijiet
+        response_groups: Gruppi għat-Tweġibiet
+        responses: Tweġibiet
+        results: Riżultati
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Ammont massimu ta’ elementi li jridu jintwerew
+      consultation:
+        start_voting_date: Tibda l-votazzjoni
+        view_results: Ara r-riżultati
+      consultation_card:
+        view_results: Ara r-riżultati
+      consultations:
+        orders:
+          label: 'Issortja l-konsultazzjonijiet skont:'
+          random: Mod każwali
+          recent: L-aktar reċenti
+        show:
+          dates: Dati
+      content_blocks:
+        highlighted_consultations:
+          name: Konsultazzjonijiet iħħajlajtjati
+      filters:
+        active: Attivi
+        all: Kollha
+        finished: Lesti
+        search: Fittex
+        upcoming: Li Ġejjin
+      filters_small_view:
+        close_modal: Agħlaq it-tieqa
+        filter: Iffiltra
+        filter_by: Iffiltra skont
+        unfold: Iftaħ
+      highlighted_questions:
+        title: Mistoqsijiet mingħand %{scope_name}
+      index:
+        title: Konsultazzjonijiet
+      last_activity:
+        new_consultation: Konsultazzjoni ġdida
+        new_question_at_html: "<span>Mistoqsija ġdida fi %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Konsultazzjonijiet attivi
+            see_all_consultations: Ara l-konsultazzjonijiet kollha
+            voting_ends_today: Il-votazzjoni tintemm <strong>illum</strong>
+      question:
+        take_part: Ħu sehem
+        view_results: Ara r-riżultati
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: 'Minimu ta'' voti li l-parteċipanti jistgħu jqassmu fost il-possibbiltajiet differenti: %{votes}.'
+          title: F’din il-mistoqsija huma permessi għażliet multipli
+          total_participants: 'Total ta’ persuni li pparteċipaw fil-vot: %{count}.'
+          vote_limit:
+            description: 'Kemm jistgħu jivvutaw possibbiltajiet il-parteċipanti: %{limit}.'
+        voting_rules:
+          minimum_votes_per_user:
+            description: 'Minimu ta'' voti li trid tqassam fost il-possibbiltajiet differenti: %{votes}.'
+          title: 'Il-votazzjonijiet huma soġġetti għar-regoli li ġejjin:'
+          vote_limit:
+            description: 'Massimu ta'' possibbiltajiet li tista’ tivvota: %{limit}.'
+            left: Li fadal
+            votes: Voti
+      question_votes:
+        create:
+          error: Kien hemm problema biex tivvota għall-mistoqsija
+          success: Tista’ tibdilha sa tmiem il-konsultazzjoni. L-aħħar vot biss jiġi aċċettat.
+          title_error: Żball fil-votazzjoni!
+          title_success: Il-vot ġie rreġistrat
+      regular_questions:
+        title: Mistoqsijiet għal din il-konsultazzjoni
+      show:
+        badge_name:
+          finished: Lesti
+          open: Miftuħa
+          open_votes: Votazzjonijiet miftuħa
+          published_results: Riżultati ppubblikati
+        footer_button_text:
+          debate: Dibattitu
+          view: Ara
+          view_results: Ara r-riżultati
+          vote: Vot
+        unspecified: Mhux speċifikat
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Il-konsultazzjonijiet</strong> huma spazju li jippermettilek tistaqsi mistoqsija ċara lin-nies kollha li jiffurmaw organizzazzjoni, tagħmel sejħa biex tipparteċipa fil-konsultazzjoni, tagħti bidu u tordna d-dibattitu favur jew kontra tweġiba. Meta tasal id-data tal-konsultazzjoni, tista’ tivvota u tippubblika r-riżultati tal-voti.</p> <p>Eżempji: Il-konsultazzjonijiet jistgħu jkunu dwar kważi kwalunkwe aspett li jaffettwa organizzazzjoni: xi eżempji huma l-bdil tal-isem jew il-logo tal-organizzazzjoni li joffri diversi alternattivi, deċiżjoni bejn Iva jew Le dwar issirx parti minn organizzazzjoni akbar, validazzjoni jew ċaħda ta’ pjan strateġiku ġdid jew ir-riżultat ta’ grupp ta’ ħidma, jew definizzjoni ta’ jekk il-karigi għandhomx jibqgħu għal sa massimu ta’ mandat, 2 jew 3 mandati.</p>\n"
+          page: "<p><strong>Il-konsultazzjonijiet</strong> huma spazju li jippermettilek tistaqsi mistoqsija ċara lin-nies kollha li jiffurmaw organizzazzjoni, tagħmel sejħa biex tipparteċipa fil-konsultazzjoni, tagħti bidu u tordna d-dibattitu favur jew kontra tweġiba. Meta tasal id-data tal-konsultazzjoni, tista’ tivvota u tippubblika r-riżultati tal-voti.</p> <p>Eżempji: Il-konsultazzjonijiet jistgħu jkunu dwar kważi kwalunkwe aspett li jaffettwa organizzazzjoni: xi eżempji huma l-bdil tal-isem jew il-logo tal-organizzazzjoni li joffri diversi alternattivi, deċiżjoni bejn Iva jew Le dwar issirx parti minn organizzazzjoni akbar, validazzjoni jew ċaħda ta’ pjan strateġiku ġdid jew ir-riżultat ta’ grupp ta’ ħidma, jew definizzjoni ta’ jekk il-karigi għandhomx jibqgħu għal sa massimu ta’ mandat, 2 jew 3 mandati fl-organizzazzjoni.</p>\n"
+          title: X’inhuma l-konsultazzjonijiet?
+    menu:
+      consultations: Konsultazzjonijiet
+    pages:
+      home:
+        statistics:
+          consultations_count: Konsultazzjonijiet
+    questions:
+      next_button: Il-mistoqsija li jmiss
+      previous_button: Il-mistoqsija ta’ qabel
+      results:
+        title: Riżultati
+      show:
+        read_more: Aqra aktar
+      statistics:
+        assistants_count_title: Assistenti
+        comments_count_title: Kummenti
+        meetings_count_title: Laqgħat
+        supports_count_title: Voti
+      technical_info:
+        technical_data: Data teknika
+      vote_button:
+        already_voted: Diġà vvutati
+        already_voted_hover: Irrevoka l-vot
+        starting_from: 'Data tal-bidu: %{date}'
+        verification_required: Ivverifika l-kont tiegħek biex tivvota
+        vote: Vot
+      vote_modal:
+        close_modal: Agħlaq il-kaxxa ż-żgħira
+        contextual_help: Agħżel possibbiltà.
+        title: 'Konsultazzjoni: votazzjoni dwar mistoqsija'
+      vote_modal_confirm:
+        change: Ibdel
+        close_modal: Agħlaq il-kaxxa ż-żgħira
+        confirm: Ikkonferma
+        contextual_help: Ikkonferma l-possibbiltà magħżula.
+        title: 'Konsultazzjoni: ikkonferma l-vot'
+    resources:
+      consultations:
+        actions:
+          vote: Ivvota
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Hemżiet
+          categories: Kategoriji
+      consultation_voting_data:
+        start_voting_date: Tibda l-votazzjoni
+      question_components:
+        question_menu_item: Il-mistoqsija
+        unfold: Iftaħ
+      question_header:
+        back_to_consultation: Ara l-konsultazzjonijiet kollha
+        back_to_question: Lura għall-mistoqsija
