@@ -1,14 +1,343 @@
 ro:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Imagine banner
+        decidim_highlighted_scope_id: Domeniu evidențiat
+        description: Descriere
+        end_voting_date: Votarea se încheie
+        introductory_image: Imagine introductivă
+        introductory_video_url: URL-ul filmului introductiv
+        questions: Întrebări
+        slug: Slug URL
+        start_voting_date: Votarea începe
+        subtitle: Subtitlu
+        title: Titlu
+      question:
+        banner_image: Imagine banner
+        decidim_scope_id: Domeniu municipal
+        hero_image: Imaginea de pornire
+        i_frame_url: URL-ul sistemului de votare extern
+        instructions: Instrucțiuni suplimentare pentru votare
+        max_votes: Număr maxim de voturi
+        min_votes: Număr minim de voturi
+        origin_scope: Domeniu de aplicare
+        origin_title: Origine
+        origin_url: URL de origine
+        participatory_scope: Domeniu participativ
+        promoter_group: Grup de promotori
+        reference: Referință
+        scope: Domeniu municipal
+        slug: Slug URL
+        subtitle: Subtitlu
+        vote: Sistem de votare extern
+        what_is_decided: Ce se decide
+      response:
+        decidim_consultations_response_group_id: Grup
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Numărul maxim de voturi ar trebui să fie mai mare decât numărul minim.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Răspunsul nu a fost găsit.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Numărul de voturi nu este valabil
   decidim:
+    admin:
+      actions:
+        back_to_responses: Înapoi la răspunsuri
+        new_consultation: Consultare nouă
+        new_question: Întrebare nouă
+        new_response: Răspuns nou
+        new_response_group: Grup nou
+        publish_results: Publicați rezultatele
+        response_groups: Gestionarea grupurilor de răspuns
+        unpublish_results: Retrageți răspunsurile de la publicare
+      consultation_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea acestei consultări.
+          success: Consultarea a fost publicată.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestei consultări.
+          success: Consultarea a fost retrasă de la publicare.
+      consultation_results_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea rezultatelor pentru această consultare.
+          success: Rezultatele consultării au fost publicate.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a rezultatelor acestei consultări.
+          success: Rezultatele consultării au fost retrase de la publicare.
+      consultations:
+        create:
+          error: S-a întâmpinat o problemă la crearea unei noi consultări.
+          success: Consultarea a fost creată.
+        edit:
+          update: Actualizare
+        form:
+          slug_help: 'Se utilizează slug-uri URL care direcționează către această consultare. Se acceptă numai litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+          title: Informații generale
+        index:
+          not_published: Nepublicat
+          published: Publicat
+        new:
+          create: Creare
+          title: Consultare nouă
+        results:
+          not_visible: Rezultatele vor fi disponibile la închiderea consultării
+          participants: "%{count} participanți"
+          total_votes: 'Total: %{count} voturi'
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei consultări.
+          success: Consultarea a fost actualizată.
+      menu:
+        consultations: Consultări
+        consultations_submenu:
+          info: Informare
+          questions: Întrebări
+          results: Rezultate
+        questions_submenu:
+          components: Componente
+          configuration: Configurare
+          consultation: Consultare
+          info: Informare
+          responses: Răspunsuri
+      models:
+        consultation:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+        question:
+          fields:
+            created_at: Creat la
+            published: Publicat
+            title: Titlu
+        response:
+          fields:
+            created_at: Creat la
+            response_group: Grup
+            title: Titlu
+      question_configuration:
+        disable_external_voting: Vă rugăm să dezactivați votarea externă pentru configurații avansate
+        form:
+          help: Se pot formula mai multe întrebări prin creșterea numărului maxim de răspunsuri pe care un participant le poate alege. Valoarea maximă implicită este 1, acesta înseamnă că nu poate fi votat decât un răspuns.
+          title: Configurație avansată
+      question_publications:
+        create:
+          error: S-a întâmpinat o problemă la publicarea acestei întrebări.
+          success: Întrebarea a fost publicată.
+        destroy:
+          error: S-a întâmpinat o problemă la retragerea de la publicare a acestei întrebări.
+          success: Întrebarea a fost retrasă de la publicare.
+      questions:
+        create:
+          error: S-a întâmpinat o problemă la crearea unei noi întrebări.
+          success: Întrebarea a fost creată.
+        destroy:
+          success: Întrebarea a fost ștearsă.
+        edit:
+          update: Actualizare
+        form:
+          title: Informații generale
+        index:
+          not_published: Nepublicat
+          published: Publicat
+        new:
+          create: Creare
+          title: Întrebare nouă
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei întrebări.
+          success: Întrebarea a fost actualizată.
+      response_groups:
+        create:
+          error: S-a întâmpinat o problemă la crearea unui nou grup de răspuns.
+          success: Grupul de răspuns a fost creat.
+        destroy:
+          error: S-a întâmpinat o problemă la eliminarea grupului de răspuns. Verificați că niciun răspuns nu depinde de acesta.
+          success: Grupul de răspuns a fost șters.
+        edit:
+          update: Actualizare
+        form:
+          title: Informații generale
+        help: Utilizați grupuri pentru a organiza întrebările cu mai multe răspunsuri posibile în pachete.
+        new:
+          create: Creare
+          title: Grup de răspuns nou
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui răspuns.
+          success: Răspunsul a fost actualizat.
+      responses:
+        create:
+          error: S-a întâmpinat o problemă la crearea unui nou răspuns.
+          success: Răspunsul a fost creat.
+        destroy:
+          error: S-a întâmpinat o problemă la eliminarea răspunsului.
+          success: Răspunsul a fost șters.
+        edit:
+          update: Actualizare
+        form:
+          title: Informații generale
+        new:
+          create: Creare
+          title: Răspuns nou
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui răspuns.
+          success: Răspunsul a fost actualizat.
+      titles:
+        consultations: Consultări
+        questions: Întrebări
+        response_groups: Grupuri de răspuns
+        responses: Răspunsuri
+        results: Rezultate
     consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Număr maxim de elemente care vor fi afișate
+      consultation:
+        start_voting_date: Votarea începe
+        view_results: Afișați rezultatele
+      consultation_card:
+        view_results: Afișați rezultatele
+      consultations:
+        orders:
+          label: 'Ordonați consultările după:'
+          random: Aleatoriu
+          recent: Cele mai recente
+        show:
+          dates: Date
+      content_blocks:
+        highlighted_consultations:
+          name: Consultări evidențiate
+      filters:
+        active: Activ
+        all: Toate
+        finished: Finalizate
+        search: Căutare
+        state: Statut
+        upcoming: Viitoare
+      filters_small_view:
+        close_modal: Închideți fereastra
+        filter: Filtrare
+        filter_by: Filtrare după
+        unfold: Desfășurați
+      highlighted_questions:
+        title: Întrebări din %{scope_name}
+      index:
+        title: Consultări
+      last_activity:
+        new_consultation: Consultare nouă
+        new_question_at_html: "<span>Întrebare nouă la %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultări active
+            see_all_consultations: Afișați toate consultările
+            voting_ends_today: Votarea se încheie <strong>astăzi</strong>
+      question:
+        take_part: Participați
+        view_results: Afișați rezultatele
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Participanții au putut distribui minimum %{votes} voturi pentru diferite opțiuni.
+          title: La această întrebare au fost permise opțiuni multiple
+          total_participants: Un total de %{count} persoane au participat la vot.
+          vote_limit:
+            description: Participanții au putut vota până la %{limit} opțiuni.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Trebuie să distribuiți minimum %{votes} voturi pentru diferite opțiuni.
+          title: 'Voturile sunt supuse următoarelor reguli:'
+          vote_limit:
+            description: Puteți vota până la %{limit} opțiuni.
+            left: Rămase
+            votes: Voturi
       question_votes:
         create:
           error: S-a întâmpinat o problemă la votarea întrebării.
+          success: O puteți modifica până la sfârșitul consultării. Numai ultimul vot va fi acceptat.
+          title_error: Eroare la vot!
+          title_success: Votul dvs. a fost înregistrat
+      regular_questions:
+        title: Întrebări pentru această consultare
+      show:
+        badge_name:
+          finished: Finalizate
+          open: Deschise
+          open_votes: Voturi deschise
+          published_results: Rezultatele au fost publicate
+        footer_button_text:
+          debate: Dezbatere
+          view: Afișare
+          view_results: Afișați rezultatele
+          vote: Vot
+        unspecified: Nespecificat
     help:
       participatory_spaces:
         consultations:
           contextual: "<p><strong>Consultările</strong> sunt spații care vă permit să puneți o întrebare clară tuturor persoanelor care formează o organizație, să solicitați participarea la consultare, să lansați dezbaterea și să conduceți dezbaterea în direcția sau împotriva unui răspuns. Atunci când data de consultare sosește, puteți vota și publica rezultatele voturilor.</p><p>Exemple: Consultările pot avea în vedere aproape orice aspect care afectează o organizație: câteva exemple sunt schimbarea numelui sau a siglei organizației care oferă mai multe alternative, deciderea Da sau Nu pentru a deveni parte a unei organizații mai mari, validând sau respingând un nou plan strategic sau rezultatul unui grup de lucru sau stabilind dacă pozițiile ar trebui menținute un maxim de 1, 2 sau 3 mandate.</p>\n"
           page: "<p><strong>Consultările</strong> sunt spații care vă permit să puneți o întrebare clară tuturor persoanelor care formează o organizație, să solicitați participarea la consultare, să lansați dezbaterea și să conduceți dezbaterea în direcția sau împotriva unui răspuns. Atunci când data de consultare sosește, puteți vota și publica rezultatele voturilor.</p><p>Exemple: Consultările pot avea în vedere aproape orice aspect care afectează o organizație: câteva exemple sunt schimbarea numelui sau a siglei organizației care oferă mai multe alternative, deciderea Da sau Nu pentru a deveni parte a unei organizații mai mari, validând sau respingând un nou plan strategic sau rezultatul unui grup de lucru sau stabilind dacă pozițiile ar trebui menținute un maxim de 1, 2 sau 3 mandate în organizație.</p>\n"
+          title: Ce sunt consultările?
+    menu:
+      consultations: Consultări
+    pages:
+      home:
+        statistics:
+          consultations_count: Consultări
     questions:
+      next_button: Următoarea întrebare
+      previous_button: Întrebarea anterioară
+      results:
+        title: Rezultate
+      show:
+        read_more: Citiți mai mult
+      statistics:
+        assistants_count_title: Asistenți
+        comments_count_title: Comentarii
+        meetings_count_title: Reuniuni
+        supports_count_title: Voturi
+      technical_info:
+        technical_data: Date tehnice
+      vote_button:
+        already_voted: Deja votat
+        already_voted_hover: Revocați votul
+        starting_from: Începând cu %{date}
+        verification_required: Verificați-vă contul pentru a vota
+        vote: Vot
       vote_modal:
+        close_modal: Închideți elementul modal
         contextual_help: Vă rugăm să selectați o opțiune
+        title: 'Consultare: întrebare'
+      vote_modal_confirm:
+        change: Modificare
+        close_modal: Închideți elementul modal
+        confirm: Confirmați
+        contextual_help: Confirmați opțiunea selectată.
+        title: 'Consultare: confirmați votul'
+    resources:
+      consultations:
+        actions:
+          vote: Vot
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Atașamente
+          categories: Categorii
+      consultation_voting_data:
+        start_voting_date: Votarea începe
+      question_components:
+        question_menu_item: Întrebarea
+        unfold: Desfășurați
+      question_header:
+        back_to_consultation: Afișați toate consultările
+        back_to_question: Înapoi la întrebare
