@@ -1,6 +1,251 @@
 de:
+  activemodel:
+    attributes:
+      answer:
+        description: Beschreibung
+        image: Bild
+        proposals: Verbundene Vorschläge
+        title: Titel
+      election:
+        description: Beschreibung
+        end_time: Abstimmung endet um
+        start_time: Abstimmung beginn um
+        title: Titel
+      question:
+        description: Beschreibung
+        max_selections: Maximale Anzahl der ausgewählten Objekte
+        title: Titel
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Muss erneut angehängt werden
+  activerecord:
+    models:
+      decidim/elections/answer:
+        one: Antwort
+        other: Antworten
+      decidim/elections/election:
+        one: Wahl
+        other: Wahlen
+      decidim/elections/question:
+        one: Frage
+        other: Fragen
   decidim:
+    components:
+      elections:
+        actions:
+          vote: Abstimmen
+        name: Wahlen
+        settings:
+          global:
+            announcement: Bekanntmachung
+          step:
+            announcement: Bekanntmachung
     elections:
+      actions:
+        confirm_destroy: Sind Sie sicher?
+        destroy: Vernichten
+        edit: Bearbeiten
+        edit_answers: Antworten bearbeiten
+        edit_questions: Fragen bearbeiten
+        import: Vorschläge in Antworten importieren
+        new: Neu %{name}
+        preview: Vorschau
+        publish: Veröffentlichen
+        title: Aktionen
+        unpublish: Veröffentlichung rückgängig machen
+      admin:
+        answers:
+          create:
+            invalid: Beim Erstellen dieser Antwort ist ein Problem aufgetreten
+            success: Antwort erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Antwort ist ein Problem aufgetreten
+            success: Antwort erfolgreich gelöscht
+          edit:
+            title: Antwort bearbeiten
+            update: Antwort aktualisieren
+          index:
+            title: Antworten
+          new:
+            create: Antwort erstellen
+            title: Neue Antwort
+          update:
+            invalid: Bei der Aktualisierung dieser Antwort ist ein Problem aufgetreten
+            success: Antwort erfolgreich aktualisiert
+        elections:
+          create:
+            invalid: Beim Erstellen dieser Wahl ist ein Problem aufgetreten
+            success: Wahl erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Wahl ist ein Problem aufgetreten
+            success: Wahl erfolgreich gelöscht
+          edit:
+            title: Wahl bearbeiten
+            update: Wahl aktualisieren
+          index:
+            title: Wahlen
+          new:
+            create: Wahl erstellen
+            title: Neue Wahl
+          publish:
+            success: Die Wahl wurde erfolgreich veröffentlicht.
+          unpublish:
+            success: Die Veröffentlichung der Wahl wurde erfolgreich rückgängig gemacht.
+          update:
+            invalid: Bei der Aktualisierung dieser Wahl ist ein Problem aufgetreten
+            success: Wahl erfolgreich aktualisiert
+        models:
+          answer:
+            name: Antwort
+          election:
+            name: Wahl
+          question:
+            name: Frage
+        proposals_imports:
+          create:
+            invalid: Beim Import der Vorschläge in Antworten ist ein Problem aufgetreten
+            success: "%{number} Vorschläge erfolgreich in Antworten importiert"
+          new:
+            create: Vorschläge in Antworten importieren
+            no_components: In diesem Beteiligungsbereich gibt es keine weiteren Vorschlagskomponenten, um die Vorschläge in Antworten zu importieren.
+            select_component: Bitte wählen Sie eine Komponente
+        questions:
+          create:
+            invalid: Beim Erstellen dieser Frage ist ein Problem aufgetreten
+            success: Frage erfolgreich erstellt
+          destroy:
+            invalid: Beim Löschen dieser Frage ist ein Problem aufgetreten
+            success: Frage erfolgreich gelöscht
+          edit:
+            title: Frage bearbeiten
+            update: Frage aktualisieren
+          index:
+            title: Fragen
+          new:
+            create: Frage erstellen
+            title: Neue Frage
+          update:
+            invalid: Beim Aktualisieren dieser Frage ist ein Problem aufgetreten
+            success: Frage erfolgreich aktualisiert
+      admin_log:
+        election:
+          publish: "%{user_name} hat die %{resource_name} Wahl veröffentlicht"
+          unpublish: "%{user_name} hat die Veröffentlichung Wahl %{resource_name} rückgängig gemacht"
+      election_m:
+        badge_name:
+          finished: Fertig
+          ongoing: Aktiv
+          upcoming: Anstehend
+        end_date: Endet
+        footer:
+          view: Anzeigen
+          vote: Abstimmen
+        label:
+          date: Daten
+        questions: Fragen %{count}
+        start_date: Beginnt
+        unspecified: Keine Angabe
+      elections:
+        count:
+          elections_count:
+            one: "%{count} Wahl"
+            other: "%{count} Wahlen"
+        filters:
+          active: Aktiv
+          all: Alle
+          finished: Fertig
+          search: Suche
+          upcoming: Anstehend
+        filters_small_view:
+          close_modal: Fenster schließen
+          filter_by: Filtern nach
+          unfold: Aufklappen
+        show:
+          back: Alle Wahlen
+          preview: Vorschau
+          vote: Abstimmen
+          voting_period_status:
+            finished: Die Abstimmung begann um %{start_time} und endete am %{end_time}
+            ongoing: Abstimmung endet um %{end_time}
+            upcoming: Abstimmung beginnt am %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Vorschläge
+            title: Titel
+        election:
+          fields:
+            end_time: Endet am
+            start_time: Beginnt um
+            title: Titel
+        question:
+          fields:
+            answers: Antworten
+            max_selections: Max. Auswahlen
+            title: Titel
+      orders:
+        label: Wahlen ordnen nach
+        older: Ältere
+        recent: Jüngere
       votes:
         confirm:
+          answer: Antwort
           answer_number: Antwort %{number}
+          confirm: Bestätigen
+          edit: bearbeiten
+          header: Abstimmung bestätigen
+          intro: Hier ist eine Zusammenfassung der Abstimmung, an der Sie gleich teilnehmen werden. <br> Bitte bestätigen Sie Ihre Stimme oder bearbeiten Sie Ihre Antworten.
+          question: Frage %{count}
+        confirmed:
+          back: Zurück zu den Wahlen
+          experience: Wie war Ihre Erfahrung?
+          feedback: Geben Sie uns ein Feedback
+          header: Abstimmung bestätigt
+          lead: Ihre Abstimmung wurde bereits versandt!
+          text: 'Sie können überprüfen, ob Ihre Stimme mit folgender Kennung erfolgreich in die Wahlurne aufgenommen wurde: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Um sie zu überprüfen, kopieren Sie die Kennung und fügen Sie sie auf der <a href="evote-verify">vote verification page</a> ein
+        encrypting:
+          header: Kodierung der Abstimmung...
+          text: Ihre Stimme wird verschlüsselt, um sicherzustellen, dass Sie sie anonym abgeben können.
+        header:
+          confirm: Abstimmung bestätigen
+          confirmed: Abstimmung bestätigt
+          encrypting: Bestätigung der Abstimmung
+        messages:
+          not_allowed: Sie dürfen derzeit nicht über diese Wahl abstimmen.
+        modal:
+          close: Schließen
+          proposal_header: 'Vorschläge:'
+        new:
+          answer_choices: Sie können bis zu %{choices} Antworten oder keine auswählen
+          more_information: Weitere Informationen
+          preview_alert: Dies ist eine Vorschau auf die Wahlkabine.
+          question_steps: Frage %{current_step} von %{total_steps}
+          selections: "%{selected} von %{max_selections}<br> Auswahlmöglichkeiten"
+        voting_step:
+          back: Zurück
+          continue: Nächste
+      warnings:
+        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
+        no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Die %{resource_title} Wahl ist jetzt aktiv für %{participatory_space_title}. Einsehbar von dieser Seite:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Der Empfang von Benachrichtigungen kann über den vorherigen Link beendet werden.
+          email_subject: Die %{resource_title} Wahl ist jetzt aktiv für %{participatory_space_title}.
+          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Wahl ist jetzt aktiv für %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Wahlen
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Beenden
