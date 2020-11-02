@@ -1,5 +1,458 @@
 fr:
-  decidim:
-    admin_log:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Zone
+        assembly_type: Type d’assemblée
+        assembly_type_other: Type d’assemblée autre
+        banner_image: Image de la bannière
+        closing_date: Date de clôture
+        closing_date_reason: Motif de la date de clôture
+        copy_categories: Copie des catégories
+        copy_components: Copie des composants
+        copy_features: Copie des caractéristiques
+        created_by: Créé par
+        created_by_other: Créé par autre
+        creation_date: Date de création
+        decidim_area_id: Zone
+        decidim_assemblies_type_id: Type d’assemblée
+        decidim_scope_id: Périmètre d’application
+        developer_group: Groupe promoteur
+        domain: Domaine
+        duration: Durée
+        hero_image: Image d’accueil
+        included_at: Intégré le
+        internal_organisation: Organisation interne
+        is_transparent: Est transparent
+        local_area: Zone de l’organisation
+        meta_scope: Portée des métadonnées
+        parent_id: Assemblée parent
+        participatory_processes_ids: Processus participatifs associés
+        participatory_scope: Ce qui a été décidé
+        participatory_structure: Comment la décision a été prise
+        private_space: Espace privé
+        promoted: Surligné
+        published_at: Publié à
+        purpose_of_action: Objectif de l’action
+        scope_id: Périmètre d’application
+        scopes_enabled: Périmètres d’application activés
+        short_description: Brève description
+        show_statistics: Montrer les statistiques
+        slug: Slug URL
+        special_features: Caractéristiques spéciales
+        subtitle: Sous-titre
+        target: Qui participe
+        title: Intitulé
+        twitter: Twittter
       assembly_member:
+        birthday: Anniversaire
+        birthplace: Lieu de naissance
+        ceased_date: Date de cessation
+        designation_date: Date de désignation
+        designation_mode: Mode de désignation
+        full_name: Nom, prénom
+        gender: Sexe
+        position: Fonction
+      assembly_user_role:
+        email: Adresse électronique
+        name: Nom
+        role: Rôle
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Type de document non valide. Formats acceptés: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assemblée
+        other: Assemblées
+      decidim/assembly_member:
+        one: Membre de l’assemblée
+        other: Membres de l’assemblée
+      decidim/assembly_user_role:
+        one: Rôle d’utilisateur assemblée
+        other: Rôles d’utilisateur assemblée
+  decidim:
+    admin:
+      actions:
+        import_assembly: Importation
+        new_assembly: Nouvelle assemblée
+        new_assembly_type: Nouveau type d’assemblée
+      assemblies:
+        create:
+          error: Un problème est survenu lors de la création d’une nouvelle assemblée.
+          success: L’assemblée a été créée avec succès.
+        edit:
+          update: Mettre à jour
+        index:
+          not_published: Non publié
+          private: Privé
+          published: Publié
+        new:
+          create: Créer
+          title: Nouvelle assemblée
+        update:
+          error: Un problème est survenu lors de la mise à jour de cette assemblée.
+          success: L’assemblée a été mise à jour avec succès.
+      assemblies_copies:
+        create:
+          error: Un problème est survenu lors de la duplication de cette assemblée.
+          success: L’assemblée a été dupliquée avec succès.
+      assemblies_settings:
+        update:
+          error: Un problème est survenu lors de la mise à jour des paramètres.
+          success: Les paramètres ont été mis à jour avec succès.
+      assemblies_types:
+        create:
+          error: Un problème est survenu lors de la création d’un nouveau type d'assemblée.
+          success: Le type d’assemblée a été créé avec succès.
+        destroy:
+          success: Le type d’assemblée a été supprimé avec succès.
+        new:
+          create: Créer
+          title: Nouveau type d’assemblée
+        update:
+          error: Un problème est survenu lors de la mise à jour de ce type d’assemblée.
+          success: Le type d’assemblée a été mis à jour avec succès.
+      assembly_copies:
+        new:
+          copy: Copie
+          select: Sélectionnez les données que vous voulez dupliquer
+          title: Dupliquer l’assemblée
+      assembly_imports:
+        create:
+          error: Un problème est survenu lors de l’importation de cette assemblée.
+          success: L’assemblée a été importée avec succès.
+        new:
+          import: Importation
+          select: Sélectionnez les données que vous voulez importer
+          title: Importer l’assemblée
+      assembly_members:
+        create:
+          error: Un problème est survenu lors de l’ajout d’un membre pour cette assemblée.
+          success: Le membre a été créé avec succès pour cette assemblée.
+        destroy:
+          success: Le membre a été supprimé avec succès pour cette assemblée.
+        edit:
+          title: Mettre le membre de l’assemblée à jour.
+          update: Mettre à jour
+        index:
+          assembly_members_title: Membres de l’assemblée
+        new:
+          create: Créer
+          title: Nouveau membre de l’assemblée.
+        update:
+          error: Un problème est survenu lors de la mise à jour du membre pour cette assemblée.
+          success: Le membre a été mis à jour avec succès pour cette assemblée.
+      assembly_publications:
+        create:
+          error: Un problème est survenu lors de la publication de cette assemblée.
+          success: L’assemblée a été publiée avec succès.
+        destroy:
+          error: Un problème est survenu lors de l’annulation de la publication de cette assemblée.
+          success: L’annulation de la publication de l’assemblée a été effectuée avec succès.
+      assembly_user_roles:
+        create:
+          error: Un problème est survenu lors de l’ajout d’un administrateur pour cette assemblée.
+          success: L’administrateur a été ajouté avec succès à cette assemblée.
+        destroy:
+          success: L’administrateur a été supprimé avec succès de cette assemblée.
+        edit:
+          title: Mettre l’administrateur de l’assemblée à jour.
+          update: Mettre à jour
+        index:
+          assembly_admins_title: Administrateurs d’assemblée
+        new:
+          create: Créer
+          title: Nouvel administrateur d’assemblée
+        update:
+          error: Un problème est survenu lors de la mise à jour d’un administrateur pour cette assemblée.
+          success: L’administrateur a été mis à jour avec succès pour cette assemblée.
+      menu:
+        assemblies: Assemblées
+        assemblies_settings: Paramètres
+        assemblies_submenu:
+          assembly_admins: Administrateurs d’assemblée
+          assembly_members: Membres
+          attachment_collections: Chemises de classement
+          attachment_files: Fichiers
+          attachments: Annexes
+          categories: Catégories
+          components: Composants
+          info: Informations
+          moderations: Modérations
+          private_users: Utilisateurs privés
+        assemblies_types: Types d’assemblées
+      models:
+        assemblies_types:
+          fields:
+            created_at: Créé à
+            title: Intitulé
+        assembly:
+          fields:
+            created_at: Créé à
+            private: Privé
+            promoted: Surligné
+            published: Publié
+            title: Intitulé
+          name: Assemblée
+        assembly_member:
+          fields:
+            ceased_date: Date de cessation
+            designation_date: Date de désignation
+            full_name: Nom
+            position: Fonction
+          name: Membre
+          positions:
+            other: Autre
+            president: Président
+            secretary: Secrétaire
+            vice_president: Vice-président/Vice-présidente
+        assembly_user_role:
+          fields:
+            email: Adresse électronique
+            name: Nom
+            role: Rôle
+          name: Administrateur d’assemblée
+          roles:
+            admin: Administrateur
+            collaborator: Collaborateur
+            moderator: Modérateur
+            valuator: Evaluateur
+      titles:
+        assemblies: Assemblées
+        assemblies_types: Types d’assemblées
+    admin_log:
+      assembly:
+        create: "%{user_name} a créé l’assemblée %{resource_name}"
+        publish: "%{user_name} a publié l’assemblée %{resource_name}"
+        unpublish: "%{user_name} a annulé la publication de l’assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour l’assemblée %{resource_name}"
+      assembly_member:
+        create: "%{user_name} a créé le %{resource_name} membre de l’assemblée %{space_name}"
         delete: "%{user_name} a supprimé le %{resource_name} membre de l’assemblée %{space_name}"
+        update: "%{user_name} a mis à jour le %{resource_name} membre dans l’assemblée %{space_name}"
+      assembly_setting:
+        update: "%{user_name} a mis à jour les paramètres des assemblées"
+      assembly_type:
+        create: "%{user_name} a créé le type d’assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le membre %{resource_name} du type d’assemblée %{space_name}"
+        publish: "%{user_name} a publié le type d’assemblée %{resource_name}"
+        unpublish: "%{user_name} a annulé la publication du type d’assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type d’assemblée %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} a invité %{resource_name} à l’assemblée %{space_name}"
+        delete: "%{user_name} a supprimé le participant %{resource_name} de l’assemblée %{space_name}"
+        update: "%{user_name} a modifié le rôle de %{resource_name} dans l’assemblée %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Durée
+            duration_help: Si la durée de cette assemblée est limitée, sélectionnez la date de fin. Sinon, elle apparaîtra comme étant illimitée.
+            filters: Filtres
+            included_at_help: Select the date when this assembly was added to Decidim. Elle ne doit pas nécessairement être identique à la date de création.
+            metadata: Métadonnées
+            other: Autre
+            select_a_created_by: Sélectionner un créé par
+            select_an_area: Sélectionner une Zone
+            select_an_assembly_type: Sélectionner un type d’assemblée
+            select_parent_assembly: Sélectionner assemblée parent
+            slug_help: 'Des slugs URL sont utilisés pour générer des URL qui font référence à cette assemblée. N’admet que les lettres, les nombres et les tirets et doit commencer par une lettre. Par exemple: %{url}'
+            title: Informations générales
+            visbility: Visibilité
+        assemblies_settings:
+          edit:
+            update: Mettre à jour
+          form:
+            title: Paramètres pour les assemblées
+        assemblies_types:
+          form:
+            title: Intitulé
+        assembly_copies:
+          form:
+            slug_help: 'Des slugs URL sont utilisés pour générer des URL qui font référence à cette assemblée. N’admet que les lettres, les nombres et les tirets et doit commencer par une lettre. Par exemple: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Ajouter un document
+            slug_help: 'Des slugs URL sont utilisés pour générer des URL qui font référence à cette assemblée. N’admet que les lettres, les nombres et les tirets et doit commencer par une lettre. Par exemple: %{url}'
+        assembly_members:
+          form:
+            existing_user: Participant existant
+            select_a_position: Sélectionner une fonction
+            select_user: Sélectionner un participant
+            user_type: Type de participant
+          index:
+            filter:
+              all: Tous
+              ceased: Cessé
+              not_ceased: Non cessé
+            filter_by: Filtrer sur la base de
+            search: Rechercher
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Nombre maximal d’éléments à afficher
+      assembly_members:
+        index:
+          members: Membres
+      assembly_types:
+        commission: Commission
+        consultative_advisory: Consultative
+        executive: Exécutive
+        government: Gouvernement
+        others: Autres
+        participatory: Participatif
+        working_group: Groupe de travail
+      content_blocks:
+        highlighted_assemblies:
+          name: Assemblées surlignées
+      created_by:
+        city_council: Conseil Municipal
+        others: Autres
+      filter:
+        all: Tous les types
+        consultative_advisory: Consultative
+        executive: Exécutive
+        government: Gouvernement
+        help: 'Afficher:'
+        others: Autres
+        participatory: Participatif
+        working_group: Groupe de travail
+      index:
+        title: Assemblées
+      last_activity:
+        new_assembly: Nouvelle assemblée
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Assemblées actives
+            assemblies_button_title: Lien vers la page des Assemblées affichant toutes les assemblées
+            see_all_assemblies: Voir toutes les assemblées
+        user_profile:
+          member_of:
+            member_of: Membre de
+      show:
+        area: Zone
+        assembly_type: Type d’assemblée
+        children: Assemblées
+        closing_date: Date de clôture
+        created_by: Créé par
+        creation_date: Date de création
+        developer_group: Groupe promoteur
+        duration: Durée
+        included_at: Intégré le
+        indefinite_duration: Indéterminée
+        internal_organisation: Organisation interne
+        is_transparent:
+          'true': transparente
+        local_area: Zone de l’organisation
+        participatory_scope: Ce qui a été décidé
+        participatory_structure: Comment la décision a été prise
+        private_space: Il s’agit d’une assemblée privée
+        purpose_of_action: Objectif de l’action
+        read_less: Lire moins
+        read_more: Pour en savoir plus
+        related_participatory_processes: Processus participatifs associés
+        scope: Périmètre d’application
+        social_networks: Réseaux sociaux
+        social_networks_title: Partager cette assemblée sur
+        target: Qui participe
+      statistics:
+        answers_count: Réponses
+        assemblies_count: Assemblées
+        comments_count: Commentaires
+        debates_count: Débats
+        endorsements_count: Approbations
+        headline: Activité
+        meetings_count: Réunions
+        orders_count: Soutiens
+        pages_count: Page(s)
+        projects_count: Projets
+        proposals_count: Propositions
+        results_count: Résultats
+        surveys_count: Enquêtes
+        votes_count: Soutiens
+    assembly_members:
+      assembly_member:
+        designated_on: Désigné le
+      index:
+        title: Membres
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Lien vers la page des Conférences affichant toutes les conférences
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Un administrateur de l’assemblée <a href="%{resource_url}">%{resource_name}</a> vous a ajouté(e) comme membre.
+          email_outro: Cette notification vous a été envoyée car vous avez été invité(e) à une assemblée. Consultez la <a href="%{resource_path}">page de l’assemblée </a> pour participer!
+          email_subject: Vous avez été invité(e) à être membre de l’assemblée %{resource_name}!
+          notification_title: Vous avez été enregistré(e) comme membre de l’assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l’assemblée </a> pour participer!
+      assembly:
+        role_assigned:
+          email_intro: Vous avez été désigné(e) comme %{role} à l’assemblée "%{resource_title}".
+          email_outro: Cette notification vous a été envoyée car vous êtes %{role} de l’assemblée "%{resource_title}".
+          email_subject: Vous avez été désigné(e) comme %{role} pour %{resource_title}".
+          notification_title: Vous avez été désigné(e) comme %{role} à l’assemblée <a href="%{resource_url}">%{resource_title}</a>.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>Une <strong>assemblée</strong> est un groupe de membres d’une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine ou une compétence spécifiques de l’organisation.</p><p>Les réunions des assemblées sont soit privées, soit publiques. Si elles sont publiques, il est possible d’y participer (par exemple: y assister si la capacité le permet, ajouter des points à l’ordre du jour ou formuler des observations concernant des propositions et des décisions prises par cet organe). </p><p>Exemples: Une assemble générale (qui se réunit une fois par an pour définir les principales lignes d’action de l’organisation et désigner ses organes exécutifs par vote), un conseil consultatif en matière d’égalité (qui se réunit tous les deux mois pour formuler des propositions concernant la manière d’améliorer les relations hommes-femmes au sein de l’organisation), une commission d’évaluation (qui se réunit chaque mois pour contrôler un processus précis) ou un organe de garantie (qui recueille les incidents, les abus ou les propositions visant à améliorer les procédures décisionnelles) constituent tous des exemples d’assemblées. </p>\n"
+          page: "<p>Une <strong>assemblée</strong> est un groupe de membres d’une organisation qui se réunissent périodiquement pour prendre des décisions concernant un domaine ou une compétence spécifiques de l’organisation.</p><p>Les réunions des assemblées sont soit privées, soit publiques. Si elles sont publiques, il est possible d’y participer (par exemple: y assister si la capacité le permet, ajouter des points à l’ordre du jour ou formuler des observations concernant des propositions et des décisions prises par cet organe). </p><p>Exemples: Une assemble générale (qui se réunit une fois par an pour définir les principales lignes d’action de l’organisation et désigner ses organes exécutifs par vote), un conseil consultatif en matière d’égalité (qui se réunit tous les deux mois pour formuler des propositions concernant la manière d’améliorer les relations hommes-femmes au sein de l’organisation), une commission d’évaluation (qui se réunit chaque mois pour contrôler un processus précis) ou un organe de garantie (qui recueille les incidents, les abus ou les propositions visant à améliorer les procédures décisionnelles) constituent tous des exemples d’assemblées. </p>\n"
+          title: Qu’est-ce que les assemblées?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'L’assemblée n’a pas été trouvée dans la base de données (ID: %{id})'
+        assembly_type_presenter:
+          not_found: 'Le type d’assemblée n’a pas été trouvé dans la base de données (ID: %{id})'
+    menu:
+      assemblies: Assemblées
+    metrics:
+      assemblies:
+        description: Nombre d’assemblées créées
+        object: assemblées
+        title: Assemblées
+    pages:
+      home:
+        hero:
+          participate_title: Participer aux processus de la plate-forme
+        sub_hero:
+          register_title: S’inscrire pour créer un compte sur la plate-forme
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Lien vers la page des Processus affichant tous les processus
+      show:
+        related_assemblies: Assemblées associées
+  errors:
+    messages:
+      cannot_be_blank: champ obligatoire
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Plus d'informations
+          take_part: Participer
+        index:
+          children: 'Assemblées: '
+          organizational_chart: Organigramme
+          promoted_assemblies: Assemblées surlignées
+          reset_chart: Réinitialiser
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblées"
+            other: "%{count} assemblées"
+        promoted_assembly:
+          more_info: Plus d'informations
+          take_part: Participer
+      assembly_navigation:
+        assembly_member_menu_item: Membres
+        assembly_menu_item: L’assemblée
+      assembly_widgets:
+        show:
+          take_part: Participer
