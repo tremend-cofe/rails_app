@@ -1,0 +1,191 @@
+sk:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategória
+        closed_at: 'Uzavreté:'
+        conclusions: Závery
+        decidim_category_id: Kategória
+        description: Opis
+        end_time: 'Končí sa:'
+        information_updates: Aktualizácie informácií
+        instructions: Pokyny k účasti
+        start_time: 'Začína sa:'
+        title: Nadpis
+        user_group_id: Vytvoriť diskusiu ako
+    models:
+      decidim/debates/close_debate_event: Diskusia uzatvorená
+      decidim/debates/create_debate_event: Diskusia
+      decidim/debates/creation_disabled_event: Diskusie zakázané
+      decidim/debates/creation_enabled_event: Diskusie povolené
+  decidim:
+    components:
+      debates:
+        actions:
+          create: Vytvoriť
+          endorse: Schváliť
+        name: Diskusie
+        settings:
+          global:
+            announcement: Oznámenie
+            comments_enabled: Poznámky povolené
+            comments_max_length: Maximálna dĺžka poznámok (ponechaním hodnoty 0 sa zachová predvolená hodnota)
+          step:
+            announcement: Oznámenie
+            comments_blocked: Poznámky blokované
+            creation_enabled: Povolené vytváranie diskusií účastníkmi
+            endorsements_blocked: Schválenia blokované
+            endorsements_enabled: Schválenia povolené
+    debates:
+      actions:
+        close: Zatvoriť
+        confirm_destroy: Naozaj to chcete urobiť?
+        destroy: Odstrániť
+        edit: Upraviť
+        new: Nová položka %{name}
+        title: Akcie
+      admin:
+        debate_closes:
+          edit:
+            close: Zatvoriť
+            title: Uzavrieť diskusiu
+        debates:
+          create:
+            invalid: Pri vytváraní diskusie sa vyskytol problém.
+            success: Diskusia bola úspešne vytvorená.
+          destroy:
+            success: Diskusia bola úspešne odstránená.
+          edit:
+            title: Upraviť diskusiu
+            update: Aktualizovať diskusiu
+          index:
+            title: Diskusie
+          new:
+            create: Vytvoriť diskusiu
+            title: Nová diskusia
+          update:
+            invalid: Pri aktualizácii diskusie sa vyskytol problém.
+            success: Diskusia bola úspešne aktualizovaná.
+        models:
+          debate:
+            name: Diskusia
+      admin_log:
+        debate:
+          close: "Používateľ %{user_name} uzavrel diskusiu %{resource_name} v priestore %{space_name}"
+          create: "Používateľ %{user_name} vytvoril diskusiu %{resource_name} v priestore %{space_name}"
+          update: "Používateľ %{user_name} aktualizoval diskusiu %{resource_name} v priestore %{space_name}"
+      debates:
+        close:
+          invalid: Pri uzatvorení diskusie sa vyskytol problém.
+          success: Diskusia bola úspešne uzatvorená.
+        close_debate_modal:
+          close: Zatvoriť
+          description: Aký je súhrn alebo záver tejto diskusie?
+          send: Uzavrieť diskusiu
+        closed: Uzatvorené
+        create:
+          invalid: Pri vytváraní diskusie sa vyskytol problém.
+          success: Diskusia bola úspešne vytvorená.
+        debate:
+          participate: Zúčastniť sa
+        edit:
+          back: Späť
+          save: Uložiť zmeny
+          title: Upraviť diskusiu
+        filters:
+          all: Všetko
+          category: Kategória
+          category_prompt: Vybrať kategóriu
+          citizens: Občania
+          official: Úradník
+          origin: Pôvod
+          search: Vyhľadávanie
+        filters_small_view:
+          close_modal: Zatvoriť kontextové okno
+          filter_by: Filtrovať podľa
+          unfold: Rozbaliť
+        form:
+          select_a_category: Vyberte kategóriu
+        index:
+          new_debate: Nová diskusia
+        new:
+          back: Späť
+          create: Vytvoriť
+          title: Nová diskusia
+        show:
+          back: Späť na zoznam
+          close_debate: Uzavrieť diskusiu
+          date: Dátum
+          debate_closed: Uzatvorené
+          debate_conclusions_are: 'Táto diskusia bola uzatvorená %{date} s týmito závermi:'
+          edit_conclusions: Upraviť závery
+          edit_debate: Upraviť diskusiu
+          groups_count: Skupiny
+          last_comment_by: Autor poslednej poznámky
+          no_comments_yet: Zatiaľ bez poznámok
+          participants_count: Účastníci
+        update:
+          invalid: Pri aktualizácii diskusie sa vyskytol problém.
+          success: Diskusia bola úspešne aktualizovaná.
+        versions:
+          debates:
+            back_to_resource: Vrátiť sa na diskusiu
+          index:
+            title: Verzie
+        versions_list:
+          back_to_resource: Vrátiť sa na diskusiu
+      last_activity:
+        new_debate_at_html: "<span>Nová diskusia na adrese %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Dátum ukončenia
+            official_debate: Oficiálna diskusia
+            start_time: Dátum začatia
+            title: Nadpis
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Dobrý deň, v participatívnom priestore %{space_title} bola vytvorená nová diskusia %{resource_title}, pozrite si ju a zapojte sa do nej:
+            email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+            email_subject: Nová diskusia %{resource_title} v priestore %{space_title}
+            notification_title: Diskusia <a href="%{resource_path}">%{resource_title}</a> bola vytvorená v priestore <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Dobrý deň, účastník %{author_name} %{author_nickname}, ktorého sledujete, vytvoril novú diskusiu %{resource_title}. Pozrite si ju a zapojte sa do nej:
+            email_outro: Toto oznámenie ste dostali, pretože sledujete autora %{author_nickname}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+            email_subject: Nová diskusia %{resource_title} od autora %{author_nickname}
+            notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvoril diskusiu <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'V participatívnom priestore %{participatory_space_title} už nie je aktívne vytváranie diskusií. Na otvorených diskusiách sa naďalej môžete zúčastňovať prostredníctvom tejto stránky:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: V participatívnom priestore %{participatory_space_title} je zakázané vytváranie diskusií
+          notification_title: Vytváranie diskusií je teraz zakázané v participatívnom priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Teraz môžete začať nové diskusie v participatívnom priestore %{participatory_space_title}! Zapojte sa z tejto stránky:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie oznámení môžete ukončiť pomocou predchádzajúceho odkazu.
+          email_subject: Diskusie sú teraz k dispozícii v participatívnom priestore %{participatory_space_title}
+          notification_title: Teraz môžete začínať <a href="%{resource_path}">nové diskusie</a> v participatívnom priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Diskusia %{resource_title} bola ukončená. Závery si môžete prečítať na stránke:'
+          email_outro: Toto oznámenie ste dostali, pretože sledujete diskusiu %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
+          email_subject: Diskusia %{resource_title} bola ukončená
+          notification_title: Diskusia <a href="%{resource_path}">%{resource_title}</a> bola ukončená.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Vyberte si otvorenú diskusiu, na ktorej sa chcete zúčastniť
+          description: Tento odznak sa udeľuje za aktívnu účasť v rôznych diskusiách, v ktorých uvediete poznámky.
+          description_another: Tento účastník sa zapojil do %{score} diskusií.
+          description_own: Zapojili ste sa do %{score} diskusií.
+          name: Diskusie
+          next_level_in: Ak chcete dosiahnuť ďalšiu úroveň, zapojte sa do ďalších %{score} diskusií.
+          unearned_another: Tento účastník sa ešte nezapojil do žiadnej diskusie.
+          unearned_own: Ešte ste sa nezapojili do žiadnej diskusie.
+    metrics:
+      debates:
+        description: Počet vytvorených diskusií
+        object: diskusie
+        title: Diskusie
