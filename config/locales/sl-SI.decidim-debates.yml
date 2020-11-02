@@ -1,7 +1,193 @@
 sl:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategorija
+        closed_at: Zaprta ob
+        conclusions: Zaključne ugotovitve
+        decidim_category_id: Kategorija
+        description: Opis
+        end_time: Konča ob
+        information_updates: Posodobitve informacij
+        instructions: Navodila za sodelovanje
+        start_time: Začne ob
+        title: Naslov
+        user_group_id: Ustvari razpravo kot
+    models:
+      decidim/debates/close_debate_event: Razprava zaprta
+      decidim/debates/create_debate_event: Razprava
+      decidim/debates/creation_disabled_event: Razprave so onemogočene.
+      decidim/debates/creation_enabled_event: Razprave so omogočene.
   decidim:
+    components:
+      debates:
+        actions:
+          create: Ustvari
+          endorse: Izrazi odobravanje
+        name: Razprave
+        settings:
+          global:
+            announcement: Obvestilo
+            comments_enabled: Komentarji so omogočeni.
+            comments_max_length: Največja dolžina komentarjev (za privzeto vrednost pusti 0)
+          step:
+            announcement: Obvestilo
+            comments_blocked: Komentarji so blokirani.
+            creation_enabled: Ustvarjanje razprave s strani udeležencev je omogočeno.
+            endorsements_blocked: Odobravanje onemogočeno
+            endorsements_enabled: Odobravanje omogočeno
+    debates:
+      actions:
+        close: Zapri
+        confirm_destroy: Ali ste prepričani?
+        destroy: Izbriši
+        edit: Uredi
+        new: Novo %{name}
+        title: Dejanja
+      admin:
+        debate_closes:
+          edit:
+            close: Zapri
+            title: Zapri razpravo
+        debates:
+          create:
+            invalid: Pri ustvarjanju razprave se je pojavila težava.
+            success: Razprava je bila uspešno ustvarjena.
+          destroy:
+            success: Razprava je bila uspešno izbrisana.
+          edit:
+            title: Uredi razpravo
+            update: Posodobi razpravo
+          index:
+            title: Razprave
+          new:
+            create: Ustvari razpravo
+            title: Nova razprava
+          update:
+            invalid: Pri posodobitvi te razprave se je pojavila težava.
+            success: Razprava je bila uspešno posodobljena.
+        models:
+          debate:
+            name: Razprava
+      admin_log:
+        debate:
+          close: "%{user_name} je zaprl razpravo %{resource_name} v prostoru %{space_name}."
+          create: "%{user_name} je ustvaril razpravo %{resource_name} v prostoru %{space_name}."
+          update: "%{user_name} je posodobil razpravo %{resource_name} v prostoru %{space_name}."
+      debates:
+        close:
+          invalid: Pri zapiranju razprave se je pojavila težava.
+          success: Razprava je bila uspešno zaprta.
+        close_debate_modal:
+          close: Zapri
+          description: Kakšen je povzetek ali zaključek te razprave?
+          send: Zapri razpravo
+        closed: Zaprta
+        create:
+          invalid: Pri ustvarjanju razprave se je pojavila težava.
+          success: Razprava je bila uspešno ustvarjena.
+        debate:
+          participate: Sodeluj
+        edit:
+          back: Nazaj
+          save: Shrani spremembe
+          title: Uredi razpravo
+        filters:
+          all: Vse
+          category: Kategorija
+          category_prompt: Izberi kategorijo
+          citizens: Državljani
+          official: Uradnik
+          origin: Izvor
+          search: Išči
+        filters_small_view:
+          close_modal: Zapri modalno okno
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Razgrni
+        form:
+          select_a_category: Izberite kategorijo
+        index:
+          new_debate: Nova razprava
+        new:
+          back: Nazaj
+          create: Ustvari
+          title: Nova razprava
+        show:
+          back: Nazaj na seznam
+          close_debate: Zapri razpravo
+          date: Datum
+          debate_closed: Zaprta
+          debate_conclusions_are: 'Ta razprava je bila zaprta dne %{date} z naslednjimi zaključnimi ugotovitvami:'
+          edit_conclusions: Uredi zaključne ugotovitve
+          edit_debate: Uredi razpravo
+          groups_count: Skupine
+          last_comment_by: Nazadnje komentiral
+          no_comments_yet: Trenutno še ni komentarjev.
+          participants_count: Udeleženci
+        update:
+          invalid: Pri posodobitvi razprave se je pojavila težava.
+          success: Razprava je bila uspešno posodobljena.
+        versions:
+          debates:
+            back_to_resource: Nazaj na razpravo
+          index:
+            title: Različice
+        versions_list:
+          back_to_resource: Nazaj na razpravo
+      last_activity:
+        new_debate_at_html: "<span>Nova razprava na %{link}</span>"
+      models:
+        debate:
+          fields:
+            end_time: Končni datum
+            official_debate: Uradna razprava
+            start_time: Začetni datum
+            title: Naslov
     events:
       debates:
         create_debate_event:
           space_followers:
+            email_intro: |-
+              Živijo,
+              nova razprava "%{resource_title}" je bila ustvarjena v participativnem prostoru %{space_title}, preverite jo in prispevajte:
             email_outro: To obvestilo ste prejeli, ker sledite %{space_title} v participativnem prostoru. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+            email_subject: Nova razprava "%{resource_title}" na %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> Razprava je bila ustvarjena na <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Živijo,%{author_name} %{author_nickname}, ki mu sledite, je ustvaril novo razpravo "%{resource_title}". Preverite in prispevajte:
+            email_outro: To obvestilo ste prejeli, ker sledite %{author_nickname}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+            email_subject: Nova razprava "%{resource_title}" %{author_nickname}
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> je ustvaril razpravo <a href="%{resource_path}">%{resource_title}</a>.
+        creation_disabled:
+          email_intro: 'Ustvarjanje razprave v %{participatory_space_title} ni več aktivno. Še vedno lahko sodelujete v odprtih razpravah na tej strani:'
+          email_outro: To obvestilo ste prejeli, ker sledite %{participatory_space_title}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Ustvarjanje razprave je onemogočeno v %{participatory_space_title}
+          notification_title: Ustvarjanje razprave je zdaj onemogočeno v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Zdaj lahko začnete nove razprave v %{participatory_space_title}! Začnite sodelovati na tej strani:'
+          email_outro: To obvestilo ste prejeli, ker sledite %{participatory_space_title}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Razprave so zdaj na voljo v %{participatory_space_title}
+          notification_title: Zdaj lahko začnete <a href="%{resource_path}">nove razprave</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        debate_closed:
+          email_intro: 'Razprava "%{resource_title}" je bila zaprta. Zaključne ugotovitve si lahko preberete na tej strani:'
+          email_outro: To obvestilo ste prejeli, ker sledite razpravi "%{resource_title}". Odsleditev je mogoča s prejšnje povezave.
+          email_subject: Razprava "%{resource_title}" je bila zaprta.
+          notification_title: Razprava <a href="%{resource_path}">%{resource_title}</a> je bila zaprta.
+    gamification:
+      badges:
+        commented_debates:
+          conditions: Izberite odprto razpravo, v kateri boste sodelovali.
+          description: Ta značka se podeli, če aktivno sodelujete v različnih razpravah, tako da podate svoje komentarje.
+          description_another: Ta udeleženec je sodeloval v %{score} razpravah.
+          description_own: Sodelovali ste v %{score} razpravah.
+          name: Razprave
+          next_level_in: Sodelujte v dodatnih %{score} razpravah, da dosežete naslednjo raven!
+          unearned_another: Ta udeleženec še ni sodeloval v nobeni razpravi.
+          unearned_own: Niste še sodelovali v nobeni razpravi.
+    metrics:
+      debates:
+        description: Število ustvarjenih razprav
+        object: razprave
+        title: Razprave
