@@ -1,0 +1,473 @@
+bg:
+  activemodel:
+    attributes:
+      agenda:
+        description: Описание
+        duration: Продължителност
+        title: Заглавие
+      close_meeting:
+        attendees_count: Брой на присъстващите
+        attending_organizations: Списък на присъствалите организации
+        closing_report: Сигнал
+        contributions_count: Брой приноси
+        proposal_ids: Предложения, създадени по време на срещата
+      meeting:
+        address: Адрес
+        available_slots: Налични места за тази среща
+        decidim_category_id: Категория
+        decidim_scope_id: Обхват
+        decidim_user_group_id: Група потребители
+        description: Описание
+        end_time: Краен час
+        location: Местоположение
+        location_hints: Подсказки за местоположението
+        organizer_gid: Създаване като
+        organizer_id: Организатор
+        private_meeting: Частна среща
+        registration_form_enabled: Формулярът за регистрация е активиран
+        registration_terms: Условия за регистрация
+        registrations_enabled: Регистрациите са активирани
+        start_time: Начален час
+        title: Заглавие
+        transparent: Прозрачна
+      minutes:
+        audio_url: URL адрес на аудиофайл
+        description: Описание
+        video_url: URL адрес на видеофайл
+        visible: е видима
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Продължителността на точките надвишава продължителността на срещата с(ъс) %{count} минути
+              too_many_minutes_child: Продължителността на подточките надвишава продължителността на точката от дневния ред „%{parent_title}“ с(ъс) %{count} минути
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: На тази електронна поща вече е изпратена покана
+    models:
+      decidim/meetings/close_meeting_event: Срещата е затворена
+      decidim/meetings/create_meeting_event: Среща
+      decidim/meetings/meeting_registrations_enabled_event: Регистрациите са активирани
+      decidim/meetings/meeting_registrations_over_percentage_event: Ограничение на регистрациите
+      decidim/meetings/update_meeting_event: Срещата е актуализирана
+  activerecord:
+    models:
+      decidim/meetings/minutes:
+        one: Протокол
+        other: Протокол
+      decidim/meetings/registration:
+        one: Регистрация
+        other: Регистрации
+  decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Възникна проблем при дублирането на тази среща.
+          success: Срещата беше дублирана успешно.
+        new:
+          copy: Копиране
+          select: Изберете кои данни искате да дублирате
+          title: Дублиране на срещата
+    components:
+      meetings:
+        actions:
+          join: Присъединяване
+        settings:
+          global:
+            announcement: Съобщение
+            comments_enabled: Коментарите са разрешени
+            comments_max_length: Максимална дължина на коментарите (оставете 0 за стойност по подразбиране)
+            creation_enabled_for_participants: Участниците могат да създават срещи
+            default_registration_terms: Условия за регистрация по подразбиране
+            enable_pads_creation: Разрешаване на създаването на бележници
+            resources_permissions_enabled: Разрешенията за действия могат да се задават за всяка среща
+          step:
+            announcement: Съобщение
+            comments_blocked: Коментарите са блокирани
+            creation_enabled_for_participants: Създаването на срещи от участници е разрешено
+            creation_enabled_for_user_groups: Създаването на срещи от потребителски групи е разрешено
+    events:
+      meetings:
+        meeting_closed:
+          affected_user:
+            email_intro: 'Срещата Ви „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
+            email_outro: Получавате това известие, защото организирахте срещата „%{resource_title}“.
+            email_subject: Срещата „%{resource_title}“ беше затворена
+            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
+          follower:
+            email_intro: 'Срещата „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
+            email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+            email_subject: Срещата „%{resource_title}“ беше затворена
+            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
+        meeting_created:
+          email_intro: Срещата „%{resource_title}“ беше добавена към пространството за участие „%{participatory_space_title}“, което следвате.
+          email_outro: Получавате това известие, защото следвате „%{participatory_space_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Беше добавена нова среща в(ъв) %{participatory_space_title}
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше добавена в(ъв) %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Регистрацията Ви за срещата <a href="%{resource_url}">%{resource_title}</a> беше потвърдена. Регистрационният Ви код е %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %.
+          email_outro: Получавате това известие, защото сте администратор на пространството за участие на срещата.
+          email_subject: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %
+          notification_title: Предоставените места за срещата <a href="%{resource_path}">%{resource_title}</a> са над %{percentage} %.
+        meeting_updated:
+          email_intro: 'Срещата „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Срещата „%{resource_title}“ беше актуализирана
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше актуализирана.
+        registration_code_validated:
+          email_intro: Регистрационният Ви код „%{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
+          email_outro: Получавате това известие, защото регистрационният Ви код за срещата „%{resource_title}“ беше валидиран.
+          email_subject: Регистрационният Ви код „%{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
+          notification_title: Регистрационният Ви код „%{registration_code}“ за срещата <a href="%{resource_path}">%{resource_title}</a> беше валидиран.
+        registrations_enabled:
+          email_intro: 'Приемат се регистрации за срещата „%{resource_title}“. Можете да се регистрирате на страницата ѝ:'
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Приемат се регистрации за срещата „%{resource_title}“.
+          notification_title: Приемат се регистрации за срещата <a href="%{resource_path}">%{resource_title}</a>.
+        upcoming_meeting:
+          email_intro: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
+          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
+          email_subject: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
+          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> ще започне след по-малко от 48 ч.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Регистрирайте се за срещите, които искате да посетите
+          description: Тази значка се предоставя, когато посетите няколко срещи на живо.
+          description_another: Този участник е посетил %{score} срещи.
+          description_own: Посетили сте %{score} срещи.
+          name: Посетени срещи
+          next_level_in: Посетете още %{score} срещи, за да достигнете следващото ниво!
+          unearned_another: Този участник все още не е посетил нито една среща.
+          unearned_own: Все още не сте посетили нито една среща.
+    meetings:
+      actions:
+        agenda: Дневен ред
+        attachment_collections: Папки
+        attachments: Прикачени файлове
+        close: Затваряне
+        confirm_destroy: Наистина ли искате да изтриете тази среща?
+        destroy: Изтриване
+        edit: Редактиране
+        invalid_destroy:
+          proposals_count:
+            one: 'Срещата не може да бъде премахната, защото към нея има %{count} свързано предложение:'
+            other: 'Срещата не може да бъде премахната, защото към нея има %{count} свързани предложения:'
+        minutes: Протокол
+        preview: Визуализация
+        registrations: Регистрации
+        title: Действия
+      admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Добавяне на подточка от дневния ред
+            agenda_item: Точка от дневния ред
+            agenda_item_children: Подточки от дневния ред
+            down: Надолу
+            remove: Премахване
+            up: Нагоре
+          agenda_item_child:
+            agenda_item_child: Подточка от дневния ред
+            down: Надолу
+            remove: Премахване
+            up: Нагоре
+          create:
+            invalid: Възникна проблем при създаването на този дневен ред
+            success: Дневният ред беше създаден успешно
+          edit:
+            title: Редактиране на дневния ред
+            update: Актуализация
+          form:
+            add_agenda_item: Добавяне на точка от дневния ред
+            agenda_items: Точки от дневния ред
+            end_date: Крайна дата
+            start_date: Начална дата
+          new:
+            create: Създаване
+            title: Нов дневен ред
+          update:
+            invalid: Възникна проблем при актуализирането на този дневен ред
+            success: Дневният ред беше актуализиран успешно
+        exports:
+          meetings: Срещи
+          registrations: Регистрации
+        invite_join_meeting_mailer:
+          invite:
+            decline: Отказване на поканата
+            invited_you_to_join_a_meeting: "%{invited_by} Ви покани да се присъедините към среща в(ъв) %{application}. Можете да откажете или да приемете чрез връзките по-долу."
+            join: Присъединяване към срещата „%{meeting_title}“
+        invites:
+          create:
+            error: Възникна проблем при изпращането на покана на участника да се присъедини към срещата.
+            success: Участникът беше поканен успешно да се присъедини към срещата.
+          form:
+            attendee_type: Тип участник
+            existing_user: Съществуващ участник
+            invite: Покана
+            invite_explanation: Участникът ще бъде поканен да се присъедини към срещата, както и към организацията.
+            non_user: Несъществуващ участник
+            select_user: Избор на участник
+          index:
+            filter:
+              accepted: Приети
+              all: Всички
+              rejected: Отхвърлени
+              sent: Изпратени
+            filter_by: Филтриране по
+            invite_attendee: Изпращане на покана на участника
+            invites: Покани
+            registrations_disabled: Не можете да поканите участник, защото регистрациите са изключени.
+            search: Търсене
+        meeting_closes:
+          edit:
+            close: Затваряне
+            title: Затваряне на срещата
+        meetings:
+          close:
+            invalid: Възникна проблем при затварянето на срещата
+            success: Срещата беше затворена успешно
+          create:
+            invalid: Възникна проблем при създаването на тази среща
+            success: Срещата беше създадена успешно
+          destroy:
+            invalid:
+              proposals_count:
+                one: Срещата не може да бъде премахната, защото към нея има %{count} свързано предложение
+                other: Срещата не може да бъде премахната, защото към нея има %{count} свързани предложения
+            success: Срещата беше изтрита успешно
+          edit:
+            update: Актуализация
+          form:
+            address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+            location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
+            location_hints_help: 'Подсказки за местоположението: допълнителна информация. Пример: етажът на сградата'
+          index:
+            title: Срещи
+          new:
+            create: Създаване
+            title: Създаване на среща
+          service:
+            description: Описание
+            down: Надолу
+            remove: Премахване
+            service: Услуга
+            title: Заглавие
+            up: Нагоре
+          services:
+            add_service: Добавяне на услуга
+            services: Услуги
+          update:
+            invalid: Възникна проблем при актуализирането на тази среща
+            success: Срещата беше актуализирана успешно
+        minutes:
+          create:
+            invalid: Възникна проблем при създаването на този протокол
+            success: Протоколът беше създаден успешно
+          edit:
+            update: Актуализация
+          new:
+            create: Създаване
+            title: Създаване на протокол
+          update:
+            invalid: Възникна проблем при актуализирането на този протокол
+            success: Протоколът беше актуализиран успешно
+        models:
+          meeting:
+            name: Среща
+        registrations:
+          edit:
+            save: Запазване
+            validate: Валидиране
+            validate_registration_code: Валидиране на регистрационния код
+          form:
+            available_slots_help: Оставете 0, ако разполагате с неограничен брой места.
+            invites: Покани
+            recommendation_message: От съображения за поверителност Ви препоръчваме да изтриете този формуляр за участие, когато вече нямате нужда от него. По подразбиране срокът е 3 месеца след приключването на срещата.
+            registration_form: Формуляр за регистрация
+            registrations_count:
+              one: Осъществена е %{count} регистрация.
+              other: Осъществени са %{count} регистрации.
+            reserved_slots_help: Оставете 0, ако не разполагате с резервирани места
+            reserved_slots_less_than: Броят трябва да е по-малък или равен на %{count}
+            title: Регистрации
+          update:
+            invalid: Възникна проблем при запазването на настройките за регистрация.
+            success: Настройките за регистрация бяха запазени успешно.
+          validate_registration_code:
+            invalid: Регистрационният код е невалиден.
+            success: Регистрационният код беше валидиран успешно.
+      admin_log:
+        invite:
+          create: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+          deleted: "%{user_name} отмени поканата на %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} покани %{attendee_name} да се присъедини към срещата %{resource_name} в пространството %{space_name}"
+        meeting:
+          close: "%{user_name} затвори срещата %{resource_name} в пространството %{space_name}"
+          create: "%{user_name} създаде срещата %{resource_name} в пространството %{space_name}"
+          delete: "%{user_name} изтри срещата %{resource_name} в пространството %{space_name}"
+          export_registrations: "%{user_name} експортира регистрациите за срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира срещата %{resource_name} в пространството %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Организаторът не беше намерен в базата данни (Идент. №: %{id})'
+        minutes:
+          create: "%{user_name} създаде протокола за срещата %{resource_name} в пространството %{space_name}"
+          update: "%{user_name} актуализира протокола за срещата %{resource_name} в пространството %{space_name}"
+      calendar_modal:
+        calendar_url: URL адрес на календара
+        close_window: Затваряне на прозореца
+        export_calendar: Експортиране на календара
+      conference_venues: Места за провеждане на конференции
+      content_blocks:
+        upcoming_events:
+          name: Предстоящи събития
+          view_all_events: Преглед на всички
+      directory:
+        meetings:
+          index:
+            all: Всички
+            date: Дата
+            past: Минали
+            search: Търсене
+            space_type: Пространство за участие
+            upcoming: Предстоящи
+      last_activity:
+        new_meeting_at_html: "<span>Нова среща на адрес %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Покана за присъединяване към среща
+        registration_mailer:
+          confirmation:
+            subject: Регистрацията Ви за срещата е потвърдена
+      meeting:
+        not_allowed: Нямате право да разглеждате тази среща
+      meetings:
+        create:
+          invalid: Възникна проблем при създаването на тази среща.
+          success: Създадохте успешно срещата.
+        edit:
+          back: Назад
+          title: Редактиране на срещата Ви
+          update: Актуализация
+        filters:
+          category: Категория
+          date: Дата
+          date_values:
+            all: Всички
+            past: Минали
+            upcoming: Предстоящи
+          origin: Произход
+          origin_values:
+            all: Всички
+            citizens: Граждани
+            official: Официални
+            user_groups: Групи
+          scope: Обхват
+          search: Търсене
+        filters_small_view:
+          close_modal: Затваряне на модалния диалогов прозорец
+          filter: Филтър
+          filter_by: Филтриране по
+          unfold: Разгъване
+        form:
+          address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+          location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
+          location_hints_help: 'Подсказки за местоположението: допълнителна информация. Пример: етажът на сградата'
+          select_a_category: Моля, изберете категория
+        meeting_minutes:
+          meeting_minutes: Протокол за срещата
+          related_information: Свързана информация
+        meetings:
+          no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
+          upcoming_meetings_warning: Понастоящем няма насрочени срещи, но тук можете да намерите изброени всички минали срещи.
+        new:
+          back: Назад
+          create: Създаване
+        registration_confirm:
+          cancel: Отмяна
+          confirm: Потвърждаване
+        show:
+          attendees: Брой участници
+          back: Назад към списъка
+          contributions: Брой приноси
+          date: Дата
+          edit_meeting: Редактиране на срещата
+          going: Присъстващи
+          join: Присъединяване към срещата
+          meeting_report: Доклад от срещата
+          no_slots_available: Няма налични места
+          organizations: Присъстващи организации
+          registration_code_help_text: Вашият регистрационен код
+          registration_state:
+            validated: ВАЛИДИРАНО
+            validation_pending: ОЧАКВАНЕ НА ВАЛИДИРАНЕ
+          remaining_slots:
+            one: "остава %{count} място"
+            other: "остават %{count} места"
+          view: Преглед
+        update:
+          invalid: Възникна проблем при актуализирането на срещата.
+          success: Актуализирахте успешно срещата.
+      meetings_map:
+        view_meeting: Преглед на срещата
+      models:
+        invite:
+          fields:
+            email: Електронна поща
+            name: Наименование
+            sent_at: Изпратено на
+            status: Състояние
+          status:
+            accepted: Приети (%{at})
+            rejected: Отхвърлени (%{at})
+            sent: Изпратени
+        meeting:
+          fields:
+            closed: Затворени
+            end_time: Крайна дата
+            map: Карта
+            start_time: Начална дата
+            title: Заглавие
+      read_more: "(прочетете повече)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Регистрацията Ви за срещата <a href="%{url}">%{title}</a> беше потвърдена.
+          details: Ще намерите подробности за срещата в прикачения файл.
+          registration_code: Вашият регистрационен код е %{code}.
+      registrations:
+        create:
+          invalid: Възникна проблем при присъединяването към тази среща.
+          success: Присъединихте се успешно към срещата. Тъй като се регистрирахте за тази среща, ще бъдете уведомени за всички актуализации за нея.
+        decline_invitation:
+          invalid: Възникна проблем при отхвърлянето на поканата.
+          success: Отхвърлихте успешно поканата.
+        destroy:
+          invalid: Възникна проблем при напускането на тази среща.
+          success: Напуснахте успешно срещата.
+      types:
+        private_meeting: Частна среща
+        transparent: Прозрачна
+      versions:
+        back_to_resource: Връщане назад към срещата
+    metrics:
+      meetings:
+        description: Брой създадени срещи
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Минали срещи
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Свързани резултати:'
+        result_meeting: 'Свързани срещи:'
+      proposals_from_meeting:
+        meeting_proposal: 'Свързани предложения:'
+        proposal_meeting: 'Свързани срещи:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Покана за присъединяване към среща
