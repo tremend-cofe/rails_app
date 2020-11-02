@@ -1,1 +1,95 @@
 hu:
+  activemodel:
+    attributes:
+      conference:
+        published_at: 'Megjelent:'
+  decidim:
+    admin:
+      models:
+        conference:
+          fields:
+            created_at: 'Létrehozás ideje:'
+    admin_log:
+      conference:
+        create: "%{user_name} létrehozta a(z) %{resource_name} konferenciát"
+        publish: "%{user_name} közzétette a(z) %{resource_name} konferenciát"
+        send_conference_diplomas: "%{user_name} elküldte a részvételi igazolásokat a(z) %{resource_name} konferencia résztvevőinek"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} konferencia közzétételét"
+        update: "%{user_name} frissítette a(z) %{resource_name} konferenciát"
+        update_diploma: "%{user_name} frissítette a részvételi igazolások konfigurációját a(z) %{resource_name} konferencia esetében"
+      conference_speaker:
+        create: "%{user_name} létrehozta %{resource_name} előadót a(z) %{space_name} konferenciához"
+        delete: "%{user_name} eltávolította %{resource_name} előadót a(z) %{space_name} konferenciából"
+        update: "%{user_name} frissítette %{resource_name} előadót a(z) %{space_name} konferencia vonatkozásában"
+      conference_user_role:
+        delete: "%{user_name} eltávolította %{resource_name} adminisztrátort a(z) %{space_name} konferenciából"
+        update: "%{user_name} módosította %{resource_name} szerepét a(z) %{space_name} konferencia vonatkozásában"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} megerősített egy konferenciaregisztrációt a(z) %{resource_name} konferencia vonatkozásában"
+        partner:
+          create: "%{user_name} létrehozta a(z) %{resource_name} erőforrást a(z) %{space_name} konferenciához"
+          delete: "%{user_name} eltávolította %{resource_name} adminisztrátort a(z) %{space_name} konferenciából"
+          update: "%{user_name} frissítette a(z) %{resource_name} erőforrást a(z) %{space_name} konferencia vonatkozásában"
+        registration_type:
+          create: "%{user_name} létrehozta a(z) %{resource_name} regisztrációtípust a(z) %{space_name} konferenciához"
+          publish: "%{user_name} közzétette a(z) %{resource_name} regisztrációtípust a(z) %{space_name} konferencia vonatkozásában"
+          unpublish: "%{user_name} visszavonta a(z) %{resource_name} regisztrációtípus közzétételét a(z) %{space_name} konferencia vonatkozásában"
+          update: "%{user_name} frissítette a(z) %{resource_name} regisztrációtípust a(z) %{space_name} konferencia vonatkozásában"
+      media_link:
+        create: "%{user_name} létrehozta a(z) %{resource_name} médiahivatkozást a(z) %{space_name} konferenciához"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} médiahivatkozást a(z) %{space_name} konferencia vonatkozásában"
+        update: "%{user_name} frissítette a(z) %{resource_name} médiahivatkozást a(z) %{space_name} konferencia vonatkozásában"
+    conferences:
+      admin:
+        invite_join_conference_mailer:
+          invite:
+            decline: A(z) '%{conference_title}' konferencia meghívásának elutasítása
+            registration: Regisztráció a(z) '%{conference_title}' konferenciára
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: A(z) <a href="%{url}">%{title}</a> konferencia részvételi igazolását a csatolmányban találja.
+          diploma_user:
+            attendance_verified_by: 'A részvétel ellenőrzője:'
+            certificate_of_attendance_description: 'Ez a dokumentum igazolja, hogy <strong>%{user}</strong> részt vett a(z) <strong>%{title}</strong> eseményen, amelyre a(z) <strong>%{location}</strong> helyszínen kerül sor a következő időpontban: <strong>%{start} – %{end}</strong>'
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: A(z) <a href="%{url}">%{title}</a> konferenciára vonatkozó regisztrációját megerősítették.
+          details_1: 'Regisztrált a(z) %{registration_type} típusú konferenciára. Ennek az ára %{price}, és a következő eseményeken vehet részt:'
+        pending_validation:
+          details: 'Regisztrált a(z) %{registration_type} típusra, amelynek az ára %{price}, és a következő eseményeken vehet részt:'
+          pending_html: A(z) <a href="%{url}">%{title}</a> konferencia regisztrációja megerősítésre vár.
+      models:
+        conference_invite:
+          fields:
+            sent_at: 'Küldés ideje:'
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: A(z) <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációját megerősítették.
+        conference_registration_validation_pending:
+          notification_title: A(z) <a href="%{resource_url}">%{resource_title}</a> konferencia regisztrációja megerősítésre vár.
+        conference_registrations_over_percentage:
+          email_intro: 'A(z) "%{resource_title}" konferencia foglalt helyeinek aránya meghaladja a következő értéket: %{percentage}%.'
+          email_subject: 'A(z) "%{resource_title}" konferencia foglalt helyeinek aránya meghaladja a következő értéket: %{percentage}%'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> konferencia foglalt helyeinek aránya meghaladja a következő értéket: %{percentage}%.'
+        conference_updated:
+          email_intro: 'A(z) "%{resource_title}" konferenciát frissítették. Az új verziót a következő oldalon olvashatja el:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" konferenciát. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" konferenciát frissítették
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> konferenciát frissítették.
+        registrations_enabled:
+          email_intro: 'A(z) "%{resource_title}" konferencia engedélyezte a regisztrációt. Regisztrálhat az oldalán:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" konferenciát. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: A(z) "%{resource_title}" konferencia engedélyezte a regisztrációt.
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> konferencia engedélyezte a regisztrációt.
+        role_assigned:
+          email_intro: A(z) "%{resource_title}" konferencia %{role} szerepét rendelték Önhöz.
+          email_outro: 'Azért kapta ezt az értesítést, mert a(z) "%{resource_title}" konferencián a következő szerepet kapta: %{role}.'
+          email_subject: 'Önt a(z) %{role} szerephez rendelték itt: "%{resource_title}".'
+          notification_title: 'A(z) %{role} szerephez rendelték a következő konferencián: <a href="%{resource_url}">%{resource_title}</a>.'
+        upcoming_conference:
+          email_intro: 'A(z) "%{resource_title}" konferenciára 2 nap múlva kerül sor. A leírást a következő oldalon olvashatja el:'
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" konferenciát. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: Hamarosan kezdetét veszi a(z) "%{resource_title}" konferencia!
+          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> konferencia 2 nap múlva veszi kezdetét.
