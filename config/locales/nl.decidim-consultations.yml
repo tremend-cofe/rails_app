@@ -1,0 +1,374 @@
+nl:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Banner afbeelding
+        decidim_highlighted_scope_id: Uitgelicht toepassingsgebied
+        description: Beschrijving
+        end_voting_date: De stemming eindigt
+        introductory_image: Inleidende afbeelding
+        introductory_video_url: URL inleidende video
+        questions: Vragen
+        slug: URL-slug
+        start_voting_date: De stemming begint
+        subtitle: Ondertitel
+        title: Titel
+      question:
+        banner_image: Banner afbeelding
+        decidim_scope_id: Gemeentegebied
+        hero_image: Afbeelding startpagina
+        i_frame_url: URL extern stemsysteem
+        instructions: Aanvullende instructies voor de stemming
+        max_votes: Maximumaantal stemmen
+        min_votes: Minimumaantal stemmen
+        origin_scope: Toepassingsgebied
+        origin_title: Oorsprong
+        origin_url: URL oorsprong
+        participatory_scope: Participatief toepassingsgebied
+        promoter_group: Promotorgroep
+        reference: Referentie
+        scope: Gemeentegebied
+        slug: URL-slug
+        subtitle: Ondertitel
+        vote: Extern stemsysteem
+        what_is_decided: Wat wordt beslist
+      response:
+        decidim_consultations_response_group_id: Groep
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Het maximumaantal stemmen moet hoger of gelijk zijn aan het minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Antwoord niet gevonden.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Aantal stemmen is ongeldig
+    models:
+      decidim/consultation:
+        one: Raadpleging
+        other: Raadplegingen
+      decidim/consultations/question:
+        one: Vraag
+        other: Vragen
+      decidim/consultations/response:
+        one: Antwoord
+        other: Antwoorden
+      decidim/consultations/vote:
+        one: Stem
+        other: Stemmen
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Terug naar antwoorden
+        new_consultation: Nieuwe raadpleging
+        new_question: Nieuwe vraag
+        new_response: Nieuw antwoord
+        new_response_group: Nieuwe groep
+        publish_results: Resultaten publiceren
+        response_groups: Antwoordgroepen beheren
+        unpublish_results: Publicatie resultaten ongedaan maken
+      consultation_publications:
+        create:
+          error: Er is een probleem opgetreden bij het publiceren van deze raadpleging.
+          success: Raadpleging gepubliceerd.
+        destroy:
+          error: Er is een probleem opgetreden bij het ongedaan maken van de publicatie van deze raadpleging.
+          success: Publicatie raadpleging ongedaan gemaakt.
+      consultation_results_publications:
+        create:
+          error: Er is een probleem opgetreden bij het publiceren van de resultaten van deze raadpleging.
+          success: Resultaten raadpleging gepubliceerd.
+        destroy:
+          error: Er is een probleem opgetreden bij het ongedaan maken van de publicatie van de resultaten van deze raadpleging.
+          success: Publicatie resultaten raadpleging ongedaan gemaakt.
+      consultations:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe raadpleging.
+          success: Raadpleging aangemaakt.
+        edit:
+          update: Bijwerken
+        form:
+          slug_help: 'URL-slugs worden gebruikt om URL''s te genereren die naar deze raadpleging verwijzen. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een letter. Voorbeeld: %{url}'
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: Aanmaken
+          title: Nieuwe raadpleging
+        results:
+          not_visible: De resultaten zijn beschikbaar wanneer de raadpleging is afgesloten
+          participants: "%{count} deelnemers"
+          total_votes: 'Totaal: %{count} stemmen'
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze raadpleging.
+          success: Raadpleging bijgewerkt.
+      menu:
+        consultations: Raadplegingen
+        consultations_submenu:
+          info: Informatie
+          questions: Vragen
+          results: Resultaten
+        questions_submenu:
+          components: Onderdelen
+          configuration: Configuratie
+          consultation: Raadpleging
+          info: Informatie
+          responses: Antwoorden
+      models:
+        consultation:
+          fields:
+            created_at: Aangemaakt op
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Raadpleging
+            other: Raadplegingen
+        question:
+          fields:
+            created_at: Aangemaakt op
+            published: Gepubliceerd
+            title: Titel
+          name:
+            one: Vraag
+            other: Vragen
+        response:
+          fields:
+            created_at: Aangemaakt op
+            response_group: Groep
+            title: Titel
+          name:
+            one: Antwoord
+            other: Antwoorden
+      question_configuration:
+        disable_external_voting: Gelieve externe stemming uit te schakelen voor geavanceerde configuraties
+        form:
+          help: Stel meerkeuzevragen op door het maximumaantal antwoorden waaruit een deelnemer kan kiezen te verhogen. De maximumwaarde is standaard 1, wat betekent dat slechts één antwoord kan worden geselecteerd.
+          title: Geavanceerde configuratie
+      question_publications:
+        create:
+          error: Er is een probleem opgetreden bij het publiceren van deze vraag.
+          success: Vraag gepubliceerd.
+        destroy:
+          error: Er is een probleem opgetreden bij het ongedaan maken van de publicatie van deze vraag.
+          success: Vraag niet gepubliceerd.
+      questions:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe vraag.
+          success: Vraag aangemaakt.
+        destroy:
+          success: Vraag verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        index:
+          not_published: Niet gepubliceerd
+          published: Gepubliceerd
+        new:
+          create: Aanmaken
+          title: Nieuwe vraag
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze vraag.
+          success: Vraag bijgewerkt.
+      response_groups:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe antwoordgroep.
+          success: Antwoordgroep aangemaakt.
+        destroy:
+          error: Er is een probleem opgetreden bij het verwijderen van de antwoordgroep. Controleer of er geen antwoorden van afhangen.
+          success: Antwoordgroep verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        help: Groepen gebruiken om meerkeuzevragen te bundelen.
+        new:
+          create: Aanmaken
+          title: Nieuwe antwoordgroep
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van dit antwoord.
+          success: Antwoord bijgewerkt.
+      responses:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuw antwoord.
+          success: Antwoord aangemaakt.
+        destroy:
+          error: Er is een probleem opgetreden bij het verwijderen van het antwoord.
+          success: Antwoord verwijderd.
+        edit:
+          update: Bijwerken
+        form:
+          title: Algemene informatie
+        new:
+          create: Aanmaken
+          title: Nieuw antwoord
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van dit antwoord.
+          success: Antwoord bijgewerkt.
+      titles:
+        consultations: Raadplegingen
+        questions: Vragen
+        response_groups: Antwoordgroepen
+        responses: Antwoorden
+        results: Resultaten
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Maximum aantal weer te geven elementen
+      consultation:
+        start_voting_date: De stemming begint
+        view_results: Resultaten weergeven
+      consultation_card:
+        view_results: Resultaten weergeven
+      consultations:
+        orders:
+          label: 'Sorteer raadplegingen op:'
+          random: Willekeurig
+          recent: Meest recente
+        show:
+          dates: Datums
+      content_blocks:
+        highlighted_consultations:
+          name: Uitgelichte raadplegingen
+      count:
+        title:
+          one: "%{count} raadpleging"
+          other: "%{count} raadplegingen"
+      filters:
+        active: Actief
+        all: Alle
+        finished: Voltooid
+        search: Zoeken
+        upcoming: Gepland(e)
+      filters_small_view:
+        close_modal: Venster sluiten
+        filter: Filteren
+        filter_by: Filteren op
+        unfold: Uitvouwen
+      highlighted_questions:
+        title: Vragen van %{scope_name}
+      index:
+        title: Raadplegingen
+      last_activity:
+        new_consultation: Nieuwe raadpleging
+        new_question_at_html: "<span>Nieuwe vraag op %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Actieve raadplegingen
+            see_all_consultations: Alle raadplegingen weergeven
+            voting_ends_in:
+              one: De stemming eindigt <strong>morgen</strong>
+              other: De stemming eindigt binnen <strong>%{count} dagen</strong>
+            voting_ends_today: De stemming eindigt <strong>vandaag</strong>
+      question:
+        take_part: Deelnemen
+        view_results: Resultaten weergeven
+        votes_out_of:
+          one: stem van
+          other: stemmen van
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: De deelnemers kunnen een minimum van %{votes} stemmen over de verschillende opties verdelen.
+          title: Bij deze vraag zijn meerdere keuzemogelijkheden toegestaan
+          total_participants: In totaal namen %{count} mensen deel aan de stemming.
+          vote_limit:
+            description: De deelnemers kunnen maximaal voor %{limit} keuzemogelijkheden stemmen.
+        voting_rules:
+          minimum_votes_per_user:
+            description: U moet minimaal %{votes} stemmen over de verschillende keuzemogelijkheden verdelen.
+          title: 'Voor stemmingen gelden de volgende regels:'
+          vote_limit:
+            description: U kunt maximaal voor %{limit} keuzemogelijkheden stemmen.
+            left: Resterende
+            votes: Stemmen
+      question_votes:
+        create:
+          error: Er is een probleem opgetreden bij het stemmen over de vraag
+          success: U kunt een wijziging doorvoeren tot het einde van de raadpleging. Alleen de laatste stem wordt aanvaard.
+          title_error: Stemfout!
+          title_success: Stem geregistreerd
+      regular_questions:
+        title: Vragen voor deze raadpleging
+      show:
+        badge_name:
+          finished: Voltooid
+          open: Openbaar
+          open_votes: Openbare stemmingen
+          published_results: Resultaten gepubliceerd
+        footer_button_text:
+          debate: Debat
+          view: Weergeven
+          view_results: Resultaten weergeven
+          vote: Stemmen
+        unspecified: Niet gespecificeerd
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Raadplegingen</strong> bieden u een ruimte om een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om aan de raadpleging deel te nemen, het debat op te starten en te voeren voor of tegen een antwoord. Wanneer de datum van de raadpleging nadert, kunt u stemmen en de resultaten van de stemmingen publiceren.</p> <p>Voorbeelden: De raadplegingen kunnen betrekking hebben op bijna alle aspecten die invloed hebben op een organisatie: een aantal voorbeelden zijn: het wijzigen van de naam of het logo van de organisatie waarbij verschillende alternatieven worden aangeboden, besluiten (Ja of Nee) om deel uit te maken van een grotere organisatie, het valideren of afwijzen van een nieuw strategisch plan of het resultaat van een werkgroep of het bepalen of de functies maximaal 1, 2 of 3 mandaten blijven bestaan.</p>\n"
+          page: "<p><strong>Raadplegingen</strong> bieden u een ruimte om een duidelijke vraag te stellen aan alle mensen die een organisatie vormen, een oproep te doen om aan de raadpleging deel te nemen, het debat op te starten en te voeren voor of tegen een antwoord. Wanneer de datum van de raadpleging nadert, kunt u stemmen en de resultaten van de stemmingen publiceren.</p> <p>Voorbeelden: De raadplegingen kunnen betrekking hebben op bijna alle aspecten die invloed hebben op een organisatie: een aantal voorbeelden zijn: het wijzigen van de naam of het logo van de organisatie waarbij verschillende alternatieven worden aangeboden, besluiten (Ja of Nee) om deel uit te maken van een grotere organisatie, het valideren of afwijzen van een nieuw strategisch plan of het resultaat van een werkgroep of het bepalen of de functies maximaal 1, 2 of 3 mandaten blijven bestaan binnen de organisatie.</p>\n"
+          title: Wat zijn raadplegingen?
+    menu:
+      consultations: Raadplegingen
+    pages:
+      home:
+        statistics:
+          consultations_count: Raadplegingen
+    questions:
+      next_button: Volgende vraag
+      previous_button: Vorige vraag
+      results:
+        title: Resultaten
+      show:
+        read_more: Meer lezen
+      statistics:
+        assistants_count_title: Assistenten
+        comments_count_title: Opmerkingen
+        meetings_count_title: Vergaderingen
+        supports_count_title: Stemmen
+      technical_info:
+        technical_data: Technische gegevens
+      vote_button:
+        already_voted: Al gestemd
+        already_voted_hover: Stem herroepen
+        starting_from: Vanaf %{date}
+        verification_required: Verifieer uw account om te stemmen
+        vote: Stemmen
+      vote_modal:
+        close_modal: Modaal venster afsluiten
+        contextual_help: Selecteer een keuzemogelijkheid.
+        title: 'Raadpleging: vraag stemming'
+      vote_modal_confirm:
+        change: Wijzigen
+        close_modal: Modaal venster afsluiten
+        confirm: Bevestigen
+        contextual_help: Bevestig de geselecteerde optie.
+        title: 'Raadpleging: bevestig stem'
+    resources:
+      consultations:
+        actions:
+          vote: Stemmen
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Bijlagen
+          categories: Categorieën
+      consultation_voting_data:
+        start_voting_date: De stemming begint
+      question_components:
+        question_menu_item: De vraag
+        unfold: Uitvouwen
+      question_header:
+        back_to_consultation: Alle raadplegingen weergeven
+        back_to_question: Terug naar de vraag
