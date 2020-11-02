@@ -1,0 +1,123 @@
+hu:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Hozzászólás
+      decidim/comments/comment_created_event: Hozzászólás
+      decidim/comments/reply_created_event: Hozzászólás válasza
+      decidim/comments/user_group_mentioned_event: Említés
+      decidim/comments/user_mentioned_event: Említés
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Hozzászólás
+        other: Hozzászólások
+      decidim/comments/comment_vote:
+        one: Szavazás
+        other: Szavazások
+  decidim:
+    comments:
+      comments: Hozzászólások
+      comments_count: Hozzászólások száma
+      last_activity:
+        new_comment_at_html: "<span>Új hozzászólás itt: %{link}</span>"
+      view: Megtekintés
+      votes:
+        create:
+          error: Hiba történt a hozzászólással kapcsolatos szavazás során.
+    components:
+      add_comment_form:
+        account_message: A hozzászólás hozzáadásához <a href="%{sign_in_url}">jelentkezzen be a fiókjával,</a> vagy <a href="%{sign_up_url}">regisztráljon.</a>.
+        form:
+          body:
+            label: Hozzászólás
+            placeholder: Mit gondol erről?
+          form_error: A szöveg kötelező, és nem lehet hosszabb, mint %{length} karakter.
+          submit: Küldés
+          user_group_id:
+            label: 'Hozzászólás írása mint:'
+        opinion:
+          neutral: Semleges
+        remaining_characters: "%{count} karakter maradt"
+        remaining_characters_1: "%{count} karakter maradt"
+        title: Hozzászólás hozzáadása
+      comment:
+        alignment:
+          against: Ellenzés
+          in_favor: Támogatás
+        deleted_user: Törölt résztvevő
+        hide_replies: Válaszok elrejtése
+        reply: Válasz
+        report:
+          action: Jelentés
+          already_reported: A tartalmat már jelentették, és egy adminisztrátor ellenőrizni fogja azt.
+          close: Bezárás
+          description: Helytelen ez a tartalom?
+          details: További hozzászólások
+          reasons:
+            does_not_belong: Jogellenes tevékenységet, öngyilkossági fenyegetéseket, személyes adatokat vagy mást tartalmaz, amelyről úgy gondolja, hogy nem megfelelő a(z) %{organization_name} szervezet összefüggésén belül.
+            offensive: Rasszizmust, szexizmust, rágalmakat, személyes támadásokat, halálos fenyegetéseket, öngyilkosságra való felszólítást vagy a gyűlöletbeszéd bármilyen formáját tartalmazza.
+            spam: Kattintásvadász tartalmakat, hirdetéseket, csalásokat vagy szkriptbotokat tartalmaz.
+          title: Helytelen tartalom jelentése
+        show_replies: '%{replies_count} válasz megjelenítése'
+        single_comment_link_title: Hivatkozás lekérése egyetlen hozzászóláshoz
+      comment_order_selector:
+        order:
+          best_rated: Legjobbra értékelt
+          most_discussed: Legaktívabban tárgyalt
+          older: Régebbi
+          recent: Új
+        title: 'Rendezés szempontja:'
+      comment_thread:
+        title: 'Beszélgetés a következő személlyel: %{authorName}'
+      comments:
+        blocked_comments_for_user_warning: Jelenleg nem tud hozzászólásokat hozzáadni, azonban elolvashatja a korábbiakat.
+        blocked_comments_warning: A hozzászólások jelenleg le vannak tiltva, azonban elolvashatja a korábbiakat.
+        comment_details_title: Hozzászólás részletei
+        loading: Hozzászólások betöltése…
+        single_comment_warning: A többi hozzászólást <a href="%{url}">itt</a> tekintheti meg.
+        single_comment_warning_title: Egyetlen hozzászólást lát
+        title: "%{count} hozzászólás"
+      down_vote_button:
+        text: Nem értek egyet ezzel a hozzászólással
+      up_vote_button:
+        text: Egyetértek ezzel a hozzászólással
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} hozzáadott egy hozzászólást a következőhöz: %{resource_title}. Ezen az oldalon olvashatja el:"
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{author_name}. A profiloldalon visszavonhatja a felhasználó követését.'
+          email_subject: '%{author_name} új hozzászólást adott hozzá a következőhöz: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> új hozzászólást adott hozzá a következőhöz: <a href="%{resource_path}">%{resource_title}</a>.'
+        comment_by_followed_user_group:
+          email_intro: 'A(z) %{author_name} csoport hozzáadott egy hozzászólást a következőhöz: %{resource_title}. Ezen az oldalon olvashatja el:'
+          email_outro: 'Azért kapta ezt az értesítést, mert követi a következőt: %{author_name}. A profiloldalon visszavonhatja a csoport követését.'
+          email_subject: '%{author_name} új hozzászólást adott hozzá a következőhöz: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> új hozzászólást adott hozzá a következőhöz: <a href="%{resource_path}">%{resource_title}</a>.'
+        comment_created:
+          email_intro: "Hozzászólást adtak hozzá a következőhöz: %{resource_title}. Ezen az oldalon olvashatja el a hozzászólást:"
+          email_outro: Azért kapta ezt az értesítést, mert követi a(z) "%{resource_title}" tartalmat vagy a szerzőjét. Az előző hivatkozás segítségével visszavonhatja a követést.
+          email_subject: '%{author_name} új hozzászólást adott hozzá a következőhöz: %{resource_title}'
+          notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> új hozzászólást adott hozzá a következőhöz: <a href="%{resource_path}">%{resource_title}</a>'
+        reply_created:
+          email_intro: "%{author_name} válaszolt a(z) %{resource_title} tartalomhoz tartozó hozzászólásához. Ezen az oldalon olvashatja el:"
+          email_outro: Azért kapta ezt az értesítést, mert válaszolt a hozzászólására.
+          email_subject: "%{author_name} válaszolt a hozzászólására a(z) %{resource_title} tartalom esetében"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> válaszolt a hozzászólására a(z) <a href="%{resource_path}">%{resource_title}</a> tartalom esetében
+        user_group_mentioned:
+          email_intro: Megemlítették az egyik csoportot, amelynek a tagja
+          email_outro: Azért kapta ezt az értesítést, mert tagja a(z) %{group_name} csoportnak, amelyet megemlítettek a(z) %{resource_title} tartalomban.
+          email_subject: Megemlítették a(z) %{resource_title} tartalomban a(z) %{group_name} csoport tagjaként
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlítette a(z) <a href="%{resource_path}">%{resource_title}</a> tartalomban a(z) <a href="%{group_path}">%{group_name} %{group_nickname}</a> csoport tagjaként
+        user_mentioned:
+          email_intro: Megemlítették
+          email_outro: Azért kapta ezt az értesítést, mert megemlítették a(z) %{resource_title} tartalomban.
+          email_subject: Megemlítették a(z) %{resource_title} tartalomban
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> megemlítette a(z) <a href="%{resource_path}">%{resource_title}</a> tartalomban
+    metrics:
+      comments:
+        description: A résztvevők által létrehozott hozzászólások száma
+        object: hozzászólások
+        title: Hozzászólások
+  errors:
+    messages:
+      cannot_have_comments: nem adhat hozzá hozzászólásokat
