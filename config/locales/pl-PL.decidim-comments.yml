@@ -1,1 +1,115 @@
 pl:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Komentarz
+      decidim/comments/comment_created_event: Komentarz
+      decidim/comments/reply_created_event: Odpowiedź na komentarz
+      decidim/comments/user_group_mentioned_event: Wspomnij
+      decidim/comments/user_mentioned_event: Wspomnij
+  decidim:
+    comments:
+      comments: Komentarze
+      comments_count: Liczba komentarzy
+      last_activity:
+        new_comment_at_html: "<span>Nowy komentarz w %{link}</span>"
+      view: Wyświetl
+      votes:
+        create:
+          error: Przy głosowaniu na komentarz pojawił się problem.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Zaloguj się</a> lub <a href="%{sign_up_url}">zarejestruj</a>, aby dodać komentarz.
+        form:
+          body:
+            label: Komentarz
+            placeholder: Co o tym myślisz?
+          form_error: Konieczne jest wpisanie tekstu, który nie może przekroczyć %{length} znaków.
+          submit: Wyślij
+          user_group_id:
+            label: Skomentuj jako
+        opinion:
+          neutral: Neutralny
+        remaining_characters: "Pozostała liczba znaków: %{count}"
+        remaining_characters_1: "Pozostała liczba znaków: %{count}"
+        title: Dodaj komentarz
+      comment:
+        alignment:
+          against: Przeciwko
+          in_favor: Za
+        deleted_user: Usunięty uczestnik
+        hide_replies: Ukryj odpowiedzi
+        reply: Odpowiedz
+        report:
+          action: Zgłoś
+          already_reported: Ta treść została już zgłoszona i zapozna się z nią administrator.
+          close: Zamknij
+          description: Czy ta treść jest niestosowna?
+          details: Uwagi dodatkowe
+          reasons:
+            does_not_belong: Nielegalna działalność, groźby samobójstwa, dane osobowe lub inne informacje, które są niestosowne w %{organization_name}.
+            offensive: Rasizm, seksizm, obelgi, ataki osobiste, groźby karalne, wzywanie do samobójstwa lub dowolna forma mowy nienawiści.
+            spam: Treści klikbajtowe, reklamy, oszustwa lub boty.
+          title: Zgłoś niestosowną treść
+        show_replies: Pokaż odpowiedzi %{replies_count}
+        single_comment_link_title: Uzyskaj link do pojedynczego komentarza
+      comment_order_selector:
+        order:
+          best_rated: Najwyżej oceniane
+          most_discussed: Najczęściej omawiane
+          older: Najstarsze
+          recent: Najnowsze
+        title: 'Sortuj wg'
+      comment_thread:
+        title: Rozmowa z %{authorName}
+      comments:
+        blocked_comments_for_user_warning: W tej chwili nie możesz zamieścić komentarza, ale możesz zapoznać się z poprzednimi.
+        blocked_comments_warning: W tej chwili komentarze są wyłączone, ale możesz zapoznać się z poprzednimi.
+        comment_details_title: Szczegóły komentarzy
+        loading: Ładowanie komentarzy...
+        single_comment_warning: Pozostałe komentarze można zobaczyć <a href="%{url}">tutaj</a>.
+        single_comment_warning_title: Oglądasz jeden komentarz
+        title: "Liczba komentarzy: %{count}"
+      down_vote_button:
+        text: Nie zgadzam się z tym komentarzem
+      up_vote_button:
+        text: Zgadzam się z tym komentarzem
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} zamieścił(a) komentarz w %{resource_title}. Możesz zapoznać się z nim na stronie:"
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tego użytkownika, wybierając opcję na jego stronie profilowej.
+          email_subject: '%{author_name} zamieścił(a) nowy komentarz w %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zamieścił(a) nowy komentarz w <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Grupa %{author_name} zamieściła komentarz w %{resource_title}. Możesz zapoznać się z nim na stronie:'
+          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_name}. Możesz przestać obserwować tę grupę, wybierając opcję na jej stronie profilowej.
+          email_subject: '%{author_name} zamieścił(a) nowy komentarz w %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zamieścił(a) nowy komentarz w <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "Dodano komentarz w %{resource_title}. Można zapoznać się z komentarzem na stronie:"
+          email_outro: Otrzymujesz to zgłoszenie, ponieważ obserwujesz „%{resource_title}” lub autora. Możesz przestać to obserwować, klikając wcześniejszy link.
+          email_subject: '%{author_name} zamieścił(a) nowy komentarz w %{resource_title}'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> zamieścił(a) nowy komentarz w <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} odpowiedział(a) na Twój komentarz w %{resource_title}. Możesz zapoznać się z nim na stronie:"
+          email_outro: Otrzymujesz to powiadomienie, ponieważ udzielono odpowiedzi na Twój komentarz.
+          email_subject: "%{author_name} odpowiedział(a) na Twój komentarz w %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział(a) na Twój komentarz w <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Wspomniano o grupie, do której należysz
+          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś członkiem grupy %{group_name}, o której wspomniano w %{resource_title}.
+          email_subject: Wspomniano o Tobie w %{resource_title} jako o członku grupy %{group_name}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a> jako o członku grupy <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Wspomniano o Tobie
+          email_outro: Otrzymujesz to powiadomienie, ponieważ wspomniano o Tobie w %{resource_title}.
+          email_subject: Wspomniano o Tobie w %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> wspomniał(a) o Tobie w <a href="%{resource_path}">%{resource_title}</a>
+    metrics:
+      comments:
+        description: Liczba komentarzy zamieszczonych przez uczestników
+        object: komentarze
+        title: Komentarze
+  errors:
+    messages:
+      cannot_have_comments: nie można zamieszczać komentarzy
