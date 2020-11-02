@@ -1,0 +1,561 @@
+lv:
+  activemodel:
+    attributes:
+      conference:
+        assemblies_ids: Saistītās asamblejas
+        banner_image: Reklāmkaroga attēls
+        consultations_ids: Saistītās konsultācijas
+        copy_categories: Kopēt kategorijas
+        copy_components: Kopēt komponentus
+        copy_features: Kopēt līdzekļus
+        decidim_scope_id: Darbības tvērums
+        description: Apraksts
+        hashtag: Tēmturis
+        hero_image: Sākumattēls
+        participatory_processes_ids: Saistītie līdzdalības procesi
+        promoted: Iezīmēts
+        published_at: Publicēts
+        scope_id: Darbības tvērums
+        scopes_enabled: Darbības tvērumi iespējoti
+        short_description: Īss apraksts
+        show_statistics: Rādīt statistiku
+        slogan: Devīze
+        slug: URL beigu daļa
+        title: Virsraksts
+      conference_speaker:
+        full_name: Pilns vārds un uzvārds
+      conference_user_role:
+        email: E-pasts
+        name: Vārds un uzvārds
+        role: Loma
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Uz šo e-pastu jau ir nosūtīts uzaicinājums
+  decidim:
+    admin:
+      actions:
+        confirm: Apstiprināt
+        new_conference: Jauna konference
+        send_diplomas: Nosūtīt dalības sertifikātus
+      conference_copies:
+        new:
+          copy: Kopēt
+          select: Atlasiet datus, kurus vēlaties dublēt
+          title: Dublēt konferenci
+      conference_publications:
+        create:
+          error: Publicējot šo konferenci, radās problēma.
+          success: Konference ir veiksmīgi publicēta.
+        destroy:
+          error: Atceļot šīs konferences publicēšanu, radās problēma.
+          success: Konferences publicēšana ir veiksmīgi atcelta.
+      conference_registration:
+        confirm:
+          error: Apstiprinot šo konferences reģistrāciju, radās problēma.
+          success: Konferences reģistrācija ir veiksmīgi apstiprināta.
+      conference_speakers:
+        create:
+          error: Pievienojot ziņotāju šajā konferencē, radās problēma.
+          success: Konferences ziņotājs ir veiksmīgi izveidots.
+        destroy:
+          success: Konferences ziņotājs ir veiksmīgi izdzēsts.
+        edit:
+          title: Atjaunināt konferences ziņotāju.
+          update: Atjaunināt
+        index:
+          conference_speakers_title: Konferences ziņotāji
+        new:
+          create: Izveidot
+          title: Jauns konferences ziņotājs.
+        update:
+          error: Atjauninot šo konferences ziņotāju, radās problēma.
+          success: Konferences ziņotājs ir veiksmīgi atjaunināts.
+      conference_user_roles:
+        create:
+          error: Pievienojot administratoru šajā konferencē, radās problēma.
+          success: Konferences administrators ir veiksmīgi pievienots.
+        destroy:
+          success: Konferences administrators ir veiksmīgi dzēsts.
+        edit:
+          title: Atjaunināt konferences administratoru.
+          update: Atjaunināt
+        index:
+          conference_admins_title: konferences administratori
+        new:
+          create: Izveidot
+          title: Jauns konferences administrators.
+        update:
+          error: Atjauninot šo konferences administratoru, radās problēma.
+          success: Konferences administrators ir veiksmīgi atjaunināts.
+      conferences:
+        create:
+          error: Izveidojot šo konferenci, radās problēma.
+          success: Konference ir veiksmīgi izveidota.
+        edit:
+          update: Atjaunināt
+        exports:
+          registrations: Reģistrācijas
+        form:
+          title: Vispārīga informācija
+        index:
+          not_published: Nav publicēts
+          published: Publicēts
+        new:
+          create: Izveidot
+          title: Konference
+        update:
+          error: Atjauninot šo konferenci, radās problēma.
+          success: Konference ir veiksmīgi atjaunināta.
+      conferences_copies:
+        create:
+          error: Dublējot šo konferenci, radās problēma.
+          success: Konference ir veiksmīgi dublēta.
+      media_links:
+        create:
+          error: Izveidojot jaunu plašsaziņas līdzekļu saiti, radās problēma.
+          success: Plašsaziņas līdzekļu saite ir veiksmīgi izveidota.
+        destroy:
+          success: Plašsaziņas līdzekļu saite ir veiksmīgi izdzēsta.
+        edit:
+          title: Atjaunināt plašsaziņas līdzekļu saiti.
+          update: Atjaunināt
+        index:
+          media_links_title: Plašsaziņas līdzekļu saites
+        new:
+          create: Izveidot
+          title: Plašsaziņas līdzekļu saite
+        update:
+          error: Atjauninot šo plašsaziņas līdzekļu saiti, radās problēma.
+          success: Multivides saite ir veiksmīgi atjaunināta.
+      menu:
+        conferences: Konferences
+        conferences_submenu:
+          attachment_collections: Mapes
+          attachment_files: Faili
+          attachments: Pielikumi
+          categories: Kategorijas
+          components: Komponenti
+          conference_admins: Konferences administratori
+          conference_invites: Uzaicinājumi
+          conference_speakers: Ziņotāji
+          diploma: Dalības sertifikāts
+          info: Informācija
+          media_links: Multivides saites
+          moderations: Regulēšana
+          partners: Partneri
+          registration_types: Reģistrācijas tipi
+          registrations: Reģistrācijas
+          user_registrations: Lietotāju reģistrācijas
+      models:
+        conference:
+          fields:
+            created_at: Izveidošanas laiks
+            promoted: Iezīmēts
+            published: Publicēts
+            title: Virsraksts
+        conference_speaker:
+          fields:
+            affiliation: Piederība
+            full_name: Pilns vārds un uzvārds
+            position: Amats
+          name: Konferences ziņotājs
+        conference_user_role:
+          fields:
+            email: E-pasts
+            name: Vārds un uzvārds
+            role: Loma
+          name: Konferences administrators
+          roles:
+            admin: Administrators
+            collaborator: Līdzstrādnieks
+            moderator: Moderators
+            valuator: Vērtētājs
+        media_link:
+          fields:
+            date: Datums
+            link: Saite
+            title: Virsraksts
+          name: Multivides saite
+        partner:
+          fields:
+            link: Saite
+            logo: Logotips
+            name: Vārds un uzvārds
+            partner_type: Tips
+          name: Partneris
+          types:
+            collaborator: Līdzstrādnieks
+            main_promotor: Galvenais atbalstītājs
+        registration_type:
+          fields:
+            conference_meetings: Konferences sanāksmes
+            price: Cena
+            registrations_count: Reģistrāciju skaits
+            title: Virsraksts
+            weight: Svarīgums
+          name: Reģistrācijas tips
+      partners:
+        create:
+          error: Pievienojot partneri šajā konferencē, radās problēma.
+          success: Konferences partneris ir veiksmīgi pievienots.
+        destroy:
+          success: Konferences partneris ir veiksmīgi dzēsts.
+        edit:
+          title: Atjaunināt partneri.
+          update: Atjaunināt
+        new:
+          create: Izveidot
+          title: Jauns partneris
+        update:
+          error: Atjauninot partneri šajā konferencē, radās problēma.
+          success: Konferences partneris ir veiksmīgi atjaunināts.
+      registration_type_publications:
+        create:
+          error: Publicējot šo reģistrācijas tipu, radās problēma.
+          success: Reģistrācijas tips ir veiksmīgi publicēts.
+        destroy:
+          error: Atceļot šā reģistrācijas tipa publicēšanu, radās problēma.
+          success: Reģistrācijas tipa publicēšana ir veiksmīgi atcelta.
+      registration_types:
+        create:
+          error: Pievienojot reģistrācijas tipu šajā konferencē, radās problēma.
+          success: Konferences reģistrācijas tips ir veiksmīgi pievienots.
+        destroy:
+          success: Konferences reģistrācijas tips ir veiksmīgi dzēsts.
+        edit:
+          title: Atjaunināt reģistrācijas tipu.
+          update: Atjaunināt
+        new:
+          create: Izveidot
+          title: Jauns reģistrācijas tips
+        update:
+          error: Atjauninot reģistrācijas tipu šajā konferencē, radās problēma.
+          success: Konferences reģistrācijas tips ir veiksmīgi atjaunināts.
+      titles:
+        conferences: Konferences
+    admin_log:
+      conference:
+        create: "%{user_name} izveidoja konferenci %{resource_name}"
+        publish: "%{user_name} publicēja konferenci %{resource_name}"
+        send_conference_diplomas: "%{user_name} nosūtīja dalības sertifikātus konferences %{resource_name} dalībniekiem"
+        unpublish: "%{user_name} atcēla konferences %{resource_name} publicēšanu"
+        update: "%{user_name} atjaunināja konferenci %{resource_name}"
+        update_diploma: "%{user_name} atjaunināja konferences %{resource_name} dalības sertifikātu konfigurāciju"
+      conference_speaker:
+        create: "%{user_name} izveidoja ziņotāju %{resource_name} konferencē %{space_name}"
+        delete: "%{user_name} dzēsa ziņotāju %{resource_name} no konferences %{space_name}"
+        update: "%{user_name} atjaunināja ziņotāju %{resource_name} konferencē %{space_name}"
+      conference_user_role:
+        create: "%{user_name} uzaicināja %{resource_name} piedalīties konferencē %{space_name}"
+        delete: "%{user_name} dzēsa administratoru %{resource_name} no konferences %{space_name}"
+        update: "%{user_name} mainīja %{resource_name} lomu konferencē %{space_name}"
+      conferences:
+        conference_registration:
+          confirm: "%{user_name} apstiprināja konferences reģistrāciju konferencē %{resource_name}"
+        partner:
+          create: "%{user_name} izveidoja %{resource_name} konferencē %{space_name}"
+          delete: "%{user_name} dzēsa administratoru %{resource_name} no konferences %{space_name}"
+          update: "%{user_name} atjaunināja %{resource_name} konferencē %{space_name}"
+        registration_type:
+          create: "%{user_name} izveidoja reģistrācijas tipu %{resource_name} konferencē %{space_name}"
+          publish: "%{user_name} publicēja reģistrācijas tipu %{resource_name} konferencē %{space_name}"
+          unpublish: "%{user_name} atcēla reģistrācijas tipa %{resource_name} publicēšanu konferencē %{space_name}"
+          update: "%{user_name} atjaunināja reģistrācijas tipu %{resource_name} konferencē %{space_name}"
+      media_link:
+        create: "%{user_name} izveidoja plašsaziņas līdzekļu saiti %{resource_name} konferencē %{space_name}"
+        delete: "%{user_name} dzēsa plašsaziņas līdzekļu saiti %{resource_name} no konferences %{space_name}"
+        update: "%{user_name} atjaunināja plašsaziņas līdzekļu saiti %{resource_name} konferencē %{space_name}"
+    conference_program:
+      index:
+        title: Programma
+    conference_speakers:
+      index:
+        title: Ziņotāji
+    conferences:
+      admin:
+        conference_copies:
+          form:
+            slug_help: 'URL beigu daļas tiek izmantotas, lai ģenerētu URL, kuri norāda uz šo konferenci. Var izmantot tikai burtus, skaitļus un domuzīmes, un sākumā jābūt burtam. Piemērs: %{url}'
+        conference_invites:
+          create:
+            error: Uzaicinot dalībnieku uz konferenci, radās problēma.
+            success: Dalībnieks ir veiksmīgi uzaicināts uz konferenci.
+          form:
+            attendee_type: Dalībnieku tips
+            existing_user: Pašreizējs dalībnieks
+            invite_explanation: Dalībnieks tiks uzaicināts pievienoties konferencei, kā arī organizācijai.
+            non_user: Neesošs dalībnieks
+            select_user: Atlasīt dalībnieku
+          index:
+            filter:
+              accepted: Pieņemts
+              all: Visi
+              rejected: Noraidīts
+              sent: Nosūtīts
+            filter_by: Filtrēt pēc
+            invite_attendee: Uzaicināt dalībnieku
+            invites: Uzaicinājumi
+            search: Meklēt
+          new:
+            explanation: Dalībnieks tiks uzaicināts uz konferenci. Ja e-pasts nav reģistrēts, dalībnieks arī tiks uzaicināts pievienoties organizācijai.
+            invite: Uzaicināt
+            new_invite: Uzaicināt dalībnieku
+        conference_registrations:
+          index:
+            registrations: Reģistrācijas
+        conference_speakers:
+          form:
+            existing_user: Pašreizējs dalībnieks
+            non_user: Persona, kas dalībnieks
+            select_user: Atlasīt dalībnieku
+            user_type: Dalībnieka tips
+          index:
+            search: Meklēt
+        conferences:
+          form:
+            available_slots_help: Atstājiet vērtību “0”, ja ir pieejams neierobežots vietu skaits.
+            slug_help: 'URL beigu daļas tiek izmantotas, lai ģenerētu URL, kuri norāda uz šo konferenci. Var izmantot tikai burtus, skaitļus un domuzīmes, un sākumā jābūt burtam. Piemērs: %{url}'
+        diplomas:
+          edit:
+            save: Saglabāt
+            title: Dalības sertifikāts
+        invite_join_conference_mailer:
+          invite:
+            decline: Noraidīt uzaicinājumu '%{conference_title}'
+            invited_you_to_join_a_conference: "%{invited_by} jūs uzaicināja uz konferenci %{application}. Varat to noraidīt vai pieņemt, izmantojot tālāk redzamās saites."
+            registration: Reģistrācija konferencei '%{conference_title}'
+        partners:
+          index:
+            title: Partneri
+        registration_types:
+          form:
+            select_conference_meetings: Atlasīt konferences sanāksmes
+          index:
+            title: Reģistrācijas tipi
+        send_conference_diploma_mailer:
+          diploma:
+            diploma_html: Konferences <a href="%{url}">%{title}</a> dalības sertifikāts ir iekļauts pielikumos.
+          diploma_user:
+            attendance_verified_by: Dalību pārbaudīja
+            certificate_of_attendance: Dalības sertifikāts
+            certificate_of_attendance_description: 'Ar šo apliecinām, ka <strong>%{user}</strong> ir piedalījies <strong>%{title}</strong>, kas tika rīkota <strong>%{location}</strong> šādā laikposmā: <strong>%{start}–%{end}</strong>'
+        send_diploma:
+          error: Nosūtot konferences dalības sertifikātus, radās problēma.
+          success: Konferences dalības sertifikāti ir veiksmīgi nosūtīti
+      conference:
+        registration_confirm:
+          cancel: Atcelt
+          confirm: Apstiprināt
+        show:
+          free: Brīvs
+          going: Piedalās
+          no_slots_available: Nav vietu
+          registration: Reģistrācija
+      conference_program:
+        program_meeting:
+          content: Saturs
+          location: Atrašanās vieta
+          speakers: Ziņotāji
+          streaming: Straumēšana
+        show:
+          day: Diena
+          program: Programma
+      conference_registration_mailer:
+        confirmation:
+          confirmed_html: Jūsu reģistrācija konferencei <a href="%{url}">%{title}</a> ir apstiprināta.
+          details_1: 'Jūs esat reģistrēts konferencei ar reģistrācijas tipu %{registration_type}. Tās cena ir %{price}, un varat piedalīties šādos pasākumos:'
+          details_2: Informācija par konferenci ir atrodama pielikumā.
+        pending_validation:
+          confirmation_pending: Pēc brīža saņemsiet apstiprinājumu
+          details: 'Jūs esat reģistrēts tipam %{registration_type} ar cenu %{price} un varat piedalīties šādos pasākumos:'
+          pending_html: Jūsu reģistrācija konferencei <a href="%{url}">%{title}</a> gaida apstiprinājumu.
+      conference_registrations:
+        create:
+          invalid: Pievienojoties šai konferencei, radās problēma.
+          success: Jūs esat veiksmīgi pievienojies konferencei.
+        decline_invitation:
+          invalid: Noraidot uzaicinājumu, radās problēma.
+          success: Jūs esat veiksmīgi noraidījis uzaicinājumu.
+        destroy:
+          invalid: Atstājot šo konferenci, radās problēma.
+          success: Jūs esat veiksmīgi atstājis konferenci.
+      conference_speaker:
+        go_to_twitter: Pāriet uz Twitter
+        more_info: papildinformācija
+        personal_website: Personiskā vietne
+        show:
+          more_info: papildinformācija
+      conference_speaker_cell:
+        personal_url:
+          personal_website: Personiskā vietne
+        twitter_handle:
+          go_to_twitter: Pāriet uz Twitter
+      conference_speakers:
+        index:
+          speakers: Ziņotāji
+      conferences:
+        partners:
+          collaborators: Partneri
+          main_promotors: Organizētāji
+        show:
+          login_as: Esat pieteicies kā lietotājs %{name} <%{email}>
+          make_conference_registration: 'Veikt reģistrāciju konferencei:'
+          register: Reģistrēties
+      content_blocks:
+        highlighted_conferences:
+          name: Iezīmētās konferences
+      index:
+        title: Konferences
+      mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: Jūsu konferences reģistrācija ir apstiprināta
+          pending_validation:
+            subject: Jūsu konferences reģistrācija gaida apstiprinājumu
+        invite_join_conference_mailer:
+          invite:
+            subject: Uzaicinājums pievienoties konferencei
+        send_conference_diploma_mailer:
+          diploma:
+            subject: Jūsu konferences dalības sertifikāts ir nosūtīts
+      models:
+        conference_invite:
+          fields:
+            email: E-pasts
+            name: Vārds un uzvārds
+            registration_type: Reģistrācijas tips
+            sent_at: Nosūtīšanas laiks
+            status: Statuss
+          status:
+            accepted: Pieņemts (%{at})
+            rejected: Noraidīts (%{at})
+            sent: Nosūtīts
+        conference_registration:
+          fields:
+            email: E-pasts
+            name: Vārds un uzvārds
+            registration_type: Reģistrācijas tips
+            state: Statuss
+            states:
+              confirmed: Apliecināts
+              pending: Gaida
+      pages:
+        home:
+          highlighted_conferences:
+            active_conferences: Aktīvās konferences
+            see_all_conferences: Skatīt visas konferences
+      photo:
+        image:
+          attributes:
+            alt: Multivides attēls
+        show:
+          close_modal: Aizvērt modālo logu
+          photo: Attēls
+      photos_list:
+        show:
+          related_photos: Attēli
+      registration_types:
+        index:
+          choose_an_option: 'Izvēlieties reģistrācijas opciju:'
+          login_as: Esat pieteicies kā lietotājs %{name} <%{email}>
+          register: Reģistrēties
+          title: Reģistrācijas tipi
+      shared:
+        conference_user_login:
+          already_account: Vai jums jau ir decidim konts?
+          new_user: Jauns lietotājs?
+          sign_in: Piesakieties, lai reģistrētos konferencei
+          sign_up: Izveidojiet decidim kontu, lai reģistrētos konferencei
+      show:
+        details: Informācija
+        introduction: Ievads
+        objectives: Mērķi
+        related_assemblies: Saistītās asamblejas
+        related_consultations: Saistītās konsultācijas
+        related_participatory_processes: Saistītie līdzdalības procesi
+      statistics:
+        answers_count: Atbildes
+        comments_count: Komentāri
+        conference_count: Konferences
+        endorsements_count: Apstiprinājumi
+        headline: Darbība
+        meetings_count: Sanāksmes
+        orders_count: Atbalsti
+        pages_count: Lapas
+        posts_count: Ziņas
+        projects_count: Projekti
+        proposals_count: Priekšlikumi
+        results_count: Rezultāti
+        surveys_count: Aptaujas
+        users_count: Dalībnieki
+        votes_count: Atbalsti
+    events:
+      conferences:
+        conference_registration_confirmed:
+          notification_title: Jūsu reģistrācija konferencei <a href="%{resource_url}">%{resource_title}</a> ir apstiprināta.
+        conference_registration_validation_pending:
+          notification_title: Jūsu reģistrācija konferencei <a href="%{resource_url}">%{resource_title}</a> gaida apstiprinājumu.
+        conference_registrations_over_percentage:
+          email_intro: Konferences "%{resource_title}" aizņemto vietu skaits pārsniedz %{percentage}%.
+          email_outro: Jūs saņēmāt šo paziņojumu, jo esat konferences līdzdalības telpas administrators.
+          email_subject: Konferences "%{resource_title}" aizņemto vietu skaits pārsniedz %{percentage}%
+          notification_title: Konferences <a href="%{resource_path}">%{resource_title}</a> aizņemto vietu skaits pārsniedz %{percentage}%.
+        conference_updated:
+          email_intro: 'Konference "%{resource_title}" tika atjaunināta. Jauno versiju var skatīt šādā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat konferencei "%{resource_title}". Varat atcelt sekošanu, izmantojot iepriekšējo saiti.
+          email_subject: Konference "%{resource_title}" tika atjaunināta
+          notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> tika atjaunināta.
+        registrations_enabled:
+          email_intro: 'Konferencei "%{resource_title}" ir iespējotas reģistrācijas. Varat reģistrēties šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat konferencei "%{resource_title}". Varat atcelt sekošanu, izmantojot iepriekšējo saiti.
+          email_subject: Konferencei "%{resource_title}" ir iespējotas reģistrācijas.
+          notification_title: Konferencei <a href="%{resource_path}">%{resource_title}</a> ir iespējotas reģistrācijas.
+        role_assigned:
+          email_intro: Jums ir piešķirta loma %{role} konferencē "%{resource_title}".
+          email_outro: Jūs saņēmāt šo paziņojumu, jo jums ir piešķirta loma %{role} konferencē "%{resource_title}".
+          email_subject: Jums ir piešķirta loma %{role} konferencē "%{resource_title}".
+          notification_title: Jums ir piešķirta loma %{role} konferencē <a href="%{resource_url}">%{resource_title}</a>.
+        upcoming_conference:
+          email_intro: 'Konference "%{resource_title}" notiks pēc divām dienām. Aprakstu var skatīt šādā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat konferencei "%{resource_title}". Varat atcelt sekošanu, izmantojot iepriekšējo saiti.
+          email_subject: Konference "%{resource_title}" tuvojas!
+          notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> notiks pēc divām dienām.
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'Konference netika atrasta datubāzē (ID: %{id})'
+    media:
+      index:
+        description: Saites par šo konferenci
+        title: Plašsaziņas līdzekļi un saites
+    menu:
+      conferences: Konferences
+  devise:
+    mailer:
+      join_conference:
+        subject: Uzaicinājums pievienoties konferencei
+  layouts:
+    decidim:
+      conference_hero:
+        register: Reģistrēties
+      conference_widgets:
+        show:
+          take_part: Piedalīties
+      conferences:
+        conference:
+          more_info: Papildinformācija
+          take_part: Piedalīties
+        index:
+          promoted_conferences: Iezīmētās konferences
+        promoted_conference:
+          more_info: Papildinformācija
+          take_part: Piedalīties
+      conferences_nav:
+        conference_menu_item: Informācija
+        conference_partners_menu_item: Partneri
+        conference_speaker_menu_item: Ziņotāji
+        media: Plašsaziņas līdzekļi
+        venues: Norises vietas
