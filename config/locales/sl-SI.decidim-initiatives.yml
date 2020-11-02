@@ -108,10 +108,41 @@ sl:
             initiative_signatures_count: Število podpisov
             initiative_start_date: Začetni datum
             initiative_title: Naslov pobude
+            name_and_surname: Ime in priimek
+            postal_code: Poštna številka
+            time_and_date: Čas in datum
+            timestamp: Časovni žig
+      titles:
+        initiatives: Pobude
+        initiatives_types: Vrste pobude
     events:
       initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Pobuda "%{resource_title}" je bila poslana v tehnično potrditev. Preverite na <a href="%{admin_initiative_url}">skrbniški plošči</a>
+            email_outro: To obvestilo ste prejeli, ker ste skrbnik platforme.
+            email_subject: Pobuda "%{resource_title}" je bila poslana v tehnično potrditev.
+            notification_title: Pobuda "%{resource_title}" je bila poslana v tehnično potrditev. Preverite na <a href="%{admin_initiative_path}">skrbniški plošči</a>
+        initiative_extended:
+          email_intro: Končni datum podpisov za pobudo %{resource_title} je podaljšan!
+          email_outro: To obvestilo ste prejeli, ker sledite %{resource_title}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Končni datum podpisov za pobudo je podaljšan!
+          notification_title: Končni datum podpisov za <a href="%{resource_path}">%{resource_title}</a> pobudo je podaljšan.
+        milestone_completed:
+          affected_user:
+            email_intro: Vaša pobuda %{resource_title} je dosegla %{percentage}% podpisov!
+            email_outro: To obvestilo ste prejeli, ker ste avtor pobude %{resource_title}.
+            email_subject: Dosežen je nov mejnik!
+            notification_title: Vaša <a href="%{resource_path}">%{resource_title}</a> pobuda je dosegla %{percentage}% podpisov.
+          follower:
+            email_intro: Pobuda %{resource_title} je dosegla %{percentage}% podpisov!
+            email_outro: To obvestilo ste prejeli, ker sledite %{resource_title}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+            email_subject: Dosežen je nov mejnik!
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> Pobuda je dosegla %{percentage}% podpisov.
         support_threshold_reached:
           email_intro: Pobuda %{resource_title} je dosegla prag podpore.
+          email_outro: To obvestilo ste prejeli, ker ste skrbnik platforme.
+          email_subject: Dosežen prag podpore
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Pobuda je dosegla prag podpore.
     gamification:
       badges:
@@ -119,28 +150,91 @@ sl:
           conditions: |-
             Pojdite v prostor za sodelovanje pobude
             Sledite korakom za ustvaritev nove pobude
+          description: Ta značka se podeli, če sprožite nove pobude in sodelujete z drugimi pri njihovi izvedbi.
+          description_another: Ta udeleženec ima %{score} objavljenih pobud.
+          description_own: Objavili ste %{score} pobud.
+          name: Objavljene pobude
+          next_level_in: Ustvarite še dodatnih %{score} pobud, da dosežete naslednjo raven!
+          unearned_another: Ta udeleženec še ni objavil nobene pobude.
+          unearned_own: Še nimate objavljenih pobud.
     help:
       participatory_spaces:
         initiatives:
           contextual: "<p><strong>Pobuda</strong> je predlog, ki ga lahko promovira kdor koli na lastno pobudo (neodvisno od drugih kanalov ali prostorov za sodelovanje) z zbiranjem (digitalnih) podpisov, da lahko organizacija izvede določeno dejanje (spremeni predpis, začne projekt, spremeni ime oddelka ali ulice itd.).</p> <p>Predlagatelji pobude lahko opredelijo njene cilje, pridobijo podporo, razpravljajo, jo širijo in določijo zbirališča, kjer je mogoče zbirati podpise sodelujočih ali izvajati razprave, ki so odprte za druge sodelujoče.</p> <p>Primeri: Pobuda lahko zbira podpise za sklic posvetovanja med vsemi ljudmi organizacije ali za ustvarjanje ali sklic skupščine ali za začetek procesa povečanja proračuna za ozemlje ali območje organizacije. Med procesom zbiranja podpisov se lahko k zahtevi pridruži več ljudi in pri tem sodeluje v organizaciji. </p>\n"
           page: "<p><strong>Pobuda</strong> je predlog, ki ga lahko promovira kdor koli na lastno pobudo (neodvisno od drugih kanalov ali prostorov za sodelovanje) z zbiranjem (digitalnih) podpisov, da lahko organizacija izvede določeno dejanje (spremeni predpis, začne projekt, spremeni ime oddelka ali ulice itd.).</p> <p>Predlagatelji pobude lahko opredelijo njene cilje, pridobijo podporo, razpravljajo, jo širijo in določijo zbirališča, kjer je mogoče zbirati podpise sodelujočih ali izvajati razprave, ki so odprte za druge sodelujoče.</p> <p>Primeri: Pobuda lahko zbira podpise za sklic posvetovanja med vsemi ljudmi organizacije ali za ustvarjanje ali sklic skupščine ali za začetek procesa povečanja proračuna za ozemlje ali območje organizacije. Med procesom zbiranja podpisov se lahko k zahtevi pridruži več ljudi in pri tem sodeluje v organizaciji. </p>\n"
+          title: Kaj so pobude?
     initiatives:
+      actions:
+        answer: Odgovor
       admin:
+        answers:
+          edit:
+            answer: Odgovor
+            title: Odgovor za %{title}
+          info_initiative:
+            created_at: Ustvarjeno ob
+            description: Opis
+            initiative_votes_count: Število glasov
+            initiatives: Pobude
+            state: Stanje
         committee_requests:
           index:
+            approve: Odobri
+            confirm_revoke: Ali ste prepričani?
             invite_to_committee_help: Delite to povezavo in povabite druge udeležence v odbor promotorjev.
             no_members_yet: V odboru promotorjev ni članov.
+            revoke: Prekliči
+            title: Člani odbora
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Največja količina elementov za prikaz
+        exports:
+          initiatives: Pobude
         initiatives:
           edit:
+            accept: Sprejmi pobudo
+            confirm: Ali ste prepričani?
+            discard: Zavrzi pobudo
+            export_pdf_signatures: Izvozi podpise v obliki PDF
+            export_votes: Izvozi podpise
+            reject: Zavrni pobudo
+            send_to_technical_validation: Pošlji v tehnično potrditev
             success: Pobuda je bila poslana v tehnično potrditev.
+            update: Posodobi
+          form:
+            attachments: Priloge
+            settings: Nastavitve
+            title: Splošne informacije
+          index:
+            actions_title: Ukrep
+            preview: Predogled
+            print: Natisni
+          initiative_attachments:
+            documents: Dokumenti
+            edit: Uredi
+            new: Novo
+            photos: Fotografije
+          show:
+            print: Natisni
           update:
             error: Prišlo je do napake.
             success: Pobuda je bila uspešno posodobljena.
         initiatives_type_scopes:
           create:
             error: Prišlo je do napake.
+            success: Za dano vrsto pobude je bilo ustvarjeno novo področje
           destroy:
             success: Področje je bilo uspešno odstranjeno.
+          edit:
+            back: Nazaj
+            confirm_destroy: Ali ste prepričani?
+            destroy: Izbriši
+            title: Uredi področje vrste pobude
+            update: Posodobi
+          new:
+            back: Nazaj
+            create: Ustvari
+            title: Ustvari področje vrste pobude
           update:
             error: Prišlo je do napake.
             success: Področje je bilo uspešno posodobljeno.
@@ -150,6 +244,17 @@ sl:
             success: Nova vrsta pobude je bila uspešno posodobljena.
           destroy:
             success: Vrsta pobude je bila uspešno odstranjena.
+          edit:
+            confirm_destroy: Ali ste prepričani?
+            destroy: Izbriši
+            update: Posodobi
+          form:
+            title: Splošne informacije
+          initiative_type_scopes:
+            title: Področja za vrsto pobude
+          new:
+            create: Ustvari
+            title: Nova vrsta pobude
           update:
             error: Prišlo je do napake.
             success: Vrsta pobude je bila uspešno posodobljena.
@@ -160,32 +265,151 @@ sl:
           unpublish: "%{user_name} je zavrnil pobudo %{resource_name}."
           update: "%{user_name} je posodobil pobudo %{resource_name}."
       admin_states:
+        accepted: Dovolj podpisov
+        created: Ustvarjeno
+        discarded: Zavrženo
+        published: Objavljeno
         rejected: Ni dovolj podpisov.
+        validating: Tehnična potrditev
       application_helper:
+        filter_area_values:
+          all: Vse
+        filter_scope_values:
+          all: Vse
         filter_state_values:
+          accepted: Dovolj podpisov
+          all: Vse
+          answered: Odgovorjeno
+          closed: Zaprto
+          open: Odprto
           rejected: Ni dovolj podpisov.
+        filter_type_values:
+          all: Vse
+      committee_requests:
+        new:
+          continue: Nadaljuj
+          help_text: Poslali boste zahtevo za članstvo v odboru promotorjev te pobude
+        spawn:
+          success: Vaša zahteva je bila poslana avtorju pobude.
+      content_blocks:
+        highlighted_initiatives:
+          name: Izpostavljene pobude
       create_initiative:
+        fill_data:
+          back: Nazaj
+          continue: Nadaljuj
+          fill_data_help: "<ul> <li>Preglejte vsebino svoje pobude. Je vaš naslov lahko razumljiv? Je cilj vaše pobude jasen?</li> <li>Izbrati morate vrsto podpisa. Osebni, prek spleta ali kombinacija obeh</li> <li> Kateri je geografski obseg pobude? Mesto, okrožje?</li> </ul>"
+          initiative_type: Vrsta pobude
+          more_information: "(Več informacij)"
+          select_area: Izberi območje
+          select_scope: Izberi področje
+        finish:
+          back: Nazaj
+          back_to_initiatives: Nazaj na pobude
+          callout_text: Čestitamo! Vaša državljanska pobuda je bila uspešno ustvarjena.
+          confirm: Potrdi
+          edit_my_initiative: Uredi moje pobude
+          go_to_my_initiatives: Pojdi na moje pobude
+          more_information: "(Več informacij)"
+          send_my_initiative: Pošlji mojo pobudo
         finish_help:
+          access_reminder: Ne pozabite, da boste do svojih pobud vedno lahko dostopali prek menija za udeležence.
           help_for_organizations: Če ste združenje, boste morali naložiti zapisnike upravnega odbora vseh organizacij, ki tvorijo komisijo za promocijo.
+          help_in_person_signatures: Če ste se odločili, da boste podpise zbirali osebno ali v kombinaciji zbiranja podpisov prek spleta, boste morali naložiti zahtevane informacije.
+          help_text: Ne pozabite, da morate za pravilno obdelavo pobude dostopiti do skrbniške plošče, kjer boste našli uporabniški meni, naložili zahtevane informacije in jih poslali v obdelavo.
+          initiatives_page_link: Vse te informacije lahko poiščete na naslovu %{link}, ki je namenjen za obveščanje o pobudah.
+          page: stran
+        previous_form:
+          back: Nazaj
+          continue: Nadaljuj
+          help: Iz česa je sestavljena pobuda? Zapišite naslov in opis. Priporočamo kratek in jedrnat naslov ter opis, ki se osredotoča na predlagano rešitev.
+          more_information: "(Več informacij)"
+        promotal_committee:
+          back: Nazaj
+          individual_help_text: Za tovrstno državljansko pobudo je potrebna komisija za promocijo, ki jo sestavlja vsaj %{committee_size} oseb (attestors). Naslednjo povezavo morate deliti z drugimi, ki so del te pobude. Ko bodo vaši stiki prejeli to povezavo, bodo morali slediti navedenim korakom.
+          more_information: "(Več informacij)"
         select_initiative_type:
+          back: Nazaj
+          choose_html: Želim ustvariti <strong>%{title}</strong>
+          more_information: "(Več informacij)"
           select: Želim promovirati to pobudo.
+          select_initiative_type_help: Državljanske pobude so sredstvo, s katerim lahko državljanstvo posega, tako da lahko mestni svet sprejme ukrepe v obrambo splošnega interesa, ki je v pristojnosti občine. Katero pobudo želite sprožiti?
         share_committee_link:
+          continue: Nadaljuj
           invite_to_committee_help: Povezava za povabilo ljudi, ki bodo del odbora promotorjev.
         show_similar_initiatives:
+          back: Nazaj
+          compare_help: Če je katera od naslednjih pobud podobna vaši, vas spodbujamo, da jo podpišete. Vaš predlog bo imel več možnosti za izvedbo.
           continue: Moja pobuda je drugačna.
+          more_information: "(Več informacij)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, ki mu sledite, je ustvaril novo pobudo, preverite jo in prispevajte:"
+          email_outro: To obvestilo ste prejeli, ker sledite %{author_nickname}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Nova pobuda s strani %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Pobuda je bila ustvarjena s strani <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, ki mu sledite, odobrava naslednjo pobudo, morda želite prispevati k pogovoru:"
+          email_outro: To obvestilo ste prejeli, ker sledite %{author_nickname}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Pobudo odobrava %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> Pobudo odobrava <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Pobude
       initiative_signatures:
         fill_personal_data:
+          continue: Nadaljuj
+          date_select:
+            day: Dan
+            month: Mesec
+            year: Leto
           help: Za podpis pobude izpolnite naslednja polja z osebnimi podatki.
+        finish:
+          back_to_initiative: Nazaj na pobudo
         sms_code:
+          continue: Preveri kodo in nadaljuj
           help: Preverite SMS-sporočilo, ki ste ga prejeli na svoj telefon.
         sms_phone_number:
+          continue: Pošlji mi SMS-sporočilo
           help: Če želite zahtevati kodo za preverjanje, izpolnite obrazec s preverjeno telefonsko številko.
       initiative_votes:
         create:
+          error: Pri podpisu pobude se je pojavila težava.
           invalid: Podatki za podpis pobude niso veljavni.
           success_html: Čestitamo! <strong>%{title}</strong> Pobuda je bila uspešno podpisana.
+        personal_data:
+          invalid: Osebni podatki niso skladni s podatki za pooblastilo.
+        sms_code:
+          invalid: Vaša koda za preverjanje se ne ujema z našo. Preverite SMS-sporočilo, ki smo vam ga poslali.
+        sms_phone:
+          invalid: Telefonska številka je neveljavna ali čaka na odobritev. Preverite svoja pooblastila.
       initiatives:
+        author:
+          deleted: Izbrisano
+        filters:
+          any: Katera koli
+          area: Območje
+          author: Avtor
+          myself: Moje pobude
+          scope: Področje
+          search: Išči
+          type: Vrsta
+        filters_small_view:
+          close_modal: Zapri okno
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Razgrni
+        index_header:
+          new_initiative: Nova pobuda
+          not_authorized:
+            authorizations_page: Prikaži pooblastila
+            close: Zapri
+            explanation: Če želite ustvariti novo pobudo, morate biti preverjeni.
+            title: Zahtevano pooblastilo
+        initiatives:
+          closed_initiatives_warning: Trenutno ni odprtih pobud, tukaj pa lahko najdete vse naštete zaprte pobude.
+          no_initiatives_warning: Nobena pobuda ne ustreza vašim iskalnim merilom.
         orders:
+          label: 'Razvrsti pobude po:'
           most_commented: največkrat komentirani
           most_voted: največkrat podpisani
           random: naključni
@@ -193,22 +417,104 @@ sl:
           recently_published: nazadnje objavljeni
         result:
           answer_title:
+            accepted: Ta predlog je bil sprejet, ker
+            created: Ta predlog je bil ustvarjen
+            discarded: Ta predlog je bil zavržen, ker
+            published: Ta predlog je bil objavljen, ker
+            rejected: Ta predlog je bil zavrnjen, ker
             validating: Ta predlog se ocenjuje.
+          initiative_rejected_reason: Ta pobuda je bila zavrnjena zaradi premalo podpisov.
         show:
+          any_vote_method: Ta državljanska pobuda zbira podpise na spletu in osebne podpise.
           follow_description: Prejmi obvestilo, ko so v tej pobudi novice.
+          offline_method: Ta državljanska pobuda zbira samo osebne podpise.
+        signature_identities:
+          select_identity: Izberi identifikator udeleženca
+        supports:
+          title: Seznam podpisov
         vote_cabin:
+          already_voted: Že podpisano
+          supports_required: "%{total_supports} zahtevanih podpisov"
           verification_required: Preverite svoj račun, da podpišete pobudo.
+          vote: Podpiši
+          votes_blocked: Podpis onemogočen
         votes_count:
+          most_popular_initiative: Najbolj priljubljena pobuda
           need_more_votes: Potrebnih je več podpisov.
       initiatives_mailer:
         creation_subject: Vaša pobuda '%{title}' je bila ustvarjena.
+        initiative_link:
+          check_initiative_details: Podrobnosti o pobudi lahko vidite
+          here: tukaj
+        more_information: Tukaj imate več informacij o procesu ustvarjanja pobude.
         progress_report_body_for: Pobuda %{title} je dosegla %{percentage}% zahtevanih podpisov.
+        progress_report_for: 'Povzetek o pobudi: %{title}'
         promotal_committee_help: Ne pozabite, da morate v promotorski odbor povabiti vsaj %{member_count} oseb. Posredujte naslednjo povezavo, da povabite osebe v promotorski odbor.
+        status_change_body_for: 'Pobuda %{title} je spremenila svoj status v: %{state}'
         status_change_for: Pobuda %{title} je spremenila svoj status.
+      last_activity:
+        new_initiative: Nova pobuda
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktivne pobude
+            see_all_initiatives: Prikaži vse pobude
       show:
         badge_name:
+          accepted: Dovolj podpisov
+          created: Ustvarjeno
+          discarded: Zavrženo
+          published: Objavljeno
           rejected: Ni dovolj podpisov.
+          validating: Tehnična potrditev
+      states:
+        accepted: Sprejeta
+        expired: Pretekla
+      unavailable_scope: Področje ni na voljo
+      versions:
+        shared:
+          back_to_resource: Pojdi nazaj na pobudo
+    menu:
+      initiatives: Pobude
+    resources:
+      initiatives_type:
+        actions:
+          title: Dejanja
+          vote: Podpiši
   layouts:
     decidim:
+      admin:
+        initiative:
+          attachments: Priloge
+          committee_members: Člani odbora
+          components: Komponente
+          information: Informacije
+      initiative_creation_header:
+        back: Nazaj
+        fill_data: Ustvari
+        finish: Dokončaj
+        previous_form: Začni
+        promotal_committee: Promotorski odbor
+        select_initiative_type: Izberi
+        show_similar_initiatives: Primerjaj
+        step: Korak %{current} od %{total}
+        title: Ustvari novo pobudo
+      initiative_header:
+        initiative_menu_item: Pobuda
       initiative_signature_creation_header:
+        back: Nazaj
+        fill_personal_data: Dopolni svoje podatke
+        finish: Dokončaj
+        finished: Podpis pobude ustvarjen
         see_steps: Prikaži korake
+        select_identity: Izberi identiteto
+        sms_code: Preverjanje kode prek SMS-sporočila
+        sms_phone_number: Številka mobilnega telefona
+        step: Korak %{current} od %{total}
+        title: Podpis %{initiative_title}
+      initiatives:
+        initiative:
+          check: Preveri
+          check_and_support: Preverite in podpišite
+        no_initiatives_yet:
+          no_initiatives_yet: Na voljo še ni nobene pobude!
