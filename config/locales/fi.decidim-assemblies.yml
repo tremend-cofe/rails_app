@@ -1,0 +1,469 @@
+fi:
+  activemodel:
+    attributes:
+      assembly:
+        area_id: Alue
+        assembly_type: Yleiskokoustyyppi
+        assembly_type_other: Muu yleiskokoustyyppi
+        banner_image: Bannerikuva
+        closing_date: Päättymispäivä
+        closing_date_reason: Päättymispäivän syy
+        composition: Kokoonpano
+        copy_categories: Kopioi luokat
+        copy_components: Kopioi komponentit
+        copy_features: Kopioi ominaisuudet
+        created_by: Luonut
+        created_by_other: Luonut muu
+        creation_date: Luontipäivä
+        decidim_area_id: Alue
+        decidim_assemblies_type_id: Yleiskokoustyyppi
+        decidim_scope_id: Aihepiiri
+        description: Kuvaus
+        developer_group: Edistäjäryhmä
+        domain: Verkkotunnus
+        duration: Kesto
+        hashtag: Aihetunniste
+        hero_image: Kotikuva
+        included_at: Sisältyy kohteeseen
+        internal_organisation: Sisäinen organisaatio
+        is_transparent: On läpinäkyvä
+        local_area: Organisaation alue
+        meta_scope: Aihepiirin metatiedot
+        parent_id: Pääyleiskokous
+        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
+        participatory_scope: Mitä päätetään
+        participatory_structure: Päätöstapa
+        private_space: Yksityinen tila
+        promoted: Korostettu
+        published_at: Julkaisupaikka
+        purpose_of_action: Toiminnan tarkoitus
+        scope_id: Aihepiiri
+        scopes_enabled: Aihepiirit käytössä
+        short_description: Lyhyt kuvaus
+        show_statistics: Näytä tilastot
+        special_features: Erityisominaisuudet
+        subtitle: Alaotsikko
+        target: Osallistujat
+        title: Otsikko
+      assembly_member:
+        birthday: Syntymäpäivä
+        birthplace: Syntymäpaikka
+        ceased_date: Lopetuspäivämäärä
+        designation_date: Nimeämispäivä
+        designation_mode: Nimeämistila
+        full_name: Koko nimi
+        gender: Sukupuoli
+        position: Asema
+      assembly_user_role:
+        email: Sähköposti
+        name: Nimi
+        role: Rooli
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              invalid_document_type: 'Virheellinen asiakirjatyyppi. Hyväksytyt muodot ovat: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Yleiskokous
+        other: Yleiskokouksia
+      decidim/assembly_member:
+        one: Yleiskokouksen jäsen
+        other: Yleiskokouksen jäseniä
+      decidim/assembly_user_role:
+        one: Yleiskokouksen käyttäjärooli
+        other: Yleiskokouksen käyttäjärooleja
+  decidim:
+    admin:
+      actions:
+        import_assembly: Tuo
+        new_assembly: Uusi yleiskokous
+        new_assembly_type: Uusi yleiskokoustyyppi
+      assemblies:
+        create:
+          error: Uuden yleiskokouksen luominen epäonnistui.
+          success: Yleiskokous luotiin onnistuneesti.
+        edit:
+          update: Päivitä
+        index:
+          not_published: Ei julkaistu
+          private: Yksityinen
+          public: Julkinen
+          published: Julkaistu
+        new:
+          create: Luo
+          title: Uusi yleiskokous
+        update:
+          error: Yleiskokouksen päivittäminen epäonnistui.
+          success: Yleiskokous päivitettiin onnistuneesti.
+      assemblies_copies:
+        create:
+          error: Yleiskokouksen kopioiminen epäonnistui.
+          success: Yleiskokous kopioitiin onnistuneesti.
+      assemblies_settings:
+        update:
+          error: Asetusten päivittäminen epäonnistui.
+          success: Asetukset päivitettiin onnistuneesti.
+      assemblies_types:
+        create:
+          error: Uuden yleiskokoustyypin luominen epäonnistui.
+          success: Yleiskokoustyyppi luotiin onnistuneesti.
+        destroy:
+          success: Yleiskokoustyyppi poistettiin onnistuneesti.
+        new:
+          create: Luo
+          title: Uusi yleiskokoustyyppi
+        update:
+          error: Yleiskokoustyypin päivittäminen epäonnistui.
+          success: Yleiskokoustyyppi päivitettiin onnistuneesti.
+      assembly_copies:
+        new:
+          copy: Kopioi
+          select: Valitse kopioitavat tiedot
+          title: Kopioi yleiskokous
+      assembly_imports:
+        create:
+          error: Yleiskokouksen tuominen epäonnistui.
+          success: Yleiskokous tuotiin onnistuneesti.
+        new:
+          import: Tuo
+          select: Valitse tuotavat tiedot
+          title: Tuo yleiskokous
+      assembly_members:
+        create:
+          error: Jäsenen lisääminen yleiskokoukseen epäonnistui.
+          success: Yleiskokouksen jäsen luotiin onnistuneesti.
+        destroy:
+          success: Yleiskokouksen jäsen poistettiin onnistuneesti.
+        edit:
+          title: Päivitä yleiskokouksen jäsen.
+          update: Päivitä
+        index:
+          assembly_members_title: Yleiskokouksen jäsenet
+        new:
+          create: Luo
+          title: Uusi yleiskokouksen jäsen.
+        update:
+          error: Yleiskokouksen jäsenen päivittäminen epäonnistui.
+          success: Yleiskokouksen jäsen päivitettiin onnistuneesti.
+      assembly_publications:
+        create:
+          error: Yleiskokouksen julkaiseminen epäonnistui.
+          success: Yleiskokous julkaistiin onnistuneesti.
+        destroy:
+          error: Yleiskokouksen julkaisemisen peruminen epäonnistui.
+          success: Yleiskokouksen julkaiseminen peruttiin onnistuneesti.
+      assembly_user_roles:
+        create:
+          error: Ylläpitäjän lisääminen yleiskokoukseen epäonnistui.
+          success: Yleiskokoukseen lisättiin ylläpitäjä onnistuneesti.
+        destroy:
+          success: Yleiskokouksen ylläpitäjä poistettiin onnistuneesti.
+        edit:
+          title: Päivitä yleiskokouksen ylläpitäjä.
+          update: Päivitä
+        index:
+          assembly_admins_title: Yleiskokouksen ylläpitäjät
+        new:
+          create: Luo
+          title: Uusi yleiskokouksen ylläpitäjä.
+        update:
+          error: Yleiskokouksen ylläpitäjän päivittäminen epäonnistui.
+          success: Yleiskokouksen ylläpitäjä päivitettiin onnistuneesti.
+      menu:
+        assemblies: Yleiskokoukset
+        assemblies_settings: Asetukset
+        assemblies_submenu:
+          assembly_admins: Yleiskokouksen ylläpitäjät
+          assembly_members: Jäsenet
+          attachment_collections: Kansiot
+          attachment_files: Tiedostot
+          attachments: Liitteet
+          categories: Luokat
+          components: Komponentit
+          info: Tiedot
+          moderations: Moderointi
+          private_users: Yksityiset käyttäjät
+        assemblies_types: Yleiskokoustyypit
+      models:
+        assemblies_types:
+          fields:
+            created_at: Luotu
+            title: Otsikko
+        assembly:
+          fields:
+            created_at: Luotu
+            private: Yksityinen
+            promoted: Korostettu
+            published: Julkaistu
+            title: Otsikko
+          name: Yleiskokous
+        assembly_member:
+          fields:
+            ceased_date: Lopetuspäivämäärä
+            designation_date: Nimeämispäivä
+            full_name: Nimi
+            position: Asema
+          name: Jäsen
+          positions:
+            other: Muu
+            president: Puheenjohtaja
+            secretary: Sihteeri
+            vice_president: Varapuheenjohtaja
+        assembly_user_role:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            role: Rooli
+          name: Yleiskokouksen ylläpitäjä
+          roles:
+            admin: Ylläpitäjä
+            collaborator: Yhteiskäyttäjä
+            moderator: Valvoja
+            valuator: Arvioija
+      titles:
+        assemblies: Yleiskokoukset
+        assemblies_types: Yleiskokoustyypit
+    admin_log:
+      assembly:
+        create: "%{user_name} loi yleiskokouksen %{resource_name}"
+        publish: "%{user_name} julkaisi yleiskokouksen %{resource_name}"
+        unpublish: "%{user_name} perui yleiskokouksen %{resource_name} julkaisemisen"
+        update: "%{user_name} päivitti yleiskokouksen %{resource_name}"
+      assembly_member:
+        create: "%{user_name} loi yleiskokoukseen %{space_name} jäsenen %{resource_name}"
+        delete: "%{user_name} poisti jäsenen %{resource_name} yleiskokouksesta %{space_name}"
+        update: "%{user_name} päivitti yleiskokouksen %{space_name} jäsenen %{resource_name}"
+      assembly_setting:
+        update: "%{user_name} päivitti yleiskokousasetukset"
+      assembly_type:
+        create: "%{user_name} loi yleiskokoustyypin %{resource_name}"
+        delete: "%{user_name} poisti jäsenen %{resource_name} yleiskokoustyypistä %{space_name}"
+        publish: "%{user_name} julkaisi yleiskokoustyypin %{resource_name}"
+        unpublish: "%{user_name} perui yleiskokoustyypin %{resource_name} julkaisemisen"
+        update: "%{user_name} päivitti yleiskokoustyypin %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} kutsui osallistujan %{resource_name} yleiskokoukseen %{space_name}"
+        delete: "%{user_name} poisti osallistujan %{resource_name} yleiskokouksesta %{space_name}"
+        update: "%{user_name} muutti osallistujan %{resource_name} roolia yleiskokouksessa %{space_name}"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration: Kesto
+            duration_help: Jos tämän yleiskokouksen kesto on rajallinen, valitse päättymispäivä. Muussa tapauksessa se jää voimaan toistaiseksi.
+            filters: Suodattimet
+            images: Kuvat
+            included_at_help: Valitse päivämäärä, jolloin tämä yleiskokous lisättiin Decidimiin. Sen ei välttämättä tarvitse olla luomispäivä.
+            metadata: Metatiedot
+            other: Muu
+            select_a_created_by: Valitse luoja
+            select_an_area: Valitse alue
+            select_an_assembly_type: Valitse yleiskokoustyyppi
+            select_parent_assembly: Valitse pääyleiskokous
+            slug_help: 'URL slug -osoitteita käytetään tähän yleiskokoukseen viittaavien URL-osoitteiden luomiseen. Niihin hyväksytään vain kirjaimia, numeroita ja viivoja, ja niiden on alettava kirjaimella. Esimerkki: %{url}'
+            social_handlers: Sosiaaliset
+            title: Yleistä
+            visbility: Näkyvyys
+        assemblies_settings:
+          edit:
+            update: Päivitä
+          form:
+            title: Yleiskokousten asetukset
+        assemblies_types:
+          form:
+            title: Otsikko
+        assembly_copies:
+          form:
+            slug_help: 'URL slug -osoitteita käytetään tähän yleiskokoukseen viittaavien URL-osoitteiden luomiseen. Niihin hyväksytään vain kirjaimia, numeroita ja viivoja, ja niiden on alettava kirjaimella. Esimerkki: %{url}'
+        assembly_imports:
+          form:
+            document_legend: Lisää asiakirja
+            slug_help: 'URL slug -osoitteita käytetään tähän yleiskokoukseen viittaavien URL-osoitteiden luomiseen. Niihin hyväksytään vain kirjaimia, numeroita ja viivoja, ja niiden on alettava kirjaimella. Esimerkki: %{url}'
+        assembly_members:
+          form:
+            existing_user: Olemassa oleva osallistuja
+            non_user: Muu kuin osallistuja
+            select_a_position: Valitse asema
+            select_user: Valitse osallistuja
+            user_type: Osallistujan tyyppi
+          index:
+            filter:
+              all: Kaikki
+              ceased: Lopettanut
+              not_ceased: Ei lopettanut
+            filter_by: Suodata
+            search: Haku
+        content_blocks:
+          highlighted_assemblies:
+            max_results: Näytettävien elementtien enimmäismäärä
+      assembly_members:
+        index:
+          members: Jäsenet
+      assembly_types:
+        commission: Komissio
+        consultative_advisory: Neuvonta
+        executive: Täytäntöönpano
+        government: Hallitus
+        others: Muut
+        participatory: Osallistava
+        working_group: Työryhmä
+      content_blocks:
+        highlighted_assemblies:
+          name: Korostetut yleiskokoukset
+      created_by:
+        city_council: Kaupunginvaltuusto
+        others: Muut
+        public: Julkinen
+      filter:
+        all: Kaikki tyypit
+        commission: Komissio
+        consultative_advisory: Neuvonta
+        executive: Täytäntöönpano
+        government: Hallitus
+        help: 'Näytä:'
+        others: Muut
+        participatory: Osallistava
+        working_group: Työryhmä
+      index:
+        title: Yleiskokoukset
+      last_activity:
+        new_assembly: Uusi yleiskokous
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktiiviset yleiskokoukset
+            assemblies_button_title: Linkki Yleiskokoukset-sivulle, jossa näkyvät kaikki yleiskokoukset
+            see_all_assemblies: Näytä kaikki yleiskokoukset
+        user_profile:
+          member_of:
+            member_of: Jäsen
+      show:
+        area: Alue
+        assembly_type: Yleiskokoustyyppi
+        children: Yleiskokoukset
+        closing_date: Päättymispäivä
+        composition: Kokoonpano
+        created_by: Luonut
+        creation_date: Luontipäivä
+        developer_group: Edistäjäryhmä
+        duration: Kesto
+        included_at: Sisältyy kohteeseen
+        indefinite_duration: Toistaiseksi
+        internal_organisation: Sisäinen organisaatio
+        is_transparent:
+          'false': läpinäkymätön
+          'true': läpinäkyvä
+        local_area: Organisaation alue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Päätöstapa
+        private_space: Tämä on yksityinen yleiskokous
+        purpose_of_action: Toiminnan tarkoitus
+        read_less: Vähemmän
+        read_more: Lisätietoja
+        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
+        scope: Aihepiiri
+        social_networks: Verkkoyhteisöt
+        social_networks_title: Jaa tämä yleiskokous palvelussa
+        target: Osallistujat
+      statistics:
+        answers_count: Vastaukset
+        assemblies_count: Yleiskokoukset
+        comments_count: Kommentit
+        debates_count: Keskustelut
+        endorsements_count: Suositukset
+        headline: Toiminta
+        meetings_count: Kokoukset
+        orders_count: Tuenosoitukset
+        pages_count: Sivut
+        posts_count: Kirjoitukset
+        projects_count: Hankkeet
+        proposals_count: Ehdotukset
+        results_count: Tulokset
+        surveys_count: Kyselyt
+        users_count: Osallistujat
+        votes_count: Tuenosoitukset
+    assembly_members:
+      assembly_member:
+        designated_on: Nimitetty kohteeseen
+      index:
+        title: Jäsenet
+    conferences:
+      pages:
+        home:
+          highlighted_conferences:
+            conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: Yleiskokouksen <a href="%{resource_url}">%{resource_name}</a> ylläpitäjä on lisännyt sinut jäseneksi.
+          email_outro: Sait tämän ilmoituksen, koska sinut on kutsuttu yleiskokoukseen. Tutustu <a href="%{resource_path}">yleiskokouksen sivuun</a> ja osallistu!
+          email_subject: Sinut on kutsuttu yleiskokouksen %{resource_name} jäseneksi!
+          notification_title: Sinut on rekisteröity yleiskokouksen <a href="%{resource_path}">%{resource_name}</a> jäseneksi. Tutustu <a href="%{resource_path}">yleiskokouksen sivuun</a> ja osallistu!
+      assembly:
+        role_assigned:
+          email_intro: Sinusta on tehty yleiskokouksen "%{resource_title}” %{role}.
+          email_outro: Sait tämän ilmoituksen, koska olet yleiskokouksen "%{resource_title}" %{role}.
+          email_subject: Sinusta on tehty yleiskokouksen "%{resource_title}” %{role}.
+          notification_title: Sinusta on tehty yleiskokouksen <a href="%{resource_url}">%{resource_title}</a> %{role}.
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p><strong>Yleiskokous</strong> on ryhmä organisaation jäseniä, joka tapaa säännöllisesti tehdäkseen tiettyyn organisaation osa-alueeseen tai aihepiiriin liittyviä päätöksiä.</p> <p>Yleiskokousryhmät pitävät kokouksia, joista osa on yksityisiä ja osa avoimia. Jos kokoukset ovat avoimia, niihin voi osallistua (esimerkiksi osallistumalla kokoukseen tilan niin salliessa, lisäämällä kohtia esityslistaan tai kommentoimalla elimen tekemiä ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: Yleiskokous (joka kokoontuu kerran vuodessa määrittämään organisaation keskeiset toimintalinjat ja sen toimeenpanoelimet äänestyksellä), tasa-arvoneuvosto (joka kokoontuu joka toinen kuukausi tekemään ehdotuksia organisaation sukupuolten tasa-arvoon liittyvien kysymysten parantamiseksi), arviointikomissio (joka kokoontuu kuukausittain tietyn prosessin seuraamiseksi) ja takauselin (joka kerää tapauksia, väärinkäytöksiä tai ehdotuksia päätöksentekomenettelyjen parantamiseksi) ovat kaikki esimerkkejä yleiskokouksista.</p>\n"
+          page: "<p><strong>Yleiskokous</strong> on ryhmä organisaation jäseniä, joka tapaa säännöllisesti tehdäkseen tiettyyn organisaation osa-alueeseen tai aihepiiriin liittyviä päätöksiä.</p> <p>Yleiskokousryhmät pitävät kokouksia, joista osa on yksityisiä ja osa avoimia. Jos kokoukset ovat avoimia, niihin voi osallistua (esimerkiksi osallistumalla kokoukseen tilan niin salliessa, lisäämällä kohtia esityslistaan tai kommentoimalla elimen tekemiä ehdotuksia ja päätöksiä).</p> <p>Esimerkkejä: Yleiskokous (joka kokoontuu kerran vuodessa määrittämään organisaation keskeiset toimintalinjat ja sen toimeenpanoelimet äänestyksellä), tasa-arvoneuvosto (joka kokoontuu joka toinen kuukausi tekemään ehdotuksia organisaation sukupuolten tasa-arvoon liittyvien kysymysten parantamiseksi), arviointikomissio (joka kokoontuu kuukausittain tietyn prosessin seuraamiseksi) ja takauselin (joka kerää tapauksia, väärinkäytöksiä tai ehdotuksia päätöksentekomenettelyjen parantamiseksi) ovat kaikki esimerkkejä yleiskokouksista.</p>\n"
+          title: Mitä yleiskokoukset ovat?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'Yleiskokousta ei löytynyt tietokannasta (tunnus: %{id})'
+        assembly_type_presenter:
+          not_found: 'Yleiskokoustyyppiä ei löytynyt tietokannasta (tunnus: %{id})'
+    menu:
+      assemblies: Yleiskokoukset
+    metrics:
+      assemblies:
+        description: Luotujen yleiskokousten määrä
+        object: yleiskokousta
+        title: Yleiskokoukset
+    pages:
+      home:
+        hero:
+          participate_title: Osallistuu alustan prosesseihin
+        sub_hero:
+          register_title: Rekisteröidy luodaksesi tili alustalle
+    participatory_processes:
+      pages:
+        home:
+          highlighted_processes:
+            processes_button_title: Linkki Prosessit-sivulle, jossa näkyvät kaikki prosessit
+      show:
+        related_assemblies: Asiaan liittyvät yleiskokoukset
+  errors:
+    messages:
+      cannot_be_blank: ei voi olla tyhjä
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          more_info: Lisätietoja
+          take_part: Osallistu
+        index:
+          children: 'Yleiskokoukset: '
+          organizational_chart: Organisaatiokaavio
+          promoted_assemblies: Korostetut yleiskokoukset
+          reset_chart: Palauta
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} yleiskokous"
+            other: "%{count} yleiskokousta"
+        promoted_assembly:
+          more_info: Lisätietoja
+          take_part: Osallistu
+      assembly_navigation:
+        assembly_member_menu_item: Jäsenet
+        assembly_menu_item: Yleiskokous
+      assembly_widgets:
+        show:
+          take_part: Osallistu
