@@ -1,1 +1,60 @@
 fr:
+  activemodel:
+    models:
+      decidim/surveys/closed_survey_event: L’enquête est terminée
+      decidim/surveys/opened_survey_event: L’enquête a débuté
+  activerecord:
+    models:
+      decidim/surveys/survey:
+        one: Étude
+        other: Enquêtes
+      decidim/surveys/survey_answer:
+        one: Réponse
+        other: Réponses
+  decidim:
+    components:
+      surveys:
+        actions:
+          answer: Réponse
+        name: Étude
+        settings:
+          global:
+            announcement: Annonce des résultats
+            clean_after_publish: Supprimer les réponses lors de la publication de l’enquête
+          step:
+            allow_answers: Autoriser des réponses
+            allow_unregistered: Autoriser des utilisateurs non inscrits à participer à l’enquête
+            allow_unregistered_help: Si elle est active, aucune connexion ne sera requise pour participer à l’enquête. Ceci peut générer des données peu intéressantes ou non fiables et elle sera plus exposée aux attaques automatiques. A utiliser avec précaution!
+            announcement: Annonce des résultats
+    events:
+      surveys:
+        survey_closed:
+          email_intro: L’enquête %{resource_title} effectuée dans %{participatory_space_title} a été clôturée.
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Une enquête a été clôturée dans %{participatory_space_title}
+          notification_title: L’enquête <a href="%{resource_path}">%{resource_title}</a> effectuée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est clôturée.
+        survey_opened:
+          email_intro: 'L’enquête %{resource_title} effectuée dans %{participatory_space_title} est à présent ouverte. Vous pouvez y participer à partir de cette page:'
+          email_outro: Cette notification vous a été envoyée parce que vous suivez %{participatory_space_title}. Cliquez sur le lien précédent si vous ne souhaitez plus recevoir de notifications.
+          email_subject: Une nouvelle enquête dans %{participatory_space_title}
+          notification_title: L’enquête <a href="%{resource_path}">%{resource_title}</a> effectuée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est à présent ouverte.
+    metrics:
+      survey_answers:
+        description: Nombre d’enquêtes auxquelles des participants ont répondu
+        object: réponses aux enquêtes
+        title: Réponses aux enquêtes
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Réponses du participant à l’enquête
+        surveys:
+          update:
+            invalid: Un problème est survenu lors de la sauvegarde de l’enquête
+            success: L’enquête a été sauvegardée avec succès.
+      last_activity:
+        new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
+      surveys:
+        answer:
+          invalid: Un problème est survenu lorsque vous avez répondu à cette enquête.
+          spam_detected: Un problème est survenu lorsque vous avez répondu au formulaire. Vous avez peut-être été trop vite, pouvez-vous réessayer?
+          success: Il a été répondu avec succès à l’enquête
