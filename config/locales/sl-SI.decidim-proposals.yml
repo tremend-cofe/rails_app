@@ -1,11 +1,72 @@
 sl:
+  activemodel:
+    models:
+      decidim/proposals/accepted_proposal_event: Predlog je bil sprejet.
+      decidim/proposals/admin/update_proposal_category_event: Kategorija predloga je bila spremenjena.
+      decidim/proposals/admin/update_proposal_scope_event: Področje predloga je bilo spremenjeno.
+      decidim/proposals/evaluating_proposal_event: Predlog se ocenjuje.
+      decidim/proposals/voting_enabled_event: Glasovanje o predlogu je omogočeno.
   decidim:
+    components:
+      proposals:
+        settings:
+          global:
+            can_accumulate_supports_beyond_threshold: Lahko zbira podpore prek praga.
+            comments_enabled: Komentarji so omogočeni.
+            geocoding_enabled: Geokodiranje omogočeno.
+            proposal_answering_enabled: Odgovor na predlog je omogočen.
+            proposal_edit_before_minutes: Predloge lahko avtorji urejajo, preden poteče toliko minut.
+            resources_permissions_enabled: Dovoljenja za dejanja je mogoče nastaviti za vsak predlog.
+          step:
+            amendment_creation_enabled: Ustvarjanje spremembe je omogočeno.
+            amendment_promotion_enabled: Promocija sprememb je omogočena.
+            amendment_reaction_enabled: Odziv na spremembo je omogočen.
+            amendments_visibility_choices:
+              all: Spremembe so vidne vsem.
+              participants: Spremembe so vidne samo njihovim avtorjem.
+            comments_blocked: Komentarji so blokirani.
+            proposal_answering_enabled: Odgovor na predlog je omogočen.
     events:
       proposals:
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} je bil sprejet za dostop kot sodelavec pri %{resource_title}."
         collaborative_draft_access_requester_rejected:
           email_intro: Bili ste zavrnjeni za dostop kot sodelavec pri <a href="%{resource_path}">%{resource_title}</a> sodelovalnem osnutku.
+        creation_enabled:
+          email_subject: Predlogi so zdaj na voljo v %{participatory_space_title}.
+          notification_title: Zdaj lahko predstavite <a href="%{resource_path}">nove predloge</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        endorsing_enabled:
+          email_subject: Začelo se je odobravanje predlogov za %{participatory_space_title}.
+          notification_title: Zdaj lahko začnete <a href="%{resource_path}">izraziti odobravanje novih predlogov</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+        proposal_accepted:
+          affected_user:
+            email_subject: Vaš predlog je bil sprejet.
+        proposal_evaluating:
+          follower:
+            email_subject: Predlog, ki mu sledite, se ocenjuje.
+        proposal_mentioned:
+          email_subject: Vaš predlog "%{mentioned_proposal_title}" je bil omenjen.
+        proposal_rejected:
+          affected_user:
+            email_subject: Vaš predlog je bil zavrnjen.
+          follower:
+            email_subject: Predlog, ki mu sledite, je bil zavrnjen.
+        proposal_update_category:
+          email_subject: Kategorija predloga %{resource_title} je bila posodobljena.
+        proposal_update_scope:
+          email_subject: Področje predloga %{resource_title} je bilo posodobljeno.
+        voting_enabled:
+          notification_title: Zdaj lahko začnete <a href="%{resource_path}">podpirati nove predloge</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions: |-
+            Izberite prostor za sodelovanje, ki vas zanima in v katerem je oddaja predlogov omogočena.
+            Poskusite pripraviti predloge, ki jih je mogoče izvesti. Tako bo bolj verjetno, da bodo sprejeti.
+        proposal_votes:
+          conditions: |-
+            Brskajte in si vzemite nekaj časa za branje predlogov drugih ljudi.
+            Podprite predloge, ki so vam všeč ali se vam zdijo zanimivi.
     metrics:
       votes:
         object: Podpora
@@ -14,16 +75,79 @@ sl:
         participatory_texts:
           new_import:
             document_legend: 'Dodajte dokument, ki je manjši od 2 MB, vsak odsek do 3. ravni bo analiziran v predlogih. Podprte oblike so: %{valid_mime_types}'
+          publish:
+            invalid: Predlogov ni bilo mogoče objaviti.
+            success: Vsi predlogi so bili objavljeni.
+        proposal_notes:
+          create:
+            error: Pri ustvarjanju tega opombe o predlogu se je pojavila težava.
+            success: Opomba o predlogu je bila uspešno ustvarjena.
+        proposals:
+          answer:
+            invalid: Pri podajanju odgovora na ta predlog se je pojavila težava.
+            success: Na predlog je bil uspešno podan odgovor.
+          create:
+            invalid: Pri ustvarjanju tega predloga se je pojavila težava.
+            success: Predlog je bil uspešno ustvarjen.
+          form:
+            created_in_meeting: Ta predlog je bil dan na sestanku.
+        proposals_imports:
+          create:
+            invalid: Pri uvozu predlogov se je pojavila težava.
+            success: "%{number} predlogov je bilo uspešno uvoženih."
+        valuation_assignments:
+          create:
+            invalid: Pri dodeljevanju predlogov ocenjevalcu se je pojavila napaka.
+            success: Predlogi so bili uspešno dodeljeni ocenjevalcu.
+          delete:
+            invalid: Pri preklicu predlogov ocenjevalca se je pojavila napaka.
+            success: Ocenjevalcu je bila uspešno preklicana dodelitev predlogov.
+      admin_log:
+        proposal:
+          answer: "%{user_name} je odgovoril na predlog %{resource_name} v prostor %{space_name}."
+          create: "%{user_name} je ustvaril predlog %{resource_name} v prostoru %{space_name} kot uradni predlog."
+          publish_answer: "%{user_name} je objavil odgovor %{resource_name} v prostor %{space_name}."
+          update: "%{user_name} je posodobil uraden predlog %{resource_name} v prostor %{space_name}."
+        proposal_note:
+          create: "%{user_name} je podal opombo o predlogu %{resource_name} v prostor %{space_name}."
+        valuation_assignment:
+          create: "%{user_name} je dodelil predlog %{resource_name} ocenjevalcu."
+          delete: "%{user_name} je preklical dodelitev ocenjevalca predloga %{proposal_title}."
       collaborative_drafts:
+        collaborative_draft:
+          publish:
+            irreversible_action_modal:
+              title: Naslednje dejanje je nepreklicno.
+          withdraw:
+            irreversible_action_modal:
+              title: Naslednje dejanje je nepreklicno.
+        create:
+          error: Pri ustvarjanju sodelovalnega osnutka se je pojavila težava.
         orders:
           most_contributed: najbolj prispevani
           random: naključni
           recent: novejši
+        requests:
+          accepted_request:
+            success: "@%{user} je bil uspešno sprejet kot sodelavec."
+          access_requested:
+            success: Vaša zahteva za sodelovanje je bila uspešno poslana.
+          rejected_request:
+            success: "@%{user} je bil uspešno zavrnjen kot sodelavec."
         show:
+          requested_access: Dostop je bil zahtevan.
           version_history: Prikaži zgodovino različic za ta predlog
         wizard_steps:
           see_steps: Prikaži korake
+      models:
+        proposal:
+          fields:
+            published_answer: Odgovor je bil objavljen.
+      participatory_text_proposal:
+        alternative_title: Trenutno ni nobenega participativnega besedila.
       proposals:
+        compare:
+          no_similars_found: Odlično opravljeno! Podobni predlogi niso bili najdeni.
         orders:
           most_commented: največkrat komentirani
           most_endorsed: najbolj odobravani
@@ -31,5 +155,15 @@ sl:
           most_voted: najbolj podprti
           random: naključni
           recent: novejši
+        proposals:
+          empty: Trenutno ni še nobenega predloga.
+          empty_filters: S temi merili trenutno ni še nobenega predloga.
+        show:
+          link_to_collaborative_draft_help_text: Ta predlog je rezultat sodelovalnega osnutka. Preglejte zgodovino.
+          link_to_promoted_emendation_text: Prikaži zavrnjeno izboljšavo
+          proposal_in_evaluation_reason: Ta predlog se ocenjuje.
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Vsak predlog lahko zbere več kot %{limit} podpore.
         wizard_steps:
           see_steps: Prikaži korake
