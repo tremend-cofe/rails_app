@@ -1,0 +1,79 @@
+mt:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Bloggata ġdida
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: Żgur trid tħassar din il-powst?
+        destroy: Ħassar
+        edit: Editja
+        new: Powst ġdida
+        title: Azzjonijiet
+      admin:
+        models:
+          components:
+            body: Kontenut prinċipali
+          post:
+            name: Powst
+        posts:
+          create:
+            invalid: Kien hemm problema biex tinħoloq din il-powst
+            success: Il-powst inħolqot
+          destroy:
+            success: Il-powst tħassret
+          edit:
+            save: Aġġorna
+          index:
+            title: Powsts
+          new:
+            create: Oħloq
+            title: Oħloq powst
+          update:
+            invalid: Kien hemm problema biex tiġi ssejvjata l-powst.
+            success: Il-powst ġiet issejvjata
+      last_activity:
+        new_post_at_html: "<span>Powst ġdida fi %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Awtur
+            body: Kontenut prinċipali
+            created_at: Inħoloq fi
+            title: titlu
+      posts:
+        show:
+          back: Lura għal-lista
+          comments: Kummenti
+          view: Ara
+        sidebar_blog:
+          comments: kummenti
+          most_commented_posts: L-iktar powsts b’kummenti
+      read_more: Aqra aktar
+    components:
+      blogs:
+        name: Blogg
+        settings:
+          global:
+            announcement: Tħabbira
+            comments_enabled: Kummenti attivati
+            comments_max_length: Tul massimu tal-kummenti (Ħallih 0 għall-valur prestabbilit)
+          step:
+            announcement: Tħabbira
+            comments_blocked: Kummenti mblukkati
+            endorsements_blocked: Approvazzjonijiet imblukkati
+            endorsements_enabled: Approvazzjonijiet attivati
+    events:
+      blogs:
+        post_created:
+          email_intro: Il-powst "%{resource_title}” ġiet ippubblikata f’"%{participatory_space_title}” li qed issegwi.
+          email_outro: Irċevejt din in-notifika għax qed issegwi "%{participatory_space_title}". Tista’ ma tibqax issegwih permezz tal-link preċedenti.
+          email_subject: Powst ġdida ppubblikata f’%{participatory_space_title}
+          notification_title: Il-powst <a href="%{resource_path}">%{resource_title}</a> ġiet ippubblikata fi %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Powsts
+    participatory_processes:
+      statistics:
+        posts_count: Powsts
