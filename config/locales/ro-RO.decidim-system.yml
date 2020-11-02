@@ -1,1 +1,140 @@
 ro:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Numele aplicației OAuth
+        organization_logo: Logoul organizației (pătrat)
+        organization_name: Organizație
+        organization_url: URL-ul organizației
+        redirect_uri: URI de redirectionare
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI de redirectionare trebuie să fie un SSL URI
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Sunteți sigur(ă) că doriți să ștergeți?
+        destroy: Ștergere
+        edit: Editare
+        new: Nou
+        save: Salvare
+        title: Acțiuni
+      admins:
+        create:
+          error: S-a întâmpinat o problemă la crearea unui nou administrator.
+          success: Administratorul a fost creat.
+        destroy:
+          success: Administratorul a fost șters.
+        edit:
+          title: Editare administrator
+          update: Actualizare
+        index:
+          title: Administratori
+        new:
+          create: Creare
+          title: Administrator nou
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestui administator.
+          success: Administratorul a fost actualizat.
+      default_pages:
+        placeholders:
+          content: Vă rugăm să adăugați un conținut semnificativ pe pagina statică %{page} din tabloul de bord al administratorului.
+          title: Titlu implicit pentru %{page}
+      menu:
+        admins: Administratori
+        dashboard: Tablou de bord
+        oauth_applications: Aplicații OAuth
+        organizations: Organizații
+      models:
+        admin:
+          fields:
+            created_at: Creat la
+            email: E-mail
+          name: Administrator
+          validations:
+            email_uniqueness: există deja un alt administrator cu același e-mail
+        oauth_application:
+          fields:
+            created_at: Creat la
+            name: Numele aplicației OAuth
+            organization_name: Organizație
+          name: Aplicație OAuth
+        organization:
+          actions:
+            save_and_invite: Creare organizație & invitare administrator
+          fields:
+            created_at: Creată la
+            name: Nume
+            omniauth_settings: Setări Omniauth
+            smtp_settings: Setări SMTP
+          name: Organizație
+      oauth_applications:
+        create:
+          error: S-a întâmpinat o problemă la crearea acestei aplicații.
+          success: Aplicația a fost creată.
+        destroy:
+          error: S-a întâmpinat o problemă la distrugerea acestei aplicații.
+          success: Aplicația a fost distrusă.
+        edit:
+          save: Salvare
+          title: Editare aplicație
+        form:
+          select_organization: Selectați o organizație
+        index:
+          confirm_delete: Sunteți sigur(ă) că doriți să ștergeți această aplicație?
+          title: Aplicații OAuth
+        new:
+          save: Salvare
+          title: Aplicație nouă
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei aplicații.
+          success: Aplicația a fost actualizată.
+      organizations:
+        create:
+          error: S-a întâmpinat o problemă la crearea unei noi organizații.
+          success: Organizația a fost creată.
+        edit:
+          secondary_hosts_hint: Introduceți-l pe fiecare pe o nouă linie
+        index:
+          title: Organizații
+        new:
+          reference_prefix_hint: Prefixul de referință este utilizat pentru a identifica în mod univoc resurse din cadrul tutror organizațiilor
+          secondary_hosts_hint: Introduceți-l pe fiecare pe o nouă linie
+          title: Organizație nouă
+        omniauth_settings:
+          decidim:
+            client_id: ID client
+            client_secret: Secret client
+            site_url: URL site
+          enabled: Activat
+          enabled_by_default: Acest furnizor este activat în mod implicit. Poate fi editat dar nu poate fi dezactivat.
+          facebook:
+            app_id: ID aplicație
+            app_secret: Secret aplicație
+          google_oauth2:
+            client_id: ID client
+            client_secret: Secret client
+          icon: Pictogramă
+          icon_path: Cale pictogramă
+          twitter:
+            api_key: Cheie API
+            api_secret: Secret API
+        smtp_settings:
+          instructions:
+            from_label: 'Expeditorul e-mailului va fi: "your-organization-name <your-organization@your-provider.org>". Lăsați necompletat pentru a utiliza ''from_email’ ca etichetă'
+        update:
+          error: S-a întâmpinat o problemă la actualizarea acestei organizații.
+          success: Organizația a fost actualizată.
+        users_registration_mode:
+          disabled: Accesul poate fi efectuat numai cu conturi externe
+          enabled: Permite participanților să se înregistreze și să se conecteze
+          existing: Nu pemite participanților să se înregistreze, dar permite participanților existenți să se conecteze
+      shared:
+        notices:
+          no_organization_warning_html: Trebuie să creați o organizație pentru a putea începe. Asigurați-vă că citiți %{guide} înainte de a trece mai departe.
+          our_getting_started_guide: ghidul nostru introductiv
+      titles:
+        dashboard: Tablou de bord
