@@ -1,1 +1,297 @@
 hu:
+  activemodel:
+    attributes:
+      common:
+        created_at: 'Létrehozás ideje:'
+  decidim:
+    admin_log:
+      area:
+        create: "%{user_name} létrehozta a(z) %{resource_name} területet"
+        delete: "%{user_name} törölte a(z) %{resource_name} területet"
+        update: "%{user_name} frissítette a(z) %{resource_name} területet"
+      component:
+        create: "%{user_name} hozzáadta a(z) %{resource_name} komponenst a(z) %{space_name} térhez"
+        delete: "%{user_name} eltávolította a(z) %{resource_name} komponenst a(z) %{space_name} térből"
+        publish: "%{user_name} közzétette a(z) %{resource_name} komponenst a(z) %{space_name} térben"
+        unpublish: "%{user_name} visszavonta a(z) %{resource_name} komponens közzétételét a(z) %{space_name} térben"
+      moderation:
+        hide: "%{user_name} elrejtett egy %{resource_type} típusú erőforrást a(z) %{space_name} térben"
+        unreport: "%{user_name} visszavonta egy %{resource_type} típusú erőforrás jelentését a(z) %{space_name} térben"
+      newsletter:
+        create: "%{user_name} létrehozta a(z) %{resource_name} hírlevelet"
+        delete: "%{user_name} törölte a(z) %{resource_name} hírlevelet"
+        deliver: "%{user_name} kézbesítette a(z) %{resource_name} hírlevelet"
+        update: "%{user_name} frissítette a(z) %{resource_name} hírlevelet"
+      oauth_application:
+        create: "%{user_name} létrehozta a(z) %{resource_name} OAuth alkalmazást"
+        delete: "%{user_name} törölte a(z) %{resource_name} OAuth alkalmazást"
+        update: "%{user_name} frissítette a(z) %{resource_name} OAuth alkalmazást"
+      participatory_space_private_user:
+        create_via_csv: "%{user_name} CSV-fájl segítségével meghívta a következő személyt magánrésztvevőként: %{resource_name}"
+      scope:
+        create: "%{user_name} létrehozta a(z) %{resource_name} alkalmazási kört"
+        create_with_parent: "%{user_name} létrehozta a(z) %{resource_name} alkalmazási kört a(z) %{parent_scope} alkalmazási körben"
+        delete: "%{user_name} törölte a(z) %{resource_name} alkalmazási kört"
+        delete_with_parent: "%{user_name} törölte a(z) %{resource_name} alkalmazási kört a(z) %{parent_scope} alkalmazási körben"
+        update: "%{user_name} frissítette a(z) %{resource_name} alkalmazási kört"
+        update_with_parent: "%{user_name} frissítette a(z) %{resource_name} alkalmazási kört a(z) %{parent_scope} alkalmazási körben"
+      static_page:
+        create: "%{user_name} létrehozta a(z) %{resource_name} statikus oldalt"
+        delete: "%{user_name} törölte a(z) %{resource_name} statikus oldalt"
+        update: "%{user_name} frissítette a(z) %{resource_name} statikus oldalt"
+      user_group:
+        reject: "%{user_name} elutasította a(z) %{resource_name} csoportellenőrzést"
+        verify: "%{user_name} ellenőrizte a(z) %{resource_name} csoportot"
+        verify_via_csv: "%{user_name} CSV-fájl segítségével ellenőrizte a(z) %{resource_name} csoportot"
+    amendments:
+      amendable:
+        amended_by: 'Módosító:'
+        help_text: 'Javítsa a(z) %{model_name} elemet a következő módosításával: %{amendable_fields}'
+      emendation:
+        actions:
+          help_text: Tekintse át a változtatásokat, majd fogadja vagy utasítsa el a módosítást. Értesítést küldünk a szerző(k)nek.
+        announcement:
+          accepted: |-
+            A(z) %{amendable_type} %{proposal_link} módosítását
+            elfogadták ekkor: <strong>%{date}</strong>.
+          evaluating: |-
+            A(z) %{amendable_type} %{proposal_link} módosítása
+            értékelés alatt áll.
+          rejected: 'A(z) %{amendable_type} %{proposal_link} módosítását elutasították ekkor: <strong>%{date}</strong>.'
+          withdrawn: |-
+            A(z) %{amendable_type} %{proposal_link} módosítását
+            visszavonta a szerző.
+      review:
+        help_text: A(z) %{model_name} módosítását ellenőrzi
+    authorization_modals:
+      content:
+        pending:
+          resume: Ellenőrizze a(z) "%{authorization}" engedélyezés folyamatát
+        unauthorized:
+          invalid_field: "A(z) %{field} %{value} értéke érvénytelen."
+        unconfirmed:
+          explanation_html: A művelet elvégzéséhez engedélyezésre van szükség, ehhez meg kell erősítenie az e-mail-címét (<strong>%{email}</strong>).
+    components:
+      component_order_selector:
+        no_content: Nem találtunk a feltételeknek megfelelő tartalmakat
+    devise:
+      omniauth_registrations:
+        new:
+          nickname_help: Az Ön aliasa a(z) %{organization} szervezetben
+      registrations:
+        new:
+          nickname_help: Az Ön aliasa a(z) %{organization} szervezetben
+    doorkeeper:
+      authorizations:
+        new:
+          wants_to_use_your_account_html: "A(z) <strong>%{application_name}</strong> alkalmazás szeretné használni a fiókját"
+    events:
+      amendments:
+        amendment_accepted:
+          affected_user:
+            email_intro: 'A(z) %{amendable_title} módosítását elfogadták. Ezen az oldalon láthatja:'
+          follower:
+            email_intro: 'A(z) %{amendable_title} módosítását elfogadták. Ezen az oldalon láthatja:'
+        amendment_created:
+          affected_user:
+            email_intro: 'A(z) %{amendable_title} új módosítását hozták létre. Ezen az oldalon láthatja:'
+            email_subject: A(z) %{amendable_title} új módosítása
+            notification_title: A(z) <a href="%{amendable_path}">%{amendable_title}</a> új módosítását hozták létre.
+          follower:
+            email_intro: 'A(z) %{amendable_title} új módosítását hozták létre. Ezen az oldalon láthatja:'
+            email_subject: A(z) %{amendable_title} új módosítása
+            notification_title: A(z) <a href="%{amendable_path}">%{amendable_title}</a> új módosítását hozták létre.
+        amendment_promoted:
+          affected_user:
+            email_intro: 'A(z) %{amendable_title} elutasított módosítását közzétették új módosításként: %{amendable_type}. Ezen az oldalon láthatja:'
+            notification_title: 'A(z) <a href="%{amendable_path}">%{amendable_title}</a> <a href="%{emendation_path}">elutasított módosítását</a> közzétették új %{amendable_type} módosításként (szerző: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>).'
+          follower:
+            email_intro: 'A(z) %{amendable_title} elutasított módosítását közzétették új módosításként: %{amendable_type}. Ezen az oldalon láthatja:'
+            notification_title: 'A(z) <a href="%{amendable_path}">%{amendable_title}</a> <a href="%{emendation_path}">elutasított módosítását</a> közzétették új %{amendable_type} módosításként (szerző: <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>).'
+        amendment_rejected:
+          affected_user:
+            email_intro: 'A(z) %{amendable_title} módosítását elutasították. Ezen az oldalon láthatja:'
+          follower:
+            email_intro: 'A(z) %{amendable_title} módosítását elutasították. Ezen az oldalon láthatja:'
+      attachments:
+        attachment_created:
+          email_subject: A(z) %{resource_title} frissítése
+      components:
+        component_published:
+          email_intro: 'A(z) %{resource_title} komponens mostantól aktív a következő esetében: %{participatory_space_title}. Ezen az oldalon láthatja:'
+          email_subject: A(z) %{participatory_space_title} frissítése
+          notification_title: 'A(z) %{resource_title} komponens mostantól aktív a következő esetében: <a href="%{resource_path}">%{participatory_space_title}</a>'
+      email_event:
+        email_greeting: Kedves %{user_name}!
+        email_subject: A(z) %{resource_title} frissítése
+      gamification:
+        badge_earned:
+          email_intro: 'Gratulálunk! Megkapta a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
+          notification_title: 'Gratulálunk! Megkapta a(z) <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
+        level_up:
+          email_intro: Gratulálunk! Elérte a(z) <a href="%{resource_url}">%{badge_name} jelvény</a> %{current_level}. szintjét!
+          email_subject: Elérte a(z) %{badge_name} jelvény %{current_level}. szintjét!
+          notification_title: Gratulálunk! Elérte a(z) <a href="%{resource_path}">%{badge_name} jelvény</a> %{current_level}. szintjét!
+      groups:
+        demoted_membership:
+          email_intro: A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította az Ön csoporthoz kapcsolódó adminisztrátori jogait.
+          email_subject: Már nem a(z) %{user_group_name} csoport adminisztrátora!
+          notification_title: Már nem a(z) <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora.
+        invited_to_group:
+          email_intro: A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora meghívta a csoportba.
+          email_subject: Meghívták a(z) %{user_group_name} csoportba!
+          notification_title: Meghívták a(z) <a href="%{resource_path}">%{user_group_name}</a> csoportba. Ellenőrizze a profil <a href="%{groups_profile_tab_path}">Csoportok oldalán</a> a jóváhagyáshoz!
+        join_request_accepted:
+          email_intro: Gratulálunk! A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elfogadta a csatlakozási kérelmét.
+          email_subject: Elfogadták a csatlakozási kérelmét a(z) %{user_group_name} csoportba!
+          notification_title: Elfogadták a csatlakozási kérelmét a(z) <a href="%{resource_path}">%{user_group_name}</a> csoportba.
+        join_request_created:
+          email_intro: Valaki szeretne csatlakozni a(z) %{user_group_name} csoporthoz. Elfogadhatja vagy elutasíthatja a kérelmet <a href="%{resource_url}">a csoport tagokkal foglalkozó oldalán</a>.
+          email_outro: Azért kapta ezt az értesítést, mert kezelheti a(z)%{user_group_name} csoport.
+          email_subject: Valaki szeretne csatlakozni a(z) %{user_group_name} csoporthoz!
+          notification_title: Valaki szeretne csatlakozni a(z) %{user_group_name} csoporthoz. Elfogadhatja vagy elutasíthatja a kérelmet <a href="%{resource_path}">a csoport tagokkal foglalkozó oldalán</a>.
+        join_request_rejected:
+          email_intro: A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora elutasította a csatlakozási kérelmét.
+          email_subject: A(z) %{user_group_name} csoportra irányuló csatlakozási kérelmét elutasították!
+          notification_title: A(z) <a href="%{resource_path}">%{user_group_name}</a> csoportra irányuló csatlakozási kérelmét elutasították.
+        promoted_to_admin:
+          email_intro: A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora adminisztrátori jogokat adott Önnek a csoportban.
+          email_subject: Mostantól a(z) %{user_group_name} csoport adminisztrátora!
+          notification_title: Mostantól a(z) <a href="%{resource_path}">%{user_group_name}</a> csoport adminisztrátora.
+        removed_from_group:
+          email_intro: A(z) <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította a csoportból.
+          email_subject: Eltávolították a(z) %{user_group_name} csoportból!
+          notification_title: Eltávolították a(z) <a href="%{resource_path}">%{user_group_name}</a> csoportból.
+        user_group_created:
+          notification_title: Létrehozták a(z) %{user_group_name} felhasználói csoportot. Ellenőrizheti az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
+        user_group_updated:
+          email_intro: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Ellenőrizheti az <a href="%{groups_admin_url}">adminisztrációs panelen</a>.
+          notification_title: A(z) %{user_group_name} felhasználói csoport frissítette a profilját, így az ellenőrizetlen maradt. Ellenőrizheti az <a href="%{groups_admin_path}">adminisztrációs panelen</a>.
+      resource_endorsed:
+        notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> %{resource_type} erőforrást <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> támogatta.
+    export_mailer:
+      subject: A(z) "%{name}" exportálása befejeződött
+    fingerprint:
+      replicate_help: Ezt az ujjlenyomatot egy SHA256 kivonatoló algoritmus segítségével számítják ki. A lemásoláshoz használhatja a(z) %{online_calculator_link} számlálót, és másolja be a forrásadatokat.
+    follows:
+      create:
+        participatory_space: Már követi a(z) <span class="show-for-sr">%{resource_name}</span> előforrást
+    gamification:
+      badges:
+        followers:
+          description: Ezt a jelvényt akkor kapja meg, ha elér egy bizonyos számú követőt. A(z) %{organization_name} egy társadalmi és politikai hálózat. Építse a kapcsolatrendszerét a platform többi felhasználójával folytatott kommunikációhoz.
+        invitations:
+          description: Ezt a jelvényt akkor kapja meg, ha meghívott néhány személyt, és ők regisztráltak a(z) %{organization_name} szervezetnél, illetve résztvevőkké váltak. Köszönjük, hogy népszerűsíti a(z) %{organization_name} szervezetet, és bővíti a közösséget!
+    help:
+      main_topic:
+        default_page:
+          content: "<p>A felső menüben látható helyeken keresztül részt vehet a(z) %{organization} szervezetben, valamint dönthet különböző témákban: Folyamatok, közgyűlések, kezdeményezések, konzultációk.</p> <p>Mindegyikben különböző lehetőségeket talál a részvételre: javaslatokat tehet – egyedül vagy más személyekkel együtt –, részt vehet vitákban, rangsorolhatja a megvalósítandó projekteket, részt vehet személyes értekezleteken stb. </p>\n"
+          title: Mire van lehetőségem a(z) %{organization} szervezeten belül?
+        description: További információk a(z) %{organization} szervezetről
+    log:
+      base_presenter:
+        create_with_space: "%{user_name} létrehozta a(z) %{resource_name} erőforrást itt: %{space_name}"
+        delete_with_space: "%{user_name} törölte a(z) %{resource_name} erőforrást itt: %{space_name}"
+        unknown_action_with_space: "%{user_name} műveletet végzett a(z) %{resource_name} erőforráson itt: %{space_name}"
+        update_with_space: "%{user_name} frissítette a(z) %{resource_name} erőforrást itt: %{space_name}"
+    messaging:
+      conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
+        comanagers_new_message:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
+          subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
+        new_conversation:
+          intro: "%{sender} új beszélgetést indított Önnel. Kattintson ide a megtekintéshez:"
+          subject: "%{sender} beszélgetést indított Önnel"
+        new_group_conversation:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          intro: "%{sender} új beszélgetést indított a(z) %{group} csoporttal. Kattintson ide a megtekintéshez:"
+          subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal. Kattintson ide a megtekintéshez:"
+        new_group_message:
+          admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
+          intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
+      conversations:
+        add_conversation_users:
+          add_users_placeholder: Keresés…
+        index:
+          ago: 'ennyi ideje:'
+        reply:
+          placeholder: Az Ön válasza…
+        show:
+          chat_with: 'Beszélgetés a következő személlyel:'
+    metrics:
+      download:
+        csv: Adatok letöltése (CSV)
+    newsletter_mailer:
+      newsletter:
+        note: Azért kapta ezt az e-mailt, mert feliratkozott a(z) %{organization_name} hírleveleire. A beállításokat az <a href="%{link}">értesítések oldalon</a> módosíthatja.
+    newsletters_opt_in_mailer:
+      notify:
+        body_1: A személyes adatok kezelése és védelme mindannyiunk számára egyre fontosabbá válik. A 2018. május 25-i új általános adatvédelmi rendelettel (GDPR) az egyének nagyobb ellenőrzést gyakorolhatnak személyes adataik felett. Ennélfogva az Ön hozzájárulására van szükségünk ahhoz, hogy továbbra is releváns információkat küldhessünk a(z) %{organization_name} tevékenységeiről.
+        greetings: Üdvözöljük,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>!
+        hello: Kedves Felhasználó!
+        subject: Szeretne továbbra is releváns információkat kapni a(z) %{organization_name} szervezettel kapcsolatban?
+    notifications_settings:
+      show:
+        receive_notifications_about: 'Értesítéseket szeretnék kapni a következőkről:'
+    pad_iframe:
+      disclaimer: A tömb tartalmát regisztrált felhasználók írják, és az az ő véleményüket tükrözi. A(z) %{organization} nem tehető felelőssé a tartalmáért.
+    pages:
+      home:
+        footer_sub_hero:
+          footer_sub_hero_headline: Üdvözöljük a(z) %{organization} részvételi platformon!
+        hero:
+          welcome: Üdvözöljük a(z) %{organization} szervezet oldalán!
+        statistics:
+          headline: A(z) %{organization} jelenlegi állapota
+      index:
+        subheading: Navigáljon a(z) %{name} súgóoldalain
+    reported_mailer:
+      hide:
+        hello: Kedves %{name}!
+      report:
+        date: 'Jelentés időpontja:'
+        hello: Kedves %{name}!
+    shared:
+      flag_modal:
+        does_not_belong: Jogellenes tevékenységet, öngyilkossági fenyegetéseket, személyes adatokat vagy mást tartalmaz, amelyről úgy gondolja, hogy nem megfelelő a(z) %{organization_name} szervezet összefüggésén belül.
+    user_conversations:
+      index:
+        add_users_placeholder: Keresés…
+      reply:
+        placeholder: Az Ön válasza…
+    version:
+      show:
+        version_created_at: 'A verzió létrehozásának ideje:'
+    welcome_notification:
+      default_body: <p>Kedves {{name}}! Ezúttal szeretnénk üdvözölni és megköszönni, hogy csatlakozott a(z) {{organization}} szervezethez!</p><ul><li>Ha gyors áttekintést szeretne kapni arról, hogy mit tehet itt, tekintse meg a <a href="{{help_url}}">Súgó</a> részt.</li><li>Miután elolvasta, megkapja az első jelvényt. Itt <a href="{{badges_url}}">található a jelvények listája</a>, amelyeket a(z) {{organization}} szervezetben történő részvétellel szerezhet meg</li><li>Emellett csatlakozzon más személyekhez, és ossza meg velük a szerepvállalással és a(z) {{organization}} szervezettel kapcsolatos részvételi tapasztalatait. Tegyen javaslatokat, észrevételeket, vitázzon, gondolkodjon arról, hogy hogyan járulhatna hozzá a közjóhoz, érveljen mások meggyőzése érdekében, hallgassa meg és olvassa el mások érveit, fejtse ki elképzeléseit konkrét és közvetlen módon, válaszoljon türelmesen és megfontoltan, védje meg ötleteit, illetve legyen nyitott az együttműködésre és mások ötleteire!</li></ul>
+      default_subject: Köszönjük, hogy csatlakozott a(z) {{organization}} szervezethez!
+  devise:
+    invitations:
+      edit:
+        nickname_help: Az Ön beceneve a(z) %{organization} szervezetben.
+    mailer:
+      invitation_instructions:
+        hello: Kedves %{email}!
+        invited_you_as_admin: "%{invited_by} meghívót küldött Önnek, hogy legyen a(z) %{application} adminisztrátora. A meghívást az alábbi hivatkozás segítségével fogadhatja el."
+        invited_you_as_private_user: "%{invited_by} meghívót küldött Önnek, hogy legyen a(z) %{application} magánrésztvevője. A meghívást az alábbi hivatkozás segítségével fogadhatja el."
+        someone_invited_you: Valaki meghívót küldött Önnek a(z) %{application} alkalmazáshoz. A meghívást az alábbi hivatkozás segítségével fogadhatja el.
+        someone_invited_you_as_admin: Valaki meghívót küldött Önnek, hogy legyen a(z) %{application} adminisztrátora. Ezt az alábbi hivatkozás segítségével fogadhatja el.
+        someone_invited_you_as_private_user: Valaki meghívót küldött Önnek, hogy legyen a(z) %{application} magánrésztvevője. Ezt az alábbi hivatkozás segítségével fogadhatja el.
+      invite_admin:
+        subject: Valaki meghívta Önt, hogy kezelje a(z) %{organization} szervezetet
+      invite_collaborator:
+        subject: Meghívták együttműködésre a(z) %{organization} szervezetben
+      invite_private_user:
+        subject: Meghívták, hogy vegyen részt a(z) %{organization} magánrésztvevői folyamatában
+      organization_admin_invitation_instructions:
+        subject: Valaki meghívta Önt, hogy kezelje a(z) %{organization} szervezetet
+  errors:
+    messages:
+      too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25%-a)
+  forms:
+    correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz .
