@@ -1,0 +1,237 @@
+sl:
+  activemodel:
+    attributes:
+      answer:
+        description: Opis
+        image: Slika
+        proposals: Povezani predlogi
+        title: Naslov
+      election:
+        description: Opis
+        end_time: Glasovanje se konča ob
+        start_time: Glasovanje se začne ob
+        title: Naslov
+      question:
+        description: Opis
+        max_selections: Največje število izbir
+        title: Naslov
+    errors:
+      models:
+        answer:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Treba jo je znova priložiti
+        election:
+          attributes:
+            attachment:
+              needs_to_be_reattached: Treba jo je znova priložiti
+  decidim:
+    components:
+      elections:
+        actions:
+          vote: Glasuj
+        name: Volitve
+        settings:
+          global:
+            announcement: Obvestilo
+          step:
+            announcement: Obvestilo
+    elections:
+      actions:
+        confirm_destroy: Ali ste prepričani?
+        destroy: Uniči
+        edit: Uredi
+        edit_answers: Uredi odgovore
+        edit_questions: Uredi vprašanja
+        import: Uvozi predloge v odgovore
+        new: Novo %{name}
+        preview: Predogled
+        publish: Objavi
+        title: Dejanja
+        unpublish: Prekliči objavo
+      admin:
+        answers:
+          create:
+            invalid: Pri ustvarjanju tega vprašanja se je pojavila težava.
+            success: Odgovor je bil uspešno ustvarjen.
+          destroy:
+            invalid: Pri brisanju tega odgovora se je pojavila težava.
+            success: Odgovor je bil uspešno izbrisan.
+          edit:
+            title: Uredi odgovor
+            update: Posodobi odgovor
+          index:
+            title: Odgovori
+          new:
+            create: Ustvari odgovor
+            title: Nov odgovor
+          update:
+            invalid: Pri posodabljanju tega odgovora se je pojavila težava.
+            success: Odgovor je bil uspešno posodobljen.
+        elections:
+          create:
+            invalid: Pri ustvarjanju teh volitev se je pojavila težava.
+            success: Volitve so bile uspešno ustvarjene
+          destroy:
+            invalid: Pri brisanju teh volitev se je pojavila težava.
+            success: Volitve so bile uspešno izbrisane
+          edit:
+            title: Uredi volitve
+            update: Posodobi volitve
+          index:
+            title: Volitve
+          new:
+            create: Ustvari volitve
+            title: Nove volitve
+          publish:
+            success: Volitve so bile uspešno objavljene.
+          unpublish:
+            success: Volitve so bile uspešno umaknjene.
+          update:
+            invalid: Pri posodabljanju teh volitev se je pojavila težava.
+            success: Volitve so bile uspešno posodobljene
+        models:
+          answer:
+            name: Odgovor
+          election:
+            name: Volitve
+          question:
+            name: Vprašanje
+        proposals_imports:
+          create:
+            invalid: Pri uvozu predlogov v odgovore se je pojavila težava.
+            success: "%{number} predlogov je bilo uspešno uvoženih v odgovore."
+          new:
+            create: Uvozi predloge v odgovore
+            no_components: Ni drugih komponent predlogov v tem participativnem prostoru za uvoz predlogov v odgovore.
+            select_component: Izberite komponento
+        questions:
+          create:
+            invalid: Pri ustvarjanju tega vprašanja se je pojavila težava.
+            success: Vprašanje je bilo uspešno ustvarjeno.
+          destroy:
+            invalid: Pri brisanju tega vprašanja se je pojavila težava.
+            success: Vprašanje je bilo uspešno izbrisano.
+          edit:
+            title: Uredi vprašanje
+            update: Posodobi vprašanje
+          index:
+            title: Vprašanja
+          new:
+            create: Ustvari vprašanje
+            title: Novo vprašanje
+          update:
+            invalid: Pri posodobitvi tega vprašanja se je pojavila težava.
+            success: Vprašanje je bilo uspešno posodobljeno.
+      admin_log:
+        election:
+          publish: "%{user_name} je objavil volitve %{resource_name}."
+          unpublish: "%{user_name} je umaknil objavo volitev %{resource_name}."
+      election_m:
+        badge_name:
+          finished: Končano
+          ongoing: Aktivno
+          upcoming: Prihajajoče
+        end_date: Konča
+        footer:
+          view: Prikaži
+          vote: Glasuj
+        label:
+          date: Datumi
+        questions: Vprašanja %{count}
+        start_date: Začne
+        unspecified: Ni opredeljeno
+      elections:
+        filters:
+          active: Aktivno
+          all: Vse
+          finished: Končano
+          search: Išči
+          upcoming: Prihajajoči
+        filters_small_view:
+          close_modal: Zapri modalno okno
+          filter: Filtriraj
+          filter_by: Filtriraj po
+          unfold: Razgrni
+        show:
+          back: Vse volitve
+          preview: Predogled
+          vote: Glasuj
+          voting_period_status:
+            finished: Glasovanje se je začelo %{start_time} in končalo %{end_time}
+            ongoing: Glasovanje se konča %{end_time}
+            upcoming: Glasovanje se začne %{start_time}
+      models:
+        answer:
+          fields:
+            proposals: Predlogi
+            title: Naslov
+        election:
+          fields:
+            end_time: Konča ob
+            start_time: Začne ob
+            title: Naslov
+        question:
+          fields:
+            answers: Odgovori
+            max_selections: Največje število izbir
+            title: Naslov
+      orders:
+        label: Razvrsti izbire po
+        older: Starejše
+        recent: Novejše
+      votes:
+        confirm:
+          answer: Odgovor
+          answer_number: odgovor %{number}
+          confirm: Potrdi
+          edit: uredi
+          header: Potrdite svoj glas.
+          intro: Tu je povzetek glasovanja, ki ga boste oddali. <br> Potrdite svoj glas ali uredite svoje odgovore.
+          question: Vprašanje %{count}
+        confirmed:
+          back: Nazaj na volitve
+          experience: Kakšna je bila vaša izkušnja?
+          feedback: Dajte nam povratne informacije
+          header: Glas potrjen
+          lead: Vaš glas je že oddan!
+          text: 'Preverite lahko, ali je bil vaš glas uspešno dodan v volilno skrinjico z naslednjim identifikatorjem: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
+          verify_text: Če želite preveriti, kopirajte identifikator in ga prilepite na <a href="evote-verify"> stran za preverjanje glasovanja</a>
+        encrypting:
+          header: Kodiranje glasu ...
+          text: Vaš glas je šifriran, da ga lahko oddate anonimno.
+        header:
+          confirm: Potrdite svoj glas.
+          confirmed: Glas potrjen
+          encrypting: Potrjevanje glasa
+        messages:
+          not_allowed: Trenutno na teh volitvah ne smete glasovati.
+        modal:
+          close: Zapri
+          proposal_header: 'Predlogi:'
+        new:
+          answer_choices: Izberete lahko do %{choices} odgovorov ali nobenega.
+          more_information: Več informacij
+          preview_alert: To je predogled kabine za glasovanje.
+          question_steps: Vprašanje %{current_step} od %{total_steps}
+          selections: "%{selected} od %{max_selections}<br> izbir"
+        voting_step:
+          back: Nazaj
+          continue: Naprej
+      warnings:
+        no_elections_warning: Nobene volitve ne ustrezajo vašim iskalnim merilom ali pa ni predvidenih volitev.
+        no_scheduled_elections_warning: Trenutno ni predvidenih volitev, tukaj pa lahko najdete vse naštete pretekle volitve.
+    events:
+      elections:
+        election_published:
+          email_intro: 'Volitve %{resource_title} so zdaj aktivne za %{participatory_space_title}. Posodobitev lahko vidite na tej strani:'
+          email_outro: To obvestilo ste prejeli, ker sledite %{participatory_space_title}. Prejemanje obvestil lahko ustavite tako, da sledite prejšnji povezavi.
+          email_subject: Volitve %{resource_title} so zdaj aktivne za %{participatory_space_title}.
+          notification_title: Volitve <a href="%{resource_path}">%{resource_title}</a> so zdaj aktivne za %{participatory_space_title}.
+    participatory_processes:
+      statistics:
+        elections_count: Volitve
+  layouts:
+    decidim:
+      election_votes_header:
+        exit: Izhod
