@@ -1,9 +1,522 @@
 lt:
   activemodel:
     attributes:
+      initiative:
+        decidim_user_group_id: Autorius
+        description: Aprašymas
+        offline_votes: Asmeniški parašai
+        scope_id: Sritis
+        signature_end_date: Parašų rinkimo laikotarpio pabaiga
+        signature_start_date: Parašų rinkimo laikotarpio pradžia
+        signature_type: Parašų rinkimo tipas
+        signature_type_values:
+          any: Mišrus
+          offline: Asmeniškai
+          online: Prijungties režimas
+        state: Būsena
+        title: Pavadinimas
+      initiative_author:
+        address: Adresas
+        city: Miestas
+        id_document: DNI / NIE
+        name: Vardas ir pavardė
+        phone_number: Telefono numeris
+        post_code: Pašto kodas
+        province: Provincija
+      initiatives_committee_member:
+        user: Komiteto narys
       initiatives_type:
+        area_enabled: Suteikti autoriams galimybę pasirinkti savo iniciatyvos vietą
+        attachments_enabled: Aktyvuoti priedus
+        banner_image: Reklamjuostės paveikslėlis
         collect_user_extra_fields: Surinkti dalyvio asmens duomenis gavus parašą
+        custom_signature_end_date_enabled: Suteikti autoriams galimybę pasirinkti parašų rinkimo laikotarpio pabaigą
+        description: Aprašymas
+        document_number_authorization_handler: Leidimas tikrinti dokumento numerį gavus parašą
+        extra_fields_legal_information: Teisinė informacija apie asmens duomenų rinkimą
+        minimum_committee_members: Mažiausias komiteto narių skaičius
+        online_signature_enabled: Pasirašymas internetu įjungtas
+        promoting_committee_enabled: Įjungti rėmimo komitetą
+        title: Pavadinimas
+        undo_online_signatures_enabled: Suteikti dalyviams galimybę panaikinti savo parašus internetu
+        validate_sms_code_on_votes: Į pasirašymo procesą įtraukti SMS kodo patvirtinimo etapą
+      initiatives_vote:
+        date_of_birth: Gimimo data
+        document_number: Dokumento numeris
+        name_and_surname: Vardas ir pavardė
+        postal_code: Pašto kodas
+      organization_data:
+        address: Adresas
+        id_document: Asmens tapatybės dokumentas
+        name: Visas pavadinimas
+    errors:
+      models:
+        initiative:
+          attributes:
+            attachment:
+              file: Rinkmena netinkama
+              needs_to_be_reattached: Reikia pridėti iš naujo
+              title: Pavadinimo laukas neturėtų būti tuščias
+  decidim:
+    admin:
+      actions:
+        new_initiative_type: Naujas iniciatyvos tipas
+      filters:
+        initiatives:
+          decidim_area_id_eq:
+            label: Vietovė
+          state_eq:
+            label: Padėtis
+            values:
+              accepted: Parašų užtenka
+              created: Sukurta
+              discarded: Atmesta
+              published: Paskelbta
+              rejected: Parašų neužtenka
+              validating: Techninis patvirtinimas
+          type_id_eq:
+            label: Tipas
+        search_placeholder:
+          title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Ieškoti %{collection} pagal pavadinimą, aprašymą, ID ar autoriaus vardą ir pavardę.
+      menu:
+        initiatives: Iniciatyvos
+        initiatives_types: Iniciatyvų tipai
+      models:
+        initiatives:
+          fields:
+            created_at: Sukurta
+            published_at: Paskelbta
+            state: Būsena
+            supports_count: Parašai
+            title: Iniciatyvos
+        initiatives_type_scope:
+          fields:
+            scope: Sritis
+            supports_required: Reikalingas parašų skaičius
+          name: Iniciatyvos rūšies sritis
+        initiatives_types:
+          fields:
+            created_at: Sukurta
+            title: Iniciatyvų tipai
+          name: Iniciatyvos tipas
+        initiatives_votes:
+          fields:
+            date_of_birth: Gimimo data
+            document_number: Dokumento numeris
+            hash: Maiša
+            initiative_end_date: Pabaigos data
+            initiative_id: Iniciatyvos ID
+            initiative_signatures_count: Parašų skaičius
+            initiative_start_date: Pradžios data
+            initiative_title: Iniciatyvos pavadinimas
+            name_and_surname: Vardas ir pavardė
+            postal_code: Pašto kodas
+            time_and_date: Laikas ir data
+            timestamp: Laiko žyma
+      titles:
+        initiatives: Iniciatyvos
+        initiatives_types: Iniciatyvų tipai
+    events:
+      initiatives:
+        admin:
+          initiative_sent_to_technical_validation:
+            email_intro: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Pasitikrinkite tai <a href="%{admin_initiative_url}">administratoriaus srityje</a>.
+            email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+            email_subject: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui.
+            notification_title: Iniciatyva „%{resource_title}“ išsiųsta techniniam patvirtinimui. Pasitikrinkite tai <a href="%{admin_initiative_path}">administratoriaus srityje</a>.
+        initiative_extended:
+          email_intro: Pratęsta %{resource_title} iniciatyvos pasirašymo pabaigos data!
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Iniciatyvos pasirašymo pabaigos data pratęsta!
+          notification_title: Pratęsta iniciatyvos <a href="%{resource_path}">%{resource_title}</a> pasirašymo pabaigos data!
+        milestone_completed:
+          affected_user:
+            email_intro: Jūsų iniciatyva %{resource_title} surinko %{percentage}% parašų!
+            email_outro: Šį pranešimą gavote dėl to, kad esate %{resource_title} iniciatyvos autorius.
+            email_subject: Užbaigtas naujas etapas!
+            notification_title: Jūsų iniciatyva <a href="%{resource_path}">%{resource_title}</a> surinko %{percentage}% parašų!
+          follower:
+            email_intro: Iniciatyva %{resource_title} surinko %{percentage}% parašų!
+            email_outro: Šį pranešimą gavote dėl to, kad sekate %{resource_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+            email_subject: Užbaigtas naujas etapas!
+            notification_title: Iniciatyva <a href="%{resource_path}">%{resource_title}</a> surinko %{percentage}% parašų!
+        support_threshold_reached:
+          email_intro: Iniciatyvos %{resource_title} paramos riba pasiekta.
+          email_outro: Šį pranešimą gavote dėl to, kad esate platformos administratorius.
+          email_subject: Paramos riba pasiekta
+          notification_title: Iniciatyvos <a href="%{resource_path}">%{resource_title}</a> paramos riba pasiekta.
+    gamification:
+      badges:
+        initiatives:
+          conditions: |-
+            Eiti į „Iniciatyvos“ dalyvaujamojo proceso erdvę
+            Sekite naujos iniciatyvos kūrimo etapus
+          description: Šis ženklelis suteikiamas, kai pradedate naujas iniciatyvas ir bendradarbiaujate su kitais, kad jas įgyvendintumėte.
+          description_another: Šis dalyvis paskelbė %{score} iniciatyvas (-ų).
+          description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
+          name: Paskelbtos iniciatyvos
+          next_level_in: Paskelbkite dar %{score} iniciatyvas (-ų) ir pasiekite kitą lygį!
+          unearned_another: Šis dalyvis dar nepaskelbė nė vienos iniciatyvos.
+          unearned_own: Jūs nepaskelbėte nė vienos iniciatyvos.
+    help:
+      participatory_spaces:
+        initiatives:
+          contextual: "<p> <strong>Iniciatyva</strong> – pasiūlymas, kurį kiekvienas gali remti savo iniciatyva (nepriklausomai nuo kitų būdų ar dalyvaujamojo proceso erdvių), jeigu organizacijai surenka (skaitmeninių) parašų, kad būtų galima vykdyti konkrečius veiksmus (keisti reglamentą, inicijuoti projektą, keisti departamento ar gatvės pavadinimą ir kt.).</p> <p>Iniciatyvos rėmėjai gali apibrėžti savo tikslus, rinkti paramą, diskutuoti, užsiimti jos sklaida ir nustatyti posėdžių vietas, kuriose gali būti renkami dalyvių parašai arba diskusijos atveriamos kitiems dalyviams.</p> <p>Pavyzdžiai: Iniciatyva gali būti paremta parašais, kad būtų galima surengti visų organizacijos narių konsultacijas arba sukurti ar sušaukti asamblėją, arba pradėti organizacijos teritorijos ar srities biudžeto didinimo procesą. Rinkdami parašus, šią iniciatyvą gali paremti daugiau žmonių ir ją įgyvendinti organizacijoje.</p>\n"
+          page: "<p> <strong>Iniciatyva</strong> – pasiūlymas, kurį kiekvienas gali remti savo iniciatyva (nepriklausomai nuo kitų būdų ar dalyvaujamojo proceso erdvių), jeigu organizacijai surenka (skaitmeninių) parašų, kad būtų galima vykdyti konkrečius veiksmus (keisti reglamentą, inicijuoti projektą, keisti departamento ar gatvės pavadinimą ir kt.).</p> <p>Iniciatyvos rėmėjai gali apibrėžti savo tikslus, rinkti paramą, diskutuoti, užsiimti jos sklaida ir nustatyti posėdžių vietas, kuriose gali būti renkami dalyvių parašai arba diskusijos atveriamos kitiems dalyviams.</p> <p>Pavyzdžiai: Iniciatyva gali būti paremta parašais, kad būtų galima surengti visų organizacijos narių konsultacijas arba sukurti ar sušaukti asamblėją, arba pradėti organizacijos teritorijos ar srities biudžeto didinimo procesą. Rinkdami parašus, šią iniciatyvą gali paremti daugiau žmonių ir ją įgyvendinti organizacijoje.</p>\n"
+          title: Kas yra iniciatyvos?
+    initiatives:
+      actions:
+        answer: Atsakymas
+      admin:
+        answers:
+          edit:
+            answer: Atsakymas
+            title: Atsakyti dėl %{title}
+          info_initiative:
+            created_at: Sukurta
+            description: Aprašymas
+            initiative_votes_count: Balsų skaičius
+            initiatives: Iniciatyvos
+            state: Padėtis
+        committee_requests:
+          index:
+            approve: Patvirtinti
+            confirm_revoke: Ar tikrai?
+            invite_to_committee_help: Bendrinkite šią nuorodą ir į projekto rėmėjų komitetą pakvieskite kitų dalyvių
+            no_members_yet: Rėmėjų komitete nėra narių.
+            revoke: Atšaukti
+            title: Komiteto nariai
+        content_blocks:
+          highlighted_initiatives:
+            max_results: Didžiausias rodomų elementų skaičius
+        exports:
+          initiatives: Iniciatyvos
+        initiatives:
+          edit:
+            accept: Priimti iniciatyvą
+            confirm: Ar tikrai?
+            discard: Atmesti iniciatyvą
+            export_pdf_signatures: Eksportuoti parašus PDF formatu
+            export_votes: Eksportuoti parašus
+            reject: Atmesti iniciatyvą
+            send_to_technical_validation: Siųsti techniniam patvirtinimui
+            success: Iniciatyva išsiųsta techniniam patvirtinimui.
+            update: Atnaujinti
+          form:
+            attachments: Priedai
+            settings: Nuostatos
+            title: Bendra informacija
+          index:
+            actions_title: Veiksmas
+            preview: Peržiūrėti
+            print: Spausdinti
+          initiative_attachments:
+            documents: Dokumentai
+            edit: Keisti
+            new: Nauji
+            photos: Nuotraukos
+          show:
+            print: Spausdinti
+          update:
+            error: Įvyko klaida.
+            success: Iniciatyva atnaujinta.
+        initiatives_type_scopes:
+          create:
+            error: Įvyko klaida.
+            success: Sukurta nauja konkrečios rūšies iniciatyvos sritis.
+          destroy:
+            success: Sritis pašalinta.
+          edit:
+            back: Grįžti
+            confirm_destroy: Ar tikrai?
+            destroy: Pašalinti
+            title: Keisti iniciatyvos rūšies sritį
+            update: Atnaujinti
+          new:
+            back: Grįžti
+            create: Sukurti
+            title: Sukurti iniciatyvos rūšies sritį
+          update:
+            error: Įvyko klaida.
+            success: Sritis atnaujinta.
+        initiatives_types:
+          create:
+            error: Įvyko klaida.
+            success: Naujas iniciatyvos tipas sukurtas.
+          destroy:
+            success: Iniciatyvos rūšis pašalinta.
+          edit:
+            confirm_destroy: Ar tikrai?
+            destroy: Pašalinti
+            update: Atnaujinti
+          form:
+            title: Bendra informacija
+          initiative_type_scopes:
+            title: Iniciatyvos rūšies sritys
+          new:
+            create: Sukurti
+            title: Naujas iniciatyvos tipas
+          update:
+            error: Įvyko klaida.
+            success: Iniciatyvos rūšis atnaujinta.
+      admin_log:
+        initiative:
+          publish: "%{user_name} paskelbė iniciatyvą %{resource_name}."
+          send_to_technical_validation: "%{user_name} išsiuntė iniciatyvą %{resource_name} techniniam patvirtinimui."
+          unpublish: "%{user_name} atmetė iniciatyvą %{resource_name}."
+          update: "%{user_name} atnaujino iniciatyvą %{resource_name}."
+      admin_states:
+        accepted: Parašų užtenka
+        created: Sukurta
+        discarded: Atmesta
+        published: Paskelbta
+        rejected: Parašų neužtenka
+        validating: Techninis patvirtinimas
+      application_helper:
+        filter_area_values:
+          all: Visos
+        filter_scope_values:
+          all: Visos
+        filter_state_values:
+          accepted: Parašų užtenka
+          all: Visos
+          answered: Atsakyta
+          closed: Uždaryta
+          open: Galima dalyvauti
+          rejected: Parašų neužtenka
+        filter_type_values:
+          all: Visos
+      committee_requests:
+        new:
+          continue: Tęsti
+          help_text: Jūs rengiatės pateikti prašymą tapti šios iniciatyvos rėmimo komiteto nariu.
+        spawn:
+          success: Jūsų prašymas išsiųstas iniciatyvos autoriui.
+      content_blocks:
+        highlighted_initiatives:
+          name: Paryškintos iniciatyvos
+      create_initiative:
+        fill_data:
+          back: Grįžti
+          continue: Tęsti
+          fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis? Miestas, rajonas?</li> </ul>"
+          initiative_type: Iniciatyvos tipas
+          more_information: "(Daugiau informacijos)"
+          select_area: Pasirinkti vietovę
+          select_scope: Pasirinkti sritį
+        finish:
+          back: Grįžti
+          back_to_initiatives: Grįžti į iniciatyvas
+          callout_text: Sveikiname! Jūsų piliečių iniciatyva sukurta sukurta.
+          confirm: Patvirtinti
+          edit_my_initiative: Keisti mano iniciatyvas
+          go_to_my_initiatives: Eiti į mano iniciatyvas
+          more_information: "(Daugiau informacijos)"
+          send_my_initiative: Siųsti mano iniciatyvą
+        finish_help:
+          access_reminder: Atminkite, kad visada galėsite prisijungti prie savo iniciatyvų naudodamiesi dalyvių meniu.
+          help_for_organizations: Jei esate asociacija, turėsite įkelti visų organizacijų, sudarančių Rėmimo komisiją, valdybos posėdžių protokolus.
+          help_in_person_signatures: Jei nusprendėte parašus rinkti asmeniškai arba kartu rinkti ir internetu, turėsite įkelti reikiamą informaciją.
+          help_text: Atminkite, kad norėdami tinkamai tvarkyti iniciatyvą, turite prisijungti prie administratoriaus srities, kurioje rasite naudotojo meniu, įkelti reikiamą informaciją ir nusiųsti ją tvarkyti.
+          initiatives_page_link: Visą šią informaciją galite peržiūrėti spustelėję informuoti apie iniciatyvas skirtą nuorodą %{link}⁭.
+          page: puslapis
+        previous_form:
+          back: Grįžti
+          continue: Tęsti
+          help: Kas sudaro šią iniciatyvą? Užrašykite pavadinimą ir aprašykite. Rekomenduojame trumpą ir glaustą pavadinimą ir glaustai aprašyti siūlomą sprendimą.
+          more_information: "(Daugiau informacijos)"
+        promotal_committee:
+          back: Grįžti
+          individual_help_text: Kad būtų galima įgyvendinti tokią piliečių iniciatyvą, Rėmimo komisiją turi sudaryti ne mažiau kaip %{committee_size} narių (kompetentingų vertintojų). Šią nuorodą bendrinkite su kitais šioje iniciatyvoje dalyvaujančiais asmenimis. Gavę šią nuorodą, jūsų kontaktiniai asmenys turės atlikti nurodytus veiksmus.
+          more_information: "(Daugiau informacijos)"
+        select_initiative_type:
+          back: Grįžti
+          choose_html: Noriu sukurti <strong>%{title}</strong>.
+          more_information: "(Daugiau informacijos)"
+          select: Noriu paremti šią iniciatyvą.
+          select_initiative_type_help: Piliečių iniciatyvos yra priemonė pilietiškumui parodyti, kad miesto taryba galėtų imtis veiksmų bendram interesui ginti savivaldybių jurisdikcijai priklausančiose srityse. Kokių iniciatyvų norite imtis?
+        share_committee_link:
+          continue: Tęsti
+          invite_to_committee_help: Nuoroda, skirta dalyviams į rėmėjų komitetą pakviesti
+        show_similar_initiatives:
+          back: Grįžti
+          compare_help: Jei kuri nors iš toliau nurodomų iniciatyvų yra panaši į jūsų iniciatyvą, raginame ją pasirašyti. Bus daugiau galimybių įgyvendinti jūsų pasiūlymus.
+          continue: Mano iniciatyva skiriasi.
+          more_information: "(Daugiau informacijos)"
+      events:
+        create_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, kurį sekate, sukūrė naują iniciatyvą. Peržiūrėkite ir prisidėkite:"
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Nauja %{author_nickname} iniciatyva
+          notification_title: Iniciatyvą <a href="%{resource_path}">%{resource_title}</a> sukūrė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        endorse_initiative_event:
+          email_intro: "%{author_name} %{author_nickname}, kurį sekate, pritarė šiai iniciatyvai. Galbūt norite įsitraukti į pokalbį:"
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{author_nickname}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: Iniciatyva, kuriai %{author_nickname} pritarė
+          notification_title: Iniciatyvai <a href="%{resource_path}">%{resource_title}</a> pritarė <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      index:
+        title: Iniciatyvos
+      initiative_signatures:
+        fill_personal_data:
+          continue: Tęsti
+          date_select:
+            day: Diena
+            month: Mėnuo
+            year: Metai
+          help: Kad pasirašytumėte iniciatyvą, įrašykite savo asmens duomenis toliau nurodomuose laukeliuose.
+        finish:
+          back_to_initiative: Grįžti į iniciatyvą
+        sms_code:
+          continue: Pažymėti kodą ir tęsti
+          help: Pasitikrinkite telefone gautą SMS žinutę
+        sms_phone_number:
+          continue: Atsisiųsti SMS
+          help: Siųsdami tikrinimo kodo užklausą, į formą įrašykite patvirtintą telefono numerį.
+      initiative_votes:
+        create:
+          error: Pasirašant iniciatyvą iškilo problema.
+          invalid: Iniciatyvai pasirašyti pateikti neteisingi duomenys.
+          success_html: Sveikiname! Iniciatyva <strong> %{title}</strong> pasirašyta.
+        personal_data:
+          invalid: Asmens duomenys neatitinka leidimui gauti pateiktų duomenų.
+        sms_code:
+          invalid: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
+        sms_phone:
+          invalid: Telefono numeris neteisingas arba laukiama leidimo. Patikrinkite savo leidimus.
+      initiatives:
+        author:
+          deleted: Pašalintas
+        filters:
+          any: Visi/visos
+          area: Vietovė
+          author: Autorius
+          myself: Mano iniciatyvos
+          scope: Sritis
+          search: Ieškoti
+          state: Būsena
+          type: Tipas
+        filters_small_view:
+          close_modal: Uždaryti langą
+          filter: Filtruoti
+          filter_by: Filtravimo kriterijai
+          unfold: Išskleisti
+        index_header:
+          new_initiative: Nauja iniciatyva
+          not_authorized:
+            authorizations_page: Peržiūrėti leidimus
+            close: Uždaryti
+            explanation: Norėdami sukurti naują iniciatyvą, turite būti patikrintas.
+            title: Reikalingas leidimas
+        initiatives:
+          closed_initiatives_warning: Šiuo metu atvirų iniciatyvų nėra, tačiau čia galite rasti visų baigtų svarstyti iniciatyvų sąrašą.
+          no_initiatives_warning: Jūsų paieškos kriterijus atitinkančių iniciatyvų nerasta.
+        orders:
+          label: 'Rūšiuoti iniciatyvas pagal:'
+          most_commented: Labiausiai komentuoti
+          most_voted: Surinko daugiausia parašų
+          random: Atsitiktinė tvarka
+          recent: Naujausia
+          recently_published: Naujausia paskelbta
+        result:
+          answer_title:
+            accepted: Šis pasiūlymas buvo priimtas, nes
+            created: Šis pasiūlymas sukurtas.
+            discarded: Šis pasiūlymas buvo atmestas, nes
+            published: Šis pasiūlymas buvo paskelbtas, nes
+            rejected: Šis pasiūlymas buvo atmestas, nes
+            validating: Šis pasiūlymas šiuo metu vertinamas
+          initiative_rejected_reason: Ši iniciatyva atmesta, nes trūksta parašų.
+        show:
+          any_vote_method: Šiai piliečių iniciatyvai paremti parašai renkami tiek internetu, tiek asmeniškai.
+          follow_description: Gauti pranešimą, kai yra su šia iniciatyva susijusių naujienų
+          offline_method: Šiai piliečių iniciatyvai paremti parašai renkami tik asmeniškai.
+        signature_identities:
+          select_identity: Pasirinkti dalyvio identifikatorių
+        supports:
+          title: Parašų įtraukimas į sąrašą
+        vote_cabin:
+          already_voted: Jau pasirašyta
+          supports_required: "%{total_supports} – reikalingas parašų skaičius"
+          verification_required: Norėdami pasirašyti iniciatyvą, patikrinkite savo paskyrą
+          vote: Pasirašyti
+          votes_blocked: Pasirašymas išjungtas
+        votes_count:
+          most_popular_initiative: Populiariausia iniciatyva
+          need_more_votes: Reikia daugiau parašų
+      initiatives_mailer:
+        creation_subject: Jūsų iniciatyva „%{title}“ sukurta
+        initiative_link:
+          check_initiative_details: Galite matyti iniciatyvos duomenis.
+          here: čia
+        more_information: Čia rasite daugiau informacijos apie iniciatyvos kūrimo procesą.
+        progress_report_body_for: Iniciatyva %{title} surinko %{percentage}% reikiamų parašų!
+        progress_report_for: 'Iniciatyvos santrauka: %{title}'
+        promotal_committee_help: Atminkite, kad į rėmimo komitetą turite pakviesti bent %{member_count} narių. Persiųskite šią nuorodą ir pakviesti narių į rėmėjų komitetą
+        status_change_body_for: 'Iniciatyvos %{title} būsena pasikeitė į: %{state}'
+        status_change_for: Iniciatyvos %{title} būsena pasikeitė.
+      last_activity:
+        new_initiative: Nauja iniciatyva
+      pages:
+        home:
+          highlighted_initiatives:
+            active_initiatives: Aktyvios iniciatyvos
+            see_all_initiatives: Žiūrėti visas iniciatyvas
+      show:
+        badge_name:
+          accepted: Parašų užtenka
+          created: Sukurta
+          discarded: Atmesta
+          published: Paskelbta
+          rejected: Parašų neužtenka
+          validating: Techninis patvirtinimas
+      states:
+        accepted: Priimtas
+        expired: Nebegaliojantys
+      unavailable_scope: Sritis nepasiekiama
+      versions:
+        shared:
+          back_to_resource: Grįžti į iniciatyvą
+    menu:
+      initiatives: Iniciatyvos
+    resources:
+      initiatives_type:
+        actions:
+          title: Veiksmai
+          vote: Pasirašyti
   layouts:
     decidim:
+      admin:
+        initiative:
+          attachments: Priedai
+          committee_members: Komiteto nariai
+          components: Komponentai
+          information: Informacija
+      initiative_creation_header:
+        back: Grįžti
+        fill_data: Sukurti
+        finish: Baigti
+        previous_form: Pradėti
+        promotal_committee: Rėmėjų komitetas
+        select_initiative_type: Pasirinkti
+        show_similar_initiatives: Palyginti
+        step: '%{current} veiksmas iš %{total}'
+        title: Sukurti naują iniciatyvą
+      initiative_header:
+        initiative_menu_item: Iniciatyva
       initiative_signature_creation_header:
+        back: Grįžti
+        fill_personal_data: Papildyti savo duomenis
+        finish: Baigti
+        finished: Iniciatyvos parašas sukurtas
         see_steps: Peržiūrėti veiksmus
+        select_identity: Pasirinkti vartotoją
+        sms_code: Tikrinimo kodas SMS
+        sms_phone_number: Mobiliojo telefono numeris
+        step: '%{current} veiksmas iš %{total}'
+        title: Pasirašyti %{initiative_title}
+      initiatives:
+        initiative:
+          check: Peržiūrėti
+          check_and_support: Peržiūrėti ir pasirašyti
+        no_initiatives_yet:
+          no_initiatives_yet: Dar nėra iniciatyvų!
