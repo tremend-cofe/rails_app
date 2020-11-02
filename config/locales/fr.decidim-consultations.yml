@@ -1,0 +1,331 @@
+fr:
+  activemodel:
+    attributes:
+      consultation:
+        banner_image: Image de la bannière
+        decidim_highlighted_scope_id: Cadre surligné
+        end_voting_date: Le vote se termine
+        introductory_image: Image d’introduction
+        introductory_video_url: URL vidéo d’introduction
+        slug: Slug URL
+        start_voting_date: Le vote débute
+        subtitle: Sous-titre
+        title: Intitulé
+      question:
+        banner_image: Image de la bannière
+        decidim_scope_id: Zone municipale
+        hero_image: Image d’accueil
+        i_frame_url: URL système de vote externe
+        instructions: Instructions complémentaires concernant le vote
+        max_votes: Nombre maximal de votes
+        min_votes: Nombre minimum de votes
+        origin_scope: Périmètre d’application
+        origin_title: Origine
+        origin_url: Origine URL
+        participatory_scope: Etendue participative
+        promoter_group: Groupe promoteur
+        question_context: Contexte
+        reference: Référence
+        scope: Zone municipale
+        slug: Slug URL
+        subtitle: Sous-titre
+        vote: Système de vote externe
+        what_is_decided: Ce qui a été décidé
+      response:
+        decidim_consultations_response_group_id: Groupe
+    errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: Le nombre maximal de votes doit être supérieur ou égal au minimum.
+      vote:
+        decidim_consultations_response_id:
+          not_found: Réponse non trouvée.
+  activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Le nombre de votes n’est pas valide
+    models:
+      decidim/consultations/response:
+        one: Réponse
+        other: Réponses
+  decidim:
+    admin:
+      actions:
+        back_to_responses: Revenir aux réponses
+        new_consultation: Nouvelle consultation
+        new_question: Nouvelle question
+        new_response: Nouvelle réponse
+        new_response_group: Nouveau groupe
+        publish_results: Publier les résultats
+        response_groups: Gérer les groupes de réponse
+        unpublish_results: Annuler la publication des résultats
+      consultation_publications:
+        create:
+          error: Un problème est survenu lors de la publication de cette consultation.
+          success: La consultation a été publiée avec succès.
+        destroy:
+          error: Un problème est survenu lors de l’annulation de la publication de cette consultation.
+          success: L’annulation de la publication de la consultation a été effectuée avec succès.
+      consultation_results_publications:
+        create:
+          error: Un problème est survenu lors de la publication des résultats pour cette consultation.
+          success: La consultation des résultats a été publiée avec succès.
+        destroy:
+          error: Un problème est survenu lors de l’annulation de la publication des résultats pour cette consultation.
+          success: L’annulation de la publication des résultats de la consultation a été effectuée avec succès.
+      consultations:
+        create:
+          error: Un problème est survenu lors de la création d’une nouvelle consultation.
+          success: La consultation a été créée avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          slug_help: 'Des slugs URL sont utilisés pour générer des URL qui font référence à cette consultation. N’admet que les lettres, les nombres et les tirets et doit commencer par une lettre. Par exemple: %{url}'
+          title: informations générales
+        index:
+          not_published: Non publié
+          published: Publié
+        new:
+          create: Créer
+          title: Nouvelle consultation
+        results:
+          not_visible: Les résultats seront disponibles lors de la clôture de la consultation
+        update:
+          error: Un problème est survenu lors de la mise à jour de cette consultation.
+          success: La consultation a été mise à jour avec succès.
+      menu:
+        consultations_submenu:
+          info: Informations
+          results: Résultats
+        questions_submenu:
+          components: Composants
+          info: Informations
+          responses: Réponses
+      models:
+        consultation:
+          fields:
+            created_at: Créé à
+            published: Publié
+            title: Intitulé
+        question:
+          fields:
+            created_at: Créé à
+            published: Publié
+            title: Intitulé
+        response:
+          fields:
+            created_at: Créé à
+            response_group: Groupe
+            title: Intitulé
+          name:
+            one: Réponse
+            other: Réponses
+      question_configuration:
+        disable_external_voting: Veuillez désactiver le système de vote externe pour les configurations avancées
+        form:
+          help: Créer des questions à choix multiples en augmentant le nombre maximal de réponse qu’un participant peut sélectionner. La valeur maximale par défaut est 1, ce qui signifie que seule une réaction peut être votée.
+          title: Configuration avancée
+      question_publications:
+        create:
+          error: Un problème est survenu lors de la publication de cette question.
+          success: La question a été publiée avec succès.
+        destroy:
+          error: Un problème est survenu lors de l’annulation de la publication de cette question.
+          success: L’annulation de la publication de la question a été effectuée avec succès.
+      questions:
+        create:
+          error: Un problème est survenu lors de la création d’une nouvelle question.
+          success: La question a été créée avec succès.
+        destroy:
+          success: La question a été supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: informations générales
+        index:
+          not_published: Non publié
+          published: Publié
+        new:
+          create: Créer
+          title: Nouvelle question
+        update:
+          error: Un problème est survenu lors de la mise à jour de cette question.
+          success: Question mise à jour avec succès
+      response_groups:
+        create:
+          error: Un problème est survenu lors de la création d’un nouveau groupe de réponses.
+          success: Le groupe de réponses a été créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression du groupe de réponse. Assurez-vous qu’aucune réponse ne dépend de celui-ci.
+          success: Le groupe de réponses a été supprimé avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: informations générales
+        help: Utiliser des groupes pour organiser des questions à choix multiples en paquets.
+        new:
+          create: Créer
+          title: Nouveau groupe de réponses
+        update:
+          error: Un problème est survenu lors de la mise à jour de cette réponse.
+          success: La réponse a été mise à jour avec succès.
+      responses:
+        create:
+          error: Un problème est survenu lors de la création d’une nouvelle réponse.
+          success: La réponse a été créée avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression de la réponse.
+          success: La réponse a été supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        form:
+          title: informations générales
+        new:
+          create: Créer
+          title: Nouvelle réponse
+        update:
+          error: Un problème est survenu lors de la mise à jour de cette réponse.
+          success: La réponse a été mise à jour avec succès.
+      titles:
+        response_groups: Groupes de réponses
+        responses: Réponses
+        results: Résultats
+    consultations:
+      admin:
+        content_blocks:
+          highlighted_consultations:
+            max_results: Nombre maximal d’éléments à afficher
+      consultation:
+        start_voting_date: Le vote débute
+        view_results: Visualiser les résultats
+      consultation_card:
+        view_results: Visualiser les résultats
+      consultations:
+        orders:
+          label: 'Trier les consultations sur base:'
+          random: Aléatoire
+          recent: La plus récente
+      content_blocks:
+        highlighted_consultations:
+          name: Consultations surlignées
+      filters:
+        active: Actif/-ve
+        all: Tous
+        finished: finies
+        search: Rechercher
+        state: Statut
+        upcoming: À venir
+      filters_small_view:
+        close_modal: Fermer la fenêtre
+        filter: Filtre
+        filter_by: Filtrer sur la base de
+        unfold: Dérouler
+      highlighted_questions:
+        title: Questions de %{scope_name}
+      last_activity:
+        new_consultation: Nouvelle consultation
+        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+      pages:
+        home:
+          highlighted_consultations:
+            active_consultations: Consultations actives
+            see_all_consultations: Voir toutes les consultations
+            voting_ends_in:
+              one: Le vote se termine <strong>demain</strong>
+              other: Le vote se termine dans <strong>%{count} jours</strong>
+            voting_ends_today: Le vote se termine <strong>aujourd’hui</strong>
+      question:
+        take_part: Participer
+        view_results: Visualiser les résultats
+        votes_out_of:
+          one: vote de
+          other: votes de
+      question_multiple_votes:
+        results_rules:
+          minimum_votes_per_user:
+            description: Les participants ont pu répartir un minimum de %{votes} votes entre les différentes options.
+          title: Les choix multiples étaient autorisés dans cette question
+          total_participants: Un total de %{count} personnes ont participé au vote.
+          vote_limit:
+            description: Les participants ont pu voter pour jusqu’à %{limit} options.
+        voting_rules:
+          minimum_votes_per_user:
+            description: Vous devez répartir un minimum de %{votes} votes entre les différentes options.
+          title: 'Les votes sont soumis aux règles suivantes:'
+          vote_limit:
+            description: Vous pouvez voter pour jusqu’à %{limit} options.
+            left: Restant
+            votes: Voix
+      question_votes:
+        create:
+          error: Un problème est survenu lors du vote de la question
+          success: Vous pouvez le modifier jusqu’à la fin de la consultation Seul le dernier vote sera accepté.
+          title_error: Erreur de vote!
+          title_success: Le vote a été enregistré avec succès
+      regular_questions:
+        title: Questions pour cette consultation
+      show:
+        badge_name:
+          finished: finies
+          open: Ouvert
+          open_votes: Votes ouverts
+          published_results: Résultats publiés
+        footer_button_text:
+          debate: Débat
+          view: Visualiser
+          view_results: Visualiser les résultats
+        unspecified: Non spécifié
+    help:
+      participatory_spaces:
+        consultations:
+          contextual: "<p><strong>Les consultations</strong> sont un espace qui vous permet de poser une question précise à toutes les personnes qui forment une organisation, de lancer un appel pour participer à la consultation, de susciter et de demander la tenue d’un débat pour ou contre une réponse. Lorsque la date de la consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur n’importe quel élément affectant une organisation: Quelques exemples: modifier le nom ou le logo de l’organisation sur la base de plusieurs alternatives, décider de devenir Oui ou Non membre d’une organisation plus importante, accepter ou rejeter un nouveau plan stratégique ou le résultat d’un groupe de travail ou déterminer si les fonctions doivent toujours être limitées à 1, 2 ou 3 mandats.</p>\n"
+          page: "<p><strong>Les consultations</strong> sont un espace qui vous permet de poser une question précise à toutes les personnes qui forment une organisation, de lancer un appel pour participer à la consultation, de susciter et de demander la tenue d’un débat pour ou contre une réponse. Lorsque la date de la consultation arrive, vous pouvez voter et publier les résultats des votes.</p> <p>Exemples: Les consultations peuvent porter sur n’importe quel élément affectant une organisation: Quelques exemples: modifier le nom ou le logo de l’organisation sur la base de plusieurs alternatives, décider de devenir Oui ou Non membre d’une organisation plus importante, accepter ou rejeter un nouveau plan stratégique ou le résultat d’un groupe de travail ou déterminer si les fonctions doivent toujours être limitées à 1, 2 ou 3 mandats.</p>\n"
+          title: Que sont les consultations?
+    questions:
+      next_button: Question suivante
+      previous_button: Question précédente
+      results:
+        title: Résultats
+      show:
+        read_more: Pour en savoir plus
+      statistics:
+        assistants_count_title: Assistant(e)s
+        comments_count_title: Commentaires
+        meetings_count_title: Réunions
+        supports_count_title: Voix
+      technical_info:
+        technical_data: Données techniques
+      vote_button:
+        already_voted: Déjà voté
+        already_voted_hover: Annuler le vote
+        starting_from: À partir de %{date}
+        verification_required: Vérifiez votre compte pour voter
+      vote_modal:
+        close_modal: Fermer la fenêtre modale
+        contextual_help: Veuillez sélectionner une option.
+        title: 'Consultation: Vote d’une question'
+      vote_modal_confirm:
+        change: Changer
+        close_modal: Fermer la fenêtre modale
+        confirm: Confirmer
+        contextual_help: Veuillez confirmer l’option sélectionnée.
+        title: 'Consultation: confirmer le vote'
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Annexes
+          categories: Catégories
+      consultation_voting_data:
+        start_voting_date: Le vote débute
+      question_components:
+        question_menu_item: Question
+        unfold: Dérouler
+      question_header:
+        back_to_consultation: Voir toutes les consultations
+        back_to_question: Retour à la question
