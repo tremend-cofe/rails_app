@@ -1,0 +1,84 @@
+es:
+  activemodel:
+    models:
+      decidim/blogs/create_post_event: Nueva publicación
+  activerecord:
+    models:
+      decidim/blogs/post:
+        one: Publicación
+        other: Publicaciones
+  decidim:
+    blogs:
+      actions:
+        confirm_destroy: '¿Confirmas que quieres eliminar esta publicación?'
+        destroy: Eliminar
+        edit: Editar
+        new: Nueva publicación
+        title: Acciones
+      admin:
+        models:
+          components:
+            body: Cuerpo
+          post:
+            name: Publicación
+        posts:
+          create:
+            invalid: Se ha producido un error al crear la publicación
+            success: Publicación correctamente creada
+          destroy:
+            success: Publicación correctamente eliminada
+          edit:
+            save: Actualizar
+          index:
+            title: Publicaciones
+          new:
+            create: Crear
+            title: Crear publicación
+          update:
+            invalid: Se ha producido un error al guardar la publicación.
+            success: Publicación correctamente guardada
+      last_activity:
+        new_post_at_html: "<span>Nueva publicación en %{link}</span>"
+      models:
+        post:
+          fields:
+            author: Autor
+            body: Cuerpo
+            created_at: Creada el
+            title: título
+      posts:
+        show:
+          back: Volver a la lista
+          comments: Comentarios
+          view: Ver
+        sidebar_blog:
+          comments: comentarios
+          most_commented_posts: Publicaciones más comentadas
+      read_more: Leer más
+    components:
+      blogs:
+        name: Blog
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+            comments_max_length: Longitud máxima de los comentarios (manténgase 0 como valor por defecto)
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            endorsements_blocked: Adhesiones bloqueadas
+            endorsements_enabled: Adhesiones habilitadas
+    events:
+      blogs:
+        post_created:
+          email_intro: Se ha añadido la publicación «%{resource_title}» en el espacio «%{participatory_space_title}», del que eres seguidor.
+          email_outro: Has recibido esta notificación porque sigues el espacio «%{participatory_space_title}». Para dejar de seguirlo, haz clic en el enlace anterior.
+          email_subject: Nueva publicación en %{participatory_space_title}
+          notification_title: Se ha añadido la publicación <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
+    pages:
+      home:
+        statistics:
+          posts_count: Publicaciones
+    participatory_processes:
+      statistics:
+        posts_count: Publicaciones
