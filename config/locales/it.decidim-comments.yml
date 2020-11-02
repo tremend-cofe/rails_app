@@ -1,0 +1,123 @@
+it:
+  activemodel:
+    models:
+      decidim/comments/comment_by_followed_user_event: Commento
+      decidim/comments/comment_created_event: Commento
+      decidim/comments/reply_created_event: Risposta ai commenti
+      decidim/comments/user_group_mentioned_event: Menzione
+      decidim/comments/user_mentioned_event: Menzione
+  activerecord:
+    models:
+      decidim/comments/comment:
+        one: Commento
+        other: Commenti
+      decidim/comments/comment_vote:
+        one: Voto
+        other: Voti
+  decidim:
+    comments:
+      comments: Commenti
+      comments_count: Conteggio commenti
+      last_activity:
+        new_comment_at_html: "<span>Nuovo commento su %{link}</span>"
+      view: Visualizza
+      votes:
+        create:
+          error: Si è verificato un problema durante la votazione del commento.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Accedi con il tuo account</a> o <a href="%{sign_up_url}">registrati</a> per aggiungere un commento.
+        form:
+          body:
+            label: Commento
+            placeholder: Che cosa ne pensi?
+          form_error: Il testo è obbligatorio e non può essere più lungo di %{length} caratteri.
+          submit: Invia
+          user_group_id:
+            label: Commenta come
+        opinion:
+          neutral: Neutro
+        remaining_characters: "%{count} caratteri rimasti"
+        remaining_characters_1: "%{count} carattere rimasto"
+        title: Aggiungi un commento
+      comment:
+        alignment:
+          against: Contro
+          in_favor: A favore
+        deleted_user: Partecipante cancellato
+        hide_replies: Nascondi risposte
+        reply: Rispondi
+        report:
+          action: Segnala
+          already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
+          close: Chiudi
+          description: Questo contenuto è inappropriato?
+          details: Altre osservazioni
+          reasons:
+            does_not_belong: Contiene attività illecite, minacce di suicidio, informazioni personali o altri contenuti che ritieni incompatibili con %{organization_name}.
+            offensive: Contiene contenuti di tipo razzista o sessista, insulti, attacchi personali, minacce di morte, istigazione al suicidio o qualsiasi forma di incitamento all'odio.
+            spam: Contiene clickbait, pubblicità, truffe o bot di script.
+          title: Segnala contenuti inadeguati
+        show_replies: Mostra %{replies_count} risposte
+        single_comment_link_title: Ottieni il link al singolo commento
+      comment_order_selector:
+        order:
+          best_rated: Migliori
+          most_discussed: Più discussi
+          older: Più vecchi
+          recent: Recenti
+        title: 'Ordina per:'
+      comment_thread:
+        title: Conversazione con %{authorName}
+      comments:
+        blocked_comments_for_user_warning: In questo momento non puoi inserire un commento, ma puoi leggere i commenti precedenti.
+        blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
+        comment_details_title: Dettagli del commento
+        loading: Caricamento commenti in corso...
+        single_comment_warning: Puoi verificare gli altri commenti <a href="%{url}">qui</a>.
+        single_comment_warning_title: Stai visualizzando un unico commento
+        title: "%{count} commenti"
+      down_vote_button:
+        text: Non sono d'accordo con questo commento
+      up_vote_button:
+        text: Condivido questo commento
+    events:
+      comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ha lasciato un commento su %{resource_title}. È possibile leggerlo su questa pagina:"
+          email_outro: Hai ricevuto questa notifica perché segui %{author_name}. Puoi smettere di seguire questo utente dalla sua pagina del profilo.
+          email_subject: C'è un nuovo commento di %{author_name} su %{resource_title}
+          notification_title: C'è un nuovo commento di <a href="%{author_path}">%{author_name} %{author_nickname}</a> su <a href="%{resource_path}">%{resource_title}</a>.
+        comment_by_followed_user_group:
+          email_intro: 'Il gruppo %{author_name} ha lasciato un commento su %{resource_title}. È possibile leggerlo su questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché segui %{author_name}. È possibile smettere di seguire questo gruppo dalla sua pagina del profilo.
+          email_subject: C'è un nuovo commento di %{author_name} su %{resource_title}
+          notification_title: C'è un nuovo commento di <a href="%{author_path}">%{author_name} %{author_nickname}</a> su <a href="%{resource_path}">%{resource_title}</a>.
+        comment_created:
+          email_intro: "%{resource_title} ha ricevuto un commento. È possibile leggere il commento su questa pagina:"
+          email_outro: Hai ricevuto questa notifica perché segui "%{resource_title}" o il suo autore. Puoi smettere di seguirlo cliccando sul link precedente.
+          email_subject: C'è un nuovo commento di %{author_name} su %{resource_title}
+          notification_title: C'è un nuovo commento di <a href="%{author_path}">%{author_name} %{author_nickname}</a> su <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} ha risposto al tuo commento su %{resource_title}. È possibile leggerlo su questa pagina:"
+          email_outro: Hai ricevuto questa notifica perché il tuo commento ha ricevuto una risposta.
+          email_subject: "%{author_name} ha risposto al tuo commento su %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha risposto al tuo commento su <a href="%{resource_path}">%{resource_title}</a>
+        user_group_mentioned:
+          email_intro: Un gruppo al quale appartieni è stato menzionato
+          email_outro: Hai ricevuto questa notifica perché sei membro del gruppo %{group_name} menzionato in %{resource_title}.
+          email_subject: Sei stato menzionato in %{resource_title} come membro di %{group_name}
+          notification_title: Sei stato menzionato in <a href="%{resource_path}">%{resource_title}</a> da <a href="%{author_path}">%{author_name} %{author_nickname}</a> come membro di <a href="%{group_path}">%{group_name} %{group_nickname}</a>
+        user_mentioned:
+          email_intro: Sei stato menzionato
+          email_outro: Hai ricevuto questa notifica perché sei stato menzionato in %{resource_title}.
+          email_subject: Sei stato menzionato in %{resource_title}
+          notification_title: Sei stato menzionato in <a href="%{resource_path}">%{resource_title}</a> da <a href="%{author_path}">%{author_name} %{author_nickname}</a>
+    metrics:
+      comments:
+        description: Numero di commenti generati dai partecipanti
+        object: commenti
+        title: Commenti
+  errors:
+    messages:
+      cannot_have_comments: non è possibile inserire commenti
