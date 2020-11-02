@@ -1,0 +1,249 @@
+ro:
+  activemodel:
+    attributes:
+      config:
+        available_methods: Metode disponibile
+        offline_explanation: Instrucțiuni pentru verificarea offline
+      id_document_information:
+        document_number: Numărul documentului (cu literă)
+        document_type: Tipul documentului
+      id_document_upload:
+        document_number: Numărul documentului (cu literă)
+        document_type: Tipul documentului dvs.
+        verification_attachment: Copie scanată a documentului dvs.
+      offline_confirmation:
+        email: E-mail participant
+      postal_letter_address:
+        full_address: Adresa completă
+      postal_letter_confirmation:
+        verification_code: Codul de verificare
+      postal_letter_postage:
+        full_address: Adresa completă
+        verification_code: Codul de verificare
+  decidim:
+    admin:
+      menu:
+        authorization_revocation:
+          before_date_info: Util dacă procesul a început deja și doriți să revocați permisiunile din procesul anterior.
+          button: Revocă-le pe toate
+          button_before: Revocare înainte de data
+          destroy:
+            confirm: Revocarea autorizațiilor înainte de data nu poate fi anulată. Sunteți sigur că doriți să continuați?
+            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Sunteți sigur(ă) că doriți să continuați?
+          destroy_nok: S-a întâmpinat o problemă la revocarea autorizațiilor.
+          destroy_ok: Toate autorizațiile potrivite au fost revocate.
+          info: Există un total de %{count} participanți verificați.
+          no_data: Niciun participant verificat
+          title: Revocare verificări
+        authorization_workflows: Verificări
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} a actualizat configurația de verificare a documentelor de identitate"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} a verificat %{resource_name} utilizând o verificare offline a documentelor de identitate"
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Administratorii încarcă un CSV cu e-mailurile participanților acceptați
+            Numai participanții care au un e-mail în respectivul fișier CSV pot fi verificați
+        id_documents:
+          help: |-
+            Utilizatorii completează informațiile privind identitatea și încarcă o copie a documentului lor.
+            Dvs. completați informațiile prezente în imaginea încărcată.
+            Informațiile trebuie să corespundă exact cu ceea ce a completat utilizatorul.
+            Dacă nu puteți vedea în mod clar informațiile sau dacă nu puteți obține verificarea lor, puteți respinge cererea, iar utilizatorul va putea să o corecteze.
+        postal_letter:
+          help: |-
+            Participanții solicită un cod de verificare care trebuie trimis la adresa lor.
+            Dvs. trimiteți scrisoarea cu codul de verificare la adresele lor.
+            Marcați scrisoarea ca trimisă.
+            Odată ce marcați scrisoarea ca trimisă, participantul va putea să introducă codul și să fie verificat.
+      csv_census:
+        explanation: Obțineți verificarea folosind recensământul organizației.
+        name: Recensământul organizației
+      help: Ajutor
+      id_documents:
+        explanation: Încărcați documentele dvs. de identitate pentru a vă putea verifica identitatea
+        name: Documente de identitate
+      multistep: În mai multe etape
+      name: Nume
+      postal_letter:
+        explanation: Vă vom trimite o scrisoare poștală cu un cod pe care va trebui să îl introduceți pentru a vă putea verifica adresa
+        name: Cod trimis prin scrisoare poștală
+    verifications:
+      authorizations:
+        authorization_metadata:
+          info: 'Aceasta este data actualei verificări:'
+          no_data_stored: Nicio dată stocată.
+        create:
+          error: S-a întâmpinat o problemă la crearea autorizației.
+          success: Ați fost autorizat.
+          unconfirmed: Trebuie să confirmați e-mailul dvs. pentru a vă autoriza.
+        destroy:
+          error: S-a întâmpinat o problemă la ștergerea autorizației.
+          success: Ați șters autorizația.
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Verificați prin comparație cu un alt exemplu de handler de autorizație
+            csv_census: Verificați prin comparație cu recensământul organizației
+            dummy_authorization_handler: Verificați prin comparație cu exemplul de handler de autorizație
+            dummy_authorization_workflow: Verificați prin comparație cu fluxul de lucru al autorizației
+            id_documents: Obțineți verificarea prin încărcarea documentului dvs. de identitate
+            postal_letter: Obțineți verificarea prin primirea unui cod de verificare prin poștă
+            sms: Obțineți verificarea prin primit un cod de verificare prin SMS
+          title: Verificați-vă identitatea
+          verify_with_these_options: 'Acestea sunt opțiunile disponibile pentru a vă verifica identitatea:'
+        index:
+          expired_verification: Verificarea a expirat
+          pending_verification: Verificare în așteptare
+          show_renew_info: Faceți clic pentru a reînnoi verificarea
+          unauthorized_verification: Verificare nouă
+        new:
+          authorize: Trimitere
+          authorize_with: Verificați cu %{authorizer}
+        renew_modal:
+          cancel: Anulare
+          close: închidere
+          continue: Continuare
+          info_renew: Dacă doriți să actualizați datele, continuați cu reînnoirea
+          title: Verificare reînnoire
+        skip_verification: Puteți să treceți deocamdată peste această etapă și %{link}
+        start_exploring: să începeți să explorați
+      csv_census:
+        admin:
+          census:
+            create:
+              error: S-a întâmpinat o problemă la importarea recensământului.
+              success: S-au importat %{count} articole (%{errors} errors)
+            destroy_all:
+              success: Toate datele recensământului au fost șterse
+          destroy:
+            confirm: Ștergerea tuturor datelor recensământului nu poate fi anulată. Sunteți sigur(ă) că doriți să continuați?
+            title: Șterge toate datele recensământului
+          index:
+            data: S-au încărcat %{count} înregistrări în total. Ultima dată de încărcare a fost %{due_date}
+            empty: Nu există niciun fel de date ale recensământului. Utilizați formularul de mai jos pentru a importa folosind un fișier CSV.
+            title: Date de recensământ curente
+          instructions:
+            body: Pentru a face acest lucru, trebuie să accesați administrarea sistemului și să adăugați autorizațiile de recensământ CSV la organizație
+            title: Trebuie să activați recensământul CSV pentru această organizație
+          new:
+            file: "Fișierul .csv cu datele din e-mailuri"
+            info: 'Trebuie să fie un fișier în format CSV cu o singură coloană cu adresele de e-mail:'
+            submit: Încărcați fișierul
+            title: Încărcați un nou recensământ
+        authorizations:
+          new:
+            error: Nu am putut verifica contul dvs. sau nu figurați în recensământul organizației.
+            success: Contul dvs. a fost verificat.
+      dummy_authorization:
+        extra_explanation:
+          scope: Participarea este limitată la participanții cu domeniul de aplicare %{scope_name}.
+      id_documents:
+        admin:
+          config:
+            edit:
+              title: Configurație documente de identitate
+              update: Actualizare
+            update:
+              error: S-a întâmpinat o problemă la actualizarea configurației.
+              success: Configurația a fost actualizată.
+          confirmations:
+            create:
+              error: Verificarea nu se potrivește. Vă rugăm să încercați din nou sau să respingeți verificarea, astfel încât participantul să o poată modifica
+              success: Participantul a fost verificat.
+            new:
+              introduce_user_data: Introduceți datele din fotografie.
+              reject: Respingere
+              verify: Verificare
+          offline_confirmations:
+            create:
+              error: Verificarea nu se potrivește. Vă rugăm să încercați din nou sau să cereți participantului să o modifice
+              success: Participantul a fost verificat cu succes
+            new:
+              cancel: Anulare
+              introduce_user_data: Introduceți adresa de e-mail a participantului și datele documentului
+              verify: Verificare
+          pending_authorizations:
+            index:
+              config: Configurare
+              offline_verification: Verificare offline
+              title: Verificări online în așteptare
+              verification_number: 'Verificare #%{n}'
+          rejections:
+            create:
+              success: Verificare respinsă Participantul va fi invitat să își modifice documentele
+        authorizations:
+          choose:
+            choose_a_type: 'Vă rugăm selectați cum doriți să fiți verificat(ă)?'
+            title: Verificați-vă utilizând documentul dvs. de identitate
+          create:
+            error: S-a întâmpinat o problemă la încărcarea documentului dvs.
+            success: Documentul a fost încărcat
+          edit:
+            being_reviewed: Vă examinăm documentele. Veți fi verificat în scurt timp
+            offline: Utilizare verificare offline
+            online: Utilizare verificare online
+            rejection_clarity: Asigurați-vă că informațiile sunt vizibile în mod clar în imaginea încărcată
+            rejection_correctness: Asigurați-vă că informațiile introduse sunt corecte.
+            rejection_notice: S-a întâmpinat o problemă la verificarea dvs. Vă rugăm să încercați din nou
+            send: Solicitați din nou verificarea
+          new:
+            send: Solicitați verificarea
+            title: Încărcați documentul dvs. de identitate
+          update:
+            error: S-a întâmpinat o problemă la reîncărcarea documentului dvs.
+            success: Documentul a fost reîncărcat
+        passport: Pașaport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adresă
+              letter_sent_at: Scrisoare trimisă la
+              mark_as_sent: Marcare ca trimisă
+              not_yet_sent: Nu a fost încă trimisă
+              title: Verificări în curs
+              username: Pseudonim
+              verification_code: Cod de verificare
+          postages:
+            create:
+              error: Eroare la marcarea scrisorii ca trimisă
+              success: Scrisoare a fost marcată ca trimisă
+        authorizations:
+          create:
+            error: S-a întâmpinat o problemă la prelucrarea cererii dvs.
+            success: Mulțumim! Vă vom trimite un cod de verificare la adresa dvs.
+          edit:
+            send: Confirmare
+            title: Introduceți codul de verificare primit
+            waiting_for_letter: Vă vom trimite în curând o scrisoare la adresa dvs., cu codul dvs. de verificare
+          new:
+            send: Trimiteți-mi o scrisoare
+            title: Cereți codul de verificare
+          update:
+            error: Codul dvs. de verificare nu se potrivește cu al nostru. Vă rugăm să reverificați scrisoarea pe care v-am trimis-o.
+            success: Felicitări. Ați fost verificat
+      sms:
+        authorizations:
+          create:
+            error: S-a întâmpinat o problemă la prelucrarea cererii dvs.
+            success: Mulțumim! Am trimis un SMS telefonului dvs.
+          destroy:
+            success: Codul de verificare a fost resetat. Vă rugăm să reintroduceți numărul dvs. de telefon.
+          edit:
+            confirm_destroy: Sunteți sigur(ă) că doriți să resetați codul de verificare?
+            destroy: Resetare cod de verificare
+            resend: Nu ați primit codul de verificare?
+            send: Confirmare
+            title: Introduceți codul de verificare primit
+          new:
+            send: Trimiteți-mi un SMS
+            title: Cereți codul dvs. de verificare
+          update:
+            error: Codul dvs. de verificare nu se potrivește cu al nostru. Vă rugăm să reverificați SMS-ul pe care vi l-am trimis.
+            success: Felicitări. Ați fost verificat.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: trebuie să fie scris în întregime cu majuscule și să conțină numai litere și/sau numere
