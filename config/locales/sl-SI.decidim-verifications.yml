@@ -1,7 +1,110 @@
 sl:
   decidim:
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} je posodobil konfiguracijo za preverjanje identifikacijskih dokumentov."
+      user:
+        grant_id_documents_offline_verification: "%{user_name} je preveril %{resource_name} s preverjanjem identifikacijskih dokumentov brez povezave."
+    authorization_handlers:
+      admin:
+        csv_census:
+          help: |-
+            Skrbniki naložijo CSV z e-naslovi sprejetih udeležencev.Preverjeni so lahko samo udeleženci z e-naslovom v tej datoteki CSV.
+        id_documents:
+          help: |-
+            Uporabniki izpolnijo podatke o njihovi identiteti in naložijo kopijo njihovega dokumenta.
+            Vnesite trenutne podatke naložene slike.
+            Podatki se morajo ujemati s tem, kar je uporabnik izpolnil.
+            Če podatkov ne vidite razločno ali jih ne morete preveriti, lahko zahtevo zavrnete, uporabnik pa jih bo lahko popravil.
+        postal_letter:
+          help: |-
+            Udeleženci lahko zahtevajo, da se jim na njihov naslov pošlje koda za preverjanje.Na njihov naslov pošljete dopis s kodo za preverjanje.Dopis označite kot poslan.Ko dopis označite kot poslan, bo udeleženec lahko vstavil kodo in bo preverjen.
+      csv_census:
+        explanation: Opravite svojo preveritev z uporabo popisa organizacije.
+      id_documents:
+        explanation: Naložite svoje identifikacijske dokumente, da lahko preverimo vašo identiteto.
+      postal_letter:
+        explanation: Poslali vam bomo dopis po pošti s kodo, ki jo boste morali vnesti, da bomo lahko preverili vaš naslov.
     verifications:
+      authorizations:
+        first_login:
+          actions:
+            another_dummy_authorization_handler: Preverite z drugim primerom obdelave pooblastil.
+            csv_census: Preverite s popisom organizacije.
+            dummy_authorization_handler: Preverite s primerom obdelave pooblastil.
+            dummy_authorization_workflow: Preverite s primerom delovnega toka pooblastila.
+            id_documents: Opravite svojo preveritev z naložitvijo identifikacijskega dokumenta.
+            postal_letter: Opravite svojo preveritev s prejemom kode za preverjanje prek pošte.
+            sms: Opravite svojo preveritev s prejemom kode za preverjanje prek SMS-sporočila.
+          title: Preveri svojo identiteto.
+        index:
+          expired_verification: Preverjanje je poteklo.
+          show_renew_info: Kliknite za obnovitev preverjanja.
+        renew_modal:
+          info_renew: Če želite posodobiti podatke, nadaljujte z obnovitvijo.
+        skip_verification: Za zdaj lahko to preskočite in %{link}.
       csv_census:
         admin:
+          census:
+            destroy_all:
+              success: Vsi podatki o popisu so bili izbrisani.
+          index:
+            data: Naloženih je skupno %{count} zapisov. Datum zadnjega nalaganja je bil %{due_date}.
           instructions:
+            body: Če želite to narediti, morate vstopiti v upravljanje sistema in v organizacijo dodati pooblastila csv_census.
             title: Za to organizacijo morate aktivirati popis CSV.
+          new:
+            file: "Datoteka .csv s podatki o e-pošti"
+      id_documents:
+        admin:
+          config:
+            update:
+              success: Konfiguracija je bila uspešno posodobljena.
+          confirmations:
+            create:
+              error: Preverjanje se ne ujema. Poskusite znova ali zavrnite preverjanje, da ga bo udeleženec lahko spremenil.
+              success: Udeleženec je bil uspešno preverjen.
+            new:
+              introduce_user_data: Vstavite podatke na sliki.
+          offline_confirmations:
+            create:
+              success: Udeleženec je bil uspešno preverjen.
+          rejections:
+            create:
+              success: Preverjanje je bilo zavrnjeno. Udeleženec bo pozvan, naj spremeni svoje dokumente.
+        authorizations:
+          choose:
+            title: Preverite se z uporabo osebnega dokumenta.
+          create:
+            error: Pri nalaganju dokumenta se je pojavila težava.
+            success: Dokument je bil uspešno naložen.
+          edit:
+            being_reviewed: Pregledujemo vaše dokumente. Preverili vas bomo v kratkem.
+            offline: Uporabite preverjanje brez povezave.
+            online: Uporabite preverjanje prek spleta.
+            rejection_clarity: Prepričajte se, da so informacije na naloženi sliki jasno vidne.
+            rejection_correctness: Prepričajte se, da so vneseni podatki pravilni.
+            rejection_notice: Pri vašem preverjanju se je pojavila težava. Poskusite znova.
+          new:
+            title: Naložite svoj osebni dokument.
+          update:
+            error: Pri ponovnem nalaganju vašega dokumenta se je pojavila težava.
+            success: Dokument je bil uspešno ponovno naložen.
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              not_yet_sent: Še ni poslano.
+          postages:
+            create:
+              success: Dopis je bil uspešno označen kot poslan.
+        authorizations:
+          create:
+            error: Pri vaši zahtevi se je pojavila težava.
+          update:
+            error: Vaša koda za preverjanje se ne ujema z našo. Dvakrat preverite sporočilo, ki smo vam ga poslali.
+            success: Čestitamo! Uspešno ste bili preverjeni.
+      sms:
+        authorizations:
+          create:
+            error: Pri vaši zahtevi se je pojavila težava.
