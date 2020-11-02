@@ -1,35 +1,451 @@
 ro:
   activemodel:
     attributes:
+      agenda:
+        description: Descriere
+        duration: Durată
+        title: Titlu
+      close_meeting:
+        attendees_count: Numărul de participanți
+        attending_organizations: Lista organizațiilor care au participat
+        closing_report: Raport
+        contributions_count: Numărul de contribuții
+        proposal_ids: Propuneri create în cadrul reuniunii
       meeting:
+        address: Adresă
+        available_slots: Sloturile disponibile pentru această reuniune
+        decidim_category_id: Categorie
+        decidim_scope_id: Domeniu de aplicare
+        decidim_user_group_id: Grup de utilizatori
+        description: Descriere
+        end_time: Ora încheierii
+        location: Locul
+        location_hints: Indicații de localizare
         organizer_gid: Creați în calitate de
+        organizer_id: Organizator
+        private_meeting: Reuniune privată
+        registration_form_enabled: Formularul de înscriere activat
+        registration_terms: Condiții de înscriere
+        registrations_enabled: Înscrieri activate
+        start_time: Ora începerii
+        title: Titlu
+        transparent: Transparență
       minutes:
         audio_url: URL audio
+        description: Descriere
         video_url: URL video
+        visible: Este vizibil
+    errors:
+      models:
+        meeting_agenda:
+          attributes:
+            base:
+              too_many_minutes: Durata elementelor depășește durata reuniunilor cu %{count} minute
+              too_many_minutes_child: Durata elementelor descendente depășește elementul părinte din agendă „%{parent_title}ˮ, cu o durată de până la %{count} de minute
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Acest cont e-mail a fost deja invitat
+    models:
+      decidim/meetings/close_meeting_event: Reuniune închisă
+      decidim/meetings/create_meeting_event: Reuniune
+      decidim/meetings/meeting_registrations_enabled_event: Înscrieri activate
+      decidim/meetings/meeting_registrations_over_percentage_event: Înscrierile depășesc limita
+      decidim/meetings/update_meeting_event: Reuniunea a fost actualizată
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: S-a întâmpinat o problemă la duplicarea acestei reuniuni.
+          success: Reuniunea a fost duplicată.
+        new:
+          copy: Copiere
+          select: Selectați datele pe care doriți să le duplicați
+          title: Duplicarea reuniunii
+    components:
+      meetings:
+        actions:
+          join: Aderare
+        settings:
+          global:
+            announcement: Anunț
+            comments_enabled: Comentarii activate
+            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
+            creation_enabled_for_participants: Participanții pot crea reuniuni
+            default_registration_terms: Termeni prestabiliți de înscriere
+            enable_pads_creation: Permiteți crearea de blocnotesuri
+            resources_permissions_enabled: Pot fi stabilite permisiuni pentru acțiuni pentru fiecare reuniune
+          step:
+            announcement: Anunț
+            comments_blocked: Comentarii blocate
+            creation_enabled_for_participants: Crearea de reuniuni de către participanți este activată
+            creation_enabled_for_user_groups: Crearea de reuniuni de către grupurile de utilizatori este activată
     events:
       meetings:
         meeting_closed:
           affected_user:
+            email_intro: 'Reuniunea dumneavoastră "%{resource_title}" a fost închisă. Puteți citi concluziile pe pagina sa:'
             email_outro: Ați primit această notificare deoarece ați organizat reuniunea "%{resource_title}".
+            email_subject: Reuniunea "%{resource_title}” a fost închisă
+            notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
+          follower:
+            email_intro: 'Reuniunea "%{resource_title}” a fost închisă. Puteți citi concluziile pe pagina sa:'
+            email_outro: Ați primit această notificare deoarece urmăriți reuniunea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+            email_subject: Reuniunea "%{resource_title}” a fost închisă
+            notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> a fost închisă.
+        meeting_created:
+          email_intro: Reuniunea "%{resource_title}" a fost adăugată în "%{participatory_space_title}" pe care îl urmăriți.
+          email_outro: Ați primit această notificare deoarece urmăriți "%{participatory_space_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: O reuniune nouă a fost adăugată la %{participatory_space_title}
+          notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată în %{participatory_space_title}
+        meeting_registration_confirmed:
+          notification_title: Înscrierea dumneavoastră la reuniunea <a href="%{resource_url}">%{resource_title}</a> a fost confirmată. Codul dumneavoastră de înscriere este %{registration_code}.
+        meeting_registrations_over_percentage:
+          email_intro: Sloturile alocate pentru reuniunea "%{resource_title}” sunt peste %{percentage}%.
+          email_outro: Ați primit această notificare deoarece sunteți administrator al spațiu participativ al reuniunii.
+          email_subject: Sloturile alocate pentru reuniunea "%{resource_title}” sunt peste %{percentage}%
+          notification_title: Sloturile alocate pentru reuniunea <a href="%{resource_path}">%{resource_title}</a>sunt peste %{percentage}%.
+        meeting_updated:
+          email_intro: 'Reuniunea "%{resource_title}” a fost actualizată Puteți citi noua versiune de pagina sa:'
+          email_outro: Ați primit această notificare deoarece urmăriți reuniunea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Reuniunea "%{resource_title}” a fost actualizată
+          notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> a fost actualizată.
         registration_code_validated:
+          email_intro: Codul dumneavoastră de înscriere "%{registration_code}" pentru reuniunea "%{resource_title}" a fost validat.
+          email_outro: Ați primit această notificare deoarece codul dumneavoastră de înscriere pentru reuniunea "%{resource_title}" a fost validat.
           email_subject: Codul dumneavoastră de înscriere "%{registration_code}" pentru reuniunea "%{resource_title}" a fost validat
+          notification_title: Codul dumneavoastră de înscriere "%{registration_code}" pentru reuniunea <a href="%{resource_path}">%{resource_title}</a> a fost validat.
+        registrations_enabled:
+          email_intro: 'Reuniunea "%{resource_title}" are înscrierile activate. Vă puteți înscrie pe pagina acesteia:'
+          email_outro: Ați primit această notificare deoarece urmăriți reuniunea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Reuniunea "%{resource_title}" are înscrierile activate.
+          notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> are înscrierile activate.
+        upcoming_meeting:
+          email_intro: Reuniunea "%{resource_title}" va începe în mai puțin de 48h.
+          email_outro: Ați primit această notificare deoarece urmăriți reuniunea "%{resource_title}". Puteți opri urmărirea de la linkul anterior.
+          email_subject: Reuniunea "%{resource_title}" va începe în mai puțin de 48h.
+          notification_title: Reuniunea <a href="%{resource_path}">%{resource_title}</a> începe în mai puțin de 48h.
+    gamification:
+      badges:
+        attended_meetings:
+          conditions: Înscrieți-vă la reuniunile la care doriți să participați
+          description: Acest ecuson este acordată în cazul în care participați la mai multe ședințe față-în-față.
+          description_another: Acest participant a creat %{score} reuniuni.
+          description_own: Ați participat la %{score} reuniuni.
+          name: Reuniuni la care ați participat
+          next_level_in: Participați la încă %{score} reuniuni pentru a atinge următorul nivel!
+          unearned_another: Acest participant nu a participat încă la nicio reuniune.
+          unearned_own: Nu ați participat încă la nicio reuniune.
     meetings:
+      actions:
+        agenda: Ordinea de zi
+        attachment_collections: Foldere
+        attachments: Atașamente
+        close: Închidere
+        confirm_destroy: Sigur doriți să ștergeți această reuniune?
+        destroy: Ștergere
+        edit: Editare
+        minutes: Procese verbale
+        preview: Previzualizare
+        registrations: Înscrieri
+        title: Acțiuni
       admin:
+        agenda:
+          agenda_item:
+            add_agenda_item_child: Adăugați un subpunct în agendă
+            agenda_item: Punct din agendă
+            agenda_item_children: Subpuncte din agendă
+            down: Jos
+            remove: Eliminare
+            up: Sus
+          agenda_item_child:
+            agenda_item_child: Subpuncte din agendă
+            down: Jos
+            remove: Eliminare
+            up: Sus
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestei agende
+            success: Agenda a fost creată
+          edit:
+            title: Editați agenda
+            update: Actualizare
+          form:
+            add_agenda_item: Adăugați un punct în agendă
+            agenda_items: Puncte din agendă
+            end_date: Data de sfârșit
+            start_date: Data începerii
+          new:
+            create: Creare
+            title: Agendă nouă
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestei agende
+            success: Agenda a fost actualizată
+        exports:
+          meetings: Reuniuni
+          registrations: Înscrieri
         invite_join_meeting_mailer:
           invite:
+            decline: Respingeți invitația
+            invited_you_to_join_a_meeting: "%{invited_by} v-a invitat să participați la o reuniune la %{application}. Puteți respinge sau accepta prin linkurile de mai jos."
             join: Participați la reuniunea „%{meeting_title}”
+        invites:
+          create:
+            error: S-a întâmpinat o problemă la invitarea participantului la reuniune.
+            success: Participantul a fost invitat să participe la reuniune.
+          form:
+            attendee_type: Tipul de participant
+            existing_user: Participant existent
+            invite: Invitați
+            invite_explanation: Participantul va fi invitat să participe la reuniune și să se alăture organizației.
+            non_user: Participant inexistent
+            select_user: Selectați participantul
+          index:
+            filter:
+              accepted: Acceptată
+              all: Toate
+              rejected: Respins
+              sent: Trimis
+            filter_by: Filtrare după
+            invite_attendee: Invitați participanți
+            invites: Invitați
+            registrations_disabled: Nu puteți invita un participant deoarece înscrierile sunt dezactivate.
+            search: Căutare
+        meeting_closes:
+          edit:
+            close: Închidere
+            title: Închiderea reuniunii
+        meetings:
+          close:
+            invalid: S-a întâmpinat o problemă la închiderea acestei reuniuni
+            success: Reuniunea a fost închisă
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestei reuniuni
+            success: Reuniunea a fost creată
+          destroy:
+            success: Reuniunea a fost ștearsă
+          edit:
+            update: Actualizare
+          form:
+            address_help: 'Adresă: utilizat de Geocoder pentru localizare'
+            location_help: 'Loc: mesaj adresat utilizatorilor care doresc să se întrunească la fața locului'
+            location_hints_help: 'Indicații de localizare: informații suplimentare: Exemplu: etajul clădirii'
+          index:
+            title: Reuniuni
+          new:
+            create: Creare
+            title: Creați o reuniune
+          service:
+            description: Descriere
+            down: Jos
+            remove: Eliminare
+            service: Serviciu
+            title: Titlu
+            up: Sus
+          services:
+            add_service: Adaugați serviciu
+            services: Servicii
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestei reuniuni
+            success: Reuniunea a fost actualizată
+        minutes:
+          create:
+            invalid: S-a întâmpinat o problemă la crearea acestui proces-verbal
+            success: Procesul-verbal a fost creat
+          edit:
+            update: Actualizare
+          new:
+            create: Creare
+            title: Creați proces-verbal
+          update:
+            invalid: S-a întâmpinat o problemă la actualizarea acestui proces-verbal
+            success: Procesul-verbal a fost actualizat
+        models:
+          meeting:
+            name: Reuniune
         registrations:
+          edit:
+            save: Salvare
+            validate: Validare
+            validate_registration_code: Validarea codului de înscriere
           form:
             available_slots_help: Lăsați această opțiune la 0 dacă aveți sloturi disponibile nelimitate.
+            invites: Invitații
+            recommendation_message: Din motive de confidențialitate, vă recomandăm să ștergeți această fișă de înscriere atunci când nu mai aveți nevoie de ea. În mod implicit, aceasta este ștearsă la 3 luni de la încheierea reuniunii.
+            registration_form: Formular de înscriere
+            reserved_slots_help: Lăsați la 0 dacă nu aveți sloturi rezervate
+            reserved_slots_less_than: Trebuie să fie mai mic sau egal cu %{count}
+            title: Înscrieri
+          update:
+            invalid: S-a întâmpinat o problemă la salvarea setărilor de înregistrare.
+            success: Setările de înregistrare pentru reuniuni au fost salvate.
+          validate_registration_code:
+            invalid: Acest cod de înscriere nu este valabil.
+            success: Codul de înregistrare a fost validat.
       admin_log:
         invite:
           create: "%{user_name} a invitat pe %{attendee_name} să participe la %{resource_name} reuniune în %{space_name}"
+          deleted: "%{user_name} a retras invitația pentru %{attendee_name} de a participa la %{resource_name} reuniunea din %{space_name}"
           update: "%{user_name} a invitat pe %{attendee_name} să participe la %{resource_name} reuniune în %{space_name}"
+        meeting:
+          close: "%{user_name} a închis reuniunea %{resource_name} în spațiul %{space_name}"
+          create: "%{user_name} a creat reuniunea %{resource_name} în spațiul %{space_name}"
+          delete: "%{user_name} a șters reuniunea %{resource_name} din spațiul %{space_name}"
+          export_registrations: "%{user_name} a exportat înscrierile pentru reuniunea %{resource_name} pe spațiul %{space_name}"
+          update: "%{user_name} a actualizat reuniunea %{resource_name} în spațiul %{space_name}"
+          value_types:
+            organizer_presenter:
+              not_found: 'Organizatorul nu a fost găsit în baza de date (ID: %{id})'
+        minutes:
+          create: "%{user_name} a creat procesele-verbale ale reuniunii %{resource_name} în spațiul %{space_name}"
+          update: "%{user_name} a actualizat procesele-verbale ale reuniunii %{resource_name} în spațiul %{space_name}"
+      calendar_modal:
+        calendar_url: URL-ul calendarului
+        close_window: Închideți fereastra
+        export_calendar: Exportarea calendarului
+      conference_venues: Locuri de desfățurare ale conferințelor
+      content_blocks:
+        upcoming_events:
+          name: Evenimente viitoare
+          view_all_events: Vezi tot
+      directory:
+        meetings:
+          index:
+            all: Toate
+            date: Data
+            past: Anterioare
+            search: Căutare
+            space_type: Spațiu participativ
+            upcoming: Viitoare
+      last_activity:
+        new_meeting_at_html: "<span>Reuniune nouă la %{link}</span>"
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Invitație de participare la o reuniune
+        registration_mailer:
+          confirmation:
+            subject: Înscrierea la reuniune a fost confirmată
+      meeting:
+        not_allowed: Nu sunteți autorizat să vizualizați această reuniune
+      meetings:
+        create:
+          invalid: S-a întâmpinat o problemă la crearea acestei reuniuni
+          success: Ați creat reuniunea.
+        edit:
+          back: Înapoi
+          title: Editați reuniunea
+          update: Actualizare
+        filters:
+          category: Categorie
+          date: Data
+          date_values:
+            all: Toate
+            past: Anterioare
+            upcoming: Viitoare
+          origin: Origine
+          origin_values:
+            all: Toate
+            citizens: Cetățeni
+            official: Funcționar
+            user_groups: Grupuri
+          scope: Domeniu de aplicare
+          search: Căutare
+        filters_small_view:
+          close_modal: Închideți elementul modal
+          filter: Filtrare
+          filter_by: Filtrare după
+          unfold: Desfășurați
+        form:
+          address_help: 'Adresă: utilizat de Geocoder pentru localizare'
+          location_help: 'Loc: mesaj adresat utilizatorilor care doresc să se întrunească la fața locului'
+          location_hints_help: 'Indicații de localizare: informații suplimentare: Exemplu: etajul clădirii'
+          select_a_category: Vă rugăm să selectați o categorie
+        meeting_minutes:
+          meeting_minutes: Procesele-verbale ale reuniunilor
+          related_information: Informații conexe
+        meetings:
+          no_meetings_warning: Nu s-au găsit reuniuni care să respecte criteriile de căutare sau nu este programată nicio reuniune.
+          upcoming_meetings_warning: În prezent, nu există reuniuni programate, dar aici puteți găsi toate reuniunile anterioare.
+        new:
+          back: Înapoi
+          create: Creare
+        registration_confirm:
+          cancel: Anulare
+          confirm: Confirmați
+        show:
+          attendees: Număr de participanți
+          back: Înapoi la listă
+          contributions: Număr de contribuții
+          date: Data
+          edit_meeting: Editați reuniunea
+          going: Particip
+          join: Participați la reuniune
+          meeting_report: Raportul reuniunii
+          no_slots_available: Nu există sloturi disponibile
+          organizations: Organizații participante
+          registration_code_help_text: Codul dvs de înscriere
+          registration_state:
+            validated: VALIDAT
+            validation_pending: VALIDARE ÎN AȘTEPTARE
+          view: Afișare
+        update:
+          invalid: S-a întâmpinat o problemă la actualizarea reuniunii.
+          success: Ați actualizat reuniunea.
+      meetings_map:
+        view_meeting: Afișați reuniunea
       models:
+        invite:
+          fields:
+            email: E-mail
+            name: Nume
+            sent_at: Trimis la
+            status: Statut
+          status:
+            accepted: Acceptat (%{at})
+            rejected: Respins (%{at})
+            sent: Trimis
         meeting:
           fields:
+            closed: Închisă
+            end_time: Data de sfârșit
             map: Hartă
+            start_time: Data începerii
+            title: Titlu
+      read_more: "Citiți mai mult"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Înscrierea dumneavoastră la reuniunea <a href="%{url}">%{title}</a> a fost confirmată.
+          details: Detaliile reuniunii figurează în atașament.
+          registration_code: Codul dumneavoastră de înscriere este %{code}.
       registrations:
         create:
+          invalid: S-a întâmpinat o problemă la alăturarea la această reuniune
           success: Ați intrat în reuniune. Deoarece v-ați înregistrat la acestă reuniune, veți primi notificări dacă există actualizări.
+        decline_invitation:
+          invalid: S-a întâmpinat o problemă la refuzarea acestei invitații.
+          success: Ați refuzat invitația.
+        destroy:
+          invalid: S-a întâmpinat o problemă la părăsirea acestei reuniuni
+          success: Ați părăsit reuniunea.
+      types:
+        private_meeting: Reuniune privată
+        transparent: Transparență
+      versions:
+        back_to_resource: Înapoi la reuniune
+    metrics:
+      meetings:
+        description: Numărul de reuniuni create
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Reuniuni anterioare
+    resource_links:
+      meetings_through_proposals:
+        meeting_result: 'Rezultatele înrudite:'
+        result_meeting: 'Reuniuni înrudite:'
+      proposals_from_meeting:
+        meeting_proposal: 'Propuneri înrudite'
+        proposal_meeting: 'Reuniuni înrudite:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitație de participare la o reuniune
