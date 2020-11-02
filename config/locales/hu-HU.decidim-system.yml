@@ -1,20 +1,140 @@
 hu:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: OAuth-alkalmazás neve
+        organization_logo: Szervezet logója (négyzet alakú)
+        organization_name: Szervezet
+        organization_url: Szervezet URL-címe
+        redirect_uri: URI átirányítása
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Az átirányítási URI-nek SSL URI-nek kell lennie
   decidim:
     system:
+      actions:
+        confirm_destroy: Biztosan törölni szeretné ezt?
+        destroy: Törlés
+        edit: Szerkesztés
+        new: Új
+        save: Mentés
+        title: Műveletek
+      admins:
+        create:
+          error: Hiba történt az új adminisztrátor létrehozása során.
+          success: Az adminisztrátor létrehozása sikeres
+        destroy:
+          success: Az adminisztrátor törlése sikeres
+        edit:
+          title: Adminisztrátor szerkesztése
+          update: Frissítés
+        index:
+          title: Adminisztrátorok
+        new:
+          create: Létrehozás
+          title: Új adminisztrátor
+        update:
+          error: Hiba történt az adminisztrátor frissítése során.
+          success: Az adminisztrátor frissítése sikeres
       default_pages:
         placeholders:
           content: Kérjük, adjon hozzá érdemi tartalmakat a(z) %{page} statikus oldalhoz az adminisztrációs irányítópulton.
+          title: '%{page} alapértelmezett címe'
+      menu:
+        admins: Adminisztrátorok
+        dashboard: Irányítópult
+        oauth_applications: OAuth-alkalmazások
+        organizations: Szervezetek
       models:
         admin:
           fields:
             created_at: 'Létrehozás ideje:'
+            email: E-mail-cím
+          name: Adminisztrátor
+          validations:
+            email_uniqueness: már létezik adminisztrátor ezzel az e-mail-címmel
         oauth_application:
           fields:
             created_at: 'Létrehozás ideje:'
+            name: OAuth-alkalmazás neve
+            organization_name: Szervezet
+          name: OAuth-alkalmazás
         organization:
+          actions:
+            save_and_invite: Szervezet létrehozása és adminisztrátor meghívása
           fields:
             created_at: 'Létrehozás ideje:'
+            name: Név
+            omniauth_settings: Omniauth-beállítások
+            smtp_settings: SMTP-beállítások
+          name: Szervezet
+      oauth_applications:
+        create:
+          error: Hiba történt az alkalmazás létrehozása során.
+          success: Az alkalmazás létrehozása sikeres.
+        destroy:
+          error: Hiba történt az alkalmazás törlése során.
+          success: Az alkalmazás törlése sikeres.
+        edit:
+          save: Mentés
+          title: Alkalmazás szerkesztése
+        form:
+          select_organization: Szervezet kiválasztása
+        index:
+          confirm_delete: Biztosan törölni szeretné az alkalmazást?
+          title: OAuth-alkalmazások
+        new:
+          save: Mentés
+          title: Új alkalmazás
+        update:
+          error: Hiba történt az alkalmazás frissítése során.
+          success: Az alkalmazás frissítése sikeres.
       organizations:
+        create:
+          error: Hiba történt az új szervezet létrehozása során.
+          success: A szervezet létrehozása sikeres.
+        edit:
+          secondary_hosts_hint: Mindegyik egy új sorban szerepel
+        index:
+          title: Szervezetek
+        new:
+          reference_prefix_hint: A referencia-előtag az erőforrások egyedi azonosítására szolgál az egész szervezetben
+          secondary_hosts_hint: Mindegyik egy új sorban szerepel
+          title: Új szervezet
+        omniauth_settings:
+          decidim:
+            client_id: Ügyfél-azonosító
+            client_secret: Titkos ügyfélkód
+            site_url: Oldal URL-címe
+          enabled: Engedélyezett
+          enabled_by_default: Ez a szolgáltató alapértelmezés szerint engedélyezve van. Szerkeszthető, de nem tiltható le.
+          facebook:
+            app_id: Alkalmazásazonosító
+            app_secret: Titkos alkalmazáskód
+          google_oauth2:
+            client_id: Ügyfél-azonosító
+            client_secret: Titkos ügyfélkód
+          icon: Ikon
+          icon_path: Ikon útvonala
+          twitter:
+            api_key: API-kulcs
+            api_secret: Titkos API-kód
         smtp_settings:
           instructions:
             from_label: 'Az e-mail feladója a következő lesz: "your-organization-name <your-organization@your-provider.org>". Hagyja üresen a(z) ''from_email'' címke használatához'
+        update:
+          error: Hiba történt a szervezet frissítése során.
+          success: A szervezet frissítése sikeres.
+        users_registration_mode:
+          disabled: A hozzáférés csak külső fiókokkal lehetséges
+          enabled: Regisztráció és bejelentkezés engedélyezése a résztvevők számára
+          existing: Ne engedje, hogy a résztvevők regisztráljanak, de a meglévő résztvevők bejelentkezhetnek
+      shared:
+        notices:
+          no_organization_warning_html: 'A kezdéshez létre kell hoznia egy szervezetet. Olvassa el a következőt a folytatás előtt: %{guide}.'
+          our_getting_started_guide: első lépések útmutató
+      titles:
+        dashboard: Irányítópult
