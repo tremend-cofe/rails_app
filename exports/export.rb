@@ -199,43 +199,47 @@ def add_intro_sheet!
 end
 
 if check_locales!
-  lang = "es"
-  @plurals = get_plurals(lang)
+  LANGS.each do |lang|
+    lang = lang.to_s
+    @plurals = get_plurals(lang)
 
-  base_path = "/Users/marc/code/decidim-apps/crowdin-dife/exports/"
-  file_path = base_path + lang + ".xliff"
+    puts "Exporting #{lang}.xliff..."
 
-  xml_document = File.read(file_path)
+    base_path = "/Users/marc/code/decidim-apps/crowdin-dife/exports/"
+    file_path = base_path + lang + ".xliff"
 
-  doc = Nokogiri::XML(xml_document)
+    xml_document = File.read(file_path)
 
-  package = Axlsx::Package.new
-  @book = package.workbook
+    doc = Nokogiri::XML(xml_document)
 
-  add_intro_sheet!
+    package = Axlsx::Package.new
+    @book = package.workbook
 
-  @book.add_worksheet(name: "Translations") do |sheet|
-    sheet.add_row(["Key", "EN", "Translation"])
+    add_intro_sheet!
 
-    doc.css("file").each do |i18n_file|
-      print "Reading #{filename(i18n_file)}... "
+    @book.add_worksheet(name: "Translations") do |sheet|
+      sheet.add_row(["Key", "EN", "Translation"])
 
-      if skip_file?(i18n_file)
-        print "SKIPPED\n"
-        next
-      end
-      print "YAY\n"
+      doc.css("file").each do |i18n_file|
+        print "Reading #{filename(i18n_file)}... "
 
-      body = i18n_file.children.find{ |node| node.name == "body" }
+        if skip_file?(i18n_file)
+          print "SKIPPED\n"
+          next
+        end
+        print "YAY\n"
 
-      body.children.each do |node|
-        next unless group_element?(node) || unit_element?(node)
+        body = i18n_file.children.find{ |node| node.name == "body" }
 
-        parse_unit_node(node, sheet)
-        parse_group_node(node, sheet)
+        body.children.each do |node|
+          next unless group_element?(node) || unit_element?(node)
+
+          parse_unit_node(node, sheet)
+          parse_group_node(node, sheet)
+        end
       end
     end
-  end
 
-  package.serialize(base_path + lang + ".xlsx")
+    package.serialize(base_path + lang + ".xlsx")
+  end
 end
