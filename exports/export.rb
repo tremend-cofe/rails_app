@@ -173,7 +173,7 @@ def parse_group_node(group, sheet)
 
   elements = group.css("trans-unit")
 
-  raise "PROBLEM: elem: #{elements.count}, plurals: #{@plurals.count}" if elements.count != @plurals.count
+  raise "PROBLEM: Crowdin elem: #{elements.count}, Rails plurals: #{@plurals.count}" if elements.count < @plurals.count
 
   @plurals.count.times do |i|
     node = elements[i]
