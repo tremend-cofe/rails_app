@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah
         description: Popis
@@ -39,6 +40,7 @@ cs:
           results: Výsledky
         import_results:
           new:
+            import: Import
             info: "<p>Doporučujeme postupovat následujícím způsobem:</p><ol><li>Vytvořte statusy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Prostřednictvím tohoto administrátorského panelu vytvořte alespoň jeden výsledek manuálně (<a href='%{link_new_result}' target='_blank'>link</a>), než zadáte import, abyste měli lepší představu o formátu a o tom, co budete potřebovat vyplnit.</li><li>Stáhnout export ve formátu CSV (%{link_export_csv})</li><li>Změny proveďte lokálně. Můžete změnit pouze následující sloupce CSV:</li></ol><ul><li><b>category/id:</b> ID kategorie</li><li><b>scope/id:</b> ID rozsahu</li><li><b>parent/id:</b> ID nadřazeného prvku (u souvisejících výsledků). Nepovinné</li><li><b>title/I18N:</b> Název v jazyce X</li><li><b>description/I18N:</b> Popis v jazyce X</li><li><b>start_date:</b> datum, kdy se výsledek začne uskutečňovat (ve formátu RRRR-MM-DD)</li><li><b>end_date:</b> datum ukončení uskutečňování výsledku (ve formátu RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu tohoto výsledku</li><li><b>progress:</b> Procentní míra uskutečnění (od 0 do 100)</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
             link: odkaz
             title: Import výsledků ze souboru CSV
@@ -48,6 +50,8 @@ cs:
         models:
           result:
             name: Výsledek
+          status:
+            name: Status
           timeline_entry:
             name: Záznam v harmonogramu
         results:
@@ -127,6 +131,7 @@ cs:
             end_date: Datum ukončení
             progress: Stav
             start_date: Datum zahájení
+            status: Status
             title: Název
         status:
           fields:
