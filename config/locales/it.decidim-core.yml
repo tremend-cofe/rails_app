@@ -7,9 +7,11 @@ it:
         created_at: Creato alle
       group:
         about: Informazioni su
+        avatar: Avatar
         document_number: Numero del documento
         email: E-mail
         name: Nome
+        nickname: Nickname
         phone: Telefono
       report:
         details: Altre osservazioni
@@ -17,6 +19,8 @@ it:
         about: Informazioni su
         email: Il tuo indirizzo e-mail
         name: Nome
+        nickname: Nickname
+        password: Password
         password_confirmation: Conferma la password
         personal_url: URL personale
         remove_avatar: Rimuovi avatar
@@ -37,6 +41,8 @@ it:
       decidim/user:
         current_password: Password attuale
         email: E-mail
+        name: Nickname
+        password: Password
         password_confirmation: Conferma password
         remember_me: Ricordami
     models:
@@ -53,6 +59,7 @@ it:
         one: Gruppo
         other: Gruppi
   booleans:
+    'false': 'No'
     'true': 'Sì'
   carrierwave:
     errors:
@@ -233,6 +240,7 @@ it:
       photos:
         related_photos: Immagini correlate
     author:
+      avatar: Avatar
       comments:
         one: commento
         other: commenti
@@ -294,6 +302,7 @@ it:
         unauthorized:
           explanation: Spiacenti, non puoi eseguire questa azione in quanto alcuni dei tuoi dati di autorizzazione non corrispondono.
           invalid_field: "%{field} il valore %{value} non è valido."
+          ok: Ok
           title: Non autorizzato
         unconfirmed:
           confirmation_instructions: 'Se non hai ricevuto le istruzioni di conferma, puoi richiederle nuovamente:'
@@ -318,6 +327,7 @@ it:
           debate: Dibattito
           initiative: Iniziativa
           meeting: Riunione
+          post: Post
           proposal: Proposta
           question: Quesito
         title: 'Mostra:'
@@ -626,6 +636,9 @@ it:
       title: Impronta digitale
       value: Valore
     followers:
+      followers_count:
+        one: "%{count} follower"
+        other: "%{count} follower"
       no_followers: Ancora nessun follower.
     following:
       no_followings: Non segue ancora nessun utente o argomento.
@@ -816,8 +829,11 @@ it:
         skip_button: Salta la mappa
       static:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
+        map_service_brand: Mappa di OpenStreetMap
     members:
       no_members: Questo gruppo non ha ancora membri.
+    menu:
+      home: Home
     messaging:
       conversation_mailer:
         comanagers_new_conversation:
@@ -1123,6 +1139,7 @@ it:
         state:
           active: Attive
           all: Tutti
+          future: Futuro
           past: Precedenti
       filters_small_view:
         close_modal: Chiudi finestra modale
@@ -1138,6 +1155,7 @@ it:
       confirm_modal:
         cancel: Annulla
         close_modal: Chiudi finestra modale
+        ok: OK
         title: Conferma
       embed_modal:
         close_window: Chiudi finestra
@@ -1484,6 +1502,7 @@ it:
         public_profile: Il mio profilo pubblico
         sign_out: Esci
       user_profile:
+        account: Account
         authorizations: Autorizzazioni
         delete_my_account: Elimina il mio account
         my_data: I miei dati
@@ -1504,11 +1523,28 @@ it:
     password_too_long: è troppo lungo
     password_too_short: è troppo breve
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
     google_bookmark: Segnalibro di Google
+    google_plus: Google+
+    hacker_news: Hacker News
     linkedin: LinkedIn
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Condividi su %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Apri il tuo account WeChat, clicca sul pulsante "Scopri" e poi sul menu "Scansione QRcode".
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Eliminazioni
@@ -1522,9 +1558,13 @@ it:
       option_unified: Unificata
   views:
     pagination:
+      first: "&laquo; Prima"
       first_title: Link alla prima pagina
+      last: Ultima &raquo;
       last_title: Link all'ultima pagina
+      next: Avanti &rsaquo;
       next_title: Link alla pagina successiva
       pagination: Impaginazione
+      previous: "&lsaquo; Indietro"
       previous_title: Link alla pagina precedente
       title: 'Numero di pagina: '
