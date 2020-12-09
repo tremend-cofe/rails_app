@@ -1,3 +1,154 @@
 bg:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Тема
+      meeting:
+        cofe_charter_html: Съгласен(на) съм с<a href="%{url}" target="_blank"> Хартата </a> на Конференцията за бъдещето на Европа
+    models:
+      decidim/meetings/upcoming_meeting_event: Предстояща среща
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Среща
+        other: Срещи
+      decidim/participatory_process:
+        one: Процес за участие
+        other: Процеси за участие
+  decidim:
+    components:
+      meetings:
+        name: Срещи
+        settings:
+          global:
+            cofe_charter_url: URL адрес на хартата на Конференцията за бъдещето на Европа
+    meetings:
+      actions:
+        new: Нова среща
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Предстоящи срещи
+      directory:
+        meetings:
+          index:
+            meetings: Срещи
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} среща"
+            other: "%{count} срещи"
+        form:
+          create_as: Създаване на среща като
+        index:
+          new_meeting: Нова среща
+        new:
+          title: Създайте среща
+      models:
+        meeting:
+          fields:
+            official_meeting: Официална среща
+    menu:
+      help: Помощ
+      processes: Процеси
+    menu_overwrite:
+      citizens_panels: Граждански форуми
+      events: Събития
+      plenaries: Пленарни срещи
+      topics: Теми
+    metrics:
+      meetings:
+        object: срещи
+        title: Срещи
+    pages:
+      home:
+        extended:
+          meetings: Срещи
+        statistics:
+          meetings_count: Срещи
+          processes_count: Процеси
+          proposals_count: Предложения
+      index:
+        title: Помощ
+    participatory_processes:
+      index:
+        title: Процеси за участие
+      last_activity:
+        new_participatory_process: Нов процес на участие
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Активни процеси
+            see_all_processes: Вижте всички процеси
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Минали срещи
+          upcoming_meetings: Предстоящи срещи
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 активен процес
+              other: "%{count} активни процеса"
+            all:
+              one: 1 процес
+              other: "%{count} процеса"
+            past:
+              one: 1 предишен процес
+              other: "%{count} предишни процеси"
+            upcoming:
+              one: 1 предстоящ процес
+              other: "%{count} предстоящи процеса"
+          explanations:
+            no_active: Няма активни процеси
+      statistics:
+        meetings_count: Срещи
+        processes_count: Процеси
+        proposals_count: Предложения
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Виж всички срещи (%{count})
+        upcoming_meetings: Предстоящи срещи
+      highlighted_proposals:
+        see_all: Виж всички предложения (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Предстояща среща
+    proposals:
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} предложение"
+            other: "%{count} предложения"
+        index:
+          new_proposal: Ново предложение
+          view_proposal: Преглед на предложението
+        new:
+          title: Създайте предложението си
+        proposal:
+          view_proposal: Преглед на предложението
+        wizard_aside:
+          back_from_step_1: Назад към предложенията
+          back_from_step_2: Назад към предложенията
+          info: Вие създавате <strong>предложение</strong>.
+        wizard_steps:
+          step_1: Създайте предложението си
+          step_4: Публикувайте предложението си
+          title: Стъпки за създаване на предложение
+      versions:
+        proposals:
+          back_to_resource: Назад към предложението
+  devise:
+    omniauth_callbacks:
+      failure: Не успяхме да удостоверим самоличността Ви от EU Login поради "%{reason}".
+      success: Успешно удостоверихме самоличността Ви от профила EU Login.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Затваряне
+        select_your_language: Изберете език
+      process_navigation:
+        process_menu_item: Процесът
+      user:
+        logged_in: Влязъл в системата
+        logged_in_as: Влязъл като %{user}
   locale:
     name: български
