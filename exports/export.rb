@@ -145,6 +145,15 @@ def skip_file?(file)
   end
 end
 
+def skip_unit?(source_key)
+  %w(
+    .admin.
+    .footer_links.
+  ).any? do |skippable|
+    source_key.include?(skippable)
+  end
+end
+
 def unit_element?(node)
   node.name == "trans-unit"
 end
@@ -157,7 +166,7 @@ def parse_unit_node(node, sheet, key = nil)
   return unless unit_element?(node)
 
   source_key = key || node.attributes["resname"].value
-  return if source_key.include?(".admin.")
+  return if skip_unit?(source_key)
 
   source_node = node.children.find {|n| n.name == "source"}
   source_value = source_node.children.first.to_s
