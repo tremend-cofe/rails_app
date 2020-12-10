@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       agenda:
+        description: Description
         duration: Durée
         title: Intitulé
       close_meeting:
@@ -16,6 +17,7 @@ fr:
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d’application
         decidim_user_group_id: Groupe d’utilisateurs
+        description: Description
         end_time: Heure de fin
         location: Lieu
         location_hints: Suggestions de lieu
@@ -27,8 +29,10 @@ fr:
         registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Intitulé
+        transparent: Transparent
       minutes:
         audio_url: URL audio
+        description: Description
         video_url: URL vidéo
         visible: Est visible
     errors:
@@ -47,9 +51,13 @@ fr:
       decidim/meetings/create_meeting_event: Réunion
       decidim/meetings/meeting_registrations_enabled_event: Inscriptions activées
       decidim/meetings/meeting_registrations_over_percentage_event: Les inscriptions excèdent la limite
+      decidim/meetings/upcoming_meeting_event: Réunion à venir
       decidim/meetings/update_meeting_event: Réunion mise à jour
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Réunion
+        other: Réunions
       decidim/meetings/minutes:
         one: Procès-verbaux
         other: Procès-verbaux
@@ -70,6 +78,7 @@ fr:
       meetings:
         actions:
           join: Rejoindre
+        name: Réunions
         settings:
           global:
             announcement: Annonce des résultats
@@ -154,8 +163,10 @@ fr:
             one: 'La réunion ne peut pas être supprimée car %{count} proposition lui est associée:'
             other: 'La réunion ne peut pas être supprimée car %{count} propositions lui sont associées.'
         minutes: Procès-verbaux
+        new: Nouvelle réunion
         preview: Aperçu
         registrations: Inscriptions
+        title: Actions
       admin:
         agenda:
           agenda_item:
@@ -318,11 +329,14 @@ fr:
       content_blocks:
         upcoming_events:
           name: Prochainement
+          upcoming_events: Réunions à venir
           view_all_events: Voir tout
       directory:
         meetings:
           index:
             all: Tous
+            date: Date
+            meetings: Réunions
             past: Passé
             search: Rechercher
             space_type: Espace participatif
@@ -339,6 +353,10 @@ fr:
       meeting:
         not_allowed: Vous n’êtes pas autorisé(e) à visualiser cette réunion
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} réunion"
+            other: "%{count} réunions"
         create:
           invalid: Un problème est survenu lors de la création de cette réunion.
           success: Vous avez créé la réunion avec succès.
@@ -348,6 +366,7 @@ fr:
           update: Mettre à jour
         filters:
           category: Catégorie
+          date: Date
           date_values:
             all: Tous
             past: Passé
@@ -367,9 +386,12 @@ fr:
           unfold: Dérouler
         form:
           address_help: 'Adresse: utilisée par Geocoder pour trouver l’endroit'
+          create_as: Créer une réunion comme
           location_help: 'Emplacement: message adressé aux utilisateurs suggérant l’endroit de rencontre'
           location_hints_help: 'Suggestions de lieu: informations complémentaires: Par exemple: l’étage de l’immeuble'
           select_a_category: Veuillez sélectionner une catégorie
+        index:
+          new_meeting: Nouvelle réunion
         meeting_minutes:
           meeting_minutes: Compte rendu de réunion
           related_information: Informations associées
@@ -379,6 +401,7 @@ fr:
         new:
           back: Retour
           create: Créer
+          title: Créez votre réunion
         registration_confirm:
           cancel: Annuler
           confirm: Confirmer
@@ -386,6 +409,7 @@ fr:
           attendees: Décompte des participants
           back: Retour à la liste
           contributions: Décompte des participations
+          date: Date
           edit_meeting: Modifier la réunion
           going: En cours
           join: Se joindre à la réunion
@@ -421,6 +445,7 @@ fr:
             closed: Clôturé
             end_time: Date de fin
             map: Carte
+            official_meeting: Réunion officielle
             start_time: Date de début
             title: Intitulé
       read_more: "(lire plus)"
@@ -441,14 +466,26 @@ fr:
           success: Vous avez quitté la réunion avec succès.
       types:
         private_meeting: Réunion privée
+        transparent: Transparent
       versions:
         back_to_resource: Revenir à la réunion
     metrics:
       meetings:
         description: Nombre de réunions créées
+        object: réunions
+        title: Réunions
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Réunions passées
+          upcoming_meetings: Réunions à venir
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Réunions antérieures
+        see_all: Voir toutes les réunions (%{count})
+        upcoming_meetings: Réunions à venir
+      upcoming_meeting_for_card:
+        upcoming_meeting: Réunion à venir
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Résultats associés:'
