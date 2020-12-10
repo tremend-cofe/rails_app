@@ -9,9 +9,11 @@ fr:
         copy_components: Copie des composants
         copy_steps: Copie d’étapes
         decidim_area_id: Zone
+        description: Description
         developer_group: Groupe promoteur
         domain: Domaine
         end_date: Date de fin
+        hashtag: Hashtag
         hero_image: Image d’accueil
         local_area: Zone de l’organisation
         meta_scope: Portée des métadonnées
@@ -33,11 +35,14 @@ fr:
         target: Qui participe
         title: Intitulé
       participatory_process_group:
+        description: Description
+        hero_image: Image
         name: Nom
         participatory_process_ids: Processus associés
       participatory_process_step:
         cta_path: Chemin Appel à l’action
         cta_text: Texte Appel à l’action
+        description: Description
         end_date: Date de fin
         short_description: Brève description
         start_date: Date de début
@@ -57,6 +62,9 @@ fr:
       decidim/participatory_process_step_changed_event: Phase modifiée
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Processus participatif
+        other: Processus participatifs
       decidim/participatory_process_group:
         one: Groupe de processus participatif
         other: Groupes de processus participatifs
@@ -275,6 +283,8 @@ fr:
           contextual: "<p>A <strong>Un processus participatif</strong> est une séquence d’activités participatives (p.ex. compléter tout d’abord une enquête, formuler ensuite des propositions, discutez de celles-ci en face à face ou lors de réunions virtuelles et enfin, les prioriser) afin de définir et de prendre une décision concernant un thème spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection de membres de comité (lors duquel les candidatures sont présentées avant de faire l’objet d’un débat et finalement d'un choix), des budgets participatifs (pour lesquels des propositions sont formulées, évaluées d’un point de vue économique et ensuite votées avec les fonds disponibles), un processus de planification stratégique, l’avant-projet collaboratif d’un règlement ou d’une norme, la conception d’un espace urbain ou la réalisation d’un plan de politique privée. </p>\n"
           page: "<p>A <strong>Un processus participatif</strong> est une séquence d’activités participatives (p.ex. compléter tout d’abord une enquête, formuler ensuite des propositions, discutez de celles-ci en face à face ou lors de réunions virtuelles et enfin, les prioriser) afin de définir et de prendre une décision concernant un thème spécifique.</p> <p>Exemples de processus participatifs: un processus d’élection de membres de comité (lors duquel les candidatures sont présentées avant de faire l’objet d’un débat et finalement d'un choix), des budgets participatifs (pour lesquels des propositions sont formulées, évaluées d’un point de vue économique et ensuite votées avec les fonds disponibles), un processus de planification stratégique, l’avant-projet collaboratif d’un règlement ou d’une norme, la conception d’un espace urbain ou la réalisation d’un plan de politique privée. </p>\n"
           title: Qu’est-ce qu’un processus participatif?
+    menu:
+      processes: Processus
     metrics:
       participatory_processes:
         description: Nombre de processus participatifs dans cette organisation
@@ -326,19 +336,39 @@ fr:
       content_blocks:
         highlighted_processes:
           name: Processus surlignés
+      index:
+        title: Processus participatifs
+      last_activity:
+        new_participatory_process: Nouveau processus participatif
       pages:
         home:
           highlighted_processes:
+            active_processes: Processus actifs
             active_step: Phase active
             more_information: En savoir plus
             participate: Participer
             participate_in: Participer au processus %{resource_name}
+            see_all_processes: Voir tous les processus
       participatory_process_steps:
         index:
           back_to_process: Retour à la page des processus
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 processus actif
+              other: "%{count} processus actifs"
+            all:
+              one: 1 processus
+              other: "%{count} processus"
+            past:
+              one: 1 processus passé
+              other: "%{count} processus passés"
+            upcoming:
+              one: 1 processus à venir
+              other: "%{count} processus à venir"
           explanations:
+            no_active: Aucun processus actif
             no_active_nor_upcoming: Aucun processus actif ou à venir
             no_active_nor_upcoming_callout: Il n’y a aucun processus actif ou à venir. Voici une liste des processus antérieurs.
           names:
@@ -351,6 +381,7 @@ fr:
           loading: Résultats en cours de chargement ...
       show:
         area: Zone
+        dates: Dates
         developer_group: Groupe promoteur
         end_date: Date de fin
         local_area: Zone de l’organisation
@@ -367,14 +398,20 @@ fr:
         comments_count: Commentaires
         debates_count: Débats
         endorsements_count: Approbations
+        followers_count: Abonnés
         headline: Statistiques
+        meetings_count: Réunions
         no_stats: Il n’y a pas encore de statistiques.
         orders_count: Soutiens
         pages_count: Page(s)
+        participants_count: Participants
+        processes_count: Processus
         projects_count: Projets
+        proposals_count: Propositions
         results_count: Résultats
         supports_count: Soutiens
         surveys_count: Enquêtes
+        users_count: Participants
   layouts:
     decidim:
       participatory_process_groups:
@@ -404,3 +441,5 @@ fr:
       process_header_steps:
         step: Phase %{current} de %{total}
         view_steps: Phases de processus
+      process_navigation:
+        process_menu_item: Le processus
