@@ -60,6 +60,23 @@ cs:
     models:
       decidim/participatory_process_step_activated_event: Fáze aktivována
       decidim/participatory_process_step_changed_event: Fáze změněna
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participativní proces
+        few: Participativní procesy
+        many: Participativní procesy
+        other: Participativní procesy
+      decidim/participatory_process_group:
+        one: Skupina participativního procesu
+        few: Skupiny participativního procesu
+        many: Skupiny participativního procesu
+        other: Skupiny participativního procesu
+      decidim/participatory_process_step:
+        one: Fáze
+        few: Fáze
+        many: Fáze
+        other: Fáze
   decidim:
     admin:
       actions:
@@ -289,6 +306,11 @@ cs:
         related_assemblies: Související shromáždění
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 proces pro skupinu %{group}
+          few: "%{count} procesy pro skupinu %{group}"
+          many: "%{count} procesů pro skupinu %{group}"
+          other: "%{count} procesů pro skupinu %{group}"
         title: Skupiny participativního procesu
     participatory_process_steps:
       index:
@@ -346,6 +368,27 @@ cs:
           back_to_process: Zpět na stránku procesů
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktivní proces
+              few: "%{count} aktivní procesy"
+              many: "%{count} aktivních procesů"
+              other: "%{count} aktivních procesů"
+            all:
+              one: 1 proces
+              few: "%{count} procesy"
+              many: "%{count} procesů"
+              other: "%{count} procesů"
+            past:
+              one: 1 minulý proces
+              few: "%{count} minulé procesy"
+              many: "%{count} minulých procesů"
+              other: "%{count} minulých procesů"
+            upcoming:
+              one: 1 nadcházející proces
+              few: "%{count} nadcházející procesy"
+              many: "%{count} nadcházejících procesů"
+              other: "%{count} nadcházejících procesů"
           explanations:
             no_active: Žádné aktivní procesy
             no_active_nor_upcoming: Žádné aktivní nebo nadcházející procesy
