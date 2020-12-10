@@ -51,7 +51,22 @@ ro:
       decidim/meetings/create_meeting_event: Reuniune
       decidim/meetings/meeting_registrations_enabled_event: Înscrieri activate
       decidim/meetings/meeting_registrations_over_percentage_event: Înscrierile depășesc limita
+      decidim/meetings/upcoming_meeting_event: Reuniune viitoare
       decidim/meetings/update_meeting_event: Reuniunea a fost actualizată
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Reuniune
+        few: Reuniuni
+        other: Reuniuni
+      decidim/meetings/minutes:
+        one: Procese-verbale
+        few: Procese-verbale
+        other: Procese-verbale
+      decidim/meetings/registration:
+        one: Înscriere
+        few: Înscrieri
+        other: Înscrieri
   decidim:
     admin:
       meeting_copies:
@@ -66,6 +81,7 @@ ro:
       meetings:
         actions:
           join: Aderare
+        name: Reuniuni
         settings:
           global:
             announcement: Anunț
@@ -145,7 +161,13 @@ ro:
         confirm_destroy: Sigur doriți să ștergeți această reuniune?
         destroy: Ștergere
         edit: Editare
+        invalid_destroy:
+          proposals_count:
+            one: 'Reuniunea nu poate fi distrusă deoarece are %{count} propunere asociată:'
+            few: 'Reuniunea nu poate fi distrusă deoarece are %{count} propuneri asociate:'
+            other: 'Reuniunea nu poate fi distrusă deoarece are %{count} propuneri asociate:'
         minutes: Procese verbale
+        new: Reuniune nouă
         preview: Previzualizare
         registrations: Înscrieri
         title: Acțiuni
@@ -306,12 +328,14 @@ ro:
       content_blocks:
         upcoming_events:
           name: Evenimente viitoare
+          upcoming_events: Reuniuni viitoare
           view_all_events: Vezi tot
       directory:
         meetings:
           index:
             all: Toate
             date: Data
+            meetings: Reuniuni
             past: Anterioare
             search: Căutare
             space_type: Spațiu participativ
@@ -328,6 +352,11 @@ ro:
       meeting:
         not_allowed: Nu sunteți autorizat să vizualizați această reuniune
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reuniuni"
+            few: "%{count} reuniuni"
+            other: "%{count} reuniuni"
         create:
           invalid: S-a întâmpinat o problemă la crearea acestei reuniuni
           success: Ați creat reuniunea.
@@ -357,9 +386,12 @@ ro:
           unfold: Desfășurați
         form:
           address_help: 'Adresă: utilizat de Geocoder pentru localizare'
+          create_as: Creați o reuniune în calitate de
           location_help: 'Loc: mesaj adresat utilizatorilor care doresc să se întrunească la fața locului'
           location_hints_help: 'Indicații de localizare: informații suplimentare: Exemplu: etajul clădirii'
           select_a_category: Vă rugăm să selectați o categorie
+        index:
+          new_meeting: Reuniune nouă
         meeting_minutes:
           meeting_minutes: Procesele-verbale ale reuniunilor
           related_information: Informații conexe
@@ -369,6 +401,7 @@ ro:
         new:
           back: Înapoi
           create: Creare
+          title: Creați reuniunea
         registration_confirm:
           cancel: Anulare
           confirm: Confirmați
@@ -387,6 +420,10 @@ ro:
           registration_state:
             validated: VALIDAT
             validation_pending: VALIDARE ÎN AȘTEPTARE
+          remaining_slots:
+            one: "%{count} slot rămas"
+            few: "%{count} sloturi rămase"
+            other: "%{count} sloturi rămase"
           view: Afișare
         update:
           invalid: S-a întâmpinat o problemă la actualizarea reuniunii.
@@ -409,6 +446,7 @@ ro:
             closed: Închisă
             end_time: Data de sfârșit
             map: Hartă
+            official_meeting: Reuniune oficială
             start_time: Data începerii
             title: Titlu
       read_more: "Citiți mai mult"
@@ -435,9 +473,20 @@ ro:
     metrics:
       meetings:
         description: Numărul de reuniuni create
+        object: reuniuni
+        title: Reuniuni
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniuni anterioare
+          upcoming_meetings: Reuniuni viitoare
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniuni anterioare
+        see_all: Afișează toate reuniunile (%{count})
+        upcoming_meetings: Reuniuni viitoare
+      upcoming_meeting_for_card:
+        upcoming_meeting: Reuniune viitoare
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Rezultatele înrudite:'
