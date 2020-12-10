@@ -7,6 +7,7 @@ cs:
         created_at: Vytvořeno v
       group:
         about: O vás
+        avatar: Avatar
         document_number: Číslo dokumentu
         email: E-mail
         name: Jméno
@@ -44,6 +45,27 @@ cs:
         password: Heslo
         password_confirmation: Potvrzení hesla
         remember_me: Zapamatovat si mě
+    models:
+      decidim/amendment:
+        one: Změna
+        few: Změny
+        many: Změny
+        other: Změny
+      decidim/endorsement:
+        one: Schválení
+        few: Schválení
+        many: Schválení
+        other: Schválení
+      decidim/user:
+        one: Účastník
+        few: Účastníci
+        many: Účastníci
+        other: Účastníci
+      decidim/user_group:
+        one: Skupina
+        few: Skupiny
+        many: Skupiny
+        other: Skupiny
   booleans:
     'false': 'Ne'
     'true': 'Ano'
@@ -215,12 +237,30 @@ cs:
           '4': Zveřejnit dodatek.
     anonymous_user: Chci zůstat v anonymitě
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       document:
         download: Stáhnout soubor
       documents:
         related_documents: Související dokumenty
       photos:
         related_photos: Související obrázky
+    author:
+      avatar: Avatar
+      comments:
+        one: komentář
+        few: komentáře
+        many: komentářů
+        other: komentářů
+      endorsements:
+        one: schválení
+        few: schválení
+        many: schválení
+        other: schválení
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“
@@ -244,6 +284,9 @@ cs:
       expired_at: Vypršel v %{timestamp}
       expires_at: Vyprší v %{timestamp}
       foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
         name: Foo autorizace
       granted_at: Udělena v %{timestamp}
       renew: Obnovit ověření
@@ -260,6 +303,7 @@ cs:
         incomplete:
           cancel: Zrušit
           explanation: 'Ačkoliv jste v současné době autorizováni "%{authorization}", potřebujeme, abyste se znovu autorizovali, protože chybí následující údaje:'
+          invalid_field: "%{field}"
           reauthorize: Znovu autorizovat
           title: Znovu se prosím autorizujte
         missing:
@@ -283,6 +327,11 @@ cs:
       show:
         close_modal: Zavřít modální okno
     collapsible_list:
+      hidden_elements_count:
+        one: a %{count} další
+        few: a %{count} další
+        many: a %{count} dalších
+        other: a %{count} dalších
       see_less: "(zobrazit méně)"
       see_more: "(zobrazit více)"
     components:
@@ -300,6 +349,9 @@ cs:
           question: Otázka
         title: 'Zobrazit:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Dummy komponent
         settings:
           global:
@@ -344,6 +396,8 @@ cs:
         name: Metriky organizace
       stats:
         name: Statistika organizace
+      sub_hero:
+        name: Sub hero banner
     core:
       actions:
         login_before_access: Než vstoupíte, přihlaste se prosím pomocí svého účtu
@@ -412,6 +466,7 @@ cs:
       authorizations:
         new:
           authorize: Autorizovat aplikaci
+          by_organization_link_html: <small class="heading-small">od %{link}</small>
           cancel: Zrušit
           connect_your_account_html: Připojte svůj účet přihlášením se k <strong>%{organization}</strong>
           publish_content: Publikovat obsah pro vás
@@ -598,6 +653,11 @@ cs:
       title: Identifikace
       value: Hodnota
     followers:
+      followers_count:
+        one: "%{count} fanoušek"
+        few: "%{count} fanoušci"
+        many: "%{count} fanoušků"
+        other: "%{count} fanoušků"
       no_followers: Dosud žádní fanoušci.
     following:
       no_followings: Dosud nic ani nikoho nesleduje.
@@ -788,9 +848,11 @@ cs:
         skip_button: Přeskočit mapu
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Tato skupina ještě nemá žádné členy.
     menu:
+      help: Nápověda
       home: Domů
     messaging:
       conversation_mailer:
@@ -957,6 +1019,7 @@ cs:
           debates: Diskuse
           debates_explanation: Diskutujte, sdílejte své názory a přispějte k relevantním tématům
           how_to_participate: Jak se mohu stát součástí procesu?
+          meetings: Schůze
           meetings_explanation: Zjistěte, kde a kdy se můžete zúčastnit veřejné schůze.
           more_info: Více informací o %{resource_name}
           proposals: Návrhy
@@ -978,10 +1041,13 @@ cs:
           debates_count: Diskuse
           endorsements_count: Schválení
           headline: Současný stav %{organization}
+          meetings_count: Schůze
           orders_count: Hlasy
           pages_count: Počet stran
+          processes_count: Procesy
           projects_count: Projekty
           proposals_accepted: Přijaté návrhy
+          proposals_count: Návrhy
           results_count: Výsledky
           surveys_count: Průzkumy
           users_count: Účastníci
@@ -992,6 +1058,7 @@ cs:
         read_more: Zobrazit více
         standalone_pages: Stránky
         subheading: Procházet stránky nápovědy %{name}
+        title: Nápověda
         topics: Témata
       participatory_space:
         metrics:
@@ -1105,11 +1172,17 @@ cs:
         filter_by: Filtrovat podle
         unfold: Rozbalit
       results:
+        results:
+          one: "%{count} výsledek"
+          few: "%{count} výsledky"
+          many: "%{count} výsledků"
+          other: "%{count} výsledků"
         view_all: Zobrazit všechny (%{count})
     shared:
       confirm_modal:
         cancel: Zrušit
         close_modal: Zavřít modální okno
+        ok: OK
         title: Potvrdit
       embed_modal:
         close_window: Zavřít okno
@@ -1322,6 +1395,8 @@ cs:
         instruction: 'K odemknutí účtu klikněte na odkaz níže:'
         message: Váš účet byl uzamčen, protože došlo k více neúspěšným pokusům o přihlášení.
         subject: Instrukce k odemknutí
+    omniauth_callbacks:
+      success: Ověření účtem %{kind} proběhlo úspěšně.
     passwords:
       edit:
         change_my_password: Změnit heslo
@@ -1371,6 +1446,11 @@ cs:
         sign_in: Přihlásit
         sign_in_with_provider: Přihlásit prostřednictvím poskytovatele %{provider}
         sign_up: Zaregistrovat se
+      minimum_password_length:
+        one: "(minimálně %{count} znak)"
+        few: "(minimálně %{count} znaky)"
+        many: "(minimálně %{count} znaků)"
+        other: "(minimálně %{count} znaků)"
     unlocks:
       new:
         resend_unlock_instructions: Znovu zaslat instrukce k odemknutí
@@ -1394,11 +1474,22 @@ cs:
       nesting_too_deep: nemůže se nacházet v podkategorii
       not_found: nebylo nalezeno. Už jste se zaregistrovali?
       not_locked: nebyl uzamčený
+      not_saved:
+        one: 'Při zpracování vašeho požadavku došlo k chybě:'
+        few: 'Při zpracování vašeho požadavku došlo k chybám:'
+        many: 'Při zpracování vašeho požadavku došlo k chybám:'
+        other: 'Při zpracování vašeho požadavku došlo k chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např. ! a ?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25 % textu)
       too_short: příliš krátké (méně než 15 znaků)
   forms:
     correct_errors: Formulář obsahuje chyby, opravte je, abyste mohli pokračovat.
+    length_validator:
+      minimum:
+        one: minimálně %{count} znak
+        few: minimálně %{count} znaky
+        many: minimálně %{count} znaků
+        other: minimálně %{count} znaků
     required: Povinné pole
     required_explanation: "* Povinná pole jsou označena hvězdičkou"
   invisible_captcha:
@@ -1456,6 +1547,8 @@ cs:
         user_groups: Skupiny
       widget:
         see_more: Více
+  locale:
+    name: English
   password_validator:
     domain_included_in_password: je příliš podobné tomuto doménovému jménu
     email_included_in_password: je příliš podobné vaší e-mailové adrese
@@ -1467,10 +1560,28 @@ cs:
     password_too_long: je příliš dlouhé
     password_too_short: je příliš krátké
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
     google_bookmark: Záložky Google
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Sdílet s uživatelem %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Otevřete WeChat, klikněte na „Discover“ (Objevit) a poté na možnost „Scan QR Code“ (Skenovat QR kód).
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Smazáno
@@ -1486,9 +1597,12 @@ cs:
     pagination:
       first: "&laquo; První"
       first_title: Odkaz na první stránku
+      last: Poslední &raquo;
       last_title: Odkaz na poslední stránku
+      next: Další &rsaquo;
       next_title: Odkaz na další stránku
       pagination: Stránkování
       previous: "&lsaquo; Předchozí"
       previous_title: Odkaz na předchozí stránku
       title: 'Číslo stránky: '
+      truncate: "&hellip;"
