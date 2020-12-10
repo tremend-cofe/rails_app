@@ -51,9 +51,13 @@ el:
       decidim/meetings/create_meeting_event: Συνεδρίαση
       decidim/meetings/meeting_registrations_enabled_event: Οι εγγραφές ενεργοποιήθηκαν
       decidim/meetings/meeting_registrations_over_percentage_event: Οι εγγραφές υπερβαίνουν το όριο
+      decidim/meetings/upcoming_meeting_event: Προσεχής συνεδρίαση
       decidim/meetings/update_meeting_event: Η συνεδρίαση επικαιροποιήθηκε
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Συνεδρίαση
+        other: Συνεδριάσεις
       decidim/meetings/minutes:
         one: Πρακτικά
         other: Πρακτικά
@@ -74,6 +78,7 @@ el:
       meetings:
         actions:
           join: Συμμετοχή
+        name: Συνεδριάσεις
         settings:
           global:
             announcement: Ανακοίνωση
@@ -158,6 +163,7 @@ el:
             one: 'Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχει %{count} πρόταση που είναι συνδεδεμένη με αυτή:'
             other: 'Η συνεδρίαση δεν μπορεί να διαγραφεί οριστικά, επειδή υπάρχουν %{count} προτάσεις που είναι συνδεδεμένες με αυτή:'
         minutes: Πρακτικά
+        new: Νέα συνεδρίαση
         preview: Προεπισκόπηση
         registrations: Εγγραφές
         title: Ενέργειες
@@ -325,12 +331,14 @@ el:
       content_blocks:
         upcoming_events:
           name: Προσεχείς εκδηλώσεις
+          upcoming_events: Προσεχείς συνεδριάσεις
           view_all_events: Προβολή όλων
       directory:
         meetings:
           index:
             all: Όλες
             date: Ημερομηνία
+            meetings: Συνεδριάσεις
             past: Παρελθόν
             search: Αναζήτηση
             space_type: Συμμετοχικός χώρος
@@ -347,6 +355,10 @@ el:
       meeting:
         not_allowed: Δεν επιτρέπεται να δείτε αυτήν τη συνεδρίαση
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} συνεδρίαση"
+            other: "%{count} συνεδριάσεις"
         create:
           invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της συνεδρίασης.
           success: Δημιουργήσατε τη συνεδρίαση με επιτυχία.
@@ -376,9 +388,12 @@ el:
           unfold: Ανάπτυξη
         form:
           address_help: 'Διεύθυνση: χρησιμοποιείται από την εφαρμογή γεωκωδικοποίησης για την εύρεση της τοποθεσίας'
+          create_as: Δημιουργία συνεδρίασης ως
           location_help: 'Τοποθεσία: μήνυμα που απευθύνεται στους χρήστες υποδεικνύοντας το σημείο συνάντησης'
           location_hints_help: 'Οδηγίες τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου'
           select_a_category: Επιλέξτε κατηγορία
+        index:
+          new_meeting: Νέα συνεδρίαση
         meeting_minutes:
           meeting_minutes: Πρακτικά συνεδρίασης
           related_information: Συναφείς πληροφορίες
@@ -388,6 +403,7 @@ el:
         new:
           back: Πίσω
           create: Δημιουργία
+          title: Δημιουργήστε τη συνεδρίασή σας
         registration_confirm:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
@@ -418,6 +434,7 @@ el:
       models:
         invite:
           fields:
+            email: Email
             name: Όνομα
             sent_at: Εστάλη στις
             status: Κατάσταση
@@ -430,6 +447,7 @@ el:
             closed: Έχει κλείσει
             end_time: Ημερομηνία λήξης
             map: Χάρτης
+            official_meeting: Επίσημη συνεδρίαση
             start_time: Ημερομηνία έναρξης
             title: Τίτλος
       read_more: "(διαβάστε περισσότερα)"
@@ -456,9 +474,20 @@ el:
     metrics:
       meetings:
         description: Αριθμός συνεδριάσεων που δημιουργήθηκαν
+        object: συνεδριάσεις
+        title: Συνεδριάσεις
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Παλαιότερες συνεδριάσεις
+          upcoming_meetings: Προσεχείς συνεδριάσεις
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Παλαιότερες συνεδριάσεις
+        see_all: Εμφάνιση όλων των συνεδριάσεων (%{count})
+        upcoming_meetings: Προσεχείς συνεδριάσεις
+      upcoming_meeting_for_card:
+        upcoming_meeting: Προσεχής συνεδρίαση
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Σχετικά αποτελέσματα:'
