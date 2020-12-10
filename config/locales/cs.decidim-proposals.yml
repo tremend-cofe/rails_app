@@ -62,6 +62,28 @@ cs:
       decidim/proposals/publish_proposal_event: Návrh zveřejněn
       decidim/proposals/rejected_proposal_event: Návrh zamítnut
       decidim/proposals/voting_enabled_event: Hlasování o návrhu aktivováno
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Společný koncept
+        few: Společné koncepty
+        many: Společné koncepty
+        other: Společné koncepty
+      decidim/proposals/proposal:
+        one: Návrh
+        few: Návrhy
+        many: Návrhy
+        other: Návrhy
+      decidim/proposals/proposal_note:
+        one: Poznámka
+        few: Poznámky
+        many: Poznámky
+        other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Hlas pro
+        few: Hlasy pro
+        many: Hlasy pro
+        other: Hlasy pro
   decidim:
     admin:
       filters:
@@ -556,6 +578,12 @@ cs:
         complete:
           send: Odeslat
           title: Dokončit společný koncept
+        count:
+          drafts_count:
+            one: "%{count} společný koncept"
+            few: "%{count} společné koncepty"
+            many: "%{count} společných konceptů"
+            other: "%{count} společných konceptů"
         create:
           error: Při vytváření tohoto společného konceptu došlo k problému
           success: Společný koncept byl úspěšně vytvořen.
@@ -610,6 +638,11 @@ cs:
           edit: Upravit společný koncept
           final_proposal: konečný návrh
           final_proposal_help_text: Tento koncept je dokončen. Podívejte se na konečný návrh
+          hidden_authors_count:
+            one: a %{count} další osoba
+            few: a %{count} další osoby
+            many: a %{count} dalších osob
+            other: a %{count} dalších osob
           info-message: Toto je <strong>společný koncept</strong>. To znamená, že autorům můžete s tvorbou návrhu pomoci, a to prostřednictvím sekce s komentáři níže nebo přímo prostřednictvím žádosti o přístup k jeho editaci. Jakmile vám autoři udělí přístup, budete moci tento návrh měnit.
           publish: Zveřejnit
           publish_info: Zveřejnit tuto verzi konceptu nebo
@@ -690,6 +723,12 @@ cs:
         complete:
           send: Odeslat
           title: Dokončete návrh
+        count:
+          proposals_count:
+            one: "%{count} návrh"
+            few: "%{count} návrhy"
+            many: "%{count} návrhů"
+            other: "%{count} návrhů"
         edit:
           attachment_legend: "(Volitelné) Přidat přílohu"
           back: Zpět
@@ -724,6 +763,12 @@ cs:
           new_proposal: Nový návrh
           see_all_withdrawn: Zobrazit všechny stažené návrhy
           view_proposal: Zobrazit návrh
+        linked_proposals:
+          proposal_votes:
+            one: hlas pro
+            few: hlasy pro
+            many: hlasů pro
+            other: hlasů pro
         new:
           send: Pokračovat
           title: Vytvořte návrh
@@ -743,6 +788,11 @@ cs:
             see_index: Zobrazit index
         preview:
           modify: Pozměnit návrh
+          proposal_edit_before_minutes:
+            one: Tento návrh budete moci během první minuty po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+            few: Tento návrh budete moci během prvních %{count} minut po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+            many: Tento návrh budete moci během prvních %{count} minut po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+            other: Tento návrh budete moci během prvních %{count} minut po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
           publish: Zveřejnit
           title: Zveřejněte návrh
         proposal:
@@ -760,6 +810,11 @@ cs:
           edit_proposal: Upravit návrh
           endorsements_list: Seznam schválení
           estimated_cost: Odhadované náklady
+          hidden_endorsers_count:
+            one: a %{count} další osoba
+            few: a %{count} další osoby
+            many: a %{count} dalších osob
+            other: a %{count} dalších osob
           link_to_collaborative_draft_help_text: Tento návrh je výsledkem společného konceptu. Prohlédnout historii
           link_to_collaborative_draft_text: Zobrazit společný koncept
           link_to_promoted_emendation_help_text: Tento návrh je předložená oprava
@@ -787,6 +842,11 @@ cs:
           vote: Hlas pro
           votes_blocked: Hlasy pro blokovány
         votes_count:
+          count:
+            one: Hlas pro
+            few: Hlasy pro
+            many: Hlasy pro
+            other: Hlasy pro
           most_popular_proposal: Nejoblíbenější návrh
           need_more_votes: Potřebuje více hlasů pro
         voting_rules:
