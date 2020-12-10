@@ -8,6 +8,13 @@ pl:
         description: Opis
         proposal_ids: Powiązane propozycje
         title: Tytuł
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        few: Projekty
+        many: Projekty
+        other: Projekty
   decidim:
     budgets:
       actions:
@@ -126,6 +133,7 @@ pl:
         budget_excess:
           close: Zamknij
           description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Możesz usunąć wybrany wcześniej projekt lub oddać głos zgodnie ze swoimi preferencjami.
+          ok: OK
           title: Przekroczono maksymalny budżet
         budget_summary:
           are_you_sure: Czy na pewno chcesz anulować swój głos?
@@ -137,10 +145,17 @@ pl:
           description: Na jakie projekty powinniśmy przeznaczyć budżet? Przypisz co najmniej %{minimum_budget} do projektów i zagłosuj zgodnie z preferencjami, by określić budżet.
           description_minimum_projects_rule: Na jakie projekty powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i zagłosuj zgodnie z preferencjami, by określić budżet.
           title: To Ty decydujesz o budżecie
+        count:
+          projects_count:
+            one: 1 projekt
+            few: "%{count} projekty / projektów"
+            many: "%{count} projekty / projektów"
+            other: "%{count} projekty / projektów"
         filters:
           category: Kategoria
           scope: Zakres
           search: Szukaj
+          status: Status
           status_values:
             all: Wszystkie
             not_selected: Niewybrane
@@ -154,6 +169,11 @@ pl:
           vote: Głosuj
         order_selected_projects:
           remove: Usuń
+          selected_projects:
+            one: wybrany projekt
+            few: wybrane projekty / wybranych projektów
+            many: wybrane projekty / wybranych projektów
+            other: wybrane projekty / wybranych projektów
           view: Wyświetl
         orders:
           highest_cost: Najwyższy koszt
@@ -167,6 +187,11 @@ pl:
           remove: Usuń projekt %{resource_name} ze swojego głosu
           selected: Wybrane
           view: Wyświetl
+          votes:
+            one: głosowanie
+            few: głosowania
+            many: głosowania
+            other: głosowania
           you_voted: Oddano głos
         project_budget_button:
           add: Dodaj do swojego głosu
