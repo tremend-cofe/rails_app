@@ -1,3 +1,172 @@
 pl:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Temat
+      meeting:
+        cofe_charter_html: Wyrażam zgodę na <a href="%{url}" target="_blank">kartę</a> konferencji w sprawie przyszłości Europy
+    models:
+      decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Spotkanie
+        few: Spotkania
+        many: Spotkania
+        other: Spotkania
+      decidim/participatory_process:
+        one: Proces partycypacyjny
+        few: Procesy partycypacyjne
+        many: Procesy partycypacyjne
+        other: Procesy partycypacyjne
+  decidim:
+    components:
+      meetings:
+        name: Spotkania
+        settings:
+          global:
+            cofe_charter_url: URL karty COFE
+    meetings:
+      actions:
+        new: Nowe spotkanie
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Nadchodzące spotkania
+      directory:
+        meetings:
+          index:
+            meetings: Spotkania
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} spotkanie"
+            few: "%{count} spotkania / spotkań"
+            many: "%{count} spotkania / spotkań"
+            other: "%{count} spotkania / spotkań"
+        form:
+          create_as: Utwórz spotkanie jako
+        index:
+          new_meeting: Nowe spotkanie
+        new:
+          title: Utwórz swoje spotkanie
+      models:
+        meeting:
+          fields:
+            official_meeting: Spotkanie oficjalne
+    menu:
+      help: Pomoc
+      processes: Procesy
+    menu_overwrite:
+      citizens_panels: Panele obywatelskie
+      events: Wydarzenia
+      plenaries: Sesje plenarne
+      topics: Tematy
+    metrics:
+      meetings:
+        object: spotkania
+        title: Spotkania
+    pages:
+      home:
+        extended:
+          meetings: Spotkania
+        statistics:
+          meetings_count: Spotkania
+          processes_count: Procesy
+          proposals_count: Propozycje
+      index:
+        title: Pomoc
+    participatory_processes:
+      index:
+        title: Procesy partycypacyjne
+      last_activity:
+        new_participatory_process: Nowy proces partycypacyjny
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktywne procesy
+            see_all_processes: Zobacz wszystkie procesy
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Zakończone spotkania
+          upcoming_meetings: Nadchodzące spotkania
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktywny proces
+              few: "%{count} aktywne procesy / aktywnych procesów"
+              many: "%{count} aktywne procesy / aktywnych procesów"
+              other: "%{count} aktywne procesy / aktywnych procesów"
+            all:
+              one: 1 proces
+              few: "%{count} procesy / procesów"
+              many: "%{count} procesy / procesów"
+              other: "%{count} procesy / procesów"
+            past:
+              one: 1 zakończony proces
+              few: "%{count} zakończone procesy / zakończonych procesów"
+              many: "%{count} zakończone procesy / zakończonych procesów"
+              other: "%{count} zakończone procesy / zakończonych procesów"
+            upcoming:
+              one: 1 nadchodzący proces
+              few: "%{count} nadchodzące procesy / nadchodzących procesów"
+              many: "%{count} nadchodzące procesy / nadchodzących procesów"
+              other: "%{count} nadchodzące procesy / nadchodzących procesów"
+          explanations:
+            no_active: Brak aktywnych procesów
+      statistics:
+        meetings_count: Spotkania
+        processes_count: Procesy
+        proposals_count: Propozycje
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Zobacz wszystkie spotkania (%{count})
+        upcoming_meetings: Nadchodzące spotkania
+      highlighted_proposals:
+        see_all: Zobacz wszystkie propozycje (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Nadchodzące spotkanie
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Nowa propozycja na %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} propozycja"
+            few: "%{count} propozycje / propozycji"
+            many: "%{count} propozycje / propozycji"
+            other: "%{count} propozycje / propozycji"
+        index:
+          new_proposal: Nowa propozycja
+          view_proposal: Zobacz propozycję
+        new:
+          title: Utwórz swoją propozycję
+        proposal:
+          view_proposal: Zobacz propozycję
+        wizard_aside:
+          back_from_step_1: Powrót do propozycji
+          back_from_step_2: Powrót do propozycji
+          info: Możesz utworzyć <strong>propozycję</strong>.
+        wizard_steps:
+          step_1: Utwórz swoją propozycję
+          step_4: Opublikuj swoją propozycję
+          title: Kroki tworzenia propozycji
+      versions:
+        proposals:
+          back_to_resource: Powrót do propozycji
+  devise:
+    omniauth_callbacks:
+      failure: Nie można było dokonać uwierzytelnienia na podstawie EU Login, ponieważ "%{reason}".
+      success: Uwierzytelnienie z konta %{kind} powiodło się.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Zamknij
+        select_your_language: Wybierz swój język
+      process_navigation:
+        process_menu_item: Proces
+      user:
+        logged_in: Zalogowano
+        logged_in_as: Zalogowano jako %{user}
   locale:
     name: Polski
