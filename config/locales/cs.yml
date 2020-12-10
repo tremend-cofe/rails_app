@@ -1,3 +1,172 @@
 cs:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Téma
+      meeting:
+        cofe_charter_html: Souhlasím s <a href="%{url}" target="_blank">chartou</a> konference o budoucnosti Evropy
+    models:
+      decidim/meetings/upcoming_meeting_event: Nadcházející schůze
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Schůze
+        few: Schůze
+        many: Schůze
+        other: Schůze
+      decidim/participatory_process:
+        one: Participativní proces
+        few: Participativní procesy
+        many: Participativní procesy
+        other: Participativní procesy
+  decidim:
+    components:
+      meetings:
+        name: Schůze
+        settings:
+          global:
+            cofe_charter_url: URL charty konference
+    meetings:
+      actions:
+        new: Nová schůze
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Nadcházející schůze
+      directory:
+        meetings:
+          index:
+            meetings: Schůze
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} schůze"
+            few: "%{count} schůze"
+            many: "%{count} schůzí"
+            other: "%{count} schůzí"
+        form:
+          create_as: Vytvořit schůzi jako
+        index:
+          new_meeting: Nová schůze
+        new:
+          title: Vytvořte schůzi
+      models:
+        meeting:
+          fields:
+            official_meeting: Oficiální schůze
+    menu:
+      help: Nápověda
+      processes: Procesy
+    menu_overwrite:
+      citizens_panels: Panelové diskuse občanů
+      events: Události
+      plenaries: Plenární zasedání
+      topics: Témata
+    metrics:
+      meetings:
+        object: schůze
+        title: Schůze
+    pages:
+      home:
+        extended:
+          meetings: Schůze
+        statistics:
+          meetings_count: Schůze
+          processes_count: Procesy
+          proposals_count: Návrhy
+      index:
+        title: Nápověda
+    participatory_processes:
+      index:
+        title: Participativní procesy
+      last_activity:
+        new_participatory_process: Nový participativní proces
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktivní procesy
+            see_all_processes: Zobrazit všechny procesy
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Minulé schůze
+          upcoming_meetings: Nadcházející schůze
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktivní proces
+              few: "%{count} aktivní procesy"
+              many: "%{count} aktivních procesů"
+              other: "%{count} aktivních procesů"
+            all:
+              one: 1 proces
+              few: "%{count} procesy"
+              many: "%{count} procesů"
+              other: "%{count} procesů"
+            past:
+              one: 1 minulý proces
+              few: "%{count} minulé procesy"
+              many: "%{count} minulých procesů"
+              other: "%{count} minulých procesů"
+            upcoming:
+              one: 1 nadcházející proces
+              few: "%{count} nadcházející procesy"
+              many: "%{count} nadcházejících procesů"
+              other: "%{count} nadcházejících procesů"
+          explanations:
+            no_active: Žádné aktivní procesy
+      statistics:
+        meetings_count: Schůze
+        processes_count: Procesy
+        proposals_count: Návrhy
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Zobrazit všechny schůze (%{count})
+        upcoming_meetings: Nadcházející schůze
+      highlighted_proposals:
+        see_all: Zobrazit všechny návrhy (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Nadcházející schůze
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Nový návrh na %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} návrh"
+            few: "%{count} návrhy"
+            many: "%{count} návrhů"
+            other: "%{count} návrhů"
+        index:
+          new_proposal: Nový návrh
+          view_proposal: Zobrazit návrh
+        new:
+          title: Vytvořte návrh
+        proposal:
+          view_proposal: Zobrazit návrh
+        wizard_aside:
+          back_from_step_1: Zpět k návrhům
+          back_from_step_2: Zpět k návrhům
+          info: Vytváříte <strong>návrh</strong>.
+        wizard_steps:
+          step_1: Vytvořte návrh
+          step_4: Zveřejněte návrh
+          title: Postup tvorby návrhu
+      versions:
+        proposals:
+          back_to_resource: Zpět na návrh
+  devise:
+    omniauth_callbacks:
+      failure: 'Nezdařilo se ověření účtem EU Login z důvodu: "%{reason}".'
+      success: Ověření účtem %{kind} proběhlo úspěšně.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Zavřít
+        select_your_language: Vyberte jazyk
+      process_navigation:
+        process_menu_item: Proces
+      user:
+        logged_in: Přihlášen(a)
+        logged_in_as: Přihlášen(a) jako %{user}
   locale:
     name: Čeština
