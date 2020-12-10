@@ -51,9 +51,13 @@ et:
       decidim/meetings/create_meeting_event: Koosolek
       decidim/meetings/meeting_registrations_enabled_event: Registreerimine lubatud
       decidim/meetings/meeting_registrations_over_percentage_event: Registreerimiste limiit on täis
+      decidim/meetings/upcoming_meeting_event: Eelseisev koosolek
       decidim/meetings/update_meeting_event: Koosolek värskendatud
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Koosolek
+        other: Koosolekud
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokollid
@@ -74,6 +78,7 @@ et:
       meetings:
         actions:
           join: Liitu
+        name: Koosolekud
         settings:
           global:
             announcement: Teadaanne
@@ -158,6 +163,7 @@ et:
             one: 'Koosolekut ei saa kustutada, kuna sellega on seotud %{count} ettepanek:'
             other: 'Koosolekut ei saa kustutada, kuna sellega on seotud %{count} ettepanekut:'
         minutes: Protokoll
+        new: Uus koosolek
         preview: Eelvaade
         registrations: Registreerimised
         title: Toimingud
@@ -325,12 +331,14 @@ et:
       content_blocks:
         upcoming_events:
           name: Eelseisvad sündmused
+          upcoming_events: Eelseisvad koosolekud
           view_all_events: Kuva kõik
       directory:
         meetings:
           index:
             all: Kõik
             date: Kuupäev
+            meetings: Koosolekud
             past: Möödunud
             search: Otsing
             space_type: Osalusruum
@@ -347,6 +355,10 @@ et:
       meeting:
         not_allowed: Teil ei ole selle sisu vaatamiseks luba
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} koosolek"
+            other: "%{count} koosolekut"
         create:
           invalid: Selle koosoleku loomisel tekkis probleem.
           success: Teie koosolek on loodud.
@@ -371,13 +383,17 @@ et:
           search: Otsing
         filters_small_view:
           close_modal: Sulge modaalaken
+          filter: Filter
           filter_by: Filtrimisalus
           unfold: Ava
         form:
           address_help: 'Aadress: seda kasutab Geocoder asukoha leidmiseks'
+          create_as: Loo koosolek kui
           location_help: 'Asukoht: kasutajatele saadetud sõnum kohtumispaiga kohta'
           location_hints_help: 'Asukohajuhised: lisateave. Näide: hoone korrus'
           select_a_category: Valige kategooria
+        index:
+          new_meeting: Uus koosolek
         meeting_minutes:
           meeting_minutes: Koosoleku protokoll
           related_information: Seotud teave
@@ -387,6 +403,7 @@ et:
         new:
           back: Tagasi
           create: Loo
+          title: Looge oma koosolek
         registration_confirm:
           cancel: Tühista
           confirm: Kinnita
@@ -430,6 +447,7 @@ et:
             closed: Lõpetatud
             end_time: Lõppkuupäev
             map: Kaart
+            official_meeting: Ametlik koosolek
             start_time: Alguskuupäev
             title: Pealkiri
       read_more: "(lisateave)"
@@ -456,9 +474,20 @@ et:
     metrics:
       meetings:
         description: Loodud koosolekute arv
+        object: koosolekud
+        title: Koosolekud
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Toimunud koosolekud
+          upcoming_meetings: Eelseisvad koosolekud
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Toimunud koosolekud
+        see_all: Kuva kõik koosolekud (%{count})
+        upcoming_meetings: Eelseisvad koosolekud
+      upcoming_meeting_for_card:
+        upcoming_meeting: Eelseisev koosolek
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Seotud tulemused:'
