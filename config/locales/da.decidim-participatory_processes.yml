@@ -62,6 +62,9 @@ da:
       decidim/participatory_process_step_changed_event: Fase ændret
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Deltagelsesproces
+        other: Deltagelsesprocesser
       decidim/participatory_process_group:
         one: Gruppe i deltagelsesproces
         other: Grupper i deltagelsesproces
@@ -285,6 +288,8 @@ da:
           contextual: "<p>En <strong>deltagelsesproces</strong> er en sekvens af deltagelsesaktiviteter (f.eks. først at udfylde et undersøgelsesskema, derefter fremsætte forslag, diskutere dem i et møde eller på virtuelle møder og endelig prioritere dem) med det formål at definere og træffe en beslutning om en bestemt emne.</p><p> Eksempler på deltagelsesprocesser er: en proces med valg af komitémedlemmer (hvor kandidaturer først præsenteres, derefter debatteres og til sidst vælges et kandidatur), deltagelsesbudgetter (hvor forslag fremsættes, vurderes økonomisk og afstemmes med de disponible penge), en strategisk planlægningsproces, den fælles udarbejdelse af et regelsæt eller norm, udformningen af et byrum eller produktionen af en plan for det offentlige.</p>\n"
           page: "<p>En <strong>deltagelsesproces</strong> er en sekvens af deltagelsesaktiviteter (f.eks. først at udfylde et undersøgelsesskema, derefter fremsætte forslag, diskutere dem i et møde eller på virtuelle møder og endelig prioritere dem) med det formål at definere og træffe en beslutning om en bestemt emne.</p><p> Eksempler på deltagelsesprocesser er: en proces med valg af komitémedlemmer (hvor kandidaturer først præsenteres, derefter debatteres og til sidst vælges et kandidatur), deltagelsesbudgetter (hvor forslag fremsættes, vurderes økonomisk og afstemmes med de disponible penge), en strategisk planlægningsproces, den fælles udarbejdelse af et regelsæt eller norm, udformningen af et byrum eller produktionen af en plan for det offentlige.</p>\n"
           title: Hvad er en deltagelsesproces?
+    menu:
+      processes: Processer
     metrics:
       participatory_processes:
         description: Antal deltagelsesprocesser i denne organisation
@@ -337,19 +342,39 @@ da:
       content_blocks:
         highlighted_processes:
           name: Fremhævede processer
+      index:
+        title: Deltagelsesprocesser
+      last_activity:
+        new_participatory_process: Ny deltagelsesproces
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktive processer
             active_step: Aktiv fase
             more_information: Flere oplysninger
             participate: Deltage
             participate_in: Deltag i proces%{resource_name}
+            see_all_processes: Se alle processer
       participatory_process_steps:
         index:
           back_to_process: Tilbage til processiden
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktiv proces
+              other: "%{count} aktive processer"
+            all:
+              one: 1 proces
+              other: "%{count} processer"
+            past:
+              one: 1 tidligere proces
+              other: "%{count} tidligere processer"
+            upcoming:
+              one: 1 kommende proces
+              other: "%{count} kommende processer"
           explanations:
+            no_active: Ingen aktive processer
             no_active_nor_upcoming: Ingen aktive eller kommende processer
             no_active_nor_upcoming_callout: Der er ingen aktive eller kommende processer. Her er en liste over de tidligere.
           names:
@@ -381,11 +406,14 @@ da:
         endorsements_count: Anbefalinger
         followers_count: Følgere
         headline: Statistikker
+        meetings_count: Møder
         no_stats: Der er endnu ingen statistikker.
         orders_count: Støtter
         pages_count: Sider
         participants_count: Deltagere
+        processes_count: Processer
         projects_count: Projekter
+        proposals_count: Forslag
         results_count: Resultater
         supports_count: Støtter
         surveys_count: Undersøgelser
@@ -419,3 +447,5 @@ da:
       process_header_steps:
         step: Fase %{current} af %{total}
         view_steps: Procesfaser
+      process_navigation:
+        process_menu_item: Processen
