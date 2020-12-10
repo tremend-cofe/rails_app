@@ -8,6 +8,13 @@ sk:
         description: Opis
         proposal_ids: Súvisiace návrhy
         title: Nadpis
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        few: Projekty
+        many: Projektov
+        other: Projektov
   decidim:
     budgets:
       actions:
@@ -126,6 +133,7 @@ sk:
         budget_excess:
           close: Zatvoriť
           description: Tento projekt prevyšuje maximálny rozpočet a nemožno ho pridať. Ak chcete, môžete odstrániť projekt, ktorý ste už vybrali na pridanie, alebo môžete hlasovať podľa svojho výberu.
+          ok: OK
           title: Prekročenie maximálneho rozpočtu
         budget_summary:
           are_you_sure: Naozaj chcete zrušiť svoje hlasovanie?
@@ -137,6 +145,12 @@ sk:
           description: Na ktoré projekty by sme podľa vás mali prideliť rozpočtové prostriedky? Priraďte aspoň %{minimum_budget} na projekty, ktoré chcete financovať, a hlasujte podľa svojho výberu s cieľom určiť rozpočet.
           description_minimum_projects_rule: Na ktoré projekty by sme podľa vás mali prideliť rozpočtové prostriedky? Vyberte projekty v minimálnom počte %{minimum_number}, ktoré chcete financovať, a hlasujte podľa svojho výberu s cieľom určiť rozpočet.
           title: Rozhodnite o rozpočte
+        count:
+          projects_count:
+            one: 1 projekt
+            few: "%{count} projekty"
+            many: "%{count} projektov"
+            other: "%{count} projektov"
         filters:
           category: Kategória
           scope: Rozsah pôsobnosti
@@ -148,12 +162,18 @@ sk:
             selected: Vybraté
         filters_small_view:
           close_modal: Zatvoriť kontextové okno
+          filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         order_progress:
           vote: Hlasovanie
         order_selected_projects:
           remove: Odstrániť
+          selected_projects:
+            one: vybraný projekt
+            few: vybrané projekty
+            many: vybraných projektov
+            other: vybraných projektov
           view: Zobraziť
         orders:
           highest_cost: Najvyššie náklady
@@ -167,6 +187,11 @@ sk:
           remove: Odstrániť projekt %{resource_name} z vášho hlasovania
           selected: Vybraté
           view: Zobraziť
+          votes:
+            one: hlas
+            few: hlasy
+            many: hlasov
+            other: hlasov
           you_voted: Hlasovali ste
         project_budget_button:
           add: Pridať do vášho hlasovania
