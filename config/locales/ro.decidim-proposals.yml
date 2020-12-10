@@ -62,6 +62,24 @@ ro:
       decidim/proposals/publish_proposal_event: Propunere publicată
       decidim/proposals/rejected_proposal_event: Propunere respinsă
       decidim/proposals/voting_enabled_event: Votare propunere activată
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Proiect colaborativ
+        few: Proiecte colaborative
+        other: Proiecte colaborative
+      decidim/proposals/proposal:
+        one: Propunere
+        few: Propuneri
+        other: Propuneri
+      decidim/proposals/proposal_note:
+        one: Notă
+        few: Note
+        other: Note
+      decidim/proposals/proposal_vote:
+        one: Suport
+        few: Suporturi
+        other: Suporturi
   decidim:
     admin:
       filters:
@@ -324,6 +342,9 @@ ro:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propuneri
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Afișează toate propunerile (%{count})
     proposals:
       actions:
         answer_proposal: Răspuns la propunere
@@ -546,6 +567,11 @@ ro:
         complete:
           send: Trimitere
           title: Completați proiectul dvs. colaborativ
+        count:
+          drafts_count:
+            one: "%{count} proiect colaborativ"
+            few: "%{count} proiecte colaborative"
+            other: "%{count} proiecte colaborative"
         create:
           error: S-a întâmpinat o problemă la crearea acestui proiect colaborativ
           success: Proiectul colaborativ a fost creat.
@@ -600,6 +626,10 @@ ro:
           edit: Editare proiect colaborativ
           final_proposal: propunere finală
           final_proposal_help_text: Proiectul este finalizat. Consultați propunerea finală
+          hidden_authors_count:
+            one: și un număr de încă %{count} persoană
+            few: și un număr de încă %{count} persoane
+            other: și un număr de încă %{count} persoane
           info-message: Acesta este un <strong>proiect colaborativ</strong> pentru o propunere. Acest lucru înseamnă că îi puteți ajuta pe autori să dea formă propunerii, utilizând secțiunea de mai jos rezervată observațiilor, sau puteți să o îmbunătățiți direct, solicitând accesul pentru a o edita. Odată ce autorii vă acordă accesul, veți putea modifica acest proiect.
           publish: Publicare
           publish_info: Publică această versiune a proiectului sau
@@ -638,6 +668,8 @@ ro:
       destroy_draft:
         error: S-a întâmpinat o problemă la ștergerea proiectului colaborativ.
         success: Proiectul de propunere a fost șters.
+      last_activity:
+        new_proposal_at_html: "<span>Propunere nouă la %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -648,6 +680,7 @@ ro:
           fields:
             category: Categorie
             comments: Observații
+            id: ID
             notes: Note
             official_proposal: Propunere oficială
             published_answer: Răspuns publicat
@@ -677,6 +710,11 @@ ro:
         complete:
           send: Trimitere
           title: Completați propunerea dvs.
+        count:
+          proposals_count:
+            one: "%{count} propunere"
+            few: "%{count} propuneri"
+            other: "%{count} propuneri"
         edit:
           attachment_legend: "(Opțional) Adăugare atașament"
           back: Înapoi
@@ -708,9 +746,17 @@ ro:
           unfold: Desfășurare
         index:
           collaborative_drafts_list: Accesare proiecte colaborative
+          new_proposal: Propunere nouă
           see_all_withdrawn: Vizualizează toate propunerile retrase
+          view_proposal: Vizualizați propunerea
+        linked_proposals:
+          proposal_votes:
+            one: suport
+            few: suporturi
+            other: suporturi
         new:
           send: Continuare
+          title: Creați propunerea dvs.
         orders:
           label: 'Ordonare propuneri în funcție de:'
           most_commented: Cu cele mai multe observații
@@ -727,10 +773,15 @@ ro:
             see_index: Vizualizare indice
         preview:
           modify: Modificare propunere
+          proposal_edit_before_minutes:
+            one: Veți putea edita această propunere în cursul primului minut după publicarea propunerii. Odată scurs acest interval de timp, nu veți mai putea edita propunerea.
+            few: Veți putea edita această propunere în cursul primelor %{count} minute după publicarea propunerii. Odată scurs acest interval de timp, nu veți mai putea edita propunerea.
+            other: Veți putea edita această propunere în cursul primelor %{count} minute după publicarea propunerii. Odată scurs acest interval de timp, nu veți mai putea edita propunerea.
           publish: Publicare
           title: Publicați propunerea dvs.
         proposal:
           creation_date: 'Creare: %{date}'
+          view_proposal: Vizualizați propunerea
         proposals:
           empty: Nu există încă nicio propunere
           empty_filters: Nu există nicio propunere cu aceste criterii
@@ -743,6 +794,10 @@ ro:
           edit_proposal: Editarea propunerii
           endorsements_list: Lista avizărilor
           estimated_cost: Costuri estimate
+          hidden_endorsers_count:
+            one: și un număr de încă %{count} persoană
+            few: și un număr de încă %{count} persoane
+            other: și un număr de încă %{count} persoane
           link_to_collaborative_draft_help_text: Această propunere este rezultatul unui proiect colaborativ. Trecere în revistă a istoricului
           link_to_collaborative_draft_text: Vizualizare proiect colaborativ
           link_to_promoted_emendation_help_text: Această propunere este o modificare promovată
@@ -770,6 +825,10 @@ ro:
           vote: Suport
           votes_blocked: Suporturi dezactivate
         votes_count:
+          count:
+            one: Suport
+            few: Suporturi
+            other: Suporturi
           most_popular_proposal: Cea mai populară propunere
           need_more_votes: E nevoie de mai multe suporturi
         voting_rules:
@@ -790,14 +849,20 @@ ro:
             votes: Suporturi
         wizard_aside:
           back: Înapoi
+          back_from_step_1: Înapoi la propuneri
+          back_from_step_2: Înapoi la propuneri
           back_from_step_3: Înapoi la comparare propuneri
           back_from_step_4: Înapoi la editare proiect
+          info: Creați o <strong>propunere</strong>.
         wizard_steps:
           current_step: Etapa actuală
           see_steps: vizualizare etape
+          step_1: Creați propunerea dvs.
           step_2: Comparare
           step_3: Completare
+          step_4: Publicați propunerea dvs.
           step_of: Etapa %{current_step_num} din %{total_steps}
+          title: Etape pentru crearea propunerii
       proposals_picker:
         choose_proposals: Alegere propuneri
         close: Închidere
@@ -819,6 +884,8 @@ ro:
           back_to_resource: Înapoi la proiectul colaborativ
         index:
           title: Versiuni
+        proposals:
+          back_to_resource: Înapoi la propunere
       withdraw:
         errors:
           has_supports: Această propunere nu poate fi retrasă deoarece i s-au acordat deja suporturi.
