@@ -7,6 +7,18 @@ lt:
         cofe_charter_html: Pritariu <a href="%{url}" target="_blank">Konferencijos </a>dėl Europos ateities chartijai
     models:
       decidim/meetings/upcoming_meeting_event: Būsimas posėdis
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Posėdis
+        few: Posėdžiai
+        many: Posėdžiai
+        other: Posėdžiai
+      decidim/participatory_process:
+        one: Dalyvaujamasis procesas
+        few: Dalyvaujamieji procesai
+        many: Dalyvaujamieji procesai
+        other: Dalyvaujamieji procesai
   decidim:
     components:
       meetings:
@@ -25,6 +37,12 @@ lt:
           index:
             meetings: Posėdžiai
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} posėdis"
+            few: "%{count} posėdžiai"
+            many: "%{count} posėdžiai"
+            other: "%{count} posėdžiai"
         form:
           create_as: Sukurti posėdį kaip
         index:
@@ -73,6 +91,27 @@ lt:
           upcoming_meetings: Būsimi posėdžiai
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktyvus procesas
+              few: "%{count} aktyvūs procesai"
+              many: "%{count} aktyvūs procesai"
+              other: "%{count} aktyvūs procesai"
+            all:
+              one: 1 procesas
+              few: "%{count} procesai"
+              many: "%{count} procesai"
+              other: "%{count} procesai"
+            past:
+              one: 1 buvęs procesas
+              few: "%{count} buvę procesai"
+              many: "%{count} buvę procesai"
+              other: "%{count} buvę procesai"
+            upcoming:
+              one: 1 būsimas procesas
+              few: "%{count} būsimi procesai"
+              many: "%{count} būsimi procesai"
+              other: "%{count} būsimi procesai"
           explanations:
             no_active: Aktyvių procesų nėra.
       statistics:
@@ -91,6 +130,12 @@ lt:
       last_activity:
         new_proposal_at_html: "<span>Naujas pasiūlymas, pasidalytas %{link}</span>"
       proposals:
+        count:
+          proposals_count:
+            one: "%{count} pasiūlymas"
+            few: "%{count} pasiūlymai"
+            many: "%{count} pasiūlymai"
+            other: "%{count} pasiūlymai"
         index:
           new_proposal: Naujas pasiūlymas
           view_proposal: Peržiūrėti pasiūlymą
