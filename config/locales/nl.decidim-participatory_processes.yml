@@ -13,6 +13,7 @@ nl:
         developer_group: Promotorgroep
         domain: Domein
         end_date: Einddatum
+        hashtag: Hashtag
         hero_image: Afbeelding startpagina
         local_area: Organisatiegebied
         meta_scope: Metagegevens toepassingsgebied
@@ -61,6 +62,9 @@ nl:
       decidim/participatory_process_step_changed_event: Fase gewijzigd
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Participatieproces
+        other: Participatieprocessen
       decidim/participatory_process_group:
         one: Participerende procesgroep
         other: Participerende procesgroepen
@@ -283,6 +287,8 @@ nl:
           contextual: "<p>Een <strong>participatieproces</strong> is een opeenvolging van participatie-activiteiten (bv. eerst een enquête invullen, vervolgens voorstellen doen, ze bespreken in rechtstreekse of virtuele vergaderingen en uiteindelijk prioriteiten stellen) om een specifiek inspraakproces te definiëren en een besluit te nemen.</p> <p>Voorbeelden van participatieprocessen zijn: een proces van verkiezing van de commissieleden (waarbij de kandidaten eerst worden voorgedragen, vervolgens worden besproken en uiteindelijk een kandidatuur wordt gekozen), participatiebegrotingen (waarbij voorstellen worden gedaan, economisch worden gewaardeerd en over het beschikbare geld wordt gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of een norm, het ontwerpen van een stedelijke ruimte of het opstellen van een beleidsplan.</p>\n"
           page: "<p>Een <strong>participatieproces</strong> is een opeenvolging van participatie-activiteiten (bv. eerst een enquête invullen, vervolgens voorstellen doen, ze bespreken in rechtstreekse of virtuele vergaderingen en uiteindelijk prioriteiten stellen) om een specifiek inspraakproces te definiëren en een besluit te nemen.</p> <p>Voorbeelden van participatieprocessen zijn: een proces van verkiezing van de commissieleden (waarbij de kandidaten eerst worden voorgedragen, vervolgens worden besproken en uiteindelijk een kandidatuur wordt gekozen), participatiebegrotingen (waarbij voorstellen worden gedaan, economisch worden gewaardeerd en over het beschikbare geld wordt gestemd), een strategisch planningsproces, het gezamenlijk opstellen van een verordening of een norm, het ontwerpen van een stedelijke ruimte of het opstellen van een beleidsplan.</p>\n"
           title: Wat is een participatieproces?
+    menu:
+      processes: Processen
     metrics:
       participatory_processes:
         description: Aantal participatieprocessen in deze organisatie
@@ -334,19 +340,39 @@ nl:
       content_blocks:
         highlighted_processes:
           name: Uitgelichte processen
+      index:
+        title: Participatieprocessen
+      last_activity:
+        new_participatory_process: Nieuw participatieproces
       pages:
         home:
           highlighted_processes:
+            active_processes: Actieve processen
             active_step: Actieve fase
             more_information: Meer informatie
             participate: Deelnemen
             participate_in: Aan proces %{resource_name} deelnemen
+            see_all_processes: Alle processen bekijken
       participatory_process_steps:
         index:
           back_to_process: Terug naar de pagina verwerking
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 actief proces
+              other: "%{count} actieve processen"
+            all:
+              one: 1 proces
+              other: "%{count} processen"
+            past:
+              one: 1 eerder proces
+              other: "%{count} eerdere processen"
+            upcoming:
+              one: 1 gepland proces
+              other: "%{count} geplande processen"
           explanations:
+            no_active: Geen actieve processen
             no_active_nor_upcoming: Geen actieve of geplande processen
             no_active_nor_upcoming_callout: Er zijn geen actieve of geplande processen. Hier vindt u een lijst van vroegere processen.
           names:
@@ -378,11 +404,14 @@ nl:
         endorsements_count: Onderschrijvingen
         followers_count: Volgers
         headline: Statistieken
+        meetings_count: Vergaderingen
         no_stats: Er zijn nog geen statistieken.
         orders_count: Steunbetuigingen
         pages_count: Pagina‘s
         participants_count: Deelnemers
+        processes_count: Processen
         projects_count: Projecten
+        proposals_count: Voorstellen
         results_count: Resultaten
         supports_count: Steunbetuigingen
         surveys_count: Enquêtes
@@ -416,3 +445,5 @@ nl:
       process_header_steps:
         step: Fase %{current} van %{total}
         view_steps: Fasen van het proces
+      process_navigation:
+        process_menu_item: Het proces
