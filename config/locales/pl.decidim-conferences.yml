@@ -10,6 +10,7 @@ pl:
         copy_features: Kopiuj funkcje
         decidim_scope_id: Zakres
         description: Opis
+        hashtag: Hashtag
         hero_image: Obraz strony głównej
         participatory_processes_ids: Powiązane procesy partycypacyjne
         promoted: Wyróżnione
@@ -18,6 +19,7 @@ pl:
         scopes_enabled: Aktywowano zakresy
         short_description: Krótki opis
         show_statistics: Pokaż statystyki
+        slogan: Slogan
         slug: Slug URL
         title: Tytuł
       conference_speaker:
@@ -32,6 +34,23 @@ pl:
           attributes:
             email:
               already_invited: Wysłano już zaproszenie na ten adres e-mail
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferencja
+        few: Konferencje
+        many: Konferencje
+        other: Konferencje
+      decidim/conference_speaker:
+        one: Mówca konferencyjny
+        few: Mówcy konferencyjni
+        many: Mówcy konferencyjni
+        other: Mówcy konferencyjni
+      decidim/conference_user_role:
+        one: Rola uczestnika konferencji
+        few: Role uczestnika konferencji
+        many: Role uczestnika konferencji
+        other: Role uczestnika konferencji
   decidim:
     admin:
       actions:
@@ -351,6 +370,7 @@ pl:
           content: Treść
           location: Lokalizacja
           speakers: Mówcy
+          streaming: Streaming
         show:
           day: Dzień
           program: Pogram
@@ -419,6 +439,7 @@ pl:
             name: Imię i nazwisko
             registration_type: Typ rejestracji
             sent_at: 'Wysłano:'
+            status: Status
           status:
             accepted: Przyjęte (%{at})
             rejected: Odrzucone (%{at})
@@ -428,6 +449,7 @@ pl:
             email: E-mail
             name: Imię i nazwisko
             registration_type: Typ rejestracji
+            state: Status
             states:
               confirmed: Potwierdzone
               pending: Oczekujące
@@ -540,6 +562,12 @@ pl:
           take_part: Weź udział
         index:
           promoted_conferences: Wyróżnione konferencje
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferencja"
+            few: "%{count} konferencje / konferencji"
+            many: "%{count} konferencje / konferencji"
+            other: "%{count} konferencje / konferencji"
         promoted_conference:
           more_info: Informacje dodatkowe
           take_part: Weź udział
@@ -547,4 +575,5 @@ pl:
         conference_menu_item: Informacje
         conference_partners_menu_item: Partnerzy
         conference_speaker_menu_item: Mówcy
+        media: Media
         venues: Miejsca
