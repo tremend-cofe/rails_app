@@ -11,6 +11,13 @@ cs:
         witnesses: Svědci
     models:
       decidim/sortitions/create_sortition_event: Volba losem
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Volba losem
+        few: Volby losem
+        many: Volby losem
+        other: Volby losem
   decidim:
     components:
       sortitions:
@@ -87,6 +94,12 @@ cs:
           delete: "Uživatel %{user_name} zrušil volbu losem %{resource_name} v prostoru %{space_name}"
           update: "Uživatel %{user_name} aktualizoval volbu losem %{resource_name} v prostoru %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 návrh
+            few: "%{count} návrhy"
+            many: "%{count} návrhů"
+            other: "%{count} návrhů"
         filters:
           active: Aktivní
           all: Vše
@@ -106,6 +119,12 @@ cs:
           label: 'Seřadit volby losem podle:'
           random: Náhodný výběr
           recent: Nedávné
+        results_count:
+          count:
+            one: vybraný návrh
+            few: vybrané návrhy
+            many: vybraných návrhů
+            other: vybraných návrhů
         show:
           algorithm: Kód algoritmu volby losem
           any_category: ze všech kategorií
@@ -123,8 +142,19 @@ cs:
           witnesses: Svědci
         sortition:
           random_seed: Náhodná hodnota
+          selected_proposals:
+            one: návrh vybrán
+            few: návrhy vybrány
+            many: návrhů vybráno
+            other: návrhů vybráno
           view: Zobrazit
         sortition_author:
           deleted: Smazaný účastník
         sortition_cancel_author:
           deleted: Smazaný účastník
+        sortitions_count:
+          count:
+            one: 1 volba losem
+            few: "%{count} volby losem"
+            many: "%{count} voleb losem"
+            other: "%{count} voleb losem"
