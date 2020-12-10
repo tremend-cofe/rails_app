@@ -13,6 +13,7 @@ ro:
         developer_group: Grup de promotori
         domain: Domeniu
         end_date: Data de sfârșit
+        hashtag: Hashtag
         hero_image: Imaginea de pornire
         local_area: Zona organizației
         meta_scope: Metadate privind domeniul
@@ -59,6 +60,20 @@ ro:
     models:
       decidim/participatory_process_step_activated_event: Faza a fost activată
       decidim/participatory_process_step_changed_event: Faza a fost modificată
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proces participativ
+        few: Procese participative
+        other: Procese participative
+      decidim/participatory_process_group:
+        one: Grup pentru procese participative
+        few: Grupuri pentru procese participative
+        other: Grupuri pentru procese participative
+      decidim/participatory_process_step:
+        one: Fază
+        few: Faze
+        other: Faze
   decidim:
     admin:
       actions:
@@ -273,6 +288,8 @@ ro:
           contextual: "<p>Un <strong> proces participativ</strong> este o secvență de activități participative (de exemplu, prima completare a unui sondaj, formularea de propuneri, discutarea lor în cadrul reuniunilor față în față sau virtuale și, în cele din urmă, stabilirea priorităților) cu scopul de a defini și de a lua o decizie pe o temă specifică. </p> <p>Exemple de procese participative: un proces de alegere a membrilor comitetului (atunci când candidaturile sunt prezentate pentru prima dată, apoi dezbătute și, în final, se alege o candidatură), bugetele participative (atunci când propunerile sunt făcute, evaluate din punct de vedere economic și votate cu fondurile disponibile), un proces de planificare strategică, elaborarea în colaborare a unui regulament sau a unei norme, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
           page: "<p>Un <strong> proces participativ</strong> este o secvență de activități participative (de exemplu, prima completare a unui sondaj, formularea de propuneri, discutarea lor în cadrul reuniunilor față în față sau virtuale și, în cele din urmă, stabilirea priorităților) cu scopul de a defini și de a lua o decizie pe o temă specifică. </p> <p>Exemple de procese participative: un proces de alegere a membrilor comitetului (atunci când candidaturile sunt prezentate pentru prima dată, apoi dezbătute și, în final, se alege o candidatură), bugetele participative (atunci când propunerile sunt făcute, evaluate din punct de vedere economic și votate cu fondurile disponibile), un proces de planificare strategică, elaborarea în colaborare a unui regulament sau a unei norme, conceperea unui spațiu urban sau elaborarea unui plan de politică publică.</p>\n"
           title: Ce este un proces participativ?
+    menu:
+      processes: Procese
     metrics:
       participatory_processes:
         description: Numărul de procese participative în cadrul acestei organizații
@@ -283,6 +300,10 @@ ro:
         related_assemblies: Adunări înrudite
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 proces pentru %{group}
+          few: "%{count} procese pentru %{group}"
+          other: "%{count} procese pentru %{group}"
         title: Administratorul procesului participativ
     participatory_process_steps:
       index:
@@ -322,19 +343,43 @@ ro:
       content_blocks:
         highlighted_processes:
           name: Procese evidențiate
+      index:
+        title: Procese participative
+      last_activity:
+        new_participatory_process: Proces participativ nou
       pages:
         home:
           highlighted_processes:
+            active_processes: Procese active
             active_step: Faza activă
             more_information: Informații suplimentare
             participate: Participați
             participate_in: Participați la procesul %{resource_name}
+            see_all_processes: Afișează toate procesele
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina procesului
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 proces activ
+              few: "%{count} procese active"
+              other: "%{count} procese active"
+            all:
+              one: 1 proces
+              few: "%{count} procese"
+              other: "%{count} procese"
+            past:
+              one: 1 proces anterior
+              few: "%{count} procese anterioare"
+              other: "%{count} procese anterioare"
+            upcoming:
+              one: 1 proces viitor
+              few: "%{count} procese viitoare"
+              other: "%{count} procese viitoare"
           explanations:
+            no_active: Niciun proces activ
             no_active_nor_upcoming: Nu există procese active sau viitoare
             no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Iată o listă a celor anterioare.
           names:
@@ -366,11 +411,14 @@ ro:
         endorsements_count: Avizări
         followers_count: Persoane care urmăresc
         headline: Statistici
+        meetings_count: Reuniuni
         no_stats: Nu există încă statistici.
         orders_count: Suporturi
         pages_count: Pagini
         participants_count: Participanți
+        processes_count: Procese
         projects_count: Proiecte
+        proposals_count: Propuneri
         results_count: Rezultate
         supports_count: Suporturi
         surveys_count: Sondaje
@@ -404,3 +452,5 @@ ro:
       process_header_steps:
         step: Faza %{current} din %{total}
         view_steps: Faze ale procesului
+      process_navigation:
+        process_menu_item: Procesul
