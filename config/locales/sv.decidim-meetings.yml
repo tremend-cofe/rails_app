@@ -29,6 +29,7 @@ sv:
         registrations_enabled: Registreringar har aktiverats
         start_time: Starttid
         title: Titel
+        transparent: Öppen
       minutes:
         audio_url: Ljud-url
         description: Beskrivning
@@ -50,9 +51,13 @@ sv:
       decidim/meetings/create_meeting_event: Möte
       decidim/meetings/meeting_registrations_enabled_event: Registreringar har aktiverats
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringar är över gränsen
+      decidim/meetings/upcoming_meeting_event: Kommande möte
       decidim/meetings/update_meeting_event: Mötet har uppdaterats
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Möte
+        other: Möten
       decidim/meetings/minutes:
         one: Minuter
         other: Minuter
@@ -73,6 +78,7 @@ sv:
       meetings:
         actions:
           join: Gå med
+        name: Möten
         settings:
           global:
             announcement: Tillkännagivande
@@ -157,6 +163,7 @@ sv:
             one: 'Det går inte att förstöra mötet eftersom %{count} förslag är kopplat till det:'
             other: 'Det går inte att förstöra mötet eftersom %{count} förslag är kopplade till det:'
         minutes: Minuter
+        new: Nytt möte
         preview: Förhandsgranskning
         registrations: Registreringar
         title: Åtgärder
@@ -324,12 +331,14 @@ sv:
       content_blocks:
         upcoming_events:
           name: Kommande evenemang
+          upcoming_events: Kommande möten
           view_all_events: Visa alla
       directory:
         meetings:
           index:
             all: Alla
             date: Datum
+            meetings: Möten
             past: Tidigare
             search: Sök
             space_type: Deltagandeutrymme
@@ -346,6 +355,10 @@ sv:
       meeting:
         not_allowed: Du har inte tillstånd att visa detta möte
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} möte"
+            other: "%{count} möten"
         create:
           invalid: Ett fel uppstod när mötet skapades.
           success: Du har skapat mötet.
@@ -370,13 +383,17 @@ sv:
           search: Sök
         filters_small_view:
           close_modal: Stäng modalt fönster
+          filter: Filter
           filter_by: Filtrera efter
           unfold: Öppna
         form:
           address_help: 'Adress: används av Geocoder för att hitta platsen'
+          create_as: Skapa möte som
           location_help: 'Plats: meddelande till användarna som pekar på mötesplatsen'
           location_hints_help: 'Ledtråd om plats: ytterligare information. Exempel: byggnadens golv'
           select_a_category: Välj en kategori
+        index:
+          new_meeting: Nytt möte
         meeting_minutes:
           meeting_minutes: Mötesprotokoll
           related_information: Relevant information
@@ -386,6 +403,7 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
+          title: Skapa ditt möte
         registration_confirm:
           cancel: Annullera
           confirm: Bekräfta
@@ -419,6 +437,7 @@ sv:
             email: E-post
             name: Namn
             sent_at: Skickat
+            status: Status
           status:
             accepted: Accepterad (%{at})
             rejected: Avböjd (%{at})
@@ -428,6 +447,7 @@ sv:
             closed: Avslutad
             end_time: Slutdatum
             map: Karta
+            official_meeting: Officiellt möte
             start_time: Startdatum
             title: Titel
       read_more: "(läs mer)"
@@ -448,14 +468,26 @@ sv:
           success: Du har lämnat mötet.
       types:
         private_meeting: Privat möte
+        transparent: Öppen
       versions:
         back_to_resource: Gå tillbaka till mötet
     metrics:
       meetings:
         description: Antal skapade möten
+        object: möten
+        title: Möten
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidigare möten
+        see_all: Se alla möten (%{count})
+        upcoming_meetings: Kommande möten
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommande möte
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterade resultat:'
