@@ -7,6 +7,18 @@ cs:
         cofe_charter_html: Souhlasím s <a href="%{url}" target="_blank">chartou</a> konference o budoucnosti Evropy
     models:
       decidim/meetings/upcoming_meeting_event: Nadcházející schůze
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Schůze
+        few: Schůze
+        many: Schůze
+        other: Schůze
+      decidim/participatory_process:
+        one: Participativní proces
+        few: Participativní procesy
+        many: Participativní procesy
+        other: Participativní procesy
   decidim:
     components:
       meetings:
@@ -25,6 +37,12 @@ cs:
           index:
             meetings: Schůze
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} schůze"
+            few: "%{count} schůze"
+            many: "%{count} schůzí"
+            other: "%{count} schůzí"
         form:
           create_as: Vytvořit schůzi jako
         index:
@@ -73,6 +91,27 @@ cs:
           upcoming_meetings: Nadcházející schůze
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktivní proces
+              few: "%{count} aktivní procesy"
+              many: "%{count} aktivních procesů"
+              other: "%{count} aktivních procesů"
+            all:
+              one: 1 proces
+              few: "%{count} procesy"
+              many: "%{count} procesů"
+              other: "%{count} procesů"
+            past:
+              one: 1 minulý proces
+              few: "%{count} minulé procesy"
+              many: "%{count} minulých procesů"
+              other: "%{count} minulých procesů"
+            upcoming:
+              one: 1 nadcházející proces
+              few: "%{count} nadcházející procesy"
+              many: "%{count} nadcházejících procesů"
+              other: "%{count} nadcházejících procesů"
           explanations:
             no_active: Žádné aktivní procesy
       statistics:
@@ -91,6 +130,12 @@ cs:
       last_activity:
         new_proposal_at_html: "<span>Nový návrh na %{link}</span>"
       proposals:
+        count:
+          proposals_count:
+            one: "%{count} návrh"
+            few: "%{count} návrhy"
+            many: "%{count} návrhů"
+            other: "%{count} návrhů"
         index:
           new_proposal: Nový návrh
           view_proposal: Zobrazit návrh
