@@ -53,6 +53,23 @@ cs:
       decidim/meetings/meeting_registrations_over_percentage_event: Počet registrací nad limit
       decidim/meetings/upcoming_meeting_event: Nadcházející schůze
       decidim/meetings/update_meeting_event: Schůze aktualizována
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Schůze
+        few: Schůze
+        many: Schůze
+        other: Schůze
+      decidim/meetings/minutes:
+        one: Zápis
+        few: Zápisy
+        many: Zápisy
+        other: Zápisy
+      decidim/meetings/registration:
+        one: Registrace
+        few: Registrace
+        many: Registrace
+        other: Registrace
   decidim:
     admin:
       meeting_copies:
@@ -147,6 +164,12 @@ cs:
         confirm_destroy: Opravdu chcete smazat tuto schůzi?
         destroy: Smazat
         edit: Upravit
+        invalid_destroy:
+          proposals_count:
+            one: 'Tuto schůzi nelze smazat, protože je s ní spojen %{count} návrh:'
+            few: 'Tuto schůzi nelze smazat, protože jsou s ní spojeny %{count} návrhy:'
+            many: 'Tuto schůzi nelze smazat, protože je s ní spojeno %{count} návrhů:'
+            other: 'Tuto schůzi nelze smazat, protože je s ní spojeno %{count} návrhů:'
         minutes: Zápis
         new: Nová schůze
         preview: Náhled
@@ -333,6 +356,12 @@ cs:
       meeting:
         not_allowed: Nemáte povoleno zobrazit si tuto schůzi
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} schůze"
+            few: "%{count} schůze"
+            many: "%{count} schůzí"
+            other: "%{count} schůzí"
         create:
           invalid: Při tvorbě této schůze došlo k problému.
           success: Schůze byla úspěšně vytvořena.
@@ -396,6 +425,11 @@ cs:
           registration_state:
             validated: VALIDOVÁNO
             validation_pending: ČEKÁ NA VALIDACI
+          remaining_slots:
+            one: "%{count} zbývající místo"
+            few: "%{count} zbývající místa"
+            many: "%{count} zbývajících míst"
+            other: "%{count} zbývajících míst"
           view: Zobrazit
         update:
           invalid: Při aktualizaci schůze došlo k problému.
