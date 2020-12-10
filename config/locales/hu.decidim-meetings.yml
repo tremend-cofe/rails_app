@@ -51,9 +51,13 @@ hu:
       decidim/meetings/create_meeting_event: Ülés
       decidim/meetings/meeting_registrations_enabled_event: Regisztráció engedélyezve
       decidim/meetings/meeting_registrations_over_percentage_event: A regisztrációk meghaladják a korlátot
+      decidim/meetings/upcoming_meeting_event: Közelgő ülés
       decidim/meetings/update_meeting_event: Ülés frissítve
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Ülés
+        other: Ülések
       decidim/meetings/minutes:
         one: Jegyzőkönyv
         other: Jegyzőkönyv
@@ -74,6 +78,7 @@ hu:
       meetings:
         actions:
           join: Csatlakozás
+        name: Ülések
         settings:
           global:
             announcement: Bejelentés
@@ -158,6 +163,7 @@ hu:
             one: 'Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik:'
             other: 'Az ülés nem törölhető, mert %{count} kapcsolódó javaslattal rendelkezik:'
         minutes: Jegyzőkönyv
+        new: Új ülés
         preview: Előnézet
         registrations: Regisztrációk
         title: Műveletek
@@ -325,12 +331,14 @@ hu:
       content_blocks:
         upcoming_events:
           name: Közelgő események
+          upcoming_events: Közelgő ülések
           view_all_events: Az összes megtekintése
       directory:
         meetings:
           index:
             all: Összes
             date: Dátum
+            meetings: Ülések
             past: Múltbeli
             search: Keresés
             space_type: Részvételi tér
@@ -347,6 +355,10 @@ hu:
       meeting:
         not_allowed: Ön nem láthatja ezt az ülést
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} ülés"
+            other: "%{count} ülés"
         create:
           invalid: Hiba történt az ülés létrehozása során.
           success: Az ülés létrehozása sikeres.
@@ -376,9 +388,12 @@ hu:
           unfold: Kibontás
         form:
           address_help: 'Cím: a Geocoder használja a helyszín megtalálásához'
+          create_as: Ülés létrehozása mint
           location_help: 'Helyszín: a felhasználóknak szóló üzenet, amely az ülés helyszínét tartalmazza'
           location_hints_help: 'Helyszínre vonatkozó tippek: kiegészítő információk. Példa: az épület emelete'
           select_a_category: Kérjük, válasszon egy kategóriát
+        index:
+          new_meeting: Új ülés
         meeting_minutes:
           meeting_minutes: Az ülés jegyzőkönyve
           related_information: Kapcsolódó információk
@@ -388,6 +403,7 @@ hu:
         new:
           back: Vissza
           create: Létrehozás
+          title: Ülés létrehozása
         registration_confirm:
           cancel: Mégse
           confirm: Megerősítés
@@ -431,6 +447,7 @@ hu:
             closed: Lezárva
             end_time: Záró dátum
             map: Térkép
+            official_meeting: Hivatalos ülés
             start_time: Kezdő dátum
             title: Cím
       read_more: "(bővebben)"
@@ -457,9 +474,20 @@ hu:
     metrics:
       meetings:
         description: Létrehozott ülések száma
+        object: ülés
+        title: Ülések
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Múltbeli ülések
+          upcoming_meetings: Közelgő ülések
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Múltbeli ülések
+        see_all: Az összes ülés megtekintése (%{count})
+        upcoming_meetings: Közelgő ülések
+      upcoming_meeting_for_card:
+        upcoming_meeting: Közelgő ülés
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Kapcsolódó eredmények:'
