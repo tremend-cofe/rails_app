@@ -7,6 +7,7 @@ sk:
         created_at: 'Vytvorené:'
       group:
         about: Informácie
+        avatar: Avatar
         document_number: Číslo dokumentu
         email: E-mail
         name: Názov
@@ -44,6 +45,27 @@ sk:
         password: Heslo
         password_confirmation: Potvrdenie hesla
         remember_me: Zapamätať si ma
+    models:
+      decidim/amendment:
+        one: Zmena
+        few: Zmeny
+        many: Zmien
+        other: Zmien
+      decidim/endorsement:
+        one: Potvrdenie
+        few: Potvrdenia
+        many: Potvrdení
+        other: Potvrdení
+      decidim/user:
+        one: Účastník
+        few: Účastníci
+        many: Účastníkov
+        other: Účastníkov
+      decidim/user_group:
+        one: Skupina
+        few: Skupiny
+        many: Skupín
+        other: Skupín
   booleans:
     'false': 'Nie'
     'true': 'Áno'
@@ -214,12 +236,30 @@ sk:
           '4': Zverejnite svoju zmenu
     anonymous_user: Anonymné
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumentov
+          other: Dokumentov
       document:
         download: Stiahnuť súbor
       documents:
         related_documents: Súvisiace dokumenty
       photos:
         related_photos: Súvisiace obrázky
+    author:
+      avatar: Avatar
+      comments:
+        one: komentár
+        few: komentáre
+        many: komentárov
+        other: komentárov
+      endorsements:
+        one: potvrdenie
+        few: potvrdenia
+        many: potvrdení
+        other: potvrdení
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Overiť zadaním čísla pasu začínajúceho písmenom „A“
@@ -243,6 +283,9 @@ sk:
       expired_at: Platnosť uplynula o %{timestamp}
       expires_at: Platnosť uplynie o %{timestamp}
       foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
         name: Autorizácia foo
       granted_at: Udelená o %{timestamp}
       renew: Obnoviť overenie
@@ -282,6 +325,11 @@ sk:
       show:
         close_modal: Zatvoriť kontextové okno
     collapsible_list:
+      hidden_elements_count:
+        one: a ešte %{count}
+        few: a ešte %{count}
+        many: a ešte %{count}
+        other: a ešte %{count}
       see_less: "(zobraziť menej)"
       see_more: "(zobraziť viac)"
     components:
@@ -299,6 +347,9 @@ sk:
           question: Otázka
         title: 'Zobraziť:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Testovací komponent
         settings:
           global:
@@ -601,6 +652,11 @@ sk:
       title: Odtlačok prsta
       value: Hodnota
     followers:
+      followers_count:
+        one: "%{count} sledujúci"
+        few: "%{count} sledujúci"
+        many: "%{count} sledujúcich"
+        other: "%{count} sledujúcich"
       no_followers: Zatiaľ žiadni sledujúci.
     following:
       no_followings: Zatiaľ nikoho a nič nesledujem.
@@ -791,9 +847,11 @@ sk:
         skip_button: Preskočiť mapu
       static:
         latlng_text: 'zemepisná šírka: %{latitude}, zemepisná dĺžka: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Táto skupina ešte nemá žiadnych členov.
     menu:
+      help: Pomoc
       home: Domovská stránka
     messaging:
       conversation_mailer:
@@ -960,6 +1018,7 @@ sk:
           debates: Diskusie
           debates_explanation: Rokujte a diskutujte, vymieňajte si názory a obohacujte príslušné témy.
           how_to_participate: Ako sa zúčastním na procese?
+          meetings: Stretnutia
           meetings_explanation: Zistite, kde a kedy sa môžete zapojiť do verejných stretnutí.
           more_info: Viac informácií o položke %{resource_name}
           proposals: Návrhy
@@ -981,10 +1040,13 @@ sk:
           debates_count: Diskusie
           endorsements_count: Schválenia
           headline: Aktuálny stav organizácie %{organization}
+          meetings_count: Stretnutia
           orders_count: Hlasy
           pages_count: Stránky
+          processes_count: Procesy
           projects_count: Projekty
           proposals_accepted: Prijaté návrhy
+          proposals_count: Návrhy
           results_count: Výsledky
           surveys_count: Prieskumy
           users_count: Účastníci
@@ -995,6 +1057,7 @@ sk:
         read_more: Zobraziť viac
         standalone_pages: Stránky
         subheading: Prechádzajte stránkami pomocníka, ktorého vlastníkom je %{name}
+        title: Pomoc
         topics: Témy
       participatory_space:
         metrics:
@@ -1104,14 +1167,21 @@ sk:
           past: Minulé
       filters_small_view:
         close_modal: Zatvoriť kontextové okno
+        filter: Filter
         filter_by: Filtrovať podľa
         unfold: Rozbaliť
       results:
+        results:
+          one: "%{count} výsledok"
+          few: "%{count} výsledky"
+          many: "%{count} výsledkov"
+          other: "%{count} výsledkov"
         view_all: Zobraziť všetko (%{count})
     shared:
       confirm_modal:
         cancel: Zrušiť
         close_modal: Zatvoriť kontextové okno
+        ok: OK
         title: Potvrdiť
       embed_modal:
         close_window: Zatvoriť okno
@@ -1324,6 +1394,8 @@ sk:
         instruction: 'Na odomknutie svojho konta kliknite na odkaz uvedený ďalej:'
         message: Vaše konto bolo zamknuté z dôvodu nadmerného počtu neúspešných pokusov o prihlásenie.
         subject: Pokyny na odomknutie
+    omniauth_callbacks:
+      success: Úspešné overenie prostredníctvom účtu %{kind}.
     passwords:
       edit:
         change_my_password: Zmena hesla
@@ -1396,11 +1468,22 @@ sk:
       nesting_too_deep: nesmie byť vnútri podkategórie
       not_found: sa nepodarilo nájsť. Už ste sa zaregistrovali?
       not_locked: nebolo zamknuté
+      not_saved:
+        one: 'Pri spracúvaní vašej žiadosti sa vyskytla chyba:'
+        few: 'Pri spracúvaní vašej žiadosti sa vyskytlo viacero chýb:'
+        many: 'Pri spracúvaní vašej žiadosti sa vyskytlo viacero chýb:'
+        other: 'Pri spracúvaní vašej žiadosti sa vyskytlo viacero chýb:'
       too_many_marks: používa sa priveľa po sebe nasledujúcich interpunkčných znamienok (napr. ! a ?)
       too_much_caps: používa sa priveľa veľkých písmen (viac než 25 % textu)
       too_short: je príliš krátke (menej ako 15 znakov)
   forms:
     correct_errors: Vo formulári sa nachádzajú chyby, opravte ich a pokračujte.
+    length_validator:
+      minimum:
+        one: aspoň %{count} znak
+        few: aspoň %{count} znaky
+        many: aspoň %{count} znakov
+        other: aspoň %{count} znakov
     required: Povinné pole
     required_explanation: "* Povinné polia sú označené hviezdičkou"
   invisible_captcha:
@@ -1458,6 +1541,8 @@ sk:
         user_groups: Skupiny
       widget:
         see_more: Zobraziť viac
+  locale:
+    name: Slovenčina
   password_validator:
     domain_included_in_password: príliš sa podobá názvu domény
     email_included_in_password: príliš sa podobá vášmu e-mailu
@@ -1469,10 +1554,28 @@ sk:
     password_too_long: je príliš dlhé
     password_too_short: je príliš krátke
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
     google_bookmark: Záložky Google
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Sprístupniť pre %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Otvorte si svoje konto WeChat, kliknite na tlačidlo Discover (Objaviť) a potom na ponuku Scan QR Code (Naskenovať kód QR).
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Odstránenia
