@@ -62,6 +62,28 @@ sk:
       decidim/proposals/publish_proposal_event: Návrh zverejnený
       decidim/proposals/rejected_proposal_event: Návrh odmietnutý
       decidim/proposals/voting_enabled_event: Hlasovanie o návrhu povolené
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Spoločný koncept
+        few: Spoločné koncepty
+        many: Spoločných konceptov
+        other: Spoločných konceptov
+      decidim/proposals/proposal:
+        one: Návrh
+        few: Návrhy
+        many: Návrhov
+        other: Návrhov
+      decidim/proposals/proposal_note:
+        one: Poznámka
+        few: Poznámky
+        many: Poznámok
+        other: Poznámok
+      decidim/proposals/proposal_vote:
+        one: Podporný hlas
+        few: Podporné hlasy
+        many: Podporných hlasov
+        other: Podporných hlasov
   decidim:
     admin:
       filters:
@@ -324,6 +346,9 @@ sk:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Návrhy
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Zobraziť všetky návrhy (%{count})
     proposals:
       actions:
         answer_proposal: Odpovedať na návrh
@@ -551,6 +576,12 @@ sk:
         complete:
           send: Odoslať
           title: Dokončiť spoločný koncept
+        count:
+          drafts_count:
+            one: "%{count} spoločný koncept"
+            few: "%{count} spoločné koncepty"
+            many: "%{count} spoločných konceptov"
+            other: "%{count} spoločných konceptov"
         create:
           error: Pri vytváraní tohto spoločného konceptu sa vyskytol problém
           success: Spoločný koncept bol úspešne vytvorený.
@@ -573,6 +604,7 @@ sk:
           withdrawn: Stiahnuté
         filters_small_view:
           close_modal: Zatvoriť kontextové okno
+          filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         new:
@@ -604,6 +636,11 @@ sk:
           edit: Upraviť spoločný koncept
           final_proposal: konečný návrh
           final_proposal_help_text: Tento koncept je dokončený. Pozrite si konečný návrh
+          hidden_authors_count:
+            one: a ešte %{count} osoba
+            few: a ešte %{count} osoby
+            many: a ešte %{count} osôb
+            other: a ešte %{count} osôb
           info-message: Toto je <strong>spoločný koncept</strong> návrhu. Znamená to, že môžete pomôcť autorom pri vytváraní návrhu pomocou ďalej uvedeného oddielu s poznámkami alebo návrh priamo zlepšovať tým, že si vyžiadate prístup, aby ste ho mohli upravovať. Keď vám autori povolia prístup, budete môcť vykonávať zmeny tohto konceptu.
           publish: Zverejniť
           publish_info: Zverejniť túto verziu konceptu alebo
@@ -642,6 +679,8 @@ sk:
       destroy_draft:
         error: Pri odstraňovaní spoločného konceptu sa vyskytol problém.
         success: Koncept návrhu bol úspešne odstránený.
+      last_activity:
+        new_proposal_at_html: "<span>Nový návrh:%{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -682,6 +721,12 @@ sk:
         complete:
           send: Odoslať
           title: Dokončiť návrh
+        count:
+          proposals_count:
+            one: "%{count} návrh"
+            few: "%{count} návrhy"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
         edit:
           attachment_legend: "(Voliteľné) Pridať prílohu"
           back: Späť
@@ -708,13 +753,23 @@ sk:
           voted: Podporené
         filters_small_view:
           close_modal: Zatvoriť kontextové okno
+          filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         index:
           collaborative_drafts_list: Prístup k spoločným konceptom
+          new_proposal: Nový návrh
           see_all_withdrawn: Zobraziť všetky stiahnuté návrhy
+          view_proposal: Zobraziť návrh
+        linked_proposals:
+          proposal_votes:
+            one: podporný hlas
+            few: podporné hlasy
+            many: podporných hlasov
+            other: podporných hlasov
         new:
           send: Pokračovať
+          title: Vytvoriť návrh
         orders:
           label: 'Zoradiť návrhy podľa:'
           most_commented: Najviac poznámok
@@ -731,10 +786,16 @@ sk:
             see_index: Zobraziť register
         preview:
           modify: Upraviť návrh
+          proposal_edit_before_minutes:
+            one: Návrh budete môcť upravovať počas prvej minúty po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+            few: Návrh budete môcť upravovať počas prvých %{count} minút po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+            many: Návrh budete môcť upravovať počas prvých %{count} minút po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+            other: Návrh budete môcť upravovať počas prvých %{count} minút po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
           publish: Zverejniť
           title: Zverejniť návrh
         proposal:
           creation_date: 'Vytvorenie: %{date}'
+          view_proposal: Zobraziť návrh
         proposals:
           empty: Zatiaľ bez návrhov
           empty_filters: Neexistuje návrh zodpovedajúci týmto kritériám
@@ -747,6 +808,11 @@ sk:
           edit_proposal: Upraviť návrh
           endorsements_list: Zoznam schválení
           estimated_cost: Odhadované náklady
+          hidden_endorsers_count:
+            one: a ešte %{count} osoba
+            few: a ešte %{count} osoby
+            many: a ešte %{count} osôb
+            other: a ešte %{count} osôb
           link_to_collaborative_draft_help_text: Tento návrh je výsledkom spoločného konceptu. Zobraziť históriu
           link_to_collaborative_draft_text: Zobraziť spoločný koncept
           link_to_promoted_emendation_help_text: Tento návrh predstavuje presadzovanú opravu
@@ -774,6 +840,11 @@ sk:
           vote: Hlas
           votes_blocked: Hlasy sú zakázané
         votes_count:
+          count:
+            one: Podporný hlas
+            few: Podporné hlasy
+            many: Podporných hlasov
+            other: Podporných hlasov
           most_popular_proposal: Najpopulárnejší návrh
           need_more_votes: Vyžaduje sa viac hlasov
         voting_rules:
@@ -794,14 +865,20 @@ sk:
             votes: Hlasy
         wizard_aside:
           back: Späť
+          back_from_step_1: Späť k návrhom
+          back_from_step_2: Späť k návrhom
           back_from_step_3: Späť k porovnaniu návrhov
           back_from_step_4: Spať k úprave konceptu
+          info: Vytvárate <strong>návrh</strong>.
         wizard_steps:
           current_step: Aktuálny krok
           see_steps: zobraziť kroky
+          step_1: Vytvoriť návrh
           step_2: Porovnať
           step_3: Dokončiť
+          step_4: Zverejniť návrh
           step_of: Krok %{current_step_num} z %{total_steps}
+          title: Kroky, ako vytvoriť návrh
       proposals_picker:
         choose_proposals: Vybrať návrhy
         close: Zatvoriť
@@ -823,6 +900,8 @@ sk:
           back_to_resource: Vrátiť sa k spoločnému konceptu
         index:
           title: Verzie
+        proposals:
+          back_to_resource: Späť k návrhu
       withdraw:
         errors:
           has_supports: Tento návrh nemožno stiahnuť, pretože mu už boli udelené hlasy.
