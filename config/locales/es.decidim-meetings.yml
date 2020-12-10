@@ -51,9 +51,13 @@ es:
       decidim/meetings/create_meeting_event: Encuentro
       decidim/meetings/meeting_registrations_enabled_event: Inscripción habilitada
       decidim/meetings/meeting_registrations_over_percentage_event: Límite de inscripciones superado
+      decidim/meetings/upcoming_meeting_event: Próxima reunión
       decidim/meetings/update_meeting_event: Encuentro actualizado
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Reunión
+        other: Reuniones
       decidim/meetings/minutes:
         one: Acta
         other: Actas
@@ -74,6 +78,7 @@ es:
       meetings:
         actions:
           join: Unirse
+        name: Reuniones
         settings:
           global:
             announcement: Anuncio
@@ -158,6 +163,7 @@ es:
             one: 'No es posible eliminar el encuentro debido a que hay %{count} propuesta asociada a él:'
             other: 'No es posible eliminar el encuentro debido a que hay %{count} propuestas asociadas a él:'
         minutes: Actas
+        new: Nueva reunión
         preview: Vista previa
         registrations: Inscripciones
         title: Acciones
@@ -325,12 +331,14 @@ es:
       content_blocks:
         upcoming_events:
           name: Próximos eventos
+          upcoming_events: Próximas reuniones
           view_all_events: Ver todo
       directory:
         meetings:
           index:
             all: Todos
             date: Fecha
+            meetings: Reuniones
             past: Finalizados
             search: Buscar
             space_type: Espacio participativo
@@ -347,6 +355,10 @@ es:
       meeting:
         not_allowed: No estás autorizado para visualizar este encuentro
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunión"
+            other: "%{count} reuniones"
         create:
           invalid: Se ha producido un error al crear el encuentro.
           success: Encuentro correctamente creado.
@@ -376,9 +388,12 @@ es:
           unfold: Desplegar
         form:
           address_help: 'Dirección: utilizada por Geocoder para encontrar el lugar'
+          create_as: Crear reunión como
           location_help: 'Lugar: mensaje dirigido a los usuarios en el que se da a entender el lugar de reunión'
           location_hints_help: 'Sugerencias sobre el lugar: información adicional. Ejemplo: el piso del edificio'
           select_a_category: Selecciona una categoría
+        index:
+          new_meeting: Nueva reunión
         meeting_minutes:
           meeting_minutes: Acta del encuentro
           related_information: Información relacionada
@@ -388,6 +403,7 @@ es:
         new:
           back: Atrás
           create: Crear
+          title: Crear reunión
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -431,6 +447,7 @@ es:
             closed: Cerrado
             end_time: Fecha de finalización
             map: Mapa
+            official_meeting: Reunión oficial
             start_time: Fecha de inicio
             title: Título
       read_more: "(leer más)"
@@ -457,9 +474,20 @@ es:
     metrics:
       meetings:
         description: Número de encuentros creados
+        object: reuniones
+        title: Reuniones
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniones anteriores
+          upcoming_meetings: Próximas reuniones
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros finalizados
+        see_all: Ver todas las reuniones (%{count})
+        upcoming_meetings: Próximas reuniones
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunión
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'
