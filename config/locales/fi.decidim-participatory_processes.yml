@@ -29,6 +29,7 @@ fi:
         short_description: Lyhyt kuvaus
         show_metrics: Näytä mittarit
         show_statistics: Näytä tilastot
+        slug: URL slug
         start_date: Alkamispäivä
         subtitle: Alaotsikko
         target: Osallistujat
@@ -61,6 +62,9 @@ fi:
       decidim/participatory_process_step_changed_event: Vaihetta muutettu
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Osallistumisprosessi
+        other: Osallistumisprosessit
       decidim/participatory_process_group:
         one: Osallistumisprosessiryhmä
         other: Osallistumisprosessiryhmää
@@ -284,6 +288,8 @@ fi:
           contextual: "<p><strong>Osallistumisprosessi</strong> on sarja osallistavia toimintoja (esim. ensin täytetään kysely, tehdään ehdotuksia, keskustellaan ehdotuksista kasvokkain tai virtuaalisesti ja lopulta valitaan niistä parhaat), joiden tarkoituksena on määritellä tietty aihe ja tehdä siihen liittyviä päätöksiä.</p> <p>Tällaisia osallistavia prosesseja ovat esimerkiksi: komitean jäsenten valintaprosessi (jossa ensin esitellään ehdokkaat, sitten keskustellaan heistä ja lopuksi valitaan yksi ehdokas), osallistavat talousarviot (joissa tehdään ehdotuksia ja taloudellisia arvotuksia sekä äänestetään käytettävistä varoista), strategian suunnitteluprosessi, asetuksen tai standardin laatiminen yhteistyössä, kaupunkialueen suunnittelu tai politiikan suunnitteleminen.</p>\n"
           page: "<p><strong>Osallistumisprosessi</strong> on sarja osallistavia toimintoja (esim. ensin täytetään kysely, tehdään ehdotuksia, keskustellaan ehdotuksista kasvokkain tai virtuaalisesti ja lopulta valitaan niistä parhaat), joiden tarkoituksena on määritellä tietty aihe ja tehdä siihen liittyviä päätöksiä.</p> <p>Tällaisia osallistavia prosesseja ovat esimerkiksi: komitean jäsenten valintaprosessi (jossa ensin esitellään ehdokkaat, sitten keskustellaan heistä ja lopuksi valitaan yksi ehdokas), osallistavat talousarviot (joissa tehdään ehdotuksia ja taloudellisia arvotuksia sekä äänestetään käytettävistä varoista), strategian suunnitteluprosessi, asetuksen tai standardin laatiminen yhteistyössä, kaupunkialueen suunnittelu tai politiikan suunnitteleminen.</p>\n"
           title: Mikä on osallistumisprosessi?
+    menu:
+      processes: Prosessit
     metrics:
       participatory_processes:
         description: Osallistumisprosessien määrä
@@ -336,19 +342,39 @@ fi:
       content_blocks:
         highlighted_processes:
           name: Korostetut prosessit
+      index:
+        title: Osallistumisprosessit
+      last_activity:
+        new_participatory_process: Uusi osallistumisprosessi
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
             more_information: Lisätietoja
             participate: Osallistu
             participate_in: Osallistu prosessiin %{resource_name}
+            see_all_processes: Näytä kaikki prosessit
       participatory_process_steps:
         index:
           back_to_process: Takaisin prosessisivulle
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktiivinen prosessi
+              other: "%{count} aktiivinen prosessi"
+            all:
+              one: 1 prosessi
+              other: "%{count} prosessia"
+            past:
+              one: 1 mennyt prosessi
+              other: "%{count} mennyttä prosessia"
+            upcoming:
+              one: 1 tuleva prosessi
+              other: "%{count} tulevaa prosessia"
           explanations:
+            no_active: Ei aktiivisia prosesseja
             no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
             no_active_nor_upcoming_callout: Aktiivisia tai tulevia prosesseja ei ole. Tässä on luettelo menneistä prosesseista.
           names:
@@ -380,11 +406,14 @@ fi:
         endorsements_count: Suositukset
         followers_count: Seuraajat
         headline: Tilastot
+        meetings_count: Kokoukset
         no_stats: Tilastoja ei vielä ole.
         orders_count: Tuenosoitukset
         pages_count: Sivut
         participants_count: Osallistujat
+        processes_count: Prosessit
         projects_count: Hankkeet
+        proposals_count: Ehdotukset
         results_count: Tulokset
         supports_count: Tuenosoitukset
         surveys_count: Kyselyt
@@ -418,3 +447,5 @@ fi:
       process_header_steps:
         step: Vaihe %{current} / %{total}
         view_steps: Prosessin vaiheet
+      process_navigation:
+        process_menu_item: Prosessi
