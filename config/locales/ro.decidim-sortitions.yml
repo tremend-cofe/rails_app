@@ -11,6 +11,12 @@ ro:
         witnesses: Martori
     models:
       decidim/sortitions/create_sortition_event: Tragere la sorți
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Tragere la sorți
+        few: Trageri la sorți
+        other: Trageri la sorți
   decidim:
     components:
       sortitions:
@@ -87,7 +93,13 @@ ro:
           delete: "%{user_name} a anulat tragerea la sorți %{resource_name} în %{space_name}"
           update: "%{user_name} a actualizat tragerea la sorți %{resource_name} în %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 propunere
+            few: "%{count} propuneri"
+            other: "%{count} propuneri"
         filters:
+          active: Activă
           all: Toate
           cancelled: Anulate
           category: Categorie
@@ -105,6 +117,11 @@ ro:
           label: 'Ordonare trageri la sorți în funcție de:'
           random: Aleatorie
           recent: Recente
+        results_count:
+          count:
+            one: propunere selectată
+            few: propuneri selectate
+            other: propuneri selectate
         show:
           algorithm: Codul algoritmului tragerii la sorți
           any_category: din toate categoriile
@@ -122,8 +139,17 @@ ro:
           witnesses: Martori
         sortition:
           random_seed: Valoare inițială aleatorie
+          selected_proposals:
+            one: propunere selectată
+            few: propuneri selectate
+            other: propuneri selectate
           view: Vizualizare
         sortition_author:
           deleted: Participant șters
         sortition_cancel_author:
           deleted: Participant șters
+        sortitions_count:
+          count:
+            one: 1 tragere la sorți
+            few: "%{count} trageri la sorți"
+            other: "%{count} trageri la sorți"
