@@ -51,9 +51,13 @@ it:
       decidim/meetings/create_meeting_event: Riunione
       decidim/meetings/meeting_registrations_enabled_event: Iscrizione abilitata
       decidim/meetings/meeting_registrations_over_percentage_event: Limite di iscrizioni superato
+      decidim/meetings/upcoming_meeting_event: Riunione in programma
       decidim/meetings/update_meeting_event: Riunione aggiornata
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Riunione
+        other: Riunioni
       decidim/meetings/minutes:
         one: Verbale
         other: Verbale
@@ -74,6 +78,7 @@ it:
       meetings:
         actions:
           join: Unisciti
+        name: Riunioni
         settings:
           global:
             announcement: Annuncio
@@ -158,6 +163,7 @@ it:
             one: 'La riunione non può essere eliminata perché ad essa è associata %{count} proposta:'
             other: 'La riunione non può essere eliminata perché ad essa sono associate %{count} proposte:'
         minutes: Verbale
+        new: Nuova riunione
         preview: Anteprima
         registrations: Iscrizioni
         title: Azioni
@@ -325,12 +331,14 @@ it:
       content_blocks:
         upcoming_events:
           name: Prossimi eventi
+          upcoming_events: Prossime riunioni
           view_all_events: Vedi tutte
       directory:
         meetings:
           index:
             all: Tutti
             date: Data
+            meetings: Riunioni
             past: Precedenti
             search: Ricerca
             space_type: Spazio partecipativo
@@ -347,6 +355,10 @@ it:
       meeting:
         not_allowed: Non sei autorizzato a visualizzare questa riunione
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} riunione"
+            other: "%{count} riunioni"
         create:
           invalid: Si è verificato un problema durante la creazione di questa riunione.
           success: La riunione è stata creata correttamente.
@@ -376,9 +388,12 @@ it:
           unfold: Apri elenco
         form:
           address_help: 'Indirizzo: utilizzato da Geocoder per individuare la sede'
+          create_as: Crea riunione come
           location_help: 'Luogo: messaggio indirizzato agli utenti che indica il punto di incontro'
           location_hints_help: 'Dettagli sulla sede: informazioni complementari. Esempio: il piano dell''edificio'
           select_a_category: Scegli una categoria
+        index:
+          new_meeting: Nuova riunione
         meeting_minutes:
           meeting_minutes: Verbale della riunione
           related_information: Informazioni correlate
@@ -388,6 +403,7 @@ it:
         new:
           back: Indietro
           create: Crea
+          title: Crea la tua riunione
         registration_confirm:
           cancel: Annulla
           confirm: Conferma
@@ -431,6 +447,7 @@ it:
             closed: Chiusa
             end_time: Data di fine
             map: Mappa
+            official_meeting: Riunione ufficiale
             start_time: Data di inizio
             title: Titolo
       read_more: "(leggi di più)"
@@ -457,9 +474,20 @@ it:
     metrics:
       meetings:
         description: Numero di riunioni create
+        object: riunioni
+        title: Riunioni
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Riunioni precedenti
+          upcoming_meetings: Prossime riunioni
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Riunioni precedenti
+        see_all: Vedi tutte le riunioni (%{count})
+        upcoming_meetings: Prossime riunioni
+      upcoming_meeting_for_card:
+        upcoming_meeting: Riunione in programma
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Risultati correlati:'
