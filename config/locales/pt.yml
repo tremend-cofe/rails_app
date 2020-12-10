@@ -1,3 +1,156 @@
 pt:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Processo
+      meeting:
+        cofe_charter_html: Concordo com a <a href="%{url}" target="_blank">Carta</a> da Conferência sobre o Futuro da Europa
+    models:
+      decidim/meetings/upcoming_meeting_event: Próxima reunião
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Reunião
+        other: Reuniões
+      decidim/participatory_process:
+        one: Processo participativo
+        other: Processos participativos
+  decidim:
+    components:
+      meetings:
+        name: Reuniões
+        settings:
+          global:
+            cofe_charter_url: URL da Carta da COFE
+    meetings:
+      actions:
+        new: Nova reunião
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Próximas reuniões
+      directory:
+        meetings:
+          index:
+            meetings: Reuniões
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
+        form:
+          create_as: Criar reunião como
+        index:
+          new_meeting: Nova reunião
+        new:
+          title: Crie a sua reunião
+      models:
+        meeting:
+          fields:
+            official_meeting: Reunião oficial
+    menu:
+      help: Ajuda
+      processes: Processos
+    menu_overwrite:
+      citizens_panels: Painéis de cidadãos
+      events: Eventos
+      plenaries: Reuniões plenárias
+      topics: Processos
+    metrics:
+      meetings:
+        object: reuniões
+        title: Reuniões
+    pages:
+      home:
+        extended:
+          meetings: Reuniões
+        statistics:
+          meetings_count: Reuniões
+          processes_count: Processos
+          proposals_count: Propostas
+      index:
+        title: Ajuda
+    participatory_processes:
+      index:
+        title: Processos participativos
+      last_activity:
+        new_participatory_process: Novo processo participativo
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processos ativos
+            see_all_processes: Ver todos os processos
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniões anteriores
+          upcoming_meetings: Próximas reuniões
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 processo ativo
+              other: "%{count} processos ativos"
+            all:
+              one: 1 processo
+              other: "%{count} processos"
+            past:
+              one: 1 processo inativo
+              other: "%{count} processos inativos"
+            upcoming:
+              one: 1 processo futuro
+              other: "%{count} processos futuros"
+          explanations:
+            no_active: Nenhum processo ativo
+      statistics:
+        meetings_count: Reuniões
+        processes_count: Processos
+        proposals_count: Propostas
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Ver todas as reuniões (%{count})
+        upcoming_meetings: Próximas reuniões
+      highlighted_proposals:
+        see_all: Ver todas as propostas(%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunião
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
+        index:
+          new_proposal: Nova proposta
+          view_proposal: Ver proposta
+        new:
+          title: Crie a sua proposta
+        proposal:
+          view_proposal: Ver proposta
+        wizard_aside:
+          back_from_step_1: Voltar a propostas
+          back_from_step_2: Voltar a propostas
+          info: Está a criar uma <strong>proposta</strong>.
+        wizard_steps:
+          step_1: Crie a sua proposta
+          step_4: Publicar proposta
+          title: Como criar uma proposta
+      versions:
+        proposals:
+          back_to_resource: Voltar a proposta
+  devise:
+    omniauth_callbacks:
+      failure: Não foi possível autenticá-lo através de EU Login devido a "%{reason}".
+      success: Autenticação bem-sucedida através da conta %{kind}.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Fechar
+        select_your_language: Selecione a sua língua
+      process_navigation:
+        process_menu_item: O processo
+      user:
+        logged_in: Sessão iniciada
+        logged_in_as: Sessão iniciada como %{user}
   locale:
     name: Português
