@@ -1,1 +1,136 @@
 nl:
+  activemodel:
+    attributes:
+      oauth_application:
+        name: Naam OAuth-toepassing
+        organization_logo: Logo organisatie (vierkant)
+        organization_name: Organisatie
+        organization_url: URL organisatie
+        redirect_uri: Omleidings-URI
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: De omleidings-URI moet een SSL-URI zijn
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerken
+        new: Nieuw
+        save: Opslaan
+        title: Acties
+      admins:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe beheerder.
+          success: Beheerder aangemaakt
+        destroy:
+          success: Beheerder verwijderd
+        edit:
+          title: Beheerder bewerken
+          update: Bijwerken
+        index:
+          title: Beheerders
+        new:
+          create: Aanmaken
+          title: Nieuwe beheerder
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze beheerder.
+          success: Beheerder bijgewerkt
+      default_pages:
+        placeholders:
+          content: Voeg betekenisvolle inhoud toe aan de statische pagina %{page} op het dashboard van de beheerder.
+          title: Standaardtitel voor %{page}
+      menu:
+        admins: Beheerders
+        dashboard: Dashboard
+        oauth_applications: OAuth-toepassingen
+        organizations: Organisaties
+      models:
+        oauth_application:
+          fields:
+            created_at: Aangemaakt op
+            name: Naam OAuth-toepassing
+            organization_name: Organisatie
+          name: OAuth-toepassing
+        organization:
+          actions:
+            save_and_invite: Organisatie aanmaken en beheerder uitnodigen
+          fields:
+            created_at: Aangemaakt op
+            name: Naam
+            omniauth_settings: OmniAuth-instellingen
+            smtp_settings: SMTP-instellingen
+          name: Organisatie
+      oauth_applications:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van deze toepassing.
+          success: Toepassing aangemaakt.
+        destroy:
+          error: Er is een probleem opgetreden bij het verwijderen van deze toepassing.
+          success: Toepassing verwijderd.
+        edit:
+          save: Opslaan
+          title: Toepassing bewerken
+        form:
+          select_organization: Een organisatie selecteren
+        index:
+          confirm_delete: Weet u zeker dat u deze toepassing wilt verwijderen?
+          title: OAuth-toepassingen
+        new:
+          save: Opslaan
+          title: Nieuwe toepassing
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze toepassing.
+          success: Toepassing bijgewerkt.
+      organizations:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe organisatie.
+          success: Organisatie aangemaakt.
+        edit:
+          secondary_hosts_hint: Vul elke in op een nieuwe regel
+        index:
+          title: Organisaties
+        new:
+          reference_prefix_hint: Het referentieprefix wordt gebruikt om middelen in de gehele organisatie op unieke wijze te identificeren
+          secondary_hosts_hint: Vul elke in op een nieuwe regel
+          title: Nieuwe organisatie
+        omniauth_settings:
+          decidim:
+            client_id: Cliënt-ID
+            client_secret: Clientgeheim
+            site_url: URL site
+          enabled: Ingeschakeld
+          enabled_by_default: Deze leverancier is standaard ingeschakeld. Kan worden bewerkt, maar niet worden uitgeschakeld.
+          facebook:
+            app_id: App-ID
+            app_secret: App-geheim
+          google_oauth2:
+            client_id: Client-ID
+            client_secret: Clientgeheim
+          icon: Pictogram
+          icon_path: Pad pictogram
+          twitter:
+            api_key: API-sleutel
+            api_secret: API-geheim
+        smtp_settings:
+          instructions:
+            from_label: 'Het e-mailadres van de afzender wordt: "naam-van-uw-organisatie <uw-organisatie@uw-provider.org>". Leeg laten om ''from_email'' als etiket te gebruiken'
+          placeholder:
+            from_email: uw-organisatie@uw-provider.org
+            from_label: naam-van-uw-organisatie
+        update:
+          error: Er is een probleem opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie bijgewerkt.
+        users_registration_mode:
+          disabled: Toegang is alleen mogelijk via externe accounts
+          enabled: Deelnemers mogen zich registreren en inloggen
+          existing: Deelnemers mogen zich niet registreren, maar bestaande deelnemers mogen inloggen
+      shared:
+        notices:
+          no_organization_warning_html: U moet een organisatie aanmaken om te kunnen beginnen. Lees eerst onze %{guide} voordat u verder gaat.
+          our_getting_started_guide: korte handleiding
+      titles:
+        dashboard: Dashboard

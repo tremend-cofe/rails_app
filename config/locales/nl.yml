@@ -1,3 +1,155 @@
 nl:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Onderwerp
+      meeting:
+        cofe_charter_html: Ik ga akkoord met het <a href="%{url}" target="_blank">handvest</a> van de conferentie over de toekomst van Europa
+    models:
+      decidim/meetings/upcoming_meeting_event: Geplande vergadering
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Vergadering
+        other: Vergaderingen
+      decidim/participatory_process:
+        one: Participatieproces
+        other: Participatieprocessen
+  decidim:
+    components:
+      meetings:
+        name: Vergaderingen
+        settings:
+          global:
+            cofe_charter_url: Url van het handvest van de conferentie over de toekomst van Europa
+    meetings:
+      actions:
+        new: Nieuwe vergadering
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Geplande vergaderingen
+      directory:
+        meetings:
+          index:
+            meetings: Vergaderingen
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} vergadering"
+            other: "%{count} vergaderingen"
+        form:
+          create_as: Vergadering aanmaken als
+        index:
+          new_meeting: Nieuwe vergadering
+        new:
+          title: Uw vergadering aanmaken
+      models:
+        meeting:
+          fields:
+            official_meeting: Officiële vergadering
+    menu:
+      help: Help
+      processes: Processen
+    menu_overwrite:
+      citizens_panels: Burgerpanels
+      events: Evenementen
+      plenaries: Plenaire vergaderingen
+      topics: Onderwerpen
+    metrics:
+      meetings:
+        object: vergaderingen
+        title: Vergaderingen
+    pages:
+      home:
+        extended:
+          meetings: Vergaderingen
+        statistics:
+          meetings_count: Vergaderingen
+          processes_count: Processen
+          proposals_count: Voorstellen
+      index:
+        title: Help
+    participatory_processes:
+      index:
+        title: Participatieprocessen
+      last_activity:
+        new_participatory_process: Nieuw participatieproces
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Actieve processen
+            see_all_processes: Alle processen bekijken
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Eerdere vergaderingen
+          upcoming_meetings: Geplande vergaderingen
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 actief proces
+              other: "%{count} actieve processen"
+            all:
+              one: 1 proces
+              other: "%{count} processen"
+            past:
+              one: 1 eerder proces
+              other: "%{count} eerdere processen"
+            upcoming:
+              one: 1 gepland proces
+              other: "%{count} geplande processen"
+          explanations:
+            no_active: Geen actieve processen
+      statistics:
+        meetings_count: Vergaderingen
+        processes_count: Processen
+        proposals_count: Voorstellen
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Alle vergaderingen bekijken (%{count})
+        upcoming_meetings: Geplande vergaderingen
+      highlighted_proposals:
+        see_all: Alle voorstellen bekijken (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Geplande vergadering
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} voorstel"
+            other: "%{count} voorstellen"
+        index:
+          new_proposal: Nieuw voorstel
+          view_proposal: Voorstel bekijken
+        new:
+          title: Uw voorstel aanmaken
+        proposal:
+          view_proposal: Voorstel bekijken
+        wizard_aside:
+          back_from_step_1: Terug naar voorstellen
+          back_from_step_2: Terug naar voorstellen
+          info: U bent bezig een <strong>voorstel</strong> aan te maken.
+        wizard_steps:
+          step_1: Uw voorstel aanmaken
+          step_4: Uw voorstel publiceren
+          title: Stappen voor het aanmaken van voorstellen
+      versions:
+        proposals:
+          back_to_resource: Terug naar het voorstel
+  devise:
+    omniauth_callbacks:
+      success: Geauthenticeerd via %{kind}.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Sluiten
+        select_your_language: Kies uw taal
+      process_navigation:
+        process_menu_item: Het proces
+      user:
+        logged_in: Aangemeld
+        logged_in_as: Aangemeld als %{user}
   locale:
     name: Nederlands

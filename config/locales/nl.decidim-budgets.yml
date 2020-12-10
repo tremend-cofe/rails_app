@@ -8,6 +8,11 @@ nl:
         description: Beschrijving
         proposal_ids: Aanverwante voorstellen
         title: Titel
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Project
+        other: Projecten
   decidim:
     budgets:
       actions:
@@ -124,6 +129,7 @@ nl:
         budget_excess:
           close: Sluiten
           description: Dit project overschrijdt de maximale begroting en kan niet worden toegevoegd. Als u dat wilt, kunt u een project verwijderen dat u al had geselecteerd om toe te voegen, of uw stem volgens uw voorkeuren uitbrengen.
+          ok: OK
           title: Maximale begroting overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
@@ -135,10 +141,15 @@ nl:
           description: Aan welke projecten moeten volgens u middelen worden toegewezen? Wijs ten minste %{minimum_budget} toe aan de door u gewenste projecten en stem volgens uw voorkeuren om de begroting vast te stellen.
           description_minimum_projects_rule: Aan welke projecten moeten volgens u middelen worden toegewezen? Selecteer ten minste %{minimum_number} door u gewenste projecten en stem volgens uw voorkeuren om de begroting vast te stellen.
           title: U beslist over de begroting
+        count:
+          projects_count:
+            one: 1 project
+            other: "%{count} projecten"
         filters:
           category: Categorie
           scope: Toepassingsgebied
           search: Zoeken
+          status: Status
           status_values:
             all: Alle
             not_selected: Niet geselecteerd

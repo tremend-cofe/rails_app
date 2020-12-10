@@ -334,6 +334,9 @@ fr:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propositions
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Voir toutes les propositions (%{count})
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
@@ -342,6 +345,7 @@ fr:
         new: Nouvelle proposition
         participatory_texts: Textes participatifs
         show: Montrer la proposition
+        title: Actions
       admin:
         actions:
           preview: Aperçu
@@ -657,15 +661,19 @@ fr:
       destroy_draft:
         error: Un problème est survenu lors de la suppression de l’avant-projet collaboratif.
         success: L’avant-projet collaboratif a été supprimé avec succès.
+      last_activity:
+        new_proposal_at_html: "<span>Nouvelle proposition pour %{link}</span>"
       models:
         collaborative_draft:
           fields:
             authors: Auteurs
             comments: Commentaires
+            contributions: Contributions
         proposal:
           fields:
             category: Catégorie
             comments: Commentaires
+            id: ID
             notes: Remarques
             official_proposal: Proposition officielle
             published_answer: Réponse publiée
@@ -695,6 +703,10 @@ fr:
         complete:
           send: Envoyer
           title: Finalisez votre proposition
+        count:
+          proposals_count:
+            one: "%{count} proposition"
+            other: "%{count} propositions"
         edit:
           attachment_legend: "(Facultatif) Ajouter une annexe"
           back: Retour
@@ -709,6 +721,7 @@ fr:
         filters:
           activity: Mon activité
           all: Tous
+          amendment_type: Type
           category: Catégorie
           my_proposals: Mes propositions
           origin: Origine
@@ -716,6 +729,7 @@ fr:
           scope: Périmètre d’application
           search: Rechercher
           state: Statut
+          type: Type
           voted: Soutenu
         filters_small_view:
           close_modal: Fermer la fenêtre modale
@@ -724,13 +738,16 @@ fr:
           unfold: Dérouler
         index:
           collaborative_drafts_list: Accéder aux avant-projets collaboratifs
+          new_proposal: Nouvelle proposition
           see_all_withdrawn: Voir toutes les propositions retirées
+          view_proposal: Visualiser la proposition
         linked_proposals:
           proposal_votes:
             one: soutien
             other: soutiens
         new:
           send: Continuer
+          title: Créez votre proposition
         orders:
           label: 'Classer les propositions sur la base de:'
           most_commented: Les plus commentées
@@ -754,6 +771,7 @@ fr:
           title: Publiez votre proposition
         proposal:
           creation_date: 'Création: %{date}'
+          view_proposal: Visualiser la proposition
         proposals:
           empty: Il n’y a pas encore de proposition
           empty_filters: Il n’y a aucune proposition répondant à ce critère
@@ -819,14 +837,20 @@ fr:
             votes: Soutiens
         wizard_aside:
           back: Retour
+          back_from_step_1: Retour aux propositions
+          back_from_step_2: Retour aux propositions
           back_from_step_3: Revenir en arrière pour comparer des propositions
           back_from_step_4: Revenir en arrière pour modifier l’avant-projet
+          info: Vous créez une <strong>proposition</strong>.
         wizard_steps:
           current_step: Etape actuelle
           see_steps: voir étapes
+          step_1: Créez votre proposition
           step_2: Comparaison
           step_3: Complète
+          step_4: Publiez votre proposition
           step_of: Étape %{current_step_num} de %{total_steps}
+          title: Étapes de création d'une proposition
       proposals_picker:
         choose_proposals: Sélectionner des propositions
         close: Fermer
@@ -848,6 +872,8 @@ fr:
           back_to_resource: Revenir à l’avant-projet collaboratif
         index:
           title: Version
+        proposals:
+          back_to_resource: Revenir à la proposition
       withdraw:
         errors:
           has_supports: Cette proposition ne peut pas être retirée car elle a déjà des soutiens.

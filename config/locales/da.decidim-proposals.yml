@@ -70,6 +70,9 @@ da:
       decidim/proposals/proposal:
         one: Forslag
         other: Forslag
+      decidim/proposals/proposal_note:
+        one: Note
+        other: Noter
       decidim/proposals/proposal_vote:
         one: Støtte
         other: Støtter
@@ -80,6 +83,7 @@ da:
           category_id_eq:
             label: Kategori
           is_emendation_true:
+            label: Type
             values:
               'false': Forslag
               'true': Ændringer
@@ -334,6 +338,9 @@ da:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Forslag
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Se alle forslag (%{count})
     proposals:
       actions:
         answer_proposal: Svar på forslag
@@ -369,6 +376,9 @@ da:
             save_draft: Gem udkast
             title: Forhåndsvisning af deltagende tekst
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: ODT
             bottom_hint: "(Du vil kunne se forhåndsvinsning af og sortere dokumentsektioner)"
             document_legend: 'Tilføj et dokument, der er mindre end 2 MB, hver sektion indtil 3 niveauer dybt vil blive analyseret i forslag. Understøttede formater er: %{valid_mime_types}'
             title: Tilføj et dokument
@@ -445,6 +455,7 @@ da:
             body: Brødtekst
             comments_count: Antal bemærkninger
             comments_negative_count: Mod
+            comments_neutral_count: Neutral
             comments_positive_count: Fordel
             created_at: Oprettelsesdato
             documents: Dokumenter
@@ -559,6 +570,7 @@ da:
           no_similars_found: Godt klaret! Ingen lignende samarbejdsudkast fundet
           title: Lignende samarbejdsudkast
         complete:
+          send: Send
           title: Færddiggør dit samarbejdsudkast
         count:
           drafts_count:
@@ -571,6 +583,7 @@ da:
           attachment_legend: "(Valgfrit) Tilføj en vedhæftet fil"
           back: Tilbage
           select_a_category: Vælg en kategori
+          send: Send
           title: Rediger samarbejdsudkast
         filters:
           all: Alle
@@ -581,6 +594,7 @@ da:
           related_to: Relateret til
           scope: Omfang
           search: Søg
+          state: Status
           withdrawn: Trukket tilbage
         filters_small_view:
           close_modal: Luk modal
@@ -657,6 +671,8 @@ da:
       destroy_draft:
         error: Der var et problem med at slette samarbejdsudkastet.
         success: Forslagets udkast blev slettet.
+      last_activity:
+        new_proposal_at_html: "<span>Nyt forslag på %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -667,11 +683,13 @@ da:
           fields:
             category: Kategori
             comments: Bemærkninger
+            id: ID
             notes: Noter
             official_proposal: Officielt forslag
             published_answer: Offentliggjort svar
             published_at: Offentliggjort kl.
             scope: Omfang
+            state: Status
             title: Titel
             valuator: Evaluator
             valuators: Valuatorer
@@ -693,11 +711,17 @@ da:
           no_similars_found: Godt klaret! Ingen lignende forslag fundet
           title: Lignende forslag
         complete:
+          send: Send
           title: Færddiggør dit forslag
+        count:
+          proposals_count:
+            one: "%{count} forslag"
+            other: "%{count} forslag"
         edit:
           attachment_legend: "(Valgfrit) Tilføj en vedhæftet fil"
           back: Tilbage
           select_a_category: Vælg en kategori
+          send: Send
           title: Rediger forslag
         edit_draft:
           discard: Kasser dette udkast
@@ -707,12 +731,15 @@ da:
         filters:
           activity: Min aktivitet
           all: Alle
+          amendment_type: Type
           category: Kategori
           my_proposals: Mine forslag
           origin: Oprindelse
           related_to: Relateret til
           scope: Omfang
           search: Søg
+          state: Status
+          type: Type
           voted: Støttet
         filters_small_view:
           close_modal: Luk modal
@@ -721,13 +748,16 @@ da:
           unfold: Fold ud
         index:
           collaborative_drafts_list: Gå til samarbejdsudkast
+          new_proposal: Nyt forslag
           see_all_withdrawn: Se alle tilbagekaldte forslag
+          view_proposal: Se forslag
         linked_proposals:
           proposal_votes:
             one: støtte
             other: støtter
         new:
           send: Fortsæt
+          title: Opret dit forslag
         orders:
           label: 'Opstil forslag efter:'
           most_commented: Mest kommenterede
@@ -751,6 +781,7 @@ da:
           title: Offentliggør dit forslag
         proposal:
           creation_date: 'Oprettelse: %{date}'
+          view_proposal: Se forslag
         proposals:
           empty: Der er endnu ikke noget forslag
           empty_filters: Der er ikke noget forslag med disse kriterier
@@ -781,6 +812,8 @@ da:
           withdraw_btn_hint: Du kan trække dit forslag tilbage, hvis du skifter mening, så længe du ikke har modtaget nogen støtte. Forslaget er ikke slettet, det vil stå på listen over tilbagetrukne forslag.
           withdraw_confirmation_html: Er du sikker på, at du vil trække dette forslag tilbage?<br><br><strong>Denne handling kan ikke annulleres!</strong>
           withdraw_proposal: Træk forslag tilbage
+        tags:
+          changed_from: "(ændret fra <u>%{previous_name}</u> af en administrator)"
         update:
           title: Opdater forslag
         vote_button:
@@ -814,14 +847,20 @@ da:
             votes: Støtter
         wizard_aside:
           back: Tilbage
+          back_from_step_1: Tilbage til forslag
+          back_from_step_2: Tilbage til forslag
           back_from_step_3: Tilbage for at sammenligne forslag
           back_from_step_4: Tilbage for at redigere udkast
+          info: Du er ved at oprette et <strong>forslag</strong>.
         wizard_steps:
           current_step: Nuværende trin
           see_steps: se trin
+          step_1: Opret dit forslag
           step_2: Sammenlign
           step_3: Færdiggør
+          step_4: Offentliggør dit forslag
           step_of: Trin %{current_step_num} af %{total_steps}
+          title: Sådan opretter du et forslag
       proposals_picker:
         choose_proposals: Vælg forslag
         close: Luk
@@ -843,6 +882,8 @@ da:
           back_to_resource: Tilbage til samarbejdsudkast
         index:
           title: Versioner
+        proposals:
+          back_to_resource: Gå tilbage til forslag
       withdraw:
         errors:
           has_supports: Dette forslag kan ikke trækkes tilbage, idet det allerede har støtte.

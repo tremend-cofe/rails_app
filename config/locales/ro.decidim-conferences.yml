@@ -10,6 +10,7 @@ ro:
         copy_features: Copiere caracteristici
         decidim_scope_id: Domeniu de aplicare
         description: Descriere
+        hashtag: Hashtag
         hero_image: Imaginea de pornire
         participatory_processes_ids: Procese participative înrudite
         promoted: Evidențiat
@@ -18,6 +19,7 @@ ro:
         scopes_enabled: Domenii activate
         short_description: Scurtă descriere
         show_statistics: Afișarea statisticilor
+        slogan: Slogan
         slug: Slug URL
         title: Titlu
       conference_speaker:
@@ -32,6 +34,20 @@ ro:
           attributes:
             email:
               already_invited: Acest e-mail a fost deja invitat
+  activerecord:
+    models:
+      decidim/conference:
+        one: Conferință
+        few: Conferințe
+        other: Conferințe
+      decidim/conference_speaker:
+        one: Vorbitor la conferință
+        few: Vorbitori la conferință
+        other: Vorbitori la conferință
+      decidim/conference_user_role:
+        one: Rolul utilizatorului în cadrul conferinței
+        few: Rolurile utilizatorului în cadrul conferinței
+        other: Rolurile utilizatorului în cadrul conferinței
   decidim:
     admin:
       actions:
@@ -263,6 +279,9 @@ ro:
         create: "%{user_name} a creat linkul media %{resource_name} în conferința %{space_name}"
         delete: "%{user_name} a eliminat linkul media %{resource_name} din conferința %{space_name}"
         update: "%{user_name} a actualizat linkul media %{resource_name} în conferința %{space_name}"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Vorbitori
@@ -351,8 +370,10 @@ ro:
           content: Conținut
           location: Locul
           speakers: Vorbitori
+          streaming: Streaming
         show:
           day: Ziua
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Înscrierea dumneavoastră la conferința <a href="%{url}">%{title}</a> a fost confirmată.
@@ -541,6 +562,11 @@ ro:
           take_part: Participați
         index:
           promoted_conferences: Conferințe evidențiate
+        order_by_conferences:
+          conferences:
+            one: "%{count} conferință"
+            few: "%{count} conferințe"
+            other: "%{count} conferințe"
         promoted_conference:
           more_info: Informații suplimentare
           take_part: Participați

@@ -1,3 +1,156 @@
 sv:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Ämnesområde
+      meeting:
+        cofe_charter_html: Jag godkänner <a href="%{url}" target="_blank">stadgan</a> för konferensen om Europas framtid
+    models:
+      decidim/meetings/upcoming_meeting_event: Kommande möte
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Möte
+        other: Möten
+      decidim/participatory_process:
+        one: Deltagandeprocess
+        other: Deltagandeprocesser
+  decidim:
+    components:
+      meetings:
+        name: Möten
+        settings:
+          global:
+            cofe_charter_url: Webbadress till stadgan för konferensen om Europas framtid
+    meetings:
+      actions:
+        new: Nytt möte
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Kommande möten
+      directory:
+        meetings:
+          index:
+            meetings: Möten
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} möte"
+            other: "%{count} möten"
+        form:
+          create_as: Skapa möte som
+        index:
+          new_meeting: Nytt möte
+        new:
+          title: Skapa ditt möte
+      models:
+        meeting:
+          fields:
+            official_meeting: Officiellt möte
+    menu:
+      help: Hjälp
+      processes: Processer
+    menu_overwrite:
+      citizens_panels: Medborgarpaneler
+      events: Evenemang
+      plenaries: Plenarsessioner
+      topics: Ämnesområden
+    metrics:
+      meetings:
+        object: möten
+        title: Möten
+    pages:
+      home:
+        extended:
+          meetings: Möten
+        statistics:
+          meetings_count: Möten
+          processes_count: Processer
+          proposals_count: Förslag
+      index:
+        title: Hjälp
+    participatory_processes:
+      index:
+        title: Deltagandeprocesser
+      last_activity:
+        new_participatory_process: Ny deltagandeprocess
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiva processer
+            see_all_processes: Se alla processer
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiv process
+              other: "%{count} aktiva processer"
+            all:
+              one: 1 process
+              other: "%{count} processer"
+            past:
+              one: 1 tidigare process
+              other: "%{count} tidigare processer"
+            upcoming:
+              one: 1 kommande process
+              other: "%{count} kommande processer"
+          explanations:
+            no_active: Inga aktiva processer
+      statistics:
+        meetings_count: Möten
+        processes_count: Processer
+        proposals_count: Förslag
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Se alla möten (%{count})
+        upcoming_meetings: Kommande möten
+      highlighted_proposals:
+        see_all: Se alla förslag (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommande möte
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Nytt förslag på %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} förslag"
+            other: "%{count} förslag"
+        index:
+          new_proposal: Nytt förslag
+          view_proposal: Visa förslag
+        new:
+          title: Skapa ditt förslag
+        proposal:
+          view_proposal: Visa förslag
+        wizard_aside:
+          back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till förslag
+          info: Du skapar ett <strong>förslag</strong>.
+        wizard_steps:
+          step_1: Skapa ditt förslag
+          step_4: Offentliggör ditt förslag
+          title: Steg för att skapa förslag
+      versions:
+        proposals:
+          back_to_resource: Gå tillbaka till förslag
+  devise:
+    omniauth_callbacks:
+      failure: Det gick inte att autentisera dig från EU Login eftersom "%{reason}".
+      success: Har autentiserats från kontot %kind.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Avsluta
+        select_your_language: Välj språk
+      process_navigation:
+        process_menu_item: Processen
+      user:
+        logged_in: Inloggad
+        logged_in_as: Inloggad som %{user}
   locale:
     name: Svenska

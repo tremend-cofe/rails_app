@@ -338,6 +338,9 @@ it:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Proposte
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Vedi tutte le proposte (%{count})
     proposals:
       actions:
         answer_proposal: Rispondi alla proposta
@@ -666,6 +669,8 @@ it:
       destroy_draft:
         error: Si è riscontrato un problema durante l'eliminazione della bozza collaborativa.
         success: La bozza di proposta è stata eliminata correttamente.
+      last_activity:
+        new_proposal_at_html: "<span>Nuova proposta in %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -676,6 +681,7 @@ it:
           fields:
             category: Categoria
             comments: Commenti
+            id: ID
             notes: Osservazioni
             official_proposal: Proposta ufficiale
             published_answer: Risposta pubblicata
@@ -705,6 +711,10 @@ it:
         complete:
           send: Invia
           title: Completa la proposta
+        count:
+          proposals_count:
+            one: "%{count} proposta"
+            other: "%{count} proposte"
         edit:
           attachment_legend: "(Facoltativo) Aggiungi un allegato"
           back: Indietro
@@ -736,13 +746,16 @@ it:
           unfold: Apri elenco
         index:
           collaborative_drafts_list: Accedi alle bozze collaborative
+          new_proposal: Nuova proposta
           see_all_withdrawn: Visualizza tutte le proposte ritirate
+          view_proposal: Visualizza la proposta
         linked_proposals:
           proposal_votes:
             one: aderisci
             other: adesioni
         new:
           send: Continua
+          title: Crea la tua proposta
         orders:
           label: 'Ordina le proposte per:'
           most_commented: Maggior numero di commenti
@@ -766,6 +779,7 @@ it:
           title: Pubblica la proposta
         proposal:
           creation_date: 'Creazione: %{date}'
+          view_proposal: Visualizza la proposta
         proposals:
           empty: Non esiste ancora alcuna proposta
           empty_filters: Non è presente alcuna proposta corrispondente ai criteri selezionati
@@ -831,14 +845,20 @@ it:
             votes: Adesioni
         wizard_aside:
           back: Indietro
+          back_from_step_1: Torna alle proposte
+          back_from_step_2: Torna alle proposte
           back_from_step_3: Torna al confronto tra le proposte
           back_from_step_4: Torna alla modifica della bozza
+          info: Stai per condividere una <strong>proposta</strong>.
         wizard_steps:
           current_step: Fase attuale
           see_steps: visualizza fasi
+          step_1: Crea la tua proposta
           step_2: Confronta
           step_3: Completa
+          step_4: Pubblica la proposta
           step_of: Fase %{current_step_num} di %{total_steps}
+          title: Fasi di creazione della proposta
       proposals_picker:
         choose_proposals: Seleziona le proposte
         close: Chiudi
@@ -860,6 +880,8 @@ it:
           back_to_resource: Torna alla bozza collaborativa
         index:
           title: Versioni
+        proposals:
+          back_to_resource: Torna alla proposta
       withdraw:
         errors:
           has_supports: La proposta non può essere ritirata in quanto ha già ricevuto adesioni.

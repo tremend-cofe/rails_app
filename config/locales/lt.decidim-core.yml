@@ -45,6 +45,27 @@ lt:
         password: Slaptažodis
         password_confirmation: Slaptažodžio patvirtinimas
         remember_me: Atsiminti slaptažodį
+    models:
+      decidim/amendment:
+        one: Pakeitimas
+        few: Pakeitimai
+        many: Pakeitimai
+        other: Pakeitimai
+      decidim/endorsement:
+        one: Pritarimas
+        few: Pritarimai
+        many: Pritarimai
+        other: Pritarimai
+      decidim/user:
+        one: Dalyvis
+        few: Dalyviai
+        many: Dalyviai
+        other: Dalyviai
+      decidim/user_group:
+        one: Grupė
+        few: Grupės
+        many: Grupės
+        other: Grupės
   booleans:
     'false': 'Ne'
     'true': 'Taip'
@@ -216,6 +237,12 @@ lt:
           '4': Paskelbkite savo pakeitimą
     anonymous_user: Anonimiškas
     application:
+      collection:
+        documents:
+          one: Dokumentas
+          few: Dokumentai
+          many: Dokumentai
+          other: Dokumentai
       document:
         download: Parsisiųsti failą
       documents:
@@ -224,6 +251,16 @@ lt:
         related_photos: Susiję vaizdai
     author:
       avatar: Pseudoportretas
+      comments:
+        one: komentaras
+        few: komentarai
+        many: komentarai
+        other: komentarai
+      endorsements:
+        one: pritarimas
+        few: pritarimai
+        many: pritarimai
+        other: pritarimai
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Leiskite patikrinti jūsų tapatybę įvesdami paso numerį, prasidedantį raide „A“
@@ -266,6 +303,7 @@ lt:
         incomplete:
           cancel: Atšaukti
           explanation: 'Nors jums šiuo metu suteiktas leidimas „%{authorization}“, turite būti iš naujo gauti leidimą, nes neturime šių duomenų:'
+          invalid_field: "%{field}"
           reauthorize: Autorizuoti iš naujo
           title: Autorizuokite
         missing:
@@ -289,6 +327,11 @@ lt:
       show:
         close_modal: Uždaryti modalinį langą
     collapsible_list:
+      hidden_elements_count:
+        one: ir dar %{count}
+        few: ir dar %{count}
+        many: ir dar %{count}
+        other: ir dar %{count}
       see_less: "(žr. mažiau)"
       see_more: "(žr. daugiau)"
     components:
@@ -611,6 +654,11 @@ lt:
       title: Piršto atspaudas
       value: Vertė
     followers:
+      followers_count:
+        one: "%{count} sekėjas"
+        few: "%{count} sekėjai"
+        many: "%{count} sekėjai"
+        other: "%{count} sekėjai"
       no_followers: Dar nėra sekėjų.
     following:
       no_followings: Nieko neseka
@@ -805,6 +853,7 @@ lt:
     members:
       no_members: Šioje grupėje dar nėra nė vieno nario.
     menu:
+      help: Pagalba
       home: Pradžia
     messaging:
       conversation_mailer:
@@ -971,6 +1020,7 @@ lt:
           debates: Diskusijos
           debates_explanation: Diskutuoti ir aptarti, pasidalyti savo nuomonėmis ir praturtinti atitinkamas temas
           how_to_participate: Kaip dalyvauti procese?
+          meetings: Posėdžiai
           meetings_explanation: Sužinokite, kur ir kada galite dalyvauti viešuose posėdžiuose
           more_info: Daugiau informacijos apie %{resource_name}
           proposals: Pasiūlymai
@@ -992,10 +1042,13 @@ lt:
           debates_count: Diskusijos
           endorsements_count: Pritarimai
           headline: Dabartinė %{organization} padėtis
+          meetings_count: Posėdžiai
           orders_count: Balsai
           pages_count: Puslapiai
+          processes_count: Procesai
           projects_count: Projektai
           proposals_accepted: Priimti pasiūlymai
+          proposals_count: Pasiūlymai
           results_count: Rezultatai
           surveys_count: Apklausos
           users_count: Dalyviai
@@ -1006,6 +1059,7 @@ lt:
         read_more: Išskleisti
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose
+        title: Pagalba
         topics: Temos
       participatory_space:
         metrics:
@@ -1119,6 +1173,11 @@ lt:
         filter_by: Filtravimo kriterijai
         unfold: Išskleisti
       results:
+        results:
+          one: "%{count} rezultatas"
+          few: "%{count} rezultatai"
+          many: "%{count} rezultatai"
+          other: "%{count} rezultatai"
         view_all: Peržiūrėti viską (%{count})
     shared:
       confirm_modal:
@@ -1337,6 +1396,9 @@ lt:
         instruction: 'Norėdami atblokuoti savo paskyrą, spustelėkite toliau pateikiamą nuorodą:'
         message: Jūsų paskyra buvo užrakinta dėl pernelyg daug nepavykusių bandymų prisijungti.
         subject: Atblokavimo nurodymai
+    omniauth_callbacks:
+      failure: Jūsų nepavyko autentifikuoti pagal %{kind}. Priežastis – "%{reason}".
+      success: Autentifikuota pagal %{kind} paskyrą.
     passwords:
       edit:
         change_my_password: Keisti mano slaptažodį
@@ -1386,6 +1448,11 @@ lt:
         sign_in: Prisijunkite
         sign_in_with_provider: Prisijunkite su %{provider}
         sign_up: Užsiregistruoti
+      minimum_password_length:
+        one: "(%{count} minimalus rašmenų skaičius)"
+        few: "(%{count} minimalus rašmenų skaičius)"
+        many: "(%{count} minimalus rašmenų skaičius)"
+        other: "(%{count} minimalus rašmenų skaičius)"
     unlocks:
       new:
         resend_unlock_instructions: Dar kartą siųsti atblokavimo nurodymus
@@ -1409,11 +1476,22 @@ lt:
       nesting_too_deep: negali priklausyti pakategorei
       not_found: negalima surasti Ar užsiregistravote anksčiau?
       not_locked: nebuvo užblokuotas
+      not_saved:
+        one: 'Vykdant jūsų prašymą įvyko klaida:'
+        few: 'Vykdant jūsų prašymą įvyko daugybinių klaidų:'
+        many: 'Vykdant jūsų prašymą įvyko daugybinių klaidų:'
+        other: 'Vykdant jūsų prašymą įvyko daugybinių klaidų:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
       too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
+    length_validator:
+      minimum:
+        one: bent %{count} ženklas
+        few: bent %{count} ženklai (-ų)
+        many: bent %{count} ženklai (-ų)
+        other: bent %{count} ženklai (-ų)
     required: Privalomas laukas
     required_explanation: "* Privalomi laukai pažymėti žvaigždute."
   invisible_captcha:
@@ -1471,6 +1549,8 @@ lt:
         user_groups: Grupės
       widget:
         see_more: Žr. daugiau
+  locale:
+    name: Lietuvių kalba
   password_validator:
     domain_included_in_password: per daug panašus į šio domeno vardą
     email_included_in_password: per daug panašus į jūsų e. pašto adresą

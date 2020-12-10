@@ -51,9 +51,13 @@ pt:
       decidim/meetings/create_meeting_event: Reunião
       decidim/meetings/meeting_registrations_enabled_event: Registos ativados
       decidim/meetings/meeting_registrations_over_percentage_event: Registos acima do limite
+      decidim/meetings/upcoming_meeting_event: Próxima reunião
       decidim/meetings/update_meeting_event: Reunião atualizada
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Reunião
+        other: Reuniões
       decidim/meetings/minutes:
         one: Ata
         other: Atas
@@ -74,6 +78,7 @@ pt:
       meetings:
         actions:
           join: Entrar
+        name: Reuniões
         settings:
           global:
             announcement: Comunicado
@@ -158,6 +163,7 @@ pt:
             one: 'A reunião não pode ser suprimida porque tem %{count} proposta associada:'
             other: 'A reunião não pode ser suprimida porque tem %{count} propostas associadas:'
         minutes: Atas
+        new: Nova reunião
         preview: Pré-visualizar
         registrations: Registos
         title: Ações
@@ -325,12 +331,14 @@ pt:
       content_blocks:
         upcoming_events:
           name: Próximos eventos
+          upcoming_events: Próximas reuniões
           view_all_events: Ver todos
       directory:
         meetings:
           index:
             all: Todas
             date: Data
+            meetings: Reuniões
             past: Anteriores
             search: Pesquisar
             space_type: Espaço participativo
@@ -347,6 +355,10 @@ pt:
       meeting:
         not_allowed: Não está autorizado a ver esta reunião
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} reunião"
+            other: "%{count} reuniões"
         create:
           invalid: Houve um problema ao criar esta reunião.
           success: Criou a reunião com êxito.
@@ -376,9 +388,12 @@ pt:
           unfold: Abrir
         form:
           address_help: 'Endereço: utilizado pelo geocodificador para encontrar o local'
+          create_as: Criar reunião como
           location_help: 'Local: mensagem dirigida aos utilizadores sobre o ponto de encontro'
           location_hints_help: 'Indicações para o local: informações adicionais. Exemplo: o andar do edifício'
           select_a_category: Selecione uma categoria
+        index:
+          new_meeting: Nova reunião
         meeting_minutes:
           meeting_minutes: Atas das reuniões
           related_information: Informações relacionadas
@@ -388,6 +403,7 @@ pt:
         new:
           back: Voltar
           create: Criar
+          title: Crie a sua reunião
         registration_confirm:
           cancel: Cancelar
           confirm: Confirmar
@@ -431,6 +447,7 @@ pt:
             closed: Encerrado
             end_time: Data final
             map: Mapa
+            official_meeting: Reunião oficial
             start_time: Data de início
             title: Título
       read_more: "(ler mais)"
@@ -457,9 +474,20 @@ pt:
     metrics:
       meetings:
         description: Número de reuniões criadas
+        object: reuniões
+        title: Reuniões
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniões anteriores
+          upcoming_meetings: Próximas reuniões
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Reuniões anteriores
+        see_all: Ver todas as reuniões (%{count})
+        upcoming_meetings: Próximas reuniões
+      upcoming_meeting_for_card:
+        upcoming_meeting: Próxima reunião
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

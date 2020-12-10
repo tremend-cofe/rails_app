@@ -51,9 +51,13 @@ bg:
       decidim/meetings/create_meeting_event: Среща
       decidim/meetings/meeting_registrations_enabled_event: Регистрациите са активирани
       decidim/meetings/meeting_registrations_over_percentage_event: Ограничение на регистрациите
+      decidim/meetings/upcoming_meeting_event: Предстояща среща
       decidim/meetings/update_meeting_event: Срещата е актуализирана
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Среща
+        other: Срещи
       decidim/meetings/minutes:
         one: Протокол
         other: Протокол
@@ -74,6 +78,7 @@ bg:
       meetings:
         actions:
           join: Присъединяване
+        name: Срещи
         settings:
           global:
             announcement: Съобщение
@@ -158,6 +163,7 @@ bg:
             one: 'Срещата не може да бъде премахната, защото към нея има %{count} свързано предложение:'
             other: 'Срещата не може да бъде премахната, защото към нея има %{count} свързани предложения:'
         minutes: Протокол
+        new: Нова среща
         preview: Визуализация
         registrations: Регистрации
         title: Действия
@@ -325,12 +331,14 @@ bg:
       content_blocks:
         upcoming_events:
           name: Предстоящи събития
+          upcoming_events: Предстоящи срещи
           view_all_events: Преглед на всички
       directory:
         meetings:
           index:
             all: Всички
             date: Дата
+            meetings: Срещи
             past: Минали
             search: Търсене
             space_type: Пространство за участие
@@ -347,6 +355,10 @@ bg:
       meeting:
         not_allowed: Нямате право да разглеждате тази среща
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} среща"
+            other: "%{count} срещи"
         create:
           invalid: Възникна проблем при създаването на тази среща.
           success: Създадохте успешно срещата.
@@ -376,9 +388,12 @@ bg:
           unfold: Разгъване
         form:
           address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
+          create_as: Създаване на среща като
           location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
           location_hints_help: 'Подсказки за местоположението: допълнителна информация. Пример: етажът на сградата'
           select_a_category: Моля, изберете категория
+        index:
+          new_meeting: Нова среща
         meeting_minutes:
           meeting_minutes: Протокол за срещата
           related_information: Свързана информация
@@ -388,6 +403,7 @@ bg:
         new:
           back: Назад
           create: Създаване
+          title: Създайте среща
         registration_confirm:
           cancel: Отмяна
           confirm: Потвърждаване
@@ -431,6 +447,7 @@ bg:
             closed: Затворени
             end_time: Крайна дата
             map: Карта
+            official_meeting: Официална среща
             start_time: Начална дата
             title: Заглавие
       read_more: "(прочетете повече)"
@@ -457,9 +474,20 @@ bg:
     metrics:
       meetings:
         description: Брой създадени срещи
+        object: срещи
+        title: Срещи
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Минали срещи
+          upcoming_meetings: Предстоящи срещи
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минали срещи
+        see_all: Виж всички срещи (%{count})
+        upcoming_meetings: Предстоящи срещи
+      upcoming_meeting_for_card:
+        upcoming_meeting: Предстояща среща
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Свързани резултати:'

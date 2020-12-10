@@ -7,6 +7,7 @@ da:
         created_at: Oprettet kl.
       group:
         about: Mere om
+        avatar: Avatar
         document_number: Dokumentnummer
         email: E-mail
         name: Navn
@@ -19,6 +20,7 @@ da:
         email: Din e-mailadresse
         name: Dit navn
         nickname: Tilnavn
+        password: Password
         password_confirmation: Bekræft dit password
         personal_url: Personlig URL
         remove_avatar: Fjern avatar
@@ -40,6 +42,7 @@ da:
         current_password: Nuværende password
         email: E-mail
         name: Tilnavn
+        password: Password
         password_confirmation: Bekræftelse af password
         remember_me: Husk mig
     models:
@@ -237,6 +240,7 @@ da:
       photos:
         related_photos: Relaterede billeder
     author:
+      avatar: Avatar
       comments:
         one: bemærkning
         other: bemærkninger
@@ -266,6 +270,9 @@ da:
       expired_at: Udløb kl. %{timestamp}
       expires_at: Udløber kl. %{timestamp}
       foo_authorization:
+        fields:
+          bar: Bjælke
+          foo: Foo
         name: Foo-godkendelse
       granted_at: Givet kl. %{timestamp}
       renew: Forny verifikation
@@ -282,6 +289,7 @@ da:
         incomplete:
           cancel: Annuller
           explanation: 'Selv om du i øjeblikket er godkendt med "%{authorization}”, er det nødvendigt, at du lader dig gengodkende, fordi vi mangler følgende data:'
+          invalid_field: "%{field}"
           reauthorize: Gengodkendelse
           title: Gengodkend venligst
         missing:
@@ -325,6 +333,9 @@ da:
           question: Spørgsmål
         title: 'Vis:'
       dummy:
+        actions:
+          bar: Bjælke
+          foo: Foo
         name: Dummy-komponent
         settings:
           global:
@@ -436,6 +447,7 @@ da:
       authorizations:
         new:
           authorize: Tilladelse til anvendelse
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: Annuller
           connect_your_account_html: Forbind din konto ved at tilmelde dig til <strong>%{organization}</strong>
           publish_content: Offentliggør indhold
@@ -600,6 +612,7 @@ da:
     export_mailer:
       data_portability_export:
         click_button: 'Klik på næste knap for at downloade dine data. <br/> Du har filen til rådighed indtil %{date}. <br/> Du har brug for <a href=''https://www.7-zip.org/''>7-Zip</a> for at åbne den. Password: %{password}'
+        download: Download
       export:
         ready: Der er vedlagt en zip version af din eksport.
       subject: Din eksport "%{name}” er klar
@@ -670,8 +683,10 @@ da:
           unearned_another: Denne deltager har endnu ingen følgere.
           unearned_own: Du har endnu ingen følgere.
         index:
+          badge_title: "%{name} badge"
           how: Hvordan du kan optjene det
           page_description: Badges er anerkendelser af deltagernes handlinger og fremskridt på platformen. Når du begynder at opdage, deltage og interagere på platformen, optjener du forskellige badges. Her er listen over badges og nogle måder, du kan optjene dem på.
+          title: Badges
         invitations:
           conditions: |-
             Brug linket "inviter venner" på din brugerside til at invitere dine venner
@@ -765,6 +780,7 @@ da:
         subtitle: Opret en gruppe og inviter andre brugere til at deltage for at deltage på et kollektivt niveau.
       no_user_groups: Tilhører ikke nogen gruppe endnu.
       roles:
+        admin: Administrator
         creator: Opretter
         member: Medlem
       update:
@@ -783,6 +799,7 @@ da:
       all: Alle aktivitetstyper
       index:
         last_activity: Sidste aktivitet
+        resource_type: Type
     log:
       base_presenter:
         create: "%{user_name} oprettede %{resource_name}"
@@ -810,9 +827,11 @@ da:
         skip_button: Spring kort over
       static:
         latlng_text: 'breddegrad: %{latitude}, længdegrad: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Denne gruppe har endnu ingen medlemmer.
     menu:
+      help: Hjælp
       home: Hjem
     messaging:
       conversation_mailer:
@@ -881,10 +900,13 @@ da:
           not_allowed: Denne bruger accepterer ikke flere direkte beskeder.
           title: Samtale med %{usernames}
         start:
+          send: Send
           title: Start en samtale
         update:
           error: Besked ikke sendt. Prøv igen senere
     metrics:
+      download:
+        csv: Download data (csv)
       followers:
         description: Antal deltagere, der følger dette deltagelsesrum
         object: følgere
@@ -969,12 +991,14 @@ da:
     pad_iframe:
       disclaimer: Indholdet af denne pad er skrevet af registrerede brugere og udtrykker deres meninger. %{organization} kan ikke holdes ansvarlig for dets indhold.
       explanation: Brug denne pad til sammen at tage noter under mødet, så det er lettere at skrive referat bagefter.
+      pad: Pad
     pages:
       home:
         extended:
           debates: Debatter
           debates_explanation: Debatter og diskuter, del dine synspunkter og berig de relevante emner.
           how_to_participate: Hvordan deltager jeg i et forløb?
+          meetings: Møder
           meetings_explanation: Find ud af, hvor og hvornår du kan deltage i offentlige møder.
           more_info: Flere oplysninger om %{resource_name}
           proposals: Forslag
@@ -996,10 +1020,13 @@ da:
           debates_count: Debatter
           endorsements_count: Anbefalinger
           headline: Nuværende tilstand for %{organization}
+          meetings_count: Møder
           orders_count: Afstemninger
           pages_count: Sider
+          processes_count: Processer
           projects_count: Projekter
           proposals_accepted: Accepterede forslag
+          proposals_count: Forslag
           results_count: Resultater
           surveys_count: Undersøgelser
           users_count: Deltagere
@@ -1010,6 +1037,7 @@ da:
         read_more: Læs mere
         standalone_pages: Sider
         subheading: Naviger gennem hjælpesiderne for %{name}
+        title: Hjælp
         topics: Emner
       participatory_space:
         metrics:
@@ -1043,6 +1071,7 @@ da:
       default_officialization_text_for_users: Denne deltager er offentligt verificeret, hans/hendes navn eller stilling er verificeret og svarer til hans/hendes rigtige navn og stilling
       show:
         activity: Aktivitet
+        badges: Badges
         conversations: Samtaler
         followers: Følgere
         following: Følger
@@ -1054,6 +1083,7 @@ da:
       sidebar:
         badges:
           info: Badges optjenes ved at gennemføre nærmere bestemt aktivitet på platformen.
+          title: Badges
       user:
         confirmation_instructions_sent: E-mail-bekræftelsesinstruktioner sendt
         create_user_group: Opret gruppe
@@ -1129,6 +1159,7 @@ da:
       confirm_modal:
         cancel: Annuller
         close_modal: Luk modal
+        ok: OK
         title: Bekræft
       embed_modal:
         close_window: Luk vindue
@@ -1162,6 +1193,8 @@ da:
         filters:
           areas: Områder
           select_an_area: Vælg et område
+      reference:
+        reference: 'Reference: %{reference}'
       represent_user_group:
         represent_user_group: Jeg repræsenterer en gruppe
         select_user_group: Vælg en gruppe
@@ -1206,6 +1239,7 @@ da:
         title: Start en samtale
       reply:
         placeholder: Dit svar...
+        send: Send
         title_reply: Svar
       show:
         not_allowed: Denne bruger accepterer ikke flere direkte beskeder.
@@ -1245,6 +1279,9 @@ da:
         changes_at_title: Ændringer på "%{title}"
         number_of_versions: Versioner
         title: Versioner
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hej {{name}}, tak fordi du tilmelder dig {{organization}} og velkommen!</p><ul><li>Hvis du vil have en hurtig idé om, hvad du kan gøre her, skal du kigge på afsnittet <a href="{{help_url}}">Hjælp</a>.</li><li>Når du har læst det, får du dit første badge. Her er en <a href="{{badges_url}}">liste over alle de badges,</a> du kan få, når du deltager i {{organization}}</li><li> Sidst men ikke mindst, slut dig til andre mennesker, del med dem oplevelsen af at være engageret og deltag i {{organization}}. Fremsætte forslag, kommentarer, debat, overvejelser om, hvordan man kan bidrage til almenvellet, fremsætte argumenter for at overbevise, lytte til og læse om, at de er overbevist om, at udtrykke dine idéer på en konkret og direkte måde, reagere med tålmodighed og træffe beslutninger, forsvare dine idéer og holde et åbent sind for at samarbejde og tilslutte sig andre personers idéer.</li></ul>
       default_subject: Tak for tilmelding til {{organization}}!
@@ -1280,6 +1317,7 @@ da:
       invitation_removed: Din invitation blev fjernet.
       invitation_token_invalid: Invitationstokenet er ikke gyldigt!
       new:
+        header: Send invitation
         submit_button: Send en invitation
       no_invitations_remaining: Ingen invitationer tilbage
       send_instructions: En invitation til e-mail er sendt til %{email}.
@@ -1334,6 +1372,9 @@ da:
         instruction: 'Klik på nedenstående link for at låse din konto op:'
         message: Din konto er blevet låst på grund af et for stort antal mislykkede loginforsøg.
         subject: Lås instruktioner op
+    omniauth_callbacks:
+      failure: Kunne ikke godkende dig fra %{kind} pågrund af "%{reason}".
+      success: Godkendt fra %{kind}-konto.
     passwords:
       edit:
         change_my_password: Skift min adgangskode
@@ -1435,9 +1476,13 @@ da:
       edit_link:
         edit: Rediger
       footer:
+        cc_by_license: Creative Commons License
+        decidim_logo: Decidim Logo
+        download_open_data: Download Open Data-filer
         made_with_open_source: Websted lavet med <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Luk menu
+        navigation: Navigation
         sign_in: Log ind
         sign_up: Tilmeld
       impersonation_warning:
@@ -1457,6 +1502,7 @@ da:
         youtube: "%{organization} på YouTube"
       user_menu:
         account: 'Brugerkonto: %{name}'
+        admin_dashboard: Admin-dashboardet
         conversations: Samtaler
         notifications: Underretninger
         profile: Min konto
@@ -1473,6 +1519,8 @@ da:
         user_groups: Grupper
       widget:
         see_more: Se mere
+  locale:
+    name: Engelsk
   password_validator:
     domain_included_in_password: ligner dette domænenavn for meget
     email_included_in_password: ligner din e-mail for meget
@@ -1484,10 +1532,28 @@ da:
     password_too_long: er for langt
     password_too_short: er for kort
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
     google_bookmark: Google bogmærke
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Del til %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Åbn din WeChat, klik på knappen "Discover", og klik derefter på menuen "Scan QR-kode".
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Sletninger
@@ -1495,11 +1561,17 @@ da:
     dropdown:
       choose_diff_view_html: 'HTML-visningstilstand:'
       choose_diff_view_mode: 'Sammenlign visningstilstand:'
+      option_escaped: Escaped
+      option_split: Side-by-side
+      option_unescaped: Unescaped
+      option_unified: Unified
   views:
     pagination:
       first: "&laquo; Første"
       first_title: Link til første side
+      last: Sidste &raquo;
       last_title: Link til den sidste side
+      next: Næste &rsaquo;
       next_title: Link til den næste side
       pagination: Paginering
       previous: "&lsaquo; Forrige"

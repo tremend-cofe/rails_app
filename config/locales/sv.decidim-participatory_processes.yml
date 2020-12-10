@@ -62,6 +62,9 @@ sv:
       decidim/participatory_process_step_changed_event: Fasen har ändrats
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Deltagandeprocess
+        other: Deltagandeprocesser
       decidim/participatory_process_group:
         one: Deltagandeprocessgrupp
         other: Deltagandeprocessgrupper
@@ -281,6 +284,8 @@ sv:
           contextual: "<p>En <strong>deltagandeprocess</strong> är en sekvens av deltagandeaktiviteter (t.ex. först fylla i en undersökning, sedan skapa förslag, diskutera dem i personliga eller virtuella möten och slutligen prioritera dem) i syfte att skapa definitioner och fatta beslut inom specifika ämnen.</p> <p>Exempel på deltagandeprocesser: en process för val av kommittéledamöter (där kandidatur först presenteras, sedan debatteras och slutligen väljs), deltagarbudgetar (där utkast tas fram, värderas ekonomiskt och röstas på med de pengar som är tillgängliga), en strategisk planeringsprocess, ett gemensamt utarbetande av bestämmelser eller normer, utformandet av ett urbant utrymme eller skapandet av en offentlig policyplan.</p>\n"
           page: "<p>En <strong>deltagandeprocess</strong> är en sekvens av deltagandeaktiviteter (t.ex. först fylla i en undersökning, sedan skapa förslag, diskutera dem i personliga eller virtuella möten och slutligen prioritera dem) i syfte att skapa definitioner och fatta beslut inom specifika ämnen.</p> <p>Exempel på deltagandeprocesser: en process för val av kommittéledamöter (där kandidatur först presenteras, sedan debatteras och slutligen väljs), deltagarbudgetar (där utkast tas fram, värderas ekonomiskt och röstas på med de pengar som är tillgängliga), en strategisk planeringsprocess, ett gemensamt utarbetande av bestämmelser eller normer, utformandet av ett urbant utrymme eller skapandet av en offentlig policyplan.</p>\n"
           title: Vad är en deltagandeprocess?
+    menu:
+      processes: Processer
     metrics:
       participatory_processes:
         description: Antal deltagandeprocesser i denna organisation
@@ -332,19 +337,39 @@ sv:
       content_blocks:
         highlighted_processes:
           name: Framhävda processer
+      index:
+        title: Deltagandeprocesser
+      last_activity:
+        new_participatory_process: Ny deltagandeprocess
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktiva processer
             active_step: Aktiv fas
             more_information: Mer information
             participate: Delta
             participate_in: Delta i processen %{resource_name}
+            see_all_processes: Se alla processer
       participatory_process_steps:
         index:
           back_to_process: Tillbaka till processidan
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktiv process
+              other: "%{count} aktiva processer"
+            all:
+              one: 1 process
+              other: "%{count} processer"
+            past:
+              one: 1 tidigare process
+              other: "%{count} tidigare processer"
+            upcoming:
+              one: 1 kommande process
+              other: "%{count} kommande processer"
           explanations:
+            no_active: Inga aktiva processer
             no_active_nor_upcoming: Inga aktiva eller kommande processer
             no_active_nor_upcoming_callout: Det finns inga aktiva eller kommande processer. Här är en lista över tidigare processer.
           names:
@@ -376,11 +401,14 @@ sv:
         endorsements_count: Stödförklaringar
         followers_count: Följare
         headline: Statistik
+        meetings_count: Möten
         no_stats: Det finns ingen statistik än.
         orders_count: Stöd
         pages_count: Sidor
         participants_count: Deltagare
+        processes_count: Processer
         projects_count: Projekt
+        proposals_count: Förslag
         results_count: Resultat
         supports_count: Stöd
         surveys_count: Undersökningar
@@ -414,3 +442,5 @@ sv:
       process_header_steps:
         step: Fas %{current} av %{total}
         view_steps: Processfaser
+      process_navigation:
+        process_menu_item: Processen

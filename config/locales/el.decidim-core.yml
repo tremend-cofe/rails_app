@@ -9,6 +9,7 @@ el:
         about: Πληροφορίες
         avatar: Άβαταρ
         document_number: Αριθμός εγγράφου
+        email: Email
         name: Όνομα
         nickname: Ψευδώνυμο
         phone: Τηλέφωνο
@@ -39,6 +40,7 @@ el:
     attributes:
       decidim/user:
         current_password: Τρέχων κωδικός πρόσβασης
+        email: Email
         name: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαίωση κωδικού πρόσβασης
@@ -268,6 +270,9 @@ el:
       expired_at: Έληξε στις %{timestamp}
       expires_at: Λήγει στις %{timestamp}
       foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
         name: Εξουσιοδότηση foo
       granted_at: Εκχωρήθηκε στις %{timestamp}
       renew: Ανανέωση επαλήθευσης
@@ -327,6 +332,9 @@ el:
           question: Ερώτηση
         title: 'Εμφάνιση:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Εικονικό στοιχείο
         settings:
           global:
@@ -820,9 +828,11 @@ el:
         skip_button: Παράλειψη χάρτη
       static:
         latlng_text: 'γεωγραφικό πλάτος: %{latitude}, γεωγραφικό μήκος: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Αυτή η ομάδα δεν έχει κανένα μέλος ακόμη.
     menu:
+      help: Βοήθεια
       home: Αρχική σελίδα
     messaging:
       conversation_mailer:
@@ -989,6 +999,7 @@ el:
           debates: Διάλογοι
           debates_explanation: Επιχειρηματολογήστε και συζητήστε, μοιραστείτε τις απόψεις σας και εμπλουτίστε τα σχετικά θέματα.
           how_to_participate: Πώς μπορώ να συμμετάσχω σε μια διαδικασία;
+          meetings: Συνεδριάσεις
           meetings_explanation: Μάθετε πού και πότε μπορείτε να συμμετάσχετε σε δημόσιες συνεδριάσεις.
           more_info: Περισσότερες πληροφορίες σχετικά με τον πόρο %{resource_name}
           proposals: Προτάσεις
@@ -1010,10 +1021,13 @@ el:
           debates_count: Διάλογοι
           endorsements_count: Εγκρίσεις
           headline: Σημερινή κατάσταση του οργανισμού %{organization}
+          meetings_count: Συνεδριάσεις
           orders_count: Ψήφοι
           pages_count: Σελίδες
+          processes_count: Διαδικασίες
           projects_count: Έργα
           proposals_accepted: Προτάσεις που έγιναν δεκτές
+          proposals_count: Προτάσεις
           results_count: Αποτελέσματα
           surveys_count: Έρευνες
           users_count: Συμμετέχοντες
@@ -1024,6 +1038,7 @@ el:
         read_more: Διαβάστε περισσότερα
         standalone_pages: Σελίδες
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
+        title: Βοήθεια
         topics: Θέματα
       participatory_space:
         metrics:
@@ -1145,6 +1160,7 @@ el:
       confirm_modal:
         cancel: Ακύρωση
         close_modal: Κλείσιμο αποκλειστικού παραθύρου διαλόγου
+        ok: OK
         title: Επιβεβαίωση
       embed_modal:
         close_window: Κλείσιμο παραθύρου
@@ -1357,6 +1373,9 @@ el:
         instruction: 'Κάντε κλικ στον παρακάτω σύνδεσμο για να ξεκλειδώσετε τον λογαριασμό σας:'
         message: Ο λογαριασμός σας κλειδώθηκε λόγω υπερβολικού αριθμού αποτυχημένων προσπαθειών σύνδεσης.
         subject: Οδηγίες ξεκλειδώματος
+    omniauth_callbacks:
+      failure: Δεν ήταν δυνατός ο έλεγχος της ταυτότητάς σας από το %{kind} λόγω "%{reason}".
+      success: Επιτυχής έλεγχος ταυτότητας από τον λογαριασμό %{kind}.
     passwords:
       edit:
         change_my_password: Αλλαγή κωδικού πρόσβασης
@@ -1501,6 +1520,8 @@ el:
         user_groups: Ομάδες
       widget:
         see_more: Δείτε περισσότερα
+  locale:
+    name: Αγγλικά
   password_validator:
     domain_included_in_password: μοιάζει πολύ με αυτό το όνομα τομέα
     email_included_in_password: μοιάζει πολύ με το email σας
@@ -1512,9 +1533,28 @@ el:
     password_too_long: έχει πολύ μεγάλο μήκος
     password_too_short: έχει πολύ μικρό μήκος
   social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Email
+    facebook: Facebook
     google_bookmark: Σελιδοδείκτης Google
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Κοινοποίηση σε %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Ανοίξτε το WeChat, κάντε κλικ στο κουμπί «Ανακάλυψη» και, στη συνέχεια, κάντε κλικ στο μενού «Σάρωση κωδικού QR».
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Διαγραφές

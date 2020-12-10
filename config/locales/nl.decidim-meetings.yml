@@ -51,9 +51,13 @@ nl:
       decidim/meetings/create_meeting_event: Vergadering
       decidim/meetings/meeting_registrations_enabled_event: Registraties ingeschakeld
       decidim/meetings/meeting_registrations_over_percentage_event: Registraties boven de limiet
+      decidim/meetings/upcoming_meeting_event: Geplande vergadering
       decidim/meetings/update_meeting_event: Vergadering bijgewerkt
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Vergadering
+        other: Vergaderingen
       decidim/meetings/minutes:
         one: Notulen
         other: Notulen
@@ -74,6 +78,7 @@ nl:
       meetings:
         actions:
           join: Deelnemen
+        name: Vergaderingen
         settings:
           global:
             announcement: Bekendmaking
@@ -146,6 +151,7 @@ nl:
           unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
+        agenda: Agenda
         attachment_collections: Mappen
         attachments: Bijlagen
         close: Sluiten
@@ -157,6 +163,7 @@ nl:
             one: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is:'
             other: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn:'
         minutes: Notulen
+        new: Nieuwe vergadering
         preview: Voorbeeld
         registrations: Registraties
         title: Acties
@@ -324,12 +331,14 @@ nl:
       content_blocks:
         upcoming_events:
           name: Geplande evenementen
+          upcoming_events: Geplande vergaderingen
           view_all_events: Alles weergeven
       directory:
         meetings:
           index:
             all: Alle
             date: Datum
+            meetings: Vergaderingen
             past: Voorbije
             search: Zoeken
             space_type: Participatieruimte
@@ -346,6 +355,10 @@ nl:
       meeting:
         not_allowed: U hebt geen toestemming om deze vergadering te bekijken
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} vergadering"
+            other: "%{count} vergaderingen"
         create:
           invalid: Er is een probleem opgetreden bij het aanmaken van deze bijeenkomst.
           success: U hebt de vergadering aangemaakt.
@@ -375,9 +388,12 @@ nl:
           unfold: Uitvouwen
         form:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
+          create_as: Vergadering aanmaken als
           location_help: 'Locatie: bericht aan de gebruikers met de ontmoetingsplaats'
           location_hints_help: 'Locatietips: aanvullende info. Voorbeeld: de verdieping van het gebouw'
           select_a_category: Kies een categorie
+        index:
+          new_meeting: Nieuwe vergadering
         meeting_minutes:
           meeting_minutes: Notulen van de vergadering
           related_information: Gerelateerde informatie
@@ -387,6 +403,7 @@ nl:
         new:
           back: Terug
           create: Aanmaken
+          title: Uw vergadering aanmaken
         registration_confirm:
           cancel: Annuleren
           confirm: Bevestigen
@@ -420,6 +437,7 @@ nl:
             email: E-mail
             name: Naam
             sent_at: Verzonden op
+            status: Status
           status:
             accepted: Aanvaard (%{at})
             rejected: Afgewezen (%{at})
@@ -429,6 +447,7 @@ nl:
             closed: Gesloten
             end_time: Einddatum
             map: Kaart
+            official_meeting: Officiële vergadering
             start_time: Begindatum
             title: Titel
       read_more: "(meer informatie)"
@@ -455,9 +474,20 @@ nl:
     metrics:
       meetings:
         description: Aantal vergaderingen aangemaakt
+        object: vergaderingen
+        title: Vergaderingen
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Eerdere vergaderingen
+          upcoming_meetings: Geplande vergaderingen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Voorbije vergaderingen
+        see_all: Alle vergaderingen bekijken (%{count})
+        upcoming_meetings: Geplande vergaderingen
+      upcoming_meeting_for_card:
+        upcoming_meeting: Geplande vergadering
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Gerelateerde resultaten:'

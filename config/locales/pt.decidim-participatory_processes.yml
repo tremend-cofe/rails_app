@@ -13,6 +13,7 @@ pt:
         developer_group: Grupo promotor
         domain: Domínio
         end_date: Data final
+        hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área da organização
         meta_scope: Metadados do âmbito
@@ -61,6 +62,9 @@ pt:
       decidim/participatory_process_step_changed_event: Fase alterada
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Processo participativo
+        other: Processos participativos
       decidim/participatory_process_group:
         one: Grupo de processos participativos
         other: Grupos de processos participativos
@@ -284,6 +288,8 @@ pt:
           contextual: "<p>Entende-se por <strong>processo participativo</strong> uma sequência de atividades participativas (por exemplo, a resposta a um inquérito, seguida da apresentação de propostas, da sua discussão em reuniões presenciais ou virtuais e, por último, do estabelecimento de prioridades) realizadas com o intuito de definir e tomar uma decisão sobre um tema específico.</p> <p>São exemplos de processos participativos: o processo de eleição de membros do comité (em que as candidaturas são apresentadas, debatidas, e em que, por último, se escolhe um candidato), os orçamentos participativos (em que se fazem propostas, que são avaliadas economicamente e votadas em função do dinheiro disponível), o processo de planeamento estratégico, a elaboração colaborativa de um regulamento ou norma, a conceção de um espaço urbano ou a criação de um plano político público.</p>\n"
           page: "<p>Entende-se por <strong>processo participativo</strong> uma sequência de atividades participativas (por exemplo, a resposta a um inquérito, seguida da apresentação de propostas, da sua discussão em reuniões presenciais ou virtuais e, por último, do estabelecimento de prioridades) realizadas com o intuito de definir e tomar uma decisão sobre um tema específico.</p> <p>São exemplos de processos participativos:\n o processo de eleição de membros do comité (em que as candidaturas são apresentadas, debatidas, e em que, por último, se escolhe um candidato), os orçamentos participativos (em que se fazem propostas, que são avaliadas economicamente e votadas em função do dinheiro disponível), o processo de planeamento estratégico, a elaboração colaborativa de um regulamento ou norma, a conceção de um espaço urbano ou a criação de um plano político público.</p>\n"
           title: O que é um processo participativo?
+    menu:
+      processes: Processos
     metrics:
       participatory_processes:
         description: Número de processos participativos nesta organização
@@ -336,19 +342,39 @@ pt:
       content_blocks:
         highlighted_processes:
           name: Processos em destaque
+      index:
+        title: Processos participativos
+      last_activity:
+        new_participatory_process: Novo processo participativo
       pages:
         home:
           highlighted_processes:
+            active_processes: Processos ativos
             active_step: Fase ativa
             more_information: Mais informações
             participate: Participar
             participate_in: Participar no processo %{resource_name}
+            see_all_processes: Ver todos os processos
       participatory_process_steps:
         index:
           back_to_process: Voltar à página de processos
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 processo ativo
+              other: "%{count} processos ativos"
+            all:
+              one: 1 processo
+              other: "%{count} processos"
+            past:
+              one: 1 processo inativo
+              other: "%{count} processos inativos"
+            upcoming:
+              one: 1 processo futuro
+              other: "%{count} processos futuros"
           explanations:
+            no_active: Nenhum processo ativo
             no_active_nor_upcoming: Nenhum processo ativo ou futuro
             no_active_nor_upcoming_callout: Não existem processos ativos ou futuros. Eis uma lista dos processos anteriores.
           names:
@@ -376,14 +402,18 @@ pt:
       statistics:
         answers_count: Respostas
         comments_count: Comentários
+        debates_count: Debates
         endorsements_count: Subscrições
         followers_count: Seguidores
         headline: Estatísticas
+        meetings_count: Reuniões
         no_stats: Ainda não existem estatísticas.
         orders_count: Apoios
         pages_count: Páginas
         participants_count: Participantes
+        processes_count: Processos
         projects_count: Projetos
+        proposals_count: Propostas
         results_count: Resultados
         supports_count: Apoios
         surveys_count: Inquéritos
@@ -417,3 +447,5 @@ pt:
       process_header_steps:
         step: Fase %{current} de %{total}
         view_steps: Fases do processo
+      process_navigation:
+        process_menu_item: O processo

@@ -10,6 +10,7 @@ sk:
         copy_features: Kopírovať funkcie
         decidim_scope_id: Rozsah pôsobnosti
         description: Opis
+        hashtag: Hashtag
         hero_image: Obrázok domovskej stránky
         participatory_processes_ids: Súvisiace participatívne procesy
         promoted: Zvýraznené
@@ -18,6 +19,7 @@ sk:
         scopes_enabled: Povolené rozsahy pôsobnosti
         short_description: Stručný opis
         show_statistics: Zobraziť štatistiku
+        slogan: Slogan
         slug: Prvok slug adresy URL
         title: Nadpis
       conference_speaker:
@@ -32,6 +34,23 @@ sk:
           attributes:
             email:
               already_invited: Na tento e-mail už bola pozvánka odoslaná
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferencia
+        few: Konferencie
+        many: Konferencií
+        other: Konferencií
+      decidim/conference_speaker:
+        one: Prednášajúci
+        few: Prednášajúci
+        many: Prednášajúcich
+        other: Prednášajúcich
+      decidim/conference_user_role:
+        one: Rola používateľa z konferencie
+        few: Roly používateľa z konferencie
+        many: Rol používateľa z konferencie
+        other: Rol používateľa z konferencie
   decidim:
     admin:
       actions:
@@ -264,6 +283,9 @@ sk:
         create: "Používateľ %{user_name} vytvoril odkaz na médiá %{resource_name} v rámci konferencie %{space_name}"
         delete: "Používateľ %{user_name} odstránil odkaz na médiá %{resource_name} z konferencie %{space_name}"
         update: "Používateľ %{user_name} aktualizoval odkaz na médiá %{resource_name} v rámci konferencie %{space_name}"
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Prednášajúci
@@ -355,6 +377,7 @@ sk:
           streaming: Streamovanie
         show:
           day: Deň
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaša registrácia na konferenciu <a href="%{url}">%{title}</a> bola potvrdená.
@@ -543,6 +566,12 @@ sk:
           take_part: Zúčastniť sa
         index:
           promoted_conferences: Zvýraznené konferencie
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferencia"
+            few: "%{count} konferencie"
+            many: "%{count} konferencií"
+            other: "%{count} konferencií"
         promoted_conference:
           more_info: Viac informácií
           take_part: Zúčastniť sa

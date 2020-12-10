@@ -338,6 +338,9 @@ es:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propuestas
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ver todas las propuestas (%{count})
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
@@ -669,6 +672,8 @@ es:
       destroy_draft:
         error: Se ha producido un error al eliminar el borrador colaborativo.
         success: El borrador de propuesta se ha eliminado correctamente.
+      last_activity:
+        new_proposal_at_html: "<span>Nueva propuesta en %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -679,6 +684,7 @@ es:
           fields:
             category: Categoría
             comments: Comentarios
+            id: ID
             notes: Notas
             official_proposal: Propuesta oficial
             published_answer: Respuesta publicada
@@ -708,6 +714,10 @@ es:
         complete:
           send: Enviar
           title: Finaliza tu propuesta
+        count:
+          proposals_count:
+            one: "%{count} propuesta"
+            other: "%{count} propuestas"
         edit:
           attachment_legend: "(Opcional) Añadir documento adjunto"
           back: Atrás
@@ -739,13 +749,16 @@ es:
           unfold: Desplegar
         index:
           collaborative_drafts_list: Acceso a borradores colaborativos
+          new_proposal: Nueva propuesta
           see_all_withdrawn: Ver todas las propuestas retiradas
+          view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
             one: apoyo
             other: apoyos
         new:
           send: Siguiente
+          title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_commented: Más comentadas
@@ -769,6 +782,7 @@ es:
           title: Publica tu propuesta
         proposal:
           creation_date: 'Creación: %{date}'
+          view_proposal: Ver propuesta
         proposals:
           empty: Todavía no hay ninguna propuesta
           empty_filters: No hay ninguna propuesta que se ajuste a estos criterios
@@ -834,14 +848,20 @@ es:
             votes: Apoyos
         wizard_aside:
           back: Atrás
+          back_from_step_1: Volver a propuestas
+          back_from_step_2: Volver a propuestas
           back_from_step_3: Volver a la comparación de propuestas
           back_from_step_4: Volver a la edición del borrador
+          info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           current_step: Paso actual
           see_steps: ver pasos
+          step_1: Crea tu propuesta
           step_2: Comparar
           step_3: Completar
+          step_4: Publicar propuesta
           step_of: Paso %{current_step_num} de %{total_steps}
+          title: Cómo crear una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
         close: Cerrar
@@ -863,6 +883,8 @@ es:
           back_to_resource: Volver al borrador colaborativo
         index:
           title: Versiones
+        proposals:
+          back_to_resource: Volver a la propuesta
       withdraw:
         errors:
           has_supports: No es posible retirar la propuesta debido a que ya tiene apoyos.

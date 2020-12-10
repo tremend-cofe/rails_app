@@ -338,6 +338,9 @@ sv:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Förslag
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Se alla förslag (%{count})
     proposals:
       actions:
         answer_proposal: Svara på förslag
@@ -589,9 +592,11 @@ sv:
           related_to: Avseende
           scope: Tillämpningsområde
           search: Sök
+          state: Status
           withdrawn: Återkallade
         filters_small_view:
           close_modal: Stäng modalt fönster
+          filter: Filter
           filter_by: Filtrera efter
           unfold: Öppna
         new:
@@ -664,6 +669,8 @@ sv:
       destroy_draft:
         error: Ett fel uppstod när samarbetsutkastet raderades.
         success: Förslagsutkastet har raderats.
+      last_activity:
+        new_proposal_at_html: "<span>Nytt förslag på %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -674,11 +681,13 @@ sv:
           fields:
             category: Kategori
             comments: Kommentarer
+            id: Id
             notes: Anmärkningar
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerat
             scope: Tillämpningsområde
+            state: Status
             title: Titel
             valuator: Värderingsman
             valuators: Värderingsmän
@@ -702,6 +711,10 @@ sv:
         complete:
           send: Skicka
           title: Fyll i förslaget
+        count:
+          proposals_count:
+            one: "%{count} förslag"
+            other: "%{count} förslag"
         edit:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           back: Tillbaka
@@ -723,21 +736,26 @@ sv:
           related_to: Avseende
           scope: Tillämpningsområde
           search: Sök
+          state: Status
           type: Typ
           voted: Har fått stöd
         filters_small_view:
           close_modal: Stäng modalt fönster
+          filter: Filter
           filter_by: Filtrera efter
           unfold: Öppna
         index:
           collaborative_drafts_list: Öppna samarbetsutkast
+          new_proposal: Nytt förslag
           see_all_withdrawn: Se alla återkallade förslag
+          view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
             one: stöd
             other: stöd
         new:
           send: Fortsätt
+          title: Skapa ditt förslag
         orders:
           label: 'Sortera förslag efter:'
           most_commented: Mest kommenterade
@@ -761,6 +779,7 @@ sv:
           title: Publicera ditt förslag
         proposal:
           creation_date: 'Skapande: %{date}'
+          view_proposal: Visa förslag
         proposals:
           empty: Det finns inga förslag än
           empty_filters: Det finns inga förslag med dessa kriterier
@@ -826,14 +845,20 @@ sv:
             votes: Stöd
         wizard_aside:
           back: Tillbaka
+          back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till förslag
           back_from_step_3: Tillbaka till jämförelse av förslag
           back_from_step_4: Tillbaka till redigering av utkast
+          info: Du skapar ett <strong>förslag</strong>.
         wizard_steps:
           current_step: Aktuellt steg
           see_steps: se steg
+          step_1: Skapa ditt förslag
           step_2: Jämför
           step_3: Slutför
+          step_4: Offentliggör ditt förslag
           step_of: Steg %{current_step_num} av %{total_steps}
+          title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
         close: Avsluta
@@ -855,6 +880,8 @@ sv:
           back_to_resource: Gå tillbaka till samarbetsutkast
         index:
           title: Versioner
+        proposals:
+          back_to_resource: Gå tillbaka till förslag
       withdraw:
         errors:
           has_supports: Det går inte att återkalla detta förslag eftersom det redan har stöd.

@@ -11,7 +11,9 @@ de:
         decidim_area_id: Gebiet
         description: Beschreibung
         developer_group: Gruppe der Unterstützer
+        domain: Domain
         end_date: Enddatum
+        hashtag: Hashtag
         hero_image: Bildstartseite
         local_area: Gebiet der Organisation
         meta_scope: Reichweiten-Metadaten
@@ -35,6 +37,7 @@ de:
       participatory_process_group:
         description: Beschreibung
         hero_image: Bild
+        name: Name
         participatory_process_ids: Verbundene Prozesse
       participatory_process_step:
         cta_path: Pfad der Handlungsaufforderung
@@ -46,6 +49,7 @@ de:
         title: Titel
       participatory_process_user_role:
         email: E-Mail
+        name: Name
         role: Rolle
     errors:
       models:
@@ -58,9 +62,15 @@ de:
       decidim/participatory_process_step_changed_event: Phase geändert
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Partizipativer Prozess
+        other: Partizipative Prozesse
       decidim/participatory_process_group:
         one: Beteiligungsprozessgruppe
         other: Beteiligungsprozessgruppen
+      decidim/participatory_process_step:
+        one: Phase
+        other: Phasen
   decidim:
     admin:
       actions:
@@ -271,6 +281,8 @@ de:
           contextual: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipatorischen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese in persönlichen oder virtuellen Treffen diskutieren und schließlich eine Priorisierung vornehmen) mit dem Ziel, ein bestimmtes Thema zu definieren und eine Entscheidung zu treffen.</p> <p>Beispiele für Beteiligungsprozesse: ein Prozess der Wahl von Ausschussmitgliedern (bei dem zunächst Kandidaturen präsentiert, dann diskutiert und schließlich ein Kandidat ausgewählt wird), partizipatorische Haushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit den verfügbaren Mitteln abgestimmt wird), ein strategischer Planungsprozess, die gemeinsame Erarbeitung einer Verordnung oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines Plans für die öffentliche Ordnung.</p>\n"
           page: "<p>Ein <strong>Beteiligungsprozess</strong> ist eine Abfolge von partizipatorischen Aktivitäten (z.B. zuerst eine Umfrage ausfüllen, dann Vorschläge machen, diese in persönlichen oder virtuellen Treffen diskutieren und schließlich eine Priorisierung vornehmen) mit dem Ziel, ein bestimmtes Thema zu definieren und eine Entscheidung zu treffen.</p> <p>Beispiele für Beteiligungsprozesse: ein Prozess der Wahl von Ausschussmitgliedern (bei dem zunächst Kandidaturen präsentiert, dann diskutiert und schließlich ein Kandidat ausgewählt wird), partizipatorische Haushalte (bei denen Vorschläge gemacht, wirtschaftlich bewertet und mit den verfügbaren Mitteln abgestimmt wird), ein strategischer Planungsprozess, die gemeinsame Erarbeitung einer Verordnung oder Norm, die Gestaltung eines städtischen Raums oder die Erstellung eines Plans für die öffentliche Ordnung.</p>\n"
           title: Was ist ein Beteiligungsprozess?
+    menu:
+      processes: Prozesse
     metrics:
       participatory_processes:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
@@ -323,19 +335,39 @@ de:
       content_blocks:
         highlighted_processes:
           name: Hervorgehobene Prozesse
+      index:
+        title: Partizipative Prozesse
+      last_activity:
+        new_participatory_process: Neuer partizipativer Prozess
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktive Prozesse
             active_step: Aktive Phase
             more_information: Weitere Informationen
             participate: Teilnehmen
             participate_in: Am Prozess %{resource_name} teilnehmen
+            see_all_processes: Alle Prozesse anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktiver Prozess
+              other: "%{count} aktive Prozesse"
+            all:
+              one: 1 Prozess
+              other: "%{count} Prozesse"
+            past:
+              one: 1 früherer Prozess
+              other: "%{count} frühere Prozesse"
+            upcoming:
+              one: 1 anstehender Prozess
+              other: "%{count} anstehende Prozesse"
           explanations:
+            no_active: Keine aktiven Prozesse
             no_active_nor_upcoming: Keine aktiven oder anstehenden Prozesse
             no_active_nor_upcoming_callout: Es gibt keine aktiven oder anstehenden Prozesse. Hier ist eine Liste der früheren Prozesse.
           names:
@@ -367,11 +399,14 @@ de:
         endorsements_count: Genehmigungen
         followers_count: Follower
         headline: Statistik
+        meetings_count: Sitzungen
         no_stats: Es gibt noch keine Statistiken.
         orders_count: Unterstützungen
         pages_count: Seiten
         participants_count: Teilnehmer
+        processes_count: Prozesse
         projects_count: Projekte
+        proposals_count: Vorschläge
         results_count: Ergebnisse
         supports_count: Unterstützungen
         surveys_count: Umfragen
@@ -405,3 +440,5 @@ de:
       process_header_steps:
         step: Phase %{current} von %{total}
         view_steps: Prozessphasen
+      process_navigation:
+        process_menu_item: Der Prozess

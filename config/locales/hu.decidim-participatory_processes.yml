@@ -62,6 +62,9 @@ hu:
       decidim/participatory_process_step_changed_event: Szakasz módosítva
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Részvételi folyamat
+        other: Részvételi folyamatok
       decidim/participatory_process_group:
         one: Részvételifolyamat-csoport
         other: Részvételifolyamat-csoportok
@@ -285,6 +288,8 @@ hu:
           contextual: "<p>A <strong>részvételi folyamat</strong> részvételi tevékenységek sorozatának végrehajtása (például először egy felmérés kitöltése, majd javaslatok megfogalmazása, annak személyes vagy virtuális üléseken történő megbeszélése, végül rangsorolás) azzal a céllal, hogy meghatározásra kerüljön egy adott téma, majd döntés szülessen arról.</p> <p>A részvételi folyamatok példái a következők: a bizottsági tagok megválasztásának folyamata (ahol először előterjesztik, majd megvitatják és végül megválasztják a jelöltelet), a részvételi költségvetések (ahol javaslatokat tesznek, gazdasági szempontból értékelik azokat, és a rendelkezésre álló források alapján szavaznak azokról), a stratégiai tervezési folyamat, egy együttműködésen alapuló rendelet vagy norma tervezetének létrehozása, egy városi tér kialakítása vagy közpolitikai terv készítése.</p>\n"
           page: "<p>A <strong>részvételi folyamat</strong> részvételi tevékenységek sorozatának végrehajtása (például először egy felmérés kitöltése, majd javaslatok megfogalmazása, annak személyes vagy virtuális üléseken történő megbeszélése, végül rangsorolás) azzal a céllal, hogy meghatározásra kerüljön egy adott téma, majd döntés szülessen arról.</p> <p>A részvételi folyamatok példái a következők: a bizottsági tagok megválasztásának folyamata (ahol először előterjesztik, majd megvitatják és végül megválasztják a jelöltelet), a részvételi költségvetések (ahol javaslatokat tesznek, gazdasági szempontból értékelik azokat, és a rendelkezésre álló források alapján szavaznak azokról), a stratégiai tervezési folyamat, egy együttműködésen alapuló rendelet vagy norma tervezetének létrehozása, egy városi tér kialakítása vagy közpolitikai terv készítése.</p>\n"
           title: Mi az a részvételi folyamat?
+    menu:
+      processes: Folyamatok
     metrics:
       participatory_processes:
         description: A szervezet részvételi folyamatainak száma
@@ -337,19 +342,39 @@ hu:
       content_blocks:
         highlighted_processes:
           name: Kiemelt folyamatok
+      index:
+        title: Részvételi folyamatok
+      last_activity:
+        new_participatory_process: Új részvételi folyamat
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktív folyamatok
             active_step: Aktív szakasz
             more_information: További információk
             participate: Részvétel
             participate_in: Részvétel a(z) %{resource_name} folyamatban
+            see_all_processes: Az összes folyamat megtekintése
       participatory_process_steps:
         index:
           back_to_process: Vissza a folyamatok oldalára
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktív folyamat
+              other: "%{count} aktív folyamat"
+            all:
+              one: 1 folyamat
+              other: "%{count} folyamat"
+            past:
+              one: 1 múltbeli folyamat
+              other: "%{count} múltbeli folyamat"
+            upcoming:
+              one: 1 közelgő folyamat
+              other: "%{count} közelgő folyamat"
           explanations:
+            no_active: Nincsenek aktív folyamatok
             no_active_nor_upcoming: Nincsenek aktív vagy közelgő folyamatok
             no_active_nor_upcoming_callout: Nincsenek aktív vagy közelgő folyamatok. Itt található a múltbeli folyamatok listája.
           names:
@@ -381,11 +406,14 @@ hu:
         endorsements_count: Jóváhagyások
         followers_count: Követők
         headline: Statisztikák
+        meetings_count: Ülések
         no_stats: Még nincsenek statisztikák.
         orders_count: Támogatások
         pages_count: Oldalak
         participants_count: Résztvevők
+        processes_count: Folyamatok
         projects_count: Projektek
+        proposals_count: Javaslatok
         results_count: Eredmények
         supports_count: Támogatások
         surveys_count: Felmérések
@@ -419,3 +447,5 @@ hu:
       process_header_steps:
         step: '%{current}/%{total}. szakasz'
         view_steps: Folyamatszakaszok
+      process_navigation:
+        process_menu_item: A folyamat

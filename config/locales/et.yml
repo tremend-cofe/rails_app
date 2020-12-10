@@ -1,3 +1,155 @@
 et:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Teema
+      meeting:
+        cofe_charter_html: Nõustun Euroopa tulevikku käsitleva konverentsi <a href="%{url}" target="_blank">hartaga</a>
+    models:
+      decidim/meetings/upcoming_meeting_event: Eelseisev koosolek
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Koosolek
+        other: Koosolekud
+      decidim/participatory_process:
+        one: Osalusprotsess
+        other: Osalusprotsessid
+  decidim:
+    components:
+      meetings:
+        name: Koosolekud
+        settings:
+          global:
+            cofe_charter_url: CoFE harta URL
+    meetings:
+      actions:
+        new: Uus koosolek
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Eelseisvad koosolekud
+      directory:
+        meetings:
+          index:
+            meetings: Koosolekud
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} koosolek"
+            other: "%{count} koosolekut"
+        form:
+          create_as: Loo koosolek kui
+        index:
+          new_meeting: Uus koosolek
+        new:
+          title: Looge oma koosolek
+      models:
+        meeting:
+          fields:
+            official_meeting: Ametlik koosolek
+    menu:
+      help: Abi
+      processes: Protsessid
+    menu_overwrite:
+      citizens_panels: Kodanike paneelarutelud
+      events: Üritused
+      plenaries: Täiskogu istungid
+      topics: Teemad
+    metrics:
+      meetings:
+        object: koosolekud
+        title: Koosolekud
+    pages:
+      home:
+        extended:
+          meetings: Koosolekud
+        statistics:
+          meetings_count: Koosolekud
+          processes_count: Protsessid
+          proposals_count: Ettepanekud
+      index:
+        title: Abi
+    participatory_processes:
+      index:
+        title: Osalusprotsessid
+      last_activity:
+        new_participatory_process: Uus osalusprotsess
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiivsed protsessid
+            see_all_processes: Kuva kõik protsessid
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Toimunud koosolekud
+          upcoming_meetings: Eelseisvad koosolekud
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiivne protsess
+              other: "%{count} aktiivset protsessi"
+            all:
+              one: 1 protsess
+              other: "%{count} protsessi"
+            past:
+              one: 1 minevikuprotsess
+              other: "%{count} minevikuprotsessi"
+            upcoming:
+              one: 1 eelseisev protsess
+              other: "%{count} eelseisvat protsessi"
+          explanations:
+            no_active: Aktiivseid protsesse ei ole
+      statistics:
+        meetings_count: Koosolekud
+        processes_count: Protsessid
+        proposals_count: Ettepanekud
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Kuva kõik koosolekud (%{count})
+        upcoming_meetings: Eelseisvad koosolekud
+      highlighted_proposals:
+        see_all: Kuva kõik ettepanekud (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Eelseisev koosolek
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Uus ettepanek üksuses %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} ettepanek"
+            other: "%{count} ettepanekut"
+        index:
+          new_proposal: Uus ettepanek
+          view_proposal: Kuva ettepanek
+        new:
+          title: Looge oma ettepanek
+        proposal:
+          view_proposal: Kuva ettepanek
+        wizard_aside:
+          back_from_step_1: Tagasi ettepanekute lehele
+          back_from_step_2: Tagasi ettepanekute lehele
+          info: Loote <strong>ettepaneku</strong>.
+        wizard_steps:
+          step_1: Looge oma ettepanek
+          step_4: Avaldage oma ettepanek
+          title: Ettepaneku loomise etapid
+      versions:
+        proposals:
+          back_to_resource: Tagasi ettepaneku lehele
+  devise:
+    omniauth_callbacks:
+      success: Autentimine konto %{kind} kaudu õnnestus.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Sulge
+        select_your_language: Valige keel
+      process_navigation:
+        process_menu_item: Protsess
+      user:
+        logged_in: Sisse logitud
+        logged_in_as: Sisse logitud kasutajana %{user}
   locale:
     name: Eesti keel
