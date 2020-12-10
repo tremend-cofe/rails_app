@@ -338,6 +338,9 @@ de:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Vorschläge
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Alle Vorschläge anzeigen (%{count})
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
@@ -589,9 +592,11 @@ de:
           related_to: Verbunden mit
           scope: Reichweite
           search: Suche
+          state: Status
           withdrawn: Zurückgezogen
         filters_small_view:
           close_modal: Fenster schließen
+          filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
         new:
@@ -664,6 +669,8 @@ de:
       destroy_draft:
         error: Beim Löschen des gemeinsamen Entwurfs ist ein Problem aufgetreten.
         success: Vorschlagsentwurf erfolgreich gelöscht.
+      last_activity:
+        new_proposal_at_html: "<span>Neuer Vorschlag unter %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -674,11 +681,13 @@ de:
           fields:
             category: Kategorie
             comments: Kommentare
+            id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht unter
             scope: Reichweite
+            state: Status
             title: Titel
             valuator: Bewerter
             valuators: Gutachter
@@ -702,6 +711,10 @@ de:
         complete:
           send: Absenden
           title: Vervollständigen Sie Ihren Vorschlag
+        count:
+          proposals_count:
+            one: "%{count} Vorschlag"
+            other: "%{count} Vorschläge"
         edit:
           attachment_legend: "(Optional) Eine Anlage hinzufügen"
           back: Zurück
@@ -723,21 +736,26 @@ de:
           related_to: Verbunden mit
           scope: Reichweite
           search: Suche
+          state: Status
           type: Typ
           voted: Unterstützt
         filters_small_view:
           close_modal: Fenster schließen
+          filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
         index:
           collaborative_drafts_list: Zugang zu gemeinsamen Entwürfen
+          new_proposal: Neuer Vorschlag
           see_all_withdrawn: Alle zurückgezogenen Vorschläge anzeigen
+          view_proposal: Vorschlag einsehen
         linked_proposals:
           proposal_votes:
             one: Unterstützung
             other: Unterstützungen
         new:
           send: Weiter
+          title: Ihren Vorschlag erstellen
         orders:
           label: 'Vorschläge ordnen nach:'
           most_commented: Am häufigsten kommentiert
@@ -761,6 +779,7 @@ de:
           title: Ihren Vorschlag veröffentlichen
         proposal:
           creation_date: 'Erstellungsdatum: %{date}'
+          view_proposal: Vorschlag einsehen
         proposals:
           empty: Es gibt noch keinen Vorschlag
           empty_filters: Es gibt keinen Vorschlag mit diesen Kriterien
@@ -826,14 +845,20 @@ de:
             votes: Unterstützungen
         wizard_aside:
           back: Zurück
+          back_from_step_1: Zurück zu den Vorschlägen
+          back_from_step_2: Zurück zu den Vorschlägen
           back_from_step_3: Zurück zum Vergleich der Vorschläge
           back_from_step_4: Zurück zur Bearbeitung des Entwurfs
+          info: Sie erstellen einen <strong>Vorschlag</strong>.
         wizard_steps:
           current_step: Derzeitiger Schritt
           see_steps: Schritte sehen
+          step_1: Ihren Vorschlag erstellen
           step_2: Vergleichen
           step_3: Abschließen
+          step_4: Ihren Vorschlag veröffentlichen
           step_of: Schritt %{current_step_num} von %{total_steps}
+          title: Schritte zur Erstellung des Vorschlags
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         close: Schließen
@@ -855,6 +880,8 @@ de:
           back_to_resource: Zurück zum gemeinsamen Entwurf
         index:
           title: Versionen
+        proposals:
+          back_to_resource: Zurück zum Vorschlag
       withdraw:
         errors:
           has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung gefunden hat.
