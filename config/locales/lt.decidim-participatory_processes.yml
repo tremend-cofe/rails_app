@@ -60,6 +60,23 @@ lt:
     models:
       decidim/participatory_process_step_activated_event: Etapas suaktyvintas
       decidim/participatory_process_step_changed_event: Eatapas pakeistas
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Dalyvaujamasis procesas
+        few: Dalyvaujamieji procesai
+        many: Dalyvaujamieji procesai
+        other: Dalyvaujamieji procesai
+      decidim/participatory_process_group:
+        one: Dalyvaujamojo proceso grupė
+        few: Dalyvaujamojo proceso grupės
+        many: Dalyvaujamojo proceso grupės
+        other: Dalyvaujamojo proceso grupės
+      decidim/participatory_process_step:
+        one: Etapas
+        few: Etapai
+        many: Etapai
+        other: Etapai
   decidim:
     admin:
       actions:
@@ -277,6 +294,8 @@ lt:
           contextual: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamoji veikla (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose posėdžiuose arba vaizdo konferencijose ir galiausiai nustatomi prioritetiniai), kurios tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimų procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           page: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamoji veikla (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose posėdžiuose arba vaizdo konferencijose ir galiausiai nustatomi prioritetiniai), kurios tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimų procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           title: Kas yra dalyvaujamasis procesas?
+    menu:
+      processes: Procesai
     metrics:
       participatory_processes:
         description: Dalyvaujamųjų procesų skaičius šioje organizacijoje
@@ -287,6 +306,11 @@ lt:
         related_assemblies: Susijusios asamblėjos
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 procesas %{group}
+          few: "%{count} procesai %{group}"
+          many: "%{count} procesai %{group}"
+          other: "%{count} procesai %{group}"
         title: Dalyvaujamojo proceso grupės
     participatory_process_steps:
       index:
@@ -326,19 +350,47 @@ lt:
       content_blocks:
         highlighted_processes:
           name: Paryškinti procesai
+      index:
+        title: Dalyvaujamieji procesai
+      last_activity:
+        new_participatory_process: Naujas dalyvaujamasis procesas
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktyvūs procesai
             active_step: Aktyvusis etapas
             more_information: Daugiau informacijos
             participate: Dalyvauti
             participate_in: Dalyvauti procese %{resource_name}
+            see_all_processes: Žiūrėti visus procesus
       participatory_process_steps:
         index:
           back_to_process: Grįžti į proceso puslapį
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktyvus procesas
+              few: "%{count} aktyvūs procesai"
+              many: "%{count} aktyvūs procesai"
+              other: "%{count} aktyvūs procesai"
+            all:
+              one: 1 procesas
+              few: "%{count} procesai"
+              many: "%{count} procesai"
+              other: "%{count} procesai"
+            past:
+              one: 1 buvęs procesas
+              few: "%{count} buvę procesai"
+              many: "%{count} buvę procesai"
+              other: "%{count} buvę procesai"
+            upcoming:
+              one: 1 būsimas procesas
+              few: "%{count} būsimi procesai"
+              many: "%{count} būsimi procesai"
+              other: "%{count} būsimi procesai"
           explanations:
+            no_active: Aktyvių procesų nėra.
             no_active_nor_upcoming: Nei aktyvių, nei būsimų procesų nėra.
             no_active_nor_upcoming_callout: Nei aktyvių, nei būsimų procesų nėra. Čia pateikiamas buvusių procesų sąrašas.
           names:
@@ -370,11 +422,14 @@ lt:
         endorsements_count: Pritarimai
         followers_count: Sekėjai
         headline: Statistiniai duomenys
+        meetings_count: Posėdžiai
         no_stats: Statistinių duomenų dar nėra.
         orders_count: Parama
         pages_count: Puslapiai
         participants_count: Dalyviai
+        processes_count: Procesai
         projects_count: Projektai
+        proposals_count: Pasiūlymai
         results_count: Rezultatai
         supports_count: Parama
         surveys_count: Apklausos
@@ -408,3 +463,5 @@ lt:
       process_header_steps:
         step: '%{current} etapas iš %{total}'
         view_steps: Proceso etapai
+      process_navigation:
+        process_menu_item: Procesas
