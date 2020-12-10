@@ -29,6 +29,7 @@ de:
         registrations_enabled: Anmeldungen aktiviert
         start_time: Startzeit
         title: Titel
+        transparent: Transparent
       minutes:
         audio_url: Audio-URL
         description: Beschreibung
@@ -50,9 +51,13 @@ de:
       decidim/meetings/create_meeting_event: Sitzung
       decidim/meetings/meeting_registrations_enabled_event: Anmeldungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über dem Limit
+      decidim/meetings/upcoming_meeting_event: Anstehende Sitzung
       decidim/meetings/update_meeting_event: Sitzung aktualisiert
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Sitzung
+        other: Sitzungen
       decidim/meetings/minutes:
         one: Protokoll
         other: Protokoll
@@ -73,6 +78,7 @@ de:
       meetings:
         actions:
           join: Beitreten
+        name: Sitzungen
         settings:
           global:
             announcement: Bekanntmachung
@@ -157,6 +163,7 @@ de:
             one: 'Die Sitzung kann nicht gelöscht werden, weil %{count} Vorschlag damit verbunden ist:'
             other: 'Die Sitzung kann nicht gelöscht werden, weil %{count} Vorschläge damit verbunden sind:'
         minutes: Protokoll
+        new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
         title: Aktionen
@@ -324,12 +331,14 @@ de:
       content_blocks:
         upcoming_events:
           name: Anstehende Ereignisse
+          upcoming_events: Anstehende Sitzungen
           view_all_events: Alle anzeigen
       directory:
         meetings:
           index:
             all: Alle
             date: Datum
+            meetings: Sitzungen
             past: Frühere
             search: Suche
             space_type: Beteiligungsbereich
@@ -346,6 +355,10 @@ de:
       meeting:
         not_allowed: Es ist Ihnen nicht gestattet, diese Sitzung zu sehen
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} Sitzung"
+            other: "%{count} Sitzungen"
         create:
           invalid: Bei der Erstellung dieser Sitzung ist ein Problem aufgetreten.
           success: Sie haben die Sitzung erfolgreich erstellt.
@@ -370,13 +383,17 @@ de:
           search: Suche
         filters_small_view:
           close_modal: Fenster schließen
+          filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
         form:
           address_help: 'Anschrift: wird vom Geocoder verwendet, um den Standort zu finden'
+          create_as: Sitzung erstellen als
           location_help: 'Treffpunkt: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
           location_hints_help: 'Hinweise zum Standort: zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude'
           select_a_category: Bitte wählen Sie eine Kategorie aus
+        index:
+          new_meeting: Neue Sitzung
         meeting_minutes:
           meeting_minutes: Sitzungsprotokoll
           related_information: Spezifische Angaben
@@ -386,6 +403,7 @@ de:
         new:
           back: Zurück
           create: Erstellen
+          title: Erstellen Sie Ihre Sitzung
         registration_confirm:
           cancel: Annullieren
           confirm: Bestätigen
@@ -417,7 +435,9 @@ de:
         invite:
           fields:
             email: E-Mail
+            name: Name
             sent_at: Versendet am
+            status: Status
           status:
             accepted: Angenommen (%{at})
             rejected: Abgelehnt (%{at})
@@ -427,6 +447,7 @@ de:
             closed: Beendet
             end_time: Enddatum
             map: Karte
+            official_meeting: Offizielle Sitzung
             start_time: Anfangsdatum
             title: Titel
       read_more: "(mehr dazu)"
@@ -447,14 +468,26 @@ de:
           success: Sie haben die Sitzung erfolgreich verlassen.
       types:
         private_meeting: Private Sitzung
+        transparent: Transparent
       versions:
         back_to_resource: Zurück zur Sitzung
     metrics:
       meetings:
         description: Anzahl der erstellten Sitzungen
+        object: Sitzungen
+        title: Sitzungen
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Frühere Sitzungen
+          upcoming_meetings: Anstehende Sitzungen
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Sitzungen
+        see_all: Alle Sitzungen anzeigen (%{count})
+        upcoming_meetings: Anstehende Sitzungen
+      upcoming_meeting_for_card:
+        upcoming_meeting: Anstehende Sitzung
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Verbundene Ergebnisse:'
