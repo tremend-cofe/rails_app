@@ -338,6 +338,9 @@ pt:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Propostas
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ver todas as propostas(%{count})
     proposals:
       actions:
         answer_proposal: Responder a proposta
@@ -667,6 +670,8 @@ pt:
       destroy_draft:
         error: Houve um problema ao eliminar o projeto de proposta colaborativo.
         success: Projeto de proposta eliminado com êxito.
+      last_activity:
+        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -677,6 +682,7 @@ pt:
           fields:
             category: Categoria
             comments: Comentários
+            id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
@@ -706,6 +712,10 @@ pt:
         complete:
           send: Enviar
           title: Complete a sua proposta
+        count:
+          proposals_count:
+            one: "%{count} proposta"
+            other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Adicionar um anexo"
           back: Voltar
@@ -737,13 +747,16 @@ pt:
           unfold: Abrir
         index:
           collaborative_drafts_list: Aceder a projetos de proposta colaborativos
+          new_proposal: Nova proposta
           see_all_withdrawn: Ver todas as propostas retiradas
+          view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
             one: apoio
             other: apoios
         new:
           send: Continuar
+          title: Crie a sua proposta
         orders:
           label: 'Ordenar propostas por:'
           most_commented: Mais comentadas
@@ -767,6 +780,7 @@ pt:
           title: Publicar a sua proposta
         proposal:
           creation_date: 'Criação: %{date}'
+          view_proposal: Ver proposta
         proposals:
           empty: Ainda não existem propostas
           empty_filters: Ainda não existem propostas com estes critérios
@@ -832,14 +846,20 @@ pt:
             votes: Apoios
         wizard_aside:
           back: Voltar
+          back_from_step_1: Voltar a propostas
+          back_from_step_2: Voltar a propostas
           back_from_step_3: Voltar à comparação de propostas
           back_from_step_4: Voltar à edição do projeto de proposta
+          info: Está a criar uma <strong>proposta</strong>.
         wizard_steps:
           current_step: Passo atual
           see_steps: ver passos
+          step_1: Crie a sua proposta
           step_2: Comparar
           step_3: Concluir
+          step_4: Publicar proposta
           step_of: Passo %{current_step_num} de %{total_steps}
+          title: Como criar uma proposta
       proposals_picker:
         choose_proposals: Escolher propostas
         close: Encerrar
@@ -861,6 +881,8 @@ pt:
           back_to_resource: Voltar ao projeto de proposta colaborativo
         index:
           title: Versões
+        proposals:
+          back_to_resource: Voltar a proposta
       withdraw:
         errors:
           has_supports: Não é possível retirar esta proposta porque a mesma já tem apoios.
