@@ -7,6 +7,7 @@ ro:
         created_at: Creat la
       group:
         about: Despre ediție
+        avatar: Avatar
         document_number: Numărul documentului
         email: E-mail
         name: Nume
@@ -44,6 +45,23 @@ ro:
         password: Parolă
         password_confirmation: Confirmare parolă
         remember_me: Memorare utilizator
+    models:
+      decidim/amendment:
+        one: Modificare
+        few: Modificări
+        other: Modificări
+      decidim/endorsement:
+        one: Avizare
+        few: Avizări
+        other: Avizări
+      decidim/user:
+        one: Participant
+        few: Participanți
+        other: Participanți
+      decidim/user_group:
+        one: Grup
+        few: Grupuri
+        other: Grupuri
   booleans:
     'false': 'Nu'
     'true': 'Da'
@@ -215,12 +233,27 @@ ro:
           '4': Publicați modificarea
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Document
+          few: Documente
+          other: Documente
       document:
         download: Descărcare fișier
       documents:
         related_documents: Document conex
       photos:
         related_photos: Imagini aferente
+    author:
+      avatar: Avatar
+      comments:
+        one: comentariu
+        few: comentarii
+        other: comentarii
+      endorsements:
+        one: avizare
+        few: avizări
+        other: avizări
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Se verifică prin introducerea unui număr de pașaport începând cu „A”
@@ -246,6 +279,7 @@ ro:
       foo_authorization:
         fields:
           bar: Bar
+          foo: Foo
         name: Substitut pentru autorizare
       granted_at: Acordată la %{timestamp}
       renew: Reînnoirea verificării
@@ -275,6 +309,7 @@ ro:
         unauthorized:
           explanation: Ne pare rău, nu puteți să efectuați această acțiune, deoarece unele dintre datele dumneavoastră de autorizare nu corespund.
           invalid_field: "Valoarea %{field} %{value} nu este valabilă."
+          ok: Ok
           title: Neautorizat
         unconfirmed:
           confirmation_instructions: 'Dacă nu ați primit instrucțiunile de confirmare, le puteți solicita din nou:'
@@ -284,6 +319,10 @@ ro:
       show:
         close_modal: Închideți elementul modal
     collapsible_list:
+      hidden_elements_count:
+        one: plus încă %{count}
+        few: plus încă %{count}
+        other: plus încă %{count}
       see_less: "(mai puține detalii)"
       see_more: "(mai multe detalii)"
     components:
@@ -301,6 +340,9 @@ ro:
           question: Întrebare
         title: 'Afișare'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Componentă-test
         settings:
           global:
@@ -321,6 +363,7 @@ ro:
             dummy_step_attribute_1: Mostră de atribut 1 al etapei
             dummy_step_attribute_2: Mostră de atribut 2 al etapei
             dummy_step_translatable_text: Mostră de text traductibil pentru etapă
+    contact: Contact
     content_blocks:
       footer_sub_hero:
         name: Banner-slogan secundar în subsolul paginii
@@ -601,6 +644,10 @@ ro:
       title: Amprente digitale
       value: Valoare
     followers:
+      followers_count:
+        one: "%{count} urmăritor"
+        few: "%{count} urmăritori"
+        other: "%{count} urmăritori"
       no_followers: Niciun urmăritor.
     following:
       no_followings: Nu urmărește nicio persoană sau niciun element.
@@ -744,6 +791,7 @@ ro:
         subtitle: Crearea unui grup și invitarea altor utilizatori să se alăture pentru a participa la un nivel colectiv.
       no_user_groups: Nu aparțin încă niciunui grup.
       roles:
+        admin: Administrator
         creator: Autorul
         member: Membru
       update:
@@ -790,9 +838,11 @@ ro:
         skip_button: Ignorați harta
       static:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Acest grup nu are încă niciun membru.
     menu:
+      help: Ajutor
       home: Pagina principală
     messaging:
       conversation_mailer:
@@ -902,6 +952,7 @@ ro:
         cta_text: Textul butonului de Apel la acțiune
         cta_url: Textul butonului de Apel la acțiune
         interpolations_hint: 'Sugestie: Puteți utiliza „%{name}” oriunde în corpul textului, textul ALA sau în subiect și acesta va fi înlocuit cu numele destinatarului.'
+        introduction: Introducere
         main_image: Imaginea principală
     newsletters:
       unsubscribe:
@@ -958,6 +1009,7 @@ ro:
           debates: Dezbateri
           debates_explanation: Dezbateți și discutați, împărtășiți-vă opiniile adăugați informații la subiectele relevante.
           how_to_participate: Cum pot participa la un proces?
+          meetings: Reuniuni
           meetings_explanation: Aflați unde și când puteți participa la reuniuni publice.
           more_info: Mai multe informații despre %{resource_name}
           proposals: Propuneri
@@ -979,10 +1031,13 @@ ro:
           debates_count: Dezbateri
           endorsements_count: Avizări
           headline: Starea actuală a %{organization}
+          meetings_count: Reuniuni
           orders_count: Voturi
           pages_count: Pagini
+          processes_count: Procese
           projects_count: Proiecte
           proposals_accepted: Propuneri acceptate
+          proposals_count: Propuneri
           results_count: Rezultate
           surveys_count: Sondaje
           users_count: Participanți
@@ -993,6 +1048,7 @@ ro:
         read_more: Citiți mai mult
         standalone_pages: Pagini
         subheading: Navigați prin intermediul paginilor de ajutor %{name}
+        title: Ajutor
         topics: Subiecte
       participatory_space:
         metrics:
@@ -1106,11 +1162,16 @@ ro:
         filter_by: Filtrare după
         unfold: Desfășurați
       results:
+        results:
+          one: "%{count} rezultat"
+          few: "%{count} rezultate"
+          other: "%{count} rezultate"
         view_all: Vizualizați tot (%{count})
     shared:
       confirm_modal:
         cancel: Anulare
         close_modal: Închideți elementul modal
+        ok: OK
         title: Confirmați
       embed_modal:
         close_window: Închideți fereastra
@@ -1323,6 +1384,9 @@ ro:
         instruction: 'Faceți clic pe linkul de mai jos pentru a vă debloca contul:'
         message: Contul dvs. a fost blocat din cauza unui număr prea mare de tentative nereușite de conectare.
         subject: Instrucțiuni de deblocare
+    omniauth_callbacks:
+      failure: Nu ați putut fi autentificat(ă) cu %{kind} deoarece "%{reason}".
+      success: Autentificare efectuată cu succes cu contul %{kind}
     passwords:
       edit:
         change_my_password: Modificare parolă
@@ -1372,6 +1436,10 @@ ro:
         sign_in: Conectare
         sign_in_with_provider: Conectați-vă cu %{provider}
         sign_up: Înregistrare
+      minimum_password_length:
+        one: "(minimum (%{count} caracter)"
+        few: "(minimum %{count} caractere)"
+        other: "(minimum %{count} caractere)"
     unlocks:
       new:
         resend_unlock_instructions: Retrimiteți instrucțiunile de deblocare
@@ -1395,11 +1463,20 @@ ro:
       nesting_too_deep: nu se poate afla în interiorul unei subcategorii
       not_found: nu s-a putut găsi. V-ați înscris anterior?
       not_locked: nu a fost blocat
+      not_saved:
+        one: 'S-a produs o eroare la procesarea cererii dvs.:'
+        few: 'S-au produs mai multe erori la procesarea cererii dvs.:'
+        other: 'S-au produs mai multe erori la procesarea cererii dvs.:'
       too_many_marks: utilizează prea multe semne de punctuașie consecutive (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25 % din text)
       too_short: este prea scurtă (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectați pentru a continua.
+    length_validator:
+      minimum:
+        one: cel puțin %{count} caracter
+        few: cel puțin %{count} caractere
+        other: cel puțin %{count} caractere
     required: Câmp obligatoriu
     required_explanation: "* Câmpurile obligatorii sunt marcate cu un asterisc"
   invisible_captcha:
@@ -1457,6 +1534,8 @@ ro:
         user_groups: Grupuri
       widget:
         see_more: Detalii
+  locale:
+    name: Română
   password_validator:
     domain_included_in_password: este prea asemănător cu acest nume de domeniu
     email_included_in_password: este prea asemănător cu e-mailul dumneavoastră
@@ -1468,9 +1547,28 @@ ro:
     password_too_long: este prea lung
     password_too_short: este prea scurt
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Partajați %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Deschideți WeChat, faceți clic pe butonul „Afișare”, apoi faceți clic pe meniul „Scanare Cod QR”.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Ștergeri
