@@ -31,7 +31,9 @@ da:
         title: Betegnelse
         transparent: Gennemsigtig
       minutes:
+        audio_url: Audio url
         description: Beskrivelse
+        video_url: Video url
         visible: Er synlig
     errors:
       models:
@@ -49,9 +51,13 @@ da:
       decidim/meetings/create_meeting_event: Møde
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktiveret
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grænsen
+      decidim/meetings/upcoming_meeting_event: Kommende møde
       decidim/meetings/update_meeting_event: Møde opdateret
   activerecord:
     models:
+      decidim/meetings/meeting:
+        one: Møde
+        other: Møder
       decidim/meetings/minutes:
         one: Referater
         other: Referater
@@ -72,6 +78,7 @@ da:
       meetings:
         actions:
           join: Tilslut dig
+        name: Møder
         settings:
           global:
             announcement: Meddelelse
@@ -156,6 +163,7 @@ da:
             one: 'Mødet kan ikke slettes, fordi der er %{count} forslag forbundet med det:'
             other: 'Mødet kan ikke slettes, fordi der er %{count} forslag forbundet med det:'
         minutes: Referater
+        new: Nyt møde
         preview: Forhåndsvisning
         registrations: Registrering
         title: Handlinger
@@ -321,12 +329,14 @@ da:
       content_blocks:
         upcoming_events:
           name: Kommende arrangementer
+          upcoming_events: Kommende møder
           view_all_events: Se alle
       directory:
         meetings:
           index:
             all: Alle
             date: Dato
+            meetings: Møder
             past: Tidligere
             search: Søg
             space_type: Deltagelsesrum
@@ -343,6 +353,10 @@ da:
       meeting:
         not_allowed: Du har ikke tilladelse til at se dette indhold
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} møde"
+            other: "%{count} møder"
         create:
           invalid: Der var et problem med at oprette dette møde.
           success: Du har oprettet mødet.
@@ -372,9 +386,12 @@ da:
           unfold: Fold ud
         form:
           address_help: 'Adresse: bruges af Geocoder til at finde placeringen'
+          create_as: Opret møde som
           location_help: 'Placering: besked rettet til brugerne, der viser det sted, hvor man skal mødes'
           location_hints_help: 'Tip om placering: Supplerende info. Eksempel: Etage i bygningen'
           select_a_category: Vælg en kategori
+        index:
+          new_meeting: Nyt møde
         meeting_minutes:
           meeting_minutes: Mødereferat
           related_information: Relateret information
@@ -384,6 +401,7 @@ da:
         new:
           back: Tilbage
           create: Opret
+          title: Opret dit møde
         registration_confirm:
           cancel: Annuller
           confirm: Bekræft
@@ -427,6 +445,7 @@ da:
             closed: Lukket
             end_time: Slutdato
             map: Kort
+            official_meeting: Officielt møde
             start_time: Startdato
             title: Betegnelse
       read_more: "(læs mere)"
@@ -453,9 +472,20 @@ da:
     metrics:
       meetings:
         description: Antal møder oprettet
+        object: møder
+        title: Møder
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Tidligere møder
+          upcoming_meetings: Kommende møder
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Tidligere møder
+        see_all: Se alle møder (%{count})
+        upcoming_meetings: Kommende møder
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommende møde
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Relaterede resultater:'
