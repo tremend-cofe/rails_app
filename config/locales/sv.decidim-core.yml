@@ -7,6 +7,7 @@ sv:
         created_at: Skapad
       group:
         about: Om
+        avatar: Avatar
         document_number: Dokumentnummer
         email: E-post
         name: Namn
@@ -239,6 +240,7 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
+      avatar: Avatar
       comments:
         one: kommentar
         other: kommentarer
@@ -268,6 +270,9 @@ sv:
       expired_at: Löpte ut %{timestamp}
       expires_at: Löper ut %{timestamp}
       foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
         name: Foo-godkännande
       granted_at: Beviljades %{timestamp}
       renew: Förnya verifiering
@@ -297,6 +302,7 @@ sv:
         unauthorized:
           explanation: Tyvärr kan du inte genomföra denna åtgärd eftersom några av dina auktoriseringsuppgifter inte stämmer överens.
           invalid_field: "%{field}-värdet %{value} är ogiltigt."
+          ok: Ok
           title: Inte godkänd
         unconfirmed:
           confirmation_instructions: 'Om du inte har fått bekräftelseinstruktionerna kan du begära dem igen:'
@@ -326,6 +332,9 @@ sv:
           question: Fråga
         title: 'Visa:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Dummykomponent
         settings:
           global:
@@ -821,9 +830,11 @@ sv:
         skip_button: Hoppa över karta
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Gruppen har inte några medlemmar än.
     menu:
+      help: Hjälp
       home: Startsida
     messaging:
       conversation_mailer:
@@ -990,6 +1001,7 @@ sv:
           debates: Debatter
           debates_explanation: Debattera och diskutera, dela dina åsikter och berika relevanta ämnen.
           how_to_participate: Hur deltar jag i en process?
+          meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information om %{resource_name}
           proposals: Förslag
@@ -1011,10 +1023,13 @@ sv:
           debates_count: Debatter
           endorsements_count: Stödförklaringar
           headline: Nuvarande tillstånd för %{organization}
+          meetings_count: Möten
           orders_count: Röster
           pages_count: Sidor
+          processes_count: Processer
           projects_count: Projekt
           proposals_accepted: Godkända förslag
+          proposals_count: Förslag
           results_count: Resultat
           surveys_count: Undersökningar
           users_count: Deltagare
@@ -1025,6 +1040,7 @@ sv:
         read_more: Läs mer
         standalone_pages: Sidor
         subheading: Navigera genom hjälpsidorna för %{name}
+        title: Hjälp
         topics: Ämnen
       participatory_space:
         metrics:
@@ -1134,6 +1150,7 @@ sv:
           past: Tidigare
       filters_small_view:
         close_modal: Stäng modalt fönster
+        filter: Filter
         filter_by: Filtrera efter
         unfold: Öppna
       results:
@@ -1145,6 +1162,7 @@ sv:
       confirm_modal:
         cancel: Annullera
         close_modal: Stäng modalt fönster
+        ok: OK
         title: Bekräfta
       embed_modal:
         close_window: Stäng fönstret
@@ -1264,6 +1282,9 @@ sv:
         changes_at_title: Ändringar av "%{title}"
         number_of_versions: Versioner
         title: Versioner
+    versions_list_item:
+      show:
+        version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hej {{name}}! Tack för att du har gått med i {{organization}} och välkommen!</p><ul><li>Om du vill få en uppfattning om vad du kan göra här, ta en titt på avsnittet <a href="{{help_url}}">Hjälp</a>.</li><li>När du har läst hjälpavsnittet får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få som deltagare i {{organization}}</li><li>Sist men inte minst, få andra personer att gå med och dela upplevelsen av ett aktivt deltagande i {{organization}}. Ta fram förslag, lämna kommentarer, debattera, fundera på hur du kan bidra till det allmännas bästa, lägg fram argument för att övertyga, lyssna och läs för att bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara tålmodigt och beslutsamt, försvara dina idéer och ha ett öppet sinne för att samarbeta och haka på andras idéer.</li></ul>
       default_subject: Tack för att du går med i {{organization}}!
@@ -1354,6 +1375,9 @@ sv:
         instruction: 'Klicka på länken nedan för att låsa upp ditt konto:'
         message: Vi har låst ditt konto på grund av ett stort antal misslyckade inloggningsförsök.
         subject: Upplåsningsinstruktioner
+    omniauth_callbacks:
+      failure: Det gick inte att autentisera dig från %{kind} eftersom "%{reason}".
+      success: Har autentiserats från kontot %{kind}.
     passwords:
       edit:
         change_my_password: Ändra mitt lösenord
@@ -1456,6 +1480,7 @@ sv:
         edit: Redigera
       footer:
         cc_by_license: Creative Commons-licens
+        decidim_logo: Decidim Logo
         download_open_data: Hämta filer med öppna data
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">kostnadsfri programvara</a>.
       header:
@@ -1497,6 +1522,8 @@ sv:
         user_groups: Grupper
       widget:
         see_more: Se mer
+  locale:
+    name: Engelska
   password_validator:
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-postadress
@@ -1509,9 +1536,27 @@ sv:
     password_too_short: är för kort
   social_share_button:
     delicious: Utsökt
+    douban: Douban
     email: E-post
+    facebook: Facebook
+    google_bookmark: Google Bokmärken
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Dela med %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Öppna WeChat, klicka på knappen ”Utforska” och sedan på menyn ”Skanna QR-kod”.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Strykningar
