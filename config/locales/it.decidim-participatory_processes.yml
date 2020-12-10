@@ -13,6 +13,7 @@ it:
         developer_group: Gruppo promotore
         domain: Settore
         end_date: Data di fine
+        hashtag: Hashtag
         hero_image: Immagine Home
         local_area: Zona dell'organizzazione
         meta_scope: Metadati dell'ambito
@@ -61,6 +62,9 @@ it:
       decidim/participatory_process_step_changed_event: Fase modificata
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Processo partecipativo
+        other: Processi partecipativi
       decidim/participatory_process_group:
         one: Gruppo del processo partecipativo
         other: Gruppi del processo partecipativo
@@ -284,6 +288,8 @@ it:
           contextual: "<p>Un <strong>processo partecipativo</strong> è una sequenza di attività partecipative (che inizia, ad esempio, con la compilazione di un questionario, prosegue con la formulazione di proposte e la loro discussione durante riunioni di persona o virtuali e si conclude con la loro classificazione in ordine di importanza) finalizzata a definire e adottare una decisione su un determinato argomento.</p> <p>Sono esempi di processi partecipativi il processo di elezione dei membri di un comitato (che inizia con la presentazione delle candidature, prosegue con la loro discussione e si conclude con la scelta di una di esse), i bilanci partecipativi (nei quali le proposte sono presentate, valutate sul piano economico e votate in base ai fondi disponibili), un processo di pianificazione strategica, la stesura collaborativa di un regolamento o di una norma, la progettazione di uno spazio urbano o l'elaborazione di un piano di politica pubblica.</p>\n"
           page: "<p>Un <strong>processo partecipativo</strong> è una sequenza di attività partecipative (che inizia, ad esempio, con la compilazione di un questionario, prosegue con la formulazione di proposte e la loro discussione durante riunioni di persona o virtuali e si conclude con la loro classificazione in ordine di importanza) finalizzata a definire e adottare una decisione su un determinato argomento.</p> <p>Sono esempi di processi partecipativi il processo di elezione dei membri di un comitato (che inizia con la presentazione delle candidature, prosegue con la loro discussione e si conclude con la scelta di una di esse), i bilanci partecipativi (nei quali le proposte sono presentate, valutate sul piano economico e votate in base ai fondi disponibili), un processo di pianificazione strategica, la stesura collaborativa di un regolamento o di una norma, la progettazione di uno spazio urbano o l'elaborazione di un piano di politica pubblica.</p>\n"
           title: Che cos'è un processo partecipativo?
+    menu:
+      processes: Processi
     metrics:
       participatory_processes:
         description: Numero di processi partecipativi in questa organizzazione
@@ -336,19 +342,39 @@ it:
       content_blocks:
         highlighted_processes:
           name: Processi evidenziati
+      index:
+        title: Processi partecipativi
+      last_activity:
+        new_participatory_process: Nuovo processo partecipativo
       pages:
         home:
           highlighted_processes:
+            active_processes: Processi attivi
             active_step: Fase attiva
             more_information: Maggiori informazioni
             participate: Partecipa
             participate_in: Partecipa al processo %{resource_name}
+            see_all_processes: Vedi tutti i processi
       participatory_process_steps:
         index:
           back_to_process: Torna alla pagina del processo
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 processo attivo
+              other: "%{count} processi attivi"
+            all:
+              one: 1 processo
+              other: "%{count} processi"
+            past:
+              one: 1 processo precedente
+              other: "%{count} processi precedenti"
+            upcoming:
+              one: 1 processo in programma
+              other: "%{count} processi in programma"
           explanations:
+            no_active: Nessun processo attivo
             no_active_nor_upcoming: Nessun processo attivo o in programma
             no_active_nor_upcoming_callout: Non vi sono processi attivi o in programma. Ecco un elenco di quelli precedenti.
           names:
@@ -380,11 +406,14 @@ it:
         endorsements_count: Sottoscrizioni
         followers_count: Follower
         headline: Statistiche
+        meetings_count: Riunioni
         no_stats: Non esistono ancora statistiche.
         orders_count: Adesioni
         pages_count: Pagine
         participants_count: Partecipanti
+        processes_count: Processi
         projects_count: Progetti
+        proposals_count: Proposte
         results_count: Risultati
         supports_count: Adesioni
         surveys_count: Indagini
@@ -418,3 +447,5 @@ it:
       process_header_steps:
         step: Fase %{current} di %{total}
         view_steps: Fasi del processo
+      process_navigation:
+        process_menu_item: Il processo
