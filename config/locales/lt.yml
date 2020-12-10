@@ -1,3 +1,172 @@
 lt:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Tema
+      meeting:
+        cofe_charter_html: Pritariu <a href="%{url}" target="_blank">Konferencijos </a>dėl Europos ateities chartijai
+    models:
+      decidim/meetings/upcoming_meeting_event: Būsimas posėdis
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Posėdis
+        few: Posėdžiai
+        many: Posėdžiai
+        other: Posėdžiai
+      decidim/participatory_process:
+        one: Dalyvaujamasis procesas
+        few: Dalyvaujamieji procesai
+        many: Dalyvaujamieji procesai
+        other: Dalyvaujamieji procesai
+  decidim:
+    components:
+      meetings:
+        name: Posėdžiai
+        settings:
+          global:
+            cofe_charter_url: Konferencijos dėl Europos ateities chartijos URL
+    meetings:
+      actions:
+        new: Naujas posėdis
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Būsimi posėdžiai
+      directory:
+        meetings:
+          index:
+            meetings: Posėdžiai
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} posėdis"
+            few: "%{count} posėdžiai"
+            many: "%{count} posėdžiai"
+            other: "%{count} posėdžiai"
+        form:
+          create_as: Sukurti posėdį kaip
+        index:
+          new_meeting: Naujas posėdis
+        new:
+          title: Sukurti savo posėdį
+      models:
+        meeting:
+          fields:
+            official_meeting: Oficialus posėdis
+    menu:
+      help: Pagalba
+      processes: Procesai
+    menu_overwrite:
+      citizens_panels: Piliečių diskusijų grupė
+      events: Renginiai
+      plenaries: Plenariniai posėdžiai
+      topics: Temos
+    metrics:
+      meetings:
+        object: posėdžiai
+        title: Posėdžiai
+    pages:
+      home:
+        extended:
+          meetings: Posėdžiai
+        statistics:
+          meetings_count: Posėdžiai
+          processes_count: Procesai
+          proposals_count: Pasiūlymai
+      index:
+        title: Pagalba
+    participatory_processes:
+      index:
+        title: Dalyvaujamieji procesai
+      last_activity:
+        new_participatory_process: Naujas dalyvaujamasis procesas
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktyvūs procesai
+            see_all_processes: Žiūrėti visus procesus
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Įvykę posėdžiai
+          upcoming_meetings: Būsimi posėdžiai
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktyvus procesas
+              few: "%{count} aktyvūs procesai"
+              many: "%{count} aktyvūs procesai"
+              other: "%{count} aktyvūs procesai"
+            all:
+              one: 1 procesas
+              few: "%{count} procesai"
+              many: "%{count} procesai"
+              other: "%{count} procesai"
+            past:
+              one: 1 buvęs procesas
+              few: "%{count} buvę procesai"
+              many: "%{count} buvę procesai"
+              other: "%{count} buvę procesai"
+            upcoming:
+              one: 1 būsimas procesas
+              few: "%{count} būsimi procesai"
+              many: "%{count} būsimi procesai"
+              other: "%{count} būsimi procesai"
+          explanations:
+            no_active: Aktyvių procesų nėra.
+      statistics:
+        meetings_count: Posėdžiai
+        processes_count: Procesai
+        proposals_count: Pasiūlymai
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Žiūrėti visus posėdžius (%{count})
+        upcoming_meetings: Būsimi posėdžiai
+      highlighted_proposals:
+        see_all: Žiūrėti visus pasiūlymus (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Būsimas posėdis
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Naujas pasiūlymas, pasidalytas %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} pasiūlymas"
+            few: "%{count} pasiūlymai"
+            many: "%{count} pasiūlymai"
+            other: "%{count} pasiūlymai"
+        index:
+          new_proposal: Naujas pasiūlymas
+          view_proposal: Peržiūrėti pasiūlymą
+        new:
+          title: Sukurti savo pasiūlymą
+        proposal:
+          view_proposal: Peržiūrėti pasiūlymą
+        wizard_aside:
+          back_from_step_1: Grįžti į pasiūlymus
+          back_from_step_2: Grįžti į pasiūlymus
+          info: Jūs kuriate <strong>pasiūlymą</strong>.
+        wizard_steps:
+          step_1: Sukurti savo pasiūlymą
+          step_4: Paskelbti savo pasiūlymą
+          title: Pasiūlymo sukūrimo etapai
+      versions:
+        proposals:
+          back_to_resource: Grįžti į pasiūlymą
+  devise:
+    omniauth_callbacks:
+      failure: Jūsų nepavyko autentifikuoti pagal EU Login. Priežastis – "%{reason}".
+      success: Autentifikuota pagal %{kind} paskyrą.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Uždaryti
+        select_your_language: Pasirinkti kalbą
+      process_navigation:
+        process_menu_item: Procesas
+      user:
+        logged_in: Prisijungęs
+        logged_in_as: Prisijungęs kaip %{user}
   locale:
     name: Lietuvių kalba
