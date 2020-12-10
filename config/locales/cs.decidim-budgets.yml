@@ -8,6 +8,13 @@ cs:
         description: Popis
         proposal_ids: Související návrhy
         title: Název
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        few: Projekty
+        many: Projekty
+        other: Projekty
   decidim:
     budgets:
       actions:
@@ -126,6 +133,7 @@ cs:
         budget_excess:
           close: Zavřít
           description: Tento projekt překračuje maximální rozpočet a nemůže být přidán. Pokud chcete, můžete smazat projekt, který jste již přidali, nebo hlasovat podle svých preferencí.
+          ok: OK
           title: Maximální rozpočet byl překročen
         budget_summary:
           are_you_sure: Opravdu chcete zrušit hlasování?
@@ -137,10 +145,17 @@ cs:
           description: Jakým projektům bychom podle vás měli přidělit rozpočet? Vyberte alespoň %{minimum_budget} projektů, které chcete, a hlasujte podle svých preferencí o rozpočtu.
           description_minimum_projects_rule: Jakým projektům bychom podle vás měli přidělit rozpočet? Vyberte alespoň %{minimum_number} projektů, které chcete, a hlasujte podle svých preferencí o rozpočtu.
           title: Rozhodnete o rozpočtu
+        count:
+          projects_count:
+            one: 1 projekt
+            few: "%{count} projekty"
+            many: "%{count} projektů"
+            other: "%{count} projektů"
         filters:
           category: Kategorie
           scope: Rozsah
           search: Vyhledávání
+          status: Status
           status_values:
             all: Vše
             not_selected: Není nic vybráno
@@ -154,6 +169,11 @@ cs:
           vote: Hlasovat
         order_selected_projects:
           remove: Odebrat
+          selected_projects:
+            one: vybraný projekt
+            few: vybrané projekty
+            many: vybraných projektů
+            other: vybraných projektů
           view: Zobrazit
         orders:
           highest_cost: Nejvyšší náklady
@@ -167,6 +187,11 @@ cs:
           remove: Odstranit projekt %{resource_name} z vašeho hlasování
           selected: Vybrané
           view: Zobrazit
+          votes:
+            one: hlas
+            few: hlasy
+            many: hlasů
+            other: hlasů
           you_voted: Hlasovali jste
         project_budget_button:
           add: Přidat do vašeho hlasování
