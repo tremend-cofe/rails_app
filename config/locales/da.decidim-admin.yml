@@ -25,6 +25,7 @@ da:
         name: Navn
         published_at: Offentliggjort på
         weight: Vægt
+      id: ID
       newsletter:
         body: Krop
         subject: Emne
@@ -36,12 +37,14 @@ da:
         cta_button_path: Sti til handlingsknappen
         cta_button_text: Tekst til handlingsknappen
         customize_welcome_notification: Tilpas velkomstmeddelelse
+        default_locale: Default locale
         description: Beskrivelse
         enable_omnipresent_banner: Vis allestedsnærværende banner
         facebook_handler: Facebook-handler
         favicon: Ikon
         from: Fra e-mailadresse
         github_handler: GitHub-handler
+        header_snippets: Header snippets
         highlight_alternative_color: Fremhæv, alternativ
         highlight_color: Fremhæv
         highlighted_content_banner_action_subtitle: Underoverskrift til handlingsknap
@@ -52,6 +55,7 @@ da:
         highlighted_content_banner_short_description: Kort beskrivelse
         highlighted_content_banner_title: Betegnelse
         instagram_handler: Instagram-handler
+        logo: Logo
         machine_translation_display_priority: Prioritet for visning af maskinoversættelse
         machine_translation_display_priority_original: Oprindelig tekst først
         machine_translation_display_priority_translation: Oversat tekst først
@@ -61,7 +65,9 @@ da:
         official_url: URL for officielle organisationer
         omnipresent_banner_short_description: Kort beskrivelse
         omnipresent_banner_title: Betegnelse
+        omnipresent_banner_url: URL
         password: Adgangskode
+        port: Port
         primary_color: Primær
         reference_prefix: Præfiks
         rich_text_editor_in_public_views: Aktiverer rich text editor for deltagere
@@ -283,10 +289,16 @@ da:
           welcome: Velkommen til Decidim administrationspanel
       exports:
         export_as: "%{name} som %{export_format}"
+        formats:
+          CSV: CSV
+          Excel: Excel
+          FormPDF: PDF
+          JSON: JSON
         notice: Din eksport foregår i øjeblikket. Du vil modtage en e-mail, når den er færdig.
       filters:
         category_id_eq:
           label: Kategori
+        filter_label: Filter
         officialized_at_null:
           label: Tilstand
           values:
@@ -322,6 +334,7 @@ da:
             managed: Administreret
             not_managed: Ikke administreret
           filter_by: Sorter efter
+          impersonate: Impersonate
           impersonate_new_managed_user: Administrer ny deltager
           managed: Administreret
           name: Navn
@@ -329,6 +342,7 @@ da:
           not_managed: Ikke administreret
           promote: Fremme
           search: Søg
+          status: Status
           view_logs: Se logs
       impersonations:
         close_session:
@@ -342,6 +356,7 @@ da:
           name: Navn
           reason: Begrundelse
         new:
+          impersonate: Impersonate
           impersonate_existing_managed_user: Administrer deltager ”(%{name})”
           impersonate_existing_user: Administrer deltager ”(%{name})”
           impersonate_new_managed_user: Administrer ny deltager
@@ -359,12 +374,15 @@ da:
             promote: Fremme
       menu:
         admin_log: Log af admin aktiviteter
+        admins: Admins
         appearance: Udseende
         area_types: Områdetyper
         areas: Områder
         configuration: Konfiguration
+        dashboard: Dashboard
         help_sections: Hjælpeafsnit
         homepage: Hjemmeside
+        impersonations: Impersonations
         newsletters: Nyhedsbreve
         participants: Deltagere
         scope_types: Områdetyper
@@ -388,6 +406,7 @@ da:
         attachment:
           fields:
             collection: Mappe
+            content_type: Type
             file_size: Størrelse
             title: Betegnelse
           name: Bilag
@@ -426,6 +445,7 @@ da:
             expires_at: Udløber kl.
             last_used_at: Seneste tidsforbrug
             times_used: Anvendte tidspunkter
+            token: Token
             user: Oprettet af
         static_page:
           fields:
@@ -457,6 +477,7 @@ da:
           reasons:
             does_not_belong: Hører ikke til
             offensive: Stødende
+            spam: Spam
       newsletter_templates:
         index:
           preview_template: Forhåndsvisning
@@ -528,6 +549,7 @@ da:
           success: Deltager afofficialiseret
         index:
           actions: Handlinger
+          badge: Badge
           created_at: Oprettet kl.
           name: Navn
           nickname: Tilnavn
@@ -536,6 +558,7 @@ da:
           officialized: Officialiseret
           reofficialize: Genofficialiseret
           show_email: Vis e-mailadresse
+          status: Status
           unofficialize: Afofficialisere
         new:
           badge: Officialiseringsbadge
@@ -554,9 +577,14 @@ da:
           title: Rediger organisation
           update: Opdater
         form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
           rich_text_editor_in_public_views_help: I nogle tekstområder vil deltagerne kunne indsætte nogle HTML-tags ved at bruge rich text editor.
           social_handlers: Sociale
+          twitter: Twitter
           url: URL
+          youtube: YouTube
         update:
           error: Der var et problem med at opdatere denne organisation.
           success: Organisationen blev opdateret.
@@ -590,6 +618,7 @@ da:
           error: Der var et problem med at slette en privat deltager i dette detagelsesrum.
           success: Adgang til detagelsesrum for private deltagere er blevet slettet.
         index:
+          import_via_csv: Import via CSV
           title: Privat deltager i detagelsesrum
         new:
           create: Opret
@@ -601,6 +630,7 @@ da:
         new:
           explanation: Upload din CSV-fil. Den skal have to kolonner med e-mail i den første kolonne af filen og navnet i den sidste kolonne af filen (e-mail, navn) på de brugere, du ønsker at tilføje til detagelsesrumme, uden overskrifter.
           title: Upload din CSV-fil
+          upload: Upload
       resource_permissions:
         edit:
           submit: Send
@@ -699,9 +729,11 @@ da:
           error: Der var et problem med opdateringen af denne side.
           success: Siden er blevet opdateret
       titles:
+        admin_log: Admin log
         area_types: Områdetyper
         areas: Områder
         authorization_workflows: Kontrolmetoder
+        dashboard: Dashboard
         impersonatable_users: Administrerbare deltagere
         impersonations: Administration af deltagere
         metrics: Parametre
@@ -740,6 +772,7 @@ da:
         new:
           explanation: Upload din CSV-fil. De skal have de officielle mails fra grupperne i din organisation i den første kolonne i filen uden headere. Kun grupper, der har bekræftet deres e-mail, og som har en e-mail fra CSV-filen, vil blive valideret.
           title: Upload din CSV-fil
+          upload: Upload
       users:
         create:
           error: Der var et problem med at invitere denne admin.
@@ -756,6 +789,7 @@ da:
           title: Inviter deltageren som administrator
       users_statistics:
         users_count:
+          admins: Admins
           last_day: Sidste dag
           last_month: Sidste måned
           last_week: Sidste uge
