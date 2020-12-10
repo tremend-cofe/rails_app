@@ -2,6 +2,7 @@ da:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategori
         decidim_scope_id: Anvendelsesområde
         description: Beskrivelse
@@ -44,6 +45,7 @@ da:
           results: Resultater
         import_results:
           new:
+            import: Import
             info: "<p>Vi anbefaler, at du følger disse trin:</p><ol><li>Opret status for de resultater, du ønsker at tilføje (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Opret mindst ét resultat manuelt via dette administrationspanel (<a href='%{link_new_result}' target='_blank'>link</a>) før brug af import for at få en bedre forståelse af formatet, og hvad du har brug for til at udfylde det.</li><li>Download eksporten med CSV-format (%{link_export_csv})</li><li>Lav ændringerne lokalt. Du kan kun ændre følgende kolonner i CSV’et:</li></ol><ul><li><b>category/id:</b> ID for kategorien</li><li><b>scope/id:</b> ID for the Scope</li><li><b>parent/id:</b> ID for moder(tilknyttede resultater). Valgfrit</li><li><b>title/I18N:</b> Titel for X-sprog</li><li><b>description/I18N:</b> Beskrivelse af X-sprog</li><li><b> start_date:</b> dato, hvor resultatet begynder at blive gennemført (format YYYY-MM-DD)</li><li><b>end_date:</b> dato, hvor gennemførelsen af resultatet afsluttes (format YYYY-MM-DD)</li><li><b>status/id:</b> ID for status for dette resultat</li><li><b>progress:</b> procentandel (fra 0 til 100) for gennemførelsen </li><li><b>proposals_ids:</b> internal ID for de tilknytte forslag (adskilt med et komma). Den konverteres automatisk til <span class='attribute-name'>proposal_url</span></li></ul>"
             title: Importresultater fra CSV
         imports:
@@ -52,6 +54,8 @@ da:
         models:
           result:
             name: Resultat
+          status:
+            name: Status
           timeline_entry:
             name: Indførsel på tidslinje
         results:
@@ -131,6 +135,7 @@ da:
             end_date: Slutdato
             progress: Fremskridt
             start_date: Startdato
+            status: Status
             title: Betegnelse
         status:
           fields:
