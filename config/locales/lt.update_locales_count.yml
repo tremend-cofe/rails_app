@@ -1,0 +1,529 @@
+lt:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Tema
+      meeting:
+        cofe_charter_html: Pritariu <a href="%{url}" target="_blank">Konferencijos </a>dėl Europos ateities chartijai
+      id: ID
+      organization:
+        omnipresent_banner_url: URL
+    models:
+      decidim/meetings/upcoming_meeting_event: Būsimas posėdis
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Posėdis
+        few: Posėdžiai
+        many: Posėdžiai
+        other: Posėdžiai
+      decidim/participatory_process:
+        one: Dalyvaujamasis procesas
+        few: Dalyvaujamieji procesai
+        many: Dalyvaujamieji procesai
+        other: Dalyvaujamieji procesai
+      decidim/accountability/result:
+        one: Rezultatas
+        few: Rezultatai
+        many: Rezultatai
+        other: Rezultatai
+      decidim/assembly:
+        one: Asamblėja
+        few: Asamblėjos
+        many: Asamblėjos
+        other: Asamblėjos
+      decidim/assembly_member:
+        one: Asamblėjos narys
+        few: Asamblėjos nariai
+        many: Asamblėjos nariai
+        other: Asamblėjos nariai
+      decidim/assembly_user_role:
+        one: Asamblėjos naudotojo vaidmuo
+        few: Asamblėjos naudotojo vaidmenys
+        many: Asamblėjos naudotojo vaidmenys
+        other: Asamblėjos naudotojo vaidmenys
+      decidim/blogs/post:
+        one: Įrašas
+        few: Įrašai
+        many: Įrašai
+        other: Įrašai
+      decidim/budgets/project:
+        one: Projektas
+        few: Projektai
+        many: Projektai
+        other: Projektai
+      decidim/comments/comment:
+        one: Komentaras
+        few: Komentarai
+        many: Komentarai
+        other: Komentarai
+      decidim/comments/comment_vote:
+        one: Balsas
+        few: Balsai
+        many: Balsai
+        other: Balsai
+      decidim/conference:
+        one: Konferencija
+        few: Konferencijos
+        many: Konferencijos
+        other: Konferencijos
+      decidim/conference_speaker:
+        one: Konferencijos pranešėjas
+        few: Konferencijos pranešėjai
+        many: Konferencijos pranešėjai
+        other: Konferencijos pranešėjai
+      decidim/conference_user_role:
+        one: Konferencijos naudotojo vaidmuo
+        few: Konferencijos naudotojo vaidmenys
+        many: Konferencijos naudotojo vaidmenys
+        other: Konferencijos naudotojo vaidmenys
+      decidim/amendment:
+        one: Pakeitimas
+        few: Pakeitimai
+        many: Pakeitimai
+        other: Pakeitimai
+      decidim/endorsement:
+        one: Pritarimas
+        few: Pritarimai
+        many: Pritarimai
+        other: Pritarimai
+      decidim/user:
+        one: Dalyvis
+        few: Dalyviai
+        many: Dalyviai
+        other: Dalyviai
+      decidim/user_group:
+        one: Grupė
+        few: Grupės
+        many: Grupės
+        other: Grupės
+      decidim/debates/debate:
+        one: Diskusija
+        few: Diskusijos
+        many: Diskusijos
+        other: Diskusijos
+      decidim/meetings/minutes:
+        one: Protokolai
+        few: Protokolai
+        many: Protokolai
+        other: Protokolai
+      decidim/meetings/registration:
+        one: Registracija
+        few: Registracijos
+        many: Registracijos
+        other: Registracijos
+      decidim/pages/page:
+        one: Puslapis
+        few: Puslapiai
+        many: Puslapiai
+        other: Puslapiai
+      decidim/participatory_process_group:
+        one: Dalyvaujamojo proceso grupė
+        few: Dalyvaujamojo proceso grupės
+        many: Dalyvaujamojo proceso grupės
+        other: Dalyvaujamojo proceso grupės
+      decidim/participatory_process_step:
+        one: Etapas
+        few: Etapai
+        many: Etapai
+        other: Etapai
+      decidim/proposals/collaborative_draft:
+        one: Bendras projektas
+        few: Bendri projektai
+        many: Bendri projektai
+        other: Bendri projektai
+      decidim/proposals/proposal:
+        one: Pasiūlymas
+        few: Pasiūlymai
+        many: Pasiūlymai
+        other: Pasiūlymai
+      decidim/proposals/proposal_note:
+        one: Pastaba
+        few: Pastabos
+        many: Pastabos
+        other: Pastabos
+      decidim/proposals/proposal_vote:
+        one: Parama
+        few: Parama
+        many: Parama
+        other: Parama
+      decidim/sortitions/sortition:
+        one: Sprendimas burtų keliu
+        few: Sprendimai burtų keliu
+        many: Sprendimai burtų keliu
+        other: Sprendimai burtų keliu
+      decidim/surveys/survey:
+        one: Apklausa
+        few: Apklausos
+        many: Apklausos
+        other: Apklausos
+      decidim/surveys/survey_answer:
+        one: Atsakymas
+        few: Atsakymai
+        many: Atsakymai
+        other: Atsakymai
+  decidim:
+    components:
+      meetings:
+        settings:
+          global:
+            cofe_charter_url: Konferencijos dėl Europos ateities chartijos URL
+        name: Posėdžiai
+    meetings:
+      actions:
+        invalid_destroy:
+          proposals_count:
+            one: Posėdžio negalima panaikinti, nes su juo susietas %{count} pasiūlymas.
+            few: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+            many: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+            other: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
+        new: Naujas posėdis
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Būsimi posėdžiai
+      directory:
+        meetings:
+          index:
+            meetings: Posėdžiai
+      meetings:
+        count:
+          meetings_count:
+            one: %{count} posėdis
+            few: %{count} posėdžiai
+            many: %{count} posėdžiai
+            other: %{count} posėdžiai
+        form:
+          create_as: Sukurti posėdį kaip
+        index:
+          new_meeting: Naujas posėdis
+        new:
+          title: Sukurti savo posėdį
+        show:
+          remaining_slots:
+            one: %{count} likęs laiko tarpsnis
+            few: %{count} likę laiko tarpsniai
+            many: %{count} likę laiko tarpsniai
+            other: %{count} likę laiko tarpsniai
+      models:
+        meeting:
+          fields:
+            official_meeting: Oficialus posėdis
+    menu:
+      help: Pagalba
+      processes: Procesai
+    menu_overwrite:
+      citizens_panels: Piliečių diskusijų grupė
+      events: Renginiai
+      plenaries: Plenariniai posėdžiai
+      topics: Temos
+    metrics:
+      meetings:
+        object: posėdžiai
+        title: Posėdžiai
+    pages:
+      home:
+        extended:
+          meetings: Posėdžiai
+        statistics:
+          meetings_count: Posėdžiai
+          processes_count: Procesai
+          proposals_count: Pasiūlymai
+      index:
+        title: Pagalba
+    participatory_processes:
+      index:
+        title: Dalyvaujamieji procesai
+      last_activity:
+        new_participatory_process: Naujas dalyvaujamasis procesas
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktyvūs procesai
+            see_all_processes: Žiūrėti visus procesus
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Įvykę posėdžiai
+          upcoming_meetings: Būsimi posėdžiai
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktyvus procesas
+              few: %{count} aktyvūs procesai
+              many: %{count} aktyvūs procesai
+              other: %{count} aktyvūs procesai
+            all:
+              one: 1 procesas
+              few: %{count} procesai
+              many: %{count} procesai
+              other: %{count} procesai
+            past:
+              one: 1 buvęs procesas
+              few: %{count} buvę procesai
+              many: %{count} buvę procesai
+              other: %{count} buvę procesai
+            upcoming:
+              one: 1 būsimas procesas
+              few: %{count} būsimi procesai
+              many: %{count} būsimi procesai
+              other: %{count} būsimi procesai
+          explanations:
+            no_active: Aktyvių procesų nėra.
+      statistics:
+        meetings_count: Posėdžiai
+        processes_count: Procesai
+        proposals_count: Pasiūlymai
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Žiūrėti visus posėdžius (%{count})
+        upcoming_meetings: Būsimi posėdžiai
+      highlighted_proposals:
+        see_all: Žiūrėti visus pasiūlymus (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Būsimas posėdis
+    proposals:
+      last_activity:
+        new_proposal_at_html: <span>Naujas pasiūlymas, pasidalytas %{link}</span>
+      proposals:
+        count:
+          proposals_count:
+            one: %{count} pasiūlymas
+            few: %{count} pasiūlymai
+            many: %{count} pasiūlymai
+            other: %{count} pasiūlymai
+        index:
+          new_proposal: Naujas pasiūlymas
+          view_proposal: Peržiūrėti pasiūlymą
+        new:
+          title: Sukurti savo pasiūlymą
+        proposal:
+          view_proposal: Peržiūrėti pasiūlymą
+        wizard_aside:
+          back_from_step_1: Grįžti į pasiūlymus
+          back_from_step_2: Grįžti į pasiūlymus
+          info: Jūs kuriate <strong>pasiūlymą</strong>.
+        wizard_steps:
+          step_1: Sukurti savo pasiūlymą
+          step_4: Paskelbti savo pasiūlymą
+          title: Pasiūlymo sukūrimo etapai
+        linked_proposals:
+          proposal_votes:
+            one: parama
+            few: parama
+            many: parama
+            other: parama
+        preview:
+          proposal_edit_before_minutes:
+            one: Šį pasiūlymą galėsite keisti pirmą minutę po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            few: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            many: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            other: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+        show:
+          hidden_endorsers_count:
+            one: ir dar %{count} žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
+        votes_count:
+          count:
+            one: Parama
+            few: Parama
+            many: Parama
+            other: Parama
+      versions:
+        proposals:
+          back_to_resource: Grįžti į pasiūlymą
+      collaborative_drafts:
+        count:
+          drafts_count:
+            one: %{count} bendras projektas
+            few: %{count} bendri projektai
+            many: %{count} bendri projektai
+            other: %{count} bendri projektai
+        show:
+          hidden_authors_count:
+            one: ir dar %{count} žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
+      models:
+        proposal:
+          fields:
+            id: ID
+    accountability:
+      results:
+        count:
+          results_count:
+            one: 1 rezultatas
+            few: %{count} rezultatai
+            many: %{count} rezultatai
+            other: %{count} rezultatai
+    budgets:
+      projects:
+        count:
+          projects_count:
+            one: 1 projektas
+            few: %{count} projektai
+            many: %{count} projektai
+            other: %{count} projektai
+        order_selected_projects:
+          selected_projects:
+            one: pasirinktas projektas
+            few: pasirinkti projektai
+            many: pasirinkti projektai
+            other: pasirinkti projektai
+        project:
+          votes:
+            one: balsas
+            few: balsai
+            many: balsai
+            other: balsai
+    application:
+      collection:
+        documents:
+          one: Dokumentas
+          few: Dokumentai
+          many: Dokumentai
+          other: Dokumentai
+    author:
+      comments:
+        one: komentaras
+        few: komentarai
+        many: komentarai
+        other: komentarai
+      endorsements:
+        one: pritarimas
+        few: pritarimai
+        many: pritarimai
+        other: pritarimai
+    authorization_modals:
+      content:
+        incomplete:
+          invalid_field: %{field}
+    collapsible_list:
+      hidden_elements_count:
+        one: ir dar %{count}
+        few: ir dar %{count}
+        many: ir dar %{count}
+        other: ir dar %{count}
+    followers:
+      followers_count:
+        one: %{count} sekėjas
+        few: %{count} sekėjai
+        many: %{count} sekėjai
+        other: %{count} sekėjai
+    searches:
+      results:
+        results:
+          one: %{count} rezultatas
+          few: %{count} rezultatai
+          many: %{count} rezultatai
+          other: %{count} rezultatai
+    debates:
+      debates:
+        count:
+          debates_count:
+            one: %{count} diskusija
+            few: %{count} diskusijos
+            many: %{count} diskusijos
+            other: %{count} diskusijos
+    participatory_process_groups:
+      show:
+        group_participatory_processes:
+          one: 1 procesas %{group}
+          few: %{count} procesai %{group}
+          many: %{count} procesai %{group}
+          other: %{count} procesai %{group}
+    sortitions:
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 pasiūlymas
+            few: %{count} pasiūlymai
+            many: %{count} pasiūlymai
+            other: %{count} pasiūlymai
+        results_count:
+          count:
+            one: pasirinktas pasiūlymas
+            few: pasirinkti pasiūlymai
+            many: pasirinkti pasiūlymai
+            other: pasirinkti pasiūlymai
+        sortition:
+          selected_proposals:
+            one: pasiūlymas pasirinktas
+            few: pasiūlymai pasirinkti
+            many: pasiūlymai pasirinkti
+            other: pasiūlymai pasirinkti
+        sortitions_count:
+          count:
+            one: 1 sprendimas burtų keliu
+            few: %{count} sprendimai burtų keliu
+            many: %{count} sprendimai burtų keliu
+            other: %{count} sprendimai burtų keliu
+    system:
+      organizations:
+        smtp_settings:
+          placeholder:
+            from_email: jūsų-organizacija@jūsų-teikėjas.org
+            from_label: jūsų-organizacijos-pavadinimas
+    verifications:
+      dummy_authorization:
+        extra_explanation:
+          postal_codes:
+            one: Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra %{postal_codes}.
+            few: Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių pašto kodų: %{postal_codes}.
+            many: Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių pašto kodų: %{postal_codes}.
+            other: Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių pašto kodų: %{postal_codes}.
+      id_documents:
+        dni: nacionalinis asmens tapatybės dokumentas
+        nie: užsieniečio kodas
+  devise:
+    omniauth_callbacks:
+      failure: Jūsų nepavyko autentifikuoti pagal %{kind}. Priežastis – "%{reason}".
+      success: Autentifikuota pagal %{kind} paskyrą.
+    shared:
+      minimum_password_length:
+        one: (%{count} minimalus rašmenų skaičius)
+        few: (%{count} minimalus rašmenų skaičius)
+        many: (%{count} minimalus rašmenų skaičius)
+        other: (%{count} minimalus rašmenų skaičius)
+  layouts:
+    decidim:
+      language_chooser:
+        close: Uždaryti
+        select_your_language: Pasirinkti kalbą
+      process_navigation:
+        process_menu_item: Procesas
+      user:
+        logged_in: Prisijungęs
+        logged_in_as: Prisijungęs kaip %{user}
+      assemblies:
+        order_by_assemblies:
+          assemblies:
+            one: %{count} asamblėjos
+            few: %{count} asamblėjos
+            many: %{count} asamblėjos
+            other: %{count} asamblėjos
+      conferences:
+        order_by_conferences:
+          conferences:
+            one: %{count} konferencija
+            few: %{count} konferencijos
+            many: %{count} konferencijos
+            other: %{count} konferencijos
+  errors:
+    messages:
+      not_saved:
+        one: Vykdant jūsų prašymą įvyko klaida.
+        few: Vykdant jūsų prašymą įvyko daugybinių klaidų:
+        many: Vykdant jūsų prašymą įvyko daugybinių klaidų:
+        other: Vykdant jūsų prašymą įvyko daugybinių klaidų:
+  forms:
+    length_validator:
+      minimum:
+        one: bent %{count} ženklas
+        few: bent %{count} ženklai (-ų)
+        many: bent %{count} ženklai (-ų)
+        other: bent %{count} ženklai (-ų)
+  locale:
+    name: anglų

@@ -1,0 +1,254 @@
+da: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Emne
+      meeting: 
+        cofe_charter_html: Jeg accepterer <a href="%{url}" target="_blank">charteret</a> om konferencen om Europas fremtid
+      id: ID
+      minutes: 
+        audio_url: Audio url
+        video_url: Video url
+      oauth_application: 
+        name: OAuth-applikationsnavn
+      config: 
+        offline: Offline
+        online: Online
+    models: 
+      decidim/meetings/upcoming_meeting_event: Kommende møde
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Møde
+        other: Møder
+      decidim/participatory_process: 
+        one: Deltagelsesproces
+        other: Deltagelsesprocesser
+      decidim/proposals/proposal_note: 
+        one: Note
+        other: Noter
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: URL til COFE-charter
+        name: Møder
+      blogs: 
+        name: Blog
+      dummy: 
+        actions: 
+          bar: Bjælke
+          foo: Foo
+    meetings: 
+      actions: 
+        new: Nyt møde
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Kommende møder
+      directory: 
+        meetings: 
+          index: 
+            meetings: Møder
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} møde
+            other: %{count} møder
+        form: 
+          create_as: Opret møde som
+        index: 
+          new_meeting: Nyt møde
+        new: 
+          title: Opret dit møde
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Officielt møde
+    menu: 
+      help: Hjælp
+      processes: Processer
+    menu_overwrite: 
+      citizens_panels: Borgerpaneler
+      events: Arrangementer
+      plenaries: Plenarmøder
+      topics: Emner
+    metrics: 
+      meetings: 
+        object: møder
+        title: Møder
+      download: 
+        csv: Download data (csv)
+    pages: 
+      home: 
+        extended: 
+          meetings: Møder
+        statistics: 
+          meetings_count: Møder
+          processes_count: Processer
+          proposals_count: Forslag
+      index: 
+        title: Hjælp
+    participatory_processes: 
+      index: 
+        title: Deltagelsesprocesser
+      last_activity: 
+        new_participatory_process: Ny deltagelsesproces
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktive processer
+            see_all_processes: Se alle processer
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Tidligere møder
+          upcoming_meetings: Kommende møder
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktiv proces
+              other: %{count} aktive processer
+            all: 
+              one: 1 proces
+              other: %{count} processer
+            past: 
+              one: 1 tidligere proces
+              other: %{count} tidligere processer
+            upcoming: 
+              one: 1 kommende proces
+              other: %{count} kommende processer
+          explanations: 
+            no_active: Ingen aktive processer
+      statistics: 
+        meetings_count: Møder
+        processes_count: Processer
+        proposals_count: Forslag
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Se alle møder (%{count})
+        upcoming_meetings: Kommende møder
+      highlighted_proposals: 
+        see_all: Se alle forslag (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Kommende møde
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nyt forslag på %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} forslag
+            other: %{count} forslag
+        index: 
+          new_proposal: Nyt forslag
+          view_proposal: Se forslag
+        new: 
+          title: Opret dit forslag
+        proposal: 
+          view_proposal: Se forslag
+        wizard_aside: 
+          back_from_step_1: Tilbage til forslag
+          back_from_step_2: Tilbage til forslag
+          info: Du er ved at oprette et <strong>forslag</strong>.
+        wizard_steps: 
+          step_1: Opret dit forslag
+          step_4: Offentliggør dit forslag
+          title: Sådan opretter du et forslag
+        tags: 
+          changed_from: (ændret fra <u>%{previous_name}</u> af en administrator)
+      versions: 
+        proposals: 
+          back_to_resource: Gå tilbage til forslag
+      models: 
+        proposal: 
+          fields: 
+            id: ID
+    budgets: 
+      projects: 
+        count: 
+          projects_count: 
+            one: 1 projekt
+            other: %{count} projekter
+    authorization_handlers: 
+      foo_authorization: 
+        fields: 
+          bar: Bjælke
+          foo: Foo
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    shared: 
+      confirm_modal: 
+        ok: OK
+    forms: 
+      user_answers_serializer: 
+        ip_hash: IP Hash
+    sortitions: 
+      sortitions: 
+        show: 
+          time_seed: (2) Time seed
+    system: 
+      organizations: 
+        smtp_settings: 
+          placeholder: 
+            from_email: your-organization@your-provider.org
+    verifications: 
+      id_documents: 
+        authorizations: 
+          choose: 
+            offline: Offline
+            online: Online
+        dni: DNI
+        nie: NIE
+  devise: 
+    omniauth_callbacks: 
+      failure: Kunne ikke godkende dig fra %{kind} pågrund af "%{reason}".
+      success: Godkendt fra %{kind}-konto..
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Luk
+        select_your_language: Vælg sprog
+      process_navigation: 
+        process_menu_item: Processen
+      user: 
+        logged_in: Logget ind
+        logged_in_as: Logget ind som %{bruger}
+      footer: 
+        cc_by_license: Creative Commons License
+        decidim_logo: Decidim Logo
+        download_open_data: Download Open Data-filer
+      header: 
+        navigation: Navigation
+      user_menu: 
+        admin_dashboard: Admin-dashboardet
+  locale: 
+    name: Engelsk
+  social_share_button: 
+    delicious: Delicious
+    douban: Douban
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
+  versions: 
+    dropdown: 
+      option_escaped: Escaped
+      option_split: Side-by-side
+      option_unescaped: Unescaped
+      option_unified: Unified
+  views: 
+    pagination: 
+      last: Sidste &amp;raquo;
+      next: Næste &amp;rsaquo;

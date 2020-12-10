@@ -1,0 +1,461 @@
+cs: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Téma
+      meeting: 
+        cofe_charter_html: Souhlasím s <a href="%{url}" target="_blank">chartou</a> konference o budoucnosti Evropy
+      close_meeting: 
+        closing_report: Zpráva
+    models: 
+      decidim/meetings/upcoming_meeting_event: Nadcházející schůze
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Schůze
+        few: Schůze
+        other: Schůze
+      decidim/participatory_process: 
+        one: Participativní proces
+        few: Participativní procesy
+        other: Participativní procesy
+      decidim/accountability/result: 
+        one: Výsledek
+        few: Výsledky
+        other: Výsledky
+      decidim/assembly: 
+        one: Shromáždění
+        few: Shromáždění
+        other: Shromáždění
+      decidim/assembly_member: 
+        one: Člen shromáždění
+        few: Členové shromáždění
+        other: Členové shromáždění
+      decidim/assembly_user_role: 
+        one: Uživatelská role ve shromáždění
+        few: Uživatelské role ve shromáždění
+        other: Uživatelské role ve shromáždění
+      decidim/blogs/post: 
+        one: Příspěvek
+        few: Příspěvky
+        other: Příspěvky
+      decidim/budgets/project: 
+        one: Projekt
+        few: Projekty
+        other: Projekty
+      decidim/comments/comment: 
+        one: Komentář
+        few: Komentáře
+        other: Komentáře
+      decidim/comments/comment_vote: 
+        one: Hlas
+        few: Hlasy
+        other: Hlasy
+      decidim/conference: 
+        one: Konference
+        few: Konference
+        other: Konference
+      decidim/conference_speaker: 
+        one: Řečník na konferenci
+        few: Řečníci na konferenci
+        other: Řečníci na konferenci
+      decidim/conference_user_role: 
+        one: Uživatelská role na konferenci
+        few: Uživatelské role na konferenci
+        other: Uživatelské role na konferenci
+      decidim/amendment: 
+        one: Změna
+        few: Změny
+        other: Změny
+      decidim/endorsement: 
+        one: Schválení
+        few: Schválení
+        other: Schválení
+      decidim/user: 
+        one: Účastník
+        few: Účastníci
+        other: Účastníci
+      decidim/user_group: 
+        one: Skupina
+        few: Skupiny
+        other: Skupiny
+      decidim/debates/debate: 
+        one: Diskuse
+        few: Diskuse
+        other: Diskuse
+      decidim/meetings/minutes: 
+        one: Zápis
+        few: Zápisy
+        other: Zápisy
+      decidim/meetings/registration: 
+        one: Registrace
+        few: Registrace
+        other: Registrace
+      decidim/pages/page: 
+        one: Stránka
+        few: Stránky
+        other: Stránky
+      decidim/participatory_process_group: 
+        one: Skupina participativního procesu
+        few: Skupiny participativního procesu
+        other: Skupiny participativního procesu
+      decidim/participatory_process_step: 
+        one: Fáze
+        few: Fáze
+        other: Fáze
+      decidim/proposals/collaborative_draft: 
+        one: Společný koncept
+        few: Společné koncepty
+        other: Společné koncepty
+      decidim/proposals/proposal: 
+        one: Návrh
+        few: Návrhy
+        other: Návrhy
+      decidim/proposals/proposal_note: 
+        one: Poznámka
+        few: Poznámky
+        other: Poznámky
+      decidim/proposals/proposal_vote: 
+        one: Hlas pro
+        few: Hlasy pro
+        other: Hlasy pro
+      decidim/sortitions/sortition: 
+        one: Volba losem
+        few: Volby losem
+        other: Volby losem
+      decidim/surveys/survey: 
+        one: Průzkum
+        few: Průzkumy
+        other: Průzkumy
+      decidim/surveys/survey_answer: 
+        one: Odpověď
+        few: Odpovědi
+        other: Odpovědi
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: URL charty konference
+        name: Schůze
+    meetings: 
+      actions: 
+        invalid_destroy: 
+          proposals_count: 
+            one: Tuto schůzi nelze smazat, protože je s ní spojen %{count} návrh:
+            few: Tuto schůzi nelze smazat, protože jsou s ní spojeny %{count} návrhy:
+            other: Tuto schůzi nelze smazat, protože je s ní spojeno %{count} návrhů:
+        new: Nová schůze
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Nadcházející schůze
+      directory: 
+        meetings: 
+          index: 
+            meetings: Schůze
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} schůze
+            few: %{count} schůze
+            other: %{count} schůzí
+        form: 
+          create_as: Vytvořit schůzi jako
+        index: 
+          new_meeting: Nová schůze
+        new: 
+          title: Vytvořte schůzi
+        show: 
+          remaining_slots: 
+            one: %{count} zbývající místo
+            few: %{count} zbývající místa
+            other: %{count} zbývajících míst
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Oficiální schůze
+    menu: 
+      help: Nápověda
+      processes: Procesy
+    menu_overwrite: 
+      citizens_panels: Panelové diskuse občanů
+      events: Události
+      plenaries: Plenární zasedání
+      topics: Témata
+    metrics: 
+      meetings: 
+        object: schůze
+        title: Schůze
+    pages: 
+      home: 
+        extended: 
+          meetings: Schůze
+        statistics: 
+          meetings_count: Schůze
+          processes_count: Procesy
+          proposals_count: Návrhy
+      index: 
+        title: Nápověda
+    participatory_processes: 
+      index: 
+        title: Participativní procesy
+      last_activity: 
+        new_participatory_process: Nový participativní proces
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktivní procesy
+            see_all_processes: Zobrazit všechny procesy
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Minulé schůze
+          upcoming_meetings: Nadcházející schůze
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktivní proces
+              few: %{count} aktivní procesy
+              other: %{count} aktivních procesů
+            all: 
+              one: 1 proces
+              few: %{count} procesy
+              other: %{count} procesů
+            past: 
+              one: 1 minulý proces
+              few: %{count} minulé procesy
+              other: %{count} minulých procesů
+            upcoming: 
+              one: 1 nadcházející proces
+              few: %{count} nadcházející procesy
+              other: %{count} nadcházejících procesů
+          explanations: 
+            no_active: Žádné aktivní procesy
+      statistics: 
+        meetings_count: Schůze
+        processes_count: Procesy
+        proposals_count: Návrhy
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Zobrazit všechny schůze (%{count})
+        upcoming_meetings: Nadcházející schůze
+      highlighted_proposals: 
+        see_all: Zobrazit všechny návrhy (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Nadcházející schůze
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nový návrh na %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} návrh
+            few: %{count} návrhy
+            other: %{count} návrhů
+        index: 
+          new_proposal: Nový návrh
+          view_proposal: Zobrazit návrh
+        new: 
+          title: Vytvořte návrh
+        proposal: 
+          view_proposal: Zobrazit návrh
+        wizard_aside: 
+          back_from_step_1: Zpět k návrhům
+          back_from_step_2: Zpět k návrhům
+          info: Vytváříte <strong>návrh</strong>.
+        wizard_steps: 
+          step_1: Vytvořte návrh
+          step_4: Zveřejněte návrh
+          title: Postup tvorby návrhu
+        linked_proposals: 
+          proposal_votes: 
+            one: hlas pro
+            few: hlasy pro
+            other: hlasů pro
+        preview: 
+          proposal_edit_before_minutes: 
+            one: Tento návrh budete moci během první minuty po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+            few: Tento návrh budete moci během prvních %{count} minut po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+            other: Tento návrh budete moci během prvních %{count} minut po jeho zveřejnění upravovat. Po uplynutí této doby už úpravy nebudou možné.
+        show: 
+          hidden_endorsers_count: 
+            one: a %{count} další osoba
+            few: a %{count} další osoby
+            other: a %{count} dalších osob
+          report: Zpráva
+        votes_count: 
+          count: 
+            one: Hlas pro
+            few: Hlasy pro
+            other: Hlasy pro
+      versions: 
+        proposals: 
+          back_to_resource: Zpět na návrh
+      collaborative_drafts: 
+        count: 
+          drafts_count: 
+            one: %{count} společný koncept
+            few: %{count} společné koncepty
+            other: %{count} společných konceptů
+        show: 
+          hidden_authors_count: 
+            one: a %{count} další osoba
+            few: a %{count} další osoby
+            other: a %{count} dalších osob
+      models: 
+        proposal: 
+          fields: 
+            id: ID
+    accountability: 
+      results: 
+        count: 
+          results_count: 
+            one: 1 výsledek
+            few: %{count} výsledky
+            other: %{count} výsledků
+    budgets: 
+      projects: 
+        count: 
+          projects_count: 
+            one: 1 projekt
+            few: %{count} projekty
+            other: %{count} projektů
+        order_selected_projects: 
+          selected_projects: 
+            one: vybraný projekt
+            few: vybrané projekty
+            other: vybraných projektů
+        project: 
+          votes: 
+            one: hlas
+            few: hlasy
+            other: hlasů
+    application: 
+      collection: 
+        documents: 
+          one: Dokument
+          few: Dokumenty
+          other: Dokumenty
+    author: 
+      comments: 
+        one: komentář
+        few: komentáře
+        other: komentářů
+      endorsements: 
+        one: schválení
+        few: schválení
+        other: schválení
+    collapsible_list: 
+      hidden_elements_count: 
+        one: a %{count} další
+        few: a %{count} další
+        other: a %{count} dalších
+    doorkeeper: 
+      authorizations: 
+        new: 
+          by_organization_link_html: <small class="heading-small">od %{link}</small>
+    followers: 
+      followers_count: 
+        one: %{count} fanoušek
+        few: %{count} fanoušci
+        other: %{count} fanoušků
+    searches: 
+      results: 
+        results: 
+          one: %{count} výsledek
+          few: %{count} výsledky
+          other: %{count} výsledků
+    debates: 
+      debates: 
+        count: 
+          debates_count: 
+            one: %{count} diskuse
+            few: %{count} diskuse
+            other: %{count} diskusí
+    participatory_process_groups: 
+      show: 
+        group_participatory_processes: 
+          one: 1 proces pro skupinu %{group}
+          few: %{count} procesy pro skupinu %{group}
+          other: %{count} procesů pro skupinu %{group}
+    sortitions: 
+      sortitions: 
+        count: 
+          proposals_count: 
+            one: 1 návrh
+            few: %{count} návrhy
+            other: %{count} návrhů
+        results_count: 
+          count: 
+            one: vybraný návrh
+            few: vybrané návrhy
+            other: vybraných návrhů
+        sortition: 
+          selected_proposals: 
+            one: návrh vybrán
+            few: návrhy vybrány
+            other: návrhů vybráno
+        sortitions_count: 
+          count: 
+            one: 1 volba losem
+            few: %{count} volby losem
+            other: %{count} voleb losem
+    verifications: 
+      dummy_authorization: 
+        extra_explanation: 
+          postal_codes: 
+            one: Účast je omezena na účastníky s poštovním směrovacím číslem %{postal_codes}.
+            few: Účast je omezena na účastníky s některým z těchto poštovních směrovacích čísel: %{postal_codes}.
+            other: Účast je omezena na účastníky s některým z těchto poštovních směrovacích čísel: %{postal_codes}.
+      id_documents: 
+        dni: Identifikační číslo
+        nie: Identifikační číslo
+  devise: 
+    omniauth_callbacks: 
+      failure: Nezdařilo se ověření účtem %{kind} z důvodu: "%{reason}".
+      success: Ověření účtem %{kind} proběhlo úspěšně.
+    shared: 
+      minimum_password_length: 
+        one: (minimálně %{count} znak)
+        few: (minimálně %{count} znaky)
+        other: (minimálně %{count} znaků)
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Zavřít
+        select_your_language: Vyberte jazyk
+      process_navigation: 
+        process_menu_item: Proces
+      user: 
+        logged_in: Přihlášen(a)
+        logged_in_as: Přihlášen(a) jako %{user}
+      assemblies: 
+        order_by_assemblies: 
+          assemblies: 
+            one: %{count} shromáždění
+            few: %{count} shromáždění
+            other: %{count} shromáždění
+      conferences: 
+        order_by_conferences: 
+          conferences: 
+            one: %{count} konference
+            few: %{count} konference
+            other: %{count} konferencí
+  errors: 
+    messages: 
+      not_saved: 
+        one: Při zpracování vašeho požadavku došlo k chybě:
+        few: Při zpracování vašeho požadavku došlo k chybám:
+        other: Při zpracování vašeho požadavku došlo k chybám:
+  forms: 
+    length_validator: 
+      minimum: 
+        one: minimálně %{count} znak
+        few: minimálně %{count} znaky
+        other: minimálně %{count} znaků
+  locale: 
+    name: English
+  views: 
+    pagination: 
+      last: Poslední &amp;raquo;
+      next: Další &amp;rsaquo;

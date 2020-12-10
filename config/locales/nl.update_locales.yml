@@ -1,0 +1,466 @@
+nl: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Onderwerp
+      meeting: 
+        cofe_charter_html: Ik ga akkoord met het <a href="%{url}" target="_blank">handvest</a> van de conferentie over de toekomst van Europa
+      result: 
+        decidim_accountability_status_id: Status
+      id: ID
+      organization: 
+        address: SMTP-hostnaam
+        logo: Logo
+        omnipresent_banner_url: URL
+      scope: 
+        code: Code
+      assembly: 
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        instagram: Instagram
+        twitter: Twitter
+        youtube: YouTube
+      conference: 
+        hashtag: Hashtag
+        slogan: Slogan
+      group: 
+        avatar: Avatar
+      question: 
+        question_type: Type
+      participatory_process: 
+        hashtag: Hashtag
+      oauth_application: 
+        name: Naam OAuth-toepassing
+        organization_logo: Logo organisatie (vierkant)
+        organization_name: Organisatie
+        organization_url: URL organisatie
+        redirect_uri: Omleidings-URI
+      config: 
+        offline: Offline
+        online: Online
+    models: 
+      decidim/meetings/upcoming_meeting_event: Geplande vergadering
+    errors: 
+      models: 
+        oauth_application: 
+          attributes: 
+            redirect_uri: 
+              must_be_ssl: De omleidings-URI moet een SSL-URI zijn
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Vergadering
+        other: Vergaderingen
+      decidim/participatory_process: 
+        one: Participatieproces
+        other: Participatieprocessen
+      decidim/budgets/project: 
+        one: Project
+        other: Projecten
+    attributes: 
+      doorkeeper/application: 
+        site: Website
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: Url van het handvest van de conferentie over de toekomst van Europa
+        name: Vergaderingen
+      blogs: 
+        name: Blog
+      comment: 
+        reply: Antwoord
+      comment_order_selector: 
+        order: 
+          recent: Recent
+    meetings: 
+      actions: 
+        agenda: Agenda
+        new: Nieuwe vergadering
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Geplande vergaderingen
+      directory: 
+        meetings: 
+          index: 
+            meetings: Vergaderingen
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} vergadering
+            other: %{count} vergaderingen
+        form: 
+          create_as: Vergadering aanmaken als
+        index: 
+          new_meeting: Nieuwe vergadering
+        new: 
+          title: Uw vergadering aanmaken
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Officiële vergadering
+        invite: 
+          fields: 
+            status: Status
+    menu: 
+      help: Help
+      home: Startpagina
+      processes: Processen
+    menu_overwrite: 
+      citizens_panels: Burgerpanels
+      events: Evenementen
+      plenaries: Plenaire vergaderingen
+      topics: Onderwerpen
+    metrics: 
+      meetings: 
+        object: vergaderingen
+        title: Vergaderingen
+    pages: 
+      home: 
+        extended: 
+          meetings: Vergaderingen
+        statistics: 
+          meetings_count: Vergaderingen
+          processes_count: Processen
+          proposals_count: Voorstellen
+      index: 
+        title: Help
+    participatory_processes: 
+      index: 
+        title: Participatieprocessen
+      last_activity: 
+        new_participatory_process: Nieuw participatieproces
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Actieve processen
+            see_all_processes: Alle processen bekijken
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Eerdere vergaderingen
+          upcoming_meetings: Geplande vergaderingen
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 actief proces
+              other: %{count} actieve processen
+            all: 
+              one: 1 proces
+              other: %{count} processen
+            past: 
+              one: 1 eerder proces
+              other: %{count} eerdere processen
+            upcoming: 
+              one: 1 gepland proces
+              other: %{count} geplande processen
+          explanations: 
+            no_active: Geen actieve processen
+      statistics: 
+        meetings_count: Vergaderingen
+        processes_count: Processen
+        proposals_count: Voorstellen
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Alle vergaderingen bekijken (%{count})
+        upcoming_meetings: Geplande vergaderingen
+      highlighted_proposals: 
+        see_all: Alle voorstellen bekijken (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Geplande vergadering
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nieuw voorstel op %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} voorstel
+            other: %{count} voorstellen
+        index: 
+          new_proposal: Nieuw voorstel
+          view_proposal: Voorstel bekijken
+        new: 
+          title: Uw voorstel aanmaken
+        proposal: 
+          view_proposal: Voorstel bekijken
+        wizard_aside: 
+          back_from_step_1: Terug naar voorstellen
+          back_from_step_2: Terug naar voorstellen
+          info: U bent bezig een <strong>voorstel</strong> aan te maken.
+        wizard_steps: 
+          step_1: Uw voorstel aanmaken
+          step_4: Uw voorstel publiceren
+          title: Stappen voor het aanmaken van voorstellen
+        filters: 
+          amendment_type: Type
+          state: Status
+          type: Type
+        orders: 
+          recent: Recent
+      versions: 
+        proposals: 
+          back_to_resource: Terug naar het voorstel
+      collaborative_drafts: 
+        filters: 
+          state: Status
+        orders: 
+          recent: Recent
+      models: 
+        proposal: 
+          fields: 
+            id: ID
+            state: Status
+    accountability: 
+      models: 
+        result: 
+          fields: 
+            status: Status
+    moderations: 
+      models: 
+        moderation: 
+          fields: 
+            reports: Rapporten
+    budgets: 
+      projects: 
+        budget_excess: 
+          ok: OK
+        count: 
+          projects_count: 
+            one: 1 project
+            other: %{count} projecten
+        filters: 
+          status: Status
+    conferences: 
+      conference_program: 
+        program_meeting: 
+          streaming: Streaming
+      conferences: 
+        partners: 
+          collaborators: Partners
+      models: 
+        conference_invite: 
+          fields: 
+            status: Status
+        conference_registration: 
+          fields: 
+            state: Status
+    amendments: 
+      withdraw: 
+        success: De wijziging is ingetrokken
+    application: 
+      collection: 
+        documents: 
+          one: Document
+          other: Documenten
+    author: 
+      avatar: Avatar
+    contact: Contact
+    gamification: 
+      badges: 
+        index: 
+          title: Badges
+    last_activities: 
+      index: 
+        resource_type: Type
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    pad_iframe: 
+      pad: Pad
+    profiles: 
+      show: 
+        badges: Badges
+      sidebar: 
+        badges: 
+          title: Badges
+    shared: 
+      confirm_modal: 
+        ok: OK
+      floating_help: 
+        help: Help
+    sortitions: 
+      sortitions: 
+        filters: 
+          state: Status
+        orders: 
+          recent: Recent
+    system: 
+      actions: 
+        confirm_destroy: Weet u zeker dat u dit wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerken
+        new: Nieuw
+        save: Opslaan
+        title: Acties
+      admins: 
+        create: 
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe beheerder.
+          success: Beheerder aangemaakt
+        destroy: 
+          success: Beheerder verwijderd
+        edit: 
+          title: Beheerder bewerken
+          update: Bijwerken
+        index: 
+          title: Beheerders
+        new: 
+          create: Aanmaken
+          title: Nieuwe beheerder
+        update: 
+          error: Er is een probleem opgetreden bij het bijwerken van deze beheerder.
+          success: Beheerder bijgewerkt
+      default_pages: 
+        placeholders: 
+          content: Voeg betekenisvolle inhoud toe aan de statische pagina %{page} op het dashboard van de beheerder.
+          title: Standaardtitel voor %{page}
+      menu: 
+        admins: Beheerders
+        dashboard: Dashboard
+        oauth_applications: OAuth-toepassingen
+        organizations: Organisaties
+      models: 
+        oauth_application: 
+          fields: 
+            created_at: Aangemaakt op
+            name: Naam OAuth-toepassing
+            organization_name: Organisatie
+          name: OAuth-toepassing
+        organization: 
+          actions: 
+            save_and_invite: Organisatie aanmaken en beheerder uitnodigen
+          fields: 
+            created_at: Aangemaakt op
+            name: Naam
+            omniauth_settings: OmniAuth-instellingen
+            smtp_settings: SMTP-instellingen
+          name: Organisatie
+      oauth_applications: 
+        create: 
+          error: Er is een probleem opgetreden bij het aanmaken van deze toepassing.
+          success: Toepassing aangemaakt.
+        destroy: 
+          error: Er is een probleem opgetreden bij het verwijderen van deze toepassing.
+          success: Toepassing verwijderd.
+        edit: 
+          save: Opslaan
+          title: Toepassing bewerken
+        form: 
+          select_organization: Een organisatie selecteren
+        index: 
+          confirm_delete: Weet u zeker dat u deze toepassing wilt verwijderen?
+          title: OAuth-toepassingen
+        new: 
+          save: Opslaan
+          title: Nieuwe toepassing
+        update: 
+          error: Er is een probleem opgetreden bij het bijwerken van deze toepassing.
+          success: Toepassing bijgewerkt.
+      organizations: 
+        create: 
+          error: Er is een probleem opgetreden bij het aanmaken van een nieuwe organisatie.
+          success: Organisatie aangemaakt.
+        edit: 
+          secondary_hosts_hint: Vul elke in op een nieuwe regel
+        index: 
+          title: Organisaties
+        new: 
+          reference_prefix_hint: Het referentieprefix wordt gebruikt om middelen in de gehele organisatie op unieke wijze te identificeren
+          secondary_hosts_hint: Vul elke in op een nieuwe regel
+          title: Nieuwe organisatie
+        omniauth_settings: 
+          decidim: 
+            client_id: Cliënt-ID
+            client_secret: Clientgeheim
+            site_url: URL site
+          enabled: Ingeschakeld
+          enabled_by_default: Deze leverancier is standaard ingeschakeld. Kan worden bewerkt, maar niet worden uitgeschakeld.
+          facebook: 
+            app_id: App-ID
+            app_secret: App-geheim
+          google_oauth2: 
+            client_id: Client-ID
+            client_secret: Clientgeheim
+          icon: Pictogram
+          icon_path: Pad pictogram
+          twitter: 
+            api_key: API-sleutel
+            api_secret: API-geheim
+        smtp_settings: 
+          instructions: 
+            from_label: Het e-mailadres van de afzender wordt: "naam-van-uw-organisatie <uw-organisatie@uw-provider.org>". Leeg laten om 'from_email' als etiket te gebruiken
+          placeholder: 
+            from_email: uw-organisatie@uw-provider.org
+            from_label: naam-van-uw-organisatie
+        update: 
+          error: Er is een probleem opgetreden bij het bijwerken van deze organisatie.
+          success: Organisatie bijgewerkt.
+        users_registration_mode: 
+          disabled: Toegang is alleen mogelijk via externe accounts
+          enabled: Deelnemers mogen zich registreren en inloggen
+          existing: Deelnemers mogen zich niet registreren, maar bestaande deelnemers mogen inloggen
+      shared: 
+        notices: 
+          no_organization_warning_html: U moet een organisatie aanmaken om te kunnen beginnen. Lees eerst onze %{guide} voordat u verder gaat.
+          our_getting_started_guide: korte handleiding
+      titles: 
+        dashboard: Dashboard
+    authorization_handlers: 
+      help: Help
+    verifications: 
+      id_documents: 
+        authorizations: 
+          choose: 
+            offline: Offline
+            online: Online
+        dni: Nummer nationaal identiteitsdocument
+        nie: Nationaal ID-nummer voor buitenlanders
+  devise: 
+    omniauth_callbacks: 
+      failure: %{kind} kon u niet authenticeren. Reden: "%{reason}".
+      success: Geauthenticeerd via %{kind}.
+    invitations: 
+      updated: Uw wachtwoord is ingesteld. U bent nu aangemeld.
+    passwords: 
+      updated: Uw wachtwoord is gewijzigd. U bent nu aangemeld.
+    registrations: 
+      updated: Uw account is bijgewerkt.
+    unlocks: 
+      unlocked: Uw account is ontgrendeld. Meld u aan om verder te gaan.
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Sluiten
+        select_your_language: Kies uw taal
+      process_navigation: 
+        process_menu_item: Het proces
+      user: 
+        logged_in: Aangemeld
+        logged_in_as: Aangemeld als %{user}
+      conferences_nav: 
+        conference_partners_menu_item: Partners
+        media: Media
+      user_profile: 
+        account: Account
+  locale: 
+    name: Engels
+  social_share_button: 
+    delicious: Delicious
+    douban: Douban
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing

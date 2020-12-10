@@ -1,0 +1,530 @@
+sk: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Téma
+      meeting: 
+        cofe_charter_html: Súhlasím s <a href="%{url}" target="_blank">chartou</a> Konferencie o budúcnosti Európy
+      organization: 
+        logo: Logo
+        port: Port
+      assembly: 
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        instagram: Instagram
+        twitter: Twitter
+        youtube: YouTube
+      conference: 
+        hashtag: Hashtag
+        slogan: Slogan
+      group: 
+        avatar: Avatar
+      participatory_process: 
+        hashtag: Hashtag
+      config: 
+        offline: Offline
+        online: Online
+    models: 
+      decidim/meetings/upcoming_meeting_event: Nadchádzajúce stretnutie
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Stretnutie
+        few: Stretnutia
+        other: Stretnutí
+      decidim/participatory_process: 
+        one: Participatívny proces
+        few: Participatívne procesy
+        other: Participatívnych procesov
+      decidim/accountability/result: 
+        one: Výsledok
+        few: Výsledky
+        other: Výsledkov
+      decidim/assembly: 
+        one: Zhromaždenie
+        few: Zhromaždenia
+        other: Zhromaždení
+      decidim/assembly_member: 
+        one: Člen zhromaždenia
+        few: Členovia zhromaždenia
+        other: Členov zhromaždenia
+      decidim/assembly_user_role: 
+        one: Rola používateľa v zhromaždení
+        few: Roly používateľa v zhromaždení
+        other: Rol používateľa v zhromaždení
+      decidim/blogs/post: 
+        one: Príspevok
+        few: Príspevky
+        other: Príspevkov
+      decidim/budgets/project: 
+        one: Projekt
+        few: Projekty
+        other: Projektov
+      decidim/comments/comment: 
+        one: Komentár
+        few: Komentáre
+        other: Komentárov
+      decidim/comments/comment_vote: 
+        one: Hlas
+        few: Hlasy
+        other: Hlasov
+      decidim/conference: 
+        one: Konferencia
+        few: Konferencie
+        other: Konferencií
+      decidim/conference_speaker: 
+        one: Prednášajúci
+        few: Prednášajúci
+        other: Prednášajúcich
+      decidim/conference_user_role: 
+        one: Rola používateľa z konferencie
+        few: Roly používateľa z konferencie
+        other: Rol používateľa z konferencie
+      decidim/amendment: 
+        one: Zmena
+        few: Zmeny
+        other: Zmien
+      decidim/endorsement: 
+        one: Potvrdenie
+        few: Potvrdenia
+        other: Potvrdení
+      decidim/user: 
+        one: Účastník
+        few: Účastníci
+        other: Účastníkov
+      decidim/user_group: 
+        one: Skupina
+        few: Skupiny
+        other: Skupín
+      decidim/debates/debate: 
+        one: Diskusia
+        few: Diskusie
+        other: Diskusií
+      decidim/meetings/minutes: 
+        one: Zápisnica
+        few: Zápisnice
+        other: Zápisníc
+      decidim/meetings/registration: 
+        one: Registrácia
+        few: Registrácie
+        other: Registrácií
+      decidim/pages/page: 
+        one: Stránka
+        few: Stránky
+        other: Stránok
+      decidim/participatory_process_group: 
+        one: Skupina participatívneho procesu
+        few: Skupiny participatívneho procesu
+        other: Skupín participatívneho procesu
+      decidim/participatory_process_step: 
+        one: Fáza
+        few: Fázy
+        other: Fáz
+      decidim/proposals/collaborative_draft: 
+        one: Spoločný koncept
+        few: Spoločné koncepty
+        other: Spoločných konceptov
+      decidim/proposals/proposal: 
+        one: Návrh
+        few: Návrhy
+        other: Návrhov
+      decidim/proposals/proposal_note: 
+        one: Poznámka
+        few: Poznámky
+        other: Poznámok
+      decidim/proposals/proposal_vote: 
+        one: Podporný hlas
+        few: Podporné hlasy
+        other: Podporných hlasov
+      decidim/sortitions/sortition: 
+        one: Žrebovanie
+        few: Žrebovania
+        other: Žrebovaní
+      decidim/surveys/survey: 
+        one: Prieskum
+        few: Prieskumy
+        other: Prieskumov
+      decidim/surveys/survey_answer: 
+        one: Odpoveď
+        few: Odpovede
+        other: Odpovedí
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: URL charty COFE
+        name: Stretnutia
+      blogs: 
+        name: Blog
+      dummy: 
+        actions: 
+          bar: Bar
+          foo: Foo
+    meetings: 
+      actions: 
+        invalid_destroy: 
+          proposals_count: 
+            one: Stretnutie nemožno odstrániť, pretože s ním súvisí %{count} návrh:
+            few: Stretnutie nemožno odstrániť, pretože s ním súvisia %{count} návrhy:
+            other: Stretnutie nemožno odstrániť, pretože s ním súvisí %{count} návrhov:
+        new: Nové stretnutie
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Nadchádzajúce stretnutia
+      directory: 
+        meetings: 
+          index: 
+            meetings: Stretnutia
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} stretnutie
+            few: %{count} stretnutia
+            other: %{count} stretnutí
+        form: 
+          create_as: Vytvoriť stretnutie ako
+        index: 
+          new_meeting: Nové stretnutie
+        new: 
+          title: Vytvoriť vlastné stretnutie
+        filters_small_view: 
+          filter: Filter
+        show: 
+          remaining_slots: 
+            one: zostáva %{count} miesto
+            few: zostávajú %{count} miesta
+            other: zostáva %{count} miest
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Oficiálne stretnutie
+    menu: 
+      help: Pomoc
+      processes: Procesy
+    menu_overwrite: 
+      citizens_panels: Občianske panely
+      events: Podujatia
+      plenaries: Plenárne zasadnutia
+      topics: Témy
+    metrics: 
+      meetings: 
+        object: stretnutia
+        title: Stretnutia
+    pages: 
+      home: 
+        extended: 
+          meetings: Stretnutia
+        statistics: 
+          meetings_count: Stretnutia
+          processes_count: Procesy
+          proposals_count: Návrhy
+      index: 
+        title: Pomoc
+    participatory_processes: 
+      index: 
+        title: Participatívne procesy
+      last_activity: 
+        new_participatory_process: Nový participatívny proces
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktívne procesy
+            see_all_processes: Zobraziť všetky procesy
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Uplynulé stretnutia
+          upcoming_meetings: Nadchádzajúce stretnutia
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktívny proces
+              few: %{count} aktívne procesy
+              other: %{count} aktívnych procesov
+            all: 
+              one: 1 proces
+              few: %{count} procesy
+              other: %{count} procesov
+            past: 
+              one: 1 uplynulý proces
+              few: %{count} uplynulé procesy
+              other: %{count} uplynulých procesov
+            upcoming: 
+              one: 1 nadchádzajúci proces
+              few: %{count} nadchádzajúce procesy
+              other: %{count} nadchádzajúcich procesov
+          explanations: 
+            no_active: Žiadne aktívne procesy
+      statistics: 
+        meetings_count: Stretnutia
+        processes_count: Procesy
+        proposals_count: Návrhy
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Zobraziť všetky stretnutia (%{count})
+        upcoming_meetings: Nadchádzajúce stretnutia
+      highlighted_proposals: 
+        see_all: Zobraziť všetky návrhy (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Nadchádzajúce stretnutie
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nový návrh:%{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} návrh
+            few: %{count} návrhy
+            other: %{count} návrhov
+        index: 
+          new_proposal: Nový návrh
+          view_proposal: Zobraziť návrh
+        new: 
+          title: Vytvoriť návrh
+        proposal: 
+          view_proposal: Zobraziť návrh
+        wizard_aside: 
+          back_from_step_1: Späť k návrhom
+          back_from_step_2: Späť k návrhom
+          info: Vytvárate <strong>návrh</strong>.
+        wizard_steps: 
+          step_1: Vytvoriť návrh
+          step_4: Zverejniť návrh
+          title: Kroky, ako vytvoriť návrh
+        filters_small_view: 
+          filter: Filter
+        linked_proposals: 
+          proposal_votes: 
+            one: podporný hlas
+            few: podporné hlasy
+            other: podporných hlasov
+        preview: 
+          proposal_edit_before_minutes: 
+            one: Návrh budete môcť upravovať počas prvej minúty po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+            few: Návrh budete môcť upravovať počas prvých %{count} minút po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+            other: Návrh budete môcť upravovať počas prvých %{count} minút po jeho zverejnení. Po uplynutí tohto času nebudete môcť návrh upravovať.
+        show: 
+          hidden_endorsers_count: 
+            one: a ešte %{count} osoba
+            few: a ešte %{count} osoby
+            other: a ešte %{count} osôb
+        votes_count: 
+          count: 
+            one: Podporný hlas
+            few: Podporné hlasy
+            other: Podporných hlasov
+      versions: 
+        proposals: 
+          back_to_resource: Späť k návrhu
+      collaborative_drafts: 
+        count: 
+          drafts_count: 
+            one: %{count} spoločný koncept
+            few: %{count} spoločné koncepty
+            other: %{count} spoločných konceptov
+        filters_small_view: 
+          filter: Filter
+        show: 
+          hidden_authors_count: 
+            one: a ešte %{count} osoba
+            few: a ešte %{count} osoby
+            other: a ešte %{count} osôb
+    accountability: 
+      results: 
+        count: 
+          results_count: 
+            one: 1 výsledok
+            few: %{count} výsledky
+            other: %{count} výsledkov
+    budgets: 
+      projects: 
+        budget_excess: 
+          ok: OK
+        count: 
+          projects_count: 
+            one: 1 projekt
+            few: %{count} projekty
+            other: %{count} projektov
+        filters_small_view: 
+          filter: Filter
+        order_selected_projects: 
+          selected_projects: 
+            one: vybraný projekt
+            few: vybrané projekty
+            other: vybraných projektov
+        project: 
+          votes: 
+            one: hlas
+            few: hlasy
+            other: hlasov
+    conference_program: 
+      index: 
+        title: Program
+    conferences: 
+      conference_program: 
+        show: 
+          program: Program
+    application: 
+      collection: 
+        documents: 
+          one: Dokument
+          few: Dokumenty
+          other: Dokumentov
+    author: 
+      avatar: Avatar
+      comments: 
+        one: komentár
+        few: komentáre
+        other: komentárov
+      endorsements: 
+        one: potvrdenie
+        few: potvrdenia
+        other: potvrdení
+    authorization_handlers: 
+      foo_authorization: 
+        fields: 
+          bar: Bar
+          foo: Foo
+    collapsible_list: 
+      hidden_elements_count: 
+        one: a ešte %{count}
+        few: a ešte %{count}
+        other: a ešte %{count}
+    followers: 
+      followers_count: 
+        one: %{count} sledujúci
+        few: %{count} sledujúci
+        other: %{count} sledujúcich
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    searches: 
+      filters_small_view: 
+        filter: Filter
+      results: 
+        results: 
+          one: %{count} výsledok
+          few: %{count} výsledky
+          other: %{count} výsledkov
+    shared: 
+      confirm_modal: 
+        ok: OK
+    debates: 
+      debates: 
+        count: 
+          debates_count: 
+            one: %{count} diskusia
+            few: %{count} diskusie
+            other: %{count} diskusií
+        filters_small_view: 
+          filter: Filter
+    participatory_process_groups: 
+      show: 
+        group_participatory_processes: 
+          one: 1 proces pre %{group}
+          few: %{count} procesy pre %{group}
+          other: %{count} procesov pre %{group}
+    sortitions: 
+      sortitions: 
+        count: 
+          proposals_count: 
+            one: 1 návrh
+            few: %{count} návrhy
+            other: %{count} návrhov
+        filters_small_view: 
+          filter: Filter
+        results_count: 
+          count: 
+            one: vybraný návrh
+            few: vybrané návrhy
+            other: vybraných návrhov
+        sortition: 
+          selected_proposals: 
+            one: vybraný návrh
+            few: vybrané návrhy
+            other: vybraných návrhov
+        sortitions_count: 
+          count: 
+            one: 1 žrebovanie
+            few: %{count} žrebovania
+            other: %{count} žrebovaní
+    verifications: 
+      dummy_authorization: 
+        extra_explanation: 
+          postal_codes: 
+            one: Zúčastniť sa môžu len účastníci s poštovým smerovacím číslom %{postal_codes}.
+            few: Zúčastniť sa môžu len účastníci s niektorým z týchto poštových smerovacích čísiel: %{postal_codes}.
+            other: Zúčastniť sa môžu len účastníci s niektorým z týchto poštových smerovacích čísiel: %{postal_codes}.
+      id_documents: 
+        authorizations: 
+          choose: 
+            offline: Offline
+            online: Online
+        dni: DNI
+        nie: NIE
+  devise: 
+    omniauth_callbacks: 
+      failure: Nebolo možné overiť vašu totožnosť prostredníctvom %{kind} z tohto dôvodu: "%{reason}".
+      success: Úspešné overenie prostredníctvom účtu %{kind}.
+    shared: 
+      minimum_password_length: 
+        one: minimálny počet znakov je (%{count})
+        few: minimálny počet znakov je (%{count})
+        other: minimálny počet znakov je (%{count})
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Zatvoriť
+        select_your_language: Vyberte jazyk
+      process_navigation: 
+        process_menu_item: Proces
+      user: 
+        logged_in: Prihlásený
+        logged_in_as: Prihlásené ako %{user}
+      assemblies: 
+        order_by_assemblies: 
+          assemblies: 
+            one: %{count} zhromaždenie
+            few: %{count} zhromaždenia
+            other: %{count} zhromaždení
+      conferences: 
+        order_by_conferences: 
+          conferences: 
+            one: %{count} konferencia
+            few: %{count} konferencie
+            other: %{count} konferencií
+  errors: 
+    messages: 
+      not_saved: 
+        one: Pri spracúvaní vašej žiadosti sa vyskytla chyba:
+        few: Pri spracúvaní vašej žiadosti sa vyskytlo viacero chýb:
+        other: Pri spracúvaní vašej žiadosti sa vyskytlo viacero chýb:
+  forms: 
+    length_validator: 
+      minimum: 
+        one: aspoň %{count} znak
+        few: aspoň %{count} znaky
+        other: aspoň %{count} znakov
+  locale: 
+    name: angličtina
+  social_share_button: 
+    delicious: Delicious
+    douban: Douban
+    facebook: Facebook
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing

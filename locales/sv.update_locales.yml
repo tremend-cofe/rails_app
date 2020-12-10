@@ -1,0 +1,333 @@
+sv: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Ämnesområde
+      meeting: 
+        cofe_charter_html: Jag godkänner <a href="%{url}" target="_blank">stadgan</a> för konferensen om Europas framtid
+        transparent: Öppen
+      result: 
+        decidim_accountability_status_id: Status
+      area_type: 
+        plural: Plural
+      id: Id
+      organization: 
+        omnipresent_banner_url: Webbadress
+        port: Port
+      scope_type: 
+        plural: Plural
+      assembly: 
+        facebook: Facebook
+        github: GitHub
+        instagram: Instagram
+        twitter: Twitter
+        youtube: YouTube
+      assembly_member: 
+        position: Position
+      project: 
+        budget: Budget
+      conference: 
+        slogan: Slogan
+      group: 
+        avatar: Avatar
+      config: 
+        offline: Offline
+        online: Online
+    models: 
+      decidim/meetings/upcoming_meeting_event: Kommande möte
+      decidim/sortitions/create_sortition_event: Lottning
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Möte
+        other: Möten
+      decidim/participatory_process: 
+        one: Deltagandeprocess
+        other: Deltagandeprocesser
+      decidim/sortitions/sortition: 
+        one: Lottning
+        other: Lottningar
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: Webbadress till stadgan för konferensen om Europas framtid
+        name: Möten
+      budgets: 
+        settings: 
+          global: 
+            total_budget: Total budget
+      add_comment_form: 
+        opinion: 
+          neutral: Neutral
+      dummy: 
+        actions: 
+          bar: Bar
+          foo: Foo
+    meetings: 
+      actions: 
+        new: Nytt möte
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Kommande möten
+      directory: 
+        meetings: 
+          index: 
+            meetings: Möten
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %count möte
+            other: %count möten
+        form: 
+          create_as: Skapa möte som
+        index: 
+          new_meeting: Nytt möte
+        new: 
+          title: Skapa ditt möte
+        filters_small_view: 
+          filter: Filter
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Officiellt möte
+        invite: 
+          fields: 
+            status: Status
+      types: 
+        transparent: Öppen
+    menu: 
+      help: Hjälp
+      processes: Processer
+    menu_overwrite: 
+      citizens_panels: Medborgarpaneler
+      events: Evenemang
+      plenaries: Plenarsessioner
+      topics: Ämnesområden
+    metrics: 
+      meetings: 
+        object: möten
+        title: Möten
+    pages: 
+      home: 
+        extended: 
+          meetings: Möten
+        statistics: 
+          meetings_count: Möten
+          processes_count: Processer
+          proposals_count: Förslag
+      index: 
+        title: Hjälp
+    participatory_processes: 
+      index: 
+        title: Deltagandeprocesser
+      last_activity: 
+        new_participatory_process: Ny deltagandeprocess
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktiva processer
+            see_all_processes: Se alla processer
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Tidigare möten
+          upcoming_meetings: Kommande möten
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktiv process
+              other: %{count} aktiva processer.
+            all: 
+              one: 1 process
+              other: %count processer
+            past: 
+              one: 1 tidigare process
+              other: %count tidigare processer
+            upcoming: 
+              one: 1 kommande process
+              other: %count kommande processer
+          explanations: 
+            no_active: Inga aktiva processer
+      statistics: 
+        meetings_count: Möten
+        processes_count: Processer
+        proposals_count: Förslag
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Se alla möten (%count)
+        upcoming_meetings: Kommande möten
+      highlighted_proposals: 
+        see_all: Se alla förslag (%count)
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Kommande möte
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nytt förslag på %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %count förslag
+            other: %count förslag
+        index: 
+          new_proposal: Nytt förslag
+          view_proposal: Visa förslag
+        new: 
+          title: Skapa ditt förslag
+        proposal: 
+          view_proposal: Visa förslag
+        wizard_aside: 
+          back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till förslag
+          info: Du skapar ett <strong>förslag</strong>.
+        wizard_steps: 
+          step_1: Skapa ditt förslag
+          step_4: Offentliggör ditt förslag
+          title: Steg för att skapa förslag
+        filters: 
+          state: Status
+        filters_small_view: 
+          filter: Filter
+      versions: 
+        proposals: 
+          back_to_resource: Gå tillbaka till förslag
+      collaborative_drafts: 
+        filters: 
+          state: Status
+        filters_small_view: 
+          filter: Filter
+      models: 
+        proposal: 
+          fields: 
+            id: Id
+            state: Status
+    accountability: 
+      models: 
+        result: 
+          fields: 
+            status: Status
+    assemblies: 
+      show: 
+        is_transparent: 
+          true: öppen
+    budgets: 
+      models: 
+        budget: 
+          fields: 
+            total_budget: Total budget
+      projects: 
+        budget_excess: 
+          ok: OK
+        filters: 
+          status: Status
+        filters_small_view: 
+          filter: Filter
+        show: 
+          budget: Budget
+    conference_program: 
+      index: 
+        title: Program
+    conferences: 
+      conference_program: 
+        show: 
+          program: Program
+      models: 
+        conference_invite: 
+          fields: 
+            status: Status
+        conference_registration: 
+          fields: 
+            state: Status
+    author: 
+      avatar: Avatar
+    authorization_handlers: 
+      foo_authorization: 
+        fields: 
+          bar: Bar
+          foo: Foo
+    authorization_modals: 
+      content: 
+        unauthorized: 
+          ok: Ok
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    searches: 
+      filters_small_view: 
+        filter: Filter
+    shared: 
+      confirm_modal: 
+        ok: OK
+    versions_list_item: 
+      show: 
+        version_index: Version %{index}
+    debates: 
+      debates: 
+        filters_small_view: 
+          filter: Filter
+    sortitions: 
+      sortitions: 
+        filters: 
+          state: Status
+        filters_small_view: 
+          filter: Filter
+        sortitions_count: 
+          count: 
+            one: 1 lottning
+            other: %{count} lottningar
+    system: 
+      organizations: 
+        smtp_settings: 
+          placeholder: 
+            from_email: your-organization@your-provider.org
+            from_label: din-organisations-namn
+    verifications: 
+      id_documents: 
+        authorizations: 
+          choose: 
+            offline: Offline
+            online: Online
+        dni: Id-nummer
+        nie: Id-nummer
+  devise: 
+    omniauth_callbacks: 
+      failure: Det gick inte att autentisera dig från %kind  eftersom"%reason".
+      success: Har autentiserats från kontot %kind.
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Avsluta
+        select_your_language: Välj språk
+      process_navigation: 
+        process_menu_item: Processen
+      user: 
+        logged_in: Inloggad
+        logged_in_as: Inloggad som %{user}
+      conferences_nav: 
+        conference_menu_item: Information
+        media: Media
+      footer: 
+        decidim_logo: Decidim Logo
+  total_budget: Total budget
+  locale: 
+    name: Engelska
+  social_share_button: 
+    douban: Douban
+    facebook: Facebook
+    google_bookmark: Google Bokmärken
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
