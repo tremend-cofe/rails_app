@@ -337,6 +337,9 @@ nl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Voorstellen
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Alle voorstellen bekijken (%{count})
     proposals:
       actions:
         answer_proposal: Voorstel beantwoorden
@@ -588,6 +591,7 @@ nl:
           related_to: Gerelateerd aan
           scope: Toepassingsgebied
           search: Zoeken
+          state: Status
           withdrawn: Ingetrokken
         filters_small_view:
           close_modal: Modaal venster afsluiten
@@ -603,6 +607,7 @@ nl:
           label: 'Concepten rangschikken naar:'
           most_contributed: Meest bijgedragen
           random: Willekeurig
+          recent: Recent
         requests:
           accepted_request:
             error: Kon niet worden geaccepteerd als medewerker, probeer het later opnieuw.
@@ -663,6 +668,8 @@ nl:
       destroy_draft:
         error: Er is een probleem opgetreden bij het verwijderen van het gezamenlijk concept.
         success: Conceptvoorstel verwijderd.
+      last_activity:
+        new_proposal_at_html: "<span>Nieuw voorstel op %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -673,11 +680,13 @@ nl:
           fields:
             category: Categorie
             comments: Opmerkingen
+            id: ID
             notes: Notities
             official_proposal: Officieel voorstel
             published_answer: Gepubliceerd antwoord
             published_at: Gepubliceerd op
             scope: Toepassingsgebied
+            state: Status
             title: Titel
             valuator: Beoordelaar
             valuators: Beoordelaars
@@ -701,6 +710,10 @@ nl:
         complete:
           send: Verzenden
           title: Uw voorstel afronden
+        count:
+          proposals_count:
+            one: "%{count} voorstel"
+            other: "%{count} voorstellen"
         edit:
           attachment_legend: "(Facultatief) Bijlage toevoegen"
           back: Terug
@@ -715,12 +728,15 @@ nl:
         filters:
           activity: Mijn activiteit
           all: Alle
+          amendment_type: Type
           category: Categorie
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
           scope: Toepassingsgebied
           search: Zoeken
+          state: Status
+          type: Type
           voted: Gesteund
         filters_small_view:
           close_modal: Modaal venster afsluiten
@@ -729,13 +745,16 @@ nl:
           unfold: Uitvouwen
         index:
           collaborative_drafts_list: Toegang tot gezamenlijke concepten
+          new_proposal: Nieuw voorstel
           see_all_withdrawn: Alle ingetrokken voorstellen bekijken
+          view_proposal: Voorstel bekijken
         linked_proposals:
           proposal_votes:
             one: steunbetuiging
             other: steunbetuigingen
         new:
           send: Doorgaan
+          title: Uw voorstel aanmaken
         orders:
           label: 'Voorstellen sorteren op:'
           most_commented: De meeste opmerkingen
@@ -743,6 +762,7 @@ nl:
           most_followed: Meest gevolgd
           most_voted: Meest gesteund
           random: Willekeurig
+          recent: Recent
           with_more_authors: Met meer auteurs
         participatory_texts:
           index:
@@ -758,6 +778,7 @@ nl:
           title: Uw voorstel publiceren
         proposal:
           creation_date: 'Aangemaakt: %{date}'
+          view_proposal: Voorstel bekijken
         proposals:
           empty: Er is nog geen voorstel
           empty_filters: Er zijn geen voorstellen met deze criteria
@@ -823,14 +844,20 @@ nl:
             votes: Steunbetuigingen
         wizard_aside:
           back: Terug
+          back_from_step_1: Terug naar voorstellen
+          back_from_step_2: Terug naar voorstellen
           back_from_step_3: Terug naar voorstellen vergelijken
           back_from_step_4: Terug naar concept bewerken
+          info: U bent bezig een <strong>voorstel</strong> aan te maken.
         wizard_steps:
           current_step: Huidige stap
           see_steps: stappen bekijken
+          step_1: Uw voorstel aanmaken
           step_2: Vergelijken
           step_3: Afronden
+          step_4: Uw voorstel publiceren
           step_of: Stap %{current_step_num} van %{total_steps}
+          title: Stappen voor het aanmaken van voorstellen
       proposals_picker:
         choose_proposals: Voorstellen kiezen
         close: Sluiten
@@ -852,6 +879,8 @@ nl:
           back_to_resource: Ga terug naar gezamenlijk concept
         index:
           title: Versies
+        proposals:
+          back_to_resource: Terug naar het voorstel
       withdraw:
         errors:
           has_supports: Dit voorstel kan niet worden ingetrokken omdat het al steunbetuigingen heeft.
