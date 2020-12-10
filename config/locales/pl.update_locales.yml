@@ -1,0 +1,627 @@
+pl: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Temat
+      meeting: 
+        cofe_charter_html: Wyrażam zgodę na <a href="%{url}" target="_blank">kartę</a> konferencji w sprawie przyszłości Europy
+      result: 
+        decidim_accountability_status_id: Status
+      attachment: 
+        attachment_collection_id: Folder
+      id: ID
+      organization: 
+        logo: Logo
+        omnipresent_banner_url: URL
+        port: Port
+      assembly: 
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
+        instagram: Instagram
+        twitter: Twitter
+        youtube: YouTube
+      conference: 
+        hashtag: Hashtag
+        slogan: Slogan
+      group: 
+        avatar: Avatar
+      participatory_process: 
+        hashtag: Hashtag
+      config: 
+        offline: Offline
+        online: Online
+    models: 
+      decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Spotkanie
+        few: Spotkania
+        many: Spotkania
+        other: Spotkania
+      decidim/participatory_process: 
+        one: Proces partycypacyjny
+        few: Procesy partycypacyjne
+        many: Procesy partycypacyjne
+        other: Procesy partycypacyjne
+      decidim/accountability/result: 
+        one: Wynik
+        few: Wyniki
+        many: Wyniki
+        other: Wyniki
+      decidim/assembly: 
+        one: Zgromadzenie
+        few: Zgromadzenia
+        many: Zgromadzenia
+        other: Zgromadzenia
+      decidim/assembly_member: 
+        one: Członek zgromadzenia
+        few: Członkowie zgromadzenia
+        many: Członkowie zgromadzenia
+        other: Członkowie zgromadzenia
+      decidim/assembly_user_role: 
+        one: Rola użytkownika zgromadzenia
+        few: Role użytkownika zgromadzenia
+        many: Role użytkownika zgromadzenia
+        other: Role użytkownika zgromadzenia
+      decidim/blogs/post: 
+        one: Post
+        few: Posty
+        many: Posty
+        other: Posty
+      decidim/budgets/project: 
+        one: Projekt
+        few: Projekty
+        many: Projekty
+        other: Projekty
+      decidim/comments/comment: 
+        one: Komentarz
+        few: Komentarze
+        many: Komentarze
+        other: Komentarze
+      decidim/comments/comment_vote: 
+        one: Głosowanie
+        few: Głosowania
+        many: Głosowania
+        other: Głosowania
+      decidim/conference: 
+        one: Konferencja
+        few: Konferencje
+        many: Konferencje
+        other: Konferencje
+      decidim/conference_speaker: 
+        one: Mówca konferencyjny
+        few: Mówcy konferencyjni
+        many: Mówcy konferencyjni
+        other: Mówcy konferencyjni
+      decidim/conference_user_role: 
+        one: Rola uczestnika konferencji
+        few: Role uczestnika konferencji
+        many: Role uczestnika konferencji
+        other: Role uczestnika konferencji
+      decidim/amendment: 
+        one: Poprawka
+        few: Poprawki
+        many: Poprawki
+        other: Poprawki
+      decidim/endorsement: 
+        one: Wyraz poparcia
+        few: Wyrazy poparcia
+        many: Wyrazy poparcia
+        other: Wyrazy poparcia
+      decidim/user: 
+        one: Uczestnik
+        few: Uczestnicy
+        many: Uczestnicy
+        other: Uczestnicy
+      decidim/user_group: 
+        one: Grupa
+        few: Grupy
+        many: Grupy
+        other: Grupy
+      decidim/debates/debate: 
+        one: Debata
+        few: Debaty
+        many: Debaty
+        other: Debaty
+      decidim/meetings/minutes: 
+        one: Protokół
+        few: Protokoły
+        many: Protokoły
+        other: Protokoły
+      decidim/meetings/registration: 
+        one: Rejestracja
+        few: Rejestracje
+        many: Rejestracje
+        other: Rejestracje
+      decidim/pages/page: 
+        one: Strona
+        few: Strony
+        many: Strony
+        other: Strony
+      decidim/participatory_process_group: 
+        one: Grupa procesu partycypacyjnego
+        few: Grupy procesów partycypacyjnych
+        many: Grupy procesów partycypacyjnych
+        other: Grupy procesów partycypacyjnych
+      decidim/participatory_process_step: 
+        one: Faza
+        few: Fazy
+        many: Fazy
+        other: Fazy
+      decidim/proposals/collaborative_draft: 
+        one: Wspólny projekt dokumentu
+        few: Wspólne projekty dokumentów
+        many: Wspólne projekty dokumentów
+        other: Wspólne projekty dokumentów
+      decidim/proposals/proposal: 
+        one: Propozycja
+        few: Propozycje
+        many: Propozycje
+        other: Propozycje
+      decidim/proposals/proposal_note: 
+        one: Uwaga
+        few: Uwagi
+        many: Uwagi
+        other: Uwagi
+      decidim/proposals/proposal_vote: 
+        one: Głos poparcia
+        few: Głosy poparcia
+        many: Głosy poparcia
+        other: Głosy poparcia
+      decidim/sortitions/sortition: 
+        one: Wybór przez losowanie
+        few: Wybory przez losowanie
+        many: Wybory przez losowanie
+        other: Wybory przez losowanie
+      decidim/surveys/survey: 
+        one: Ankieta
+        few: Ankiety
+        many: Ankiety
+        other: Ankiety
+      decidim/surveys/survey_answer: 
+        one: Odpowiedź
+        few: Odpowiedzi
+        many: Odpowiedzi
+        other: Odpowiedzi
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: URL karty COFE
+        name: Spotkania
+      component_order_selector: 
+        order: 
+          post: Post
+      dummy: 
+        actions: 
+          foo: Foo
+    meetings: 
+      actions: 
+        invalid_destroy: 
+          proposals_count: 
+            one: Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:
+            few: Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:
+            many: Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:
+            other: Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:
+        new: Nowe spotkanie
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Nadchodzące spotkania
+      directory: 
+        meetings: 
+          index: 
+            meetings: Spotkania
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} spotkanie
+            few: %{count} spotkania / spotkań
+            many: %{count} spotkania / spotkań
+            other: %{count} spotkania / spotkań
+        form: 
+          create_as: Utwórz spotkanie jako
+        index: 
+          new_meeting: Nowe spotkanie
+        new: 
+          title: Utwórz swoje spotkanie
+        show: 
+          remaining_slots: 
+            one: %{count} pozostałe miejsce
+            few: %{count} pozostałe miejsca / pozostałych miejsc
+            many: %{count} pozostałe miejsca / pozostałych miejsc
+            other: %{count} pozostałe miejsca / pozostałych miejsc
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Spotkanie oficjalne
+        invite: 
+          fields: 
+            status: Status
+    menu: 
+      help: Pomoc
+      processes: Procesy
+    menu_overwrite: 
+      citizens_panels: Panele obywatelskie
+      events: Wydarzenia
+      plenaries: Sesje plenarne
+      topics: Tematy
+    metrics: 
+      meetings: 
+        object: spotkania
+        title: Spotkania
+    pages: 
+      home: 
+        extended: 
+          meetings: Spotkania
+        statistics: 
+          meetings_count: Spotkania
+          processes_count: Procesy
+          proposals_count: Propozycje
+      index: 
+        title: Pomoc
+    participatory_processes: 
+      index: 
+        title: Procesy partycypacyjne
+      last_activity: 
+        new_participatory_process: Nowy proces partycypacyjny
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktywne procesy
+            see_all_processes: Zobacz wszystkie procesy
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Zakończone spotkania
+          upcoming_meetings: Nadchodzące spotkania
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktywny proces
+              few: %{count} aktywne procesy / aktywnych procesów
+              many: %{count} aktywne procesy / aktywnych procesów
+              other: %{count} aktywne procesy / aktywnych procesów
+            all: 
+              one: 1 proces
+              few: %{count} procesy / procesów
+              many: %{count} procesy / procesów
+              other: %{count} procesy / procesów
+            past: 
+              one: 1 zakończony proces
+              few: %{count} zakończone procesy / zakończonych procesów
+              many: %{count} zakończone procesy / zakończonych procesów
+              other: %{count} zakończone procesy / zakończonych procesów
+            upcoming: 
+              one: 1 nadchodzący proces
+              few: %{count} nadchodzące procesy / nadchodzących procesów
+              many: %{count} nadchodzące procesy / nadchodzących procesów
+              other: %{count} nadchodzące procesy / nadchodzących procesów
+          explanations: 
+            no_active: Brak aktywnych procesów
+      statistics: 
+        meetings_count: Spotkania
+        processes_count: Procesy
+        proposals_count: Propozycje
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Zobacz wszystkie spotkania (%{count})
+        upcoming_meetings: Nadchodzące spotkania
+      highlighted_proposals: 
+        see_all: Zobacz wszystkie propozycje (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Nadchodzące spotkanie
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nowa propozycja na %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} propozycja
+            few: %{count} propozycje / propozycji
+            many: %{count} propozycje / propozycji
+            other: %{count} propozycje / propozycji
+        index: 
+          new_proposal: Nowa propozycja
+          view_proposal: Zobacz propozycję
+        new: 
+          title: Utwórz swoją propozycję
+        proposal: 
+          view_proposal: Zobacz propozycję
+        wizard_aside: 
+          back_from_step_1: Powrót do propozycji
+          back_from_step_2: Powrót do propozycji
+          info: Możesz utworzyć <strong>propozycję</strong>.
+        wizard_steps: 
+          step_1: Utwórz swoją propozycję
+          step_4: Opublikuj swoją propozycję
+          title: Kroki tworzenia propozycji
+        filters: 
+          state: Status
+        linked_proposals: 
+          proposal_votes: 
+            one: głos poparcia
+            few: głosy poparcia
+            many: głosy poparcia
+            other: głosy poparcia
+        preview: 
+          proposal_edit_before_minutes: 
+            one: Edytowanie tej propozycji będzie możliwe w ciągu pierwszej minuty po jej opublikowaniu. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
+            few: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
+            many: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
+            other: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
+        show: 
+          hidden_endorsers_count: 
+            one: i jeszcze %{count} osoba
+            few: i jeszcze %{count} osoby / osób
+            many: i jeszcze %{count} osoby / osób
+            other: i jeszcze %{count} osoby / osób
+        votes_count: 
+          count: 
+            one: Głos poparcia
+            few: Głosy poparcia
+            many: Głosy poparcia
+            other: Głosy poparcia
+      versions: 
+        proposals: 
+          back_to_resource: Powrót do propozycji
+      collaborative_drafts: 
+        count: 
+          drafts_count: 
+            one: %{count} wspólny projekt dokumentu
+            few: %{count} wspólne projekty dokumentów / wspólnych projektów dokumentów
+            many: %{count} wspólne projekty dokumentów / wspólnych projektów dokumentów
+            other: %{count} wspólne projekty dokumentów / wspólnych projektów dokumentów
+        filters: 
+          state: Status
+        show: 
+          hidden_authors_count: 
+            one: i jeszcze %{count} osoba
+            few: i jeszcze %{count} osoby / osób
+            many: i jeszcze %{count} osoby / osób
+            other: i jeszcze %{count} osoby / osób
+      models: 
+        proposal: 
+          fields: 
+            id: ID
+            state: Status
+    accountability: 
+      models: 
+        result: 
+          fields: 
+            status: Status
+      results: 
+        count: 
+          results_count: 
+            one: 1 wynik
+            few: %{count} wyniki / wyników
+            many: %{count} wyniki / wyników
+            other: %{count} wyniki / wyników
+    budgets: 
+      projects: 
+        budget_excess: 
+          ok: OK
+        count: 
+          projects_count: 
+            one: 1 projekt
+            few: %{count} projekty / projektów
+            many: %{count} projekty / projektów
+            other: %{count} projekty / projektów
+        filters: 
+          status: Status
+        order_selected_projects: 
+          selected_projects: 
+            one: wybrany projekt
+            few: wybrane projekty / wybranych projektów
+            many: wybrane projekty / wybranych projektów
+            other: wybrane projekty / wybranych projektów
+        project: 
+          votes: 
+            one: głosowanie
+            few: głosowania
+            many: głosowania
+            other: głosowania
+    conferences: 
+      conference_program: 
+        program_meeting: 
+          streaming: Streaming
+      models: 
+        conference_invite: 
+          fields: 
+            status: Status
+        conference_registration: 
+          fields: 
+            state: Status
+    application: 
+      collection: 
+        documents: 
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
+    author: 
+      avatar: Avatar
+      comments: 
+        one: komentarz
+        few: komentarze
+        many: komentarze
+        other: komentarze
+      endorsements: 
+        one: wyraz poparcia
+        few: wyrazy poparcia
+        many: wyrazy poparcia
+        other: wyrazy poparcia
+    authorization_handlers: 
+      foo_authorization: 
+        fields: 
+          foo: Foo
+    authorization_modals: 
+      content: 
+        unauthorized: 
+          ok: Ok
+    collapsible_list: 
+      hidden_elements_count: 
+        one: i %{count} więcej
+        few: i %{count} więcej
+        many: i %{count} więcej
+        other: i %{count} więcej
+    content_blocks: 
+      hero: 
+        name: Hero image
+    followers: 
+      followers_count: 
+        one: %{count} obserwujący
+        few: %{count} obserwujący / obserwujących
+        many: %{count} obserwujący / obserwujących
+        other: %{count} obserwujący / obserwujących
+    groups: 
+      roles: 
+        admin: Administrator
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    searches: 
+      results: 
+        results: 
+          one: %{count} wynik
+          few: %{count} wyniki / wyników
+          many: %{count} wyniki / wyników
+          other: %{count} wyniki / wyników
+    shared: 
+      confirm_modal: 
+        ok: OK
+    debates: 
+      debates: 
+        count: 
+          debates_count: 
+            one: %{count} debata
+            few: %{count} debaty / debat
+            many: %{count} debaty / debat
+            other: %{count} debaty / debat
+    participatory_process_groups: 
+      show: 
+        group_participatory_processes: 
+          one: 1 proces na %{group}
+          few: %{count} procesy / procesów na %{group}
+          many: %{count} procesy / procesów na %{group}
+          other: %{count} procesy / procesów na %{group}
+    sortitions: 
+      sortitions: 
+        count: 
+          proposals_count: 
+            one: 1 propozycja
+            few: %{count} propozycje / propozycji
+            many: %{count} propozycje / propozycji
+            other: %{count} propozycje / propozycji
+        filters: 
+          state: Status
+        results_count: 
+          count: 
+            one: wybrana propozycja
+            few: wybrane propozycje
+            many: wybrane propozycje
+            other: wybrane propozycje
+        sortition: 
+          selected_proposals: 
+            one: wybrana propozycja
+            few: wybrane propozycje
+            many: wybrane propozycje
+            other: wybrane propozycje
+        sortitions_count: 
+          count: 
+            one: 1 wybór przez losowanie
+            few: %{count} wybory przez losowanie / wyborów przez losowanie
+            many: %{count} wybory przez losowanie / wyborów przez losowanie
+            other: %{count} wybory przez losowanie / wyborów przez losowanie
+    system: 
+      organizations: 
+        smtp_settings: 
+          placeholder: 
+            from_email: your-organization@your-provider.org
+    verifications: 
+      dummy_authorization: 
+        extra_explanation: 
+          postal_codes: 
+            one: Uczestnictwo zastrzeżone dla uczestników z kodem pocztowym %{postal_codes}.
+            few: Uczestnictwo zastrzeżone dla uczestników z jednym z następujących kodów pocztowych: %{postal_codes}.
+            many: Uczestnictwo zastrzeżone dla uczestników z jednym z następujących kodów pocztowych: %{postal_codes}.
+            other: Uczestnictwo zastrzeżone dla uczestników z jednym z następujących kodów pocztowych: %{postal_codes}.
+      id_documents: 
+        authorizations: 
+          choose: 
+            offline: Offline
+            online: Online
+  devise: 
+    omniauth_callbacks: 
+      failure: Nie można było dokonać uwierzytelnienia na podstawie %{kind}, ponieważ "%{reason}".
+      success: Uwierzytelnienie z konta %{kind} powiodło się.
+    shared: 
+      minimum_password_length: 
+        one: ( minimalna liczba znaków %{count})
+        few: ( minimalna liczba znaków %{count})
+        many: ( minimalna liczba znaków %{count})
+        other: ( minimalna liczba znaków %{count})
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Zamknij
+        select_your_language: Wybierz swój język
+      process_navigation: 
+        process_menu_item: Proces
+      user: 
+        logged_in: Zalogowano
+        logged_in_as: Zalogowano jako %{user}
+      assemblies: 
+        order_by_assemblies: 
+          assemblies: 
+            one: %{count} zgromadzenia / zgromadzeń
+            few: %{count} zgromadzenia / zgromadzeń
+            many: %{count} zgromadzenia / zgromadzeń
+            other: %{count} zgromadzenia / zgromadzeń
+      conferences: 
+        order_by_conferences: 
+          conferences: 
+            one: %{count} konferencja
+            few: %{count} konferencje / konferencji
+            many: %{count} konferencje / konferencji
+            other: %{count} konferencje / konferencji
+      conferences_nav: 
+        media: Media
+  errors: 
+    messages: 
+      not_saved: 
+        one: Podczas przetwarzania wniosku pojawił się błąd:
+        few: Podczas przetwarzania wniosku wystąpiło wiele błędów:
+        many: Podczas przetwarzania wniosku wystąpiło wiele błędów:
+        other: Podczas przetwarzania wniosku wystąpiło wiele błędów:
+  forms: 
+    length_validator: 
+      minimum: 
+        one: co najmniej %{count} znak
+        few: co najmniej %{count} znaki / znaków
+        many: co najmniej %{count} znaki / znaków
+        other: co najmniej %{count} znaki / znaków
+  locale: 
+    name: angielski
+  social_share_button: 
+    delicious: Delicious
+    douban: Douban
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
