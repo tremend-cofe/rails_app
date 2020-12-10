@@ -13,6 +13,7 @@ pl:
         developer_group: Grupa promująca
         domain: Dziedzina
         end_date: Data zakończenia
+        hashtag: Hashtag
         hero_image: Obraz strony głównej
         local_area: Obszar organizacji
         meta_scope: Metadane zakresu
@@ -59,6 +60,23 @@ pl:
     models:
       decidim/participatory_process_step_activated_event: Aktywowano etap
       decidim/participatory_process_step_changed_event: Zmieniono etap
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Proces partycypacyjny
+        few: Procesy partycypacyjne
+        many: Procesy partycypacyjne
+        other: Procesy partycypacyjne
+      decidim/participatory_process_group:
+        one: Grupa procesu partycypacyjnego
+        few: Grupy procesów partycypacyjnych
+        many: Grupy procesów partycypacyjnych
+        other: Grupy procesów partycypacyjnych
+      decidim/participatory_process_step:
+        one: Faza
+        few: Fazy
+        many: Fazy
+        other: Fazy
   decidim:
     admin:
       actions:
@@ -274,6 +292,8 @@ pl:
           contextual: "<p><strong>Proces partycypacyjny</strong> to szereg działań partycypacyjnych (np. wypełnienie ankiety, następnie zgłoszenie propozycji, omówienie ich na spotkaniach bezpośrednich lub wirtualnych i ostatecznie uznanie ich za priorytet) z myślą o doprecyzowaniu i podejmowaniu decyzji w danej sprawie.</p> <p>Przykładami procesów partycypacyjnych są: proces wyboru członków komisji (w przypadku gdy kandydatury są najpierw prezentowane, następnie omawiane, a później odbywa się wybór kandydatów), budżety partycypacyjne (w których przedstawia się propozycje, ocenia je pod względem ekonomicznym i głosuje na nie, uwzględniając dostępne środki finansowe), proces planowania strategicznego, wspólne tworzenie projektów regulacji lub norm, projektowanie przestrzeni miejskiej lub tworzenie planu polityki publicznej.</p>\n"
           page: "<p><strong>Proces partycypacyjny</strong> to szereg działań partycypacyjnych (np. wypełnienie ankiety, następnie zgłoszenie propozycji, omówienie ich na spotkaniach bezpośrednich lub wirtualnych i ostatecznie uznanie ich za priorytet) z myślą o doprecyzowaniu i podejmowaniu decyzji w danej sprawie.</p> <p>Przykładami procesów partycypacyjnych są: proces wyboru członków komisji (w przypadku gdy kandydatury są najpierw prezentowane, następnie omawiane, a później odbywa się wybór kandydatów), budżety partycypacyjne (w których przedstawia się propozycje, ocenia je pod względem ekonomicznym i głosuje na nie, uwzględniając dostępne środki finansowe), proces planowania strategicznego, wspólne tworzenie projektów regulacji lub norm, projektowanie przestrzeni miejskiej lub tworzenie planu polityki publicznej.</p>\n"
           title: Czym jest proces partycypacyjny?
+    menu:
+      processes: Procesy
     metrics:
       participatory_processes:
         description: Liczba procesów partycypacyjnych w tej organizacji
@@ -284,6 +304,11 @@ pl:
         related_assemblies: Powiązane zgromadzenia
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 proces na %{group}
+          few: "%{count} procesy / procesów na %{group}"
+          many: "%{count} procesy / procesów na %{group}"
+          other: "%{count} procesy / procesów na %{group}"
         title: Grupy procesów partycypacyjnych
     participatory_process_steps:
       index:
@@ -323,19 +348,47 @@ pl:
       content_blocks:
         highlighted_processes:
           name: Wyróżnione procesy
+      index:
+        title: Procesy partycypacyjne
+      last_activity:
+        new_participatory_process: Nowy proces partycypacyjny
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktywne procesy
             active_step: Aktywny etap
             more_information: Więcej informacji
             participate: Weź udział
             participate_in: Uczestnicz w procesie %{resource_name}
+            see_all_processes: Zobacz wszystkie procesy
       participatory_process_steps:
         index:
           back_to_process: Powrót do strony procesu
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktywny proces
+              few: "%{count} aktywne procesy / aktywnych procesów"
+              many: "%{count} aktywne procesy / aktywnych procesów"
+              other: "%{count} aktywne procesy / aktywnych procesów"
+            all:
+              one: 1 proces
+              few: "%{count} procesy / procesów"
+              many: "%{count} procesy / procesów"
+              other: "%{count} procesy / procesów"
+            past:
+              one: 1 zakończony proces
+              few: "%{count} zakończone procesy / zakończonych procesów"
+              many: "%{count} zakończone procesy / zakończonych procesów"
+              other: "%{count} zakończone procesy / zakończonych procesów"
+            upcoming:
+              one: 1 nadchodzący proces
+              few: "%{count} nadchodzące procesy / nadchodzących procesów"
+              many: "%{count} nadchodzące procesy / nadchodzących procesów"
+              other: "%{count} nadchodzące procesy / nadchodzących procesów"
           explanations:
+            no_active: Brak aktywnych procesów
             no_active_nor_upcoming: Brak aktywnych lub nadchodzących procesów
             no_active_nor_upcoming_callout: Nie ma żadnych aktywnych lub nadchodzących procesów. Oto lista zakończonych procesów.
           names:
@@ -367,11 +420,14 @@ pl:
         endorsements_count: Wyrazy poparcia
         followers_count: Obserwujący
         headline: Statystyki
+        meetings_count: Spotkania
         no_stats: Nie ma jeszcze żadnych statystyk.
         orders_count: Głosy poparcia
         pages_count: Strony
         participants_count: Uczestnicy
+        processes_count: Procesy
         projects_count: Projekty
+        proposals_count: Propozycje
         results_count: Wyniki
         supports_count: Głosy poparcia
         surveys_count: Ankiety
@@ -405,3 +461,5 @@ pl:
       process_header_steps:
         step: Etap %{current} z %{total}
         view_steps: Etapy procesu
+      process_navigation:
+        process_menu_item: Proces

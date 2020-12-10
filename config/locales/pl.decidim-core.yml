@@ -7,6 +7,7 @@ pl:
         created_at: 'Utworzono:'
       group:
         about: O sobie
+        avatar: Avatar
         document_number: Numer dokumentu
         email: E-mail
         name: Nazwa/ Imię i nazwisko
@@ -44,6 +45,27 @@ pl:
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Pamiętaj mnie
+    models:
+      decidim/amendment:
+        one: Poprawka
+        few: Poprawki
+        many: Poprawki
+        other: Poprawki
+      decidim/endorsement:
+        one: Wyraz poparcia
+        few: Wyrazy poparcia
+        many: Wyrazy poparcia
+        other: Wyrazy poparcia
+      decidim/user:
+        one: Uczestnik
+        few: Uczestnicy
+        many: Uczestnicy
+        other: Uczestnicy
+      decidim/user_group:
+        one: Grupa
+        few: Grupy
+        many: Grupy
+        other: Grupy
   booleans:
     'false': 'Nie'
     'true': 'Tak'
@@ -213,12 +235,30 @@ pl:
           '4': Opublikuj poprawkę
     anonymous_user: Anonimowe
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          many: Dokumenty
+          other: Dokumenty
       document:
         download: Pobierz plik
       documents:
         related_documents: Dokumenty powiązane
       photos:
         related_photos: Obrazy powiązane
+    author:
+      avatar: Avatar
+      comments:
+        one: komentarz
+        few: komentarze
+        many: komentarze
+        other: komentarze
+      endorsements:
+        one: wyraz poparcia
+        few: wyrazy poparcia
+        many: wyrazy poparcia
+        other: wyrazy poparcia
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Przeprowadź weryfikację, podając numer paszportu rozpoczynający się od „A”
@@ -244,6 +284,7 @@ pl:
       foo_authorization:
         fields:
           bar: Pasek
+          foo: Foo
         name: Autoryzacja foo
       granted_at: 'Data przyznania: %{timestamp}'
       renew: Przeprowadź ponownie weryfikację
@@ -273,6 +314,7 @@ pl:
         unauthorized:
           explanation: Przepraszamy, nie możesz wykonać tej czynności z powodu niezgodności danych autoryzacyjnych.
           invalid_field: "Wartość %{value} %{field} jest nieprawidłowa."
+          ok: Ok
           title: Nie autoryzowano
         unconfirmed:
           confirmation_instructions: 'Jeżeli instrukcje potwierdzenia nie dotarły, możesz zwrócić się o nie ponownie:'
@@ -282,6 +324,11 @@ pl:
       show:
         close_modal: Zamknij okno modalne
     collapsible_list:
+      hidden_elements_count:
+        one: i %{count} więcej
+        few: i %{count} więcej
+        many: i %{count} więcej
+        other: i %{count} więcej
       see_less: "(ukryj)"
       see_more: "(rozwiń)"
     components:
@@ -294,12 +341,14 @@ pl:
           debate: Debata
           initiative: Inicjatywa
           meeting: Spotkanie
+          post: Post
           proposal: Propozycja
           question: Pytanie
         title: 'Pokaż:'
       dummy:
         actions:
           bar: Pasek
+          foo: Foo
         name: Komponent dummy
         settings:
           global:
@@ -324,6 +373,8 @@ pl:
     content_blocks:
       footer_sub_hero:
         name: Baner główny w stopce
+      hero:
+        name: Hero image
       hero_settings_form:
         background_image: 'Obraz w tle:'
         welcome_text: Tekst powitalny
@@ -591,6 +642,11 @@ pl:
       title: Odcisk palca
       value: Wartość
     followers:
+      followers_count:
+        one: "%{count} obserwujący"
+        few: "%{count} obserwujący / obserwujących"
+        many: "%{count} obserwujący / obserwujących"
+        other: "%{count} obserwujący / obserwujących"
       no_followers: Jeszcze nie ma obserwujących.
     following:
       no_followings: Nic jeszcze nie obserwuje.
@@ -732,6 +788,7 @@ pl:
         subtitle: Utwórz grupę i zaproś innych użytkowników do udziału na poziomie zbiorowym.
       no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
+        admin: Administrator
         creator: Twórca
         member: Członek
       update:
@@ -778,9 +835,11 @@ pl:
         skip_button: Pomiń mapę
       static:
         latlng_text: 'Szerokość geograficzna: %{latitude}, Długość geograficzna: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Ten grupa nie ma jeszcze żadnych członków.
     menu:
+      help: Pomoc
       home: Strona główna
     messaging:
       conversation_mailer:
@@ -947,6 +1006,7 @@ pl:
           debates: Debaty
           debates_explanation: Debatuj i dyskutuj, dziel się poglądami i wzbogacaj odpowiednie tematy.
           how_to_participate: Jak wziąć udział w procesie?
+          meetings: Spotkania
           meetings_explanation: Dowiedz się, gdzie i kiedy możesz uczestniczyć w spotkaniach publicznych.
           more_info: Więcej informacji na temat %{resource_name}
           proposals: Propozycje
@@ -968,10 +1028,13 @@ pl:
           debates_count: Debaty
           endorsements_count: Wyrazy poparcia
           headline: Aktualny stan %{organization}
+          meetings_count: Spotkania
           orders_count: Głosy
           pages_count: Strony
+          processes_count: Procesy
           projects_count: Projekty
           proposals_accepted: Przyjęte propozycje
+          proposals_count: Propozycje
           results_count: Wyniki
           surveys_count: Ankiety
           users_count: Uczestnicy
@@ -982,6 +1045,7 @@ pl:
         read_more: Zobacz więcej
         standalone_pages: Strony
         subheading: Nawiguj poprzez strony pomocy %{name}
+        title: Pomoc
         topics: Tematy
       participatory_space:
         metrics:
@@ -1095,11 +1159,17 @@ pl:
         filter_by: Filtruj wg
         unfold: Rozwiń
       results:
+        results:
+          one: "%{count} wynik"
+          few: "%{count} wyniki / wyników"
+          many: "%{count} wyniki / wyników"
+          other: "%{count} wyniki / wyników"
         view_all: Zobacz wszystkie (%{count})
     shared:
       confirm_modal:
         cancel: Anuluj
         close_modal: Zamknij okno modalne
+        ok: OK
         title: Potwierdź
       embed_modal:
         close_window: Zamknij okno
@@ -1311,6 +1381,9 @@ pl:
         instruction: 'Kliknij poniższy link, aby odblokować swoje konto:'
         message: konto zostało zablokowane z powodu zbyt wielu nieudanych prób logowania.
         subject: Instrukcje odblokowania
+    omniauth_callbacks:
+      failure: Nie można było dokonać uwierzytelnienia na podstawie %{kind}, ponieważ "%{reason}".
+      success: Uwierzytelnienie z konta %{kind} powiodło się.
     passwords:
       edit:
         change_my_password: Zmień hasło
@@ -1360,6 +1433,11 @@ pl:
         sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się przez %{provider}
         sign_up: Zarejestruj się
+      minimum_password_length:
+        one: "( minimalna liczba znaków %{count})"
+        few: "( minimalna liczba znaków %{count})"
+        many: "( minimalna liczba znaków %{count})"
+        other: "( minimalna liczba znaków %{count})"
     unlocks:
       new:
         resend_unlock_instructions: Wyślij ponownie instrukcje odblokowania
@@ -1383,11 +1461,22 @@ pl:
       nesting_too_deep: nie może wchodzić w skład podkategorii
       not_found: nie odnaleziono. Czy już się rejestrowałeś(aś)?
       not_locked: nie było zablokowane
+      not_saved:
+        one: 'Podczas przetwarzania wniosku pojawił się błąd:'
+        few: 'Podczas przetwarzania wniosku wystąpiło wiele błędów:'
+        many: 'Podczas przetwarzania wniosku wystąpiło wiele błędów:'
+        other: 'Podczas przetwarzania wniosku wystąpiło wiele błędów:'
       too_many_marks: zawiera zbyt wiele kolejnych znaków interpunkcyjnych (np. ! i ?)
       too_much_caps: zawiera zbyt wiele wielkich liter (ponad 25% tekstu)
       too_short: zawiera zbyt mało znaków (mniej niż 15)
   forms:
     correct_errors: Formularz zawiera błędy. Należy je poprawić, aby móc kontynuować.
+    length_validator:
+      minimum:
+        one: co najmniej %{count} znak
+        few: co najmniej %{count} znaki / znaków
+        many: co najmniej %{count} znaki / znaków
+        other: co najmniej %{count} znaki / znaków
     required: Pole wymagane
     required_explanation: "* Pola wymagane oznaczono gwiazdką"
   invisible_captcha:
@@ -1445,6 +1534,8 @@ pl:
         user_groups: Grupy
       widget:
         see_more: Zobacz więcej
+  locale:
+    name: Polski
   password_validator:
     domain_included_in_password: zbyt podobne do tej nazwy domeny
     email_included_in_password: zbyt podobne do adresu e-mail
@@ -1456,9 +1547,28 @@ pl:
     password_too_long: zbyt długie
     password_too_short: zbyt krótkie
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-mail
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Udostępnij %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Otwórz WeChat, kliknij przycisk „Odkrywaj”, a następnie kliknij menu „Skanuj kod QR”.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Usunięcia

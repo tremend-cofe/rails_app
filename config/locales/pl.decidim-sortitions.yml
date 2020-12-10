@@ -11,6 +11,13 @@ pl:
         witnesses: Świadkowie
     models:
       decidim/sortitions/create_sortition_event: Wybór przez losowanie
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Wybór przez losowanie
+        few: Wybory przez losowanie
+        many: Wybory przez losowanie
+        other: Wybory przez losowanie
   decidim:
     components:
       sortitions:
@@ -86,6 +93,12 @@ pl:
           delete: "%{user_name} anulował(a) wybór przez losowanie %{resource_name} w przestrzeni %{space_name}"
           update: "%{user_name} zaktualizował(a) wybór przez losowanie %{resource_name} w przestrzeni %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 propozycja
+            few: "%{count} propozycje / propozycji"
+            many: "%{count} propozycje / propozycji"
+            other: "%{count} propozycje / propozycji"
         filters:
           active: Aktywne
           all: Wszystkie
@@ -93,6 +106,7 @@ pl:
           category: Kategoria
           category_prompt: Wybierz kategorię
           search: Szukaj
+          state: Status
         filters_small_view:
           close_modal: Zamknij okno modalne
           filter: Filtr
@@ -104,6 +118,12 @@ pl:
           label: 'Sortuj wybór przez losowanie według:'
           random: Losowe
           recent: Najnowsze
+        results_count:
+          count:
+            one: wybrana propozycja
+            few: wybrane propozycje
+            many: wybrane propozycje
+            other: wybrane propozycje
         show:
           algorithm: Kod algorytmu wyboru przez losowanie
           any_category: ze wszystkich kategorii
@@ -121,8 +141,19 @@ pl:
           witnesses: Świadkowie
         sortition:
           random_seed: Ziarno losowe
+          selected_proposals:
+            one: wybrana propozycja
+            few: wybrane propozycje
+            many: wybrane propozycje
+            other: wybrane propozycje
           view: Wyświetl
         sortition_author:
           deleted: Usunięty uczestnik
         sortition_cancel_author:
           deleted: Usunięty uczestnik
+        sortitions_count:
+          count:
+            one: 1 wybór przez losowanie
+            few: "%{count} wybory przez losowanie / wyborów przez losowanie"
+            many: "%{count} wybory przez losowanie / wyborów przez losowanie"
+            other: "%{count} wybory przez losowanie / wyborów przez losowanie"
