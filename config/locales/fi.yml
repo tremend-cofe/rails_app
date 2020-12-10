@@ -1,3 +1,156 @@
 fi:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Aihe
+      meeting:
+        cofe_charter_html: Suostun noudattamaan Euroopan tulevaisuutta käsittelevä konferenssin <a href="%{url}" target="_blank">käyttöehtoja</a>
+    models:
+      decidim/meetings/upcoming_meeting_event: Tuleva kokous
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Kokous
+        other: Kokoukset
+      decidim/participatory_process:
+        one: Osallistumisprosessi
+        other: Osallistumisprosessit
+  decidim:
+    components:
+      meetings:
+        name: Kokoukset
+        settings:
+          global:
+            cofe_charter_url: COFE:n käyttöehtojen URL
+    meetings:
+      actions:
+        new: Uusi kokous
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Tulevat kokoukset
+      directory:
+        meetings:
+          index:
+            meetings: Kokoukset
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} kokous"
+            other: "%{count} kokousta"
+        form:
+          create_as: Luo kokous käyttäjänä
+        index:
+          new_meeting: Uusi kokous
+        new:
+          title: Luo kokouksesi
+      models:
+        meeting:
+          fields:
+            official_meeting: Virallinen kokous
+    menu:
+      help: Ohje
+      processes: Prosessit
+    menu_overwrite:
+      citizens_panels: Kansalaispaneelit
+      events: Tapahtumat
+      plenaries: Yleiskokoukset
+      topics: Aiheet
+    metrics:
+      meetings:
+        object: kokous(ta)
+        title: Kokoukset
+    pages:
+      home:
+        extended:
+          meetings: Kokoukset
+        statistics:
+          meetings_count: Kokoukset
+          processes_count: Prosessit
+          proposals_count: Ehdotukset
+      index:
+        title: Ohje
+    participatory_processes:
+      index:
+        title: Osallistumisprosessit
+      last_activity:
+        new_participatory_process: Uusi osallistumisprosessi
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiiviset prosessit
+            see_all_processes: Näytä kaikki prosessit
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Menneet kokoukset
+          upcoming_meetings: Tulevat kokoukset
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: 1 aktiivinen prosessi
+              other: "%{count} aktiivinen prosessi"
+            all:
+              one: 1 prosessi
+              other: "%{count} prosessia"
+            past:
+              one: 1 mennyt prosessi
+              other: "%{count} mennyttä prosessia"
+            upcoming:
+              one: 1 tuleva prosessi
+              other: "%{count} tulevaa prosessia"
+          explanations:
+            no_active: Ei aktiivisia prosesseja
+      statistics:
+        meetings_count: Kokoukset
+        processes_count: Prosessit
+        proposals_count: Ehdotukset
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Näytä kaikki kokoukset (%{count})
+        upcoming_meetings: Tulevat kokoukset
+      highlighted_proposals:
+        see_all: Näytä kaikki ehdotukset (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Tuleva kokous
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Uusi ehdotus kohteessa %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} ehdotus"
+            other: "%{count} ehdotusta"
+        index:
+          new_proposal: Uusi ehdotus
+          view_proposal: Näytä ehdotus
+        new:
+          title: Luo ehdotuksesi
+        proposal:
+          view_proposal: Näytä ehdotus
+        wizard_aside:
+          back_from_step_1: Takaisin ehdotuksiin
+          back_from_step_2: Takaisin ehdotuksiin
+          info: Luot <strong>ehdotusta</strong>.
+        wizard_steps:
+          step_1: Luo ehdotuksesi
+          step_4: Julkaise ehdotuksesi
+          title: Ehdotuksen luomisvaiheet
+      versions:
+        proposals:
+          back_to_resource: Palaa ehdotukseen
+  devise:
+    omniauth_callbacks:
+      failure: Sinua ei voitu varmentaa tilin EU Login kautta, koska "%{reason}".
+      success: Varmentaminen tilin %{kind} kautta onnistui.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Sulje
+        select_your_language: Valitse kieli
+      process_navigation:
+        process_menu_item: Prosessi
+      user:
+        logged_in: Kirjautuneena
+        logged_in_as: Kirjautuneena käyttäjänä %{user}
   locale:
     name: Suomen kieli
