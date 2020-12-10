@@ -8,6 +8,12 @@ ro:
         description: Descriere
         proposal_ids: Propuneri conexe
         title: Titlu
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proiect
+        few: Proiecte
+        other: Proiecte
   decidim:
     budgets:
       actions:
@@ -126,6 +132,7 @@ ro:
         budget_excess:
           close: Închidere
           description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă doriți, puteți șterge un proiect deja selectat pentru a fi adăuga sau puteți vota după preferințele dumneavoastră.
+          ok: OK
           title: Buget maxim depășit
         budget_summary:
           are_you_sure: Sigur doriți să anulați votul?
@@ -137,6 +144,11 @@ ro:
           description: Pentru ce proiecte credeți că ar trebui alocat buget? Alocați cel puțin %{minimum_budget} pentru proiectele pe care le doriți și votați cu preferințele dumneavoastră pentru a defini bugetul.
           description_minimum_projects_rule: Pentru ce proiecte credeți că ar trebui alocat buget? Selectați cel puțin %{minimum_number} proiecte pe care le doriți și votați cu preferințele dumneavoastră pentru a defini bugetul.
           title: Dumneavoastră decideți bugetul
+        count:
+          projects_count:
+            one: 1 proiect
+            few: "%{count} proiecte"
+            other: "%{count} proiecte"
         filters:
           category: Categorie
           scope: Domeniu de aplicare
@@ -155,6 +167,10 @@ ro:
           vote: Vot
         order_selected_projects:
           remove: Eliminare
+          selected_projects:
+            one: proiect selectat
+            few: proiecte selectate
+            other: proiecte selectate
           view: Afișare
         orders:
           highest_cost: Costul cel mai ridicat
@@ -168,6 +184,10 @@ ro:
           remove: Ștergeți proiectul %{resource_name} din votul dvs.
           selected: Selectat
           view: Afișare
+          votes:
+            one: vot
+            few: Voturi
+            other: Voturi
           you_voted: Ați votat
         project_budget_button:
           add: Adăugați la votul dvs.
