@@ -8,6 +8,7 @@ cs:
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam zúčastněných organizací
+        closing_report: Zpráva
         contributions_count: Počet příspěvků
         proposal_ids: Návrhy vytvořené během schůze
       meeting:
@@ -50,7 +51,25 @@ cs:
       decidim/meetings/create_meeting_event: Schůze
       decidim/meetings/meeting_registrations_enabled_event: Registrace aktivovány
       decidim/meetings/meeting_registrations_over_percentage_event: Počet registrací nad limit
+      decidim/meetings/upcoming_meeting_event: Nadcházející schůze
       decidim/meetings/update_meeting_event: Schůze aktualizována
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Schůze
+        few: Schůze
+        many: Schůze
+        other: Schůze
+      decidim/meetings/minutes:
+        one: Zápis
+        few: Zápisy
+        many: Zápisy
+        other: Zápisy
+      decidim/meetings/registration:
+        one: Registrace
+        few: Registrace
+        many: Registrace
+        other: Registrace
   decidim:
     admin:
       meeting_copies:
@@ -65,6 +84,7 @@ cs:
       meetings:
         actions:
           join: Připojit se
+        name: Schůze
         settings:
           global:
             announcement: Oznámení
@@ -144,7 +164,14 @@ cs:
         confirm_destroy: Opravdu chcete smazat tuto schůzi?
         destroy: Smazat
         edit: Upravit
+        invalid_destroy:
+          proposals_count:
+            one: 'Tuto schůzi nelze smazat, protože je s ní spojen %{count} návrh:'
+            few: 'Tuto schůzi nelze smazat, protože jsou s ní spojeny %{count} návrhy:'
+            many: 'Tuto schůzi nelze smazat, protože je s ní spojeno %{count} návrhů:'
+            other: 'Tuto schůzi nelze smazat, protože je s ní spojeno %{count} návrhů:'
         minutes: Zápis
+        new: Nová schůze
         preview: Náhled
         registrations: Registrace
         title: Akce
@@ -305,12 +332,14 @@ cs:
       content_blocks:
         upcoming_events:
           name: Nadcházející události
+          upcoming_events: Nadcházející schůze
           view_all_events: Zobrazit vše
       directory:
         meetings:
           index:
             all: Vše
             date: Datum
+            meetings: Schůze
             past: Minulé
             search: Hledat
             space_type: Participativní prostor
@@ -327,6 +356,12 @@ cs:
       meeting:
         not_allowed: Nemáte povoleno zobrazit si tuto schůzi
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} schůze"
+            few: "%{count} schůze"
+            many: "%{count} schůzí"
+            other: "%{count} schůzí"
         create:
           invalid: Při tvorbě této schůze došlo k problému.
           success: Schůze byla úspěšně vytvořena.
@@ -356,9 +391,12 @@ cs:
           unfold: Rozbalit
         form:
           address_help: 'Adresa: k nalezení lokality byl použit Geocoder'
+          create_as: Vytvořit schůzi jako
           location_help: 'Lokalita: sdělení uživatelům, které obsahuje místo setkání'
           location_hints_help: 'Informace o lokalitě: dodatečné informace. Příklad: patro budovy.'
           select_a_category: Zvolte kategorii
+        index:
+          new_meeting: Nová schůze
         meeting_minutes:
           meeting_minutes: Zápis ze schůze
           related_information: Související informace
@@ -368,6 +406,7 @@ cs:
         new:
           back: Zpět
           create: Vytvořit
+          title: Vytvořte schůzi
         registration_confirm:
           cancel: Zrušit
           confirm: Potvrdit
@@ -386,6 +425,11 @@ cs:
           registration_state:
             validated: VALIDOVÁNO
             validation_pending: ČEKÁ NA VALIDACI
+          remaining_slots:
+            one: "%{count} zbývající místo"
+            few: "%{count} zbývající místa"
+            many: "%{count} zbývajících míst"
+            other: "%{count} zbývajících míst"
           view: Zobrazit
         update:
           invalid: Při aktualizaci schůze došlo k problému.
@@ -398,6 +442,7 @@ cs:
             email: E-mail
             name: Jméno
             sent_at: Odesláno
+            status: Status
           status:
             accepted: Přijato (%{at})
             rejected: Odmítnuto (%{at})
@@ -407,6 +452,7 @@ cs:
             closed: Uzavřeno
             end_time: Datum ukončení
             map: Mapa
+            official_meeting: Oficiální schůze
             start_time: Datum zahájení
             title: Název
       read_more: "(více)"
@@ -433,9 +479,20 @@ cs:
     metrics:
       meetings:
         description: Počet vytvořených schůzí
+        object: schůze
+        title: Schůze
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Minulé schůze
+          upcoming_meetings: Nadcházející schůze
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schůze
+        see_all: Zobrazit všechny schůze (%{count})
+        upcoming_meetings: Nadcházející schůze
+      upcoming_meeting_for_card:
+        upcoming_meeting: Nadcházející schůze
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Související výsledky:'
