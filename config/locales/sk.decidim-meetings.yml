@@ -51,7 +51,25 @@ sk:
       decidim/meetings/create_meeting_event: Stretnutie
       decidim/meetings/meeting_registrations_enabled_event: Registrácie povolené
       decidim/meetings/meeting_registrations_over_percentage_event: Prekročený limit registrácií
+      decidim/meetings/upcoming_meeting_event: Nadchádzajúce stretnutie
       decidim/meetings/update_meeting_event: Stretnutie bolo aktualizované
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Stretnutie
+        few: Stretnutia
+        many: Stretnutí
+        other: Stretnutí
+      decidim/meetings/minutes:
+        one: Zápisnica
+        few: Zápisnice
+        many: Zápisníc
+        other: Zápisníc
+      decidim/meetings/registration:
+        one: Registrácia
+        few: Registrácie
+        many: Registrácií
+        other: Registrácií
   decidim:
     admin:
       meeting_copies:
@@ -66,6 +84,7 @@ sk:
       meetings:
         actions:
           join: Zúčastniť sa
+        name: Stretnutia
         settings:
           global:
             announcement: Oznámenie
@@ -145,7 +164,14 @@ sk:
         confirm_destroy: Naozaj chcete odstrániť toto stretnutie?
         destroy: Odstrániť
         edit: Upraviť
+        invalid_destroy:
+          proposals_count:
+            one: 'Stretnutie nemožno odstrániť, pretože s ním súvisí %{count} návrh:'
+            few: 'Stretnutie nemožno odstrániť, pretože s ním súvisia %{count} návrhy:'
+            many: 'Stretnutie nemožno odstrániť, pretože s ním súvisí %{count} návrhov:'
+            other: 'Stretnutie nemožno odstrániť, pretože s ním súvisí %{count} návrhov:'
         minutes: Zápisnica
+        new: Nové stretnutie
         preview: Ukážka
         registrations: Registrácie
         title: Akcie
@@ -306,12 +332,14 @@ sk:
       content_blocks:
         upcoming_events:
           name: Nadchádzajúce podujatia
+          upcoming_events: Nadchádzajúce stretnutia
           view_all_events: Zobraziť všetko
       directory:
         meetings:
           index:
             all: Všetko
             date: Dátum
+            meetings: Stretnutia
             past: Minulé
             search: Vyhľadávanie
             space_type: Participatívny priestor
@@ -328,6 +356,12 @@ sk:
       meeting:
         not_allowed: Nemáte oprávnenie na zobrazenie tohto stretnutia
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} stretnutie"
+            few: "%{count} stretnutia"
+            many: "%{count} stretnutí"
+            other: "%{count} stretnutí"
         create:
           invalid: Pri vytváraní tohto stretnutia sa vyskytol problém.
           success: Úspešne ste vytvorili stretnutie.
@@ -352,13 +386,17 @@ sk:
           search: Vyhľadávanie
         filters_small_view:
           close_modal: Zatvoriť kontextové okno
+          filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         form:
           address_help: 'Adresa: slúži na zistenie miesta pomocou geokódovacej služby'
+          create_as: Vytvoriť stretnutie ako
           location_help: 'Miesto konania: správa určená pre používateľov s uvedením miesta stretnutia'
           location_hints_help: 'Tipy o mieste konania: dodatočné informácie. Napríklad: podlažie budovy'
           select_a_category: Vyberte kategóriu
+        index:
+          new_meeting: Nové stretnutie
         meeting_minutes:
           meeting_minutes: Zápisnica zo stretnutia
           related_information: Súvisiace informácie
@@ -368,6 +406,7 @@ sk:
         new:
           back: Späť
           create: Vytvoriť
+          title: Vytvoriť vlastné stretnutie
         registration_confirm:
           cancel: Zrušiť
           confirm: Potvrdiť
@@ -386,6 +425,11 @@ sk:
           registration_state:
             validated: OVERENÉ
             validation_pending: ČAKÁ SA NA OVERENIE
+          remaining_slots:
+            one: "zostáva %{count} miesto"
+            few: "zostávajú %{count} miesta"
+            many: "zostáva %{count} miest"
+            other: "zostáva %{count} miest"
           view: Zobraziť
         update:
           invalid: Pri aktualizácii stretnutia sa vyskytol problém.
@@ -408,6 +452,7 @@ sk:
             closed: Uzatvorené
             end_time: Dátum ukončenia
             map: Mapa
+            official_meeting: Oficiálne stretnutie
             start_time: Dátum začatia
             title: Nadpis
       read_more: "(prečítajte si viac)"
@@ -434,9 +479,20 @@ sk:
     metrics:
       meetings:
         description: Počet vytvorených stretnutí
+        object: stretnutia
+        title: Stretnutia
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Uplynulé stretnutia
+          upcoming_meetings: Nadchádzajúce stretnutia
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé stretnutia
+        see_all: Zobraziť všetky stretnutia (%{count})
+        upcoming_meetings: Nadchádzajúce stretnutia
+      upcoming_meeting_for_card:
+        upcoming_meeting: Nadchádzajúce stretnutie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Súvisiace výsledky:'
