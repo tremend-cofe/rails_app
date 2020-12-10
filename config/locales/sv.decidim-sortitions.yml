@@ -9,6 +9,13 @@ sv:
         target_items: Antal förslag som ska väljas (indikerar antalet förslag som du vill ska väljas genom lottdragning av den uppsättning förslag som du valde tidigare)
         title: Titel
         witnesses: Vittnen
+    models:
+      decidim/sortitions/create_sortition_event: Lottning
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Lottning
+        other: Lottningar
   decidim:
     components:
       sortitions:
@@ -96,8 +103,10 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           search: Sök
+          state: Status
         filters_small_view:
           close_modal: Stäng modalt fönster
+          filter: Filter
           filter_by: Filtrera efter
           unfold: Öppna
         linked_sortitions:
@@ -135,3 +144,7 @@ sv:
           deleted: Borttagen deltagare
         sortition_cancel_author:
           deleted: Borttagen deltagare
+        sortitions_count:
+          count:
+            one: 1 lottning
+            other: "%{count} lottningar"
