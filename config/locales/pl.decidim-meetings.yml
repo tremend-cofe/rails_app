@@ -51,7 +51,25 @@ pl:
       decidim/meetings/create_meeting_event: Spotkanie
       decidim/meetings/meeting_registrations_enabled_event: Aktywowano rejestrację
       decidim/meetings/meeting_registrations_over_percentage_event: Przekroczono limit rejestracji
+      decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
       decidim/meetings/update_meeting_event: Zaktualizowano spotkanie
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Spotkanie
+        few: Spotkania
+        many: Spotkania
+        other: Spotkania
+      decidim/meetings/minutes:
+        one: Protokół
+        few: Protokoły
+        many: Protokoły
+        other: Protokoły
+      decidim/meetings/registration:
+        one: Rejestracja
+        few: Rejestracje
+        many: Rejestracje
+        other: Rejestracje
   decidim:
     admin:
       meeting_copies:
@@ -66,6 +84,7 @@ pl:
       meetings:
         actions:
           join: Dołącz
+        name: Spotkania
         settings:
           global:
             announcement: Ogłoszenie
@@ -145,7 +164,14 @@ pl:
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
+        invalid_destroy:
+          proposals_count:
+            one: 'Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:'
+            few: 'Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:'
+            many: 'Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:'
+            other: 'Tego spotkania nie można usunąć, ponieważ powiązane są z nim propozycje w liczbie %{count}:'
         minutes: Protokół
+        new: Nowe spotkanie
         preview: Podgląd
         registrations: Rejestracje
         title: Działania
@@ -306,12 +332,14 @@ pl:
       content_blocks:
         upcoming_events:
           name: Nadchodzące wydarzenia
+          upcoming_events: Nadchodzące spotkania
           view_all_events: Zobacz wszystko
       directory:
         meetings:
           index:
             all: Wszystkie
             date: Data
+            meetings: Spotkania
             past: Przeszłe
             search: Szukaj
             space_type: Przestrzeń partycypacyjna
@@ -328,6 +356,12 @@ pl:
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} spotkanie"
+            few: "%{count} spotkania / spotkań"
+            many: "%{count} spotkania / spotkań"
+            other: "%{count} spotkania / spotkań"
         create:
           invalid: Przy tworzeniu tego spotkania pojawił się problem.
           success: Utworzenie spotkania powiodło się.
@@ -357,9 +391,12 @@ pl:
           unfold: Rozwiń
         form:
           address_help: 'Adres: wykorzystywany przez Geokoder do znalezienia lokalizacji'
+          create_as: Utwórz spotkanie jako
           location_help: 'Lokalizacja: Wiadomość skierowana do użytkowników sugerująca miejsce spotkania'
           location_hints_help: 'Wskazówki dotyczące lokalizacji Dodatkowe informacje Przykład: piętro budynku'
           select_a_category: Wybierz kategorię
+        index:
+          new_meeting: Nowe spotkanie
         meeting_minutes:
           meeting_minutes: Protokół spotkania
           related_information: Powiązane informacje
@@ -369,6 +406,7 @@ pl:
         new:
           back: Powrót
           create: Utwórz
+          title: Utwórz swoje spotkanie
         registration_confirm:
           cancel: Anuluj
           confirm: Potwierdź
@@ -387,6 +425,11 @@ pl:
           registration_state:
             validated: ZATWIERDZONO
             validation_pending: W OCZEKIWANIU NA ZATWIERDZENIE
+          remaining_slots:
+            one: "%{count} pozostałe miejsce"
+            few: "%{count} pozostałe miejsca / pozostałych miejsc"
+            many: "%{count} pozostałe miejsca / pozostałych miejsc"
+            other: "%{count} pozostałe miejsca / pozostałych miejsc"
           view: Wyświetl
         update:
           invalid: Przy aktualizacji spotkania pojawił się problem.
@@ -399,6 +442,7 @@ pl:
             email: E-mail
             name: Nazwa
             sent_at: 'Wysłano:'
+            status: Status
           status:
             accepted: Przyjęte (%{at})
             rejected: Odrzucone (%{at})
@@ -408,6 +452,7 @@ pl:
             closed: Zamknięte
             end_time: Data zakończenia
             map: Mapa
+            official_meeting: Spotkanie oficjalne
             start_time: Data rozpoczęcia
             title: Tytuł
       read_more: "(dowiedz się więcej)"
@@ -434,9 +479,20 @@ pl:
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
+        object: spotkania
+        title: Spotkania
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Zakończone spotkania
+          upcoming_meetings: Nadchodzące spotkania
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Zakończone spotkania
+        see_all: Zobacz wszystkie spotkania (%{count})
+        upcoming_meetings: Nadchodzące spotkania
+      upcoming_meeting_for_card:
+        upcoming_meeting: Nadchodzące spotkanie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Powiązane wyniki:'
