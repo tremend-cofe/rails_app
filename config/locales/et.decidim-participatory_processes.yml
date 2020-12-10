@@ -62,6 +62,9 @@ et:
       decidim/participatory_process_step_changed_event: Etapp muudetud
   activerecord:
     models:
+      decidim/participatory_process:
+        one: Osalusprotsess
+        other: Osalusprotsessid
       decidim/participatory_process_group:
         one: Osalusprotsessi rühm
         other: Osalusprotsesside rühmad
@@ -285,6 +288,8 @@ et:
           contextual: "<p><strong>Osalusprotsess</strong> on jada järjestikuseid osalustegevusi (nt esmalt uuringuküsimustiku täitmine, siis ettepanekute tegemine, nende näost näkku kohtumistel või virtuaalsetel koosolekutel arutamine ja viimaks nende tähtsusjärjekorda seadmine), mille eesmärk on määratleda kindla teemaga seotud olulisi küsimusi ning nende üle otsustada.</p> <p>Osalusprotsessi näited on muu hulgas järgmised: komisjoni liikmete valimine (esmalt esitatakse kandidaadid, siis kaalutakse neid ja lõpuks tehakse valik), osaluseelarvete määramine (tehakse ettepanekud, hinnatakse nende majanduslikku mõju ja hääletatakse nende üle, jagades olemasolevad rahalised vahendid), strateegiline kavandamine, õigusnormide/-aktide ettepanekute ühine kavandamine, linnaruumi kujundamine või avaliku poliitika kava koostamine.</p>\n"
           page: "<p><strong>Osalusprotsess</strong> on jada järjestikuseid osalustegevusi (nt esmalt uuringuküsimustiku täitmine, siis ettepanekute tegemine, nende näost näkku kohtumistel või virtuaalsetel koosolekutel arutamine ja viimaks nende tähtsusjärjekorda seadmine), mille eesmärk on määratleda kindla teemaga seotud olulisi küsimusi ning nende üle otsustada.</p> <p>Osalusprotsessi näited on muu hulgas järgmised: komisjoni liikmete valimine (esmalt esitatakse kandidaadid, siis kaalutakse neid ja lõpuks tehakse valik), osaluseelarvete määramine (tehakse ettepanekud, hinnatakse nende majanduslikku mõju ja hääletatakse nende üle, jagades olemasolevad rahalised vahendid), strateegiline kavandamine, õigusnormide/-aktide ettepanekute ühine kavandamine, linnaruumi kujundamine või avaliku poliitika kava koostamine.</p>\n"
           title: Mis on osalusprotsess?
+    menu:
+      processes: Protsessid
     metrics:
       participatory_processes:
         description: Selle organisatsiooni osalusprotsesside arv
@@ -337,19 +342,39 @@ et:
       content_blocks:
         highlighted_processes:
           name: Esiletõstetud protsessid
+      index:
+        title: Osalusprotsessid
+      last_activity:
+        new_participatory_process: Uus osalusprotsess
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktiivsed protsessid
             active_step: Aktiivne etapp
             more_information: Lisateave
             participate: Võtke osa
             participate_in: Osale protsessis %{resource_name}
+            see_all_processes: Kuva kõik protsessid
       participatory_process_steps:
         index:
           back_to_process: Tagasi protsessi lehele
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktiivne protsess
+              other: "%{count} aktiivset protsessi"
+            all:
+              one: 1 protsess
+              other: "%{count} protsessi"
+            past:
+              one: 1 minevikuprotsess
+              other: "%{count} minevikuprotsessi"
+            upcoming:
+              one: 1 eelseisev protsess
+              other: "%{count} eelseisvat protsessi"
           explanations:
+            no_active: Aktiivseid protsesse ei ole
             no_active_nor_upcoming: Aktiivseid ega eelseisvaid protsesse pole
             no_active_nor_upcoming_callout: Aktiivseid ega eelseisvaid protsesse pole. Siin on minevikuprotsesside loetelu.
           names:
@@ -381,11 +406,14 @@ et:
         endorsements_count: Kinnitused
         followers_count: Jälgijad
         headline: Statistika
+        meetings_count: Koosolekud
         no_stats: Statistikat veel pole.
         orders_count: Toetusavaldused
         pages_count: Lehed
         participants_count: Osalejad
+        processes_count: Protsessid
         projects_count: Projektid
+        proposals_count: Ettepanekud
         results_count: Tulemused
         supports_count: Toetusavaldused
         surveys_count: Uuringud
@@ -419,3 +447,5 @@ et:
       process_header_steps:
         step: Etapp %{current} / %{total}
         view_steps: Protsessi etapid
+      process_navigation:
+        process_menu_item: Protsess
