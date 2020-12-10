@@ -15,14 +15,21 @@ es:
         user_group_id: Crear debate como
     models:
       decidim/debates/close_debate_event: Debate cerrado
+      decidim/debates/create_debate_event: Debate
       decidim/debates/creation_disabled_event: Debates deshabilitados
       decidim/debates/creation_enabled_event: Debates habilitados
+  activerecord:
+    models:
+      decidim/debates/debate:
+        one: Debate
+        other: Debates
   decidim:
     components:
       debates:
         actions:
           create: Crear
           endorse: Adherirse
+        name: Debates
         settings:
           global:
             announcement: Anuncio
@@ -76,6 +83,10 @@ es:
           description: '¿Cuál es el resumen o la conclusión de este debate?'
           send: Cerrar debate
         closed: Cerrado
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
         create:
           invalid: Se ha producido un error al crear el debate.
           success: Debate correctamente creado.
@@ -176,9 +187,12 @@ es:
           description: Recibirás esta insignia cuando participes activamente en los distintos debates al dejar comentarios.
           description_another: Este participante ha intervenido en %{score} debates.
           description_own: Has participado en %{score} debates.
+          name: Debates
           next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Este participante todavía no ha intervenido en ningún debate.
           unearned_own: Todavía no has participado en ningún debate.
     metrics:
       debates:
         description: Número de debates creados
+        object: debates
+        title: Debates
