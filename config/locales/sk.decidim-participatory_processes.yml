@@ -13,6 +13,7 @@ sk:
         developer_group: Skupina predkladateľov
         domain: Oblasť
         end_date: Dátum ukončenia
+        hashtag: Hashtag
         hero_image: Obrázok domovskej stránky
         local_area: Oblasť organizácie
         meta_scope: Metaúdaje o rozsahu pôsobnosti
@@ -59,6 +60,23 @@ sk:
     models:
       decidim/participatory_process_step_activated_event: Fáza aktivovaná
       decidim/participatory_process_step_changed_event: Fáza zmenená
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participatívny proces
+        few: Participatívne procesy
+        many: Participatívnych procesov
+        other: Participatívnych procesov
+      decidim/participatory_process_group:
+        one: Skupina participatívneho procesu
+        few: Skupiny participatívneho procesu
+        many: Skupín participatívneho procesu
+        other: Skupín participatívneho procesu
+      decidim/participatory_process_step:
+        one: Fáza
+        few: Fázy
+        many: Fáz
+        other: Fáz
   decidim:
     admin:
       actions:
@@ -276,6 +294,8 @@ sk:
           contextual: "<p><strong>Participatívny proces</strong> je postupnosť participatívnych aktivít (napr. vyplnenie prieskumu, za ktorým nasleduje predloženie návrhov, ich prediskutovanie na osobných alebo virtuálnych stretnutiach a nakoniec určenie priority návrhov) s cieľom vymedziť a prijať rozhodnutie o určitej téme.</p> <p>Príklady participatívneho procesu sú: proces voľby členov výboru (v rámci ktorého sa najskôr predstavia podmienky kandidatúry, potom sú predmetom diskusie a nakoniec sa vyberie, kto bude kandidovať), participatívne rozpočty (pri ktorých sa predkladajú návrhy, potom sa posúdia z hospodárskeho hľadiska a hlasuje sa o nich so zreteľom na dostupné finančné prostriedky), proces strategického plánovania, príprava spoločného návrhu nariadenia alebo normy, návrh mestského priestoru alebo vytvorenie plánu verejnej politiky.</p>\n"
           page: "<p><strong>Participatívny proces</strong> je postupnosť participatívnych aktivít (napr. vyplnenie prieskumu, za ktorým nasleduje predloženie návrhov, ich prediskutovanie na osobných alebo virtuálnych stretnutiach a nakoniec určenie priority návrhov) s cieľom vymedziť a prijať rozhodnutie o určitej téme.</p> <p>Príklady participatívneho procesu sú: proces voľby členov výboru (v rámci ktorého sa najskôr predstavia podmienky kandidatúry, potom sú predmetom diskusie a nakoniec sa vyberie, kto bude kandidovať), participatívne rozpočty (pri ktorých sa predkladajú návrhy, potom sa posúdia z hospodárskeho hľadiska a hlasuje sa o nich so zreteľom na dostupné finančné prostriedky), proces strategického plánovania, príprava spoločného návrhu nariadenia alebo normy, návrh mestského priestoru alebo vytvorenie plánu verejnej politiky.</p>\n"
           title: Čo je participatívny proces?
+    menu:
+      processes: Procesy
     metrics:
       participatory_processes:
         description: Počet participatívnych procesov v tejto organizácii
@@ -286,6 +306,11 @@ sk:
         related_assemblies: Súvisiace zhromaždenia
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 proces pre %{group}
+          few: "%{count} procesy pre %{group}"
+          many: "%{count} procesov pre %{group}"
+          other: "%{count} procesov pre %{group}"
         title: Skupiny participatívneho procesu
     participatory_process_steps:
       index:
@@ -325,19 +350,47 @@ sk:
       content_blocks:
         highlighted_processes:
           name: Zvýraznené procesy
+      index:
+        title: Participatívne procesy
+      last_activity:
+        new_participatory_process: Nový participatívny proces
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktívne procesy
             active_step: Aktívna fáza
             more_information: Ďalšie informácie
             participate: Zúčastniť sa
             participate_in: Zapojiť sa do procesu %{resource_name}
+            see_all_processes: Zobraziť všetky procesy
       participatory_process_steps:
         index:
           back_to_process: Späť na stránku procesu
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktívny proces
+              few: "%{count} aktívne procesy"
+              many: "%{count} aktívnych procesov"
+              other: "%{count} aktívnych procesov"
+            all:
+              one: 1 proces
+              few: "%{count} procesy"
+              many: "%{count} procesov"
+              other: "%{count} procesov"
+            past:
+              one: 1 uplynulý proces
+              few: "%{count} uplynulé procesy"
+              many: "%{count} uplynulých procesov"
+              other: "%{count} uplynulých procesov"
+            upcoming:
+              one: 1 nadchádzajúci proces
+              few: "%{count} nadchádzajúce procesy"
+              many: "%{count} nadchádzajúcich procesov"
+              other: "%{count} nadchádzajúcich procesov"
           explanations:
+            no_active: Žiadne aktívne procesy
             no_active_nor_upcoming: Žiadne aktívne ani nadchádzajúce procesy
             no_active_nor_upcoming_callout: Neexistujú žiadne aktívne ani nadchádzajúce procesy. V tomto zozname sú uvedené minulé procesy.
           names:
@@ -369,11 +422,14 @@ sk:
         endorsements_count: Schválenia
         followers_count: Sledujúci
         headline: Štatistika
+        meetings_count: Stretnutia
         no_stats: Ešte nie je k dispozícii štatistika.
         orders_count: Hlasy
         pages_count: Stránky
         participants_count: Účastníci
+        processes_count: Procesy
         projects_count: Projekty
+        proposals_count: Návrhy
         results_count: Výsledky
         supports_count: Hlasy
         surveys_count: Prieskumy
@@ -407,3 +463,5 @@ sk:
       process_header_steps:
         step: Fáza %{current} z %{total}
         view_steps: Fázy procesu
+      process_navigation:
+        process_menu_item: Proces
