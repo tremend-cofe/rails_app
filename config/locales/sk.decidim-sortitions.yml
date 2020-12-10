@@ -11,6 +11,13 @@ sk:
         witnesses: Svedkovia
     models:
       decidim/sortitions/create_sortition_event: Žrebovanie
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Žrebovanie
+        few: Žrebovania
+        many: Žrebovaní
+        other: Žrebovaní
   decidim:
     components:
       sortitions:
@@ -87,6 +94,12 @@ sk:
           delete: "Používateľ %{user_name} zrušil žrebovanie %{resource_name} v priestore %{space_name}"
           update: "Používateľ %{user_name} aktualizoval žrebovanie %{resource_name} v priestore %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: 1 návrh
+            few: "%{count} návrhy"
+            many: "%{count} návrhov"
+            other: "%{count} návrhov"
         filters:
           active: Aktívne
           all: Všetko
@@ -97,6 +110,7 @@ sk:
           state: Stav
         filters_small_view:
           close_modal: Zatvoriť kontextové okno
+          filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
         linked_sortitions:
@@ -105,6 +119,12 @@ sk:
           label: 'Zoradiť žrebovania podľa:'
           random: Náhodné
           recent: Nedávne
+        results_count:
+          count:
+            one: vybraný návrh
+            few: vybrané návrhy
+            many: vybraných návrhov
+            other: vybraných návrhov
         show:
           algorithm: Kód algoritmu žrebovania
           any_category: zo všetkých kategórií
@@ -122,8 +142,19 @@ sk:
           witnesses: Svedkovia
         sortition:
           random_seed: Náhodná základná hodnota
+          selected_proposals:
+            one: vybraný návrh
+            few: vybrané návrhy
+            many: vybraných návrhov
+            other: vybraných návrhov
           view: Zobraziť
         sortition_author:
           deleted: Odstránený účastník
         sortition_cancel_author:
           deleted: Odstránený účastník
+        sortitions_count:
+          count:
+            one: 1 žrebovanie
+            few: "%{count} žrebovania"
+            many: "%{count} žrebovaní"
+            other: "%{count} žrebovaní"
