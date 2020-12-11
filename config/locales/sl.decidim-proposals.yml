@@ -62,6 +62,28 @@ sl:
       decidim/proposals/publish_proposal_event: Predlog objavljen
       decidim/proposals/rejected_proposal_event: Predlog zavrnjen
       decidim/proposals/voting_enabled_event: Glasovanje o predlogu je omogočeno.
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Sodelovalni osnutek
+        two: Sodelovalna osnutka
+        few: Sodelovalni osnutki
+        other: Sodelovalnig osnutkov
+      decidim/proposals/proposal:
+        one: Predlog
+        two: Predloga
+        few: Predlogi
+        other: Predlogov
+      decidim/proposals/proposal_note:
+        one: Opomba
+        two: Opombi
+        few: Opombe
+        other: Opomb
+      decidim/proposals/proposal_vote:
+        one: Podpora
+        two: Podpori
+        few: Podpore
+        other: Podpor
   decidim:
     admin:
       filters:
@@ -323,6 +345,9 @@ sl:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Predlogi
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Prikaži vse predloge (%{count})
     proposals:
       actions:
         answer_proposal: Odgovori na predlog
@@ -550,6 +575,12 @@ sl:
         complete:
           send: Pošlji
           title: Dokončaj svoj sodelovalni osnutek
+        count:
+          drafts_count:
+            one: "%{count} sodelovalni osnutek"
+            two: "%{count} sodelovalna osnutka"
+            few: "%{count} sodelovalni osnutki"
+            other: "%{count} sodelovalnih osnutkov"
         create:
           error: Pri ustvarjanju sodelovalnega osnutka se je pojavila težava.
           success: Sodelovalni osnutek je bil uspešno ustvarjen.
@@ -568,6 +599,7 @@ sl:
           related_to: Povezano z
           scope: Področje
           search: Išči
+          state: Status
           withdrawn: Umik
         filters_small_view:
           close_modal: Zapri modalno okno
@@ -603,6 +635,11 @@ sl:
           edit: Uredi sodelovalne osnutke
           final_proposal: končni predlog
           final_proposal_help_text: Osnutek je končan. Preveri končni predlog
+          hidden_authors_count:
+            one: in še %{count} oseba
+            two: in še %{count} osebi
+            few: in še %{count} osebe
+            other: in še %{count} oseb
           info-message: To je <strong>sodelovalni osnutek</strong> za predlog. To pomeni, da lahko njihovim avtorjem pomagate pri oblikovanju predloga v spodnjem oddelku za komentarje ali predlog neposredno izboljšate tako, da zahtevate dostop za njegovo urejanje. Ko vam avtorji odobrijo dostop, boste lahko spremenili ta osnutek.
           publish: Objavi
           publish_info: Objavi različico osnutka ali
@@ -641,6 +678,8 @@ sl:
       destroy_draft:
         error: Pri brisanju sodelovalnega osnutka se je pojavila težava.
         success: Osnutek predloga je bil uspešno izbrisan.
+      last_activity:
+        new_proposal_at_html: "<span>Nov predlog pri %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -657,6 +696,7 @@ sl:
             published_answer: Odgovor je bil objavljen.
             published_at: Objavljeno ob
             scope: Področje
+            state: Status
             title: Naslov
             valuator: Ocenjevalec
             valuators: Ocenjevalci
@@ -680,6 +720,12 @@ sl:
         complete:
           send: Pošlji
           title: Dokončaj svoje predloge
+        count:
+          proposals_count:
+            one: "%{count} predlog"
+            two: "%{count} predloga"
+            few: "%{count} predlogi"
+            other: "%{count} predlogov"
         edit:
           attachment_legend: "(Opcijsko) Dodaj prilogo"
           back: Nazaj
@@ -701,6 +747,7 @@ sl:
           related_to: Povezano z
           scope: Področje
           search: Išči
+          state: Status
           type: Vrsta
           voted: Podprto
         filters_small_view:
@@ -710,9 +757,18 @@ sl:
           unfold: Razgrni
         index:
           collaborative_drafts_list: Dostopaj do sodelovalnih osnutkov
+          new_proposal: Nov predlog
           see_all_withdrawn: Prikaži vse umaknjene predloge
+          view_proposal: Prikaži predlog
+        linked_proposals:
+          proposal_votes:
+            one: podpora
+            two: podpori
+            few: podpore
+            other: podpor
         new:
           send: Nadaljuj
+          title: Ustvari svoj predlog
         orders:
           label: 'Razvrsti predloge po:'
           most_commented: največkrat komentirani
@@ -729,10 +785,16 @@ sl:
             see_index: Prikaži kazalo
         preview:
           modify: Spremeni predlog
+          proposal_edit_before_minutes:
+            one: Ta predlog boste lahko uredili v prvi minuti po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            two: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            few: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            other: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
           publish: Objavi
           title: Objavi svoj predlog
         proposal:
           creation_date: 'Ustvarjeno: %{date}'
+          view_proposal: Prikaži predlog
         proposals:
           empty: Trenutno ni še nobenega predloga.
           empty_filters: S temi merili trenutno ni še nobenega predloga.
@@ -745,6 +807,11 @@ sl:
           edit_proposal: Uredi predlog
           endorsements_list: Seznam odobravanja
           estimated_cost: Ocenjeni stroški
+          hidden_endorsers_count:
+            one: in še %{count} oseba
+            two: in še %{count} osebi
+            few: in še %{count} osebe
+            other: in še %{count} oseb
           link_to_collaborative_draft_help_text: Ta predlog je rezultat sodelovalnega osnutka. Preglejte zgodovino.
           link_to_collaborative_draft_text: Prikaži sodelovalni osnutek
           link_to_promoted_emendation_help_text: Ta predlog je promovirana izboljšava
@@ -772,6 +839,11 @@ sl:
           vote: Podpora
           votes_blocked: Podpora onemogočena
         votes_count:
+          count:
+            one: Podpora
+            two: Podpori
+            few: Podpore
+            other: Podpore
           most_popular_proposal: Najbolj priljubljeni predlogi
           need_more_votes: Potrebno je več podpore
         voting_rules:
@@ -792,14 +864,20 @@ sl:
             votes: Podpora
         wizard_aside:
           back: Nazaj
+          back_from_step_1: Nazaj na predloge
+          back_from_step_2: Nazaj na predloge
           back_from_step_3: Nazaj na primerjavo predlogov
           back_from_step_4: Nazaj na urejanje osnutka
+          info: Ustvarjate <strong>predlog</strong>.
         wizard_steps:
           current_step: Trenutni korak
           see_steps: Prikaži korake
+          step_1: Ustvari svoj predlog
           step_2: Primerjaj
           step_3: Dokončaj
+          step_4: Objavi svoj predlog
           step_of: Korak %{current_step_num} od %{total_steps}
+          title: Koraki za ustvarjanje predloga
       proposals_picker:
         choose_proposals: Izberi predloge
         close: Zapri
@@ -821,6 +899,8 @@ sl:
           back_to_resource: Pojdi nazaj na sodelovalni osnutek
         index:
           title: Različice
+        proposals:
+          back_to_resource: Pojdi nazaj na predlog
       withdraw:
         errors:
           has_supports: Tega predloga ni mogoče umakniti, ker ima že podporo.
