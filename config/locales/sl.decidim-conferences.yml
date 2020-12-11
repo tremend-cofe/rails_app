@@ -19,6 +19,7 @@ sl:
         scopes_enabled: Področja omogočena
         short_description: Kratek opis
         show_statistics: Prikaži statistiko
+        slogan: Slogan
         slug: Polje dinamičnih podatkov URL
         title: Naslov
       conference_speaker:
@@ -33,6 +34,23 @@ sl:
           attributes:
             email:
               already_invited: Ta elektronski naslov je že bil povabljen.
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferenca
+        two: Konferenci
+        few: Konference
+        other: Konferenc
+      decidim/conference_speaker:
+        one: Govornik na konferenci
+        two: Govornika na konferenci
+        few: Govorniki na konferenci
+        other: Govornikov na konferenci
+      decidim/conference_user_role:
+        one: Vloga uporabnika konference
+        two: Vlogi uporabnika konference
+        few: Vloge uporabnika konference
+        other: Vlog uporabnika konference
   decidim:
     admin:
       actions:
@@ -265,6 +283,9 @@ sl:
         create: "%{user_name} je ustvaril medijsko povezavo %{resource_name} na konferenci %{space_name}."
         delete: "%{user_name} je odstranil medijsko povezavo %{resource_name} s konference %{space_name}."
         update: "%{user_name} je posodobil medijsko povezavo %{resource_name} na konferenci %{space_name}."
+    conference_program:
+      index:
+        title: Program
     conference_speakers:
       index:
         title: Govorniki
@@ -356,6 +377,7 @@ sl:
           streaming: Pretočni prenos
         show:
           day: Dan
+          program: Program
       conference_registration_mailer:
         confirmation:
           confirmed_html: Vaša registracija za konferenco <a href="%{url}">%{title}</a> je bila potrjena.
@@ -421,6 +443,7 @@ sl:
             name: Ime
             registration_type: Vrsta registracije
             sent_at: Poslano ob
+            status: Status
           status:
             accepted: Sprejeto (%{at})
             rejected: Zavrnjeno (%{at})
@@ -430,6 +453,7 @@ sl:
             email: E-naslov
             name: Ime
             registration_type: Vrsta registracije
+            state: Status
             states:
               confirmed: Potrjeno
               pending: V obravnavi
@@ -542,6 +566,12 @@ sl:
           take_part: Sodeluj
         index:
           promoted_conferences: Označene konference
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferenca"
+            two: "%{count} konferenci"
+            few: "%{count} konference"
+            other: "%{count} konferenc"
         promoted_conference:
           more_info: Več informacij
           take_part: Sodeluj
