@@ -1,3 +1,172 @@
 mt:
+  activemodel:
+    attributes:
+      constraint:
+        subject_id: Suġġett
+      meeting:
+        cofe_charter_html: Naqbel mal- <a href="%{url}" target="_blank">karta</a> tal-Konferenza dwar il-Futur tal-Ewropa
+    models:
+      decidim/meetings/upcoming_meeting_event: Laqgħa li jmiss
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Laqgħa
+        few: Laqgħat
+        many: Laqgħat
+        other: Laqgħat
+      decidim/participatory_process:
+        one: Proċess parteċipatorju
+        few: Proċessi parteċipatorji
+        many: Proċessi parteċipatorji
+        other: Proċessi parteċipatorji
+  decidim:
+    components:
+      meetings:
+        name: Laqgħat
+        settings:
+          global:
+            cofe_charter_url: URL tal-karta tal-COFE
+    meetings:
+      actions:
+        new: Laqgħa ġdida
+      content_blocks:
+        upcoming_events:
+          upcoming_events: Laqgħat li jmiss
+      directory:
+        meetings:
+          index:
+            meetings: Laqgħat
+      meetings:
+        count:
+          meetings_count:
+            one: "%{count} laqgħa"
+            few: "%{count} laqgħat"
+            many: "%{count} laqgħat"
+            other: "%{count} laqgħat"
+        form:
+          create_as: Oħloq laqgħa bħala
+        index:
+          new_meeting: Laqgħa ġdida
+        new:
+          title: Oħloq il-Laqgħa Tiegħek
+      models:
+        meeting:
+          fields:
+            official_meeting: Laqgħa uffiċjali
+    menu:
+      help: Għajnuna
+      processes: Proċessi
+    menu_overwrite:
+      citizens_panels: Bordijiet taċ-ċittadini
+      events: Avvenimenti
+      plenaries: Plenarji
+      topics: Suġġetti
+    metrics:
+      meetings:
+        object: laqgħat
+        title: Laqgħat
+    pages:
+      home:
+        extended:
+          meetings: Laqgħat
+        statistics:
+          meetings_count: Laqgħat
+          processes_count: Proċessi
+          proposals_count: Proposti
+      index:
+        title: Għajnuna
+    participatory_processes:
+      index:
+        title: Proċessi parteċipatorji
+      last_activity:
+        new_participatory_process: Proċess parteċipatorju ġdid
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Proċessi attivi
+            see_all_processes: Ara l-proċessi kollha
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Laqgħat passati
+          upcoming_meetings: Laqgħat li jmiss
+      participatory_processes:
+        filters:
+          counters:
+            active:
+              one: proċess attiv wieħed
+              few: "%{count} proċessi attivi"
+              many: "%{count} proċessi attivi"
+              other: "%{count} proċessi attivi"
+            all:
+              one: proċess wieħed
+              few: "%{count} proċessi"
+              many: "%{count} proċessi"
+              other: "%{count} proċessi"
+            past:
+              one: proċess passat wieħed
+              few: "%{count} proċessi passati"
+              many: "%{count} proċessi passati"
+              other: "%{count} proċessi passati"
+            upcoming:
+              one: proċess li jmiss wieħed
+              few: "%{count} proċessi li jmiss"
+              many: "%{count} proċessi li jmiss"
+              other: "%{count} proċessi li jmiss"
+          explanations:
+            no_active: Ebda proċess attiv
+      statistics:
+        meetings_count: Laqgħat
+        processes_count: Proċessi
+        proposals_count: Proposti
+    participatory_spaces:
+      highlighted_meetings:
+        see_all: Ara l-laqgħat kollha (%{count})
+        upcoming_meetings: Laqgħat li jmiss
+      highlighted_proposals:
+        see_all: Ara l-proposti kollha (%{count})
+      upcoming_meeting_for_card:
+        upcoming_meeting: Laqgħa li jmiss
+    proposals:
+      last_activity:
+        new_proposal_at_html: "<span>Proposta ġdida fi %{link}</span>"
+      proposals:
+        count:
+          proposals_count:
+            one: "%{count} proposta"
+            few: "%{count} proposti"
+            many: "%{count} proposti"
+            other: "%{count} proposti"
+        index:
+          new_proposal: Proposta ġdida
+          view_proposal: Ara l-proposta
+        new:
+          title: Oħloq il-Proposta Tieegħek
+        proposal:
+          view_proposal: Ara l-proposta
+        wizard_aside:
+          back_from_step_1: Mur lura għall-proposti
+          back_from_step_2: Mur lura għall-proposti
+          info: Qed toħloq <strong>proposta</strong>.
+        wizard_steps:
+          step_1: Oħloq il-proposta tiegħek
+          step_4: Ippubblika l-proposta tiegħek
+          title: Passi għall-ħolqien tal-proposta
+      versions:
+        proposals:
+          back_to_resource: Mur lura għall-proposta
+  devise:
+    omniauth_callbacks:
+      failure: Ma stajtx tiġi awtentikat(a) minn EU Login minħabba "%{reason}".
+      success: Ġejt awtentikat(a) mill-kont EU Login.
+  layouts:
+    decidim:
+      language_chooser:
+        close: Agħlaq
+        select_your_language: Agħżel il-lingwa tiegħek
+      process_navigation:
+        process_menu_item: Il-proċess
+      user:
+        logged_in: Illoggjat(a)
+        logged_in_as: Illoggjat(a) bħala %{user}
   locale:
     name: Malti
