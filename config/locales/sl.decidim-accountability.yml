@@ -2,6 +2,7 @@ sl:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategorija
         decidim_scope_id: Področje
         description: Opis
@@ -23,6 +24,13 @@ sl:
     models:
       decidim/accountability/proposal_linked_event: Predlog je vključen v rezultat
       decidim/accountability/result_progress_updated_event: Napredek rezultata je posodobljen.
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Rezultat
+        two: Rezultata
+        few: Rezultati
+        other: Rezultatov
   decidim:
     accountability:
       actions:
@@ -128,6 +136,7 @@ sl:
             end_date: Končni datum
             progress: Napredek
             start_date: Začetni datum
+            status: Status
             title: Naslov
         status:
           fields:
@@ -140,6 +149,12 @@ sl:
             description: Opis
             entry_date: Datum
       results:
+        count:
+          results_count:
+            one: 1 rezultat
+            two: "%{count} rezultata"
+            few: "%{count} rezultati"
+            other: "%{count} rezultatov"
         filters:
           all: Vse
           scopes: Področja

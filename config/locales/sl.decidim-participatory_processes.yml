@@ -60,6 +60,23 @@ sl:
     models:
       decidim/participatory_process_step_activated_event: Faza aktivirana
       decidim/participatory_process_step_changed_event: Faza spremenjena
+  activerecord:
+    models:
+      decidim/participatory_process:
+        one: Participativni proces
+        two: Participativna procesa
+        few: Participativni procesi
+        other: Participativnig procesov
+      decidim/participatory_process_group:
+        one: Skupina za participativni proces
+        two: Skupini za participativni proces
+        few: Skupine za participativni proces
+        other: Skupin za participativni proces
+      decidim/participatory_process_step:
+        one: Faza
+        two: Fazi
+        few: Faze
+        other: Faz
   decidim:
     admin:
       actions:
@@ -276,6 +293,8 @@ sl:
           contextual: "<p><strong>Participativni proces</strong> je zaporedje participativnih dejavnosti (npr. najprej se izpolni anketa, nato se podajo predlogi, se razpravlja o njih na osebnih ali virtualnih sestankih ter nazadnje se prednostno obravnavajo), katerih cilj je opredeliti in sprejemati odločitve o neki temi.</p> <p>Primeri participativnih procesov so: proces za izvolitev članov odbora (pri katerem se najprej predstavi kandidature, nato se o njih razpravlja in nazadnje se kandidatura izbere), participativni proračuni (pri katerih se podajo predlogi, se ekonomsko ocenijo in se o njih glasuje z razpoložljivim denarjem), proces strateškega načrtovanja, sodelovalna priprava osnutkov predpisov ali pravil, oblikovanje mestnega prostora ali izdelava načrta javne politike.</p>\n"
           page: "<p><strong>Participativni proces</strong> je zaporedje participativnih dejavnosti (npr. najprej se izpolni anketa, nato se podajo predlogi, se razpravlja o njih na osebnih ali virtualnih sestankih ter nazadnje se prednostno obravnavajo), katerih cilj je opredeliti in sprejemati odločitve o neki temi.</p> <p>Primeri participativnih procesov so: proces za izvolitev članov odbora (pri katerem se najprej predstavi kandidature, nato se o njih razpravlja in nazadnje se kandidatura izbere), participativni proračuni (pri katerih se podajo predlogi, se ekonomsko ocenijo in se o njih glasuje z razpoložljivim denarjem), proces strateškega načrtovanja, sodelovalna priprava osnutkov predpisov ali pravil, oblikovanje mestnega prostora ali izdelava načrta javne politike.</p>\n"
           title: Kaj je participativni proces?
+    menu:
+      processes: Procesi
     metrics:
       participatory_processes:
         description: Število participativnih procesov v tej organizaciji
@@ -286,6 +305,11 @@ sl:
         related_assemblies: Povezane skupščine
     participatory_process_groups:
       show:
+        group_participatory_processes:
+          one: 1 proces za %{group}
+          two: "%{count} procesa za %{group}"
+          few: "%{count} procesi za %{group}"
+          other: "%{count} procesov za %{group}"
         title: Skupine za participativni proces
     participatory_process_steps:
       index:
@@ -325,19 +349,47 @@ sl:
       content_blocks:
         highlighted_processes:
           name: Izpostavljeni procesi
+      index:
+        title: Participativni procesi
+      last_activity:
+        new_participatory_process: Nov participativni proces
       pages:
         home:
           highlighted_processes:
+            active_processes: Aktivni procesi
             active_step: Aktivna faza
             more_information: Več informacij
             participate: Sodeluj
             participate_in: Sodeluj v procesu %{resource_name}
+            see_all_processes: Prikaži vse procese
       participatory_process_steps:
         index:
           back_to_process: Nazaj na stran procesa
       participatory_processes:
         filters:
+          counters:
+            active:
+              one: 1 aktivni proces
+              two: "%{count} aktivna procesa"
+              few: "%{count} aktivni procesi"
+              other: "%{count} aktivnih procesov"
+            all:
+              one: 1 proces
+              two: "%{count} procesa"
+              few: "%{count} procesi"
+              other: "%{count} procesov"
+            past:
+              one: 1 pretekli proces
+              two: "%{count} pretekla procesa"
+              few: "%{count} pretekli procesi"
+              other: "%{count} preteklih procesov"
+            upcoming:
+              one: 1 prihajajoči proces
+              two: "%{count} prihajajoča procesa"
+              few: "%{count} prihajajoči procesi"
+              other: "%{count} prihajajočih procesov"
           explanations:
+            no_active: Ni aktivnih procesov
             no_active_nor_upcoming: Ni aktivnih ali prihajajočih procesov.
             no_active_nor_upcoming_callout: Ni aktivnih ali prihajajočih procesov. Tukaj je seznam preteklih.
           names:
@@ -369,11 +421,14 @@ sl:
         endorsements_count: Odobravanje
         followers_count: Sledilci
         headline: Statistika
+        meetings_count: Sestanki
         no_stats: Trenutno še ni statistike.
         orders_count: Podpora
         pages_count: Strani
         participants_count: Udeleženci
+        processes_count: Procesi
         projects_count: Projekti
+        proposals_count: Predlogi
         results_count: Rezultati
         supports_count: Podpora
         surveys_count: Raziskave
@@ -407,3 +462,5 @@ sl:
       process_header_steps:
         step: Faza %{current} od %{total}
         view_steps: Faze procesa
+      process_navigation:
+        process_menu_item: Proces

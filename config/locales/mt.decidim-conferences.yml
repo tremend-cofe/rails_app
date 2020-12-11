@@ -10,6 +10,7 @@ mt:
         copy_features: Ikkopja l-elementi
         decidim_scope_id: Kamp ta’ applikazzjoni
         description: Deskrizzjoni
+        hashtag: Hashtag
         hero_image: Immaġni tal-paġna ewlenija
         participatory_processes_ids: Proċessi parteċipatorji relatati
         promoted: Iħħajlajtjat
@@ -18,10 +19,13 @@ mt:
         scopes_enabled: Kampijiet ta’ applikazzjoni attivati
         short_description: Deskrizzjoni qasira
         show_statistics: Uri l-istatistika
+        slogan: Slogan
+        slug: slug tal-URL
         title: Titlu
       conference_speaker:
         full_name: Isem sħiħ
       conference_user_role:
+        email: Email
         name: Isem
         role: Rwol
     errors:
@@ -30,6 +34,23 @@ mt:
           attributes:
             email:
               already_invited: Diġà ntbagħtet stedina f’dan l-indirizz tal-email
+  activerecord:
+    models:
+      decidim/conference:
+        one: Konferenza
+        few: Konferenzi
+        many: Konferenzi
+        other: Konferenzi
+      decidim/conference_speaker:
+        one: Kelliem tal-konferenza
+        few: Kelliema tal-konferenza
+        many: Kelliema tal-konferenza
+        other: Kelliema tal-konferenza
+      decidim/conference_user_role:
+        one: Rwol tal-utent tal-konferenza
+        few: Rwoli tal-utent tal-konferenza
+        many: Rwoli tal-utent tal-konferenza
+        other: Rwoli tal-utent tal-konferenza
   decidim:
     admin:
       actions:
@@ -351,6 +372,7 @@ mt:
           content: Kontenut
           location: Post
           speakers: Kelliema
+          streaming: Streaming
         show:
           day: Jum
           program: Programm
@@ -415,17 +437,21 @@ mt:
       models:
         conference_invite:
           fields:
+            email: Email
             name: Isem
             registration_type: Tip ta' reġistrazzjoni
             sent_at: Intbagħat fi
+            status: Status
           status:
             accepted: Aċċettata (%{at})
             rejected: Miċħuda (%{at})
             sent: Mibgħut
         conference_registration:
           fields:
+            email: Email
             name: Isem
             registration_type: Tip ta' reġistrazzjoni
+            state: Status
             states:
               confirmed: Ikkonfermat
               pending: Pendenti
@@ -538,6 +564,12 @@ mt:
           take_part: Ħu sehem
         index:
           promoted_conferences: Konferenzi ħħajlajtjati
+        order_by_conferences:
+          conferences:
+            one: "%{count} konferenza"
+            few: "%{count} konferenzi"
+            many: "%{count} konferenzi"
+            other: "%{count} konferenzi"
         promoted_conference:
           more_info: Iktar informazzjoni
           take_part: Ħu sehem

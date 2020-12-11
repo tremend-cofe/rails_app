@@ -8,6 +8,13 @@ sl:
         description: Opis
         proposal_ids: Povezani predlogi
         title: Naslov
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Projekt
+        two: Projekta
+        few: Projekti
+        other: Projektov
   decidim:
     budgets:
       actions:
@@ -138,22 +145,35 @@ sl:
           description: Za katere projekte bi po vašem mnenju morali dodeliti proračun? Določite najmanj %{minimum_budget} projektom, ki jih želite, in glasujte s svojimi nastavitvami, da določite proračun.
           description_minimum_projects_rule: Za katere projekte bi po vašem mnenju morali dodeliti proračun? Izberite najmanj %{minimum_number} projektom, ki jih želite, in glasujte s svojimi nastavitvami, da določite proračun.
           title: Vi odločate o proračunu
+        count:
+          projects_count:
+            one: 1 projekt
+            two: "%{count} projekta"
+            few: "%{count} projekti"
+            other: "%{count} projektov"
         filters:
           category: Kategorija
           scope: Področje
           search: Išči
+          status: Status
           status_values:
             all: Vse
             not_selected: Ni izbrano
             selected: Izbrano
         filters_small_view:
           close_modal: Zapri modalno okno
+          filter: Filter
           filter_by: Filtriraj po
           unfold: Razgrni
         order_progress:
           vote: Glasuj
         order_selected_projects:
           remove: Odstrani
+          selected_projects:
+            one: izbrani projekt
+            two: izbrana projekta
+            few: izbrani projekti
+            other: izbranih projektov
           view: Prikaži
         orders:
           highest_cost: Največji stroški
@@ -167,6 +187,11 @@ sl:
           remove: Odstranite projekt %{resource_name} iz svojega glasu.
           selected: Izbrano
           view: Prikaži
+          votes:
+            one: glas
+            two: glasa
+            few: glasovi
+            other: glasov
           you_voted: Glasovali ste.
         project_budget_button:
           add: Dodajte k svojemu glasu.

@@ -7,7 +7,9 @@ mt:
         created_at: Inħolqot fi
       group:
         about: Dwar
+        avatar: Avatar
         document_number: Numru tad-dokument
+        email: Email
         name: Isem
         nickname: Identifikatur
         phone: Telefown
@@ -18,6 +20,7 @@ mt:
         email: L-email tiegħek
         name: Ismek
         nickname: Identifikatur
+        password: Password
         password_confirmation: Ikkonferma l-password tiegħek
         personal_url: URL Personali
         remove_avatar: Neħħi l-avatar
@@ -37,9 +40,32 @@ mt:
     attributes:
       decidim/user:
         current_password: Password attwali
+        email: Email
         name: Identifikatur
+        password: Password
         password_confirmation: Konferma tal-password
         remember_me: Ftakarni
+    models:
+      decidim/amendment:
+        one: Emenda
+        few: Emendi
+        many: Emendi
+        other: Emendi
+      decidim/endorsement:
+        one: Approvazzjoni
+        few: Approvazzjonijiet
+        many: Approvazzjonijiet
+        other: Approvazzjonijiet
+      decidim/user:
+        one: Parteċipant
+        few: Parteċipanti
+        many: Parteċipanti
+        other: Parteċipanti
+      decidim/user_group:
+        one: Grupp
+        few: Gruppi
+        many: Gruppi
+        other: Gruppi
   booleans:
     'false': 'Le'
     'true': 'Iva'
@@ -156,6 +182,7 @@ mt:
       edit_draft:
         discard: Warrab dan l-abbozz
         discard_confirmation: Żgur trid twarrab dan l-abbozz?
+        send: Preview
         title: Editja l-Abbozz tal-Emenda
       emendation:
         actions:
@@ -210,12 +237,30 @@ mt:
           '4': Ippubblika l-emenda tiegħek
     anonymous_user: Anonimu
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenti
+          many: Dokumenti
+          other: Dokumenti
       document:
         download: Niżżel il-fajl
       documents:
         related_documents: Dokumenti relatati
       photos:
         related_photos: Immaġnijiet relatati
+    author:
+      avatar: Avatar
+      comments:
+        one: kumment
+        few: kummenti
+        many: kummenti
+        other: kummenti
+      endorsements:
+        one: approvazzjoni
+        few: approvazzjonijiet
+        many: approvazzjonijiet
+        other: approvazzjonijiet
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Introduċi numru tal-passaport li jibda bl-“A” biex tiġi vverifikat
@@ -239,6 +284,9 @@ mt:
       expired_at: Skadiet fil-%{timestamp}
       expires_at: Tiskadi fil-%{timestamp}
       foo_authorization:
+        fields:
+          bar: Bar
+          foo: Foo
         name: Awtorizzazzjoni tal-Foo
       granted_at: Mogħtija fil-%{timestamp}
       renew: Ġedded il-verifika
@@ -268,6 +316,7 @@ mt:
         unauthorized:
           explanation: Jiddispjaċina, ma tistax twettaq din l-azzjoni peress li parti mid-data tal-awtorizzazzjoni tiegħek ma taqbilx.
           invalid_field: "%{field} valur %{value} mhux validu."
+          ok: Ok
           title: Mhux awtorizzat
         unconfirmed:
           confirmation_instructions: 'Jekk ma rċevejtx l-istruzzjonijiet tal-konferma tista’ terġa’ titlobhom:'
@@ -277,6 +326,11 @@ mt:
       show:
         close_modal: Agħlaq il-kaxxa ż-żgħira
     collapsible_list:
+      hidden_elements_count:
+        one: u %{count} aktar
+        few: u %{count} aktar
+        many: u %{count} aktar
+        other: u %{count} aktar
       see_less: "(ara inqas)"
       see_more: "(ara aktar)"
     components:
@@ -294,6 +348,9 @@ mt:
           question: Mistoqsija
         title: 'Uri:'
       dummy:
+        actions:
+          bar: Bar
+          foo: Foo
         name: Komponent finta
         settings:
           global:
@@ -318,6 +375,8 @@ mt:
     content_blocks:
       footer_sub_hero:
         name: Footer taħt il-hero banner
+      hero:
+        name: Hero image
       hero_settings_form:
         background_image: Immaġni fl-isfond
         welcome_text: Test ta’ merħba
@@ -594,6 +653,11 @@ mt:
       title: Marka tas-swaba’
       value: Valur
     followers:
+      followers_count:
+        one: "%{count} segwaċi"
+        few: "%{count} segwaċi"
+        many: "%{count} segwaċi"
+        other: "%{count} segwaċi"
       no_followers: Għad m’hemmx segwaċi.
     following:
       no_followings: Għadu ma jsegwi lil ħadd jew lil xejn.
@@ -640,8 +704,10 @@ mt:
           unearned_another: Dan il-parteċipant għad m’għandux segwaċi.
           unearned_own: Għad m’għandekx segwaċi.
         index:
+          badge_title: "%{name} badge"
           how: Kif tista’ tiksibha
           page_description: Il-badges huma rikonoxximenti għall-azzjonijiet tal-parteċipanti u l-progress fil-pjattaforma. Hekk kif tibda tiskopri, tipparteċipa u tinteraġixxi fil-pjattaforma, tikseb badges differenti. Din hija l-lista tal-badges u xi modi kif tista’ tikseb dawn il-badges.
+          title: Badges
         invitations:
           conditions: |-
             Uża l-link “stieden il-ħbieb” fil-paġna tal-utent tiegħek biex tistieden lil ħbiebek
@@ -782,9 +848,11 @@ mt:
         skip_button: Aqbeż il-mappa
       static:
         latlng_text: 'latitudni: %{latitude}, lonġitudni: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Dan il-grupp għad m’għandu l-ebda membru.
     menu:
+      help: Għajnuna
       home: Paġna Ewlenija
     messaging:
       conversation_mailer:
@@ -944,12 +1012,14 @@ mt:
     pad_iframe:
       disclaimer: Il-kontenut ta’ din il-pad huwa miktub mill-utenti rreġistrati u jesprimi l-opinjonijiet tagħhom. %{organization} ma tistax tinżamm responsabbli għall-kontenut tiegħu.
       explanation: Uża din il-pad biex tieħu n-noti waqt il-laqgħa biex wara jkun aktar faċli li tniżżel il-minuti.
+      pad: Pad
     pages:
       home:
         extended:
           debates: Dibattiti
           debates_explanation: Iddibatti u ddiskuti, aqsam il-fehmiet tiegħek u saħħaħ is-suġġetti rilevanti.
           how_to_participate: Kif nieħu sehem fi proċess?
+          meetings: Laqgħat
           meetings_explanation: Skopri fejn u meta tkun tista’ tipparteċipa f’laqgħat pubbliċi.
           more_info: Aktar informazzjoni dwar %{resource_name}
           proposals: Proposti
@@ -971,10 +1041,13 @@ mt:
           debates_count: Dibattiti
           endorsements_count: Approvazzjonijiet
           headline: Stat attwali ta’ %{organization}
+          meetings_count: Laqgħat
           orders_count: Voti
           pages_count: Paġni
+          processes_count: Proċessi
           projects_count: Proġetti
           proposals_accepted: Proposti Aċċettati
+          proposals_count: Proposti
           results_count: Riżultati
           surveys_count: Stħarriġ
           users_count: Parteċipanti
@@ -985,6 +1058,7 @@ mt:
         read_more: Aqra aktar
         standalone_pages: Paġni
         subheading: Innaviga fil-paġni tal-għajnuna ta’ %{name}
+        title: Għajnuna
         topics: Suġġetti
       participatory_space:
         metrics:
@@ -1018,6 +1092,7 @@ mt:
       default_officialization_text_for_users: Dan il-parteċipant jiġi vverifikat pubblikament, ismu jew ir-rwol tiegħu ġie vverifikat li jikkorrispondi mal-isem u r-rwol reali tiegħu
       show:
         activity: Attività
+        badges: Badges
         conversations: Konverżazzjonijiet
         followers: Segwaċi
         following: Isegwi
@@ -1029,6 +1104,7 @@ mt:
       sidebar:
         badges:
           info: Il-badges jinkisbu billi twettaq attività speċifika fil-pjattaforma.
+          title: Badges
       user:
         confirmation_instructions_sent: L-istruzzjonijiet għall-konferma tal-email intbagħtu
         create_user_group: Oħloq grupp
@@ -1096,11 +1172,17 @@ mt:
         filter_by: Iffiltra skont
         unfold: Iftaħ
       results:
+        results:
+          one: "%{count} riżultat"
+          few: "%{count} riżultati"
+          many: "%{count} riżultati"
+          other: "%{count} riżultati"
         view_all: Ara (%{count}) kollha
     shared:
       confirm_modal:
         cancel: Ikkanċella
         close_modal: Agħlaq il-kaxxa ż-żgħira
+        ok: OK
         title: Ikkonferma
       embed_modal:
         close_window: Agħlaq it-tieqa
@@ -1312,6 +1394,9 @@ mt:
         instruction: 'Ikklikkja l-link ta’ hawn taħt biex tiżblokka l-kont tiegħek:'
         message: Il-kont tiegħek ġie llokkjat minħabba ammont eċċessiv ta’ tentattivi ta’ lloggjar li ma rnexxewx.
         subject: Istruzzjonijiet għall-iżblukkar
+    omniauth_callbacks:
+      failure: Ma stajtx tiġi awtentikat(a) minn %{kind} minħabba "%{reason}".
+      success: Ġejt awtentikat(a) mill-kont %{kind}.
     passwords:
       edit:
         change_my_password: Ibdel il-password tiegħi
@@ -1361,6 +1446,11 @@ mt:
         sign_in: Illoggja
         sign_in_with_provider: Illoggja bil-%{provider}
         sign_up: Irreġistra
+      minimum_password_length:
+        one: "(%{count} karattru minimu)"
+        few: "(%{count} karattri minimu)"
+        many: "(%{count} karattri minimu)"
+        other: "(%{count} karattri minimu)"
     unlocks:
       new:
         resend_unlock_instructions: Erġa’ ibgħat l-istruzzjonijiet għall-iżblukkar
@@ -1384,11 +1474,22 @@ mt:
       nesting_too_deep: ma tistax tkun ġo sottokategorija
       not_found: ma setax jinstab. Irreġistrajt qabel?
       not_locked: ma kienx illokkjat
+      not_saved:
+        one: 'Kien hemm żball waqt il-proċess tat-talba tiegħek:'
+        few: 'Kien hemm diversi żbalji waqt il-proċess tat-talba tiegħek:'
+        many: 'Kien hemm diversi żbalji waqt il-proċess tat-talba tiegħek:'
+        other: 'Kien hemm diversi żbalji waqt il-proċess tat-talba tiegħek:'
       too_many_marks: qed tuża wisq marki tal-punteġġatura konsekuttivi (eż. ! u ?)
       too_much_caps: qed tuża wisq ittri kapitali (aktar minn 25 % tat-test)
       too_short: qasira wisq (inqas minn 15-il karattru)
   forms:
     correct_errors: Hemm żbalji fil-formola, jekk jogħġbok biex tkompli kkoreġihom.
+    length_validator:
+      minimum:
+        one: mill-inqas %{count} karattru
+        few: mill-inqas %{count} karattri
+        many: mill-inqas %{count} karattri
+        other: mill-inqas %{count} karattri
     required: Kamp tad-data meħtieġ
     required_explanation: "* Il-kampijiet tad-data meħtieġa huma mmarkati b’asterisk"
   invisible_captcha:
@@ -1446,6 +1547,8 @@ mt:
         user_groups: Gruppi
       widget:
         see_more: Ara aktar
+  locale:
+    name: Ingliż
   password_validator:
     domain_included_in_password: simili wisq għal dan l-isem tad-dominju
     email_included_in_password: simili wisq għall-email tiegħek
@@ -1457,8 +1560,28 @@ mt:
     password_too_long: twila wisq
     password_too_short: qasira wisq
   social_share_button:
+    delicious: Delicious
+    douban: Douban
+    email: Email
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Ixxerja fuq %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Iftaħ il-WeChat tiegħek, ikklikkja l-buttuna “Discover” imbagħad ikklikkja l-menù "Scan QR Code”.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Tħassiriet
@@ -1466,7 +1589,9 @@ mt:
     dropdown:
       choose_diff_view_html: 'Modalità ta’ viżwalizzazzjoni HTML:'
       choose_diff_view_mode: 'Modalità ta’ viżwalizzazzjoni biex tqabbel:'
+      option_escaped: Escaped
       option_split: Maġenb xulxin
+      option_unescaped: Unescaped
       option_unified: Unifikati
   views:
     pagination:

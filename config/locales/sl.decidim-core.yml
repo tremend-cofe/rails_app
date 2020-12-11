@@ -7,6 +7,7 @@ sl:
         created_at: Ustvarjeno ob
       group:
         about: O
+        avatar: Avatar
         document_number: Številka dokumenta
         email: E-naslov
         name: Ime
@@ -44,6 +45,27 @@ sl:
         password: Geslo
         password_confirmation: Potrditev gesla
         remember_me: Zapomni si me
+    models:
+      decidim/amendment:
+        one: Sprememba
+        two: Spremembi
+        few: Spremembe
+        other: Sprememb
+      decidim/endorsement:
+        one: Odobravanje
+        two: Odobravanji
+        few: Odobravanja
+        other: Odobravanj
+      decidim/user:
+        one: Udeleženec
+        two: Udeleženca
+        few: Udeleženci
+        other: Udeležencev
+      decidim/user_group:
+        one: Skupina
+        two: Skupini
+        few: Skupine
+        other: Skupin
   booleans:
     'false': 'Ne'
     'true': 'Da'
@@ -212,12 +234,30 @@ sl:
           '4': Objavi svojo spremembo
     anonymous_user: Anonimno
     application:
+      collection:
+        documents:
+          one: Dokument
+          two: Dokumenta
+          few: Dokumenti
+          other: Dokumentov
       document:
         download: Prenesi datoteko
       documents:
         related_documents: Povezani dokumenti
       photos:
         related_photos: Povezane slike
+    author:
+      avatar: Avatar
+      comments:
+        one: komentar
+        two: komentarja
+        few: komentarji
+        other: komentarjev
+      endorsements:
+        one: odobravanje
+        two: odobravanji
+        few: odobravanja
+        other: odobravanj
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Opravite svojo preveritev z vnosom številke potnega lista, ki se začne z "A".
@@ -243,6 +283,7 @@ sl:
       foo_authorization:
         fields:
           bar: Vrstica
+          foo: Foo
         name: Pooblastilo za Foo
       granted_at: Odobreno ob %{timestamp}
       renew: Obnovi preverjanje
@@ -282,6 +323,11 @@ sl:
       show:
         close_modal: Zapri modalno okno
     collapsible_list:
+      hidden_elements_count:
+        one: in še %{count}
+        two: in še %{count}
+        few: in še %{count}
+        other: in še %{count}
       see_less: "(prikaži manj)"
       see_more: "(prikaži več)"
     components:
@@ -301,6 +347,7 @@ sl:
       dummy:
         actions:
           bar: Vrstica
+          foo: Foo
         name: Preskusna komponenta
         settings:
           global:
@@ -595,6 +642,11 @@ sl:
       title: Prstni odtis
       value: Vrednost
     followers:
+      followers_count:
+        one: "%{count} sledilec"
+        two: "%{count} sledilca"
+        few: "%{count} sledilci"
+        other: "%{count} sledilcev"
       no_followers: Sledilcev še ni.
     following:
       no_followings: Nikomur ali ničemur še ne sledi.
@@ -783,9 +835,11 @@ sl:
         skip_button: Preskoči zemljevid
       static:
         latlng_text: 'širina: %{latitude}, dolžina: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: Ta skupina še nima članov.
     menu:
+      help: Pomoč
       home: Domov
     messaging:
       conversation_mailer:
@@ -952,6 +1006,7 @@ sl:
           debates: Razprave
           debates_explanation: Debatirajte in razpravljajte, delite svoja stališča in obogatite ustrezne teme.
           how_to_participate: Kako lahko sodelujem v procesu?
+          meetings: Sestanki
           meetings_explanation: Ugotovite, kje in kdaj lahko sodelujete na javnih sestankih.
           more_info: Več informacij o %{resource_name}
           proposals: Predlogi
@@ -973,10 +1028,13 @@ sl:
           debates_count: Razprave
           endorsements_count: Odobravanje
           headline: Trenutno stanje %{organization}
+          meetings_count: Sestanki
           orders_count: Glasovi
           pages_count: Strani
+          processes_count: Procesi
           projects_count: Projekti
           proposals_accepted: Sprejeti predlogi
+          proposals_count: Predlogi
           results_count: Rezultati
           surveys_count: Raziskave
           users_count: Udeleženci
@@ -987,6 +1045,7 @@ sl:
         read_more: Več
         standalone_pages: Strani
         subheading: Krmarite po straneh za pomoč %{name}
+        title: Pomoč
         topics: Teme
       participatory_space:
         metrics:
@@ -1100,6 +1159,11 @@ sl:
         filter_by: Filtriraj po
         unfold: Razgrni
       results:
+        results:
+          one: "%{count} rezultat"
+          two: "%{count} rezultata"
+          few: "%{count} rezultati"
+          other: "%{count} rezultatov"
         view_all: Prikaži vse (%{count})
     shared:
       confirm_modal:
@@ -1318,6 +1382,9 @@ sl:
         instruction: 'Za odklepanje svojega računa kliknite spodnjo povezavo:'
         message: Vaš račun je bil zaklenjen zaradi preveč neuspešnih poskusov prijave.
         subject: Navodila za odklepanje
+    omniauth_callbacks:
+      failure: Zaradi "%{reason}" ni bilo mogoče izvesti vaše avtentifikacije iz %{kind}.
+      success: Uspešna avtentifikacija iz %{kind}.
     passwords:
       edit:
         change_my_password: Spremeni moje geslo
@@ -1367,6 +1434,11 @@ sl:
         sign_in: Prijava
         sign_in_with_provider: Prijava s/z %{provider}.
         sign_up: Vpis
+      minimum_password_length:
+        one: "(najmanj %{count} znak)"
+        two: "(najmanj %{count} znaka)"
+        few: "(najmanj %{count} znaki)"
+        other: "(najmanj %{count} znakov)"
     unlocks:
       new:
         resend_unlock_instructions: Ponovno pošlji navodila za odklepanje
@@ -1390,11 +1462,22 @@ sl:
       nesting_too_deep: ne sme biti znotraj podkategorije
       not_found: ni bilo mogoče najti. Ste se pred tem vpisali?
       not_locked: ni bil zaklenjen
+      not_saved:
+        one: 'Pri obdelavi vaše zahteve se je pojavila napaka:'
+        two: 'Pri obdelavi vaše zahteve sta se pojavili napaki:'
+        few: 'Pri obdelavi vaše zahteve se je pojavilo več napak:'
+        other: 'Pri obdelavi vaše zahteve se je pojavilo več napak:'
       too_many_marks: uporablja preveč zaporednih ločil (npr. ! in ?)
       too_much_caps: uporablja preveč velikih črk (več kot 25 % besedila)
       too_short: je prekratek (manj kot 15 znakov)
   forms:
     correct_errors: Na obrazcu so napake, če želite nadaljevati, jih popravite.
+    length_validator:
+      minimum:
+        one: vsaj %{count} znak
+        two: vsaj %{count} znaka
+        few: vsaj %{count} znaki
+        other: vsaj %{count} znakov
     required: Obvezno polje
     required_explanation: "* Obvezna polja so označena z zvezdico."
   invisible_captcha:
@@ -1452,6 +1535,8 @@ sl:
         user_groups: Skupine
       widget:
         see_more: Več
+  locale:
+    name: Slovenski jezik
   password_validator:
     domain_included_in_password: je preveč podobno temu domenskemu imenu
     email_included_in_password: je preveč podobno vašemu e-naslovu
@@ -1463,9 +1548,28 @@ sl:
     password_too_long: je predolgo
     password_too_short: je prekratko
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: E-naslov
+    facebook: Facebook
+    google_bookmark: Google Zaznamki
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
     share_to: Deli z %{name}
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
     wechat_footer: Odprite WeChat, kliknite gumb „Odkrij“ in nato meni „Skeniraj kodo QR“.
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
   versions:
     directions:
       left: Izbrisi

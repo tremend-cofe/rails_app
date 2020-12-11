@@ -22,8 +22,12 @@ mt:
         developer_group: Grupp promotur
         domain: Dominju
         duration: Durata
+        facebook: Facebook
+        github: GitHub
+        hashtag: Hashtag
         hero_image: Immaġni tal-paġna ewlenija
         included_at: Inkluż fi
+        instagram: Instagram
         internal_organisation: Organizzazzjoni interna
         is_transparent: Hija trasparenti
         local_area: Żona tal-organizzazzjoni
@@ -40,10 +44,13 @@ mt:
         scopes_enabled: Kampijiet ta’ applikazzjoni attivati
         short_description: Deskrizzjoni qasira
         show_statistics: Uri l-istatistika
+        slug: slug tal-URL
         special_features: Elementi speċjali
         subtitle: Sottotitlu
         target: Min jipparteċipa
         title: Titlu
+        twitter: Twitter
+        youtube: YouTube
       assembly_member:
         birthday: Data tat-twelid
         birthplace: Post tat-twelid
@@ -54,6 +61,7 @@ mt:
         gender: Ġeneru
         position: Pożizzjoni
       assembly_user_role:
+        email: Email
         name: Isem
         role: Rwol
     errors:
@@ -62,6 +70,23 @@ mt:
           attributes:
             document:
               invalid_document_type: 'Tip ta’ dokument invalidu. Il-formati aċċettati huma: %{valid_mime_types}'
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Assemblea
+        few: Assemblej
+        many: Assemblej
+        other: Assemblej
+      decidim/assembly_member:
+        one: Membru tal-assemblea
+        few: Membri tal-assemblea
+        many: Membri tal-assemblea
+        other: Membri tal-assemblea
+      decidim/assembly_user_role:
+        one: Rwol tal-utent tal-assemblea
+        few: Rwoli tal-utent tal-assemblea
+        many: Rwoli tal-utent tal-assemblea
+        other: Rwoli tal-utent tal-assemblea
   decidim:
     admin:
       actions:
@@ -438,6 +463,12 @@ mt:
           organizational_chart: Organigramma
           promoted_assemblies: Assembleji ħħajlajtjati
           reset_chart: Irrisettja
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} assemblej"
+            few: "%{count} assemblej"
+            many: "%{count} assemblej"
+            other: "%{count} assemblej"
         promoted_assembly:
           more_info: Iktar informazzjoni
           take_part: Ħu sehem

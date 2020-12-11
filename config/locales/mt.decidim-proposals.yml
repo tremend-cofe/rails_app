@@ -62,6 +62,28 @@ mt:
       decidim/proposals/publish_proposal_event: Il-proposta ġiet ippubblikata
       decidim/proposals/rejected_proposal_event: Il-proposta ġiet miċħuda
       decidim/proposals/voting_enabled_event: Il-votazzjoni tal-proposta attivata
+  activerecord:
+    models:
+      decidim/proposals/collaborative_draft:
+        one: Abbozz kollaborattiv
+        few: Abbozzi kollaborattivi
+        many: Abbozzi kollaborattivi
+        other: Abbozzi kollaborattivi
+      decidim/proposals/proposal:
+        one: Proposta
+        few: Proposti
+        many: Proposti
+        other: Proposti
+      decidim/proposals/proposal_note:
+        one: Nota
+        few: Noti
+        many: Noti
+        other: Noti
+      decidim/proposals/proposal_vote:
+        one: Appoġġ
+        few: Appoġġi
+        many: Appoġġi
+        other: Appoġġi
   decidim:
     admin:
       filters:
@@ -324,6 +346,9 @@ mt:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Proposti
+    participatory_spaces:
+      highlighted_proposals:
+        see_all: Ara l-proposti kollha (%{count})
     proposals:
       actions:
         answer_proposal: Wieġeb il-proposta
@@ -548,6 +573,12 @@ mt:
         complete:
           send: Ibgħat
           title: Lesti l-abbozz kollaborattiv tiegħek
+        count:
+          drafts_count:
+            one: "%{count} abbozz kollaborattiv"
+            few: "%{count} abbozzi kollaborattivi"
+            many: "%{count} abbozzi kollaborattivi"
+            other: "%{count} abbozzi kollaborattivi"
         create:
           error: Kien hemm problema biex jinħoloq dan l-abbozz kollaborattiv
           success: Inħoloq abbozz kollaborattiv.
@@ -566,6 +597,7 @@ mt:
           related_to: Relatat ma'
           scope: Kamp ta’ applikazzjoni
           search: Fittex
+          state: Status
           withdrawn: Irtirata
         filters_small_view:
           close_modal: Agħlaq il-kaxxa ż-żgħira
@@ -601,6 +633,11 @@ mt:
           edit: Editja abbozz kollaborattiv
           final_proposal: proposta finali
           final_proposal_help_text: Dan l-abbozz tlesta. Iċċekkja l-proposta finali
+          hidden_authors_count:
+            one: u %{count} persuna oħra
+            few: u %{count} persuni oħra
+            many: u %{count} persuni oħra
+            other: u %{count} persuni oħra
           info-message: Dan huwa <strong>abbozz kollaborattiv</strong> għal proposta. Dan ifisser li tista’ tgħin lill-awturi tagħhom ifasslu l-proposta billi tuża t-taqsima tal-kummenti hawn taħt jew ttejjibha direttament billi titlob aċċess biex teditjaha. Ladarba l-awturi jagħtuk l-aċċess, tkun tista’ tagħmel bidliet f’dan l-abbozz.
           publish: Ippubblika
           publish_info: Ippubblika din il-verżjoni tal-abbozz jew
@@ -639,6 +676,8 @@ mt:
       destroy_draft:
         error: Kien hemm problema biex jitħassar l-abbozz kollaborattiv.
         success: L-abbozz tal-proposta tħassar.
+      last_activity:
+        new_proposal_at_html: "<span>Proposta ġdida fi %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -649,11 +688,13 @@ mt:
           fields:
             category: Kategorija
             comments: Kummenti
+            id: ID
             notes: Noti
             official_proposal: Proposta uffiċjali
             published_answer: Tweġiba ppubblikata
             published_at: Ippubblikat fi
             scope: Kamp ta’ applikazzjoni
+            state: Status
             title: Titlu
             valuator: Stimatur
             valuators: Stimaturi
@@ -677,6 +718,12 @@ mt:
         complete:
           send: Ibgħat
           title: Lesti l-proposta tiegħek
+        count:
+          proposals_count:
+            one: "%{count} proposta"
+            few: "%{count} proposti"
+            many: "%{count} proposti"
+            other: "%{count} proposti"
         edit:
           attachment_legend: "(Fakultattiv) Żid hemża"
           back: Lura
@@ -686,6 +733,7 @@ mt:
         edit_draft:
           discard: Warrab dan l-abbozz
           discard_confirmation: Żgur trid twarrab dan l-abbozz?
+          send: Preview
           title: Editja l-Abbozz tal-Proposta
         filters:
           activity: L-attività tiegħi
@@ -697,6 +745,7 @@ mt:
           related_to: Relatat ma'
           scope: Kamp ta’ applikazzjoni
           search: Fittex
+          state: Status
           type: Tip
           voted: Mogħtija s-sostenn
         filters_small_view:
@@ -706,9 +755,18 @@ mt:
           unfold: Iftaħ
         index:
           collaborative_drafts_list: Aċċessa l-abbozzi kollaborattivi
+          new_proposal: Proposta ġdida
           see_all_withdrawn: Ara l-proposti rtirati kollha
+          view_proposal: Ara l-proposta
+        linked_proposals:
+          proposal_votes:
+            one: appoġġ
+            few: appoġġi
+            many: appoġġi
+            other: appoġġi
         new:
           send: Kompli
+          title: Oħloq il-Proposta Tieegħek
         orders:
           label: 'Organizza l-proposti skont:'
           most_commented: L-aktar ikkummentati
@@ -725,10 +783,16 @@ mt:
             see_index: Ara l-indiċi
         preview:
           modify: Immodifika l-proposta
+          proposal_edit_before_minutes:
+            one: Se tkun tista’ teditja din il-proposta fl-ewwel minuta ta’ wara li l-proposta tiġi ppubblikata. Ladarba dan l-ammont ta’ ħin jgħaddi, ma tkunx tista’ teditja l-proposta.
+            few: Se tkun tista’ teditja din il-proposta fl-ewwel %{count} minuti ta' wara li l-proposta tiġi ppubblikata. Ladarba dan l-ammont ta’ ħin jgħaddi, ma tkunx tista’ teditja l-proposta.
+            many: Se tkun tista’ teditja din il-proposta fl-ewwel %{count} minuti ta' wara li l-proposta tiġi ppubblikata. Ladarba dan l-ammont ta’ ħin jgħaddi, ma tkunx tista’ teditja l-proposta.
+            other: Se tkun tista’ teditja din il-proposta fl-ewwel %{count} minuti ta' wara li l-proposta tiġi ppubblikata. Ladarba dan l-ammont ta’ ħin jgħaddi, ma tkunx tista’ teditja l-proposta.
           publish: Ippubblika
           title: Ippubblika l-proposta tiegħek
         proposal:
           creation_date: 'Ħolqien: %{date}'
+          view_proposal: Ara l-proposta
         proposals:
           empty: Għad ma hemm l-ebda proposta
           empty_filters: Ma hemm l-ebda proposta b’dan il-kriterju
@@ -741,6 +805,11 @@ mt:
           edit_proposal: Editja l-proposta
           endorsements_list: Lista ta’ Approvazzjonijiet
           estimated_cost: Spiża stmata
+          hidden_endorsers_count:
+            one: u %{count} persuna oħra
+            few: u %{count} persuni oħra
+            many: u %{count} persuni oħra
+            other: u %{count} persuni oħra
           link_to_collaborative_draft_help_text: Din il-proposta hija r-riżultat ta’ abbozz kollaborattiv. Irrevedi l-istorja
           link_to_collaborative_draft_text: Ara l-abbozz kollaborattiv
           link_to_promoted_emendation_help_text: Din il-proposta hija emenda promossa
@@ -768,6 +837,11 @@ mt:
           vote: Sostenn
           votes_blocked: Sostenji diżattivati
         votes_count:
+          count:
+            one: Appoġġ
+            few: Appoġġi
+            many: Appoġġi
+            other: Appoġġi
           most_popular_proposal: L-aktar proposta popolari
           need_more_votes: Teħtieġ aktar sostenji
         voting_rules:
@@ -788,14 +862,20 @@ mt:
             votes: Sostenji
         wizard_aside:
           back: Lura
+          back_from_step_1: Mur lura għall-proposti
+          back_from_step_2: Mur lura għall-proposti
           back_from_step_3: Lura għat-tqabbil tal-proposti
           back_from_step_4: Lura għall-editjar tal-abbozz
+          info: Qed toħloq <strong>proposta</strong>.
         wizard_steps:
           current_step: Pass attwali
           see_steps: ara l-passi
+          step_1: Oħloq il-proposta tiegħek
           step_2: Qabbel
           step_3: Lesti
+          step_4: Ippubblika l-proposta tiegħek
           step_of: Pass %{current_step_num} minn %{total_steps}
+          title: Passi għall-ħolqien tal-proposta
       proposals_picker:
         choose_proposals: Agħżel proposti
         close: Agħlaq
@@ -817,6 +897,8 @@ mt:
           back_to_resource: Mur Lura għall-abbozz kollaborattiv
         index:
           title: Verżjonijiet
+        proposals:
+          back_to_resource: Mur lura għall-proposta
       withdraw:
         errors:
           has_supports: Din il-proposta ma tistax tiġi rtirata minħabba li diġà għandha s-sostenji.

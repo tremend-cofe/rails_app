@@ -2,10 +2,12 @@ mt:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategorija
         decidim_scope_id: Kamp ta’ applikazzjoni
         description: Deskrizzjoni
         end_date: Data tat-tmiem
+        progress: Progress
         project_ids: Proġetti inklużi
         proposals: Proposti inklużi
         start_date: Data tal-bidu
@@ -15,12 +17,20 @@ mt:
         description: Deskrizzjoni
         key: Didaskalija
         name: Isem
+        progress: Progress
       timeline_entry:
         description: Deskrizzjoni
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Proposta inkluża f’riżultat
       decidim/accountability/result_progress_updated_event: Il-progress tar-riżultati ġie aġġornat
+  activerecord:
+    models:
+      decidim/accountability/result:
+        one: Riżultat
+        few: Riżultati
+        many: Riżultati
+        other: Riżultati
   decidim:
     accountability:
       actions:
@@ -29,6 +39,7 @@ mt:
         edit: Editja
         import_csv: Importa s-CSV
         new: '%{name} ġdid'
+        preview: Preview
         timeline_entries: Evoluzzjoni tal-proġett
         title: Azzjonijiet
       admin:
@@ -117,18 +128,27 @@ mt:
         result:
           fields:
             end_date: Data tat-tmiem
+            progress: Progress
             start_date: Data tal-bidu
+            status: Status
             title: Titlu
         status:
           fields:
             description: Deskrizzjoni
             key: Didaskalija
             name: Isem
+            progress: Progress
         timeline_entry:
           fields:
             description: Deskrizzjoni
             entry_date: Data
       results:
+        count:
+          results_count:
+            one: riżultat wieħed
+            few: "%{count} riżultati"
+            many: "%{count} riżultati"
+            other: "%{count} riżultati"
         filters:
           all: Kollha
           scopes: Kampijiet ta’ applikazzjoni

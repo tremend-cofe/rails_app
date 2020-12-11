@@ -8,6 +8,13 @@ mt:
         description: Deskrizzjoni
         proposal_ids: Proposti relatati
         title: Titlu
+  activerecord:
+    models:
+      decidim/budgets/project:
+        one: Proġett
+        few: Proġetti
+        many: Proġetti
+        other: Proġetti
   decidim:
     budgets:
       actions:
@@ -19,6 +26,7 @@ mt:
         edit_projects: Ġestixxi l-proġetti
         import: Importa l-proposti għall-proġetti
         new: '%{name} ġdid'
+        preview: Preview
         title: Azzjonijiet
       admin:
         budgets:
@@ -125,6 +133,7 @@ mt:
         budget_excess:
           close: Agħlaq
           description: Dan il-proġett jaqbeż il-baġit massimu u ma jistax jinżdied. Jekk tixtieq, tista’ tħassar proġett li diġà għażilt biex jinżdied, jew tivvota l-preferenzi tiegħek.
+          ok: OK
           title: Il-baġit massimu nqabeż
         budget_summary:
           are_you_sure: Żgur li tixtieq tikkanċella l-vot tiegħek?
@@ -136,10 +145,17 @@ mt:
           description: Liema proġetti taħseb li għandna nallokaw baġit għalihom? Assenja mill-inqas %{minimum_budget} għall-proġetti li tixtieq u vvota bil-preferenzi tiegħek biex tiddefinixxi l-baġit.
           description_minimum_projects_rule: Liema proġetti taħseb li għandna nallokaw baġit għalihom? Agħżel mill-inqas %{minimum_number} proġett(i) li tixtieq u vvota bil-preferenzi tiegħek biex tiddefinixxi l-baġit.
           title: Inti tiddeċiedi l-baġit
+        count:
+          projects_count:
+            one: proġett wieħed
+            few: "%{count} proġetti"
+            many: "%{count} proġetti"
+            other: "%{count} proġetti"
         filters:
           category: Kategorija
           scope: Kamp ta’ applikazzjoni
           search: Fittex
+          status: Status
           status_values:
             all: Kollha
             not_selected: Mhux magħżulin
@@ -153,6 +169,11 @@ mt:
           vote: Ivvota
         order_selected_projects:
           remove: Neħħi
+          selected_projects:
+            one: proġett magħżul
+            few: proġetti magħżula
+            many: proġetti magħżula
+            other: proġetti magħżula
           view: Ara
         orders:
           highest_cost: L-ogħla spiża
@@ -166,6 +187,11 @@ mt:
           remove: Neħħi l-proġett %{resource_name} mill-vot tiegħek
           selected: Magħżulin
           view: Ara
+          votes:
+            one: vot
+            few: voti
+            many: voti
+            other: voti
           you_voted: Ivvutajt
         project_budget_button:
           add: Żid mal-vot tiegħek
