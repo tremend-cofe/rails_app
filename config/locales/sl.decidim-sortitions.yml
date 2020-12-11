@@ -11,6 +11,13 @@ sl:
         witnesses: Priče
     models:
       decidim/sortitions/create_sortition_event: Žreb
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Žreb
+        two: Žreba
+        few: Žrebi
+        other: Žrebov
   decidim:
     components:
       sortitions:
@@ -87,6 +94,12 @@ sl:
           delete: "%{user_name} je preklical žreb %{resource_name} v %{space_name}."
           update: "%{user_name} je posodobil žreb %{resource_name} v %{space_name}."
       sortitions:
+        count:
+          proposals_count:
+            one: 1 predlog
+            two: "%{count} predloga"
+            few: "%{count} predlogi"
+            other: "%{count} predlogov"
         filters:
           active: Aktivno
           all: Vse
@@ -94,6 +107,7 @@ sl:
           category: Kategorija
           category_prompt: Izberi kategorijo
           search: Išči
+          state: Status
         filters_small_view:
           close_modal: Zapri modalno okno
           filter: Filtriraj
@@ -105,6 +119,12 @@ sl:
           label: 'Žreb razvrsti po:'
           random: Naključni
           recent: Novejši
+        results_count:
+          count:
+            one: izbran predlog
+            two: izbrana predloga
+            few: izbrani predlogi
+            other: izbranih predlogov
         show:
           algorithm: Koda algoritma žreba
           any_category: iz vseh kategorij
@@ -122,8 +142,19 @@ sl:
           witnesses: Priče
         sortition:
           random_seed: Naključni čas
+          selected_proposals:
+            one: predlog izbran
+            two: predloga izbrana
+            few: predlogi izbrani
+            other: predlogov izbranih
           view: Prikaži
         sortition_author:
           deleted: Izbrisani udeleženec
         sortition_cancel_author:
           deleted: Izbrisani udeleženec
+        sortitions_count:
+          count:
+            one: 1 žreb
+            two: "%{count} žreba"
+            few: "%{count} žrebi"
+            other: "%{count} žrebov"
