@@ -51,7 +51,25 @@ sl:
       decidim/meetings/create_meeting_event: Sestanek
       decidim/meetings/meeting_registrations_enabled_event: Registracije so omogočene.
       decidim/meetings/meeting_registrations_over_percentage_event: Registracije prek omejitve
+      decidim/meetings/upcoming_meeting_event: Prihajajoči sestanek
       decidim/meetings/update_meeting_event: Sestanek je posodobljen.
+  activerecord:
+    models:
+      decidim/meetings/meeting:
+        one: Sestanek
+        two: Sestanka
+        few: Sestanki
+        other: Sestankov
+      decidim/meetings/minutes:
+        one: Zapisnik
+        two: Zapisnika
+        few: Zapisniki
+        other: Zapisnikov
+      decidim/meetings/registration:
+        one: Registracija
+        two: Registraciji
+        few: Registracije
+        other: Registracij
   decidim:
     admin:
       meeting_copies:
@@ -66,6 +84,7 @@ sl:
       meetings:
         actions:
           join: Pridruži se
+        name: Sestanki
         settings:
           global:
             announcement: Obvestilo
@@ -145,7 +164,14 @@ sl:
         confirm_destroy: Ali res želite izbrisati ta sestanek?
         destroy: Izbriši
         edit: Uredi
+        invalid_destroy:
+          proposals_count:
+            one: 'Sestanka ni mogoče uničiti, ker je z njim povezan %{count} predlog:'
+            two: 'Sestanka ni mogoče uničiti, ker sta z njim povezana %{count} predloga:'
+            few: 'Sestanka ni mogoče uničiti, ker so z njim povezani %{count} predlogi:'
+            other: 'Sestanka ni mogoče uničiti, ker je z njim povezanih %{count} predlogov:'
         minutes: Zapisniki
+        new: Nov sestanek
         preview: Predogled
         registrations: Registracije
         title: Dejanja
@@ -306,12 +332,14 @@ sl:
       content_blocks:
         upcoming_events:
           name: Prihajajoči dogodki
+          upcoming_events: Prihajajoči sestanki
           view_all_events: Prikaži vse
       directory:
         meetings:
           index:
             all: Vse
             date: Datum
+            meetings: Sestanki
             past: Pretekli
             search: Išči
             space_type: Participativni prostor
@@ -328,6 +356,12 @@ sl:
       meeting:
         not_allowed: Nimate dovoljenja za ogled tega sestanka.
       meetings:
+        count:
+          meetings_count:
+            one: "%{count} sestanek"
+            two: "%{count} sestanka"
+            few: "%{count} sestanki"
+            other: "%{count} sestankov"
         create:
           invalid: Pri ustvarjanju tega sestanka se je pojavila težava.
           success: Sestanek ste uspešno ustvarili.
@@ -357,9 +391,12 @@ sl:
           unfold: Razgrni
         form:
           address_help: 'Naslov: uporabljen s strani aplikacije Geocoder za iskanje lokacije'
+          create_as: Ustvari sestanek kot
           location_help: 'Lokacija: sporočilo, namenjeno uporabnikom, ki nakazuje kraj srečanja ob'
           location_hints_help: 'Namigi o lokaciji: dodatne informacije Primer: pritličje stavbe'
           select_a_category: Izberite kategorijo
+        index:
+          new_meeting: Nov sestanek
         meeting_minutes:
           meeting_minutes: Zapisnik sestanka
           related_information: Povezane informacije
@@ -369,6 +406,7 @@ sl:
         new:
           back: Nazaj
           create: Ustvari
+          title: Ustvari svoj sestanek
         registration_confirm:
           cancel: Prekliči
           confirm: Potrdi
@@ -387,6 +425,11 @@ sl:
           registration_state:
             validated: POTRJENA
             validation_pending: ČAKA NA POTRDITEV
+          remaining_slots:
+            one: "%{count} preostalo mesto"
+            two: "%{count} preostali mesti"
+            few: "%{count} preostala mesta"
+            other: "%{count} preostalih mest"
           view: Prikaži
         update:
           invalid: Pri posodabljanju sestanka se je pojavila težava.
@@ -399,6 +442,7 @@ sl:
             email: E-naslov
             name: Ime
             sent_at: Poslano ob
+            status: Status
           status:
             accepted: Sprejeto (%{at})
             rejected: Zavrnjeno (%{at})
@@ -408,6 +452,7 @@ sl:
             closed: Zaprto
             end_time: Končni datum
             map: Zemljevid
+            official_meeting: Uradni sestanek
             start_time: Začetni datum
             title: Naslov
       read_more: "(več informacij)"
@@ -434,9 +479,20 @@ sl:
     metrics:
       meetings:
         description: Število ustvarjenih sestankov
+        object: sestanki
+        title: Sestanki
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Pretekli sestanki
+          upcoming_meetings: Prihajajoči sestanki
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Pretekli sestanki
+        see_all: Prikaži vse sestanke (%{count})
+        upcoming_meetings: Prihajajoči sestanki
+      upcoming_meeting_for_card:
+        upcoming_meeting: Prihajajoči sestanek
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Povezani rezultati:'
