@@ -11,6 +11,13 @@ mt:
         witnesses: Xhieda
     models:
       decidim/sortitions/create_sortition_event: Għażla bix-xorti
+  activerecord:
+    models:
+      decidim/sortitions/sortition:
+        one: Għażla bix-xorti
+        few: Għażliet bix-xorti
+        many: Għażliet bix-xorti
+        other: Għażliet bix-xorti
   decidim:
     components:
       sortitions:
@@ -86,6 +93,12 @@ mt:
           delete: "%{user_name} ikkanċella l-għażla bix-xorti %{resource_name} fi %{space_name}"
           update: "%{user_name} aġġorna l-għażla bix-xorti %{resource_name} fi %{space_name}"
       sortitions:
+        count:
+          proposals_count:
+            one: proposta waħda
+            few: "%{count} proposti"
+            many: "%{count} proposti"
+            other: "%{count} proposti"
         filters:
           active: Attivi
           all: Kollha
@@ -93,6 +106,7 @@ mt:
           category: Kategorija
           category_prompt: Agħżel kategorija
           search: Fittex
+          state: Status
         filters_small_view:
           close_modal: Agħlaq il-kaxxa ż-żgħira
           filter: Iffiltra
@@ -104,6 +118,12 @@ mt:
           label: 'Organizza l-għażliet bix-xorti skont:'
           random: Mod każwali
           recent: Reċenti
+        results_count:
+          count:
+            one: proposta magħżula
+            few: proposti magħżula
+            many: proposti magħżula
+            other: proposti magħżula
         show:
           algorithm: Kodiċi tal-algoritmu tal-għażla bix-xorti
           any_category: mill-kategoriji kollha
@@ -121,8 +141,19 @@ mt:
           witnesses: Xhieda
         sortition:
           random_seed: Seed każwali
+          selected_proposals:
+            one: proposta magħżula
+            few: proposti magħżula
+            many: proposti magħżula
+            other: proposti magħżula
           view: Ara
         sortition_author:
           deleted: Parteċipant imħassar
         sortition_cancel_author:
           deleted: Parteċipant imħassar
+        sortitions_count:
+          count:
+            one: għażla bix-xorti waħda
+            few: "%{count} għażliet bix-xorti"
+            many: "%{count} għażliet bix-xorti"
+            other: "%{count} għażliet bix-xorti"
