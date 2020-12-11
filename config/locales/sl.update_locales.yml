@@ -1,0 +1,598 @@
+sl: 
+  activemodel: 
+    attributes: 
+      constraint: 
+        subject_id: Tema
+      meeting: 
+        cofe_charter_html: Strinjam se s <a href="%{url}" target="_blank">listino</a> konference o prihodnosti Evrope.
+      result: 
+        decidim_accountability_status_id: Status
+      id: ID
+      organization: 
+        omnipresent_banner_url: URL
+      assembly: 
+        facebook: Facebook
+        github: GITHub
+        instagram: Instagram
+        twitter: Twitter
+        youtube: YouTube
+      conference: 
+        slogan: Slogan
+      group: 
+        avatar: Avatar
+    models: 
+      decidim/meetings/upcoming_meeting_event: Prihajajoči sestanek
+  activerecord: 
+    models: 
+      decidim/meetings/meeting: 
+        one: Sestanek
+        two: Sestanka
+        few: Sestanki
+        other: Sestankov
+      decidim/participatory_process: 
+        one: Participativni proces
+        two: Participativna procesa
+        few: Participativni procesi
+        other: Participativnig procesov
+      decidim/accountability/result: 
+        one: Rezultat
+        two: Rezultata
+        few: Rezultati
+        other: Rezultatov
+      decidim/assembly: 
+        one: Skupščina
+        two: Skupščine
+        few: Skupščine
+        other: Skupščin
+      decidim/assembly_member: 
+        one: Član skupščine
+        two: Člana skupščine
+        few: Člani skupščine
+        other: Članov skupščine
+      decidim/assembly_user_role: 
+        one: Vloga uporabnika skupščine
+        two: Vlogi uporabnika skupščine
+        few: Vloge uporabnika skupščine
+        other: Vlog uporabnika skupščine
+      decidim/blogs/post: 
+        one: Objava
+        two: Objavi
+        few: Objave
+        other: Objav
+      decidim/budgets/project: 
+        one: Projekt
+        two: Projekta
+        few: Projekti
+        other: Projektov
+      decidim/comments/comment: 
+        one: Komentar
+        two: Komentarja
+        few: Komentarji
+        other: Komentarjev
+      decidim/comments/comment_vote: 
+        one: Glas
+        two: Glasa
+        few: Glasovi
+        other: Glasov
+      decidim/conference: 
+        one: Konferenca
+        two: Konferenci
+        few: Konference
+        other: Konferenc
+      decidim/conference_speaker: 
+        one: Govornik na konferenci
+        two: Govornika na konferenci
+        few: Govorniki na konferenci
+        other: Govornikov na konferenci
+      decidim/conference_user_role: 
+        one: Vloga uporabnika konference
+        two: Vlogi uporabnika konference
+        few: Vloge uporabnika konference
+        other: Vlog uporabnika konference
+      decidim/amendment: 
+        one: Sprememba
+        two: Spremembi
+        few: Spremembe
+        other: Sprememb
+      decidim/endorsement: 
+        one: Odobravanje
+        two: Odobravanji
+        few: Odobravanja
+        other: Odobravanj
+      decidim/user: 
+        one: Udeleženec
+        two: Udeleženca
+        few: Udeleženci
+        other: Udeležencev
+      decidim/user_group: 
+        one: Skupina
+        two: Skupini
+        few: Skupine
+        other: Skupin
+      decidim/debates/debate: 
+        one: Razprava
+        two: Razpravi
+        few: Razprave
+        other: Razprav
+      decidim/meetings/minutes: 
+        one: Zapisnik
+        two: Zapisnika
+        few: Zapisniki
+        other: Zapisnikov
+      decidim/meetings/registration: 
+        one: Registracija
+        two: Registraciji
+        few: Registracije
+        other: Registracij
+      decidim/pages/page: 
+        one: Stran
+        two: Strani
+        few: Strani
+        other: Strani
+      decidim/participatory_process_group: 
+        one: Skupina za participativni proces
+        two: Skupini za participativni proces
+        few: Skupine za participativni proces
+        other: Skupin za participativni proces
+      decidim/participatory_process_step: 
+        one: Faza
+        two: Fazi
+        few: Faze
+        other: Faz
+      decidim/proposals/collaborative_draft: 
+        one: Sodelovalni osnutek
+        two: Sodelovalna osnutka
+        few: Sodelovalni osnutki
+        other: Sodelovalnig osnutkov
+      decidim/proposals/proposal: 
+        one: Predlog
+        two: Predloga
+        few: Predlogi
+        other: Predlogov
+      decidim/proposals/proposal_note: 
+        one: Opomba
+        two: Opombi
+        few: Opombe
+        other: Opomb
+      decidim/proposals/proposal_vote: 
+        one: Podpora
+        two: Podpori
+        few: Podpore
+        other: Podpor
+      decidim/sortitions/sortition: 
+        one: Žreb
+        two: Žreba
+        few: Žrebi
+        other: Žrebov
+      decidim/surveys/survey: 
+        one: Anketa
+        two: Anketi
+        few: Ankete
+        other: Anket
+      decidim/surveys/survey_answer: 
+        one: Odgovor
+        two: Odgovora
+        few: Odgovori
+        other: Odgovorov
+  decidim: 
+    components: 
+      meetings: 
+        settings: 
+          global: 
+            cofe_charter_url: URL listine COFE
+        name: Sestanki
+      blogs: 
+        name: Blog
+      dummy: 
+        actions: 
+          foo: Foo
+    meetings: 
+      actions: 
+        invalid_destroy: 
+          proposals_count: 
+            one: Sestanka ni mogoče uničiti, ker je z njim povezan %{count} predlog:
+            two: Sestanka ni mogoče uničiti, ker sta z njim povezana %{count} predloga:
+            few: Sestanka ni mogoče uničiti, ker so z njim povezani %{count} predlogi:
+            other: Sestanka ni mogoče uničiti, ker je z njim povezanih %{count} predlogov:
+        new: Nov sestanek
+      content_blocks: 
+        upcoming_events: 
+          upcoming_events: Prihajajoči sestanki
+      directory: 
+        meetings: 
+          index: 
+            meetings: Sestanki
+      meetings: 
+        count: 
+          meetings_count: 
+            one: %{count} sestanek
+            two: %{count} sestanka
+            few: %{count} sestanki
+            other: %{count} sestankov
+        form: 
+          create_as: Ustvari sestanek kot
+        index: 
+          new_meeting: Nov sestanek
+        new: 
+          title: Ustvari svoj sestanek
+        show: 
+          remaining_slots: 
+            one: %{count} preostalo mesto
+            two: %{count} preostali mesti
+            few: %{count} preostala mesta
+            other: %{count} preostalih mest
+      models: 
+        meeting: 
+          fields: 
+            official_meeting: Uradni sestanek
+        invite: 
+          fields: 
+            status: Status
+    menu: 
+      help: Pomoč
+      processes: Procesi
+    menu_overwrite: 
+      citizens_panels: Državljanski forum
+      events: Dogodki
+      plenaries: Plenarna zasedanja
+      topics: Teme
+    metrics: 
+      meetings: 
+        object: sestanki
+        title: Sestanki
+    pages: 
+      home: 
+        extended: 
+          meetings: Sestanki
+        statistics: 
+          meetings_count: Sestanki
+          processes_count: Procesi
+          proposals_count: Predlogi
+      index: 
+        title: Pomoč
+    participatory_processes: 
+      index: 
+        title: Participativni procesi
+      last_activity: 
+        new_participatory_process: Nov participativni proces
+      pages: 
+        home: 
+          highlighted_processes: 
+            active_processes: Aktivni procesi
+            see_all_processes: Prikaži vse procese
+      participatory_process_groups: 
+        highlighted_meetings: 
+          past_meetings: Pretekli sestanki
+          upcoming_meetings: Prihajajoči sestanki
+      participatory_processes: 
+        filters: 
+          counters: 
+            active: 
+              one: 1 aktivni proces
+              two: %{count} aktivna procesa
+              few: %{count} aktivni procesi
+              other: %{count} aktivnih procesov
+            all: 
+              one: 1 proces
+              two: %{count} procesa
+              few: %{count} procesi
+              other: %{count} procesov
+            past: 
+              one: 1 pretekli proces
+              two: %{count} pretekla procesa
+              few: %{count} pretekli procesi
+              other: %{count} preteklih procesov
+            upcoming: 
+              one: 1 prihajajoči proces
+              two: %{count} prihajajoča procesa
+              few: %{count} prihajajoči procesi
+              other: %{count} prihajajočih procesov
+          explanations: 
+            no_active: Ni aktivnih procesov.
+      statistics: 
+        meetings_count: Sestanki
+        processes_count: Procesi
+        proposals_count: Predlogi
+    participatory_spaces: 
+      highlighted_meetings: 
+        see_all: Prikaži vse sestanke (%{count})
+        upcoming_meetings: Prihajajoči sestanki
+      highlighted_proposals: 
+        see_all: Prikaži vse predloge (%{count})
+      upcoming_meeting_for_card: 
+        upcoming_meeting: Prihajajoči sestanek
+    proposals: 
+      last_activity: 
+        new_proposal_at_html: <span>Nov predlog pri %{link}</span>
+      proposals: 
+        count: 
+          proposals_count: 
+            one: %{count} predlog
+            two: %{count} predloga
+            few: %{count} predlogi
+            other: %{count} predlogov
+        index: 
+          new_proposal: Nov predlog
+          view_proposal: Prikaži predlog
+        new: 
+          title: Ustvari svoj predlog
+        proposal: 
+          view_proposal: Prikaži predlog
+        wizard_aside: 
+          back_from_step_1: Nazaj na predloge
+          back_from_step_2: Nazaj na predloge
+          info: Ustvarjate <strong>predlog</strong>.
+        wizard_steps: 
+          step_1: Ustvari svoj predlog
+          step_4: Objavi svoj predlog
+          title: Koraki za ustvarjanje predloga
+        filters: 
+          state: Status
+        linked_proposals: 
+          proposal_votes: 
+            one: podpora
+            two: podpori
+            few: podpore
+            other: podpor
+        preview: 
+          proposal_edit_before_minutes: 
+            one: Ta predlog boste lahko uredili v prvi minuti po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            two: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            few: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+            other: Ta predlog boste lahko urejali v prvih %{count} minutah po objavi predloga. Ko to časovno okno poteče, predloga ne boste mogli več urejati.
+        show: 
+          hidden_endorsers_count: 
+            one: in še %{count} oseba
+            two: in še %{count} osebi
+            few: in še %{count} osebe
+            other: in še %{count} oseb
+        votes_count: 
+          count: 
+            one: Podpora
+            two: Podpori
+            few: Podpore
+            other: Podpore
+      versions: 
+        proposals: 
+          back_to_resource: Pojdi nazaj na predlog
+      collaborative_drafts: 
+        count: 
+          drafts_count: 
+            one: %{count} sodelovalni osnutek
+            two: %{count} sodelovalna osnutka
+            few: %{count} sodelovalni osnutki
+            other: %{count} sodelovalnih osnutkov
+        filters: 
+          state: Status
+        show: 
+          hidden_authors_count: 
+            one: in še %{count} oseba
+            two: in še %{count} osebi
+            few: in še %{count} osebe
+            other: in še %{count} oseb
+      models: 
+        proposal: 
+          fields: 
+            state: Status
+    accountability: 
+      models: 
+        result: 
+          fields: 
+            status: Status
+      results: 
+        count: 
+          results_count: 
+            one: 1 rezultat
+            two: %{count} rezultata
+            few: %{count} rezultati
+            other: %{count} rezultatov
+    budgets: 
+      projects: 
+        count: 
+          projects_count: 
+            one: 1 projekt
+            two: %{count} projekta
+            few: %{count} projekti
+            other: %{count} projektov
+        filters: 
+          status: Status
+        filters_small_view: 
+          filter: Filter
+        order_selected_projects: 
+          selected_projects: 
+            one: izbrani projekt
+            two: izbrana projekta
+            few: izbrani projekti
+            other: izbranih projektov
+        project: 
+          votes: 
+            one: glas
+            two: glasa
+            few: glasovi
+            other: glasov
+    conference_program: 
+      index: 
+        title: Program
+    conferences: 
+      conference_program: 
+        show: 
+          program: Program
+      models: 
+        conference_invite: 
+          fields: 
+            status: Status
+        conference_registration: 
+          fields: 
+            state: Status
+    application: 
+      collection: 
+        documents: 
+          one: Dokument
+          two: Dokumenta
+          few: Dokumenti
+          other: Dokumentov
+    author: 
+      avatar: Avatar
+      comments: 
+        one: komentar
+        two: komentarja
+        few: komentarji
+        other: komentarjev
+      endorsements: 
+        one: odobravanje
+        two: odobravanji
+        few: odobravanja
+        other: odobravanj
+    authorization_handlers: 
+      foo_authorization: 
+        fields: 
+          foo: Foo
+    collapsible_list: 
+      hidden_elements_count: 
+        one: in še %{count}
+        two: in še %{count}
+        few: in še %{count}
+        other: in še %{count}
+    followers: 
+      followers_count: 
+        one: %{count} sledilec
+        two: %{count} sledilca
+        few: %{count} sledilci
+        other: %{count} sledilcev
+    map: 
+      static: 
+        map_service_brand: OpenStreetMap
+    searches: 
+      results: 
+        results: 
+          one: %{count} rezultat
+          two: %{count} rezultata
+          few: %{count} rezultati
+          other: %{count} rezultatov
+    debates: 
+      debates: 
+        count: 
+          debates_count: 
+            one: %{count} razprava
+            two: %{count} razpravi
+            few: %{count} razprave
+            other: %{count} razprav
+    participatory_process_groups: 
+      show: 
+        group_participatory_processes: 
+          one: 1 proces za %{group}
+          two: %{count} procesa za %{group}
+          few: %{count} procesi za %{group}
+          other: %{count} procesov za %{group}
+    sortitions: 
+      sortitions: 
+        count: 
+          proposals_count: 
+            one: 1 predlog
+            two: %{count} predloga
+            few: %{count} predlogi
+            other: %{count} predlogov
+        filters: 
+          state: Status
+        results_count: 
+          count: 
+            one: izbran predlog
+            two: izbrana predloga
+            few: izbrani predlogi
+            other: izbranih predlogov
+        sortition: 
+          selected_proposals: 
+            one: predlog izbran
+            two: predloga izbrana
+            few: predlogi izbrani
+            other: predlogov izbranih
+        sortitions_count: 
+          count: 
+            one: 1 žreb
+            two: %{count} žreba
+            few: %{count} žrebi
+            other: %{count} žrebov
+    system: 
+      organizations: 
+        smtp_settings: 
+          placeholder: 
+            from_email: vaša-organizacija@vaš-ponudnik.org
+            from_label: ime-vaše-organizacije
+    verifications: 
+      dummy_authorization: 
+        extra_explanation: 
+          postal_codes: 
+            one: Udeležba je omejena na udeležence s poštno številko %{postal_codes}.
+            two: Udeležba je omejena na udeležence s katero koli od naslednjih poštnih številk: %{postal_codes}.
+            few: Udeležba je omejena na udeležence s katero koli od naslednjih poštnih številk: %{postal_codes}.
+            other: Udeležba je omejena na udeležence s katero koli od naslednjih poštnih številk: %{postal_codes}.
+  devise: 
+    omniauth_callbacks: 
+      failure: Zaradi "%{reason}" ni bilo mogoče izvesti vaše avtentifikacije iz %{kind}.
+      success: Uspešna avtentifikacija iz %{kind}.
+    shared: 
+      minimum_password_length: 
+        one: (najmanj %{count} znak)
+        two: (najmanj %{count} znaka)
+        few: (najmanj %{count} znaki)
+        other: (najmanj %{count} znakov)
+  layouts: 
+    decidim: 
+      language_chooser: 
+        close: Zapri
+        select_your_language: Izberite jezik
+      process_navigation: 
+        process_menu_item: Proces
+      user: 
+        logged_in: Prijavljeni
+        logged_in_as: Prijavljeni kot %{user}
+      assemblies: 
+        order_by_assemblies: 
+          assemblies: 
+            one: %{count} skupščina
+            two: %{count} skupščini
+            few: %{count} skupščine
+            other: %{count} skupščin
+      conferences: 
+        order_by_conferences: 
+          conferences: 
+            one: %{count} konferenca
+            two: %{count} konferenci
+            few: %{count} konference
+            other: %{count} konferenc
+  errors: 
+    messages: 
+      not_saved: 
+        one: Pri obdelavi vaše zahteve se je pojavila napaka:
+        two: Pri obdelavi vaše zahteve sta se pojavili napaki:
+        few: Pri obdelavi vaše zahteve se je pojavilo več napak:
+        other: Pri obdelavi vaše zahteve se je pojavilo več napak:
+  forms: 
+    length_validator: 
+      minimum: 
+        one: vsaj %{count} znak
+        two: vsaj %{count} znaka
+        few: vsaj %{count} znaki
+        other: vsaj %{count} znakov
+  locale: 
+    name: angleščina
+  social_share_button: 
+    delicious: Delicious
+    douban: Douban
+    facebook: Facebook
+    google_bookmark: Google Zaznamki
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    telegram: Telegram
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    weibo: Sina Weibo
+    whatsapp_app: WhatsApp
+    whatsapp_web: WhatsApp
+    xing: Xing
