@@ -6,6 +6,12 @@ en:
         subject_id: Topic
       meeting:
         cofe_charter_html: I agree to the <a href="%{url}" target="_blank">charter</a> of the Conference on the Future of Europe
+      user:
+        email: Email address
+        eu_login_department_number: Department
+        eu_login_organisation: Organisation
+        name: Real name
+        user_name: Username
     models:
       decidim/meetings/upcoming_meeting_event: Upcoming event
   activerecord:
@@ -22,22 +28,29 @@ en:
         participatory_processes: Topics
       titles:
         participatory_processes: Topics
+    comments:
+      comments:
+        create:
+          quota_exceeded: Quota exceeded
     components:
       meetings:
         name: Events
         settings:
           global:
             cofe_charter_url: COFE charter URL
+    follows:
+      create:
+        button: Follow
+      destroy:
+        button: Following
     footer_links:
       common:
         items:
-          about_this_site: <a href="#about_this_site">About this site</a>
-          cookies: <a href="#cookies">Cookies</a>
-          language_policy: <a href="#language_policy">Language policy</a>
-          legal_notice: <a href="#legal_notice">Legal notice</a>
-          sitemap: <a href="#sitemap">Sitemap</a>
-          work_for_the_eu: <a href="#work_for_the_eu">Work for the EU</a>
-        last_published: Last published %{date}
+          about_this_site: About this site
+          cookies: Cookies
+          language_policy: Language policy
+          legal_notice: Legal notice
+          sitemap: Sitemap
       contact_the_eu:
         items:
           call_us: Call us <a href="#call_us">00 800 6 7 8 9 10 11</a>
@@ -47,65 +60,61 @@ en:
         title: Contact the EU
       eu_institution:
         items:
-          agencies:
-            label: Agencies
-            url: "#example-16"
           central_bank:
-            label: European Central Bank
-            url: "#example-6"
+            label: European Central Bank (ECB)
+            url: https://www.ecb.europa.eu/home/html/index.en.html
           commission:
             label: European Commission
-            url: "#example-4"
+            url: https://ec.europa.eu/commission/index_en
           council:
             label: European Council
-            url: "#example-2"
+            url: http://www.consilium.europa.eu/en/european-council/
           council_eu:
             label: Council of the European Union
-            url: "#example-3"
+            url: http://www.consilium.europa.eu/en/home/
           court_of_auditors:
-            label: European Court of Auditors
-            url: "#example-7"
+            label: European Court of Auditors (ECA)
+            url: http://www.eca.europa.eu/en
           court_of_justice:
-            label: Court of Justice of the European Commission
-            url: "#example-5"
-          data_protection_board:
-            label: European Data Protection Board
-            url: "#example-13"
+            label: Court of Justice of the European Union (CJEU)
+            url: http://curia.europa.eu/jcms/jcms/j_6/en/
           data_protection_supervisor:
-            label: European Data Protection Supervisor
-            url: "#example-12"
+            label: European Data Protection Supervisor (EDPS)
+            url: https://secure.edps.europa.eu/EDPSWEB/edps/EDPS?lang=en
           economic_social_committee:
-            label: European Economic and Social Committee
-            url: "#example-9"
+            label: European Economic and Social Committee (EESC)
+            url: http://www.eesc.europa.eu/?i=portal.en.home
+          eu_regional_comittee:
+            label: European Committee of the Regions (CoR)
+            url: http://cor.europa.eu/en/
           external_action_service:
-            label: European External Action Service
-            url: "#example-8"
+            label: European External Action Service (EEAS)
+            url: https://eeas.europa.eu/headquarters/headquarters-homepage_en
           investment_bank:
-            label: European Investment Bank
-            url: "#example-10"
-          ombudsman:
-            label: European Ombudsman
-            url: "#example-11"
+            label: European Investment Bank (EIB)
+            url: https://www.eib.org/en/index.htm
           parliament:
             label: European Parliament
-            url: "#example-1"
-          personnel_office:
-            label: European Personnel Selection Office
-            url: "#example-14"
-          publications_office:
-            label: Publications Office of the European Union
-            url: "#example-15"
+            url: http://www.europarl.europa.eu/portal/
         search_for: Search for <a href="#search_for-eu_institution">EU institutions</a>
         title: EU institution
       social_media:
         items:
           search_channels:
             label: Search for EU social media channels
-            url: "#search_for-social_media"
+            url: https://europa.eu/european-union/contact/social-networks_en
         title: Find an EU social media account
     meetings:
       actions:
+        hide: Hide
         new: New event
+        unhide: Show
+      admin:
+        meetings:
+          hidden:
+            success: Meeting hidden
+          unhidden:
+            success: Meeting now visible
       content_blocks:
         upcoming_events:
           upcoming_events: Upcoming events
@@ -127,15 +136,12 @@ en:
       models:
         meeting:
           fields:
+            citizen_meeting: Citizen Event
+            group_meeting: Group Event
             official_meeting: Official event
     menu:
       help: About the Conference
       processes: Topics
-    menu_overwrite:
-      citizens_panels: Citizens panels
-      events: Events
-      plenaries: Plenaries
-      topics: Topics
     metrics:
       meetings:
         object: events
@@ -145,6 +151,7 @@ en:
         extended:
           meetings: Events
         statistics:
+          headline: What is happening at the Conference on the future of Europe?
           meetings_count: Events
           processes_count: Topics
           proposals_count: Ideas
@@ -182,15 +189,18 @@ en:
           explanations:
             no_active: No active topics
       statistics:
+        headline: What is happening at this topic?
         meetings_count: Events
         processes_count: Topics
         proposals_count: Ideas
     participatory_spaces:
       highlighted_meetings:
-        see_all: See all events (%{count})
+        see_all_button: View all
+        see_all_count: "(see all %{count})"
         upcoming_meetings: Upcoming events
       highlighted_proposals:
-        see_all: See all ideas (%{count})
+        see_all_button: View all
+        see_all_count: "(see all %{count})"
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming event
     proposals:
@@ -199,10 +209,15 @@ en:
       proposals:
         count:
           proposals_count:
-            one: "%{count} idea"
-            other: "%{count} ideas"
+            one: "%{count} Idea"
+            other: "%{count} Ideas"
+        filters:
+          activity: Related to
+          origin: Origin
+          state: Category
         index:
           new_proposal: New idea
+          see_all_withdrawn: View all
           view_proposal: View idea
         new:
           title: Share Your Idea
@@ -225,6 +240,8 @@ en:
       success: Successfully authenticated from EU Login account.
   layouts:
     decidim:
+      header:
+        sign_in: Log in
       language_chooser:
         close: Close
         select_your_language: Select your language
