@@ -2,11 +2,9 @@ require 'i18n/tasks/commands'
 require 'csv'
 require "byebug"
 
-# PREVIOUS STEPS
+# You can run this with `bundle exec i18n-tasks csv-import
 #
-# Make sure you're using `i18n-tasks` from this repository:
-#
-# https://github.com/tremend-cofe/i18n-tasks
+# Check that the pattern in `config/in18-tasks.yml` is correct! The pattern points to the CSVs files to convert.
 module I18nCsvTasks
   include ::I18n::Tasks::Command::Collection
 
