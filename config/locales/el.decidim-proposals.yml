@@ -24,7 +24,6 @@ el:
         state: Κατάσταση
         suggested_hashtags: Προτεινόμενα hashtag
         title: Τίτλος
-        user_group_id: Δημιουργία πρότασης ως
       proposal_answer:
         answer: Απάντηση
       proposals_copy:
@@ -59,7 +58,6 @@ el:
       decidim/proposals/endorsing_enabled_event: Η έγκριση πρότασης ενεργοποιήθηκε
       decidim/proposals/evaluating_proposal_event: Η πρόταση βρίσκεται στο στάδιο της αξιολόγησης
       decidim/proposals/proposal_mentioned_event: Έγινε αναφορά στην πρόταση
-      decidim/proposals/publish_proposal_event: Η πρόταση δημοσιεύτηκε
       decidim/proposals/rejected_proposal_event: Η πρόταση απορρίφθηκε
       decidim/proposals/voting_enabled_event: Η ψηφοφορία για την πρόταση ενεργοποιήθηκε
   activerecord:
@@ -67,9 +65,6 @@ el:
       decidim/proposals/collaborative_draft:
         one: Συνεργατικό σχέδιο
         other: Συνεργατικά σχέδια
-      decidim/proposals/proposal:
-        one: Πρόταση
-        other: Προτάσεις
       decidim/proposals/proposal_note:
         one: Σημείωση
         other: Σημειώσεις
@@ -80,12 +75,9 @@ el:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Κατηγορία
           is_emendation_true:
             label: Τύπος
             values:
-              'false': Προτάσεις
               'true': Τροποποιήσεις
           scope_id_eq:
             label: Πεδίο
@@ -114,7 +106,6 @@ el:
           endorse: Έγκριση
           vote: Υποστήριξη
           withdraw: Απόσυρση
-        name: Προτάσεις
         settings:
           global:
             allow_card_image: Να επιτρέπεται εικόνα κάρτας
@@ -136,12 +127,10 @@ el:
             participatory_texts_enabled: Τα συμμετοχικά κείμενα ενεργοποιήθηκαν
             participatory_texts_enabled_readonly: Δεν είναι δυνατή η αλληλεπίδραση με αυτήν τη ρύθμιση, εάν υφίστανται υπάρχουσες προτάσεις. Δημιουργήστε ένα νέο «Στοιχείο προτάσεων», εάν θέλετε να ενεργοποιήσετε αυτήν τη δυνατότητα, ή απορρίψτε όλες τις εισαγόμενες προτάσεις στο μενού «Συμμετοχικά κείμενα», εάν θέλετε να την απενεργοποιήσετε.
             proposal_answering_enabled: Οι απαντήσεις στην πρόταση ενεργοποιήθηκαν
-            proposal_edit_before_minutes: Οι προτάσεις μπορούν να υποβληθούν σε επεξεργασία από τους συντάκτες τους προτού παρέλθει αυτός ο αριθμός λεπτών
             proposal_length: Μέγιστο μήκος σώματος πρότασης
             proposal_limit: Όριο πρότασης ανά συμμετέχοντα
             proposal_wizard_step_1_help_text: Κείμενο βοήθειας για το βήμα «Δημιουργία» του Οδηγού προτάσεων
             proposal_wizard_step_2_help_text: Κείμενο βοήθειας για το βήμα «Σύγκριση» του Οδηγού προτάσεων
-            proposal_wizard_step_3_help_text: Κείμενο βοήθειας για το βήμα «Ολοκλήρωση» του Οδηγού προτάσεων
             proposal_wizard_step_4_help_text: Κείμενο βοήθειας για το βήμα «Δημοσίευση» του Οδηγού προτάσεων
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε πρόταση
             threshold_per_proposal: Κατώτατο όριο ανά πρόταση
@@ -175,9 +164,6 @@ el:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Κάποιος πρόσθεσε μια σημείωση στην πρόταση "%{resource_title}". Δείτε τη στον <a href="%{admin_proposal_info_url}">πίνακα διαχείρισης</a>
-            email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή μπορείτε να αξιολογήσετε την πρόταση.
-            email_subject: Κάποιος πρόσθεσε μια σημείωση στην πρόταση %{resource_title}.
             notification_title: Κάποιος πρόσθεσε μια σημείωση στην πρόταση <a href="%{resource_path}">%{resource_title}</a>. Δείτε τη στον <a href="%{admin_proposal_info_path}">πίνακα διαχείρισης</a>
         collaborative_draft_access_accepted:
           email_intro: 'Ο χρήστης %{requester_name} έγινε δεκτός ως συνεργαζόμενος στο συνεργατικό προσχέδιο <a href="%{resource_path}">%{resource_title}</a>.'
@@ -210,77 +196,34 @@ el:
           email_subject: "Ο χρήστης %{author_name} %{author_nickname} απέσυρε το συνεργατικό προσχέδιο %{resource_title}."
           notification_title: Ο χρήστης <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>απέσυρε</strong> το συνεργατικό προσχέδιο <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Μπορείτε πλέον να δημιουργήσετε νέες προτάσεις στον συμμετοχικό χώρο %{participatory_space_title}! Έναρξη συμμετοχής σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Οι προτάσεις είναι πλέον διαθέσιμες στον συμμετοχικό χώρο %{participatory_space_title}
-          notification_title: Μπορείτε πλέον να υποβάλετε <a href="%{resource_path}">νέες προτάσεις</a> στον συμμετοχικό χώρο <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Μπορείτε να εγκρίνετε προτάσεις στον συμμετοχικό χώρο %{participatory_space_title}! Έναρξη συμμετοχής σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Η έγκριση προτάσεων ξεκίνησε για τον συμμετοχικό χώρο %{participatory_space_title}
-          notification_title: Μπορείτε πλέον να ξεκινήσετε <a href="%{resource_path}">να εγκρίνετε προτάσεις</a> στον συμμετοχικό χώρο <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Η πρότασή σας "%{resource_title}" έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης %{resource_title}.
-            email_subject: Η πρότασή σας έγινε δεκτή
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> έγινε δεκτή.
           follower:
-            email_intro: 'Η πρόταση "%{resource_title}" έγινε δεκτή. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον πόρο %{resource_title}. Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε έγινε δεκτή
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> έγινε δεκτή.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Η πρότασή σας "%{resource_title}" βρίσκεται στο στάδιο της αξιολόγησης. Μπορείτε να ελέγξετε αν υπάρχει απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης %{resource_title}.
-            email_subject: Η πρότασή σας βρίσκεται στο στάδιο της αξιολόγησης
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> βρίσκεται στο στάδιο της αξιολόγησης.
           follower:
-            email_intro: 'Η πρόταση "%{resource_title}" βρίσκεται στο στάδιο της αξιολόγησης. Μπορείτε να ελέγξετε αν υπάρχει απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον πόρο %{resource_title}. Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε βρίσκεται στο στάδιο της αξιολόγησης
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> βρίσκεται στο στάδιο της αξιολόγησης.
         proposal_mentioned:
-          email_intro: Η πρότασή σας "%{mentioned_proposal_title}" αναφέρθηκε <a href="%{resource_url}">σε αυτόν τον χώρο</a>, στα σχόλια.
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης %{resource_title}.
-          email_subject: Η πρότασή σας "%{mentioned_proposal_title}" αναφέρθηκε
-          notification_title: Η πρότασή σας "%{mentioned_proposal_title}" αναφέρθηκε <a href="%{resource_path}">σε αυτόν τον χώρο</a>, στα σχόλια.
         proposal_published:
-          email_intro: 'Ο χρήστης %{author_name} %{author_nickname}, τον οποίο ακολουθείτε, δημοσίευσε μια νέα πρόταση με τον τίτλο "%{resource_title}". Δείτε τον και λάβετε μέρος:'
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα πρόταση "%{resource_title}" από τον συντάκτη %{author_nickname}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε από τον χρήστη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
-          email_intro: Η πρόταση "%{resource_title}" προστέθηκε στον συμμετοχικό χώρο "%{participatory_space_title}" που ακολουθείτε.
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο "%{participatory_space_title}". Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Η νέα πρόταση "%{resource_title}" προστέθηκε στον συμμετοχικό χώρο %{participatory_space_title}
-          notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> προστέθηκε στον συμμετοχικό χώρο %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Η πρότασή σας "%{resource_title}" απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης %{resource_title}.
-            email_subject: Η πρότασή σας απορρίφθηκε
-            notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
           follower:
-            email_intro: 'Η πρόταση "%{resource_title}" απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον πόρο %{resource_title}. Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-            email_subject: Μια πρόταση που ακολουθείτε απορρίφθηκε
-            notification_title: Η πρόταση <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
-        proposal_update_category:
-          email_intro: 'Ένας διαχειριστής επικαιροποίησε την κατηγορία της πρότασής σας "%{resource_title}", δείτε την σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης.
-          email_subject: Η κατηγορία της πρότασης %{resource_title} επικαιροποιήθηκε.
-          notification_title: Η κατηγορία της πρότασης <a href="%{resource_path}">%{resource_title}</a> επικαιροποιήθηκε από έναν διαχειριστή.
         proposal_update_scope:
-          email_intro: 'Ένας διαχειριστής επικαιροποίησε το πεδίο της πρότασής σας "%{resource_title}", δείτε το σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή είστε συντάκτης της πρότασης.
-          email_subject: Το πεδίο της πρότασης %{resource_title} επικαιροποιήθηκε
           notification_title: Το πεδίο της πρότασης <a href="%{resource_path}">%{resource_title}</a> επικαιροποιήθηκε από έναν διαχειριστή.
         voting_enabled:
-          email_intro: 'Μπορείτε να υποστηρίξετε προτάσεις στον συμμετοχικό χώρο %{participatory_space_title}! Έναρξη συμμετοχής σε αυτήν τη σελίδα:'
           email_outro: Λάβατε αυτήν την ειδοποίηση, επειδή ακολουθείτε τον συμμετοχικό χώρο %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων, ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Η υποστήριξη προτάσεων ξεκίνησε για τον συμμετοχικό χώρο %{participatory_space_title}
           notification_title: Μπορείτε πλέον να ξεκινήσετε <a href="%{resource_path}">να υποστηρίζετε προτάσεις</a> στον συμμετοχικό χώρο <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -288,39 +231,17 @@ el:
           conditions: |-
             Επιλέξτε τον συμμετοχικό χώρο ο οποίος σας ενδιαφέρει και παρέχει τη δυνατότητα υποβολής προτάσεων.
             Προσπαθήστε να υποβάλλετε προτάσεις που μπορούν να πραγματοποιηθούν. Έτσι είναι πιθανότερο να γίνουν δεκτές.
-          description: Αυτό το σήμα απονέμεται όταν συμμετέχετε ενεργά σε νέες προτάσεις και αυτές γίνονται αποδεκτές.
-          description_another: Αυτός ο συμμετέχων είχε %{score} προτάσεις που έγιναν δεκτές.
-          description_own: Έχετε %{score} προτάσεις που έγιναν δεκτές.
-          name: Προτάσεις που έγιναν δεκτές
-          next_level_in: Καταφέρετε να κάνετε δεκτές %{score} ακόμη προτάσεις για να περάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει ακόμη καμία πρόταση που να έχει γίνει δεκτή.
-          unearned_own: Δεν έχετε ακόμη καμία πρόταση που να έχει γίνει δεκτή.
         proposal_votes:
           conditions: |-
             Περιηγηθείτε και αφιερώστε λίγο χρόνο διαβάζοντας τις προτάσεις άλλων ατόμων.
             Υποστηρίξτε προτάσεις που σας αρέσουν ή σας ενδιαφέρουν.
-          description: Αυτό το σήμα απονέμεται όταν υποστηρίζετε προτάσεις άλλων ατόμων.
-          description_another: Αυτός ο συμμετέχων έχει υποστηρίξει %{score} προτάσεις.
-          description_own: Έχετε υποστηρίξει %{score} προτάσεις.
-          name: Υποστηρίξεις προτάσεων
-          next_level_in: Υποστηρίξτε %{score} ακόμη προτάσεις για να περάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει υποστηρίξει καμία πρόταση ακόμη.
-          unearned_own: Δεν έχετε υποστηρίξει καμία πρόταση ακόμη.
         proposals:
           conditions: |-
             Επιλέξτε τον συμμετοχικό χώρο ο οποίος σας ενδιαφέρει και παρέχει τη δυνατότητα υποβολής προτάσεων.
             Δημιουργήστε μια νέα πρόταση
-          description: Αυτό το σήμα απονέμεται όταν συμμετέχετε ενεργά σε νέες προτάσεις.
-          description_another: Αυτός ο συμμετέχων έχει δημιουργήσει %{score} προτάσεις.
-          description_own: Έχετε δημιουργήσει %{score} προτάσεις.
-          name: Προτάσεις
-          next_level_in: Δημιουργήστε %{score} ακόμη προτάσεις για να περάσετε στο επόμενο επίπεδο!
-          unearned_another: Αυτός ο συμμετέχων δεν έχει δημιουργήσει καμία πρόταση ακόμη.
-          unearned_own: Δεν έχετε δημιουργήσει καμία πρόταση ακόμη.
     metrics:
       accepted_proposals:
         description: Αριθμός προτάσεων που έγιναν δεκτές
-        object: προτάσεις
         title: Προτάσεις που έγιναν δεκτές
       endorsements:
         description: Αριθμός εγκρίσεων σε προτάσεις
@@ -328,8 +249,6 @@ el:
         title: Εγκρίσεις
       proposals:
         description: Αριθμός προτάσεων
-        object: προτάσεις
-        title: Προτάσεις
       votes:
         description: Αριθμός δηλώσεων υποστήριξης σε προτάσεις
         object: δηλώσεις υποστήριξης
@@ -344,21 +263,15 @@ el:
     proposals:
       actions:
         answer_proposal: Απάντηση στην πρόταση
-        edit_proposal: Επεξεργασία πρότασης
         import: Εισαγωγή από άλλο στοιχείο
         new: Νέα πρόταση
         participatory_texts: Συμμετοχικά κείμενα
-        show: Εμφάνιση πρότασης
         title: Ενέργειες
       admin:
         actions:
           preview: Προεπισκόπηση
         exports:
           comments: Σχόλια
-          proposals: Προτάσεις
-        models:
-          proposal:
-            name: Πρόταση
         participatory_texts:
           bulk-actions:
             are_you_sure: Είστε βέβαιοι ότι θέλετε να απορρίψετε ολόκληρο το προσχέδιο συμμετοχικού κειμένου;
@@ -382,7 +295,6 @@ el:
             upload_document: Μεταφόρτωση εγγράφου
           publish:
             invalid: Δεν ήταν δυνατή η δημοσίευση προτάσεων
-            success: Όλες οι προτάσεις έχουν δημοσιευτεί
           sections:
             article: "<em>Άρθρο</em>"
             section: "<em>Ενότητα:</em> <strong>%{title}</strong>"
@@ -399,7 +311,6 @@ el:
         proposal_notes:
           create:
             error: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της σημείωσης πρότασης
-            success: Η σημείωση πρότασης δημιουργήθηκε με επιτυχία
           form:
             note: Σημείωση
             submit: Υποβολή
@@ -411,7 +322,6 @@ el:
             success: Η πρόταση απαντήθηκε με επιτυχία
           create:
             invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της πρότασης
-            success: Η πρόταση δημιουργήθηκε με επιτυχία
           edit:
             title: Επικαιροποίηση πρότασης
             update: Επικαιροποίηση
@@ -435,7 +345,6 @@ el:
             selected: επιλέχθηκε
             split: Διαχωρισμός προτάσεων
             split_button: Διαχωρισμός
-            title: Προτάσεις
             unassign_from_valuator: Ακύρωση ανάθεσης σε αξιολογητή
             unassign_from_valuator_button: Ακύρωση ανάθεσης
             update: Επικαιροποίηση
@@ -465,7 +374,6 @@ el:
               one: και 1 ακόμη
               other: και %{count} ακόμη
             photos: Φωτογραφίες
-            proposals: Προτάσεις
             ranking: "%{ranking} από %{total}"
             related_meetings: Σχετικές συνεδριάσεις
             remove_assignment: Κατάργηση ανάθεσης
@@ -474,15 +382,12 @@ el:
             votes_count: Αριθμός δηλώσεων υποστήριξης
             votes_ranking: Κατάταξη βάσει δηλώσεων υποστήριξης
           update_category:
-            invalid: 'Οι προτάσεις είχαν ήδη την κατηγορία %{subject_name} %{proposals}.'
             select_a_category: Επιλέξτε κατηγορία
             select_a_proposal: Επιλέξτε πρόταση
             success: 'Οι προτάσεις επικαιροποιήθηκαν με επιτυχία στην κατηγορία %{subject_name}: %{proposals}.'
           update_scope:
-            invalid: 'Οι προτάσεις είχαν ήδη το πεδίο %{subject_name}: %{proposals}.'
             select_a_proposal: Επιλέξτε πρόταση
             select_a_scope: Επιλέξτε πεδίο
-            success: 'Οι προτάσεις επικαιροποιήθηκαν με επιτυχία στο πεδίο %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Παρουσιάστηκε πρόβλημα κατά την εισαγωγή των προτάσεων
@@ -491,7 +396,6 @@ el:
             create: Εισαγωγή προτάσεων
             no_components: Δεν υπάρχουν στοιχεία προτάσεων σε αυτόν τον συμμετοχικό χώρο από τον οποίο μπορούν να εισαχθούν οι προτάσεις.
             select_component: Επιλέξτε στοιχείο
-            select_states: Ελέγξτε την κατάσταση των προτάσεων προς εισαγωγή
         proposals_merges:
           create:
             invalid: Παρουσιάστηκε πρόβλημα κατά τη συγχώνευση των επιλεγμένων προτάσεων.
@@ -530,7 +434,6 @@ el:
         filter_origin_values:
           all: Όλα
           citizens: Πολίτες
-          meetings: Συνεδριάσεις
           official: Επίσημος
           user_groups: Ομάδες
         filter_scope_values:
@@ -544,7 +447,6 @@ el:
         filter_type_values:
           all: Όλα
           amendments: Τροποποιήσεις
-          proposals: Προτάσεις
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -669,7 +571,6 @@ el:
         success: Η πρόταση δημιουργήθηκε με επιτυχία Αποθηκεύτηκε ως προσχέδιο.
       destroy_draft:
         error: Παρουσιάστηκε πρόβλημα κατά τη διαγραφή του συνεργατικού προσχεδίου.
-        success: Το προσχέδιο πρότασης διαγράφηκε με επιτυχία.
       last_activity:
         new_proposal_at_html: "<span>Νέα πρόταση στον σύνδεσμο %{link}</span>"
       models:
@@ -707,11 +608,8 @@ el:
       proposals:
         compare:
           continue: Συνέχεια
-          no_similars_found: Μπράβο! Δεν βρέθηκαν παρόμοιες προτάσεις
-          title: Παρόμοιες προτάσεις
         complete:
           send: Αποστολή
-          title: Ολοκληρώστε την πρότασή σας
         count:
           proposals_count:
             one: "%{count} πρόταση"
@@ -720,19 +618,15 @@ el:
           attachment_legend: "(Προαιρετικό) Προσθήκη συνημμένου"
           back: Πίσω
           select_a_category: Επιλέξτε κατηγορία
-          send: Αποστολή
           title: Επεξεργασία πρότασης
         edit_draft:
           discard: Απόρριψη αυτού του σχεδίου
-          discard_confirmation: Είστε βέβαιοι ότι θέλετε να απορρίψετε αυτό το προσχέδιο πρότασης;
           send: Προεπισκόπηση
-          title: Επεξεργασία προσχεδίου πρότασης
         filters:
           activity: Η δραστηριότητά μου
           all: Όλα
           amendment_type: Τύπος
           category: Κατηγορία
-          my_proposals: Οι προτάσεις μου
           origin: Προέλευση
           related_to: Σχετικά με
           scope: Πεδίο
@@ -758,13 +652,11 @@ el:
           send: Συνέχεια
           title: Δημιουργήστε την πρότασή σας
         orders:
-          label: 'Ταξινόμηση προτάσεων κατά:'
           most_commented: Περισσότερα σχόλια
           most_endorsed: Περισσότερες εγκρίσεις
           most_followed: Περισσότερο ακολουθούμενες
           most_voted: Περισσότερο υποστηριζόμενες
           random: Τυχαία σειρά
-          recent: Πρόσφατα
           with_more_authors: Με περισσότερους συντάκτες
         participatory_texts:
           index:
@@ -772,26 +664,16 @@ el:
           view_index:
             see_index: Βλ. ευρετήριο
         preview:
-          modify: Τροποποιήστε την πρόταση
-          proposal_edit_before_minutes:
-            one: Θα μπορείτε να επεξεργαστείτε αυτήν την πρόταση κατά τη διάρκεια του πρώτου λεπτού μετά τη δημοσίευση της πρότασης. Μόλις περάσει αυτό το χρονικό διάστημα, δεν θα μπορείτε να επεξεργαστείτε την πρόταση.
-            other: Θα μπορείτε να επεξεργαστείτε αυτήν την πρόταση κατά τη διάρκεια των πρώτων %{count} λεπτών μετά τη δημοσίευση της πρότασης. Μόλις περάσει αυτό το χρονικό διάστημα, δεν θα μπορείτε να επεξεργαστείτε την πρόταση.
           publish: Δημοσίευση
-          title: Δημοσιεύστε την πρότασή σας
         proposal:
           creation_date: 'Δημιουργία: %{date}'
           view_proposal: Προβολή πρότασης
-        proposals:
-          empty: Δεν υπάρχει καμία πρόταση ακόμη
-          empty_filters: Δεν υπάρχει καμία πρόταση με αυτά τα κριτήρια
         show:
           answer: Απάντηση
           back_to: Επιστροφή σε
           back_to_list: Επιστροφή στον κατάλογο
           changes_at_title: Τροποποίηση του "%{title}"
           comments: Σχόλια
-          edit_proposal: Επεξεργασία πρότασης
-          endorsements_list: Κατάλογος εγκρίσεων
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
             one: και %{count} ακόμη άτομο
@@ -801,20 +683,14 @@ el:
           link_to_promoted_emendation_help_text: Η πρόταση αυτή είναι μια προωθημένη διόρθωση
           link_to_promoted_emendation_text: Δείτε τη διόρθωση που απορρίφθηκε.
           link_to_proposal_from_emendation_help_text: Αυτή είναι μια διόρθωση που απορρίφθηκε
-          link_to_proposal_from_emendation_text: Εμφάνιση της πρότασης
           proposal_accepted_reason: 'Η πρόταση έγινε δεκτή, επειδή:'
           proposal_in_evaluation_reason: Η πρόταση αυτή βρίσκεται στο στάδιο της αξιολόγησης
           proposal_rejected_reason: 'Η πρόταση απορρίφθηκε, επειδή:'
           read_less: Διαβάστε λιγότερα
           read_more: Διαβάστε περισσότερα
           report: Αναφορά
-          withdraw_btn_hint: Μπορείτε να αποσύρετε την πρότασή σας εάν αλλάξετε γνώμη, αρκεί να μην έχετε λάβει υποστήριξη. Η πρόταση δεν διαγράφεται, θα εμφανίζεται στον κατάλογο των προτάσεων που αποσύρθηκαν.
-          withdraw_confirmation_html: Είστε βέβαιοι ότι θέλετε να αποσύρετε την πρόταση;<br><br><strong>Αυτή η ενέργεια δεν μπορεί να ακυρωθεί!</strong>
-          withdraw_proposal: Απόσυρση πρότασης
         tags:
           changed_from: "(άλλαξε από <u>%{previous_name}</u> από έναν διαχειριστή)"
-        update:
-          title: Επικαιροποίηση πρότασης
         vote_button:
           already_voted: Υποστηρίζεται ήδη
           already_voted_hover: Απόσυρση υποστήριξης
@@ -826,7 +702,6 @@ el:
           count:
             one: Υποστήριξη
             other: Δηλώσεις υποστήριξης
-          most_popular_proposal: Η πιο δημοφιλής πρόταση
           need_more_votes: Χρειάζονται περισσότερες δηλώσεις υποστήριξης
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -848,7 +723,6 @@ el:
           back: Πίσω
           back_from_step_1: Επιστροφή στις προτάσεις
           back_from_step_2: Επιστροφή στις προτάσεις
-          back_from_step_3: Επιστροφή στη σύγκριση προτάσεων
           back_from_step_4: Επιστροφή στην επεξεργασία προσχεδίου
           info: Δημιουργείτε μια <strong>πρόταση</strong>.
         wizard_steps:
@@ -856,26 +730,18 @@ el:
           see_steps: εμφάνιση βημάτων
           step_1: Δημιουργήστε την πρότασή σας
           step_2: Σύγκριση
-          step_3: Πλήρης
           step_4: Δημοσιεύστε την πρότασή σας
           step_of: Βήμα %{current_step_num} από %{total_steps}
           title: Βήματα δημιουργίας πρότασης
       proposals_picker:
-        choose_proposals: Επιλέξτε προτάσεις
         close: Κλείσιμο
         more_proposals: Υπάρχουν %{number} ακόμη προτάσεις. Περιορίστε την αναζήτησή σας για να τις εντοπίσετε.
-        no_proposals: Δεν υπάρχουν προτάσεις που να συμφωνούν με τα κριτήρια αναζήτησης ή δεν υπάρχει καμία πρόταση.
-      publish:
-        error: Παρουσιάστηκε πρόβλημα κατά τη δημοσίευση της πρότασης.
-        success: Η πρόταση δημοσιεύτηκε με επιτυχία.
       publish_answers:
         success: Οι απαντήσεις των προτάσεων δημοσιεύτηκαν με επιτυχία.
       update:
         error: Παρουσιάστηκε πρόβλημα κατά την αποθήκευση της πρότασης.
-        success: Η πρόταση επικαιροποιήθηκε με επιτυχία.
       update_draft:
         error: Παρουσιάστηκε πρόβλημα κατά την αποθήκευση του συνεργατικού προσχεδίου.
-        success: Το προσχέδιο πρότασης επικαιροποιήθηκε με επιτυχία.
       versions:
         collaborative_drafts:
           back_to_resource: Επιστροφή στο συνεργατικό προσχέδιο
@@ -887,8 +753,6 @@ el:
         errors:
           has_supports: Η πρόταση αυτή δεν μπορεί να αποσυρθεί διότι έχει ήδη δηλώσεις υποστήριξης.
     resource_links:
-      copied_from_component:
-        proposal_proposal: Σχετικές προτάσεις
       included_projects:
         project_result: 'Αποτελέσματα που εμφανίζονται σε αυτό το έργο:'
       included_proposals:
