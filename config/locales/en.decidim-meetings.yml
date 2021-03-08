@@ -11,10 +11,10 @@ en:
         attending_organizations: List of organizations that attended
         closing_report: Report
         contributions_count: Number of contributions
-        proposal_ids: Proposals created in the meeting
+        proposal_ids: Ideas created in the meeting
       meeting:
         address: Address
-        available_slots: Available slots for this meeting
+        available_slots: Available slots for this event
         decidim_category_id: Category
         decidim_scope_id: Scope
         decidim_user_group_id: User group
@@ -50,13 +50,13 @@ en:
             email:
               already_invited: This email account has already been invited
     models:
-      decidim/meetings/close_meeting_event: Meeting closed
-      decidim/meetings/create_meeting_event: Meeting
+      decidim/meetings/close_meeting_event: Event closed
+      decidim/meetings/create_meeting_event: Event
       decidim/meetings/meeting_registrations_enabled_event: Registrations enabled
       decidim/meetings/meeting_registrations_over_percentage_event: Registrations
         over limit
       decidim/meetings/upcoming_meeting_event: Upcoming meeting
-      decidim/meetings/update_meeting_event: Meeting updated
+      decidim/meetings/update_meeting_event: Event updated
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -102,52 +102,34 @@ en:
       meetings:
         meeting_closed:
           affected_user:
-            email_intro: 'Your meeting "%{resource_title}" was closed. You can read
-              the conclusions from its page:'
-            email_outro: You have received this notification because you organized
-              the "%{resource_title}" meeting.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              meeting was closed.
+            email_intro: 'Your event "%{resource_title}" was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you organized the "%{resource_title}" event.
+            email_subject: The "%{resource_title}" event was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> event was closed.
           follower:
-            email_intro: 'The "%{resource_title}" meeting was closed. You can read
-              the conclusions from its page:'
-            email_outro: You have received this notification because you are following
-              the "%{resource_title}" meeting. You can unfollow it from the previous
-              link.
-            email_subject: The "%{resource_title}" meeting was closed
-            notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-              meeting was closed.
+            email_intro: 'The "%{resource_title}" event was closed. You can read the conclusions from its page:'
+            email_outro: You have received this notification because you are following the "%{resource_title}" event. You can unfollow it from the previous link.
+            email_subject: The "%{resource_title}" event was closed
+            notification_title: The <a href="%{resource_path}">%{resource_title}</a> event was closed.
         meeting_created:
-          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}"
-            that you are following.
+          email_intro: The event "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following
             "%{participatory_space_title}". You can unfollow it from the previous
             link.
-          email_subject: New meeting added to %{participatory_space_title}
-          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a>
-            has been added to %{participatory_space_title}
+          email_subject: New event added to %{participatory_space_title}
+          notification_title: The event <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registration_confirmed:
-          notification_title: Your registration for the meeting <a href="%{resource_url}">%{resource_title}</a>
-            has been confirmed. Your registration code is %{registration_code}.
+          notification_title: Your registration for the event <a href="%{resource_url}">%{resource_title}</a> has been confirmed. Your registration code is %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: The allocated slots for the "%{resource_title}" meeting are
-            over %{percentage}%.
-          email_outro: You have received this notification because you are an admin
-            of the meeting's participatory space.
-          email_subject: The allocated slots for the "%{resource_title}" meeting are
-            over %{percentage}%
-          notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a>
-            meeting are over %{percentage}%.
+          email_intro: The allocated slots for the "%{resource_title}" event are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the event's participatory space.
+          email_subject: The allocated slots for the "%{resource_title}" event are over %{percentage}%
+          notification_title: The allocated slots for the <a href="%{resource_path}">%{resource_title}</a> event are over %{percentage}%.
         meeting_updated:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read
-            the new version from its page:'
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
-          email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting was updated.
+          email_intro: 'The "%{resource_title}" event was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" event. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" event was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> event was updated.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}"
             meeting has been validated.
@@ -158,32 +140,24 @@ en:
           notification_title: Your registration code "%{registration_code}" for the
             <a href="%{resource_path}">%{resource_title}</a> meeting has been validated.
         registrations_enabled:
-          email_intro: 'The "%{resource_title}" meeting has enabled registrations.
-            You can register yourself on its page:'
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
-          email_subject: The "%{resource_title}" meeting has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting has enabled registrations.
+          email_intro: 'The "%{resource_title}" event has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" event. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" event has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> event has enabled registrations.
         upcoming_meeting:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following
-            the "%{resource_title}" meeting. You can unfollow it from the previous
-            link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            meeting will start in less than 48h.
+          email_intro: The "%{resource_title}" event will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" event. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" event will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> event will start in less than 48h.
     gamification:
       badges:
         attended_meetings:
           conditions: Register for the meetings you want to attend
-          description: This badge is granted when you attend several face-to-face
-            meetings.
+          description: This badge is granted when you attend several face-to-face events.
           description_another: This participant has attended %{score} meetings.
           description_own: You have attended %{score} meetings.
-          name: Attended meetings
-          next_level_in: Attend %{score} more meetings to reach the next level!
+          name: Attended events
+          next_level_in: Attend %{score} more events to reach the next level!
           unearned_another: This participant hasn't attended any meeting yet.
           unearned_own: You haven't attended any meeting yet.
     meetings:
@@ -274,7 +248,7 @@ en:
         meeting_closes:
           edit:
             close: Close
-            title: Close meeting
+            title: Close event
         meetings:
           close:
             invalid: There was a problem closing this meeting
@@ -301,7 +275,7 @@ en:
           index:
             title: Meetings
           new:
-            create: Create
+            create: Publish your event
             title: Create meeting
           service:
             description: Description
@@ -403,14 +377,14 @@ en:
             space_type: Participatory space
             upcoming: Upcoming
       last_activity:
-        new_meeting_at_html: "<span>New meeting at %{link}</span>"
+        new_meeting_at_html: "<span>New event at %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
-            subject: Your meeting's registration has been confirmed
+            subject: Your event's registration has been confirmed
       meeting:
         not_allowed: You are not allowed to view this meeting
       meetings:
@@ -420,10 +394,10 @@ en:
             other: "%{count} meetings"
         create:
           invalid: There was a problem creating this meeting.
-          success: You have created the meeting successfully.
+          success: You have created the event successfully.
         edit:
           back: Back
-          title: Edit Your Meeting
+          title: Edit Your Event
           update: Update
         filters:
           category: Category
@@ -432,11 +406,11 @@ en:
             all: All
             past: Past
             upcoming: Upcoming
-          origin: Origin
+          origin: Organised by
           origin_values:
             all: All
-            citizens: Citizens
-            official: Official
+            citizens: Others
+            official: Member States & EU Institutions
             user_groups: Groups
           scope: Scope
           search: Search
@@ -448,10 +422,8 @@ en:
         form:
           address_help: 'Address: used by Geocoder to find the location'
           create_as: Create meeting as
-          location_help: 'Location: message directed to the users implying the spot
-            to meet at'
-          location_hints_help: 'Location hints: additional info. Example: the floor
-            of the building'
+          location_help: 'Location: message directed to the users implying the spot to meet at'
+          location_hints_help: Hints on how to get there.
           select_a_category: Please select a category
         index:
           new_meeting: New meeting
@@ -459,10 +431,8 @@ en:
           meeting_minutes: Meeting Minutes
           related_information: Related Information
         meetings:
-          no_meetings_warning: No meetings match your search criteria or there isn't
-            any meeting scheduled.
-          upcoming_meetings_warning: Currently, there are no scheduled meetings, but
-            here you can find all the past meetings listed.
+          no_meetings_warning: No events match your search criteria or there isn't any event scheduled.
+          upcoming_meetings_warning: There are currently no upcoming events, but you can find all past events listed here.
         new:
           back: Back
           create: Create
@@ -475,10 +445,10 @@ en:
           back: Back to list
           contributions: Contributions count
           date: Date
-          edit_meeting: Edit meeting
+          edit_meeting: Edit event
           going: Going
-          join: Join meeting
-          meeting_report: Meeting report
+          join: Join event
+          meeting_report: Event report
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code
@@ -493,7 +463,7 @@ en:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
       meetings_map:
-        view_meeting: View meeting
+        view_meeting: View event
       models:
         invite:
           fields:
@@ -516,15 +486,13 @@ en:
       read_more: "(read more)"
       registration_mailer:
         confirmation:
-          confirmed_html: Your registration for the meeting <a href="%{url}">%{title}</a>
-            has been confirmed.
-          details: You will find the meeting's details in the attachment.
+          confirmed_html: Your registration for the event <a href="%{url}">%{title}</a> has been confirmed.
+          details: You will find the event's details in the attachment.
           registration_code: Your registration code is %{code}.
       registrations:
         create:
           invalid: There was a problem joining this meeting.
-          success: You have joined the meeting successfully. Because you have registered
-            for this meeting, you'll be notified if there are updates on it.
+          success: You have joined the event successfully. Because you have registered for this event, you'll be notified if there are updates on it.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
@@ -535,7 +503,7 @@ en:
         private_meeting: Private meeting
         transparent: Transparent
       versions:
-        back_to_resource: Go back to meeting
+        back_to_resource: Go back to event
     metrics:
       meetings:
         description: Number of meetings created
@@ -548,18 +516,18 @@ en:
           upcoming_meetings: Upcoming meetings
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Past meetings
+        past_meetings: Past events
         see_all: See all meetings (%{count})
         upcoming_meetings: Upcoming meetings
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming meeting
     resource_links:
       meetings_through_proposals:
-        meeting_result: 'Related results:'
-        result_meeting: 'Related meetings:'
+        meeting_result: Related events
+        result_meeting: Related events
       proposals_from_meeting:
-        meeting_proposal: 'Related proposals:'
-        proposal_meeting: 'Related meetings:'
+        meeting_proposal: Related ideas
+        proposal_meeting: 'Related events:'
   devise:
     mailer:
       join_meeting:

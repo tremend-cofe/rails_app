@@ -7,14 +7,17 @@ en:
       meeting:
         cofe_charter_html: I agree to the <a href="%{url}" target="_blank">charter</a> of the Conference on the Future of Europe
       user:
-        email: Email address
+        email: Email
         eu_login_department_number: Department
         eu_login_organisation: Organisation
-        name: Real name
+        name: Name
         user_name: Username
     models:
       decidim/meetings/upcoming_meeting_event: Upcoming event
   activerecord:
+    attributes:
+      user:
+        created_at: Posted on
     models:
       decidim/meetings/meeting:
         one: Event
@@ -34,10 +37,36 @@ en:
           quota_exceeded: Quota exceeded
     components:
       meetings:
-        name: Events
+        name: Events happening now
         settings:
           global:
-            cofe_charter_url: COFE charter URL
+            cofe_charter_url: CoFE charter URL
+    content_blocks:
+      slider:
+        name: Slider
+      slider_settings_form:
+        image_0: First image
+        image_1: Second image
+        image_2: Third image
+        image_3: Fourth image
+        image_4: Fifth image
+        image_caption_0: First image caption
+        image_caption_1: Second image caption
+        image_caption_2: Third image caption
+        image_caption_3: Fourth image caption
+        image_caption_4: Fifth image caption
+        link_caption_0: First link caption
+        link_caption_1: Second link caption
+        link_caption_2: Third link caption
+        link_href_0: First link URL
+        link_href_1: Second link URL
+        link_href_2: Third link URL
+        sub_header: Sub Header
+        welcome: Welcome Text
+    events:
+      reports:
+        resource_hidden:
+          notification_title: 'A moderator has removed your %{resource_type} because it has been reported as %{report_reasons}.</br><i>%{resource_content}</i></br>See explanation below:'
     follows:
       create:
         button: Follow
@@ -104,6 +133,23 @@ en:
             label: Search for EU social media channels
             url: https://europa.eu/european-union/contact/social-networks_en
         title: Find an EU social media account
+    gamification:
+      badges:
+        accepted_proposals:
+          conditions:
+            '0': Choose the participation space of your interest with submission for ideas enabled
+            '1': Try to submit ideas that can be carried out. This way they are more likely to be accepted.
+        attended_meetings:
+          conditions:
+            '0': Register for the events you want to attend
+        proposal_votes:
+          conditions:
+            '0': Browse and spend some time reading other people's ideas
+            '1': Give support to the ideas you like or find interesting
+        proposals:
+          conditions:
+            '0': Choose the participation space of your interest with submission for ideas enabled
+            '1': Create a new idea
     meetings:
       actions:
         hide: Hide
@@ -111,6 +157,10 @@ en:
         unhide: Show
       admin:
         meetings:
+          edit:
+            title: Edit event
+          form:
+            select_a_meeting_type: Please select an event type
           hidden:
             success: Meeting hidden
           unhidden:
@@ -121,18 +171,29 @@ en:
       directory:
         meetings:
           index:
-            meetings: Events
+            meetings: Events happening now
+            subheading1: Have your voice heard and share your ideas with online and in-person events happening near you.
+      meeting_closes:
+        edit:
+          close: Close event
+          title: Close event
       meetings:
         count:
           meetings_count:
             one: "%{count} event"
             other: "%{count} events"
+        filters:
+          type: Event types
         form:
           create_as: Organise event as
         index:
           new_meeting: New event
         new:
           title: Organise Your Event
+        online_meeting_link:
+          online_event: Go to the event's website
+        show:
+          close_meeting: Close event
       models:
         meeting:
           fields:
@@ -157,6 +218,8 @@ en:
           proposals_count: Ideas
       index:
         title: About the Conference
+      tabbed:
+        unfold: Unfold
     participatory_processes:
       index:
         title: Topics
@@ -175,8 +238,8 @@ en:
         filters:
           counters:
             active:
-              one: 1 active topic
-              other: "%{count} active topics"
+              one: 1 Topics we're talking about
+              other: Our topics
             all:
               one: 1 topic
               other: "%{count} topics"
@@ -204,6 +267,9 @@ en:
       upcoming_meeting_for_card:
         upcoming_meeting: Upcoming event
     proposals:
+      content_blocks:
+        highlighted_proposals:
+          proposals: Ideas
       last_activity:
         new_proposal_at_html: "<span>New idea at %{link}</span>"
       proposals:
@@ -211,13 +277,17 @@ en:
           proposals_count:
             one: "%{count} Idea"
             other: "%{count} Ideas"
+        edit:
+          gallery_legend: "(Optional) Add an image to the idea card"
         filters:
-          activity: Related to
+          activity: My activity
           origin: Origin
           state: Category
         index:
+          heading: Share an idea with us
           new_proposal: New idea
-          see_all_withdrawn: View all
+          see_all_withdrawn: See all withdrawn ideas
+          subheading1: As well as sharing your own ideas, you can also find other ideas from across Europe. Join the discussion by leaving a comment, or vote for ideas you like so more people can find them.
           view_proposal: View idea
         new:
           title: Share Your Idea
@@ -234,6 +304,11 @@ en:
       versions:
         proposals:
           back_to_resource: Go back to idea
+    shared:
+      flag_user_modal:
+        does_not_belong: Promotes illegal activity, suicide threats, personal information, or something else you think doesn't belong here.
+        offensive: Promotes racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
+        spam: Promotes clickbait, advertising, scams or script bots.
   devise:
     omniauth_callbacks:
       failure: Could not authenticate you from EU Login because "%{reason}".
@@ -250,5 +325,7 @@ en:
       user:
         logged_in: Logged in
         logged_in_as: Logged in as %{user}
+      wrapper:
+        unfold: Unfold
   locale:
     name: English
