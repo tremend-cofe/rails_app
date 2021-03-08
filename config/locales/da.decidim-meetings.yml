@@ -10,10 +10,8 @@ da:
         attending_organizations: Liste over organisationer, der deltog
         closing_report: Rapporter
         contributions_count: Antal bidrag
-        proposal_ids: Forslag oprettet på mødet
       meeting:
         address: Adresse
-        available_slots: Ledige pladser til dette møde
         decidim_category_id: Kategori
         decidim_scope_id: Omfang
         decidim_user_group_id: Brugergruppe
@@ -47,12 +45,9 @@ da:
             email:
               already_invited: Denne e-mailkonto er allerede blevet inviteret
     models:
-      decidim/meetings/close_meeting_event: Mødet lukket
-      decidim/meetings/create_meeting_event: Møde
       decidim/meetings/meeting_registrations_enabled_event: Registreringer aktiveret
       decidim/meetings/meeting_registrations_over_percentage_event: Registreringer over grænsen
       decidim/meetings/upcoming_meeting_event: Kommende møde
-      decidim/meetings/update_meeting_event: Møde opdateret
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ da:
             creation_enabled_for_user_groups: Mødeoprettelse ved brugergrupper aktiveret
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Dit møde "%{resource_title}" blev lukket. Du kan læse konklusionerne fra dets side:'
-            email_outro: Du har modtaget denne underretning, fordi du organiserede mødet "%{resource_title}".
-            email_subject: Mødet "%{resource_title}" var lukket
-            notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> var lukket.
-          follower:
-            email_intro: 'Mødet "%{resource_title}" var lukket. Du kan læse konklusionerne fra dets side:'
-            email_outro: Du har modtaget denne underretning, fordi du følger mødet "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
-            email_subject: Mødet "%{resource_title}" var lukket
-            notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> var lukket.
         meeting_created:
-          email_intro: Mødet "%{resource_title}" er blevet føjet til "%{participatory_space_title}", som du følger.
           email_outro: Du har modtaget denne underretning, fordi du følger "%{participatory_space_title}". Du kan holde op med at følge det fra det tidligere link.
-          email_subject: Nyt møde føjet til %{participatory_space_title}
-          notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> er blevet føjet til %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Din registrering til mødet <a href="%{resource_url}">%{resource_title}</a> er bekræftet. Din registreringskode er %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: De tildelte slots til mødet "%{resource_title}" er over %{percentage}%.
-          email_outro: Du har modtaget denne underretning, fordi du er admin af mødets detagelsesrum.
-          email_subject: De tildelte slots til mødet "%{resource_title}" er over %{percentage}%
-          notification_title: De tildelte slots til mødet<a href="%{resource_path}">%{resource_title}</a> er over %{percentage}%.
-        meeting_updated:
-          email_intro: 'Mødet "%{resource_title}" blev opdateret. Du kan læse den nye version på dets side:'
-          email_outro: Du har modtaget denne underretning, fordi du følger mødet "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
-          email_subject: Mødet "%{resource_title}" blev opdateret
-          notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> blev opdateret.
         registration_code_validated:
           email_intro: Din registreringskode "%{registration_code}" til mødet "%{resource_title}" er blevet valideret.
           email_outro: Du har modtaget denne underretning, fordi din registreringskode til "%{resource_title}"-mødet er blevet valideret.
           email_subject: Din registreringskode "%{registration_code}" til mødet "%{resource_title}" er blevet valideret
           notification_title: Din registreringskode "%{registration_code}" til mødet <a href="%{resource_path}">%{resource_title}</a> er blevet valideret.
-        registrations_enabled:
-          email_intro: 'Mødet "%{resource_title}" har aktiveret registreringer. Du kan registrere dig på dets side:'
-          email_outro: Du har modtaget denne underretning, fordi du følger mødet "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
-          email_subject: Mødet "%{resource_title}" har aktiveret registreringer.
-          notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> har aktiveret registreringer.
-        upcoming_meeting:
-          email_intro: Mødet "%{resource_title}" starter om mindre end 48 timer.
-          email_outro: Du har modtaget denne underretning, fordi du følger mødet "%{resource_title}". Du kan holde op med at følge det fra det tidligere link.
-          email_subject: Mødet "%{resource_title}" starter om mindre end 48 timer.
-          notification_title: Mødet <a href="%{resource_path}">%{resource_title}</a> starter om mindre end 48 timer.
     gamification:
       badges:
         attended_meetings:
           conditions: Tilmeld dig til de møder, du vil deltage i
-          description: Dette badge gives, når du deltager i flere fysiske møder.
           description_another: Denne deltager har deltaget i %{score} møder.
           description_own: Du har deltaget i %{score} møder.
-          name: Deltog i møder
-          next_level_in: Deltat i %{score} flere møder for at nå det næste niveau!
           unearned_another: Denne deltager har endnu ikke deltaget i nogen møder.
           unearned_own: Du har endnu ikke deltaget i nogen møder.
     meetings:
@@ -231,7 +187,6 @@ da:
         meeting_closes:
           edit:
             close: Luk
-            title: Luk mødet
         meetings:
           close:
             invalid: Der var et problem med at lukke dette møde
@@ -254,7 +209,6 @@ da:
           index:
             title: Møder
           new:
-            create: Opret
             title: Opret møde
           service:
             description: Beskrivelse
@@ -341,15 +295,10 @@ da:
             search: Søg
             space_type: Deltagelsesrum
             upcoming: Kommende
-      last_activity:
-        new_meeting_at_html: "<span>Nyt møde på %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Invitation til at deltage i et møde
-        registration_mailer:
-          confirmation:
-            subject: Registreringen af dit møde er blevet bekræftet
       meeting:
         not_allowed: Du har ikke tilladelse til at se dette indhold
       meetings:
@@ -359,10 +308,8 @@ da:
             other: "%{count} møder"
         create:
           invalid: Der var et problem med at oprette dette møde.
-          success: Du har oprettet mødet.
         edit:
           back: Tilbage
-          title: Rediger dit møde
           update: Opdater
         filters:
           category: Kategori
@@ -371,11 +318,8 @@ da:
             all: Alle
             past: Tidligere
             upcoming: Kommende
-          origin: Oprindelse
           origin_values:
             all: Alle
-            citizens: Borgere
-            official: Officiel
             user_groups: Grupper
           scope: Omfang
           search: Søg
@@ -388,16 +332,12 @@ da:
           address_help: 'Adresse: bruges af Geocoder til at finde placeringen'
           create_as: Opret møde som
           location_help: 'Placering: besked rettet til brugerne, der viser det sted, hvor man skal mødes'
-          location_hints_help: 'Tip om placering: Supplerende info. Eksempel: Etage i bygningen'
           select_a_category: Vælg en kategori
         index:
           new_meeting: Nyt møde
         meeting_minutes:
           meeting_minutes: Mødereferat
           related_information: Relateret information
-        meetings:
-          no_meetings_warning: Ingen møder matcher dine søgekriterier, eller der er ikke planlagt nogen møder.
-          upcoming_meetings_warning: I øjeblikket er der ingen planlagte møder, men her kan du finde alle de tidligere møder, der er oplistet.
         new:
           back: Tilbage
           create: Opret
@@ -410,10 +350,7 @@ da:
           back: Tilbage til listen
           contributions: Antal bidrag
           date: Dato
-          edit_meeting: Rediger møde
           going: Kommer
-          join: Deltag i mødet
-          meeting_report: Møderapport
           no_slots_available: Ingen ledige slots
           organizations: Deltagende organisationer
           registration_code_help_text: Din registreringskode
@@ -427,8 +364,6 @@ da:
         update:
           invalid: Der var et problem med at opdatere mødet.
           success: Du har opdateret mødet.
-      meetings_map:
-        view_meeting: Se møde
       models:
         invite:
           fields:
@@ -451,13 +386,10 @@ da:
       read_more: "(læs mere)"
       registration_mailer:
         confirmation:
-          confirmed_html: Din registrering til mødet <a href="%{url}">%{title}</a> er bekræftet.
-          details: Du finder nærmere oplysninger om mødet i vedhæftede fil.
           registration_code: Din registreringskode er %{code}.
       registrations:
         create:
           invalid: Der var et problem med at tilmelde sig dette møde.
-          success: Du har tilmeldt dig mødet. Da du har tilmeldt dig dette møde, får du underretning, hvis der er opdateringer om det.
         decline_invitation:
           invalid: Der var et problem i forbindelse med invitationen.
           success: Du har afvist invitationen.
@@ -467,8 +399,6 @@ da:
       types:
         private_meeting: Privat møde
         transparent: Gennemsigtig
-      versions:
-        back_to_resource: Gå tilbage til mødet
     metrics:
       meetings:
         description: Antal møder oprettet
@@ -481,18 +411,10 @@ da:
           upcoming_meetings: Kommende møder
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Tidligere møder
         see_all: Se alle møder (%{count})
         upcoming_meetings: Kommende møder
       upcoming_meeting_for_card:
         upcoming_meeting: Kommende møde
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Relaterede resultater:'
-        result_meeting: 'Relaterede møder:'
-      proposals_from_meeting:
-        meeting_proposal: 'Relaterede forslag:'
-        proposal_meeting: 'Relaterede møder:'
   devise:
     mailer:
       join_meeting:

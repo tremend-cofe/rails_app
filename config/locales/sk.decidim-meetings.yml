@@ -10,10 +10,8 @@ sk:
         attending_organizations: Zoznam zúčastnených organizácií
         closing_report: Správa
         contributions_count: Počet príspevkov
-        proposal_ids: Návrhy sformulované na stretnutí
       meeting:
         address: Adresa
-        available_slots: Dostupné miesta pre toto stretnutie
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah pôsobnosti
         decidim_user_group_id: Skupina používateľov
@@ -47,12 +45,9 @@ sk:
             email:
               already_invited: Na toto e-mailové konto už bola poslaná pozvánka
     models:
-      decidim/meetings/close_meeting_event: Stretnutie uzatvorené
-      decidim/meetings/create_meeting_event: Stretnutie
       decidim/meetings/meeting_registrations_enabled_event: Registrácie povolené
       decidim/meetings/meeting_registrations_over_percentage_event: Prekročený limit registrácií
       decidim/meetings/upcoming_meeting_event: Nadchádzajúce stretnutie
-      decidim/meetings/update_meeting_event: Stretnutie bolo aktualizované
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -101,58 +96,19 @@ sk:
             creation_enabled_for_user_groups: Povolené vytváranie stretnutí skupinami používateľov
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Vaše stretnutie %{resource_title} bolo uzatvorené. Závery si môžete prečítať na stránke:'
-            email_outro: Toto oznámenie ste dostali, pretože ste zorganizovali stretnutie %{resource_title}.
-            email_subject: Stretnutie %{resource_title} bolo uzatvorené
-            notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> bolo uzatvorené.
-          follower:
-            email_intro: 'Stretnutie %{resource_title} bolo uzatvorené. Závery si môžete prečítať na stránke:'
-            email_outro: Toto oznámenie ste dostali, pretože sledujete stretnutie %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
-            email_subject: Stretnutie %{resource_title} bolo uzatvorené
-            notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> bolo uzatvorené.
         meeting_created:
-          email_intro: Stretnutie %{resource_title} sa pridalo do participatívneho priestoru %{participatory_space_title}, ktorý sledujete.
           email_outro: Toto oznámenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
-          email_subject: Nové stretnutie bolo pridané do participatívneho priestoru %{participatory_space_title}
-          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> bolo pridané do participatívneho priestoru %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Vaša registrácia na stretnutie <a href="%{resource_url}">%{resource_title}</a> bola potvrdená. Váš registračný kód je %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Pridelené miesta na stretnutie %{resource_title} presahujú %{percentage} %.
-          email_outro: Toto oznámenie ste dostali, pretože ste správcom participatívneho priestoru stretnutia.
-          email_subject: Pridelené miesta na stretnutie %{resource_title} presahujú %{percentage} %
-          notification_title: Pridelené miesta na stretnutie <a href="%{resource_path}">%{resource_title}</a> presahujú %{percentage} %.
-        meeting_updated:
-          email_intro: 'Stretnutie %{resource_title} bolo aktualizované. Novú verziu si môžete prečítať na stránke:'
-          email_outro: Toto oznámenie ste dostali, pretože sledujete stretnutie %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
-          email_subject: Stretnutie %{resource_title} bolo aktualizované
-          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> bolo aktualizované.
         registration_code_validated:
           email_intro: Overil sa váš registračný kód %{registration_code} pre stretnutie %{resource_title}.
           email_outro: Toto oznámenie ste dostali, pretože sa overil váš registračný kód pre stretnutie %{resource_title}.
           email_subject: Overil sa váš registračný kód %{registration_code} pre stretnutie %{resource_title}
           notification_title: Overil sa váš registračný kód %{registration_code} pre stretnutie <a href="%{resource_path}">%{resource_title}</a>.
-        registrations_enabled:
-          email_intro: 'Pre stretnutie %{resource_title} sa povolili registrácie. Zaregistrovať sa môžete na príslušnej stránke:'
-          email_outro: Toto oznámenie ste dostali, pretože sledujete stretnutie %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
-          email_subject: Pre stretnutie %{resource_title} sa povolili registrácie.
-          notification_title: V prípade stretnutia <a href="%{resource_path}">%{resource_title}</a> boli povolené registrácie.
-        upcoming_meeting:
-          email_intro: Stretnutie %{resource_title} sa začne za menej ako 48 hodín.
-          email_outro: Toto oznámenie ste dostali, pretože sledujete stretnutie %{resource_title}. Sledovanie môžete zrušiť pomocou predchádzajúceho odkazu.
-          email_subject: Stretnutie %{resource_title} sa začne za menej ako 48 hodín.
-          notification_title: Stretnutie <a href="%{resource_path}">%{resource_title}</a> sa začne za menej ako 48 hodín.
     gamification:
       badges:
         attended_meetings:
           conditions: Zaregistrujte sa na stretnutia, na ktorých sa chcete zúčastniť
-          description: Tento odznak sa udeľuje za účasť na niekoľkých osobných stretnutiach.
           description_another: Tento účastník sa zúčastnil na %{score} stretnutiach.
           description_own: Zúčastnili ste sa na %{score} stretnutiach.
-          name: Absolvované stretnutia
-          next_level_in: Ak chcete dosiahnuť ďalšiu úroveň, zúčastnite sa na ďalších %{score} stretnutiach.
           unearned_another: Tento účastník sa ešte nezúčastnil na žiadnom stretnutí.
           unearned_own: Ešte ste sa nezúčastnili na žiadnom stretnutí.
     meetings:
@@ -239,7 +195,6 @@ sk:
         meeting_closes:
           edit:
             close: Zatvoriť
-            title: Uzatvoriť stretnutie
         meetings:
           close:
             invalid: Pri uzatváraní tohto stretnutia sa vyskytol problém
@@ -258,7 +213,6 @@ sk:
           index:
             title: Stretnutia
           new:
-            create: Vytvoriť
             title: Vytvoriť stretnutie
           service:
             description: Opis
@@ -344,15 +298,10 @@ sk:
             search: Vyhľadávanie
             space_type: Participatívny priestor
             upcoming: Nadchádzajúce
-      last_activity:
-        new_meeting_at_html: "<span>Nové stretnutie na adrese %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Pozvánka na stretnutie
-        registration_mailer:
-          confirmation:
-            subject: Registrácia na vaše stretnutie je potvrdená
       meeting:
         not_allowed: Nemáte oprávnenie na zobrazenie tohto stretnutia
       meetings:
@@ -364,10 +313,8 @@ sk:
             other: "%{count} stretnutí"
         create:
           invalid: Pri vytváraní tohto stretnutia sa vyskytol problém.
-          success: Úspešne ste vytvorili stretnutie.
         edit:
           back: Späť
-          title: Upraviť stretnutie
           update: Aktualizovať
         filters:
           category: Kategória
@@ -376,11 +323,8 @@ sk:
             all: Všetko
             past: Minulé
             upcoming: Nadchádzajúce
-          origin: Pôvod
           origin_values:
             all: Všetko
-            citizens: Občania
-            official: Úradník
             user_groups: Skupiny
           scope: Rozsah pôsobnosti
           search: Vyhľadávanie
@@ -393,16 +337,12 @@ sk:
           address_help: 'Adresa: slúži na zistenie miesta pomocou geokódovacej služby'
           create_as: Vytvoriť stretnutie ako
           location_help: 'Miesto konania: správa určená pre používateľov s uvedením miesta stretnutia'
-          location_hints_help: 'Tipy o mieste konania: dodatočné informácie. Napríklad: podlažie budovy'
           select_a_category: Vyberte kategóriu
         index:
           new_meeting: Nové stretnutie
         meeting_minutes:
           meeting_minutes: Zápisnica zo stretnutia
           related_information: Súvisiace informácie
-        meetings:
-          no_meetings_warning: Vašim kritériám vyhľadávania nezodpovedá žiadne stretnutie alebo nie je plánované žiadne stretnutie.
-          upcoming_meetings_warning: V súčasnosti nie sú plánované žiadne stretnutia, na tomto mieste však nájdete všetky predchádzajúce stretnutia.
         new:
           back: Späť
           create: Vytvoriť
@@ -415,10 +355,7 @@ sk:
           back: Späť na zoznam
           contributions: Počet príspevkov
           date: Dátum
-          edit_meeting: Upraviť stretnutie
           going: Zúčastním sa
-          join: Zúčastniť sa na stretnutí
-          meeting_report: Správa zo stretnutia
           no_slots_available: Žiadne voľné miesta
           organizations: Zúčastnené organizácie
           registration_code_help_text: Váš registračný kód
@@ -434,8 +371,6 @@ sk:
         update:
           invalid: Pri aktualizácii stretnutia sa vyskytol problém.
           success: Toto stretnutie ste úspešne aktualizovali.
-      meetings_map:
-        view_meeting: Zobraziť stretnutie
       models:
         invite:
           fields:
@@ -458,13 +393,10 @@ sk:
       read_more: "(prečítajte si viac)"
       registration_mailer:
         confirmation:
-          confirmed_html: Vaša registrácia na stretnutie <a href="%{url}">%{title}</a> bola potvrdená.
-          details: Podrobnosti o stretnutí nájdete v prílohe.
           registration_code: Váš registračný kód je %{code}.
       registrations:
         create:
           invalid: Pri potvrdení účasti na tomto stretnutí sa vyskytol problém.
-          success: Úspešne ste potvrdili účasť na tomto stretnutí. Pretože ste sa zaregistrovali na toto stretnutie, v prípade aktualizácií dostanete oznámenie.
         decline_invitation:
           invalid: Pri odmietnutí pozvánky sa vyskytol problém.
           success: Pozvánku ste úspešne odmietli.
@@ -474,8 +406,6 @@ sk:
       types:
         private_meeting: Súkromné stretnutie
         transparent: Otvorené
-      versions:
-        back_to_resource: Vrátiť sa k stretnutiu
     metrics:
       meetings:
         description: Počet vytvorených stretnutí
@@ -488,18 +418,10 @@ sk:
           upcoming_meetings: Nadchádzajúce stretnutia
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Minulé stretnutia
         see_all: Zobraziť všetky stretnutia (%{count})
         upcoming_meetings: Nadchádzajúce stretnutia
       upcoming_meeting_for_card:
         upcoming_meeting: Nadchádzajúce stretnutie
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Súvisiace výsledky:'
-        result_meeting: 'Súvisiace stretnutia:'
-      proposals_from_meeting:
-        meeting_proposal: 'Súvisiace návrhy:'
-        proposal_meeting: 'Súvisiace stretnutia:'
   devise:
     mailer:
       join_meeting:

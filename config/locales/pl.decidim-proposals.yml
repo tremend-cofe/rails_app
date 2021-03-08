@@ -24,7 +24,6 @@ pl:
         state: Państwo
         suggested_hashtags: Sugerowane hashtagi
         title: Tytuł
-        user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
       proposals_copy:
@@ -59,7 +58,6 @@ pl:
       decidim/proposals/endorsing_enabled_event: Aktywowano udzielanie poparcia dla propozycji
       decidim/proposals/evaluating_proposal_event: Propozycja jest poddawana ocenie
       decidim/proposals/proposal_mentioned_event: Wspomniano o propozycji
-      decidim/proposals/publish_proposal_event: Opublikowano propozycję
       decidim/proposals/rejected_proposal_event: Odrzucono propozycję
       decidim/proposals/voting_enabled_event: Aktywowano głosowanie nad propozycją
   activerecord:
@@ -69,11 +67,6 @@ pl:
         few: Wspólne projekty dokumentów
         many: Wspólne projekty dokumentów
         other: Wspólne projekty dokumentów
-      decidim/proposals/proposal:
-        one: Propozycja
-        few: Propozycje
-        many: Propozycje
-        other: Propozycje
       decidim/proposals/proposal_note:
         one: Uwaga
         few: Uwagi
@@ -88,12 +81,9 @@ pl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategoria
           is_emendation_true:
             label: Typ
             values:
-              'false': Propozycje
               'true': Poprawki
           scope_id_eq:
             label: Zakres
@@ -122,7 +112,6 @@ pl:
           endorse: Wyraź poparcie
           vote: Głosy poparcia
           withdraw: Wycofaj
-        name: Propozycje
         settings:
           global:
             allow_card_image: Zezwól na obraz karty
@@ -144,12 +133,10 @@ pl:
             participatory_texts_enabled: Aktywowano teksty partycypacyjne
             participatory_texts_enabled_readonly: Nie można ingerować w te ustawienia, jeżeli istnieją już propozycje. Utwórz nowy „Komponent propozycji”, jeżeli chcesz aktywować tę funkcję, lub odrzuć wszystkie zaimportowane propozycje w menu „Teksty partycypacyjne”, jeżeli chcesz ją wyłączyć.
             proposal_answering_enabled: Aktywowano odpowiedzi na propozycję
-            proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem podanej liczby minut
             proposal_length: Maksymalna długość tekstu głównego propozycji
             proposal_limit: Limit propozycji na uczestnika
             proposal_wizard_step_1_help_text: Tekst pomocy kroku „Utwórz” kreatora propozycji
             proposal_wizard_step_2_help_text: Tekst pomocy kroku „Porównaj” kreatora propozycji
-            proposal_wizard_step_3_help_text: Tekst pomocy kroku „Zakończ” kreatora propozycji
             proposal_wizard_step_4_help_text: Tekst pomocy kroku „Opublikuj” kreatora propozycji
             resources_permissions_enabled: Zezwolenia na działania można ustawić dla każdej propozycji
             threshold_per_proposal: Próg na propozycję
@@ -183,9 +170,6 @@ pl:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Ktoś zostawił uwagę dotyczącą propozycji „%{resource_title}”. Zapoznaj się z nią w <a href="%{admin_proposal_info_url}">panelu administratora</a>
-            email_outro: Otrzymujesz to powiadomienie, ponieważ możesz oceniać propozycję.
-            email_subject: Ktoś zostawił uwagę dotyczącą propozycji %{resource_title}.
             notification_title: Ktoś zostawił uwagę dotyczącą propozycji „<a href="%{resource_path}">%{resource_title}</a>”. Zapoznaj się z nią w <a href="%{admin_proposal_info_path}">panelu administratora</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} uzyskał(a) dostęp jako osoba uczestnicząca w tworzeniu wspólnego projektu dokumentu <a href="%{resource_path}">%{resource_title}</a>.'
@@ -218,114 +202,49 @@ pl:
           email_subject: "%{author_name} %{author_nickname} wycofał(a) wspólny projekt dokumentu %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>wycofał(a)</strong> wspólny projekt dokumentu <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:
-          email_intro: 'Nie możesz teraz utworzyć nowych propozycji w przestrzeni %{participatory_space_title}! Rozpocznij aktywność na tej stronie:'
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
-          email_subject: Propozycje są teraz dostępne w przestrzeni %{participatory_space_title}
-          notification_title: Możesz teraz zgłaszać <a href="%{resource_path}">nowe propozycje</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Możesz wyrazić poparcie dla propozycji w przestrzeni %{participatory_space_title}! Rozpocznij aktywność na tej stronie:'
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
-          email_subject: Uruchomiono możliwość wyrażania poparcia dla propozycji w przestrzeni %{participatory_space_title}
-          notification_title: Możesz teraz rozpocząć <a href="%{resource_path}">wyrażanie poparcia dla propozycji</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Twoja propozycja „%{resource_title}” została przyjęta. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem „%{resource_title}”.
-            email_subject: Twoja propozycja została przyjęta
-            notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została przyjęta.
           follower:
-            email_intro: 'Propozycja „%{resource_title}” została przyjęta. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{resource_title}”. Możesz przestać to obserwować, klikając wcześniejszy link.
-            email_subject: Propozycja, którą obserwujesz, została przyjęta.
-            notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została przyjęta.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Twoja propozycja „%{resource_title}” jest obecnie poddawana ocenie. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem „%{resource_title}”.
-            email_subject: Twoja propozycja jest poddawana ocenie
-            notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> jest poddawana ocenie.
           follower:
-            email_intro: 'Propozycja „%{resource_title}” jest obecnie poddawana ocenie. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{resource_title}”. Możesz przestać to obserwować, klikając wcześniejszy link.
-            email_subject: Propozycja, którą obserwujesz, jest poddawana ocenie
-            notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> jest poddawana ocenie.
         proposal_mentioned:
-          email_intro: Ktoś wspomniał o Twojej propozycji „%{mentioned_proposal_title}” <a href="%{resource_url}">w tej przestrzeni</a> w komentarzach.
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem „%{resource_title}”.
-          email_subject: Ktoś wspomniał o Twojej propozycji „%{mentioned_proposal_title}”
-          notification_title: Ktoś wspomniał o Twojej propozycji „%{mentioned_proposal_title}” <a href="%{resource_path}">w tej przestrzeni</a> w komentarzach.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, którego/którą obserwujesz, opublikował(a) nową propozycję zatytułowaną „%{resource_title}”. Sprawdź to i zabierz głos:'
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
-          email_subject: Nowa propozycja „%{resource_title}” autorstwa %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> opublikował(a) propozycję <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
-          email_intro: Do przestrzeni „%{participatory_space_title}”, którą obserwujesz, dodano propozycję „%{resource_title}”.
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{participatory_space_title}”. Możesz wyłączyć powiadomienia, klikając poprzedni link.
-          email_subject: Do przestrzeni %{participatory_space_title} dodano nową propozycję „%{resource_title}”
-          notification_title: Do przestrzeni %{participatory_space_title} dodano propozycję <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           affected_user:
-            email_intro: 'Twoja propozycja „%{resource_title}” została odrzucona. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem „%{resource_title}”.
-            email_subject: Twoja propozycja została odrzucona
-            notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
           follower:
-            email_intro: 'Propozycja „%{resource_title}” została odrzucona. Możesz zapoznać się z odpowiedzią na stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{resource_title}”. Możesz przestać to obserwować, klikając wcześniejszy link.
-            email_subject: Propozycja, którą obserwujesz, została odrzucona
-            notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
-        proposal_update_category:
-          email_intro: 'Administrator zaktualizował kategorię Twojej propozycji „%{resource_title}”; możesz sprawdzić to na stronie:'
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem propozycji.
-          email_subject: Zaktualizowano kategorię propozycji %{resource_title}
-          notification_title: Administrator zaktualizował kategorię propozycji <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_scope:
-          email_intro: 'Administrator zaktualizował zakres Twojej propozycji „%{resource_title}”; możesz sprawdzić to na stronie:'
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś autorem propozycji.
-          email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Możesz wyrazić poparcie dla propozycji w przestrzeni %{participatory_space_title}! Rozpocznij aktywność na tej stronie:'
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz wyłączyć powiadomienia, klikając poprzedni link.
-          email_subject: Uruchomiono możliwość oddawania głosów poparcia dla propozycji w przestrzeni %{participatory_space_title}
           notification_title: Możesz teraz rozpocząć <a href="%{resource_path}">oddawanie głosów poparcia dla propozycji</a> w przestrzeni <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
           conditions: |-
             Wybierz interesującą Cię przestrzeń partycypacyjną z aktywowaną możliwością zgłaszania propozycjiSkładaj propozycje, które mogą zostać zrealizowane. Dzięki temu ich przyjęcie będzie bardziej prawdopodobne.
-          description: Ta odznaka jest przyznawana za aktywny udział w zgłaszaniu nowych propozycji, które zostaną następnie przyjęte.
-          description_another: 'Liczba przyjętych propozycji tego uczestnika: %{score}.'
-          description_own: 'Przyjęto następującą liczbę Twoich propozycji: %{score}.'
-          name: Przyjęte propozycje
-          next_level_in: Jeszcze trochę przyjętych propozycji (dokładnie %{score}) i wejdziesz na kolejny poziom!
-          unearned_another: Nie przyjęto jeszcze żadnych propozycji tego uczestnika.
-          unearned_own: Brak przyjętych propozycji.
         proposal_votes:
           conditions: |-
             Przeglądaj propozycje innych osób i zapoznaj się z nimiOddaj głos na propozycje, które Ci się podobają lub wydają Ci się interesujące
-          description: Ta odznaka jest przyznawana za oddawanie głosu na propozycje innych osób.
-          description_another: 'Ten uczestnik oddał głos na następującą liczbę propozycji: %{score}.'
-          description_own: 'Liczba propozycji, które otrzymały Twój głos: %{score}.'
-          name: Głosy oddane na propozycje
-          next_level_in: 'Jeszcze trochę oddanych głosów (dokładnie: %{score}) i wejdziesz na kolejny poziom!'
-          unearned_another: Ten uczestnik nie oddał jeszcze głosu na żadne propozycje.
-          unearned_own: Żadna propozycja nie otrzymała dotąd Twojego głosu.
         proposals:
           conditions: |-
             Wybierz interesującą Cię przestrzeń partycypacyjną z aktywowaną możliwością zgłaszania propozycjiUtwórz nową propozycję
-          description: Ta odznaka jest przyznawana za aktywny udział w zgłaszaniu nowych propozycji.
-          description_another: 'Ten uczestnik utworzył następującą liczbę propozycji: %{score}.'
-          description_own: 'Liczba utworzonych przez Ciebie propozycji: %{score}.'
-          name: Propozycje
-          next_level_in: Jeszcze trochę propozycji (dokładnie %{score}) i wejdziesz na kolejny poziom!
-          unearned_another: Ten uczestnik nie utworzył jeszcze żadnych propozycji.
-          unearned_own: Nie masz jeszcze żadnych utworzonych propozycji.
     metrics:
       accepted_proposals:
         description: Liczba przyjętych propozycji
-        object: propozycje/propozycji
         title: Przyjęte propozycje
       endorsements:
         description: Liczba wyrazów poparcia dla propozycji
@@ -333,8 +252,6 @@ pl:
         title: Wyrazy poparcia
       proposals:
         description: Liczba propozycji
-        object: propozycje/propozycji
-        title: Propozycje
       votes:
         description: Liczba głosów na propozycje
         object: głosy/głosów poparcia
@@ -349,21 +266,15 @@ pl:
     proposals:
       actions:
         answer_proposal: Odpowiedz na propozycję
-        edit_proposal: Edytuj propozycję
         import: Importuj z innego komponentu
         new: Nowa propozycja
         participatory_texts: Teksty partycypacyjne
-        show: Wyświetl propozycję
         title: Działania
       admin:
         actions:
           preview: Podgląd
         exports:
           comments: Komentarze
-          proposals: Propozycje
-        models:
-          proposal:
-            name: Propozycja
         participatory_texts:
           bulk-actions:
             are_you_sure: Czy na pewno chcesz odrzucić cały projekt tekstu partycypacyjnego?
@@ -387,7 +298,6 @@ pl:
             upload_document: Prześlij dokument
           publish:
             invalid: Nie można opublikować propozycji
-            success: Opublikowano wszystkie propozycje
           sections:
             article: "<em>Artykuł</em>"
             section: "<em>Sekcja:</em> <strong>%{title}</strong>"
@@ -404,7 +314,6 @@ pl:
         proposal_notes:
           create:
             error: Przy tworzeniu tej uwagi dotyczącej propozycji pojawił się problem
-            success: Utworzenie uwagi dotyczącej propozycji powiodło się
           form:
             note: Uwaga
             submit: Wyślij
@@ -416,7 +325,6 @@ pl:
             success: Odpowiedź na propozycję powiodła się
           create:
             invalid: Przy tworzeniu tej propozycji pojawił się problem
-            success: Utworzenie propozycji powiodło się
           edit:
             title: Aktualizuj propozycję
             update: Aktualizuj
@@ -440,7 +348,6 @@ pl:
             selected: wybrane
             split: Rozdziel propozycje
             split_button: Rozdziel
-            title: Propozycje
             unassign_from_valuator: Odbierz oceniającemu
             unassign_from_valuator_button: Odbierz
             update: Aktualizuj
@@ -466,7 +373,6 @@ pl:
             endorsements_ranking: Ranking według wyrazów poparcia
             endorsers: Popierający
             photos: Zdjęcia
-            proposals: Propozycje
             ranking: "%{ranking} z %{total}"
             related_meetings: Powiązane spotkania
             remove_assignment: Usuń zadanie
@@ -475,15 +381,12 @@ pl:
             votes_count: Licznik głosów poparcia
             votes_ranking: Ranking według głosów poparcia
           update_category:
-            invalid: 'Te propozycje miały już kategorię %{subject_name}: %{proposals}.'
             select_a_category: Wybierz kategorię
             select_a_proposal: Wybierz propozycję
             success: 'Aktualizacja propozycji do kategorii %{subject_name} powiodła się: %{proposals}.'
           update_scope:
-            invalid: 'Te propozycje miały już zakres %{subject_name}: %{proposals}.'
             select_a_proposal: Wybierz propozycję
             select_a_scope: Wybierz zakres
-            success: 'Aktualizacja propozycji do zakresu %{subject_name} powiodła się: %{proposals}.'
         proposals_imports:
           create:
             invalid: Przy importowaniu propozycji pojawił się problem
@@ -492,7 +395,6 @@ pl:
             create: Importuj propozycje
             no_components: W przestrzeni partycypacyjnej nie ma innych komponentów propozycji, z których można by importować propozycje.
             select_component: Wybierz komponent
-            select_states: Sprawdź status propozycji do zaimportowania
         proposals_merges:
           create:
             invalid: Przy łączeniu wybranych propozycji pojawił się problem.
@@ -531,7 +433,6 @@ pl:
         filter_origin_values:
           all: Wszystkie
           citizens: Obywatele
-          meetings: Spotkania
           official: Oficjalne
           user_groups: Grupy
         filter_scope_values:
@@ -545,7 +446,6 @@ pl:
         filter_type_values:
           all: Wszystkie
           amendments: Poprawki
-          proposals: Propozycje
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -674,7 +574,6 @@ pl:
         success: Utworzenie propozycji powiodło się. Zapisano jako projekt dokumentu.
       destroy_draft:
         error: Przy usuwaniu wspólnego projektu dokumentu pojawił się problem.
-        success: Usunięcie projektu propozycji powiodło się.
       last_activity:
         new_proposal_at_html: "<span>Nowa propozycja na %{link}</span>"
       models:
@@ -712,11 +611,8 @@ pl:
       proposals:
         compare:
           continue: Dalej
-          no_similars_found: Brawo! Nie znaleziono podobnych propozycji
-          title: Podobne propozycje
         complete:
           send: Wyślij
-          title: Dokończ swoją propozycję
         count:
           proposals_count:
             one: "%{count} propozycja"
@@ -727,19 +623,15 @@ pl:
           attachment_legend: "(Opcjonalne) Dodaj załącznik"
           back: Powrót
           select_a_category: Wybierz kategorię
-          send: Wyślij
           title: Edytuj propozycję
         edit_draft:
           discard: Usuń ten projekt
-          discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
           send: Podgląd
-          title: Edytuj projekt propozycji
         filters:
           activity: Moja aktywność
           all: Wszystkie
           amendment_type: Typ
           category: Kategoria
-          my_proposals: Moje propozycje
           origin: Pochodzenie
           related_to: Powiązane z
           scope: Zakres
@@ -767,13 +659,11 @@ pl:
           send: Dalej
           title: Utwórz swoją propozycję
         orders:
-          label: 'Sortuj propozycje według:'
           most_commented: Największa liczba komentarzy
           most_endorsed: Największa liczba wyrazów poparcia
           most_followed: Największa liczba obserwujących
           most_voted: Największa liczba głosów poparcia
           random: Losowe
-          recent: Najnowsze
           with_more_authors: Z większą liczbą autorów
         participatory_texts:
           index:
@@ -781,28 +671,16 @@ pl:
           view_index:
             see_index: Zobacz indeks
         preview:
-          modify: Zmień propozycję
-          proposal_edit_before_minutes:
-            one: Edytowanie tej propozycji będzie możliwe w ciągu pierwszej minuty po jej opublikowaniu. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
-            few: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
-            many: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
-            other: Edytowanie tej propozycji będzie możliwe w ciągu pierwszych %{count} minut po opublikowaniu propozycji. Po upływie tego czasu edytowanie propozycji nie będzie możliwe.
           publish: Opublikuj
-          title: Opublikuj swoją propozycję
         proposal:
           creation_date: 'Utworzono: %{date}'
           view_proposal: Zobacz propozycję
-        proposals:
-          empty: Nie ma jeszcze żadnych propozycji
-          empty_filters: Nie ma propozycji spełniającej te kryteria
         show:
           answer: Odpowiedź
           back_to: Powrót do
           back_to_list: Powrót do listy
           changes_at_title: Poprawka do „%{title}”
           comments: Komentarze
-          edit_proposal: Edytuj propozycję
-          endorsements_list: Lista wyrazów poparcia
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
             one: i jeszcze %{count} osoba
@@ -814,20 +692,14 @@ pl:
           link_to_promoted_emendation_help_text: Ta propozycja jest korektą, która stała się poprawką
           link_to_promoted_emendation_text: Zobacz odrzuconą korektę.
           link_to_proposal_from_emendation_help_text: To jest odrzucona korekta
-          link_to_proposal_from_emendation_text: Zobacz propozycję
           proposal_accepted_reason: 'Ta propozycja została zaakceptowana, ponieważ:'
           proposal_in_evaluation_reason: Ta propozycja jest poddawana ocenie
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           read_less: Ukryj
           read_more: Zobacz więcej
           report: Zgłoś
-          withdraw_btn_hint: Możesz wycofać swoją propozycję, jeżeli zmienisz zdanie, o ile nie oddano na nią żadnego głosu. Propozycja nie zostanie usunięta, ale będzie widnieć na liście wycofanych propozycji.
-          withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Nie można cofnąć tej operacji!</strong>
-          withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmiana z <u>%{previous_name}</u> dokonana przez administratora)"
-        update:
-          title: Aktualizuj propozycję
         vote_button:
           already_voted: Już uzyskała głosy poparcia
           already_voted_hover: Wycofaj głos poparcia
@@ -841,7 +713,6 @@ pl:
             few: Głosy poparcia
             many: Głosy poparcia
             other: Głosy poparcia
-          most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebująca więcej głosów poparcia
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -863,7 +734,6 @@ pl:
           back: Powrót
           back_from_step_1: Powrót do propozycji
           back_from_step_2: Powrót do propozycji
-          back_from_step_3: Powrót do porównania propozycji
           back_from_step_4: Powrót do edytowania projektu dokumentu
           info: Możesz utworzyć <strong>propozycję</strong>.
         wizard_steps:
@@ -871,26 +741,18 @@ pl:
           see_steps: zobacz kroki
           step_1: Utwórz swoją propozycję
           step_2: Porównaj
-          step_3: Zakończ
           step_4: Opublikuj swoją propozycję
           step_of: Krok %{current_step_num} z %{total_steps}
           title: Kroki tworzenia propozycji
       proposals_picker:
-        choose_proposals: Wybierz propozycje
         close: Zamknij
         more_proposals: Jest jeszcze %{number} propozycji. Doprecyzuj kryteria wyszukiwania, aby je odnaleźć.
-        no_proposals: Żadna propozycja nie spełnia kryteriów wyszukiwania lub nie ma żadnych propozycji.
-      publish:
-        error: Przy publikowaniu propozycji pojawił się problem.
-        success: Opublikowanie propozycji powiodło się.
       publish_answers:
         success: Opublikowanie odpowiedzi na propozycję powiodło się.
       update:
         error: Przy zapisywaniu propozycji pojawił się problem.
-        success: Aktualizacja propozycji powiodła się.
       update_draft:
         error: Przy zapisywaniu wspólnego projektu dokumentu pojawił się problem.
-        success: Aktualizacja projektu propozycji powiodła się.
       versions:
         collaborative_drafts:
           back_to_resource: Powrót do wspólnego projektu dokumentu
@@ -902,8 +764,6 @@ pl:
         errors:
           has_supports: Tej propozycji nie można wycofać, ponieważ oddano już na nią głosy poparcia.
     resource_links:
-      copied_from_component:
-        proposal_proposal: Powiązane propozycje
       included_projects:
         project_result: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:

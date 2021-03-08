@@ -10,10 +10,8 @@ fi:
         attending_organizations: Luettelo osallistuneista organisaatioista
         closing_report: Raportti
         contributions_count: Vastausten määrä
-        proposal_ids: Kokouksessa tehdyt ehdotukset
       meeting:
         address: Osoite
-        available_slots: Kokouksen käytettävissä olevat paikat
         decidim_category_id: Luokka
         decidim_scope_id: Aihepiiri
         decidim_user_group_id: Käyttäjäryhmä
@@ -47,12 +45,9 @@ fi:
             email:
               already_invited: Tämä sähköpostitili on jo kutsuttu
     models:
-      decidim/meetings/close_meeting_event: Kokous päättynyt
-      decidim/meetings/create_meeting_event: Kokous
       decidim/meetings/meeting_registrations_enabled_event: Ilmoittautuminen käytössä
       decidim/meetings/meeting_registrations_over_percentage_event: Liikaa ilmoittautuneita
       decidim/meetings/upcoming_meeting_event: Tuleva kokous
-      decidim/meetings/update_meeting_event: Kokous päivitetty
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ fi:
             creation_enabled_for_user_groups: Käyttäjäryhmät voivat luoda kokouksia
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Kokouksesi "%{resource_title}" on päättynyt. Voit lukea johtopäätökset kokouksen sivulta:'
-            email_outro: Sait tämän ilmoituksen, koska järjestit kokouksen "%{resource_title}".
-            email_subject: Kokous "%{resource_title}" on päättynyt
-            notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on päättynyt.
-          follower:
-            email_intro: 'Kokous "%{resource_title}" on päättynyt. Voit lukea johtopäätökset kokouksen sivulta:'
-            email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
-            email_subject: Kokous "%{resource_title}" on päättynyt
-            notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on päättynyt.
         meeting_created:
-          email_intro: Kokous "%{resource_title}" on lisätty seuraamaasi kohteeseen "%{participatory_space_title}”.
           email_outro: Sait tämän ilmoituksen, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
-          email_subject: Uusi kokous lisätty kohteeseen %{participatory_space_title}
-          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Ilmoittautumisesi kokoukseen <a href="%{resource_url}">%{resource_title}</a> on vahvistettu. Ilmoittautumiskoodisi on %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: '%{percentage}% kokouksen "%{resource_title}” paikoista on täytetty.'
-          email_outro: Sait tämän ilmoituksen, koska olet kokouksen osallistumistilan ylläpitäjä.
-          email_subject: '%{percentage}% kokouksen "%{resource_title}” paikoista on täytetty'
-          notification_title: '%{percentage}% kokouksen <a href="%{resource_path}">%{resource_title}</a> paikoista on täytetty.'
-        meeting_updated:
-          email_intro: 'Kokousta "%{resource_title}" on päivitetty. Voit lukea uuden version kokouksen sivulta:'
-          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
-          email_subject: Kokousta "%{resource_title}" on päivitetty
-          notification_title: Kokousta <a href="%{resource_path}">%{resource_title}</a> on päivitetty.
         registration_code_validated:
           email_intro: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen "%{resource_title}” on vahvistettu.
           email_outro: Sait tämän ilmoituksen, koska ilmoittautumiskoodisi kokoukseen "%{resource_title}" on vahvistettu.
           email_subject: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen "%{resource_title}" on vahvistettu
           notification_title: Ilmoittautumiskoodisi "%{registration_code}" kokoukseen <a href="%{resource_path}">%{resource_title}</a> on vahvistettu.
-        registrations_enabled:
-          email_intro: 'Ilmoittautuminen kokoukseen "%{resource_title}" on alkanut. Voit ilmoittautua kokouksen sivulta:'
-          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
-          email_subject: Ilmoittautuminen kokoukseen "%{resource_title}" on alkanut.
-          notification_title: Ilmoittautuminen kokoukseen <a href="%{resource_path}">%{resource_title}</a> on alkanut.
-        upcoming_meeting:
-          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnin kuluttua.
-          email_outro: Sait tämän ilmoituksen, koska seuraat kokousta "%{resource_title}". Voit lopettaa seuraamisen aiemmasta linkistä.
-          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnin kuluttua.
-          notification_title: Kokous <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tunnin kuluttua.
     gamification:
       badges:
         attended_meetings:
           conditions: Ilmoittaudu niihin kokouksiin, joihin tahdot osallistua
-          description: Tämä merkki myönnetään niille, jotka ovat osallistuneet useisiin kokouksiin.
           description_another: Tämä osallistuja on osallistunut %{score} kokoukseen.
           description_own: Olet osallistunut %{score} kokoukseen.
-          name: Kokouksiin osallistuminen
-          next_level_in: Osallistu %{score} kokoukseen noustaksesi seuraavalle tasolle!
           unearned_another: Tämä osallistuja ei ole vielä osallistunut kokouksiin.
           unearned_own: Et ole vielä osallistunut kokouksiin.
     meetings:
@@ -230,7 +186,6 @@ fi:
         meeting_closes:
           edit:
             close: Sulje
-            title: Päätä kokous
         meetings:
           close:
             invalid: Kokouksen päättäminen epäonnistui
@@ -253,7 +208,6 @@ fi:
           index:
             title: Kokoukset
           new:
-            create: Luo
             title: Luo kokous
           service:
             description: Kuvaus
@@ -342,15 +296,10 @@ fi:
             search: Haku
             space_type: Osallistumistila
             upcoming: Tulevat
-      last_activity:
-        new_meeting_at_html: "<span>Uusi kokous kohteessa %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Kokouskutsu
-        registration_mailer:
-          confirmation:
-            subject: Ilmoittautumisesi kokoukseen on vahvistettu
       meeting:
         not_allowed: Et voi tarkastella tätä kokousta
       meetings:
@@ -360,10 +309,8 @@ fi:
             other: "%{count} kokousta"
         create:
           invalid: Kokouksen luominen epäonnistui.
-          success: Kokous on luotu
         edit:
           back: Takaisin
-          title: Muokkaa kokoustasi
           update: Päivitä
         filters:
           category: Luokka
@@ -372,11 +319,8 @@ fi:
             all: Kaikki
             past: Menneet
             upcoming: Tulevat
-          origin: Alkuperä
           origin_values:
             all: Kaikki
-            citizens: Kansalaiset
-            official: Virkamies
             user_groups: Ryhmät
           scope: Aihepiiri
           search: Haku
@@ -389,16 +333,12 @@ fi:
           address_help: 'Osoite: Geocoder käyttää osoitetta sijainnin löytämiseen'
           create_as: Luo kokous käyttäjänä
           location_help: 'Sijainti: käyttäjille suunnattu tapaamispaikan viesti'
-          location_hints_help: 'Sijaintiohjeet: lisätietoja. Esimerkki: rakennuksen kerros'
           select_a_category: Valitse luokka
         index:
           new_meeting: Uusi kokous
         meeting_minutes:
           meeting_minutes: Kokouspöytäkirja
           related_information: Lisätietoja
-        meetings:
-          no_meetings_warning: Hakuehtoja vastaavia kokouksia ei ole tai suunnitteilla ei ole yhtäkään kokousta.
-          upcoming_meetings_warning: Tällä hetkellä yhtäkään kokousta ei ole suunnitteilla, mutta täältä näet kaikki aiemmat kokoukset.
         new:
           back: Takaisin
           create: Luo
@@ -411,10 +351,7 @@ fi:
           back: Takaisin luetteloon
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_meeting: Muokkaa kokousta
           going: Meneillään
-          join: Osallistu kokoukseen
-          meeting_report: Kokousraportti
           no_slots_available: Ei vapaita paikkoja
           organizations: Osallistuvat organisaatiot
           registration_code_help_text: Ilmoittautumiskoodisi
@@ -428,8 +365,6 @@ fi:
         update:
           invalid: Kokouksen päivittäminen epäonnistui.
           success: Kokous on päivitetty.
-      meetings_map:
-        view_meeting: Näytä kokous
       models:
         invite:
           fields:
@@ -452,13 +387,10 @@ fi:
       read_more: "(lisätietoja)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ilmoittautumisesi kokoukseen <a href="%{url}">%{title}</a> on vahvistettu.
-          details: Kokouksen tiedot ovat liitteessä.
           registration_code: Ilmoittautumiskoodisi on %{code}.
       registrations:
         create:
           invalid: Kokoukseen liittyminen epäonnistui.
-          success: Olet liittynyt kokoukseen. Koska olet ilmoittautunut tähän kokoukseen, saat ilmoituksen, jos kokousta päivitetään.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Olet hylännyt kutsun.
@@ -468,8 +400,6 @@ fi:
       types:
         private_meeting: Yksityinen kokous
         transparent: Läpinäkyvä
-      versions:
-        back_to_resource: Palaa kokoukseen
     metrics:
       meetings:
         description: Luotujen kokousten määrä
@@ -482,18 +412,10 @@ fi:
           upcoming_meetings: Tulevat kokoukset
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Menneet kokoukset
         see_all: Näytä kaikki kokoukset (%{count})
         upcoming_meetings: Tulevat kokoukset
       upcoming_meeting_for_card:
         upcoming_meeting: Tuleva kokous
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Aiheeseen liittyvät tulokset:'
-        result_meeting: 'Aiheeseen liittyvät kokoukset:'
-      proposals_from_meeting:
-        meeting_proposal: 'Aiheeseen liittyvät ehdotukset:'
-        proposal_meeting: 'Aiheeseen liittyvät kokoukset:'
   devise:
     mailer:
       join_meeting:

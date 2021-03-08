@@ -10,10 +10,8 @@ mt:
         attending_organizations: Lista ta’ organizzazzjonijiet li attendew
         closing_report: Irrapporta
         contributions_count: Numru ta’ kontributi
-        proposal_ids: Proposti maħluqin fil-laqgħa
       meeting:
         address: Indirizz
-        available_slots: Slots disponibbli għal din il-laqgħa
         decidim_category_id: Kategorija
         decidim_scope_id: Kamp ta’ applikazzjoni
         decidim_user_group_id: Grupp tal-utenti
@@ -47,12 +45,9 @@ mt:
             email:
               already_invited: Diġà ntbagħtet stedina lil dan il-kont tal-email
     models:
-      decidim/meetings/close_meeting_event: Laqgħa magħluqa
-      decidim/meetings/create_meeting_event: Laqgħa
       decidim/meetings/meeting_registrations_enabled_event: Reġistrazzjonijiet attivati
       decidim/meetings/meeting_registrations_over_percentage_event: Reġistrazzjonijiet ogħla mil-limitu
       decidim/meetings/upcoming_meeting_event: Laqgħa li jmiss
-      decidim/meetings/update_meeting_event: Laqgħa aġġornata
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -101,58 +96,19 @@ mt:
             creation_enabled_for_user_groups: Ħolqien ta’ laqgħat minn gruppi ta’ utenti attivat
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Il-laqgħa tiegħek "%{resource_title}” ingħalqet. Tista’ taqra l-konklużjonijiet mill-paġna tiegħu:'
-            email_outro: Irċevejt din in-notifika minħabba li organizzajt il-laqgħa "%{resource_title}".
-            email_subject: Il-laqgħa "%{resource_title}” ingħalqet
-            notification_title: Il-laqgħa <a href="%{resource_path}">%{resource_title}</a> ingħalqet.
-          follower:
-            email_intro: 'Il-laqgħa "%{resource_title}” ingħalqet. Tista’ taqra l-konklużjonijiet mill-paġna tiegħu:'
-            email_outro: Irċevejt din in-notifika minħabba li qed issegwi l-laqgħa "%{resource_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
-            email_subject: Il-laqgħa "%{resource_title}” ingħalqet
-            notification_title: Il-laqgħa <a href="%{resource_path}">%{resource_title}</a> ingħalqet.
         meeting_created:
-          email_intro: Il-laqgħa "%{resource_title}” inżdiedet ma’ "%{participatory_space_title}” li qed issegwi.
           email_outro: Irċevejt din in-notifika għax qed issegwi "%{participatory_space_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
-          email_subject: Laqgħa ġdida inżdiedet ma’ %{participatory_space_title}
-          notification_title: Il-laqgħa<a href="%{resource_path}">%{resource_title}</a> inżdiedet ma’ %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Ir-reġistrazzjoni tiegħek għal-laqgħa <a href="%{resource_url}">%{resource_title}</a> ġiet ikkonfermata. Il-kodiċi ta’ reġistrazzjoni tiegħek huwa %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Is-slots allokati għal-laqgħa "%{resource_title}” huma ’l fuq minn %{percentage}%.
-          email_outro: Irċevejt din in-notifika minħabba li inti amministratur tal-ispazju parteċipatorju tal-laqgħa.
-          email_subject: Is-slots allokati għal-laqgħa "%{resource_title}” huma ’l fuq minn %{percentage}%
-          notification_title: Is-slots allokati għal-laqgħa <a href="%{resource_path}">%{resource_title}</a> huma ’l fuq minn %{percentage}%.
-        meeting_updated:
-          email_intro: 'Il-laqgħa "%{resource_title}” ġiet aġġornata. Tista’ taqra l-verżjoni l-ġdida mill-paġna tagħha:'
-          email_outro: Irċevejt din in-notifika minħabba li qed issegwi l-laqgħa "%{resource_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
-          email_subject: Il-laqgħa "%{resource_title}” ġiet aġġornata
-          notification_title: Il-laqgħa <a href="%{resource_path}">%{resource_title}</a> ġiet aġġornata.
         registration_code_validated:
           email_intro: Il-kodiċi ta’ reġistrazzjoni tiegħek "%{registration_code}” għal-laqgħa "%{resource_title}” ġie vvalidat.
           email_outro: Irċevejt din in-notifika minħabba li l-kodiċi ta’ reġistrazzjoni tiegħek għal-laqgħa "%{resource_title}” ġie vvalidat.
           email_subject: Il-kodiċi ta’ reġistrazzjoni tiegħek "%{registration_code}” għal-laqgħa "%{resource_title}” ġie vvalidat
           notification_title: Il-kodiċi ta’ reġistrazzjoni tiegħek "%{registration_code}” għal-laqgħa <a href="%{resource_path}">%{resource_title}</a> ġie vvalidat.
-        registrations_enabled:
-          email_intro: 'Il-laqgħa "%{resource_title}" attivat ir-reġistrazzjonijiet. Tista’ tirreġistra ruħek fil-paġna tagħha:'
-          email_outro: Irċevejt din in-notifika minħabba li qed issegwi l-laqgħa "%{resource_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
-          email_subject: Il-laqgħa "%{resource_title}" attivat ir-reġistrazzjonijiet.
-          notification_title: Il-laqgħa <a href="%{resource_path}">%{resource_title}</a> attivat ir-reġistrazzjonijiet.
-        upcoming_meeting:
-          email_intro: Il-laqgħa "%{resource_title}" se tibda f’inqas minn 48 siegħa.
-          email_outro: Irċevejt din in-notifika minħabba li qed issegwi l-laqgħa "%{resource_title}". Tista’ ma tibqax issegwiha permezz tal-link preċedenti.
-          email_subject: Il-laqgħa "%{resource_title}" se tibda f’inqas minn 48 siegħa.
-          notification_title: Il-laqgħa <a href="%{resource_path}">%{resource_title}</a> se tibda f’inqas minn 48 siegħa.
     gamification:
       badges:
         attended_meetings:
           conditions: Irreġistra għal-laqgħat li tixtieq tattendi
-          description: Din il-badge tingħata meta tattendi diversi laqgħat wiċċ imb wiċċ.
           description_another: Dan il-parteċipant attenda %{score} laqgħa(t).
           description_own: Attendejt %{score} laqgħa(t).
-          name: Attenda l-laqgħat
-          next_level_in: Attendi %{score} laqgħa(t) oħra biex tilħaq il-livell li jmiss!
           unearned_another: Dan il-parteċipant għadu ma attenda l-ebda laqgħa.
           unearned_own: Għadek ma attendejt l-ebda laqgħa.
     meetings:
@@ -239,7 +195,6 @@ mt:
         meeting_closes:
           edit:
             close: Agħlaq
-            title: Agħlaq il-laqgħa
         meetings:
           close:
             invalid: Kien hemm problema biex tingħalaq din il-laqgħa
@@ -258,7 +213,6 @@ mt:
           index:
             title: Laqgħat
           new:
-            create: Oħloq
             title: Oħloq laqgħa
           service:
             description: Deskrizzjoni
@@ -344,15 +298,10 @@ mt:
             search: Fittex
             space_type: Spazju parteċipatorju
             upcoming: Li Ġejjin
-      last_activity:
-        new_meeting_at_html: "<span>Laqgħa ġdida fi %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Stedina biex tingħaqad ma’ laqgħa
-        registration_mailer:
-          confirmation:
-            subject: Ir-reġistrazzjoni tal-laqgħa tiegħek ġiet ikkonfermata
       meeting:
         not_allowed: Ma tistax tara din il-laqgħa
       meetings:
@@ -364,10 +313,8 @@ mt:
             other: "%{count} laqgħat"
         create:
           invalid: Kien hemm problema biex tinħoloq din il-laqgħa.
-          success: Ħloqt il-laqgħa.
         edit:
           back: Lura
-          title: Editja l-Laqgħa Tiegħek
           update: Aġġorna
         filters:
           category: Kategorija
@@ -376,11 +323,8 @@ mt:
             all: Kollha
             past: Passat
             upcoming: Li Ġejjin
-          origin: Oriġini
           origin_values:
             all: Kollha
-            citizens: Ċittadini
-            official: Uffiċjali
             user_groups: Gruppi
           scope: Kamp ta’ applikazzjoni
           search: Fittex
@@ -393,16 +337,12 @@ mt:
           address_help: 'Indirizz: użat minn Geocoder biex isib il-post'
           create_as: Oħloq laqgħa bħala
           location_help: 'Post: messaġġ dirett lill-utenti li jimplika li l-post fejn se ssir il-laqgħa'
-          location_hints_help: 'Ħjiel tal-post: informazzjoni addizzjonali. Eżempju: is-sular tal-bini'
           select_a_category: Agħżel kategorija
         index:
           new_meeting: Laqgħa ġdida
         meeting_minutes:
           meeting_minutes: Minuti tal-Laqgħa
           related_information: Informazzjoni relatata
-        meetings:
-          no_meetings_warning: L-ebda laqgħa ma taqbel mal-kriterji tat-tiftix tiegħek jew ma hemm l-ebda laqgħa skedata.
-          upcoming_meetings_warning: Bħalissa, ma hemm l-ebda laqgħa skedata, iżda hawnhekk tista’ ssib elenkati l-laqgħat kollha tal-passat.
         new:
           back: Lura
           create: Oħloq
@@ -415,10 +355,7 @@ mt:
           back: Lura għal-lista
           contributions: Għadd tal-kontribuzzjonijiet
           date: Data
-          edit_meeting: Editja l-laqgħa
           going: Sejjer
-          join: Ingħaqad mal-laqgħa
-          meeting_report: Rapport tal-laqgħa
           no_slots_available: L-ebda slot disponibbli
           organizations: Organizzazzjonijiet parteċipanti
           registration_code_help_text: Il-kodiċi ta’ reġistrazzjoni tiegħek
@@ -434,8 +371,6 @@ mt:
         update:
           invalid: Kien hemm problema biex tiġi aġġornata l-laqgħa.
           success: Aġġornajt il-laqgħa.
-      meetings_map:
-        view_meeting: Uri l-laqgħa
       models:
         invite:
           fields:
@@ -458,13 +393,10 @@ mt:
       read_more: "(aqra aktar)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ir-reġistrazzjoni tiegħek għal-laqgħa <a href="%{url}">%{title}</a> ġiet ikkonfermata.
-          details: Għandek issib id-dettalji tal-laqgħa fl-hemża.
           registration_code: Il-kodiċi ta’ reġistrazzjoni tiegħek huwa %{code}.
       registrations:
         create:
           invalid: Kien hemm problema biex tingħaqad ma’ din il-laqgħa.
-          success: Ingħaqadt mal-laqgħa. Minħabba li rreġistrajt għal din il-laqgħa, jekk ikun hemm xi aġġornamenti dwarha tiġi nnotifikat.
         decline_invitation:
           invalid: Kien hemm problema biex l-istedina tiġi miċħuda.
           success: Irrifjutajt l-istedina.
@@ -474,8 +406,6 @@ mt:
       types:
         private_meeting: Laqgħa privata
         transparent: Trasparenti
-      versions:
-        back_to_resource: Mur lura għal-laqgħa
     metrics:
       meetings:
         description: Numru ta’ laqgħat maħluqa
@@ -488,18 +418,10 @@ mt:
           upcoming_meetings: Laqgħat li jmiss
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Laqgħat li seħħew
         see_all: Ara l-laqgħat kollha (%{count})
         upcoming_meetings: Laqgħat li jmiss
       upcoming_meeting_for_card:
         upcoming_meeting: Laqgħa li jmiss
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Riżultati relatati:'
-        result_meeting: 'Laqgħat relatati:'
-      proposals_from_meeting:
-        meeting_proposal: 'Proposti relatati:'
-        proposal_meeting: 'Laqgħat relatati:'
   devise:
     mailer:
       join_meeting:

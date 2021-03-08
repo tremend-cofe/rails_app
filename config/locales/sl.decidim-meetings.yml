@@ -10,10 +10,8 @@ sl:
         attending_organizations: Seznam sodelujočih organizacij
         closing_report: Sporoči
         contributions_count: Število prispevkov
-        proposal_ids: Predlogi, ustvarjeni na sestanku
       meeting:
         address: Naslov
-        available_slots: Razpoložljiva mesta za ta sestanek
         decidim_category_id: Kategorija
         decidim_scope_id: Področje
         decidim_user_group_id: Skupina uporabnikov
@@ -47,12 +45,9 @@ sl:
             email:
               already_invited: Ta e-račun je že povabljen.
     models:
-      decidim/meetings/close_meeting_event: Sestanek končan
-      decidim/meetings/create_meeting_event: Sestanek
       decidim/meetings/meeting_registrations_enabled_event: Registracije so omogočene.
       decidim/meetings/meeting_registrations_over_percentage_event: Registracije prek omejitve
       decidim/meetings/upcoming_meeting_event: Prihajajoči sestanek
-      decidim/meetings/update_meeting_event: Sestanek je posodobljen.
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -101,58 +96,19 @@ sl:
             creation_enabled_for_user_groups: Ustvarjanje sestanka s strani skupin uporabnikov je omogočeno.
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Vaš sestanek "%{resource_title}" je bil zaprt. Zaključne ugotovitve si lahko preberete na tej strani:'
-            email_outro: To obvestilo ste prejeli, ker ste organizirali sestanek "%{resource_title}".
-            email_subject: Sestanek "%{resource_title}" je bil zaprt.
-            notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> je bil zaprt.
-          follower:
-            email_intro: 'Sestanek "%{resource_title}" je bil zaprt. Zaključne ugotovitve si lahko preberete na tej strani:'
-            email_outro: To obvestilo ste prejeli, ker sledite sestanku "%{resource_title}". Odsleditev je mogoča s prejšnje povezave.
-            email_subject: Sestanek "%{resource_title}" je bil zaprt.
-            notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> je bil zaprt.
         meeting_created:
-          email_intro: Sestanek "%{resource_title}" je bil dodan v "%{participatory_space_title}", ki mu sledite.
           email_outro: To obvestilo ste prejeli, ker sledite "%{participatory_space_title}". Odsleditev je mogoča s prejšnje povezave.
-          email_subject: Nov sestanek je bil dodan v %{participatory_space_title}
-          notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> je bil dodan v %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Vaša registracija za sestanek <a href="%{resource_url}">%{resource_title}</a> je bila potrjena. Vaša registracijska koda je %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Dodeljena mesta za sestanek "%{resource_title}" presegajo %{percentage}%
-          email_outro: To obvestilo ste prejeli, ker ste skrbnik participativnega prostora sestanka.
-          email_subject: Dodeljena mesta za sestanek "%{resource_title}" presegajo %{percentage}%
-          notification_title: Dodeljena mesta za sestanek <a href="%{resource_path}">%{resource_title}</a> presegajo %{percentage}%.
-        meeting_updated:
-          email_intro: 'Sestanek "%{resource_title}" je bil posodobljen. Novo različico lahko preberete na njegovi strani:'
-          email_outro: To obvestilo ste prejeli, ker sledite sestanku "%{resource_title}". Odsleditev je mogoča s prejšnje povezave.
-          email_subject: Sestanek "%{resource_title}" je bil posodobljen.
-          notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> je bil posodobljen.
         registration_code_validated:
           email_intro: Vaša registracijska koda "%{registration_code}" za sestanek "%{resource_title}" je bila potrjena.
           email_outro: To obvestilo ste prejeli, ker je bila vaša registracijska koda za sestanek "%{resource_title}" potrjena.
           email_subject: Vaša registracijska koda "%{registration_code}" za sestanek "%{resource_title}" je bila potrjena
           notification_title: Vaša registracijska koda "%{registration_code}" za sestanek<a href="%{resource_path}">%{resource_title}</a> je bila potrjena.
-        registrations_enabled:
-          email_intro: 'Sestanek "%{resource_title}" je omogočil registracije. Lahko se registrirate na tej strani:'
-          email_outro: To obvestilo ste prejeli, ker sledite sestanku "%{resource_title}". Odsleditev je mogoča s prejšnje povezave.
-          email_subject: Sestanek "%{resource_title}" je omogočil registracije.
-          notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> je omogočila registracije.
-        upcoming_meeting:
-          email_intro: Sestanek "%{resource_title}" se bo začel čez manj kot 48 ur.
-          email_outro: To obvestilo ste prejeli, ker sledite sestanku "%{resource_title}". Odsleditev je mogoča s prejšnje povezave.
-          email_subject: Sestanek "%{resource_title}" se bo začel čez manj kot 48 ur.
-          notification_title: Sestanek <a href="%{resource_path}">%{resource_title}</a> se bo začel čez manj kot 48 ur.
     gamification:
       badges:
         attended_meetings:
           conditions: Registrirajte se na sestanke, ki se jih želite udeležiti.
-          description: Ta značka se podeli, ko se udeležite več osebnih sestankov.
           description_another: Ta udeleženec se je udeležil %{score} sestankov.
           description_own: Udeležili ste se sestankov %{score}.
-          name: Sestanki, ki ste se jih udeležili
-          next_level_in: Udeležite se še %{score} sestankov, da dosežete naslednjo raven!
           unearned_another: Ta udeleženec se še ni udeležil nobenega sestanka.
           unearned_own: Niste se še udeležili nobenega sestanka.
     meetings:
@@ -239,7 +195,6 @@ sl:
         meeting_closes:
           edit:
             close: Zapri
-            title: Zapri sestanek
         meetings:
           close:
             invalid: Pri zapiranju tega sestanka se je pojavila težava.
@@ -258,7 +213,6 @@ sl:
           index:
             title: Sestanki
           new:
-            create: Ustvari
             title: Ustvari sestanek
           service:
             description: Opis
@@ -344,15 +298,10 @@ sl:
             search: Išči
             space_type: Participativni prostor
             upcoming: Prihajajoči
-      last_activity:
-        new_meeting_at_html: "<span>Nova razprava na %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Vabilo k pridružitvi na sestanek
-        registration_mailer:
-          confirmation:
-            subject: Registracija vašega sestanka je bila potrjena.
       meeting:
         not_allowed: Nimate dovoljenja za ogled tega sestanka.
       meetings:
@@ -364,10 +313,8 @@ sl:
             other: "%{count} sestankov"
         create:
           invalid: Pri ustvarjanju tega sestanka se je pojavila težava.
-          success: Sestanek ste uspešno ustvarili.
         edit:
           back: Nazaj
-          title: Uredi svoj sestanek
           update: Posodobi
         filters:
           category: Kategorija
@@ -376,11 +323,8 @@ sl:
             all: Vse
             past: Pretekli
             upcoming: Prihajajoči
-          origin: Izvor
           origin_values:
             all: Vse
-            citizens: Državljani
-            official: Uradnik
             user_groups: Skupine
           scope: Področje
           search: Iskanje
@@ -393,16 +337,12 @@ sl:
           address_help: 'Naslov: uporabljen s strani aplikacije Geocoder za iskanje lokacije'
           create_as: Ustvari sestanek kot
           location_help: 'Lokacija: sporočilo, namenjeno uporabnikom, ki nakazuje kraj srečanja ob'
-          location_hints_help: 'Namigi o lokaciji: dodatne informacije Primer: pritličje stavbe'
           select_a_category: Izberite kategorijo
         index:
           new_meeting: Nov sestanek
         meeting_minutes:
           meeting_minutes: Zapisnik sestanka
           related_information: Povezane informacije
-        meetings:
-          no_meetings_warning: Noben sestanek se ne ujema z vašimi iskalnimi merili ali pa ni nobenega načrtovanega sestanka.
-          upcoming_meetings_warning: Trenutno ni načrtovanih sestankov, tukaj pa lahko najdete vse naštete pretekle sestanke.
         new:
           back: Nazaj
           create: Ustvari
@@ -415,10 +355,7 @@ sl:
           back: Nazaj na seznam
           contributions: Število prispevkov
           date: Datum
-          edit_meeting: Uredi sestanek
           going: V teku
-          join: Pridruži se sestanku
-          meeting_report: Poročilo o sestanku
           no_slots_available: Mesta niso na voljo.
           organizations: Sodelujoče organizacije
           registration_code_help_text: Vaša registracijska koda
@@ -434,8 +371,6 @@ sl:
         update:
           invalid: Pri posodabljanju sestanka se je pojavila težava.
           success: Sestanek ste uspešno posodobili.
-      meetings_map:
-        view_meeting: Prikaži sestanek
       models:
         invite:
           fields:
@@ -458,13 +393,10 @@ sl:
       read_more: "(več informacij)"
       registration_mailer:
         confirmation:
-          confirmed_html: Vaša registracija za sestanek <a href="%{url}">%{title}</a> je bila potrjena.
-          details: Podrobnosti o sestanku so na voljo v prilogi.
           registration_code: Vaša registracijska koda je %{code}.
       registrations:
         create:
           invalid: Pri pridružitvi temu sestanku se je pojavila težava.
-          success: Uspešno ste se pridružili sestanku. Ker ste se registrirali za ta sestanek, boste obveščeni, če zanj veljajo posodobitve.
         decline_invitation:
           invalid: Pri zavrnitvi povabila se je pojavila težava.
           success: Povabilo ste uspešno odklonili.
@@ -474,8 +406,6 @@ sl:
       types:
         private_meeting: Zasebni sestanek
         transparent: Pregledno
-      versions:
-        back_to_resource: Pojdi nazaj na sestanek
     metrics:
       meetings:
         description: Število ustvarjenih sestankov
@@ -488,18 +418,10 @@ sl:
           upcoming_meetings: Prihajajoči sestanki
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Pretekli sestanki
         see_all: Prikaži vse sestanke (%{count})
         upcoming_meetings: Prihajajoči sestanki
       upcoming_meeting_for_card:
         upcoming_meeting: Prihajajoči sestanek
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Povezani rezultati:'
-        result_meeting: 'Povezani sestanki:'
-      proposals_from_meeting:
-        meeting_proposal: 'Povezani predlogi:'
-        proposal_meeting: 'Povezani sestanki:'
   devise:
     mailer:
       join_meeting:

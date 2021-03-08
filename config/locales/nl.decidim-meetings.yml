@@ -10,10 +10,8 @@ nl:
         attending_organizations: Lijst van organisaties die hebben deelgenomen
         closing_report: Rapporteren
         contributions_count: Aantal bijdragen
-        proposal_ids: In de vergadering aangemaakt voorstellen
       meeting:
         address: Adres
-        available_slots: Beschikbare tijdsblokken voor deze vergadering
         decidim_category_id: Categorie
         decidim_scope_id: Toepassingsgebied
         decidim_user_group_id: Gebruikersgroep
@@ -47,12 +45,9 @@ nl:
             email:
               already_invited: Dit e-mailaccount is al uitgenodigd
     models:
-      decidim/meetings/close_meeting_event: Vergadering gesloten
-      decidim/meetings/create_meeting_event: Vergadering
       decidim/meetings/meeting_registrations_enabled_event: Registraties ingeschakeld
       decidim/meetings/meeting_registrations_over_percentage_event: Registraties boven de limiet
       decidim/meetings/upcoming_meeting_event: Geplande vergadering
-      decidim/meetings/update_meeting_event: Vergadering bijgewerkt
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ nl:
             creation_enabled_for_user_groups: Aanmaken vergadering door gebruikersgroepen ingeschakeld
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Uw vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
-            email_outro: U hebt dit bericht ontvangen omdat u de vergadering "%{resource_title}" hebt georganiseerd.
-            email_subject: De vergadering "%{resource_title}" is gesloten
-            notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is gesloten.
-          follower:
-            email_intro: 'De vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
-            email_outro: U hebt dit bericht ontvangen omdat u de vergadering "%{resource_title}" volgt. U kunt deze ontvolgen via de link hierboven.
-            email_subject: De vergadering "%{resource_title}" is gesloten
-            notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is gesloten.
         meeting_created:
-          email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}", die u volgt.
           email_outro: U hebt dit bericht ontvangen omdat u “%{participatory_space_title}” volgt. U kunt deze ontvolgen via de link hierboven.
-          email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
-          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Uw registratie voor de vergadering <a href="%{resource_url}">%{resource_title}</a> is bevestigd. Uw registratiecode is %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: De toegewezen tijdsblokken voor de vergadering "%{resource_title}" bedragen meer dan %{percentage}%.
-          email_outro: U hebt dit bericht ontvangen omdat u een beheerder bent van de participatieruimte van de vergadering.
-          email_subject: De toegewezen tijdsblokken voor de vergadering "%{resource_title}" bedragen meer dan %{percentage}%
-          notification_title: De toegewezen tijdsblokken voor de vergadering <a href="%{resource_path}">%{resource_title}</a> bedragen meer dan %{percentage}%.
-        meeting_updated:
-          email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. U kunt de nieuwe versie bekijken op de pagina:'
-          email_outro: U hebt dit bericht ontvangen omdat u de vergadering "%{resource_title}" volgt. U kunt deze ontvolgen via de link hierboven.
-          email_subject: De vergadering "%{resource_title}" is bijgewerkt
-          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is bijgewerkt.
         registration_code_validated:
           email_intro: Uw registratiecode "%{registration_code}" voor de vergadering "%{resource_title}" is gevalideerd.
           email_outro: U hebt dit bericht ontvangen omdat uw registratiecode voor de vergadering "%{resource_title}" is gevalideerd.
           email_subject: Uw registratiecode "%{registration_code}" voor de vergadering "%{resource_title}" is gevalideerd
           notification_title: Uw registratiecode "%{registration_code}" voor de vergadering <a href="%{resource_path}">%{resource_title}</a> is gevalideerd.
-        registrations_enabled:
-          email_intro: 'Voor de vergadering "%{resource_title}" zijn registraties ingeschakeld. U kunt u registreren via de volgende pagina:'
-          email_outro: U hebt dit bericht ontvangen omdat u de vergadering "%{resource_title}" volgt. U kunt deze ontvolgen via de link hierboven.
-          email_subject: Voor de vergadering "%{resource_title}" zijn registraties ingeschakeld.
-          notification_title: Voor de vergadering <a href="%{resource_path}">%{resource_title}</a> zijn registraties ingeschakeld.
-        upcoming_meeting:
-          email_intro: De vergadering "%{resource_title}" begint over minder dan 48 uur.
-          email_outro: U hebt dit bericht ontvangen omdat u de vergadering "%{resource_title}" volgt. U kunt deze ontvolgen via de link hierboven.
-          email_subject: De vergadering "%{resource_title}" begint over minder dan 48 uur.
-          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> begint over minder dan 48 uur.
     gamification:
       badges:
         attended_meetings:
           conditions: Registreren voor de vergaderingen die u wilt bijwonen
-          description: Deze badge wordt toegekend wanneer u verschillende persoonlijke vergaderingen bijwoont.
           description_another: Deze deelnemer heeft %{score} vergaderingen bijgewoond.
           description_own: U hebt %{score} vergaderingen bijgewoond.
-          name: Vergaderingen bijgewoond
-          next_level_in: Neem deel aan %{score} meer vergaderingen om het volgende niveau te bereiken!
           unearned_another: Deze deelnemer heeft nog geen vergaderingen bijgewoond.
           unearned_own: U hebt nog geen vergadering bijgewoond.
     meetings:
@@ -231,7 +187,6 @@ nl:
         meeting_closes:
           edit:
             close: Sluiten
-            title: Vergadering sluiten
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
@@ -254,7 +209,6 @@ nl:
           index:
             title: Vergaderingen
           new:
-            create: Aanmaken
             title: Vergadering aanmaken
           service:
             description: Beschrijving
@@ -343,15 +297,10 @@ nl:
             search: Zoeken
             space_type: Participatieruimte
             upcoming: Gepland(e)
-      last_activity:
-        new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Uitnodiging om deel te nemen aan een vergadering
-        registration_mailer:
-          confirmation:
-            subject: De registratie van uw vergadering is bevestigd
       meeting:
         not_allowed: U hebt geen toestemming om deze vergadering te bekijken
       meetings:
@@ -361,10 +310,8 @@ nl:
             other: "%{count} vergaderingen"
         create:
           invalid: Er is een probleem opgetreden bij het aanmaken van deze bijeenkomst.
-          success: U hebt de vergadering aangemaakt.
         edit:
           back: Terug
-          title: Uw vergadering bewerken
           update: Bijwerken
         filters:
           category: Categorie
@@ -373,11 +320,8 @@ nl:
             all: Alle
             past: Voorbije
             upcoming: Gepland(e)
-          origin: Oorsprong
           origin_values:
             all: Alle
-            citizens: Burgers
-            official: Officieel
             user_groups: Groepen
           scope: Toepassingsgebied
           search: Zoeken
@@ -390,16 +334,12 @@ nl:
           address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
           create_as: Vergadering aanmaken als
           location_help: 'Locatie: bericht aan de gebruikers met de ontmoetingsplaats'
-          location_hints_help: 'Locatietips: aanvullende info. Voorbeeld: de verdieping van het gebouw'
           select_a_category: Kies een categorie
         index:
           new_meeting: Nieuwe vergadering
         meeting_minutes:
           meeting_minutes: Notulen van de vergadering
           related_information: Gerelateerde informatie
-        meetings:
-          no_meetings_warning: Er zijn geen vergaderingen die voldoen aan uw zoekcriteria of er zijn geen vergaderingen gepland.
-          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle vergaderingen uit het verleden.
         new:
           back: Terug
           create: Aanmaken
@@ -412,10 +352,7 @@ nl:
           back: Terug naar de lijst
           contributions: Aantal bijdragen
           date: Datum
-          edit_meeting: Vergadering bewerken
           going: Gaan
-          join: Deelnemen aan vergadering
-          meeting_report: Verslag van vergadering
           no_slots_available: Geen tijdsblokken beschikbaar
           organizations: Deelnemende organisaties
           registration_code_help_text: Uw registratiecode
@@ -429,8 +366,6 @@ nl:
         update:
           invalid: Er is een probleem opgetreden bij het bijwerken van de vergadering.
           success: U hebt de vergadering bijgewerkt.
-      meetings_map:
-        view_meeting: Vergadering bekijken
       models:
         invite:
           fields:
@@ -453,13 +388,10 @@ nl:
       read_more: "(meer informatie)"
       registration_mailer:
         confirmation:
-          confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
-          details: De informatie over de vergadering vindt u in de bijlage.
           registration_code: Uw registratiecode is %{code}.
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen aan deze vergadering.
-          success: U hebt deelgenomen aan de vergadering. Omdat u zich hebt geregistreerd voor deze vergadering, krijgt u bericht als er updates zijn.
         decline_invitation:
           invalid: Er is een probleem opgetreden bij het weigeren van de uitnodiging.
           success: U hebt de uitnodiging geweigerd.
@@ -469,8 +401,6 @@ nl:
       types:
         private_meeting: Privévergadering
         transparent: Transparant
-      versions:
-        back_to_resource: Ga terug naar vergadering
     metrics:
       meetings:
         description: Aantal vergaderingen aangemaakt
@@ -483,18 +413,10 @@ nl:
           upcoming_meetings: Geplande vergaderingen
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Voorbije vergaderingen
         see_all: Alle vergaderingen bekijken (%{count})
         upcoming_meetings: Geplande vergaderingen
       upcoming_meeting_for_card:
         upcoming_meeting: Geplande vergadering
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Gerelateerde resultaten:'
-        result_meeting: 'Gerelateerde vergaderingen:'
-      proposals_from_meeting:
-        meeting_proposal: 'Gerelateerde voorstellen:'
-        proposal_meeting: 'Gerelateerde vergaderingen:'
   devise:
     mailer:
       join_meeting:

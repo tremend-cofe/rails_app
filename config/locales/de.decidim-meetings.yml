@@ -10,10 +10,8 @@ de:
         attending_organizations: Liste der teilnehmenden Organisationen
         closing_report: Meldung
         contributions_count: Anzahl der Beiträge
-        proposal_ids: In der Sitzung erstellte Vorschläge
       meeting:
         address: Anschrift
-        available_slots: Verfügbare Slots für diese Sitzung
         decidim_category_id: Kategorie
         decidim_scope_id: Reichweite
         decidim_user_group_id: Benutzergruppe
@@ -47,12 +45,9 @@ de:
             email:
               already_invited: Diese E-Mail-Adresse wurde bereits eingeladen.
     models:
-      decidim/meetings/close_meeting_event: Sitzung beendet
-      decidim/meetings/create_meeting_event: Sitzung
       decidim/meetings/meeting_registrations_enabled_event: Anmeldungen aktiviert
       decidim/meetings/meeting_registrations_over_percentage_event: Anmeldungen über dem Limit
       decidim/meetings/upcoming_meeting_event: Anstehende Sitzung
-      decidim/meetings/update_meeting_event: Sitzung aktualisiert
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ de:
             creation_enabled_for_user_groups: Sitzungserstellung durch Benutzergruppen aktiviert
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Ihre Sitzung "%{resource_title}" wurde beendet. Sie können die Schlussfolgerungen auf der Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie die "%{resource_title}" Sitzung organisieren.
-            email_subject: Die "%{resource_title}"-Sitzung wurde beendet
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a>-Sitzung wurde beendet.
-          follower:
-            email_intro: 'Die "%{resource_title}" Sitzung wurde beendet. Sie können die Schlussfolgerungen auf der Seite lesen:'
-            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der "%{resource_title}" Sitzung folgen. Sie können sich über den vorstehenden Link abmelden.
-            email_subject: Die "%{resource_title}"-Sitzung wurde beendet
-            notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Sitzung wurde beendet.
         meeting_created:
-          email_intro: Die Sitzung "%{resource_title}" wurde "%{participatory_space_title}" hinzugefügt, dem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Sie können sich über den vorstehenden Link abmelden.
-          email_subject: Neue Sitzung %{participatory_space_title} hinzugefügt
-          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde %{participatory_space_title} hinzugefügt
-        meeting_registration_confirmed:
-          notification_title: Ihre Anmeldung für die Sitzung <a href="%{resource_url}">%{resource_title}</a> wurde bestätigt. Ihr Anmeldungscode ist %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Die zugewiesenen Slots für die "%{resource_title}" Sitzung liegen bei über %{percentage}%.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator im Beteiligungsbereich der Sitzung sind.
-          email_subject: Die zugewiesenen Slots für die "%{resource_title}" liegen bei über %{percentage}%
-          notification_title: Die zugewiesenen Slots für die <a href="%{resource_path}">%{resource_title}</a> Sitzung liegen bei über %{percentage}%.
-        meeting_updated:
-          email_intro: 'Die "%{resource_title}" Sitzung wurde aktualisiert. Sie können die neue Version auf ihrer Seite lesen:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der "%{resource_title}" Sitzung folgen. Sie können sich über den vorstehenden Link abmelden.
-          email_subject: Die "%{resource_title}" Sitzung wurde aktualisiert
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Sitzung wurde aktualisiert.
         registration_code_validated:
           email_intro: Ihr Anmeldungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde validiert.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Ihr Anmeldungscode für die "%{resource_title}" Sitzung validiert wurde.
           email_subject: Ihr Anmeldungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde validiert
           notification_title: Ihr Anmeldungscode "%{registration_code}" für die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde validiert.
-        registrations_enabled:
-          email_intro: 'Für die "%{resource_title}" Sitzung wurden die Anmeldungen aktiviert. Sie können sich auf ihrer Seite anmelden:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der "%{resource_title}" Sitzung folgen. Sie können sich über den vorstehenden Link abmelden.
-          email_subject: Für die "%{resource_title}" Sitzung wurden die Anmeldungen aktiviert.
-          notification_title: Die Anmeldungen für die <a href="%{resource_path}">%{resource_title}</a> Sitzung sind aktiviert.
-        upcoming_meeting:
-          email_intro: Die "%{resource_title}" Sitzung beginnt in weniger als 48 h.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der "%{resource_title}" Sitzung folgen. Sie können sich über den vorstehenden Link abmelden.
-          email_subject: Die "%{resource_title}" Sitzung beginnt in weniger als 48 h.
-          notification_title: Die <a href="%{resource_path}">%{resource_title}</a> Sitzung beginnt in weniger als 48 h.
     gamification:
       badges:
         attended_meetings:
           conditions: Melden Sie sich für die Sitzungen an, an denen Sie teilnehmen möchten
-          description: Dieses Abzeichen wird verliehen, wenn Sie an mehreren persönlichen Sitzungen teilnehmen.
           description_another: Dieser Teilnehmer hat %{score} Sitzungen besucht.
           description_own: Sie haben %{score} Sitzungen besucht.
-          name: Besuchte Sitzungen
-          next_level_in: Besuchen Sie %{score} Sitzung mehr, um das nächste Niveau zu erreichen!
           unearned_another: Dieser Teilnehmer hat bisher noch an keiner Sitzung teilgenommen.
           unearned_own: Sie haben noch an keiner Sitzung teilgenommen.
     meetings:
@@ -231,7 +187,6 @@ de:
         meeting_closes:
           edit:
             close: Schließen
-            title: Sitzung beenden
         meetings:
           close:
             invalid: Beim Beenden der Sitzung ist ein Problem aufgetreten
@@ -254,7 +209,6 @@ de:
           index:
             title: Sitzungen
           new:
-            create: Erstellen
             title: Sitzung erstellen
           service:
             description: Beschreibung
@@ -343,15 +297,10 @@ de:
             search: Suche
             space_type: Beteiligungsbereich
             upcoming: Anstehend
-      last_activity:
-        new_meeting_at_html: "<span>Neue Sitzung unter %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Einladung zur Teilnahme an einer Sitzung
-        registration_mailer:
-          confirmation:
-            subject: Die Anmeldung zur Sitzung wurde bestätigt
       meeting:
         not_allowed: Es ist Ihnen nicht gestattet, diese Sitzung zu sehen
       meetings:
@@ -361,10 +310,8 @@ de:
             other: "%{count} Sitzungen"
         create:
           invalid: Bei der Erstellung dieser Sitzung ist ein Problem aufgetreten.
-          success: Sie haben die Sitzung erfolgreich erstellt.
         edit:
           back: Zurück
-          title: Ihre Sitzung bearbeiten
           update: Aktualisieren
         filters:
           category: Kategorie
@@ -373,11 +320,8 @@ de:
             all: Alle
             past: Frühere
             upcoming: Anstehend
-          origin: Ursprung
           origin_values:
             all: Alle
-            citizens: Bürger
-            official: Offiziell
             user_groups: Gruppen
           scope: Reichweite
           search: Suche
@@ -390,16 +334,12 @@ de:
           address_help: 'Anschrift: wird vom Geocoder verwendet, um den Standort zu finden'
           create_as: Sitzung erstellen als
           location_help: 'Treffpunkt: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-          location_hints_help: 'Hinweise zum Standort: zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude'
           select_a_category: Bitte wählen Sie eine Kategorie aus
         index:
           new_meeting: Neue Sitzung
         meeting_minutes:
           meeting_minutes: Sitzungsprotokoll
           related_information: Spezifische Angaben
-        meetings:
-          no_meetings_warning: Keine Sitzungen entsprechen Ihren Suchkriterien oder es ist keine Sitzung geplant.
-          upcoming_meetings_warning: Derzeit sind keine Sitzungen geplant, aber hier finden Sie alle vergangenen Sitzungen aufgelistet.
         new:
           back: Zurück
           create: Erstellen
@@ -412,10 +352,7 @@ de:
           back: Zurück zur Liste
           contributions: Anzahl der Beiträge
           date: Datum
-          edit_meeting: Sitzung bearbeiten
           going: Läuft
-          join: Sitzung beitreten
-          meeting_report: Sitzungsbericht
           no_slots_available: Keine Slots verfügbar
           organizations: Teilnehmende Organisationen
           registration_code_help_text: Ihr Anmeldungscode
@@ -429,8 +366,6 @@ de:
         update:
           invalid: Bei der Aktualisierung der Sitzung ist ein Problem aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
-      meetings_map:
-        view_meeting: Sitzung anzeigen
       models:
         invite:
           fields:
@@ -453,13 +388,10 @@ de:
       read_more: "(mehr dazu)"
       registration_mailer:
         confirmation:
-          confirmed_html: Ihre Anmeldung für die Sitzung <a href="%{url}">%{title}</a> wurde bestätigt.
-          details: Die Einzelheiten der Sitzung finden Sie im Anhang.
           registration_code: Ihr Anmeldungscode ist %{code}.
       registrations:
         create:
           invalid: Beim Beitritt zu dieser Sitzung ist ein Problem aufgetreten.
-          success: Sie sind der Sitzung erfolgreich beigetreten. Da Sie sich für diese Sitzung angemeldet haben, werden Sie benachrichtigt, wenn es Aktualisierungen gibt.
         decline_invitation:
           invalid: Bei der Ablehnung der Einladung ist ein Problem aufgetreten.
           success: Sie haben die Einladung erfolgreich abgelehnt.
@@ -469,8 +401,6 @@ de:
       types:
         private_meeting: Private Sitzung
         transparent: Transparent
-      versions:
-        back_to_resource: Zurück zur Sitzung
     metrics:
       meetings:
         description: Anzahl der erstellten Sitzungen
@@ -483,18 +413,10 @@ de:
           upcoming_meetings: Anstehende Sitzungen
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Vergangene Sitzungen
         see_all: Alle Sitzungen anzeigen (%{count})
         upcoming_meetings: Anstehende Sitzungen
       upcoming_meeting_for_card:
         upcoming_meeting: Anstehende Sitzung
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Verbundene Ergebnisse:'
-        result_meeting: 'Verbundene Sitzungen:'
-      proposals_from_meeting:
-        meeting_proposal: 'Verbundene Vorschläge:'
-        proposal_meeting: 'Verbundene Sitzungen:'
   devise:
     mailer:
       join_meeting:

@@ -10,10 +10,8 @@ pl:
         attending_organizations: Lista organizacji uczestniczących
         closing_report: Zgłoś
         contributions_count: Liczba odpowiedzi
-        proposal_ids: Propozycje utworzone w ramach spotkania
       meeting:
         address: Adres
-        available_slots: Miejsca dostępne na spotkaniu
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         decidim_user_group_id: Grupa użytkowników
@@ -47,12 +45,9 @@ pl:
             email:
               already_invited: Wysłano już zaproszenie na to konto e-mail
     models:
-      decidim/meetings/close_meeting_event: Spotkanie zamknięte
-      decidim/meetings/create_meeting_event: Spotkanie
       decidim/meetings/meeting_registrations_enabled_event: Aktywowano rejestrację
       decidim/meetings/meeting_registrations_over_percentage_event: Przekroczono limit rejestracji
       decidim/meetings/upcoming_meeting_event: Nadchodzące spotkanie
-      decidim/meetings/update_meeting_event: Zaktualizowano spotkanie
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -101,58 +96,19 @@ pl:
             creation_enabled_for_user_groups: Aktywowano tworzenie spotkań przez grupy uczestników
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Spotkanie „%{resource_title}” zostało zakończone. Z wnioskami można zapoznać się na stronie:'
-            email_outro: Otrzymujesz to powiadomienie, ponieważ zorganizowałeś(aś) spotkanie „%{resource_title}”.
-            email_subject: Spotkanie „%{resource_title}” zostało zakończone
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
-          follower:
-            email_intro: 'Spotkanie „%{resource_title}” zostało zakończone. Z wnioskami można zapoznać się na stronie:'
-            email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz spotkanie „%{resource_title}”. Możesz przestać je obserwować, klikając wcześniejszy link.
-            email_subject: Spotkanie „%{resource_title}” zostało zakończone
-            notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zakończone.
         meeting_created:
-          email_intro: Do przestrzeni „%{participatory_space_title}”, którą obserwujesz, dodano spotkanie „%{resource_title}”.
           email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz „%{participatory_space_title}”. Możesz przestać ją obserwować, klikając wcześniejszy link.
-          email_subject: Do przestrzeni „%{participatory_space_title}” dodano nowe spotkanie
-          notification_title: Do przestrzeni %{participatory_space_title} dodano spotkanie <a href="%{resource_path}">%{resource_title}</a>
-        meeting_registration_confirmed:
-          notification_title: Potwierdzono Twoją rejestrację na spotkanie <a href="%{resource_url}">%{resource_title}</a>. Kod rejestracyjny to %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Przydzielono ponad %{percentage}% miejsc na spotkanie „%{resource_title}”.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej spotkania.
-          email_subject: Przydzielono ponad %{percentage}% miejsc na spotkanie „%{resource_title}”
-          notification_title: Przydzielono ponad %{percentage}% miejsc na spotkanie <a href="%{resource_path}">%{resource_title}</a>.
-        meeting_updated:
-          email_intro: 'Zaktualizowano spotkanie „%{resource_title}”. Z nową wersją można zapoznać się na stronie:'
-          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz spotkanie „%{resource_title}”. Możesz przestać je obserwować, klikając wcześniejszy link.
-          email_subject: Zaktualizowano spotkanie „%{resource_title}”
-          notification_title: Zaktualizowano spotkanie „<a href="%{resource_path}">%{resource_title}</a>”.
         registration_code_validated:
           email_intro: Twój kod rejestracyjny „%{registration_code}” na spotkanie „%{resource_title}” został zatwierdzony.
           email_outro: Otrzymujesz to zgłoszenie, ponieważ Twój kod rejestracyjny na spotkanie „%{resource_title}” został zatwierdzony.
           email_subject: Twój kod rejestracyjny „%{registration_code}” na spotkanie „%{resource_title}” został zatwierdzony
           notification_title: Twój kod rejestracyjny „%{registration_code}” na spotkanie „<a href="%{resource_path}">%{resource_title}</a>” został zatwierdzony.
-        registrations_enabled:
-          email_intro: 'Uruchomiono rejestrację na spotkanie „%{resource_title}”. Można zarejestrować się na stronie:'
-          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz spotkanie „%{resource_title}”. Możesz przestać je obserwować, klikając wcześniejszy link.
-          email_subject: Uruchomiono rejestrację na spotkanie „%{resource_title}”.
-          notification_title: Uruchomiono rejestrację na spotkanie „<a href="%{resource_path}">%{resource_title}</a>”.
-        upcoming_meeting:
-          email_intro: Spotkanie „%{resource_title}” rozpocznie się za mniej niż 48h.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz spotkanie „%{resource_title}”. Możesz przestać je obserwować, klikając wcześniejszy link.
-          email_subject: Spotkanie „%{resource_title}” rozpocznie się za mniej niż 48h.
-          notification_title: Spotkanie „<a href="%{resource_path}">%{resource_title}</a>” rozpocznie się za mniej niż 48h.
     gamification:
       badges:
         attended_meetings:
           conditions: Zarejestruj się na spotkania, w których chcesz wziąć udział
-          description: Ta odznaka zostaje przyznana za udział w szeregu spotkań bezpośrednich.
           description_another: 'Ten uczestnik wziął udział w następującej liczbie spotkań: %{score}.'
           description_own: 'Masz za sobą następującą liczbę spotkań: %{score}.'
-          name: Spotkania, w których uczestniczyłeś(aś)
-          next_level_in: Jeszcze kilka spotkań (dokładnie %{score}) i wejdziesz na kolejny poziom!
           unearned_another: Ten uczestnik nie brał jeszcze udziału w żadnym spotkaniu.
           unearned_own: Nie brałeś(aś) jeszcze udziału w żadnych spotkaniach.
     meetings:
@@ -239,7 +195,6 @@ pl:
         meeting_closes:
           edit:
             close: Zamknij
-            title: Zakończ spotkanie
         meetings:
           close:
             invalid: Przy zamykaniu tego spotkania pojawił się problem
@@ -258,7 +213,6 @@ pl:
           index:
             title: Spotkania
           new:
-            create: Utwórz
             title: Utwórz spotkanie
           service:
             description: Opis
@@ -344,15 +298,10 @@ pl:
             search: Szukaj
             space_type: Przestrzeń partycypacyjna
             upcoming: Nadchodzące
-      last_activity:
-        new_meeting_at_html: "<span>Nowe spotkanie na %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Zaproszenie do udziału w spotkaniu
-        registration_mailer:
-          confirmation:
-            subject: Potwierdzono Twoją rejestrację na spotkanie
       meeting:
         not_allowed: Nie możesz zobaczyć tego spotkania
       meetings:
@@ -364,10 +313,8 @@ pl:
             other: "%{count} spotkania / spotkań"
         create:
           invalid: Przy tworzeniu tego spotkania pojawił się problem.
-          success: Utworzenie spotkania powiodło się.
         edit:
           back: Powrót
-          title: Edytuj swoje spotkanie
           update: Aktualizuj
         filters:
           category: Kategoria
@@ -376,11 +323,8 @@ pl:
             all: Wszystkie
             past: Przeszłe
             upcoming: Nadchodzące
-          origin: Pochodzenie
           origin_values:
             all: Wszystkie
-            citizens: Obywatele
-            official: Oficjalne
             user_groups: Grupy
           scope: Zakres
           search: Szukaj
@@ -393,16 +337,12 @@ pl:
           address_help: 'Adres: wykorzystywany przez Geokoder do znalezienia lokalizacji'
           create_as: Utwórz spotkanie jako
           location_help: 'Lokalizacja: Wiadomość skierowana do użytkowników sugerująca miejsce spotkania'
-          location_hints_help: 'Wskazówki dotyczące lokalizacji Dodatkowe informacje Przykład: piętro budynku'
           select_a_category: Wybierz kategorię
         index:
           new_meeting: Nowe spotkanie
         meeting_minutes:
           meeting_minutes: Protokół spotkania
           related_information: Powiązane informacje
-        meetings:
-          no_meetings_warning: Żadne spotkanie nie spełnia kryteriów wyszukiwania lub nie zaplanowano żadnych spotkań.
-          upcoming_meetings_warning: Obecnie nie ma zaplanowanych spotkań, ale możesz tu znaleźć wszystkie zakończone spotkania.
         new:
           back: Powrót
           create: Utwórz
@@ -415,10 +355,7 @@ pl:
           back: Powrót do listy
           contributions: Licznik wypowiedzi
           date: Data
-          edit_meeting: Edytuj spotkanie
           going: Wezmę udział
-          join: Weź udział w spotkaniu
-          meeting_report: Raport ze spotkania
           no_slots_available: Brak dostępnych miejsc
           organizations: Organizacje uczestniczące
           registration_code_help_text: Twój kod rejestracyjny
@@ -434,8 +371,6 @@ pl:
         update:
           invalid: Przy aktualizacji spotkania pojawił się problem.
           success: Aktualizacja spotkania powiodła się.
-      meetings_map:
-        view_meeting: Zobacz spotkanie
       models:
         invite:
           fields:
@@ -458,13 +393,10 @@ pl:
       read_more: "(dowiedz się więcej)"
       registration_mailer:
         confirmation:
-          confirmed_html: Potwierdzono Twoją rejestrację na spotkanie <a href="%{url}">%{title}</a>.
-          details: W załączniku znajdują się szczegółowe informacje na temat spotkania.
           registration_code: Kod rejestracyjny to %{code}.
       registrations:
         create:
           invalid: Przy dołączaniu do tego spotkania pojawił się problem.
-          success: Dołączenie do spotkania powiodło się. Ponieważ jesteś zarejestrowany(a) na to spotkanie, otrzymasz powiadomienie, jeżeli pojawią się nowe informacje na jego temat.
         decline_invitation:
           invalid: Przy odrzucaniu zaproszenia pojawił się problem.
           success: Odrzucenie zaproszenia powiodło się.
@@ -474,8 +406,6 @@ pl:
       types:
         private_meeting: Spotkanie prywatne
         transparent: Jawne
-      versions:
-        back_to_resource: Powrót do spotkania
     metrics:
       meetings:
         description: Liczba utworzonych spotkań
@@ -488,18 +418,10 @@ pl:
           upcoming_meetings: Nadchodzące spotkania
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Zakończone spotkania
         see_all: Zobacz wszystkie spotkania (%{count})
         upcoming_meetings: Nadchodzące spotkania
       upcoming_meeting_for_card:
         upcoming_meeting: Nadchodzące spotkanie
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Powiązane wyniki:'
-        result_meeting: 'Powiązane spotkania:'
-      proposals_from_meeting:
-        meeting_proposal: 'Powiązane propozycje:'
-        proposal_meeting: 'Powiązane spotkania:'
   devise:
     mailer:
       join_meeting:
