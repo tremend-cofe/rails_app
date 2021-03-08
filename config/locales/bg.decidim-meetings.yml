@@ -10,10 +10,8 @@ bg:
         attending_organizations: Списък на присъствалите организации
         closing_report: Сигнал
         contributions_count: Брой приноси
-        proposal_ids: Предложения, създадени по време на срещата
       meeting:
         address: Адрес
-        available_slots: Налични места за тази среща
         decidim_category_id: Категория
         decidim_scope_id: Обхват
         decidim_user_group_id: Група потребители
@@ -47,12 +45,9 @@ bg:
             email:
               already_invited: На тази електронна поща вече е изпратена покана
     models:
-      decidim/meetings/close_meeting_event: Срещата е затворена
-      decidim/meetings/create_meeting_event: Среща
       decidim/meetings/meeting_registrations_enabled_event: Регистрациите са активирани
       decidim/meetings/meeting_registrations_over_percentage_event: Ограничение на регистрациите
       decidim/meetings/upcoming_meeting_event: Предстояща среща
-      decidim/meetings/update_meeting_event: Срещата е актуализирана
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ bg:
             creation_enabled_for_user_groups: Създаването на срещи от потребителски групи е разрешено
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Срещата Ви „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
-            email_outro: Получавате това известие, защото организирахте срещата „%{resource_title}“.
-            email_subject: Срещата „%{resource_title}“ беше затворена
-            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
-          follower:
-            email_intro: 'Срещата „%{resource_title}“ беше затворена. Можете да прочетете заключенията на страницата за нея:'
-            email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
-            email_subject: Срещата „%{resource_title}“ беше затворена
-            notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше затворена.
         meeting_created:
-          email_intro: Срещата „%{resource_title}“ беше добавена към пространството за участие „%{participatory_space_title}“, което следвате.
           email_outro: Получавате това известие, защото следвате „%{participatory_space_title}“. Можете да прекратите следването от предходната връзка.
-          email_subject: Беше добавена нова среща в(ъв) %{participatory_space_title}
-          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше добавена в(ъв) %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Регистрацията Ви за срещата <a href="%{resource_url}">%{resource_title}</a> беше потвърдена. Регистрационният Ви код е %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %.
-          email_outro: Получавате това известие, защото сте администратор на пространството за участие на срещата.
-          email_subject: Предоставените места за срещата „%{resource_title}“ са над %{percentage} %
-          notification_title: Предоставените места за срещата <a href="%{resource_path}">%{resource_title}</a> са над %{percentage} %.
-        meeting_updated:
-          email_intro: 'Срещата „%{resource_title}“ беше актуализирана. Можете да прочетете новата версия на страницата ѝ:'
-          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
-          email_subject: Срещата „%{resource_title}“ беше актуализирана
-          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> беше актуализирана.
         registration_code_validated:
           email_intro: Регистрационният Ви код „%{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
           email_outro: Получавате това известие, защото регистрационният Ви код за срещата „%{resource_title}“ беше валидиран.
           email_subject: Регистрационният Ви код „%{registration_code}“ за срещата „%{resource_title}“ беше валидиран.
           notification_title: Регистрационният Ви код „%{registration_code}“ за срещата <a href="%{resource_path}">%{resource_title}</a> беше валидиран.
-        registrations_enabled:
-          email_intro: 'Приемат се регистрации за срещата „%{resource_title}“. Можете да се регистрирате на страницата ѝ:'
-          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
-          email_subject: Приемат се регистрации за срещата „%{resource_title}“.
-          notification_title: Приемат се регистрации за срещата <a href="%{resource_path}">%{resource_title}</a>.
-        upcoming_meeting:
-          email_intro: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
-          email_outro: Получавате това известие, защото следвате срещата „%{resource_title}“. Можете да прекратите следването от предходната връзка.
-          email_subject: Срещата „%{resource_title}“ ще започне след по-малко от 48 ч.
-          notification_title: Срещата <a href="%{resource_path}">%{resource_title}</a> ще започне след по-малко от 48 ч.
     gamification:
       badges:
         attended_meetings:
           conditions: Регистрирайте се за срещите, които искате да посетите
-          description: Тази значка се предоставя, когато посетите няколко срещи на живо.
           description_another: Този участник е посетил %{score} срещи.
           description_own: Посетили сте %{score} срещи.
-          name: Посетени срещи
-          next_level_in: Посетете още %{score} срещи, за да достигнете следващото ниво!
           unearned_another: Този участник все още не е посетил нито една среща.
           unearned_own: Все още не сте посетили нито една среща.
     meetings:
@@ -231,7 +187,6 @@ bg:
         meeting_closes:
           edit:
             close: Затваряне
-            title: Затваряне на срещата
         meetings:
           close:
             invalid: Възникна проблем при затварянето на срещата
@@ -254,7 +209,6 @@ bg:
           index:
             title: Срещи
           new:
-            create: Създаване
             title: Създаване на среща
           service:
             description: Описание
@@ -343,15 +297,10 @@ bg:
             search: Търсене
             space_type: Пространство за участие
             upcoming: Предстоящи
-      last_activity:
-        new_meeting_at_html: "<span>Нова среща на адрес %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Покана за присъединяване към среща
-        registration_mailer:
-          confirmation:
-            subject: Регистрацията Ви за срещата е потвърдена
       meeting:
         not_allowed: Нямате право да разглеждате тази среща
       meetings:
@@ -361,10 +310,8 @@ bg:
             other: "%{count} срещи"
         create:
           invalid: Възникна проблем при създаването на тази среща.
-          success: Създадохте успешно срещата.
         edit:
           back: Назад
-          title: Редактиране на срещата Ви
           update: Актуализация
         filters:
           category: Категория
@@ -373,11 +320,8 @@ bg:
             all: Всички
             past: Минали
             upcoming: Предстоящи
-          origin: Произход
           origin_values:
             all: Всички
-            citizens: Граждани
-            official: Официални
             user_groups: Групи
           scope: Обхват
           search: Търсене
@@ -390,16 +334,12 @@ bg:
           address_help: 'Адрес: използва се от инструмента за геокодиране за намиране на местоположението'
           create_as: Създаване на среща като
           location_help: 'Местоположение: съобщение за потребителите, подсказващо мястото на срещата'
-          location_hints_help: 'Подсказки за местоположението: допълнителна информация. Пример: етажът на сградата'
           select_a_category: Моля, изберете категория
         index:
           new_meeting: Нова среща
         meeting_minutes:
           meeting_minutes: Протокол за срещата
           related_information: Свързана информация
-        meetings:
-          no_meetings_warning: Няма срещи, които да съответстват на критериите Ви за търсене, или няма насрочени срещи.
-          upcoming_meetings_warning: Понастоящем няма насрочени срещи, но тук можете да намерите изброени всички минали срещи.
         new:
           back: Назад
           create: Създаване
@@ -412,10 +352,7 @@ bg:
           back: Назад към списъка
           contributions: Брой приноси
           date: Дата
-          edit_meeting: Редактиране на срещата
           going: Присъстващи
-          join: Присъединяване към срещата
-          meeting_report: Доклад от срещата
           no_slots_available: Няма налични места
           organizations: Присъстващи организации
           registration_code_help_text: Вашият регистрационен код
@@ -429,8 +366,6 @@ bg:
         update:
           invalid: Възникна проблем при актуализирането на срещата.
           success: Актуализирахте успешно срещата.
-      meetings_map:
-        view_meeting: Преглед на срещата
       models:
         invite:
           fields:
@@ -453,13 +388,10 @@ bg:
       read_more: "(прочетете повече)"
       registration_mailer:
         confirmation:
-          confirmed_html: Регистрацията Ви за срещата <a href="%{url}">%{title}</a> беше потвърдена.
-          details: Ще намерите подробности за срещата в прикачения файл.
           registration_code: Вашият регистрационен код е %{code}.
       registrations:
         create:
           invalid: Възникна проблем при присъединяването към тази среща.
-          success: Присъединихте се успешно към срещата. Тъй като се регистрирахте за тази среща, ще бъдете уведомени за всички актуализации за нея.
         decline_invitation:
           invalid: Възникна проблем при отхвърлянето на поканата.
           success: Отхвърлихте успешно поканата.
@@ -469,8 +401,6 @@ bg:
       types:
         private_meeting: Частна среща
         transparent: Прозрачна
-      versions:
-        back_to_resource: Връщане назад към срещата
     metrics:
       meetings:
         description: Брой създадени срещи
@@ -483,18 +413,10 @@ bg:
           upcoming_meetings: Предстоящи срещи
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Минали срещи
         see_all: Виж всички срещи (%{count})
         upcoming_meetings: Предстоящи срещи
       upcoming_meeting_for_card:
         upcoming_meeting: Предстояща среща
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Свързани резултати:'
-        result_meeting: 'Свързани срещи:'
-      proposals_from_meeting:
-        meeting_proposal: 'Свързани предложения:'
-        proposal_meeting: 'Свързани срещи:'
   devise:
     mailer:
       join_meeting:
