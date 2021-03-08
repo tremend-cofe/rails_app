@@ -10,10 +10,8 @@ et:
         attending_organizations: Osalenud organisatsioonide nimekiri
         closing_report: Teata
         contributions_count: Panuste arv
-        proposal_ids: Koosolekul loodud ettepanekud
       meeting:
         address: Aadress
-        available_slots: Vabu kohti sellel koosolekul
         decidim_category_id: Kategooria
         decidim_scope_id: Kohaldamisala
         decidim_user_group_id: Kasutajarühm
@@ -47,12 +45,9 @@ et:
             email:
               already_invited: Sellele meilikontole on kutse juba saadetud
     models:
-      decidim/meetings/close_meeting_event: Koosolek on lõppenud
-      decidim/meetings/create_meeting_event: Koosolek
       decidim/meetings/meeting_registrations_enabled_event: Registreerimine lubatud
       decidim/meetings/meeting_registrations_over_percentage_event: Registreerimiste limiit on täis
       decidim/meetings/upcoming_meeting_event: Eelseisev koosolek
-      decidim/meetings/update_meeting_event: Koosolek värskendatud
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -95,58 +90,19 @@ et:
             creation_enabled_for_user_groups: Kasutajarühmadele on koosoleku loomine lubatud
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Teie koosolek „%{resource_title}“ lõpetati. Järeldusi saate lugeda sellel lehel:'
-            email_outro: Saite selle teate, kuna korraldasite koosoleku „%{resource_title}“.
-            email_subject: Koosolek „%{resource_title}“ lõpetati
-            notification_title: Koosolek <a href="%{resource_path}">%{resource_title}</a> lõpetati.
-          follower:
-            email_intro: 'Koosolek „%{resource_title}“ lõpetati. Järeldusi saate lugeda sellel lehel:'
-            email_outro: Saite selle teate, kuna jälgite koosolekut „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-            email_subject: Koosolek „%{resource_title}“ lõpetati
-            notification_title: Koosolek <a href="%{resource_path}">%{resource_title}</a> lõpetati.
         meeting_created:
-          email_intro: Teie jälgitavas osalusruumis „%{participatory_space_title}“ lisati koosolek „%{resource_title}“.
           email_outro: Saite selle teate, kuna jälgite osalusruumi „%{participatory_space_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-          email_subject: Osalusruumis %{participatory_space_title} lisati uus koosolek
-          notification_title: Osalusruumi %{participatory_space_title} lisati koosolek <a href="%{resource_path}">%{resource_title}</a>
-        meeting_registration_confirmed:
-          notification_title: Koosolekule <a href="%{resource_url}">%{resource_title}</a> registreerimine on kinnitatud. Teie registreerimiskood on %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Koosoleku „%{resource_title}“ jaoks eraldatud kohad on enam kui %{percentage}% ulatuses broneeritud.
-          email_outro: Saite selle teate, kuna olete koosoleku osalusruumi administraator.
-          email_subject: Koosoleku „%{resource_title}“ jaoks eraldatud kohad on enam kui %{percentage}% ulatuses broneeritud
-          notification_title: Koosoleku <a href="%{resource_path}">%{resource_title}</a> jaoks eraldatud kohad on enam kui %{percentage}% ulatuses broneeritud.
-        meeting_updated:
-          email_intro: 'Koosolekut „%{resource_title}“ värskendati. Uut versiooni saate lugeda sellel lehel:'
-          email_outro: Saite selle teate, kuna jälgite koosolekut „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-          email_subject: Koosolekut „%{resource_title}“ värskendati
-          notification_title: Koosolekut <a href="%{resource_path}">%{resource_title}</a> värskendati.
         registration_code_validated:
           email_intro: Koosolekule „%{resource_title}“ registreerimise kood „%{registration_code}“ on valideeritud.
           email_outro: Saite selle teate, kuna koosolekule „%{resource_title}“ registreerimise kood on valideeritud.
           email_subject: Koosolekule „%{resource_title}“ registreerimise kood „%{registration_code}“ on valideeritud
           notification_title: Koosolekule <a href="%{resource_path}">%{resource_title}</a> registreerimise kood „%{registration_code}“ on valideeritud.
-        registrations_enabled:
-          email_intro: 'Koosolekule „%{resource_title}“ saab nüüd registreerida. Saate end registreerida sellel lehel:'
-          email_outro: Saite selle teate, kuna jälgite koosolekut „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-          email_subject: Koosolekule „%{resource_title}“ saab nüüd registreerida.
-          notification_title: Koosolekule „<a href="%{resource_path}">%{resource_title}</a>“ saab nüüd registreerida.
-        upcoming_meeting:
-          email_intro: Koosolek „%{resource_title}“ algab vähem kui 48 tunni pärast.
-          email_outro: Saite selle teate, kuna jälgite koosolekut „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-          email_subject: Koosolek „%{resource_title}“ algab vähem kui 48 tunni pärast.
-          notification_title: Koosolek <a href="%{resource_path}">%{resource_title}</a> algab vähem kui 48 tunni pärast.
     gamification:
       badges:
         attended_meetings:
           conditions: Registreerige end koosolekutele, millest soovite osa võtta
-          description: See tunnustusmärk antakse siis, kui osalete aktiivselt näost näkku koosolekutel.
           description_another: See osaleja on osalenud %{score} koosolekul.
           description_own: Olete osalenud %{score} koosolekul.
-          name: Osaletud koosolekud
-          next_level_in: Järgmisele tasemele jõudmiseks peate osalema veel %{score} koosolekul.
           unearned_another: See osaleja pole veel ühelgi koosolekul osalenud.
           unearned_own: Te pole veel ühelgi koosolekul osalenud.
     meetings:
@@ -231,7 +187,6 @@ et:
         meeting_closes:
           edit:
             close: Sulge
-            title: Lõpeta koosolek
         meetings:
           close:
             invalid: Selle koosoleku lõpetamisel tekkis probleem
@@ -254,7 +209,6 @@ et:
           index:
             title: Koosolekud
           new:
-            create: Loo
             title: Loo koosolek
           service:
             description: Kirjeldus
@@ -343,15 +297,10 @@ et:
             search: Otsing
             space_type: Osalusruum
             upcoming: Eelseisvad
-      last_activity:
-        new_meeting_at_html: "<span>Uus koosolek lehel %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Koosolekul osalemise kutse
-        registration_mailer:
-          confirmation:
-            subject: Teie koosolekule registreerimine kinnitati
       meeting:
         not_allowed: Teil ei ole selle sisu vaatamiseks luba
       meetings:
@@ -361,10 +310,8 @@ et:
             other: "%{count} koosolekut"
         create:
           invalid: Selle koosoleku loomisel tekkis probleem.
-          success: Teie koosolek on loodud.
         edit:
           back: Tagasi
-          title: Muutke oma koosolekut
           update: Värskenda
         filters:
           category: Kategooria
@@ -373,11 +320,8 @@ et:
             all: Kõik
             past: Möödunud
             upcoming: Eelseisvad
-          origin: Allikas
           origin_values:
             all: Kõik
-            citizens: Kodanikud
-            official: Ametlik
             user_groups: Rühmad
           scope: Kohaldamisala
           search: Otsing
@@ -390,16 +334,12 @@ et:
           address_help: 'Aadress: seda kasutab Geocoder asukoha leidmiseks'
           create_as: Loo koosolek kui
           location_help: 'Asukoht: kasutajatele saadetud sõnum kohtumispaiga kohta'
-          location_hints_help: 'Asukohajuhised: lisateave. Näide: hoone korrus'
           select_a_category: Valige kategooria
         index:
           new_meeting: Uus koosolek
         meeting_minutes:
           meeting_minutes: Koosoleku protokoll
           related_information: Seotud teave
-        meetings:
-          no_meetings_warning: Teie otsingukriteeriumile vastavaid koosolekuid pole või koosolekuid pole kavandatud.
-          upcoming_meetings_warning: Praegu koosolekuid kavas ei ole, kuid siit loendist leiate kõik juba toimunud koosolekud.
         new:
           back: Tagasi
           create: Loo
@@ -412,10 +352,7 @@ et:
           back: Tagasi loendi juurde
           contributions: Panuste arv
           date: Kuupäev
-          edit_meeting: Muuda koosolekut
           going: Osalen
-          join: Liitu koosolekuga
-          meeting_report: Koosoleku aruandlus
           no_slots_available: Kohti pole saadaval
           organizations: Osalevad organisatsioonid
           registration_code_help_text: Teie registreerimiskood
@@ -429,8 +366,6 @@ et:
         update:
           invalid: Koosoleku värskendamisel tekkis probleem.
           success: Olete oma koosoleku värskendanud.
-      meetings_map:
-        view_meeting: Kuva koosolek
       models:
         invite:
           fields:
@@ -453,13 +388,10 @@ et:
       read_more: "(lisateave)"
       registration_mailer:
         confirmation:
-          confirmed_html: Koosolekule <a href="%{url}">%{title}</a> registreerimine on kinnitatud.
-          details: Koosoleku üksikasjad leiate manusest.
           registration_code: Teie registreerimiskood on %{code}.
       registrations:
         create:
           invalid: Koosolekuga liitumisel tekkis probleem.
-          success: Olete nüüd koosolekuga liitunud. Kuna olete end sellele koosolekule registreerinud, teavitatakse teid seonduvatest värskendustest.
         decline_invitation:
           invalid: Kutse tagasilükkamisel tekkis probleem.
           success: Olete kutse tagasi lükanud.
@@ -469,8 +401,6 @@ et:
       types:
         private_meeting: Privaatne koosolek
         transparent: Läbipaistev
-      versions:
-        back_to_resource: Tagasi koosoleku lehele
     metrics:
       meetings:
         description: Loodud koosolekute arv
@@ -483,18 +413,10 @@ et:
           upcoming_meetings: Eelseisvad koosolekud
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Toimunud koosolekud
         see_all: Kuva kõik koosolekud (%{count})
         upcoming_meetings: Eelseisvad koosolekud
       upcoming_meeting_for_card:
         upcoming_meeting: Eelseisev koosolek
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Seotud tulemused:'
-        result_meeting: 'Seotud koosolekud:'
-      proposals_from_meeting:
-        meeting_proposal: 'Seotud ettepanekud'
-        proposal_meeting: 'Seotud koosolekud:'
   devise:
     mailer:
       join_meeting:
