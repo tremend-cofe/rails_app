@@ -10,10 +10,8 @@ cs:
         attending_organizations: Seznam zúčastněných organizací
         closing_report: Zpráva
         contributions_count: Počet příspěvků
-        proposal_ids: Návrhy vytvořené během schůze
       meeting:
         address: Adresa
-        available_slots: Dostupná místa na této schůzi
         decidim_category_id: Kategorie
         decidim_scope_id: Rozsah působnosti
         decidim_user_group_id: Uživatelská skupina
@@ -47,12 +45,9 @@ cs:
             email:
               already_invited: Tento e-mailový účet byl již pozván
     models:
-      decidim/meetings/close_meeting_event: Schůze uzavřena
-      decidim/meetings/create_meeting_event: Schůze
       decidim/meetings/meeting_registrations_enabled_event: Registrace aktivovány
       decidim/meetings/meeting_registrations_over_percentage_event: Počet registrací nad limit
       decidim/meetings/upcoming_meeting_event: Nadcházející schůze
-      decidim/meetings/update_meeting_event: Schůze aktualizována
   activerecord:
     models:
       decidim/meetings/meeting:
@@ -101,58 +96,19 @@ cs:
             creation_enabled_for_user_groups: Tvorba schůze ze strany uživatelských skupin povolena
     events:
       meetings:
-        meeting_closed:
-          affected_user:
-            email_intro: 'Vaše schůze "%{resource_title}" byla uzavřena. Závěry si můžete přečíst na její stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože jste zorganizovali schůzi "%{resource_title}".
-            email_subject: Schůze "%{resource_title}" byla uzavřena
-            notification_title: Schůze <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
-          follower:
-            email_intro: 'Schůze "%{resource_title}" byla uzavřena. Závěry si můžete přečíst na její stránce:'
-            email_outro: Toto oznámení jste obdrželi, protože sledujete schůzi "%{resource_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
-            email_subject: Schůze "%{resource_title}" byla uzavřena
-            notification_title: Schůze <a href="%{resource_path}">%{resource_title}</a> byla uzavřena.
         meeting_created:
-          email_intro: Schůze "%{resource_title}" byla přidána do prostoru "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože sledujete prostor "%{participatory_space_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
-          email_subject: Nová schůze přidána do prostoru %{participatory_space_title}
-          notification_title: Schůze <a href="%{resource_path}">%{resource_title}</a> byla přidána do prostoru %{participatory_space_title}
-        meeting_registration_confirmed:
-          notification_title: Vaše registrace na schůzi <a href="%{resource_url}">%{resource_title}</a> byla potvrzena. Váš registrační kód je %{registration_code}.
-        meeting_registrations_over_percentage:
-          email_intro: Místa přidělená na schůzi "%{resource_title}" jsou nad %{percentage}%.
-          email_outro: Toto oznámení jste obdrželi, protože jste administrátorem účastnického prostoru schůze.
-          email_subject: Místa přidělená na schůzi "%{resource_title}" jsou nad %{percentage}%
-          notification_title: Místa přidělená na schůzi <a href="%{resource_path}">%{resource_title}</a> jsou nad %{percentage}%.
-        meeting_updated:
-          email_intro: 'Schůze "%{resource_title}" byla aktualizována. Novou verzi si můžete přečíst na její stránce:'
-          email_outro: Toto oznámení jste obdrželi, protože sledujete schůzi "%{resource_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
-          email_subject: Schůze "%{resource_title}" byla aktualizována
-          notification_title: Schůze <a href="%{resource_path}">%{resource_title}</a> byla aktualizována.
         registration_code_validated:
           email_intro: Váš registrační kód "%{registration_code}" na schůzi "%{resource_title}" byl validován.
           email_outro: Toto oznámení jste obdrželi, protože váš registrační kód na schůzi "%{resource_title}" byl validován.
           email_subject: Váš registrační kód "%{registration_code}" na schůzi "%{resource_title}" byl validován
           notification_title: Váš registrační kód "%{registration_code}" na schůzi <a href="%{resource_path}">%{resource_title}</a> byl validován.
-        registrations_enabled:
-          email_intro: 'Na schůzi "%{resource_title}" se nyní lze registrovat. Můžete se zaregistrovat na její stránce:'
-          email_outro: Toto oznámení jste obdrželi, protože sledujete schůzi "%{resource_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
-          email_subject: Na schůzi "%{resource_title}" se nyní lze registrovat.
-          notification_title: Na schůzi <a href="%{resource_path}">%{resource_title}</a> se nyní lze registrovat.
-        upcoming_meeting:
-          email_intro: Schůze "%{resource_title}" začne za necelých 48 hodin.
-          email_outro: Toto oznámení jste obdrželi, protože sledujete schůzi "%{resource_title}". Sledování můžete zrušit prostřednictvím předchozího odkazu.
-          email_subject: Schůze "%{resource_title}" začne za necelých 48 hodin.
-          notification_title: Schůze <a href="%{resource_path}">%{resource_title}</a> začne za necelých 48 hodin.
     gamification:
       badges:
         attended_meetings:
           conditions: Registrujte se na schůze, kterých se chcete účastnit
-          description: Tento odznak získáte, když se zúčastníte několika osobních schůzí.
           description_another: Tento účastník se zúčastnil %{score} schůzí.
           description_own: Zúčastnili jste se %{score} schůzí.
-          name: Navštívené schůze
-          next_level_in: Pokud se chcete dostat na další úroveň, je potřeba se zúčastnit dalších %{score} schůzí.
           unearned_another: Tento účastník se zatím nezúčastnil žádné schůze.
           unearned_own: Zatím jste se nezúčastnili žádné schůze.
     meetings:
@@ -239,7 +195,6 @@ cs:
         meeting_closes:
           edit:
             close: Zavřít
-            title: Zavřít schůzi
         meetings:
           close:
             invalid: Při zavírání této schůze došlo k problému.
@@ -258,7 +213,6 @@ cs:
           index:
             title: Schůze
           new:
-            create: Vytvořit
             title: Vytvořit schůzi
           service:
             description: Popis
@@ -344,15 +298,10 @@ cs:
             search: Hledat
             space_type: Participativní prostor
             upcoming: Nadcházející
-      last_activity:
-        new_meeting_at_html: "<span>Nová schůze v %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Pozvánka na schůzi
-        registration_mailer:
-          confirmation:
-            subject: Registrace vaší schůze byla potvrzena
       meeting:
         not_allowed: Nemáte povoleno zobrazit si tuto schůzi
       meetings:
@@ -364,10 +313,8 @@ cs:
             other: "%{count} schůzí"
         create:
           invalid: Při tvorbě této schůze došlo k problému.
-          success: Schůze byla úspěšně vytvořena.
         edit:
           back: Zpět
-          title: Upravit schůzi
           update: Aktualizovat
         filters:
           category: Kategorie
@@ -376,11 +323,8 @@ cs:
             all: Vše
             past: Minulé
             upcoming: Nadcházející
-          origin: Původ
           origin_values:
             all: Vše
-            citizens: Občané
-            official: Oficiální
             user_groups: Skupiny
           scope: Rozsah působnosti
           search: Hledat
@@ -393,16 +337,12 @@ cs:
           address_help: 'Adresa: k nalezení lokality byl použit Geocoder'
           create_as: Vytvořit schůzi jako
           location_help: 'Lokalita: sdělení uživatelům, které obsahuje místo setkání'
-          location_hints_help: 'Informace o lokalitě: dodatečné informace. Příklad: patro budovy.'
           select_a_category: Zvolte kategorii
         index:
           new_meeting: Nová schůze
         meeting_minutes:
           meeting_minutes: Zápis ze schůze
           related_information: Související informace
-        meetings:
-          no_meetings_warning: Vašim kritériím vyhledávání neodpovídají žádné schůze nebo žádné schůze nejsou naplánovány.
-          upcoming_meetings_warning: Momentálně nejsou naplánovány žádné schůze, ale tady najdete seznam všech minulých schůzí.
         new:
           back: Zpět
           create: Vytvořit
@@ -415,10 +355,7 @@ cs:
           back: Zpět k seznamu
           contributions: Počet příspěvků
           date: Datum
-          edit_meeting: Upravit schůzi
           going: Zúčastní se
-          join: Zúčastnit se schůze
-          meeting_report: Report ze schůze
           no_slots_available: Žádná místa k dispozici
           organizations: Účastnící se organizace
           registration_code_help_text: Váš registrační kód
@@ -434,8 +371,6 @@ cs:
         update:
           invalid: Při aktualizaci schůze došlo k problému.
           success: Schůze byla úspěšně aktualizována.
-      meetings_map:
-        view_meeting: Zobrazit schůzi
       models:
         invite:
           fields:
@@ -458,13 +393,10 @@ cs:
       read_more: "(více)"
       registration_mailer:
         confirmation:
-          confirmed_html: Vaše registrace na schůzi <a href="%{url}">%{title}</a> byla potvrzena.
-          details: V příloze najdete podrobnosti o schůzi.
           registration_code: Váš registrační kód je %{code}.
       registrations:
         create:
           invalid: Při připojování se k této schůzi došlo k problému.
-          success: Připojení ke schůzi bylo úspěšné. Protože jste se zaregistrovali k této schůzi, přijde vám upozornění, pokud u ní dojde k aktualizaci.
         decline_invitation:
           invalid: Při odmítání pozvánky došlo k problému.
           success: Pozvánka byla úspěšně odmítnuta.
@@ -474,8 +406,6 @@ cs:
       types:
         private_meeting: Soukromá schůze
         transparent: Transparentní
-      versions:
-        back_to_resource: Zpět ke schůzi
     metrics:
       meetings:
         description: Počet vytvořených schůzí
@@ -488,18 +418,10 @@ cs:
           upcoming_meetings: Nadcházející schůze
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Minulé schůze
         see_all: Zobrazit všechny schůze (%{count})
         upcoming_meetings: Nadcházející schůze
       upcoming_meeting_for_card:
         upcoming_meeting: Nadcházející schůze
-    resource_links:
-      meetings_through_proposals:
-        meeting_result: 'Související výsledky:'
-        result_meeting: 'Související schůze:'
-      proposals_from_meeting:
-        meeting_proposal: 'Související návrhy:'
-        proposal_meeting: 'Související schůze:'
   devise:
     mailer:
       join_meeting:
