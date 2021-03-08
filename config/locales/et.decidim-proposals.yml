@@ -24,7 +24,6 @@ et:
         state: Olek
         suggested_hashtags: Soovitatud teemaviited
         title: Pealkiri
-        user_group_id: Loo ettepanek kui
       proposal_answer:
         answer: Vastus
       proposals_copy:
@@ -59,7 +58,6 @@ et:
       decidim/proposals/endorsing_enabled_event: Ettepaneku kinnitamine lubatud
       decidim/proposals/evaluating_proposal_event: Ettepanekut hinnatakse
       decidim/proposals/proposal_mentioned_event: Ettepanekut mainiti
-      decidim/proposals/publish_proposal_event: Ettepanek avaldati
       decidim/proposals/rejected_proposal_event: Ettepanek lükati tagasi
       decidim/proposals/voting_enabled_event: Ettepaneku hääletamine on lubatud
   activerecord:
@@ -67,9 +65,6 @@ et:
       decidim/proposals/collaborative_draft:
         one: Koostöökavand
         other: Koostöökavandid
-      decidim/proposals/proposal:
-        one: Ettepanek
-        other: Ettepanekud
       decidim/proposals/proposal_note:
         one: Märkus
         other: Märkused
@@ -80,12 +75,9 @@ et:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategooria
           is_emendation_true:
             label: Tüüp
             values:
-              'false': Ettepanekud
               'true': Muudatusettepanekud
           scope_id_eq:
             label: Kohaldamisala
@@ -114,7 +106,6 @@ et:
           endorse: Kinnita
           vote: Toeta
           withdraw: Võta tagasi
-        name: Ettepanekud
         settings:
           global:
             allow_card_image: Luba kaardipilt
@@ -136,12 +127,10 @@ et:
             participatory_texts_enabled: Osalustekstid on lubatud
             participatory_texts_enabled_readonly: Seda seadet ei saa rakendada, kui ettepanekuid on juba loodud. Kui soovite selle funktsiooni lubada, looge uus ettepanekute komponent. Kui soovite selle keelata, eemaldage kõik imporditud pakkumised osalustekstide menüü kaudu.
             proposal_answering_enabled: Ettepanekule vastamine lubatud
-            proposal_edit_before_minutes: 'Autorid saavad ettepanekuid muuta, kuni möödub nii palju minuteid:'
             proposal_length: Ettepaneku sisu maksimaalne pikkus
             proposal_limit: Ettepanekute limiit osaleja kohta
             proposal_wizard_step_1_help_text: Ettepaneku loomise viisardi loomisetapi abitekst
             proposal_wizard_step_2_help_text: Ettepaneku loomise viisardi võrdlusetapi abitekst
-            proposal_wizard_step_3_help_text: Ettepaneku loomise viisardi lõpetamisetapi abitekst
             proposal_wizard_step_4_help_text: Ettepaneku loomise viisardi avaldamisetapi abitekst
             resources_permissions_enabled: Iga ettepaneku jaoks saab määrata toiminguõigused
             threshold_per_proposal: Künnis ettepaneku kohta
@@ -175,9 +164,6 @@ et:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Keegi on jätnud teile märkuse ettepaneku „%{resource_title}“ kohta. Tutvuge sellega <a href="%{admin_proposal_info_url}">administraatoripaneelil</a>
-            email_outro: Saite selle teate, kuna saate ettepanekut hinnata.
-            email_subject: Keegi on jätnud teile märkuse ettepaneku „%{resource_title}“ kohta.
             notification_title: Keegi lisas teie ettepaneku <a href="%{resource_path}">%{resource_title}</a> kohta märkuse. Tutvuge sellega <a href="%{admin_proposal_info_path}">administraatoripaneelil</a>
         collaborative_draft_access_accepted:
           email_intro: 'Taotlejale %{requester_name} anti koostöökavandisse <a href="%{resource_path}">%{resource_title}</a> panustamiseks vajalik juurdepääsuõigus.'
@@ -210,77 +196,34 @@ et:
           email_subject: "Autor %{author_name} %{author_nickname} võttis koostöökavandi %{resource_title} tagasi."
           notification_title: Autor <a href="%{author_path}"> %{author_name}%{author_nickname}</a><strong> võttis koostöökavandi </strong><a href="%{resource_path}">%{resource_title}</a> tagasi.
         creation_enabled:
-          email_intro: 'Saate nüüd osalusruumis %{participatory_space_title} uusi ettepanekuid luua! Osalemist saate alustada sellel lehel:'
           email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
-          email_subject: Ettepanekud on nüüd osalusruumis %{participatory_space_title} saadaval
-          notification_title: Saate nüüd teha <a href="%{resource_path}">uusi ettepanekuid</a> osalusruumis <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Saate kinnitada ettepanekuid osalusruumis %{participatory_space_title}! Osalemist saate alustada sellel lehel:'
           email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
-          email_subject: Ettepanekute kinnitamine osalusruumis %{participatory_space_title} on alanud
-          notification_title: Saate nüüd hakata <a href="%{resource_path}">kinnitama ettepanekuid</a> osalusruumis <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
-            email_intro: 'Teie ettepanek „%{resource_title}“ võeti vastu. Vastust saate lugeda selle lehel:'
             email_outro: Saite selle teate, kuna olete üksuse „%{resource_title}“ autor.
-            email_subject: Teie ettepanek võeti vastu
-            notification_title: Teie ettepanek <a href="%{resource_path}">%{resource_title}</a> võeti vastu.
           follower:
-            email_intro: 'Ettepanek „%{resource_title}“ võeti vastu. Vastust saate lugeda selle lehel:'
             email_outro: Saite selle teate, kuna jälgite üksust „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-            email_subject: Ettepanek, mida jälgite, võeti vastu
-            notification_title: Ettepanek <a href="%{resource_path}">%{resource_title}</a> võeti vastu.
         proposal_evaluating:
           affected_user:
-            email_intro: 'Teie ettepanekut „%{resource_title}“ hinnatakse. Vastust saate vaadata sellel lehel:'
             email_outro: Saite selle teate, kuna olete üksuse „%{resource_title}“ autor.
-            email_subject: Teie ettepanekut hinnatakse
-            notification_title: Teie ettepanekut <a href="%{resource_path}">%{resource_title}</a> hinnatakse.
           follower:
-            email_intro: 'Ettepanekut „%{resource_title}“ hinnatakse. Vastust saate vaadata sellel lehel:'
             email_outro: Saite selle teate, kuna jälgite üksust „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-            email_subject: Ettepanekut, mida jälgite, hinnatakse
-            notification_title: Ettepanekut <a href="%{resource_path}">%{resource_title}</a> hinnatakse.
         proposal_mentioned:
-          email_intro: Teie ettepanekut „%{mentioned_proposal_title}“ on mainitud <a href="%{resource_url}">selle ruumi</a> kommentaarides.
           email_outro: Saite selle teate, kuna olete üksuse „%{resource_title}“ autor.
-          email_subject: Teie ettepanekut „%{mentioned_proposal_title}“ on mainitud
-          notification_title: Teie ettepanekut „%{mentioned_proposal_title}“ on mainitud <a href="%{resource_path}">selle ruumi</a> kommentaarides.
         proposal_published:
-          email_intro: 'Autor %{author_name} %{author_nickname}, keda jälgite, avaldas uue ettepaneku nimega „%{resource_title}“. Tutvuge lähemalt ja andke oma panus:'
           email_outro: Saite selle teate, kuna jälgite autorit %{author_nickname}. Teadetest saate loobuda eeltoodud linki kasutades.
-          email_subject: Uus ettepanek „%{resource_title}“ autorilt %{author_nickname}
-          notification_title: Autor <a href="%{author_path}">%{author_name} %{author_nickname}</a> avaldas ettepaneku <a href="%{resource_path}">%{resource_title}</a>.
         proposal_published_for_space:
-          email_intro: Teie jälgitavas osalusruumis „%{participatory_space_title}“ lisati ettepanek „%{resource_title}“.
           email_outro: Saite selle teate, kuna jälgite osalusruumi „%{participatory_space_title}“. Teadetest saate loobuda eeltoodud linki kasutades.
-          email_subject: Osalusruumi %{participatory_space_title} lisati uus ettepanek „%{resource_title}“
-          notification_title: Ettepanek <a href="%{resource_path}">%{resource_title}</a> lisati osalusruumi %{participatory_space_title}
         proposal_rejected:
           affected_user:
-            email_intro: 'Teie ettepanek „%{resource_title}“ lükati tagasi. Vastust saate lugeda selle lehel:'
             email_outro: Saite selle teate, kuna olete üksuse „%{resource_title}“ autor.
-            email_subject: Teie ettepanek lükati tagasi
-            notification_title: Teie ettepanek <a href="%{resource_path}">%{resource_title}</a> lükati tagasi.
           follower:
-            email_intro: 'Ettepanek „%{resource_title}“ lükati tagasi. Vastust saate lugeda selle lehel:'
             email_outro: Saite selle teate, kuna jälgite üksust „%{resource_title}“. Jälgimise lõpetamiseks kasutage eeltoodud linki.
-            email_subject: Ettepanek, mida jälgite, lükati tagasi
-            notification_title: Ettepanek <a href="%{resource_path}">%{resource_title}</a> lükati tagasi.
-        proposal_update_category:
-          email_intro: 'Administraator värskendas teie ettepaneku „%{resource_title}“ kategooriat. Saate sellega tutvuda järgmisel lehel:'
-          email_outro: Saite selle teate, kuna olete ettepaneku autor.
-          email_subject: Ettepaneku %{resource_title} kategooriat värskendati
-          notification_title: Administraator värskendas ettepaneku <a href="%{resource_path}">%{resource_title}</a> kategooriat.
         proposal_update_scope:
-          email_intro: 'Administraator värskendas teie ettepaneku „%{resource_title}“ kohaldamisala. Saate sellega tutvuda järgmisel lehel:'
-          email_outro: Saite selle teate, kuna olete ettepaneku autor.
-          email_subject: Ettepaneku %{resource_title} kohaldamisala värskendati
           notification_title: Administraator värskendas ettepaneku <a href="%{resource_path}">%{resource_title}</a> kohaldamisala.
         voting_enabled:
-          email_intro: 'Saate osalusruumis %{participatory_space_title} ettepanekuid toetada! Osalemist saate alustada sellel lehel:'
           email_outro: Saite selle teate, kuna jälgite osalusruumi %{participatory_space_title}. Teadetest saate loobuda eeltoodud linki kasutades.
-          email_subject: Ettepaneku toetamine osalusruumis %{participatory_space_title} on alanud
           notification_title: Saate nüüd alustada <a href="%{resource_path}">ettepanekute toetamist</a> osalusruumis <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -288,39 +231,17 @@ et:
           conditions: |-
             Valige teile huvi pakkuv osalusruum, kus on lubatud ettepanekute esitamine
             Püüdke teha ettepanekuid, mida on võimalik ellu viia. Siis on nende vastuvõtmise võimalus suurem.
-          description: See tunnustusmärk antakse siis, kui osalete aktiivselt uusi ettepanekuid tehes ja kui need ettepanekut võetakse vastu.
-          description_another: Sellel osalejal oli %{score} vastuvõetud ettepanekut.
-          description_own: Teil on %{score} vastuvõetud ettepanekut.
-          name: Vastuvõetud ettepanekud
-          next_level_in: Järgmisele tasemele jõudmiseks on vaja veel %{score} ettepaneku vastuvõtmist.
-          unearned_another: See osaleja pole veel ühtegi ettepanekut vastu võtnud.
-          unearned_own: Teie ettepanekuid pole veel vastu võetud.
         proposal_votes:
           conditions: |-
             Sirvige ja tutvuge teiste inimeste ettepanekutega
             Toetage ettepanekuid, mis teile meeldivad või huvi pakuvad
-          description: See tunnustusmärk antakse siis, kui toetate teiste inimeste ettepanekuid.
-          description_another: See osaleja on avaldanud toetust %{score} ettepanekule.
-          description_own: Olete avaldanud toetust %{score} ettepanekule.
-          name: Ettepaneku toetusavaldused
-          next_level_in: Järgmisele tasemele jõudmiseks peate toetama veel %{score} ettepanekut.
-          unearned_another: See osaleja pole veel ühelegi ettepanekule toetust avaldanud.
-          unearned_own: Te pole veel ühelegi ettepanekule toetust avaldanud.
         proposals:
           conditions: |-
             Valige teile huvi pakkuv osalusruum, kus on lubatud ettepanekute esitamine
             Uue ettepaneku loomine
-          description: See tunnustusmärk antakse siis, kui osalete aktiivselt uusi ettepanekuid tehes.
-          description_another: See osaleja on loonud %{score} ettepaneku(t).
-          description_own: Olete loonud %{score} ettepaneku(t).
-          name: Ettepanekud
-          next_level_in: Järgmisele tasemele jõudmiseks peate looma veel %{score} ettepaneku(t).
-          unearned_another: See osaleja pole veel ettepanekuid loonud.
-          unearned_own: Te pole veel ettepanekuid loonud.
     metrics:
       accepted_proposals:
         description: Vastuvõetud ettepanekute arv
-        object: ettepanekud
         title: Vastuvõetud ettepanekud
       endorsements:
         description: Ettepanekute kinnitamiste arv
@@ -328,8 +249,6 @@ et:
         title: Kinnitused
       proposals:
         description: Ettepanekute arv
-        object: ettepanekud
-        title: Ettepanekud
       votes:
         description: Ettepanekute toetusavalduste arv
         object: toetusavaldused
@@ -344,21 +263,15 @@ et:
     proposals:
       actions:
         answer_proposal: Vasta ettepanekule
-        edit_proposal: Muuda ettepanekut
         import: Impordi teisest komponendist
         new: Uus ettepanek
         participatory_texts: Osalustekstid
-        show: Kuva ettepanek
         title: Toimingud
       admin:
         actions:
           preview: Eelvaade
         exports:
           comments: Kommentaarid
-          proposals: Ettepanekud
-        models:
-          proposal:
-            name: Ettepanek
         participatory_texts:
           bulk-actions:
             are_you_sure: Kas olete kindel, et soovite tervest osalusteksti kavandist loobuda?
@@ -385,7 +298,6 @@ et:
             upload_document: Laadi dokument üles
           publish:
             invalid: Ettepanekuid ei saanud avaldada
-            success: Kõik ettepanekud on avaldatud
           sections:
             article: "<em>Artikkel</em>"
             section: "<em>Jaotis:</em> <strong>%{title}</strong>"
@@ -402,7 +314,6 @@ et:
         proposal_notes:
           create:
             error: Selle ettepaneku märkuse loomisel tekkis probleem
-            success: Ettepaneku märkus on loodud
           form:
             note: Märkus
             submit: Esita
@@ -414,7 +325,6 @@ et:
             success: Ettepanekule on vastatud
           create:
             invalid: Selle ettepaneku loomisel tekkis probleem
-            success: Ettepanek on loodud
           edit:
             title: Värskenda ettepanekut
             update: Värskenda
@@ -438,7 +348,6 @@ et:
             selected: valitud
             split: Eralda ettepanekud
             split_button: Eralda
-            title: Ettepanekud
             unassign_from_valuator: Eemalda hindajalt
             unassign_from_valuator_button: Eemalda
             update: Värskenda
@@ -467,7 +376,6 @@ et:
               one: ja 1 veel
               other: ja veel %{count}
             photos: Fotod
-            proposals: Ettepanekud
             ranking: "%{ranking} / %{total}"
             related_meetings: Seotud koosolekud
             remove_assignment: Eemalda
@@ -476,15 +384,12 @@ et:
             votes_count: Toetusavalduste arv
             votes_ranking: Paremusjärjestus toetusavalduste alusel
           update_category:
-            invalid: 'Nendel ettepanekutel oli juba kategooria %{subject_name}: %{proposals}.'
             select_a_category: Valige kategooria
             select_a_proposal: Valige ettepanek
             success: 'Ettepanekud on värskendatud kategooriale %{subject_name}: %{proposals}.'
           update_scope:
-            invalid: 'Nendel ettepanekutel oli juba määratud kohaldamisala %{subject_name}: %{proposals}.'
             select_a_proposal: Valige ettepanek
             select_a_scope: Valige kohaldamisala
-            success: 'Ettepanekud on värskendatud kohaldamisalale %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ettepanekute importimisel tekkis probleem
@@ -493,7 +398,6 @@ et:
             create: Impordi ettepanekud
             no_components: Selles osalusruumis ei ole muid ettepaneku komponente, mida saaks importida.
             select_component: Valige komponent
-            select_states: Importimiseks kontrollige ettepanekute olekut
         proposals_merges:
           create:
             invalid: Valitud ettepanekute ühendamisel tekkis probleem.
@@ -532,7 +436,6 @@ et:
         filter_origin_values:
           all: Kõik
           citizens: Kodanikud
-          meetings: Koosolekud
           official: Ametlik
           user_groups: Rühmad
         filter_scope_values:
@@ -546,7 +449,6 @@ et:
         filter_type_values:
           all: Kõik
           amendments: Muudatused
-          proposals: Ettepanekud
       collaborative_drafts:
         collaborative_draft:
           publish:
@@ -671,7 +573,6 @@ et:
         success: Ettepanek on loodud. Salvestatud kavandina.
       destroy_draft:
         error: Koostöökavandi kustutamisel tekkis probleem.
-        success: Ettepaneku kavand kustutati.
       last_activity:
         new_proposal_at_html: "<span>Uus ettepanek üksuses %{link}</span>"
       models:
@@ -709,11 +610,8 @@ et:
       proposals:
         compare:
           continue: Jätka
-          no_similars_found: Tubli! Sarnaseid ettepanekuid ei leitud
-          title: Sarnased ettepanekud
         complete:
           send: Saada
-          title: Vormistage oma ettepanek lõpuni
         count:
           proposals_count:
             one: "%{count} ettepanek"
@@ -722,19 +620,15 @@ et:
           attachment_legend: "(Valikuline) Lisa manus"
           back: Tagasi
           select_a_category: Valige kategooria
-          send: Saada
           title: Muuda ettepanekut
         edit_draft:
           discard: Loobu sellest kavandist
-          discard_confirmation: Kas olete kindel, et soovite sellest ettepaneku kavandist loobuda?
           send: Eelvaade
-          title: Muuda ettepaneku kavandit
         filters:
           activity: Minu tegevus
           all: Kõik
           amendment_type: Tüüp
           category: Kategooria
-          my_proposals: Minu ettepanekud
           origin: Allikas
           related_to: 'Seotud järgmisega:'
           scope: Kohaldamisala
@@ -760,13 +654,11 @@ et:
           send: Jätka
           title: Looge oma ettepanek
         orders:
-          label: 'Ettepanekute järjestusalus:'
           most_commented: Enim kommenteeritud
           most_endorsed: Enim kinnitajaid
           most_followed: Enim jälgijaid
           most_voted: Enim toetajaid
           random: Juhuslik valik
-          recent: Hiljutised
           with_more_authors: Kuva veel autoreid
         participatory_texts:
           index:
@@ -774,26 +666,16 @@ et:
           view_index:
             see_index: Kuva indeks
         preview:
-          modify: Muuda ettepanekut
-          proposal_edit_before_minutes:
-            one: Saate seda ettepanekut muuta ühe minuti jooksul pärast ettepaneku avaldamist. Selle aja möödumise järel enam ettepanekut muuta ei saa.
-            other: Saate seda ettepanekut muuta %{count} minuti jooksul pärast ettepaneku avaldamist. Selle aja möödumise järel enam ettepanekut muuta ei saa.
           publish: Avalda
-          title: Avaldage oma ettepanek
         proposal:
           creation_date: 'Loomine: %{date}'
           view_proposal: Kuva ettepanek
-        proposals:
-          empty: Ettepanekut veel pole
-          empty_filters: Nendele kriteeriumidele vastavaid ettepanekuid ei ole
         show:
           answer: Vastus
           back_to: Tagasi
           back_to_list: Tagasi loendi juurde
           changes_at_title: Üksuse „%{title}“ muudatusettepanek
           comments: Kommentaarid
-          edit_proposal: Muuda ettepanekut
-          endorsements_list: Kinnitajate nimekiri
           estimated_cost: Arvestuslik kulu
           hidden_endorsers_count:
             one: ja veel %{count} inimene
@@ -803,20 +685,14 @@ et:
           link_to_promoted_emendation_help_text: See ettepanek on edutatud muudatusettepanek
           link_to_promoted_emendation_text: Kuva tagasilükatud muudatusettepanek.
           link_to_proposal_from_emendation_help_text: See on tagasilükatud muudatusettepanek
-          link_to_proposal_from_emendation_text: Kuva ettepanek
           proposal_accepted_reason: 'See ettepanek võeti vastu järgmisel põhjusel:'
           proposal_in_evaluation_reason: Seda ettepanekut hinnatakse
           proposal_rejected_reason: 'See ettepanek lükati tagasi järgmisel põhjusel:'
           read_less: Kuva vähem
           read_more: Kuva rohkem
           report: Teata
-          withdraw_btn_hint: Kui muudate meelt, võite oma ettepaneku tagasi võtta, kuid ainult tingimusel, et te pole saanud sellele veel toetust. Teie ettepanekut ei kustutatud, see kuvatakse tagasivõetud ettepanekute loendis.
-          withdraw_confirmation_html: Kas olete kindel, et soovite ettepaneku tagasi võtta?<br><br><strong>Seda toimingut ei saa hiljem tühistada!</strong>
-          withdraw_proposal: Võta ettepanek tagasi
         tags:
           changed_from: "(administraator asendas endise nime <u>%{previous_name}</u>)"
-        update:
-          title: Värskenda ettepanekut
         vote_button:
           already_voted: Juba toetatud
           already_voted_hover: Võta toetusavaldus tagasi
@@ -828,7 +704,6 @@ et:
           count:
             one: Toetusavaldus
             other: Toetusavaldused
-          most_popular_proposal: Kõige populaarsem ettepanek
           need_more_votes: Vaja on rohkem toetusavaldusi
         voting_rules:
           can_accumulate_supports_beyond_threshold:
@@ -850,7 +725,6 @@ et:
           back: Tagasi
           back_from_step_1: Tagasi ettepanekute lehele
           back_from_step_2: Tagasi ettepanekute lehele
-          back_from_step_3: Tagasi ettepanekute võrdlemise lehele
           back_from_step_4: Tagasi kavandit muutma
           info: Loote <strong>ettepaneku</strong>.
         wizard_steps:
@@ -858,26 +732,18 @@ et:
           see_steps: kuva etapid
           step_1: Looge oma ettepanek
           step_2: Võrdle
-          step_3: Lõpeta
           step_4: Avaldage oma ettepanek
           step_of: 'Etapp: %{current_step_num} / %{total_steps}'
           title: Ettepaneku loomise etapid
       proposals_picker:
-        choose_proposals: Valige ettepanekud
         close: Sulge
         more_proposals: Ettepanekuid on veel %{number}. Ettepanekute leidmiseks täpsustage otsingut.
-        no_proposals: Teie otsingukriteeriumile vastavaid ettepanekuid pole või ettepanekuid pole veel esitatud.
-      publish:
-        error: Ettepaneku avaldamisel tekkis probleem.
-        success: Ettepanek on avaldatud.
       publish_answers:
         success: Ettepaneku vastused on avaldatud.
       update:
         error: Ettepaneku salvestamisel tekkis probleem.
-        success: Ettepanek on värskendatud.
       update_draft:
         error: Selle koostöökavandi salvestamisel tekkis probleem.
-        success: Ettepaneku kavand on värskendatud.
       versions:
         collaborative_drafts:
           back_to_resource: Tagasi koostöökavandi lehele
@@ -889,8 +755,6 @@ et:
         errors:
           has_supports: Seda ettepanekut ei saa tagasi võtta, kuna see on saanud juba toetusavaldusi.
     resource_links:
-      copied_from_component:
-        proposal_proposal: Seotud ettepanekud
       included_projects:
         project_result: 'Selles projektis kuvatavad tulemused:'
       included_proposals:
